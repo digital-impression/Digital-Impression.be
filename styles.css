@@ -1414,3 +1414,63 @@ body.has-cursor.cursor-hot .cursor-ring { width: 40px; height: 40px; margin: -20
 .mock--shot-after { background-color: #0b0b0b; }
 @media (max-width: 640px) { .mock--shot { background-image: var(--shot-m, var(--shot)); background-size: cover; background-position: top center; } }
 .ba .ba__label { top: auto; bottom: 1rem; }
+
+
+/* ===== REVIEW ROUND (8 okt 2026): restraint, static work grid, flat gold ===== */
+/* flat buttons, no glow / sheen */
+.btn--gold { background: var(--gold); box-shadow: none; }
+.btn--gold::after { display: none; }
+.btn--gold:hover { background: #D6B25C; transform: none; box-shadow: none; filter: none; }
+.btn--outline-light:hover { transform: none; }
+.btn--outline-dark:hover { transform: none; }
+.nav__cta.btn--outline-light { padding: 0.7rem 1.3rem; }
+.nav__cta.btn--outline-light:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+.nav__cta.btn--outline-light:hover::before { opacity: 0; }
+/* no shimmer on the italic word */
+.hero__title em { background: none; -webkit-text-fill-color: var(--gold); animation: none; }
+/* no cursor-tracking spotlight on cards */
+.card::after, .work::after { display: none; }
+.card, .work, .price { will-change: auto; transform-style: flat; }
+/* contact section: flat navy */
+.contact::before { display: none; }
+
+/* redesign: one-line case instead of the four generic rows */
+.rd__case { margin-top: 1.75rem; padding: 1.1rem 1.25rem; border-left: 2px solid var(--gold); background: rgba(14,28,58,0.04);
+  font-size: 0.95rem; line-height: 1.65; color: rgba(14,28,58,0.78); }
+.rd__case strong { color: var(--navy); font-weight: 600; }
+
+/* trust strip: static, readable */
+.marquee__track--static { animation: none; width: auto; mask-image: none; -webkit-mask-image: none; justify-content: center; }
+.marquee__track--static .marquee__row { animation: none; flex-wrap: wrap; justify-content: center; gap: 0.9rem 2.25rem; padding: 0 1rem; }
+.marquee__track--static .marquee__row span { color: rgba(241,235,223,0.92); font-size: 1.45rem; }
+.marquee__track--static .marquee__row i { opacity: 0.8; }
+@media (max-width: 640px) { .marquee__track--static .marquee__row span { font-size: 1.2rem; } .marquee__track--static .marquee__row { gap: 0.6rem 1.5rem; } }
+
+/* work: static grid, clean screenshots, caption underneath */
+.work-grid { display: grid; gap: 2rem 1.75rem; grid-template-columns: 1fr; }
+@media (min-width: 700px) { .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .work-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem 2rem; } }
+.work--static { position: relative; min-height: 0; height: auto; display: flex; flex-direction: column; background: transparent;
+  border: 0; box-shadow: none; border-radius: 0; overflow: visible; transform: none !important; }
+.work--static .work__shot { position: relative; inset: auto; display: block; aspect-ratio: 16 / 10; border-radius: 0.75rem;
+  background-image: var(--shot); background-size: cover; background-position: top center;
+  border: 1px solid rgba(241,235,223,0.14); box-shadow: 0 20px 44px -28px rgba(0,0,0,0.6);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; transform: none !important; }
+.work--static .work__shot::after { display: none; }
+.work--static:hover .work__shot { border-color: rgba(201,162,74,0.6); box-shadow: 0 24px 50px -26px rgba(0,0,0,0.7); }
+.work__caption { padding: 1.1rem 0.1rem 0; }
+.work__caption .work__name { font-family: var(--serif); font-size: 1.4rem; font-weight: 500; color: var(--cream); text-shadow: none; }
+.work__meta { margin-top: 0.3rem; font-size: 0.875rem; line-height: 1.55; color: rgba(241,235,223,0.66); }
+.work__caption .work__link { margin-top: 0.7rem; color: var(--gold); display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.875rem; font-weight: 600; }
+.work__caption .work__link [data-lucide] { width: 15px; height: 15px; }
+
+/* pricing: "vanaf", no badge, no strike-through */
+.price__from { font-family: var(--sans, Inter, sans-serif); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(14,28,58,0.55); margin-right: 0.35rem; }
+.price--featured .price__from { color: rgba(241,235,223,0.6); }
+.price__old, .price__badge { display: none !important; }
+.pricing .price--featured { order: 0; }
+@media (max-width: 767px) { .pricing .price--featured { order: 0; } }
+
+/* stats: plain numbers */
+#indrukken .card__icon { margin-bottom: 0; }
+@media (max-width: 979px) { .rd__case { order: 5; margin-top: 1.25rem; } }
