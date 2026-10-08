@@ -622,7 +622,7 @@
     footer_company: "Company", footer_contact: "Contact",
     footer_stay: "Stay In The Loop", footer_stay_sub: "Tips &amp; insights on web design for entrepreneurs.",
     footer_rights: "© 2026 Digital Impression. All rights reserved.",
-    footer_privacy: "Privacy policy", footer_terms: "Terms & conditions"
+    footer_privacy: "Privacy policy", footer_terms: "Terms & conditions", about_c_title: "What you can expect from us", why_v1a: "Can we still change the text?", why_v1b: "Sure. It will be live within the hour.", why_v1m: "Reply within 24h", why_v2a: "Day 1 · Call", why_v2b: "Day 2 · Design", why_v2c: "Day 14 · Live", why_v3a: "Intro call", why_v3b: "Design", why_v3c: "Your feedback", why_v3d: "Live", work_tag_credo: "Physio &amp; Performance", work_desc_credo: "Rehab and performance practice, modern and trustworthy.", swipe_hint: "Swipe for more →"
   };
 
   var I18N_FR = {
@@ -736,7 +736,7 @@
     footer_company: "Entreprise", footer_contact: "Contact",
     footer_stay: "Restez Informé", footer_stay_sub: "Conseils &amp; idées sur le webdesign pour entrepreneurs.",
     footer_rights: "© 2026 Digital Impression. Tous droits réservés.",
-    footer_privacy: "Politique de confidentialité", footer_terms: "Conditions générales"
+    footer_privacy: "Politique de confidentialité", footer_terms: "Conditions générales", about_c_title: "Ce que vous pouvez attendre de nous", why_v1a: "Peut-on encore modifier le texte ?", why_v1b: "Bien sûr. En ligne dans l'heure.", why_v1m: "Réponse sous 24h", why_v2a: "Jour 1 · Appel", why_v2b: "Jour 2 · Design", why_v2c: "Jour 14 · En ligne", why_v3a: "Prise de contact", why_v3b: "Design", why_v3c: "Vos retours", why_v3d: "En ligne", work_tag_credo: "Kiné &amp; performance", work_desc_credo: "Cabinet de rééducation et performance, moderne et rassurant.", swipe_hint: "Glissez pour voir plus →"
   };
 
   var I18N = { en: I18N_EN, fr: I18N_FR };
@@ -818,6 +818,22 @@
     });
   }
 
+
+  /* ---- Werkwijze: gold progress line follows the scroll ---- */
+  function initTimelineProgress() {
+    var tl = document.querySelector(".timeline"); if (!tl) return;
+    var items = tl.querySelectorAll(".tl-item");
+    function upd() {
+      var r = tl.getBoundingClientRect(), vh = window.innerHeight, line = vh * 0.72;
+      var p = Math.max(0, Math.min(1, (line - r.top) / r.height));
+      tl.style.setProperty("--tl", p.toFixed(3));
+      items.forEach(function (it) { it.classList.toggle("is-past", it.getBoundingClientRect().top < line); });
+    }
+    window.addEventListener("scroll", upd, { passive: true });
+    window.addEventListener("resize", upd);
+    upd();
+  }
+
   /* ---- init ---- */
   function init() {
     renderIcons();
@@ -830,6 +846,7 @@
     initHeroCanvas();
     initCursor();
     initTilt();
+    initTimelineProgress();
     initBeforeAfter();
     initFaq();
     initCarousel();
