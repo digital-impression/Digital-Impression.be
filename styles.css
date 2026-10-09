@@ -1474,3 +1474,41 @@ body.has-cursor.cursor-hot .cursor-ring { width: 40px; height: 40px; margin: -20
 /* stats: plain numbers */
 #indrukken .card__icon { margin-bottom: 0; }
 @media (max-width: 979px) { .rd__case { order: 5; margin-top: 1.25rem; } }
+
+
+/* ===== ROUND 3: hero USPs, moving trust strip, services grid ===== */
+.usp { list-style: none; margin: 3rem auto 0; max-width: 54rem; position: relative; padding-top: 1.9rem;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem 2.25rem; text-align: left; }
+.usp::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,162,74,0.7) 30%, rgba(201,162,74,0.7) 70%, transparent);
+  transform: scaleX(0); transform-origin: center; transition: transform 1.1s var(--ease) 0.25s; }
+.usp.is-visible::before { transform: scaleX(1); }
+.usp__item { position: relative; padding-left: 1.05rem; border-left: 1px solid rgba(201,162,74,0.45);
+  opacity: 0; transform: translateY(8px); transition: opacity 0.7s ease, transform 0.7s var(--ease); }
+.usp.is-visible .usp__item { opacity: 1; transform: none; }
+.usp.is-visible .usp__item:nth-child(2) { transition-delay: 0.15s; }
+.usp.is-visible .usp__item:nth-child(3) { transition-delay: 0.3s; }
+.usp__num { display: flex; align-items: baseline; gap: 0.4rem; font-family: var(--serif); font-weight: 500;
+  font-size: clamp(1.9rem, 3vw, 2.6rem); line-height: 1; color: var(--cream); letter-spacing: -0.01em; }
+.usp__num em { font-style: italic; font-weight: 400; color: var(--gold); font-size: 0.55em; letter-spacing: 0; }
+.usp__label { display: block; margin-top: 0.5rem; font-size: 0.8rem; line-height: 1.45; color: rgba(241,235,223,0.62); }
+@media (max-width: 640px) {
+  .usp { margin-top: 2rem; padding-top: 1.25rem; grid-template-columns: 1fr; gap: 0; }
+  .usp__item { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); align-items: center; gap: 0.9rem;
+    border-left: 0; padding: 0.85rem 0; border-bottom: 1px solid rgba(241,235,223,0.08); }
+  .usp__item:last-child { border-bottom: 0; }
+  .usp__num { font-size: 1.65rem; }
+  .usp__label { margin-top: 0; }
+}
+
+/* trust strip: moving, but readable */
+.marquee__row span { color: rgba(241,235,223,0.9); }
+.marquee__row { animation-duration: 40s; }
+
+/* services: static grid of four */
+.svc-grid { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .svc-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; } }
+.svc-grid .svc-card { width: auto !important; flex: none; min-height: 0; height: 100%; }
+@media (min-width: 1100px) { .section--cream .svc-grid .svc-card { padding: 2rem 1.6rem; } .svc-grid .svc-card h3 { font-size: 1.4rem; } }
+@media (max-width: 767px) { #diensten .svc-grid { order: 2; margin-top: 2rem; } }
