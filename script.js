@@ -1,871 +1,408 @@
-/* ==========================================================================
-   Digital Impression interactivity (vanilla JS, no framework)
-   Premium interactive layer: scroll progress, hero constellation canvas,
-   custom cursor + magnetic buttons, 3D tilt + spotlight cards, count-up
-   stats, client marquee, before/after slider, FAQ accordion, reveals,
-   contact form (no <form> tag).
-   ========================================================================== */
+/* Digital Impression v2 · "Karakter" */
 (function () {
   "use strict";
-
   var REDUCED = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var FINE = window.matchMedia && window.matchMedia("(pointer: fine)").matches;
-
-  /* ---- Contact form endpoint ----
-     Paste your Formspree endpoint here to receive submissions by e-mail,
-     e.g. "https://formspree.io/f/abcdwxyz". Leave empty to keep demo mode
-     (shows the success message without sending). */
+  var FINE = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   var FORM_ENDPOINT = "https://formspree.io/f/xlgqkgbd";
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var lang = "nl";
 
-  /* ---- Language state (used by count-up + i18n) ---- */
-  var currentLang = "nl";
-  function sufOf(el) {
-    if (currentLang === "fr" && el.getAttribute("data-suffix-fr") != null) return el.getAttribute("data-suffix-fr");
-    if (currentLang === "en" && el.getAttribute("data-suffix-en") != null) return el.getAttribute("data-suffix-en");
-    return el.getAttribute("data-suffix") || "";
-  }
-
-  /* ---- Lucide icons ---- */
-  function renderIcons() {
-    if (window.lucide && typeof window.lucide.createIcons === "function") {
-      window.lucide.createIcons();
+  /* =====================================================================
+     1 · De kiezer: six characters, one demo site
+     ===================================================================== */
+  var K = {
+    tuinman: {
+      nl: { logo: "Tuinen Mertens", l: ["Tuinen", "Projecten", "Contact"], cta: "Offerte", kick: "Tuinaanleg & onderhoud", h: "Een tuin die met u meegroeit.", p: "Ontwerp, aanleg en onderhoud door mensen die weten wat er in uw grond groeit.", btn: "Vraag een tuinplan", s: ["Ontwerp", "Aanleg", "Onderhoud"] },
+      en: { logo: "Mertens Gardens", l: ["Gardens", "Projects", "Contact"], cta: "Quote", kick: "Garden design & care", h: "A garden that grows with you.", p: "Design, planting and care by people who know what grows in your soil.", btn: "Request a garden plan", s: ["Design", "Planting", "Care"] },
+      fr: { logo: "Jardins Mertens", l: ["Jardins", "Projets", "Contact"], cta: "Devis", kick: "Aménagement & entretien", h: "Un jardin qui grandit avec vous.", p: "Conception, aménagement et entretien par des gens qui savent ce qui pousse dans votre sol.", btn: "Demander un plan", s: ["Conception", "Aménagement", "Entretien"] }
+    },
+    kinesist: {
+      nl: { logo: "Kine Noord", l: ["Revalidatie", "Performance", "Team"], cta: "Boek", kick: "Revalidatie & performance", h: "Sterker terug.", p: "Van blessure tot wedstrijd. Begeleiding op maat, geen standaardschema's.", btn: "Boek een afspraak", s: ["Manuele therapie", "Dry needling", "Krachttraining"] },
+      en: { logo: "Kine Noord", l: ["Rehab", "Performance", "Team"], cta: "Book", kick: "Rehab & performance", h: "Come back stronger.", p: "From injury to match day. Tailored guidance, no standard schemes.", btn: "Book a session", s: ["Manual therapy", "Dry needling", "Strength"] },
+      fr: { logo: "Kine Noord", l: ["Rééducation", "Performance", "Équipe"], cta: "Réserver", kick: "Rééducation & performance", h: "Revenir plus fort.", p: "De la blessure au match. Un suivi sur mesure, pas de schémas standard.", btn: "Prendre rendez-vous", s: ["Thérapie manuelle", "Dry needling", "Force"] }
+    },
+    bakker: {
+      nl: { logo: "Bakkerij Lievens", l: ["Brood", "Patisserie", "Bestellen"], cta: "Bestel", kick: "Elke dag vers gebakken", h: "Elke ochtend om vijf uur.", p: "Zuurdesem, croissants en taarten zoals ze horen te zijn. Ambacht, geen fabriek.", btn: "Bestel voor morgen", s: ["Zuurdesem", "Croissants", "Taarten"] },
+      en: { logo: "Lievens Bakery", l: ["Bread", "Pastry", "Order"], cta: "Order", kick: "Baked fresh every day", h: "Every morning at five.", p: "Sourdough, croissants and cakes the way they should be. Craft, not factory.", btn: "Order for tomorrow", s: ["Sourdough", "Croissants", "Cakes"] },
+      fr: { logo: "Boulangerie Lievens", l: ["Pain", "Pâtisserie", "Commander"], cta: "Commander", kick: "Cuit chaque jour", h: "Chaque matin à cinq heures.", p: "Levain, croissants et gâteaux comme il se doit. De l'artisanat, pas d'usine.", btn: "Commander pour demain", s: ["Levain", "Croissants", "Gâteaux"] }
+    },
+    advocaat: {
+      nl: { logo: "De Wit & Partners", l: ["Expertise", "Kantoor", "Contact"], cta: "Gesprek", kick: "Advocaten · ondernemingsrecht", h: "Helder advies. Geen kleine lettertjes.", p: "Juridische begeleiding voor ondernemers, in gewone mensentaal en met een vast tarief waar het kan.", btn: "Plan een gesprek", s: ["Contracten", "Geschillen", "Overnames"] },
+      en: { logo: "De Wit & Partners", l: ["Expertise", "Firm", "Contact"], cta: "Talk", kick: "Lawyers · business law", h: "Clear advice. No small print.", p: "Legal guidance for businesses, in plain language and at a fixed fee where possible.", btn: "Book a consultation", s: ["Contracts", "Disputes", "Acquisitions"] },
+      fr: { logo: "De Wit & Partners", l: ["Expertise", "Cabinet", "Contact"], cta: "Entretien", kick: "Avocats · droit des affaires", h: "Un conseil clair. Sans petits caractères.", p: "Un accompagnement juridique pour entrepreneurs, en langage clair et à tarif fixe quand c'est possible.", btn: "Planifier un entretien", s: ["Contrats", "Litiges", "Reprises"] }
+    },
+    zanger: {
+      nl: { logo: "LENN", l: ["Agenda", "Muziek", "Boeken"], cta: "Boek Lenn", kick: "Zanger & entertainer", h: "Live. Overal.", p: "Van huwelijksfeest tot festivalweide. Nieuwe single nu overal te beluisteren.", btn: "Bekijk de agenda", s: ["Feesten", "Festivals", "Bedrijfsevents"] },
+      en: { logo: "LENN", l: ["Dates", "Music", "Book"], cta: "Book Lenn", kick: "Singer & entertainer", h: "Live. Everywhere.", p: "From wedding party to festival field. New single out now on every platform.", btn: "See the dates", s: ["Parties", "Festivals", "Corporate"] },
+      fr: { logo: "LENN", l: ["Agenda", "Musique", "Réserver"], cta: "Réserver", kick: "Chanteur & entertainer", h: "Live. Partout.", p: "Du mariage au festival. Nouveau single disponible partout.", btn: "Voir l'agenda", s: ["Fêtes", "Festivals", "Événements"] }
+    },
+    webshop: {
+      nl: { logo: "Atelier Nova", l: ["Nieuw", "Collectie", "Winkelwagen"], cta: "Shop", kick: "Tijdloze basics, eerlijk gemaakt", h: "Nieuwe collectie.", p: "Jassen en truien die jaren meegaan. Gemaakt in Europa, geleverd binnen twee dagen.", btn: "Shop nu", s: ["Gratis verzending", "Retour binnen 30 dagen", "Veilig betalen"] },
+      en: { logo: "Atelier Nova", l: ["New", "Collection", "Cart"], cta: "Shop", kick: "Timeless basics, honestly made", h: "New collection.", p: "Coats and knits that last for years. Made in Europe, delivered in two days.", btn: "Shop now", s: ["Free shipping", "30-day returns", "Secure payment"] },
+      fr: { logo: "Atelier Nova", l: ["Nouveau", "Collection", "Panier"], cta: "Boutique", kick: "Des basiques intemporels, faits honnêtement", h: "Nouvelle collection.", p: "Des manteaux et des pulls qui durent des années. Fabriqués en Europe, livrés en deux jours.", btn: "Découvrir", s: ["Livraison offerte", "Retours 30 jours", "Paiement sécurisé"] }
     }
+  };
+  var ORDER = ["tuinman", "kinesist", "bakker", "advocaat", "zanger", "webshop"];
+  var currentK = "tuinman", kTimer = null, kAuto = true;
+
+  function fillDemo(k) {
+    var d = K[k][lang] || K[k].nl;
+    var set = function (id, v) { var el = document.getElementById(id); if (el) el.textContent = v; };
+    set("dLogo", d.logo); set("dL1", d.l[0]); set("dL2", d.l[1]); set("dL3", d.l[2]); set("dCta", d.cta);
+    set("dKick", d.kick); set("dH", d.h); set("dP", d.p); set("dBtn", d.btn);
+    set("dS1", d.s[0]); set("dS2", d.s[1]); set("dS3", d.s[2]);
+  }
+  function switchK(k, instant) {
+    var demo = $("#demo"); if (!demo) return;
+    currentK = k;
+    $$(".kiezer__tab").forEach(function (b) { b.classList.toggle("is-on", b.getAttribute("data-k") === k); b.setAttribute("aria-selected", b.getAttribute("data-k") === k ? "true" : "false"); });
+    $$(".demo__img img").forEach(function (im) { im.classList.toggle("is-on", im.getAttribute("data-k") === k); });
+    if (instant || REDUCED) { demo.setAttribute("data-k", k); fillDemo(k); return; }
+    demo.classList.add("is-switching");
+    setTimeout(function () { demo.setAttribute("data-k", k); fillDemo(k); demo.classList.remove("is-switching"); }, 340);
+  }
+  function nextK() { var i = ORDER.indexOf(currentK); switchK(ORDER[(i + 1) % ORDER.length]); }
+  function startAuto() { if (kTimer || REDUCED) return; kTimer = setInterval(function () { if (kAuto && !document.hidden) nextK(); }, 4500); }
+  function initKiezer() {
+    var tabs = $("#kiezerTabs"); if (!tabs) return;
+    fillDemo(currentK);
+    tabs.addEventListener("click", function (e) {
+      var b = e.target.closest(".kiezer__tab"); if (!b) return;
+      kAuto = false; switchK(b.getAttribute("data-k"));
+    });
+    var hero = $("#proloog");
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (en) { en.forEach(function (x) { if (x.isIntersecting) startAuto(); else if (kTimer) { clearInterval(kTimer); kTimer = null; } }); }, { threshold: 0.2 }).observe(hero);
+    } else startAuto();
   }
 
-  /* ---- Scroll progress bar ---- */
-  function initProgress() {
-    var bar = document.getElementById("scrollProgress");
-    if (!bar) return;
-    var update = function () {
-      var h = document.documentElement;
-      var max = h.scrollHeight - h.clientHeight;
-      var pct = max > 0 ? (h.scrollTop || window.scrollY) / max : 0;
-      bar.style.transform = "scaleX(" + pct + ")";
-    };
-    update();
+  /* =====================================================================
+     2 · De pen: gold ink trail following the cursor
+     ===================================================================== */
+  function initPen() {
+    var c = $("#pen"); if (!c || !FINE || REDUCED) return;
+    document.documentElement.classList.add("has-pen");
+    var ctx = c.getContext("2d"), pts = [], w = 0, h = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var mx = -100, my = -100, raf = null, hover = false, visible = false;
+    function size() { w = window.innerWidth; h = window.innerHeight; c.width = w * dpr; c.height = h * dpr; c.style.width = w + "px"; c.style.height = h + "px"; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+    size(); window.addEventListener("resize", size);
+    window.addEventListener("mousemove", function (e) {
+      mx = e.clientX; my = e.clientY; visible = true;
+      var t = e.target;
+      hover = !!(t && t.closest && t.closest("a, button, [role='slider'], .kiezer__tab, .faq__q"));
+      pts.push({ x: mx, y: my, t: performance.now() });
+      if (pts.length > 40) pts.shift();
+      if (!raf) raf = requestAnimationFrame(draw);
+    }, { passive: true });
+    window.addEventListener("mouseout", function (e) { if (!e.relatedTarget) visible = false; });
+    document.addEventListener("mousedown", function () { pts.push({ x: mx, y: my, t: performance.now(), tap: true }); });
+    function draw() {
+      raf = null;
+      ctx.clearRect(0, 0, w, h);
+      var now = performance.now(), life = 650;
+      pts = pts.filter(function (p) { return now - p.t < life; });
+      if (pts.length > 1) {
+        ctx.lineCap = "round"; ctx.lineJoin = "round";
+        for (var i = 1; i < pts.length; i++) {
+          var a = pts[i - 1], b = pts[i], age = (now - b.t) / life, al = Math.max(0, 1 - age);
+          ctx.strokeStyle = "rgba(201,162,74," + (al * 0.9) + ")";
+          ctx.lineWidth = 1.2 + al * 1.6;
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+        }
+      }
+      if (visible) {
+        var r = hover ? 7 : 4.5;
+        ctx.beginPath(); ctx.arc(mx, my, r, 0, Math.PI * 2); ctx.fillStyle = "#C9A24A"; ctx.fill();
+        if (hover) { ctx.beginPath(); ctx.arc(mx, my, 14, 0, Math.PI * 2); ctx.strokeStyle = "rgba(201,162,74,0.55)"; ctx.lineWidth = 1; ctx.stroke(); }
+      }
+      if (pts.length || visible) raf = requestAnimationFrame(draw);
+    }
+    draw();
+  }
+
+  /* =====================================================================
+     3 · Reveal, theme switch, chapters, progress
+     ===================================================================== */
+  function initReveal() {
+    var els = $$(".rv");
+    if (!("IntersectionObserver" in window) || REDUCED) { els.forEach(function (e) { e.classList.add("is-in"); }); return; }
+    var io = new IntersectionObserver(function (en) { en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add("is-in"); io.unobserve(x.target); } }); }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    els.forEach(function (e) { io.observe(e); });
+  }
+
+  function initChapters() {
+    var secs = $$("[data-chapter]"), rail = $$("#rail a"), navLinks = $$(".nav a");
+    var html = document.documentElement;
+    function update() {
+      var y = window.scrollY + window.innerHeight * 0.45, cur = secs[0], idx = 0;
+      secs.forEach(function (s, i) { if (s.offsetTop <= y) { cur = s; idx = i; } });
+      html.classList.toggle("is-light", cur.getAttribute("data-theme") === "light");
+      rail.forEach(function (a, i) { a.classList.toggle("is-active", i === idx); a.classList.toggle("is-past", i < idx); });
+      var id = cur.id;
+      navLinks.forEach(function (a) { a.classList.toggle("is-active", a.getAttribute("href") === "#" + id); });
+      var doc = document.documentElement, p = window.scrollY / Math.max(1, doc.scrollHeight - window.innerHeight);
+      $("#rail") && $("#rail").style.setProperty("--p", p.toFixed(4));
+      $("#progressBar") && $("#progressBar").style.setProperty("--p", p.toFixed(4));
+      $("#top").classList.toggle("is-scrolled", window.scrollY > 24);
+    }
     window.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
+    update();
   }
 
-  /* ---- Sticky header state ---- */
-  function initHeader() {
-    var navbar = document.querySelector(".navbar");
-    if (!navbar) return;
-    var onScroll = function () {
-      navbar.classList.toggle("scrolled", window.scrollY > 12);
+  /* =====================================================================
+     4 · Het doorstrepen
+     ===================================================================== */
+  function initCliches() {
+    var wrap = $("#cliches"); if (!wrap) return;
+    var lines = $$(".cliche:not(.cliche--truth)", wrap);
+    var run = function () {
+      lines.forEach(function (l, i) { setTimeout(function () { l.classList.add("is-struck"); }, REDUCED ? 0 : 260 * i + 200); });
+      setTimeout(function () { wrap.classList.add("is-done"); }, REDUCED ? 0 : 260 * lines.length + 350);
     };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
+    if (!("IntersectionObserver" in window)) { run(); return; }
+    var io = new IntersectionObserver(function (en) { en.forEach(function (x) { if (x.isIntersecting) { run(); io.disconnect(); } }); }, { threshold: 0.35 });
+    io.observe(wrap);
   }
 
-  /* ---- Mobile menu ---- */
-  function initMobileMenu() {
-    var toggle = document.getElementById("navToggle");
-    var menu = document.getElementById("mobileMenu");
-    if (!toggle || !menu) return;
-    var open = function (state) {
-      menu.hidden = !state;
-      toggle.setAttribute("aria-expanded", String(state));
-      toggle.setAttribute("aria-label", state ? "Menu sluiten" : "Menu openen");
-      toggle.innerHTML = '<i data-lucide="' + (state ? "x" : "menu") + '"></i>';
-      renderIcons();
-    };
-    toggle.addEventListener("click", function () { open(menu.hidden); });
-    menu.addEventListener("click", function (e) { if (e.target.closest("a")) open(false); });
-  }
-
-  /* ---- Reveal on scroll ---- */
-  function initReveal() {
-    var items = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
-    if (!items.length) return;
-    if (REDUCED || !("IntersectionObserver" in window)) {
-      items.forEach(function (el) { el.classList.add("is-visible"); });
-      return;
+  /* =====================================================================
+     5 · De filmstrook (horizontal on vertical scroll)
+     ===================================================================== */
+  function initStrip() {
+    var strip = $("#strip"), track = $("#stripTrack"), count = $("#stripCount"), sticky = $("#stripSticky");
+    if (!strip || !track) return;
+    var stories = $$(".story", track), n = stories.length;
+    var mq = window.matchMedia("(min-width: 900px)");
+    function update() {
+      if (!mq.matches) { track.style.transform = ""; return; }
+      var rect = strip.getBoundingClientRect(), total = strip.offsetHeight - window.innerHeight;
+      var p = Math.min(1, Math.max(0, -rect.top / Math.max(1, total)));
+      var x = -p * (n - 1) * window.innerWidth;
+      track.style.transform = "translate3d(" + x.toFixed(1) + "px,0,0)";
+      var i = Math.min(n - 1, Math.round(p * (n - 1)));
+      stories.forEach(function (s, k) { s.classList.toggle("is-current", k === i); });
+      if (count) count.textContent = (i + 1) + " / " + n;
+      sticky.style.setProperty("--sp", p.toFixed(4));
     }
-    var obs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        var el = entry.target;
-        var delay = parseInt(el.getAttribute("data-delay") || "0", 10);
-        el.style.transitionDelay = delay + "ms";
-        el.classList.add("is-visible");
-        obs.unobserve(el);
-      });
-    }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
-    items.forEach(function (el) { obs.observe(el); });
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
   }
 
-  /* ---- Count-up stats ---- */
-  function initCountUp() {
-    var nums = Array.prototype.slice.call(document.querySelectorAll("[data-count]"));
-    if (!nums.length) return;
-
-    var run = function (el) {
-      var target = parseFloat(el.getAttribute("data-count"));
-      if (REDUCED) { el.textContent = target + sufOf(el); el.classList.add("counted"); return; }
-      var dur = 1500, start = null;
-      var step = function (ts) {
-        if (!start) start = ts;
-        var p = Math.min((ts - start) / dur, 1);
-        var eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.round(eased * target) + sufOf(el);
-        if (p < 1) requestAnimationFrame(step);
-        else { el.textContent = target + sufOf(el); el.classList.add("counted"); }
-      };
-      requestAnimationFrame(step);
-    };
-
-    if (!("IntersectionObserver" in window)) { nums.forEach(run); return; }
-    var obs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { run(e.target); obs.unobserve(e.target); }
-      });
-    }, { threshold: 0.6 });
-    nums.forEach(function (el) { obs.observe(el); });
-  }
-
-  /* ---- Hero constellation canvas ---- */
-  function initHeroCanvas() {
-    var canvas = document.getElementById("heroCanvas");
-    if (!canvas || REDUCED) return;
-    var ctx = canvas.getContext("2d");
-    var dots = [], raf = null, w = 0, h = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
-    var GOLD = "201,162,74";
-
-    function resize() {
-      var rect = canvas.parentElement.getBoundingClientRect();
-      w = rect.width; h = rect.height;
-      canvas.width = w * dpr; canvas.height = h * dpr;
-      canvas.style.width = w + "px"; canvas.style.height = h + "px";
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      var count = Math.min(70, Math.floor(w / 22));
-      dots = [];
-      for (var i = 0; i < count; i++) {
-        dots.push({
-          x: Math.random() * w, y: Math.random() * h,
-          vx: (Math.random() - 0.5) * 0.25, vy: (Math.random() - 0.5) * 0.25,
-          r: Math.random() * 1.6 + 0.6
-        });
-      }
+  /* =====================================================================
+     6 · Werkwijze line, before/after, FAQ
+     ===================================================================== */
+  function initSteps() {
+    var steps = $("#steps"); if (!steps) return;
+    var items = $$(".step", steps);
+    function update() {
+      var r = steps.getBoundingClientRect(), line = window.innerHeight * 0.7;
+      var horizontal = window.matchMedia("(min-width: 900px)").matches;
+      var p = horizontal ? Math.max(0, Math.min(1, (line - r.top) / (window.innerHeight * 0.6))) : Math.max(0, Math.min(1, (line - r.top) / r.height));
+      steps.style.setProperty("--sp", p.toFixed(3));
+      items.forEach(function (it, i) { var ok = horizontal ? p >= (i + 0.5) / items.length : it.getBoundingClientRect().top < line; it.classList.toggle("is-past", ok); });
     }
-
-    function frame() {
-      ctx.clearRect(0, 0, w, h);
-      for (var i = 0; i < dots.length; i++) {
-        var d = dots[i];
-        d.x += d.vx; d.y += d.vy;
-        if (d.x < 0 || d.x > w) d.vx *= -1;
-        if (d.y < 0 || d.y > h) d.vy *= -1;
-        ctx.beginPath();
-        ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(" + GOLD + ",0.55)";
-        ctx.fill();
-        for (var j = i + 1; j < dots.length; j++) {
-          var e = dots[j], dx = d.x - e.x, dy = d.y - e.y, dist = dx * dx + dy * dy;
-          if (dist < 13000) {
-            ctx.beginPath();
-            ctx.moveTo(d.x, d.y); ctx.lineTo(e.x, e.y);
-            ctx.strokeStyle = "rgba(" + GOLD + "," + (0.16 * (1 - dist / 13000)) + ")";
-            ctx.lineWidth = 1; ctx.stroke();
-          }
-        }
-      }
-      raf = requestAnimationFrame(frame);
-    }
-
-    resize();
-    frame();
-    window.addEventListener("resize", function () {
-      if (raf) cancelAnimationFrame(raf);
-      resize(); frame();
-    });
+    window.addEventListener("scroll", update, { passive: true }); window.addEventListener("resize", update); update();
   }
 
-  /* ---- Custom cursor + magnetic buttons ---- */
-  function initCursor() {
-    if (!FINE || REDUCED) return;
-    var dot = document.getElementById("cursorDot");
-    var ring = document.getElementById("cursorRing");
-    if (!dot || !ring) return;
-    document.body.classList.add("has-cursor");
-
-    var mx = 0, my = 0, rx = 0, ry = 0;
-    window.addEventListener("mousemove", function (e) {
-      mx = e.clientX; my = e.clientY;
-      dot.style.transform = "translate(" + mx + "px," + my + "px)";
-    });
-    (function loop() {
-      rx += (mx - rx) * 0.22; ry += (my - ry) * 0.22;
-      ring.style.transform = "translate(" + rx + "px," + ry + "px)";
-      requestAnimationFrame(loop);
-    })();
-
-    var hot = "a, button, .work, .card, .price, input, textarea, select, .ba__handle";
-    document.querySelectorAll(hot).forEach(function (el) {
-      el.addEventListener("mouseenter", function () { document.body.classList.add("cursor-hot"); });
-      el.addEventListener("mouseleave", function () { document.body.classList.remove("cursor-hot"); });
-    });
-
-    // magnetic buttons: a subtle nudge, not a jump
-    document.querySelectorAll(".btn").forEach(function (btn) {
-      btn.addEventListener("mousemove", function (e) {
-        var r = btn.getBoundingClientRect();
-        var x = e.clientX - r.left - r.width / 2;
-        var y = e.clientY - r.top - r.height / 2;
-        btn.style.transform = "translate(" + x * 0.1 + "px," + y * 0.12 + "px)";
-      });
-      btn.addEventListener("mouseleave", function () { btn.style.transform = ""; });
-    });
-  }
-
-  /* ---- 3D tilt + cursor spotlight on cards ---- */
-  function initTilt() {
-    var cards = document.querySelectorAll(".card, .work");
-    cards.forEach(function (card) {
-      if (card.closest(".carousel--portfolio")) return; // no tilt on full-width slides
-      // a card that still has a pending reveal must not receive an inline
-      // transform, or the entrance animation (translateY) is overridden.
-      var ready = function () { return !card.classList.contains("reveal") || card.classList.contains("is-visible"); };
-      card.addEventListener("mousemove", function (e) {
-        if (!ready()) return;
-        var r = card.getBoundingClientRect();
-        var px = (e.clientX - r.left) / r.width;
-        var py = (e.clientY - r.top) / r.height;
-        card.style.setProperty("--mx", (px * 100) + "%");
-        card.style.setProperty("--my", (py * 100) + "%");
-        if (!FINE || REDUCED) return;
-        var rotX = (0.5 - py) * 6;
-        var rotY = (px - 0.5) * 6;
-        card.style.transform = "perspective(900px) rotateX(" + rotX + "deg) rotateY(" + rotY + "deg) translateY(-6px)";
-      });
-      card.addEventListener("mouseleave", function () { card.style.transform = ""; });
-    });
-  }
-
-  /* ---- Before/After slider ---- */
   function initBeforeAfter() {
-    var root = document.getElementById("ba");
-    if (!root) return;
-    var before = root.querySelector(".ba__before");
-    var handle = root.querySelector(".ba__handle");
+    var root = $("#ba"), before = $("#baBefore"), handle = $("#baHandle"); if (!root) return;
     var dragging = false;
-
-    function syncW() { root.style.setProperty("--w", root.getBoundingClientRect().width + "px"); }
-    syncW();
-    window.addEventListener("resize", syncW);
-
-    function setPos(clientX) {
-      var r = root.getBoundingClientRect();
-      var pct = ((clientX - r.left) / r.width) * 100;
-      pct = Math.max(2, Math.min(98, pct));
-      before.style.width = pct + "%";
-      handle.style.left = pct + "%";
-      handle.setAttribute("aria-valuenow", Math.round(pct));
+    function syncW() { before.firstElementChild.style.setProperty("--w", root.getBoundingClientRect().width + "px"); }
+    syncW(); window.addEventListener("resize", syncW);
+    function setPos(x) {
+      var r = root.getBoundingClientRect(), pct = Math.max(3, Math.min(97, ((x - r.left) / r.width) * 100));
+      before.style.width = pct + "%"; handle.style.left = pct + "%"; handle.setAttribute("aria-valuenow", Math.round(pct));
     }
-
-    var start = function () { dragging = true; root.classList.add("is-dragging"); };
-    var end = function () { dragging = false; root.classList.remove("is-dragging"); };
-    var move = function (e) {
-      if (!dragging) return;
-      var x = e.touches ? e.touches[0].clientX : e.clientX;
-      setPos(x);
-    };
-
-    handle.addEventListener("mousedown", start);
-    handle.addEventListener("touchstart", start, { passive: true });
-    window.addEventListener("mouseup", end);
-    window.addEventListener("touchend", end);
-    window.addEventListener("mousemove", move);
-    window.addEventListener("touchmove", move, { passive: true });
-    // click anywhere on track to jump
-    root.addEventListener("click", function (e) {
-      if (e.target === handle || handle.contains(e.target)) return;
-      setPos(e.clientX);
-    });
-    // keyboard
+    var start = function (e) { dragging = true; setPos(e.touches ? e.touches[0].clientX : e.clientX); };
+    var move = function (e) { if (!dragging) return; setPos(e.touches ? e.touches[0].clientX : e.clientX); };
+    var end = function () { dragging = false; };
+    root.addEventListener("mousedown", start); root.addEventListener("touchstart", start, { passive: true });
+    window.addEventListener("mousemove", move); window.addEventListener("touchmove", move, { passive: true });
+    window.addEventListener("mouseup", end); window.addEventListener("touchend", end);
     handle.addEventListener("keydown", function (e) {
-      var cur = parseFloat(before.style.width) || 50;
-      if (e.key === "ArrowLeft") { e.preventDefault(); var r = root.getBoundingClientRect(); setPos(r.left + r.width * (cur - 4) / 100); }
-      if (e.key === "ArrowRight") { e.preventDefault(); var r2 = root.getBoundingClientRect(); setPos(r2.left + r2.width * (cur + 4) / 100); }
+      var v = parseFloat(handle.getAttribute("aria-valuenow")) || 50, r = root.getBoundingClientRect();
+      if (e.key === "ArrowLeft") { setPos(r.left + r.width * (v - 5) / 100); e.preventDefault(); }
+      if (e.key === "ArrowRight") { setPos(r.left + r.width * (v + 5) / 100); e.preventDefault(); }
     });
   }
 
-  /* ---- FAQ accordion ---- */
   function initFaq() {
-    var items = document.querySelectorAll(".faq__item");
-    items.forEach(function (item) {
-      var btn = item.querySelector(".faq__q");
-      var panel = item.querySelector(".faq__a");
-      if (!btn || !panel) return;
-      btn.addEventListener("click", function () {
-        var isOpen = item.classList.contains("open");
-        // close siblings for a clean accordion feel
-        items.forEach(function (other) {
-          if (other !== item) {
-            other.classList.remove("open");
-            var ob = other.querySelector(".faq__q");
-            var op = other.querySelector(".faq__a");
-            if (ob) ob.setAttribute("aria-expanded", "false");
-            if (op) op.style.maxHeight = null;
-          }
-        });
-        item.classList.toggle("open", !isOpen);
-        btn.setAttribute("aria-expanded", String(!isOpen));
-        panel.style.maxHeight = !isOpen ? panel.scrollHeight + "px" : null;
+    $$(".faq__item").forEach(function (it) {
+      var q = $(".faq__q", it);
+      q.addEventListener("click", function () {
+        var open = it.classList.toggle("is-open"); q.setAttribute("aria-expanded", open ? "true" : "false");
       });
     });
   }
 
-  /* ---- Services carousel: draggable + auto-rotating ---- */
-  function initCarousel() {
-    document.querySelectorAll("[data-carousel]").forEach(function (root) {
-      var viewport = root.querySelector(".carousel__viewport");
-      var track = root.querySelector(".carousel__track");
-      var cards = Array.prototype.slice.call(track.children);
-      var dotsWrap = root.querySelector(".carousel__dots");
-      var arrows = root.querySelectorAll(".carousel__arrow");
-      if (!viewport || !track || !cards.length) return;
-
-      var gap = parseFloat(getComputedStyle(track).columnGap) || 24;
-      var index = 0, perView = 3, maxIndex = 0, step = 0;
-      var autoplay = parseInt(root.getAttribute("data-autoplay") || "0", 10);
-      var timer = null;
-
-      function calcPerView() {
-        var forced = parseInt(root.getAttribute("data-per-view") || "0", 10);
-        if (forced > 0) {
-          // forced count is for tablet/desktop; show 1 on small screens
-          return Math.min(viewport.clientWidth < 640 ? 1 : forced, cards.length);
-        }
-        var w = viewport.clientWidth;
-        var n = w >= 1024 ? 3 : w >= 640 ? 2 : 1;
-        return Math.min(n, cards.length);
-      }
-
-      function layout() {
-        perView = calcPerView();
-        maxIndex = Math.max(0, cards.length - perView);
-        var cw = (viewport.clientWidth - gap * (perView - 1)) / perView;
-        step = cw + gap;
-        cards.forEach(function (c) { c.style.width = cw + "px"; });
-        buildDots();
-        if (index > maxIndex) index = maxIndex;
-        goTo(index, true);
-      }
-
-      function buildDots() {
-        if (!dotsWrap) return;
-        dotsWrap.innerHTML = "";
-        for (var i = 0; i <= maxIndex; i++) {
-          (function (i) {
-            var d = document.createElement("button");
-            d.className = "carousel__dot" + (i === index ? " is-active" : "");
-            d.setAttribute("aria-label", "Ga naar groep " + (i + 1));
-            d.addEventListener("click", function () { stop(); goTo(i); });
-            dotsWrap.appendChild(d);
-          })(i);
-        }
-      }
-
-      function updateDots() {
-        if (!dotsWrap) return;
-        Array.prototype.forEach.call(dotsWrap.children, function (d, i) {
-          d.classList.toggle("is-active", i === index);
-        });
-      }
-
-      function goTo(i, instant) {
-        index = Math.max(0, Math.min(i, maxIndex));
-        if (instant) track.style.transition = "none";
-        track.style.transform = "translateX(" + (-index * step) + "px)";
-        if (instant) { void track.offsetWidth; track.style.transition = ""; }
-        updateDots();
-      }
-
-      arrows.forEach(function (btn) {
-        btn.addEventListener("click", function () {
-          stop();
-          var dir = parseInt(btn.getAttribute("data-dir"), 10);
-          var next = index + dir;
-          if (next < 0) next = maxIndex;
-          if (next > maxIndex) next = 0;
-          goTo(next);
-        });
-      });
-
-      /* drag / swipe */
-      var dragging = false, startX = 0, base = 0, moved = false;
-      function down(e) {
-        dragging = true; moved = false;
-        startX = e.clientX != null ? e.clientX : (e.touches && e.touches[0].clientX);
-        base = -index * step;
-        if (autoplay) stop();
-      }
-      function move(e) {
-        if (!dragging) return;
-        var x = e.clientX != null ? e.clientX : (e.touches && e.touches[0].clientX);
-        var dx = x - startX;
-        if (Math.abs(dx) > 6 && !moved) { moved = true; root.classList.add("is-dragging"); }
-        if (moved) { track.style.transition = "none"; track.style.transform = "translateX(" + (base + dx) + "px)"; }
-      }
-      function up(e) {
-        if (!dragging) return;
-        dragging = false;
-        if (moved) {
-          var x = (e.clientX != null ? e.clientX : (e.changedTouches && e.changedTouches[0].clientX));
-          var dx = x - startX;
-          track.style.transition = "";
-          goTo(Math.round((-base - dx) / step));
-          setTimeout(function () { root.classList.remove("is-dragging"); }, 0);
-        }
-      }
-
-      viewport.addEventListener("pointerdown", down);
-      window.addEventListener("pointermove", move, { passive: true });
-      window.addEventListener("pointerup", up);
-
-      /* autoplay */
-      function play() {
-        if (!autoplay || REDUCED) return;
-        stop();
-        timer = setInterval(function () { goTo(index >= maxIndex ? 0 : index + 1); }, autoplay);
-      }
-      function stop() { if (timer) { clearInterval(timer); timer = null; } }
-
-      root.addEventListener("mouseenter", stop);
-      root.addEventListener("mouseleave", play);
-      root.addEventListener("focusin", stop);
-      root.addEventListener("focusout", play);
-      document.addEventListener("visibilitychange", function () { document.hidden ? stop() : play(); });
-
-      var rid = null;
-      window.addEventListener("resize", function () {
-        if (rid) cancelAnimationFrame(rid);
-        rid = requestAnimationFrame(layout);
-      });
-
-      layout();
-      play();
+  /* =====================================================================
+     7 · Header, drawer, hero load
+     ===================================================================== */
+  function initHeader() {
+    var burger = $("#burger"), drawer = $("#drawer");
+    if (burger) burger.addEventListener("click", function () {
+      var open = drawer.classList.toggle("is-open"); burger.classList.toggle("is-open", open); burger.setAttribute("aria-expanded", open ? "true" : "false");
+      document.body.style.overflow = open ? "hidden" : "";
     });
+    $$("a", drawer).forEach(function (a) { a.addEventListener("click", function () { drawer.classList.remove("is-open"); burger.classList.remove("is-open"); document.body.style.overflow = ""; }); });
+    setTimeout(function () { $("#proloog").classList.add("is-loaded"); }, 80);
   }
 
-  /* ---- Contact form (no <form> tag) ---- */
-  function initContactForm() {
-    var btn = document.getElementById("submitBtn");
-    var fields = document.getElementById("formFields");
-    var success = document.getElementById("formSuccess");
-    var errorEl = document.getElementById("formError");
-    var resetBtn = document.getElementById("resetBtn");
-    if (!btn || !fields || !success) return;
-
-    var ids = ["naam", "email", "website", "bericht"];
-    var showError = function (m) { if (errorEl) { errorEl.textContent = m; errorEl.hidden = false; } };
-    var clearError = function () { if (errorEl) errorEl.hidden = true; };
-
-    var msg = function (nl, en, fr) { return currentLang === "en" ? en : currentLang === "fr" ? (fr || en) : nl; };
-    var showSuccess = function () {
-      fields.hidden = true;
-      success.hidden = false;
-      success.scrollIntoView({ behavior: REDUCED ? "auto" : "smooth", block: "nearest" });
-    };
-
+  /* =====================================================================
+     8 · Formulier (Formspree)
+     ===================================================================== */
+  function initForm() {
+    var btn = $("#submitBtn"), fields = $("#formFields"), ok = $("#formSuccess"), err = $("#formError"), reset = $("#resetBtn");
+    if (!btn) return;
+    var ids = ["zaak", "naam", "email", "website"];
+    var msg = function (nl, en, fr) { return lang === "en" ? en : lang === "fr" ? fr : nl; };
+    var showErr = function (m) { err.textContent = m; err.hidden = false; };
     btn.addEventListener("click", function () {
-      var naam = (document.getElementById("naam").value || "").trim();
-      var email = (document.getElementById("email").value || "").trim();
-      var bericht = (document.getElementById("bericht").value || "").trim();
-      if (!naam || !email || !bericht) { showError(msg("Vul a.u.b. uw naam, e-mailadres en bericht in.", "Please fill in your name, email and message.", "Veuillez indiquer votre nom, votre e-mail et votre message.")); return; }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError(msg("Vul a.u.b. een geldig e-mailadres in.", "Please enter a valid email address.", "Veuillez saisir une adresse e-mail valide.")); return; }
-      clearError();
-
-      if (!FORM_ENDPOINT) { showSuccess(); return; } // demo mode
-
-      var payload = {};
-      ids.forEach(function (id) { var el = document.getElementById(id); if (el) payload[id] = el.value; });
-      payload._subject = "Nieuwe aanvraag via digital-impression.be" + (payload.naam ? " van " + payload.naam : "");
-      btn.disabled = true;
-      var original = btn.textContent;
-      btn.textContent = msg("Verzenden…", "Sending…", "Envoi…");
-      fetch(FORM_ENDPOINT, {
-        method: "POST",
-        headers: { "Accept": "application/json", "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      }).then(function (r) {
-        if (!r.ok) throw new Error("bad status");
-        showSuccess();
-      }).catch(function () {
-        showError(msg("Er ging iets mis. Probeer opnieuw of mail ons rechtstreeks.", "Something went wrong. Please try again or email us directly.", "Une erreur s'est produite. Réessayez ou envoyez-nous un e-mail directement."));
-      }).finally(function () {
-        btn.disabled = false;
-        btn.textContent = original;
-      });
+      var v = {}; ids.forEach(function (id) { v[id] = ($("#" + id).value || "").trim(); });
+      if (!v.zaak || !v.naam || !v.email) { showErr(msg("Vul a.u.b. uw zaak, uw naam en uw e-mailadres in.", "Please fill in your business, your name and your email.", "Veuillez indiquer votre activité, votre nom et votre e-mail.")); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email)) { showErr(msg("Vul a.u.b. een geldig e-mailadres in.", "Please enter a valid email address.", "Veuillez saisir une adresse e-mail valide.")); return; }
+      err.hidden = true;
+      v._subject = "Karakterschets aangevraagd via digital-impression.be door " + v.naam;
+      var original = btn.innerHTML; btn.disabled = true; btn.textContent = msg("Verzenden…", "Sending…", "Envoi…");
+      fetch(FORM_ENDPOINT, { method: "POST", headers: { "Accept": "application/json", "Content-Type": "application/json" }, body: JSON.stringify(v) })
+        .then(function (r) { if (!r.ok) throw new Error("bad"); fields.hidden = true; ok.hidden = false; })
+        .catch(function () { showErr(msg("Er ging iets mis. Probeer opnieuw of mail ons rechtstreeks.", "Something went wrong. Please try again or email us directly.", "Une erreur s'est produite. Réessayez ou écrivez-nous directement.")); })
+        .finally(function () { btn.disabled = false; btn.innerHTML = original; });
     });
-
-    if (resetBtn) {
-      resetBtn.addEventListener("click", function () {
-        ids.forEach(function (id) { var el = document.getElementById(id); if (el) el.value = ""; });
-        clearError();
-        success.hidden = true;
-        fields.hidden = false;
-      });
-    }
+    if (reset) reset.addEventListener("click", function () { ids.forEach(function (id) { $("#" + id).value = ""; }); ok.hidden = true; fields.hidden = false; });
   }
 
-  /* ---- i18n: NL default in the DOM, EN from dictionary ---- */
-  var I18N_EN = {
-    meta_title: "Digital Impression | Websites with character",
-    meta_desc: "We build fast, professional websites that attract customers. Get a tailored quote within 24h plus a free homepage design.",
-    ph_address: "Belgium &amp; the Netherlands", ph_email: "info@digital-impression.be", ph_phone: "+32 496 25 14 45", news_ph: "Your email",
-    nav_home: "Home", nav_services: "Services", nav_work: "Work", nav_pricing: "Pricing", nav_about: "About",
-    cta_quote: "Get a quote",
-    hero_eyebrow: "Premium web design",
-    hero_title: "A website that works as hard <em>as you do.</em>",
-    hero_sub: "We design and build professional websites. Fast, beautiful and built to attract customers.",
-    hero_cta1: "Request your free design",
-    hero_cta2: "See our work",
-    usp1_num: "2", usp1_unit: "weeks", usp1_label: "from first call to live website", usp2_num: "Free", usp2_label: "homepage design, before you decide", usp3_num: "1", usp3_unit: "contact", usp3_label: "from quote to launch and beyond",
-    hero_trust1: "Website live in 2 weeks", hero_trust2: "Free homepage design", hero_trust3: "Dedicated contact person",
-    rd_eyebrow: "The difference",
-    rd_title: "From outdated to <em>stunning</em>",
-    rd_lead: "Your website is your digital storefront, and for most businesses it works against them. An outdated site drives customers away before they ever call. Drag the handle and see how we turn the same content into something that builds trust and wins enquiries.",
-    rd_hint: "Drag to compare before &amp; after · real case: Credo Rehab &amp; Performance",
-    rd_from1: "Slow &amp; outdated", rd_to1: "Lightning-fast &amp; modern",
-    rd_from2: "Weak first impression", rd_to2: "Strong first impression",
-    rd_from3: "Not mobile-friendly", rd_to3: "Perfect on every screen",
-    rd_from4: "Visitors bounce", rd_to4: "Visitors become customers",
-    rd_cta: "Request a free redesign proposal",
-    ba_before: "Before", ba_after: "After",
-    marquee_label: "Trusted by businesses and brands",
-    svc_eyebrow: "Our services", svc_title: "What we <em>build</em>",
-    svc_aside: "Not sure what you need?<br /><a href=\"#contact\" class=\"link-gold\">We'll figure it out together</a>",
-    svc_cta: "Request a quote",
-    svc1_title: "Business websites", svc1_body: "Sleek, professional websites that build trust and generate leads.",
-    svc1_f1: "Trust-building design", svc1_f2: "Fast and secure", svc1_f3: "Smart lead forms",
-    svc2_title: "Landing pages", svc2_body: "Single pages designed for one goal: conversions. Perfect for campaigns and product launches.",
-    svc2_f1: "One clear goal", svc2_f2: "Built for conversion", svc2_f3: "Ideal for campaigns",
-    svc3_title: "Webshops", svc3_body: "Sell online with a webshop built to convert, with beautiful product pages and seamless checkout.",
-    svc3_f1: "Beautiful product pages", svc3_f2: "Seamless checkout", svc3_f3: "Secure payments",
-    svc4_title: "Redesigns", svc4_body: "Transform your existing website into something you're proud of. Same content, a completely new impression.",
-    svc4_f1: "Fresh, modern look", svc4_f2: "Keep your content", svc4_f3: "Faster &amp; mobile",
-    work_eyebrow: "Portfolio", work_title: "Our <em>work</em>",
-    work_aside: "A selection of the websites we built, from wholesale to physiotherapy.",
-    work_live: "View live",
-    work_tag_simonta: "B2B Wholesale", work_desc_simonta: "Wholesale in fresh carrots, B2B, delivery across Europe.",
-    work_tag_mergel: "Tourism &amp; Culture", work_desc_mergel: "Guided cave tours, atmospheric &amp; historic.",
-    work_tag_tuin: "Garden &amp; Landscape", work_desc_tuin: "Garden design &amp; maintenance, elegant and green.",
-    work_tag_fadim: "Artist &amp; Events", work_desc_fadim: "Artist/singer with agenda, fan shop &amp; bookings.",
-    fi_eyebrow: "Our promises",
-    fi_title: "No big words, just <em>clear commitments</em>",
-    fi_stat1: "Within 24 hours of your request you receive a tailored quote plus a free design of your homepage.",
-    fi_stat2: "From first conversation to live website: most projects are online within 10 to 14 days.",
-    fi_stat3: "Deposit. You only pay once the website is finished and you are happy with it.",
-    proc_eyebrow: "How it works", proc_title: "From request to live website in less than <em>2 weeks</em>",
-    proc_step: "Step 1", proc_step2: "Step 2", proc_step3: "Step 3", proc_step4: "Step 4",
-    proc1_title: "Tell us about your project", proc1_body: "A short 3-minute chat where you tell us your goals and wishes.",
-    proc2_title: "Quote &amp; design", proc2_body: "Within 24h you receive a tailored quote plus a free homepage design.",
-    proc3_title: "We build your website", proc3_body: "In 10 to 14 days we build your site and keep you in the loop at every step.",
-    proc4_title: "You go live", proc4_body: "Your website goes online, with ongoing support and one dedicated contact.",
-    proc_band: "<strong>No obligation, no deposit.</strong> Your free homepage design costs nothing and commits you to nothing. We earn your trust before we ask for anything.",
-    about_badge: "Active in BE &amp; NL", about_eyebrow: "About us", about_title: "One studio, <em>one point of contact</em>",
-    about_intro: "Digital Impression is a web design studio that helps businesses, freelancers and organisations get a website that doesn't just look beautiful, but actually wins customers. No anonymous foreign supplier, but a local, dedicated contact who thinks along with you, from the first conversation to launch and beyond.",
-    about_l1: "One dedicated contact", about_l2: "Transparent pricing", about_l3: "Local &amp; involved", about_l4: "Results-driven",
-    about_cta: "Discuss your project",
-    why_eyebrow: "Why Digital Impression", why_title: "Why clients choose <em>us</em>",
-    why1_title: "Local point of contact", why1_body: "A local team that understands you and your market, with no anonymous foreign supplier.",
-    why2_title: "Fast delivery", why2_body: "Your website live in 10 to 14 days, without endless waiting.",
-    why3_title: "Personal approach", why3_body: "One dedicated contact, from first conversation to launch and beyond.",
-    price_eyebrow: "Pricing", price_title: "What it <em>costs</em>", price_lead: "No hidden costs. No surprises.",
-    price_from: "from", price_badge: "⭐ Most Popular",
-    price_incl: "Included", price_ideal: "Ideal for",
-    price1_amount: "<span class=\"price__from\">from</span> <span class=\"price__now\">€999</span>",
-    price2_amount: "<span class=\"price__from\">from</span> <span class=\"price__now\">€1,249</span>",
-    price3_amount: "<span class=\"price__from\">from</span> <span class=\"price__now\">€1,899</span>",
-    price1_sub: "Perfect for freelancers, local businesses and startups that need a professional online presence.",
-    price2_sub: "Designed for businesses that want to generate leads and convert visitors into customers.",
-    price3_sub: "A complete e-commerce solution built to maximize online sales.",
-    b_incl1: "Custom website design", b_incl2: "Up to 3 pages", b_incl3: "Mobile-responsive design", b_incl4: "Contact form", b_incl5: "Social media links",
-    b_ideal1: "Restaurants", b_ideal2: "Consultants", b_ideal3: "Small businesses", b_ideal4: "Personal brands",
-    p_incl1: "Everything from Website Basic", p_incl2: "Up to 5 pages", p_incl3: "Newsletter integration", p_incl4: "Blog/news section", p_incl5: "Booking or quote system",
-    p_ideal1: "Growing companies", p_ideal2: "Service businesses", p_ideal3: "Agencies", p_ideal4: "Professional firms",
-    s_incl1: "Everything from Website Premium", s_incl2: "Online store setup", s_incl3: "Up to 50 products uploaded", s_incl4: "Payment integration", s_incl5: "Shopping cart and checkout",
-    s_ideal1: "Clothing brands", s_ideal2: "Food and beverage brands", s_ideal3: "Beauty products", s_ideal4: "E-commerce businesses",
-    feat_pages: "Up to 5 pages", feat_responsive: "Mobile-responsive design", feat_form: "Contact form",
-    feat_seo: "SSL security", feat_online: "Online within 10 to 14 days", feat_free: "Free homepage design",
-    cta_request: "Request a quote", cta_contact: "Get in touch",
-    price_note: "Every project includes a free homepage design, sent within 24 hours of your request, with no obligation whatsoever. Hosting, domain name and copywriting are not part of the package price; we arrange them on request via the quote.",
-    faq_eyebrow: "Frequently asked questions", faq_title: "Everything you want to <em>know</em>",
-    faq_lead: "No answer found? <a href=\"#contact\" class=\"link-gold\">Ask your question</a> and we'll reply within 24 hours.",
-    faq_q1: "How fast will my website be online?",
-    faq_a1: "Most projects go live within 10 to 14 days. After your request you receive a tailored quote plus a free homepage design within 24 hours.",
-    faq_q2: "How much does a website cost exactly?",
-    faq_a2: "A professional website starts from €999. The exact price depends on your wishes. You always get a transparent quote with no hidden costs or surprises.",
-    faq_q3: "Is the free design really no-obligation?",
-    faq_a3: "Absolutely. Your free homepage design costs nothing and commits you to nothing. No deposit, no obligation. We earn your trust first.",
-    faq_q4: "Can I update my website myself later?",
-    faq_a4: "Yes. We build your site so you can easily manage text and images, and you get one dedicated contact for support, even after launch.",
-    faq_q5: "Do you also handle hosting and domain?",
-    faq_a5: "Certainly. If you wish, we arrange hosting, domain name and the technical setup, so you don't have to worry about anything.",
-    contact_eyebrow: "Start your project today", contact_title: "Let's build something <em>beautiful together</em>",
-    contact_lead: "Tell us about your project and we'll send you a tailored quote plus a free <span class=\"gold\">homepage design</span> within 24 hours. Completely without obligation.",
-    contact_pt1: "Tailored quote + free design within 24 hours",
-    contact_pt2: "No deposit, you only pay when you're 100% satisfied",
-    f_naam: "Name", f_naam_ph: "Your name", f_bedrijf: "Company name", f_bedrijf_ph: "Your company",
-    f_email: "Email", f_email_ph: "you@company.be", f_tel: "Phone number",
-    f_bericht: "Message", f_bericht_ph: "How can we help you? Feel free to tell us briefly about your project.",
-    f_type: "Website type", f_select: "Select...",
-    f_opt1: "Business website", f_opt2: "Landing page", f_opt3: "Webshop", f_opt4: "Redesign", f_opt5: "Other",
-    f_project: "Tell us about your project", f_project_ph: "Goals, examples, deadlines...",
-    f_found: "How did you find us?", f_found_ph: "Referral, social media, network...",
-    f_submit: "Send", f_fine: "By submitting you agree to a no-obligation contact.",
-    f_success_title: "Thank you for your request!",
-    f_success_body: "We've received your message. You'll hear from us within 24 hours with a tailored quote plus your free homepage design.",
-    f_again: "Send another request",
-    footer_tagline: "Websites with character. Fast, beautiful and built to attract customers.",
-    footer_company: "Company", footer_contact: "Contact",
-    footer_stay: "Stay In The Loop", footer_stay_sub: "Tips &amp; insights on web design for entrepreneurs.",
-    footer_rights: "© 2026 Digital Impression. All rights reserved.",
-    footer_privacy: "Privacy policy", footer_terms: "Terms & conditions", about_c_title: "What you can expect from us", why_v1a: "Can we still change the text?", why_v1b: "Sure. It will be live within the hour.", why_v1m: "Reply within 24h", why_v2a: "Day 1 · Call", why_v2b: "Day 2 · Design", why_v2c: "Day 14 · Live", why_v3a: "Intro call", why_v3b: "Design", why_v3c: "Your feedback", why_v3d: "Live", work_tag_credo: "Physio &amp; Performance", work_desc_credo: "Rehab and performance practice, modern and trustworthy.", swipe_hint: "Swipe for more →",
-    rd_case: "<strong>Credo Rehab &amp; Performance</strong>, Diepenbeek: from a standard Wix template to a bespoke website with its own imagery, three languages and online booking.",
-    f_website: "Current website (optional)",
-    f_website_ph: "www.yourcompany.com"
+  /* =====================================================================
+     9 · i18n
+     ===================================================================== */
+  var I18N = {
+    en: {
+      meta_title: "Digital Impression | Websites with character",
+      rail_0: "Prologue", rail_6: "Epilogue",
+      nav_stories: "The stories", nav_how: "How we work", nav_price: "Pricing", nav_who: "Who",
+      cta_sketch_short: "Free character sketch", cta_sketch: "Request your free character sketch", cta_stories: "Read the stories",
+      ch_0: "Prologue", ch_1: "Chapter I", ch_2: "Chapter II", ch_3: "Chapter III", ch_4: "Chapter IV", ch_5: "Chapter V", ch_6: "Epilogue",
+      h1_a: "Every business has <em class=\"kw\">character.</em>", h1_b: "Most websites hide it.",
+      hero_lead: "We build websites that show who you really are, so the right customers feel it straight away. No template, no deposit, and you see your design before you decide.",
+      k_label: "Pick a business", k_tuinman: "gardener", k_kinesist: "physio", k_bakker: "baker", k_advocaat: "lawyer", k_zanger: "singer", k_webshop: "webshop", k_note: "example",
+      p_title: "The same story, everywhere.",
+      c1: "Welcome to our website.", c2: "We stand for quality and service.", c3: "Your partner in tailored solutions.", c4: "25 years of experience.", c5: "The customer comes first.", c6: "Craftsmanship is our passion.", c7: "Contact us without obligation.", c_truth: "Every business has character.",
+      p_lead: "Sound familiar? Everyone writes it, so nobody believes it.",
+      p_body: "A visitor decides in a few seconds whether you are the real thing. Not from what it says, but from how it feels. A website without character says: we are like the others. And you are not.",
+      ba_before: "Before", ba_after: "After", ba_hint: "Drag to compare · Credo Rehab & Performance, Diepenbeek",
+      ba_eyebrow: "One practice, two websites", ba_title: "The same physios. This time with character.",
+      ba_body: "Left, the Wix template that was there. Right, the website we built for them: black and white, direct, with their own imagery and online booking. Same people, same practice. Different impression.",
+      s_title: "Five businesses, five characters.", st_live: "Visit the site",
+      st1_who: "Wholesaler of fresh carrots, on the road every day to customers across Europe.", st1_what: "Fresh and direct, like the product: one photo, one promise, one button. No detours for a buyer who wants to know quickly if this is the right place.",
+      st2_who: "Guided tours through centuries-old marl caves under Zichen.", st2_what: "Dark, warm and quiet, like the corridors themselves. The story comes before the practical details, because people come here for the atmosphere.",
+      st3_who: "Garden design and maintenance, with patience for what grows slowly.", st3_what: "Green, calm and spacious. The site lets the gardens speak, not the gardener. One button for a quote, no noise beyond that.",
+      st4_who: "A singer with a full calendar and an audience that comes back.", st4_what: "Big, festive and moving. Calendar, fan shop and bookings in one place, so fans and organisers each find their own door.",
+      st5_who: "Physios in Diepenbeek who bring athletes back to their level, and beyond.", st5_what: "Black and white, hard and honest, like a training room at six in the morning. Three languages and online booking, without turning into a brochure.",
+      w_title: "First listen. Then draw. Only then build.", w_lead: "You do not find character in a template. You find it in a conversation. So every project starts with listening, and you see your website before you pay anything.",
+      w1_n: "One", w1_t: "Listen", w1_p: "A half-hour conversation about your business, not about your website. Who your customers are, what you are proud of, what everyone should know.",
+      w2_badge: "Free · within 24 hours", w2_n: "Two", w2_t: "The character sketch", w2_p: "You see your homepage, designed from that conversation. No deposit, no obligation. You decide afterwards.",
+      w3_n: "Three", w3_t: "Build", w3_p: "Ten to fourteen days, with you at the table at every step. Copy, imagery and tech, all under one roof.",
+      w4_n: "Four", w4_t: "Live", w4_p: "Your website goes online, with guidance and support. And afterwards you stay with the same person, not a helpdesk.",
+      pr_title: "Character has a price. An honest one.", pr_lead: "Three packages, fixed starting prices, no small print. Every package starts with a free character sketch.", pr_from: "from",
+      t1_sub: "Website Basic", t1_name: "The business card", t1_for: "For those who want to be found and trusted straight away. Freelancers, local businesses, starters.", t1_1: "Bespoke website, up to 3 pages", t1_2: "Perfect on phone, tablet and laptop", t1_3: "Contact form and social media", t1_4: "Live in 10 to 14 days",
+      t2_sub: "Website Premium", t2_name: "The story", t2_for: "For those who want to convince visitors and win customers. Growing businesses, practices, service providers.", t2_1: "Everything in The business card", t2_2: "Up to 5 pages, blog or news", t2_3: "Booking or quote system", t2_4: "Newsletter integration",
+      t3_sub: "Webshop", t3_name: "The shop", t3_for: "For those who sell online. Fashion, food, beauty, and anything that fits in a box.", t3_1: "Everything in The story", t3_2: "Shop setup, up to 50 products", t3_3: "Payments, cart and checkout", t3_4: "Guidance so you manage products yourself",
+      pr_cta: "Start with a character sketch",
+      pr_note: "Hosting, domain name and copywriting are not part of the package price; we arrange them on request via the quote. No deposit: you pay once the website is finished and you are happy.",
+      wie_role: "Founder, Digital Impression", wie_title: "One person. From the first conversation to long after launch.",
+      wie_p1: "Digital Impression is a small web design studio in Belgian Limburg, working in Belgium and the Netherlands. No account managers, no helpdesk, no anonymous supplier: you talk to the person who designs and builds your website.",
+      wie_p2: "We work for businesses, freelancers and organisations that have something to say and want it felt online too.",
+      sig1: "No deposit.", sig2: "No templates.", sig3: "No promises about Google.", sig4: "No anonymous supplier.", sig5: "Character, yes.",
+      e_title: "What character does your business have?", e_lead: "Tell us in one sentence. Within 24 hours you will see what that looks like as a website. Free, and you decide afterwards.",
+      f_zaak: "Your business in one sentence", f_zaak_ph: "For example: we have been making bespoke wooden garden houses for 30 years, with many loyal customers.",
+      f_naam: "Name", f_naam_ph: "Your name", f_email: "Email", f_email_ph: "you@company.com", f_site: "Current website (optional)", f_site_ph: "www.yourcompany.com",
+      f_fine: "By sending you agree to a no-obligation contact. No deposit, no commitment.", f_ok_t: "Thank you. We start drawing.", f_ok_p: "You will hear from us within 24 hours, with a first sketch of your homepage.", f_again: "Send another request",
+      ph_region: "Belgium & the Netherlands", faq_eyebrow: "Frequently asked questions",
+      q1: "What exactly is a character sketch?", a1: "A design of your homepage, made from one conversation about your business. You get it within 24 hours, free, with no deposit or obligation. If you decide to go ahead, it becomes the basis of your website.",
+      q2: "How fast will my website be online?", a2: "Most websites are online within 10 to 14 days after your go-ahead. A webshop or a site in three languages can take a little longer; we agree on that beforehand.",
+      q3: "What does a website cost exactly?", a3: "From €999. The exact price depends on what you need and is written down in the quote, with no hidden costs. Hosting, domain name and copy are arranged separately on request.",
+      q4: "Can I update my website myself later?", a4: "Yes. You get guidance to manage texts and images yourself, and for everything else you stay with the same person, also after launch.",
+      foot_tag: "Websites with character. For businesses, freelancers and organisations in Belgium and the Netherlands.", foot_story: "The story", foot_contact: "Contact",
+      foot_rights: "© 2026 Digital Impression. All rights reserved.", foot_privacy: "Privacy policy", foot_terms: "Terms & conditions"
+    },
+    fr: {
+      meta_title: "Digital Impression | Des sites web avec du caractère",
+      rail_0: "Prologue", rail_6: "Épilogue",
+      nav_stories: "Les histoires", nav_how: "Méthode", nav_price: "Tarifs", nav_who: "Qui",
+      cta_sketch_short: "Esquisse gratuite", cta_sketch: "Demandez votre esquisse de caractère gratuite", cta_stories: "Lire les histoires",
+      ch_0: "Prologue", ch_1: "Chapitre I", ch_2: "Chapitre II", ch_3: "Chapitre III", ch_4: "Chapitre IV", ch_5: "Chapitre V", ch_6: "Épilogue",
+      h1_a: "Chaque entreprise a du <em class=\"kw\">caractère.</em>", h1_b: "La plupart des sites web le cachent.",
+      hero_lead: "Nous créons des sites web qui montrent qui vous êtes vraiment, pour que les bons clients le sentent tout de suite. Pas de modèle, pas d'acompte, et vous voyez votre design avant de décider.",
+      k_label: "Choisissez une activité", k_tuinman: "jardinier", k_kinesist: "kiné", k_bakker: "boulanger", k_advocaat: "avocat", k_zanger: "chanteur", k_webshop: "boutique", k_note: "exemple",
+      p_title: "La même histoire, partout.",
+      c1: "Bienvenue sur notre site.", c2: "La qualité et le service avant tout.", c3: "Votre partenaire pour des solutions sur mesure.", c4: "25 ans d'expérience.", c5: "Le client est au centre.", c6: "L'artisanat est notre passion.", c7: "Contactez-nous sans engagement.", c_truth: "Chaque entreprise a du caractère.",
+      p_lead: "Ça vous parle ? Tout le monde l'écrit, donc personne n'y croit.",
+      p_body: "Un visiteur décide en quelques secondes si vous êtes le bon. Pas d'après ce qui est écrit, mais d'après ce qu'il ressent. Un site sans caractère dit : nous sommes comme les autres. Et vous ne l'êtes pas.",
+      ba_before: "Avant", ba_after: "Après", ba_hint: "Glissez pour comparer · Credo Rehab & Performance, Diepenbeek",
+      ba_eyebrow: "Un cabinet, deux sites", ba_title: "Les mêmes kinés. Cette fois avec du caractère.",
+      ba_body: "À gauche, le modèle Wix qui était en place. À droite, le site que nous avons créé : noir et blanc, direct, avec leurs propres images et la prise de rendez-vous en ligne. Mêmes personnes, même cabinet. Autre impression.",
+      s_title: "Cinq entreprises, cinq caractères.", st_live: "Voir le site",
+      st1_who: "Grossiste en carottes fraîches, chaque jour sur la route vers des clients dans toute l'Europe.", st1_what: "Frais et direct, comme le produit : une photo, une promesse, un bouton. Pas de détour pour un acheteur qui veut vite savoir s'il est au bon endroit.",
+      st2_who: "Visites guidées dans des galeries de marne centenaires sous Zichen.", st2_what: "Sombre, chaud et silencieux, comme les galeries elles-mêmes. L'histoire passe avant les infos pratiques, car on vient ici pour l'ambiance.",
+      st3_who: "Aménagement et entretien de jardins, avec de la patience pour ce qui pousse lentement.", st3_what: "Vert, calme et spacieux. Le site laisse parler les jardins, pas le jardinier. Un bouton pour un devis, rien de plus.",
+      st4_who: "Un chanteur à l'agenda bien rempli et au public fidèle.", st4_what: "Grand, festif et en mouvement. Agenda, boutique et réservations au même endroit, pour que fans et organisateurs trouvent chacun leur porte.",
+      st5_who: "Des kinés à Diepenbeek qui ramènent les sportifs à leur niveau, et au-delà.", st5_what: "Noir et blanc, dur et honnête, comme une salle d'entraînement à six heures du matin. Trois langues et réservation en ligne, sans devenir une brochure.",
+      w_title: "D'abord écouter. Puis dessiner. Construire ensuite.", w_lead: "Le caractère ne se trouve pas dans un modèle. Il se trouve dans une conversation. Chaque projet commence donc par l'écoute, et vous voyez votre site avant de payer quoi que ce soit.",
+      w1_n: "Un", w1_t: "Écouter", w1_p: "Une conversation d'une demi-heure sur votre entreprise, pas sur votre site. Qui sont vos clients, de quoi êtes-vous fier, que faut-il savoir.",
+      w2_badge: "Gratuit · sous 24 heures", w2_n: "Deux", w2_t: "L'esquisse de caractère", w2_p: "Vous voyez votre page d'accueil, conçue à partir de cette conversation. Sans acompte, sans engagement. Vous décidez ensuite.",
+      w3_n: "Trois", w3_t: "Construire", w3_p: "Dix à quatorze jours, avec vous à chaque étape. Textes, images et technique, tout sous un même toit.",
+      w4_n: "Quatre", w4_t: "En ligne", w4_p: "Votre site est mis en ligne, avec explications et support. Et ensuite, vous restez avec la même personne, pas un helpdesk.",
+      pr_title: "Le caractère a un prix. Un prix honnête.", pr_lead: "Trois formules, des prix de départ fixes, pas de petits caractères. Chaque formule commence par une esquisse gratuite.", pr_from: "à partir de",
+      t1_sub: "Website Basic", t1_name: "La carte de visite", t1_for: "Pour qui veut être trouvé et inspirer confiance immédiatement. Indépendants, commerces locaux, starters.", t1_1: "Site sur mesure, jusqu'à 3 pages", t1_2: "Parfait sur mobile, tablette et ordinateur", t1_3: "Formulaire de contact et réseaux sociaux", t1_4: "En ligne en 10 à 14 jours",
+      t2_sub: "Website Premium", t2_name: "L'histoire", t2_for: "Pour qui veut convaincre les visiteurs et gagner des clients. Entreprises en croissance, cabinets, prestataires.", t2_1: "Tout de La carte de visite", t2_2: "Jusqu'à 5 pages, blog ou actualités", t2_3: "Système de réservation ou de devis", t2_4: "Intégration newsletter",
+      t3_sub: "Boutique en ligne", t3_name: "La boutique", t3_for: "Pour qui vend en ligne. Mode, alimentation, beauté, et tout ce qui tient dans une boîte.", t3_1: "Tout de L'histoire", t3_2: "Boutique, jusqu'à 50 produits", t3_3: "Paiement, panier et commande", t3_4: "Explications pour gérer vos produits vous-même",
+      pr_cta: "Commencer par une esquisse",
+      pr_note: "L'hébergement, le nom de domaine et la rédaction ne font pas partie du prix du forfait ; nous les organisons sur demande via le devis. Pas d'acompte : vous payez quand le site est terminé et que vous êtes satisfait.",
+      wie_role: "Fondateur, Digital Impression", wie_title: "Une seule personne. Du premier échange jusqu'à longtemps après le lancement.",
+      wie_p1: "Digital Impression est un petit studio de webdesign dans le Limbourg belge, actif en Belgique et aux Pays-Bas. Pas de chargés de compte, pas de helpdesk, pas de fournisseur anonyme : vous parlez à la personne qui conçoit et construit votre site.",
+      wie_p2: "Nous travaillons pour des entreprises, des indépendants et des organisations qui ont quelque chose à dire et veulent qu'on le ressente aussi en ligne.",
+      sig1: "Pas d'acompte.", sig2: "Pas de modèles.", sig3: "Pas de promesses sur Google.", sig4: "Pas de fournisseur anonyme.", sig5: "Du caractère, oui.",
+      e_title: "Quel caractère a votre entreprise ?", e_lead: "Dites-le-nous en une phrase. Sous 24 heures, vous verrez à quoi cela ressemble en site web. Gratuit, et vous décidez ensuite.",
+      f_zaak: "Votre entreprise en une phrase", f_zaak_ph: "Par exemple : nous fabriquons depuis 30 ans des abris de jardin en bois sur mesure, avec beaucoup de clients fidèles.",
+      f_naam: "Nom", f_naam_ph: "Votre nom", f_email: "E-mail", f_email_ph: "vous@entreprise.be", f_site: "Site web actuel (facultatif)", f_site_ph: "www.votreentreprise.be",
+      f_fine: "En envoyant, vous acceptez une prise de contact sans engagement. Pas d'acompte, pas d'obligation.", f_ok_t: "Merci. Nous commençons à dessiner.", f_ok_p: "Vous aurez de nos nouvelles sous 24 heures, avec une première esquisse de votre page d'accueil.", f_again: "Envoyer une autre demande",
+      ph_region: "Belgique & Pays-Bas", faq_eyebrow: "Questions fréquentes",
+      q1: "Qu'est-ce qu'une esquisse de caractère ?", a1: "Un design de votre page d'accueil, réalisé à partir d'une seule conversation sur votre entreprise. Vous le recevez sous 24 heures, gratuitement, sans acompte ni engagement. Si vous décidez de continuer, il devient la base de votre site.",
+      q2: "En combien de temps mon site sera-t-il en ligne ?", a2: "La plupart des sites sont en ligne 10 à 14 jours après votre accord. Une boutique ou un site en trois langues peut prendre un peu plus de temps ; nous le convenons à l'avance.",
+      q3: "Combien coûte exactement un site web ?", a3: "À partir de 999 €. Le prix exact dépend de vos besoins et figure noir sur blanc dans le devis, sans frais cachés. Hébergement, nom de domaine et textes sont organisés séparément sur demande.",
+      q4: "Puis-je modifier mon site moi-même par la suite ?", a4: "Oui. Vous recevez des explications pour gérer textes et images vous-même, et pour tout le reste vous restez avec la même personne, aussi après le lancement.",
+      foot_tag: "Des sites web avec du caractère. Pour les entreprises, indépendants et organisations en Belgique et aux Pays-Bas.", foot_story: "L'histoire", foot_contact: "Contact",
+      foot_rights: "© 2026 Digital Impression. Tous droits réservés.", foot_privacy: "Politique de confidentialité", foot_terms: "Conditions générales"
+    }
   };
-
-  var I18N_FR = {
-    meta_title: "Digital Impression | Des sites web avec du caractère",
-    meta_desc: "Nous créons des sites web rapides et professionnels qui attirent des clients. Recevez un devis sur mesure sous 24h et un design de page d'accueil gratuit.",
-    ph_address: "Belgique &amp; Pays-Bas", ph_email: "info@digital-impression.be", ph_phone: "+32 496 25 14 45", news_ph: "Votre e-mail",
-    nav_home: "Accueil", nav_services: "Services", nav_work: "Réalisations", nav_pricing: "Tarifs", nav_about: "À propos",
-    cta_quote: "Demander un devis",
-    hero_eyebrow: "Webdesign premium",
-    hero_title: "Un site web qui travaille aussi dur <em>que vous.</em>",
-    hero_sub: "Nous concevons et créons des sites web professionnels. Rapides, élégants et conçus pour attirer des clients.",
-    hero_cta1: "Demandez votre design gratuit",
-    hero_cta2: "Voir nos réalisations",
-    usp1_num: "2", usp1_unit: "semaines", usp1_label: "du premier échange au site en ligne", usp2_num: "Gratuit", usp2_label: "design de page d'accueil, avant même de décider", usp3_num: "1", usp3_unit: "interlocuteur", usp3_label: "du devis au lancement et au-delà",
-    hero_trust1: "Site en ligne en 2 semaines", hero_trust2: "Design de page d'accueil gratuit", hero_trust3: "Un interlocuteur dédié",
-    rd_eyebrow: "La différence",
-    rd_title: "De dépassé à <em>époustouflant</em>",
-    rd_lead: "Votre site web est votre vitrine numérique, et pour la plupart des entreprises, il joue contre elles. Un site dépassé fait fuir les clients avant même qu'ils n'appellent. Faites glisser le curseur et voyez comment nous transformons le même contenu en quelque chose qui inspire confiance et génère des demandes.",
-    rd_hint: "Glissez pour comparer avant &amp; après · cas réel : Credo Rehab &amp; Performance",
-    rd_from1: "Lent &amp; dépassé", rd_to1: "Ultra-rapide &amp; moderne",
-    rd_from2: "Première impression faible", rd_to2: "Première impression forte",
-    rd_from3: "Pas adapté au mobile", rd_to3: "Parfait sur chaque écran",
-    rd_from4: "Les visiteurs partent", rd_to4: "Les visiteurs deviennent clients",
-    rd_cta: "Demandez une proposition de redesign gratuite",
-    ba_before: "Avant", ba_after: "Après",
-    marquee_label: "La confiance des entreprises et des marques",
-    svc_eyebrow: "Nos services", svc_title: "Ce que nous <em>créons</em>",
-    svc_aside: "Vous ne savez pas ce qu'il vous faut ?<br /><a href=\"#contact\" class=\"link-gold\">Trouvons-le ensemble</a>",
-    svc_cta: "Demander un devis",
-    svc1_title: "Sites web d'entreprise", svc1_body: "Des sites web élégants et professionnels qui inspirent confiance et génèrent des leads.",
-    svc1_f1: "Design qui inspire confiance", svc1_f2: "Rapide et sécurisé", svc1_f3: "Formulaires de contact intelligents",
-    svc2_title: "Landing pages", svc2_body: "Des pages uniques conçues pour un seul objectif : la conversion. Parfaites pour les campagnes et les lancements de produits.",
-    svc2_f1: "Un objectif clair", svc2_f2: "Conçue pour convertir", svc2_f3: "Idéale pour les campagnes",
-    svc3_title: "Boutiques en ligne", svc3_body: "Vendez en ligne avec une boutique conçue pour convertir, avec de belles pages produits et un paiement fluide.",
-    svc3_f1: "De belles pages produits", svc3_f2: "Paiement fluide", svc3_f3: "Paiements sécurisés",
-    svc4_title: "Refontes", svc4_body: "Transformez votre site actuel en quelque chose dont vous êtes fier. Le même contenu, une toute nouvelle impression.",
-    svc4_f1: "Un look frais et moderne", svc4_f2: "Gardez votre contenu", svc4_f3: "Plus rapide &amp; mobile",
-    work_eyebrow: "Portfolio", work_title: "Nos <em>réalisations</em>",
-    work_aside: "Une sélection des sites web que nous avons créés, du commerce de gros à la kinésithérapie.",
-    work_live: "Voir en ligne",
-    work_tag_simonta: "Commerce de gros B2B", work_desc_simonta: "Grossiste en carottes fraîches, B2B, livraison dans toute l'Europe.",
-    work_tag_mergel: "Tourisme &amp; Culture", work_desc_mergel: "Visites guidées de grottes, atmosphériques &amp; historiques.",
-    work_tag_tuin: "Jardin &amp; Paysage", work_desc_tuin: "Aménagement &amp; entretien de jardins, élégant et vert.",
-    work_tag_fadim: "Artiste &amp; Événements", work_desc_fadim: "Artiste/chanteur avec agenda, boutique fan &amp; réservations.",
-    fi_eyebrow: "Nos engagements",
-    fi_title: "Pas de grands mots, mais des <em>engagements clairs</em>",
-    fi_stat1: "Sous 24 heures après votre demande, vous recevez un devis sur mesure et un design gratuit de votre page d'accueil.",
-    fi_stat2: "Du premier échange au site en ligne : la plupart des projets sont en ligne en 10 à 14 jours.",
-    fi_stat3: "D'acompte. Vous ne payez que lorsque le site est terminé et que vous êtes satisfait.",
-    proc_eyebrow: "Comment ça marche", proc_title: "De la demande au site en ligne en moins de <em>2 semaines</em>",
-    proc_step: "Étape 1", proc_step2: "Étape 2", proc_step3: "Étape 3", proc_step4: "Étape 4",
-    proc1_title: "Parlez-nous de votre projet", proc1_body: "Un bref échange de 3 minutes où vous nous exposez vos objectifs et vos souhaits.",
-    proc2_title: "Devis &amp; design", proc2_body: "Sous 24h, vous recevez un devis sur mesure et un design de page d'accueil gratuit.",
-    proc3_title: "Nous créons votre site", proc3_body: "En 10 à 14 jours, nous créons votre site en vous tenant informé à chaque étape.",
-    proc4_title: "Vous passez en ligne", proc4_body: "Votre site est mis en ligne, avec un support continu et un interlocuteur dédié.",
-    proc_band: "<strong>Sans engagement, sans acompte.</strong> Votre design de page d'accueil gratuit ne coûte rien et ne vous engage à rien. Nous gagnons votre confiance avant de vous demander quoi que ce soit.",
-    about_badge: "Actif en BE &amp; NL", about_eyebrow: "À propos", about_title: "Un studio, <em>un interlocuteur</em>",
-    about_intro: "Digital Impression est un studio de webdesign qui aide les entreprises, les indépendants et les organisations à obtenir un site qui n'est pas seulement magnifique, mais qui séduit réellement des clients. Pas de fournisseur étranger anonyme, mais un interlocuteur local et dédié qui réfléchit avec vous, du premier échange au lancement et au-delà.",
-    about_l1: "Un interlocuteur dédié", about_l2: "Tarifs transparents", about_l3: "Local &amp; impliqué", about_l4: "Orienté résultats",
-    about_cta: "Discuter de votre projet",
-    why_eyebrow: "Pourquoi Digital Impression", why_title: "Pourquoi les clients nous <em>choisissent</em>",
-    why1_title: "Interlocuteur local", why1_body: "Une équipe locale qui vous comprend, vous et votre marché, sans fournisseur étranger anonyme.",
-    why2_title: "Livraison rapide", why2_body: "Votre site en ligne en 10 à 14 jours, sans attente interminable.",
-    why3_title: "Approche personnelle", why3_body: "Un interlocuteur dédié, du premier échange au lancement et au-delà.",
-    price_eyebrow: "Tarifs", price_title: "Ce que ça <em>coûte</em>", price_lead: "Pas de coûts cachés. Pas de surprises.",
-    price_from: "à partir de", price_badge: "⭐ Le plus populaire",
-    price_incl: "Inclus", price_ideal: "Idéal pour",
-    price1_amount: "<span class=\"price__from\">à partir de</span> <span class=\"price__now\">€999</span>",
-    price2_amount: "<span class=\"price__from\">à partir de</span> <span class=\"price__now\">€1.249</span>",
-    price3_amount: "<span class=\"price__from\">à partir de</span> <span class=\"price__now\">€1.899</span>",
-    price1_sub: "Parfait pour les indépendants, les entreprises locales et les startups qui ont besoin d'une présence en ligne professionnelle.",
-    price2_sub: "Conçu pour les entreprises qui veulent générer des leads et convertir les visiteurs en clients.",
-    price3_sub: "Une solution e-commerce complète conçue pour maximiser les ventes en ligne.",
-    b_incl1: "Design de site sur mesure", b_incl2: "Jusqu'à 3 pages", b_incl3: "Design responsive (mobile)", b_incl4: "Formulaire de contact", b_incl5: "Liens vers les réseaux sociaux",
-    b_ideal1: "Restaurants", b_ideal2: "Consultants", b_ideal3: "Petites entreprises", b_ideal4: "Marques personnelles",
-    p_incl1: "Tout de Website Basic", p_incl2: "Jusqu'à 5 pages", p_incl3: "Intégration newsletter", p_incl4: "Section blog/actualités", p_incl5: "Système de réservation ou de devis",
-    p_ideal1: "Entreprises en croissance", p_ideal2: "Entreprises de services", p_ideal3: "Agences", p_ideal4: "Cabinets professionnels",
-    s_incl1: "Tout de Website Premium", s_incl2: "Configuration de la boutique en ligne", s_incl3: "Jusqu'à 50 produits importés", s_incl4: "Intégration des paiements", s_incl5: "Panier et paiement",
-    s_ideal1: "Marques de vêtements", s_ideal2: "Marques food &amp; boissons", s_ideal3: "Produits de beauté", s_ideal4: "Entreprises e-commerce",
-    feat_pages: "Jusqu'à 5 pages", feat_responsive: "Design responsive (mobile)", feat_form: "Formulaire de contact",
-    feat_seo: "Sécurité SSL", feat_online: "En ligne en 10 à 14 jours", feat_free: "Design de page d'accueil gratuit",
-    cta_request: "Demander un devis", cta_contact: "Nous contacter",
-    price_note: "Chaque projet inclut un design de page d'accueil gratuit, envoyé dans les 24 heures suivant votre demande, sans le moindre engagement. L'hébergement, le nom de domaine et la rédaction ne font pas partie du prix du forfait ; nous les organisons sur demande via le devis.",
-    faq_eyebrow: "Questions fréquentes", faq_title: "Tout ce que vous voulez <em>savoir</em>",
-    faq_lead: "Pas de réponse ? <a href=\"#contact\" class=\"link-gold\">Posez votre question</a> et nous vous répondrons sous 24 heures.",
-    faq_q1: "En combien de temps mon site sera-t-il en ligne ?",
-    faq_a1: "La plupart des projets sont en ligne en 10 à 14 jours. Après votre demande, vous recevez un devis sur mesure et un design de page d'accueil gratuit sous 24 heures.",
-    faq_q2: "Combien coûte exactement un site web ?",
-    faq_a2: "Un site web professionnel démarre à 999 €. Le prix exact dépend de vos souhaits. Vous recevez toujours un devis transparent, sans coûts cachés ni surprises.",
-    faq_q3: "Le design gratuit est-il vraiment sans engagement ?",
-    faq_a3: "Absolument. Votre design de page d'accueil gratuit ne coûte rien et ne vous engage à rien. Pas d'acompte, pas d'engagement. Nous gagnons d'abord votre confiance.",
-    faq_q4: "Puis-je mettre à jour mon site moi-même par la suite ?",
-    faq_a4: "Oui. Nous construisons votre site pour que vous puissiez facilement gérer les textes et les images, et vous bénéficiez d'un interlocuteur dédié pour le support, même après le lancement.",
-    faq_q5: "Gérez-vous aussi l'hébergement et le nom de domaine ?",
-    faq_a5: "Bien sûr. Si vous le souhaitez, nous nous occupons de l'hébergement, du nom de domaine et de la configuration technique, pour que vous n'ayez à vous soucier de rien.",
-    contact_eyebrow: "Démarrez votre projet aujourd'hui", contact_title: "Créons ensemble quelque chose de <em>magnifique</em>",
-    contact_lead: "Parlez-nous de votre projet et nous vous enverrons un devis sur mesure et un <span class=\"gold\">design de page d'accueil</span> gratuit sous 24 heures. Totalement sans engagement.",
-    contact_pt1: "Devis sur mesure + design gratuit sous 24 heures",
-    contact_pt2: "Pas d'acompte, vous ne payez que lorsque vous êtes 100 % satisfait",
-    f_naam: "Nom", f_naam_ph: "Votre nom", f_bedrijf: "Nom de l'entreprise", f_bedrijf_ph: "Votre entreprise",
-    f_email: "E-mail", f_email_ph: "vous@entreprise.be", f_tel: "Numéro de téléphone",
-    f_bericht: "Message", f_bericht_ph: "Comment pouvons-nous vous aider ? Parlez-nous brièvement de votre projet.",
-    f_type: "Type de site web", f_select: "Sélectionnez...",
-    f_opt1: "Site web d'entreprise", f_opt2: "Landing page", f_opt3: "Boutique en ligne", f_opt4: "Refonte", f_opt5: "Autre",
-    f_project: "Parlez-nous de votre projet", f_project_ph: "Objectifs, exemples, délais...",
-    f_found: "Comment nous avez-vous trouvés ?", f_found_ph: "Recommandation, réseaux sociaux, réseau...",
-    f_submit: "Envoyer", f_fine: "En envoyant, vous acceptez une prise de contact sans engagement.",
-    f_success_title: "Merci pour votre demande !",
-    f_success_body: "Nous avons bien reçu votre message. Vous aurez de nos nouvelles sous 24 heures avec un devis sur mesure et votre design de page d'accueil gratuit.",
-    f_again: "Envoyer une autre demande",
-    footer_tagline: "Des sites web avec du caractère. Rapides, élégants et conçus pour attirer des clients.",
-    footer_company: "Entreprise", footer_contact: "Contact",
-    footer_stay: "Restez Informé", footer_stay_sub: "Conseils &amp; idées sur le webdesign pour entrepreneurs.",
-    footer_rights: "© 2026 Digital Impression. Tous droits réservés.",
-    footer_privacy: "Politique de confidentialité", footer_terms: "Conditions générales", about_c_title: "Ce que vous pouvez attendre de nous", why_v1a: "Peut-on encore modifier le texte ?", why_v1b: "Bien sûr. En ligne dans l'heure.", why_v1m: "Réponse sous 24h", why_v2a: "Jour 1 · Appel", why_v2b: "Jour 2 · Design", why_v2c: "Jour 14 · En ligne", why_v3a: "Prise de contact", why_v3b: "Design", why_v3c: "Vos retours", why_v3d: "En ligne", work_tag_credo: "Kiné &amp; performance", work_desc_credo: "Cabinet de rééducation et performance, moderne et rassurant.", swipe_hint: "Glissez pour voir plus →",
-    rd_case: "<strong>Credo Rehab &amp; Performance</strong>, Diepenbeek : d'un modèle Wix standard à un site sur mesure, avec ses propres visuels, trois langues et la prise de rendez-vous en ligne.",
-    f_website: "Site web actuel (facultatif)",
-    f_website_ph: "www.votreentreprise.be"
-  };
-
-  var I18N = { en: I18N_EN, fr: I18N_FR };
-  var LANG_LABELS = { nl: "NL", en: "EN", fr: "FR" };
-
+  var NL = {};
+  function snapshotNL() {
+    $$("[data-i18n]").forEach(function (el) { var k = el.getAttribute("data-i18n"); if (!(k in NL)) NL[k] = el.innerHTML; });
+    $$("[data-i18n-ph]").forEach(function (el) { var k = el.getAttribute("data-i18n-ph"); if (!(k in NL)) NL[k] = el.getAttribute("placeholder"); });
+    NL.meta_title = document.title;
+  }
+  function applyLang(l) {
+    lang = l; var d = I18N[l];
+    $$("[data-i18n]").forEach(function (el) { var k = el.getAttribute("data-i18n"); var v = d ? d[k] : NL[k]; if (v != null) el.innerHTML = v; });
+    $$("[data-i18n-ph]").forEach(function (el) { var k = el.getAttribute("data-i18n-ph"); var v = d ? d[k] : NL[k]; if (v != null) el.setAttribute("placeholder", v); });
+    document.title = (d && d.meta_title) || NL.meta_title;
+    document.documentElement.lang = l;
+    $$("#lang button").forEach(function (b) { b.classList.toggle("is-on", b.getAttribute("data-lang") === l); });
+    fillDemo(currentK);
+    try { localStorage.setItem("di_lang", l); } catch (e) {}
+  }
   function initI18n() {
-    var nl = {};
-    document.querySelectorAll("[data-i18n]").forEach(function (el) {
-      nl[el.getAttribute("data-i18n")] = el.innerHTML;
-    });
-    document.querySelectorAll("[data-i18n-ph]").forEach(function (el) {
-      nl["__ph_" + el.getAttribute("data-i18n-ph")] = el.getAttribute("placeholder") || "";
-    });
-    nl.meta_title = document.title;
-    var metaDesc = document.querySelector('meta[name="description"]');
-    nl.meta_desc = metaDesc ? metaDesc.getAttribute("content") : "";
-
-    function updateLangUI(lang) {
-      var dl = document.getElementById("langLabel"); if (dl) dl.textContent = LANG_LABELS[lang] || "NL";
-      document.querySelectorAll(".lang-menu__item, .lang-seg__btn").forEach(function (b) {
-        b.classList.toggle("is-active", b.getAttribute("data-lang") === lang);
-      });
-    }
-
-    function apply(lang, isToggle) {
-      currentLang = lang;
-      document.documentElement.lang = lang;
-      var dict = I18N[lang]; // nl has no dict -> use captured DOM defaults
-      document.querySelectorAll("[data-i18n]").forEach(function (el) {
-        var k = el.getAttribute("data-i18n");
-        var val = dict ? dict[k] : null;
-        if (val == null) val = nl[k];
-        if (val != null) el.innerHTML = val;
-      });
-      document.querySelectorAll("[data-i18n-ph]").forEach(function (el) {
-        var k = el.getAttribute("data-i18n-ph");
-        var val = dict ? dict[k] : null;
-        if (val == null) val = nl["__ph_" + k];
-        if (val != null) el.setAttribute("placeholder", val);
-      });
-      document.title = (dict && dict.meta_title) || nl.meta_title;
-      if (metaDesc) metaDesc.setAttribute("content", (dict && dict.meta_desc) || nl.meta_desc);
-      // already-counted stats: re-render with the right suffix
-      document.querySelectorAll("[data-count].counted").forEach(function (el) {
-        el.textContent = el.getAttribute("data-count") + sufOf(el);
-      });
-      updateLangUI(lang);
-      try { localStorage.setItem("di_lang", lang); } catch (e) {}
-      renderIcons();
-    }
-
-    var saved = "nl";
-    try { saved = localStorage.getItem("di_lang") || "nl"; } catch (e) {}
-    if (saved !== "nl" && I18N[saved]) apply(saved, false); else { currentLang = "nl"; updateLangUI("nl"); }
-
-    // desktop dropdown open/close
-    var sw = document.getElementById("langSwitch");
-    var tog = document.getElementById("langToggle");
-    if (sw && tog) {
-      tog.addEventListener("click", function (e) {
-        e.stopPropagation();
-        var open = sw.classList.toggle("is-open");
-        tog.setAttribute("aria-expanded", open ? "true" : "false");
-      });
-      document.addEventListener("click", function (e) {
-        if (!sw.contains(e.target)) { sw.classList.remove("is-open"); tog.setAttribute("aria-expanded", "false"); }
-      });
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") { sw.classList.remove("is-open"); tog.setAttribute("aria-expanded", "false"); }
-      });
-    }
-
-    // language buttons: desktop menu items + mobile segmented control
-    document.querySelectorAll("[data-lang]").forEach(function (b) {
-      b.addEventListener("click", function () {
-        apply(b.getAttribute("data-lang"), true);
-        if (sw) { sw.classList.remove("is-open"); if (tog) tog.setAttribute("aria-expanded", "false"); }
-      });
-    });
+    snapshotNL();
+    $("#lang").addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) applyLang(b.getAttribute("data-lang")); });
+    var saved = null; try { saved = localStorage.getItem("di_lang"); } catch (e) {}
+    if (saved && saved !== "nl" && I18N[saved]) applyLang(saved);
   }
 
-
-  /* ---- Werkwijze: gold progress line follows the scroll ---- */
-  function initTimelineProgress() {
-    var tl = document.querySelector(".timeline"); if (!tl) return;
-    var items = tl.querySelectorAll(".tl-item");
-    function upd() {
-      var r = tl.getBoundingClientRect(), vh = window.innerHeight, line = vh * 0.72;
-      var p = Math.max(0, Math.min(1, (line - r.top) / r.height));
-      tl.style.setProperty("--tl", p.toFixed(3));
-      items.forEach(function (it) { it.classList.toggle("is-past", it.getBoundingClientRect().top < line); });
-    }
-    window.addEventListener("scroll", upd, { passive: true });
-    window.addEventListener("resize", upd);
-    upd();
-  }
-
-  /* ---- init ---- */
+  /* ===================================================================== */
   function init() {
-    renderIcons();
-    initProgress();
-    initHeader();
-    initMobileMenu();
-    initReveal();
-    initI18n();
-    initCountUp();
-    initHeroCanvas();
-    initCursor();
-    initTilt();
-    initTimelineProgress();
-    initBeforeAfter();
-    initFaq();
-    initCarousel();
-    initContactForm();
+    initI18n(); initHeader(); initKiezer(); initPen(); initReveal(); initChapters(); initCliches(); initStrip(); initSteps(); initBeforeAfter(); initFaq(); initForm();
   }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();
-
-  
