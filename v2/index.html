@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Impression | Websites met karakter</title>
+  <meta name="description" content="Elke zaak heeft karakter. De meeste websites verbergen het. Wij bouwen websites die laten zien wie u echt bent. Gratis karakterschets binnen 24 uur, geen voorschot." />
+  <meta name="robots" content="noindex, nofollow" />
+  
+  <meta name="theme-color" content="#0E1C3A" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="nl_BE" />
+  <meta property="og:site_name" content="Digital Impression" />
+  <meta property="og:title" content="Digital Impression | Websites met karakter" />
+  <meta property="og:description" content="Elke zaak heeft karakter. De meeste websites verbergen het." />
+  <meta property="og:url" content="https://digital-impression.be/" />
+  <link rel="icon" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&family=Anton&family=Bebas+Neue&family=Fraunces:ital,wght@0,500;0,600;1,500&family=Manrope:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <canvas class="pen" id="pen" aria-hidden="true"></canvas>
+  <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+  <nav class="rail" id="rail" aria-label="Hoofdstukken">
+    <a href="#proloog" data-i18n="rail_0">Proloog</a>
+    <a href="#probleem">I</a>
+    <a href="#verhalen">II</a>
+    <a href="#werkwijze">III</a>
+    <a href="#prijzen">IV</a>
+    <a href="#wie">V</a>
+    <a href="#contact" data-i18n="rail_6">Epiloog</a>
+  </nav>
+
+  <header class="top" id="top">
+    <div class="container top__in">
+      <a href="#proloog" class="wordmark" aria-label="Digital Impression"><b>Digital</b><i>Impression</i></a>
+      <nav class="nav" aria-label="Hoofdnavigatie">
+        <a href="#verhalen" data-i18n="nav_stories">De verhalen</a>
+        <a href="#werkwijze" data-i18n="nav_how">Werkwijze</a>
+        <a href="#prijzen" data-i18n="nav_price">Prijzen</a>
+        <a href="#wie" data-i18n="nav_who">Wie</a>
+      </nav>
+      <div class="top__right">
+        <div class="lang" id="lang" role="group" aria-label="Taal">
+          <button type="button" data-lang="nl" class="is-on">NL</button>
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="fr">FR</button>
+        </div>
+        <a href="#contact" class="btn btn--ghost btn--sm" data-i18n="cta_sketch_short">Gratis karakterschets</a>
+        <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+  <div class="drawer" id="drawer">
+    <a href="#verhalen" data-i18n="nav_stories">De verhalen</a>
+    <a href="#werkwijze" data-i18n="nav_how">Werkwijze</a>
+    <a href="#prijzen" data-i18n="nav_price">Prijzen</a>
+    <a href="#wie" data-i18n="nav_who">Wie</a>
+    <a href="#contact" class="btn btn--gold" data-i18n="cta_sketch">Vraag uw gratis karakterschets</a>
+  </div>
+
+  <main>
+
+    <!-- ===================== PROLOOG ===================== -->
+    <section class="ch hero" id="proloog" data-theme="dark" data-chapter="0">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow"><span class="chapter" data-i18n="ch_0">Proloog</span></p>
+          <h1 class="h-xl">
+            <span data-i18n="h1_a">Elke zaak heeft <em class="kw">karakter.</em></span>
+            <span data-i18n="h1_b">De meeste websites verbergen het.</span>
+          </h1>
+          <p class="lead rv" data-d="3" data-i18n="hero_lead">Wij bouwen websites die laten zien wie u echt bent, zodat de juiste klanten het meteen voelen. Geen sjabloon, geen voorschot, en u ziet uw ontwerp vóór u beslist.</p>
+          <div class="hero__cta rv" data-d="4">
+            <a href="#contact" class="btn btn--gold"><span data-i18n="cta_sketch">Vraag uw gratis karakterschets</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="#verhalen" class="btn btn--ghost" data-i18n="cta_stories">Lees de verhalen</a>
+          </div>
+        </div>
+
+        <div class="kiezer rv" data-d="2">
+          <div class="kiezer__tabs" id="kiezerTabs" role="tablist" aria-label="Kies een zaak">
+            <span class="kiezer__label" data-i18n="k_label">Kies een zaak</span>
+            <button type="button" class="kiezer__tab is-on" role="tab" data-k="tuinman" data-i18n="k_tuinman">tuinman</button>
+            <button type="button" class="kiezer__tab" role="tab" data-k="kinesist" data-i18n="k_kinesist">kinesist</button>
+            <button type="button" class="kiezer__tab" role="tab" data-k="bakker" data-i18n="k_bakker">bakker</button>
+            <button type="button" class="kiezer__tab" role="tab" data-k="advocaat" data-i18n="k_advocaat">advocaat</button>
+            <button type="button" class="kiezer__tab" role="tab" data-k="zanger" data-i18n="k_zanger">zanger</button>
+            <button type="button" class="kiezer__tab" role="tab" data-k="webshop" data-i18n="k_webshop">webshop</button>
+          </div>
+          <div class="laptop">
+            <div class="laptop__bar" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span class="laptop__note" data-i18n="k_note">voorbeeld</span>
+            <div class="demo" id="demo" data-k="tuinman" aria-live="polite">
+              <div class="demo__img" aria-hidden="true">
+                <img src="assets/img/k-tuinman.jpg" alt="" data-k="tuinman" class="is-on" />
+                <img src="assets/img/k-kinesist.jpg" alt="" data-k="kinesist" loading="lazy" />
+                <img src="assets/img/k-bakker.jpg" alt="" data-k="bakker" loading="lazy" />
+                <img src="assets/img/k-advocaat.jpg" alt="" data-k="advocaat" loading="lazy" />
+                <img src="assets/img/k-zanger.jpg" alt="" data-k="zanger" loading="lazy" />
+                <img src="assets/img/k-webshop.jpg" alt="" data-k="webshop" loading="lazy" />
+              </div>
+              <div class="demo__shade" aria-hidden="true"></div>
+              <div class="demo__nav">
+                <span class="demo__logo t" id="dLogo">Tuinen Mertens</span>
+                <span class="demo__links"><span class="t" id="dL1">Tuinen</span><span class="t" id="dL2">Projecten</span><span class="t" id="dL3">Contact</span></span>
+                <span class="demo__cta t" id="dCta">Offerte</span>
+              </div>
+              <div class="demo__hero">
+                <span class="demo__kick t" id="dKick">Tuinaanleg &amp; onderhoud</span>
+                <span class="demo__h t" id="dH">Een tuin die met u meegroeit.</span>
+                <span class="demo__p t" id="dP">Ontwerp, aanleg en onderhoud door mensen die weten wat er in uw grond groeit.</span>
+                <span class="demo__btn t" id="dBtn">Vraag een tuinplan</span>
+              </div>
+              <div class="demo__strip"><span class="t" id="dS1">Ontwerp</span><span class="t" id="dS2">Aanleg</span><span class="t" id="dS3">Onderhoud</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HOOFDSTUK I ===================== -->
+    <section class="ch" id="probleem" data-theme="dark" data-chapter="1">
+      <div class="container">
+        <div class="ch__head">
+          <p class="eyebrow rv"><span class="chapter" data-i18n="ch_1">Hoofdstuk I</span></p>
+          <h2 class="h-l rv" data-d="1" data-i18n="p_title">Hetzelfde verhaal, overal.</h2>
+        </div>
+
+        <div class="cliches" id="cliches" aria-label="Clichés van websites">
+          <span class="cliche" data-i18n="c1">Welkom op onze website.</span>
+          <span class="cliche" data-i18n="c2">Wij staan voor kwaliteit en service.</span>
+          <span class="cliche" data-i18n="c3">Uw partner in oplossingen op maat.</span>
+          <span class="cliche" data-i18n="c4">Al 25 jaar ervaring.</span>
+          <span class="cliche" data-i18n="c5">De klant staat bij ons centraal.</span>
+          <span class="cliche" data-i18n="c6">Vakmanschap is onze passie.</span>
+          <span class="cliche" data-i18n="c7">Vrijblijvend contact opnemen.</span>
+          <span class="cliche cliche--truth" data-i18n="c_truth">Elke zaak heeft karakter.</span>
+        </div>
+
+        <div class="probleem__text">
+          <p class="lead rv" data-i18n="p_lead">Herkent u dat? Iedereen schrijft het, dus niemand gelooft het.</p>
+          <p class="rv" data-d="1" data-i18n="p_body">Een bezoeker beslist in enkele seconden of u de echte bent. Niet op basis van wat er staat, maar van hoe het voelt. Een website zonder karakter zegt: wij zijn zoals de anderen. En dat bent u niet.</p>
+        </div>
+
+        <div class="ba-grid">
+          <div class="rv">
+            <div class="ba" id="ba" style="--w:100%">
+              <div class="ba__layer ba__layer--after" style="--d:url('assets/img/credo-after-d.jpg');--m:url('assets/img/credo-after-m.jpg')" role="img" aria-label="Nieuwe website van Credo Rehab & Performance"></div>
+              <div class="ba__layer ba__layer--before" id="baBefore"><div style="--d:url('assets/img/credo-before-d.jpg');--m:url('assets/img/credo-before-m.jpg')" role="img" aria-label="Oude website van Credo Rehab & Performance"></div></div>
+              <span class="ba__tag ba__tag--before" data-i18n="ba_before">Voor</span>
+              <span class="ba__tag ba__tag--after" data-i18n="ba_after">Na</span>
+              <button class="ba__handle" id="baHandle" type="button" role="slider" aria-label="Voor en na vergelijken" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></i>
+              </button>
+            </div>
+            <p class="ba__hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18M7 8l-4 4 4 4M17 8l4 4-4 4"/></svg><span data-i18n="ba_hint">Sleep om te vergelijken · Credo Rehab &amp; Performance, Diepenbeek</span></p>
+          </div>
+          <div class="ch__head rv" data-d="1">
+            <p class="eyebrow" data-i18n="ba_eyebrow">Eén praktijk, twee websites</p>
+            <h3 class="h-m" data-i18n="ba_title">Dezelfde kinesisten. Eén keer met karakter.</h3>
+            <p data-i18n="ba_body">Links het Wix-sjabloon dat er stond. Rechts de website die we ervoor bouwden: zwart-wit, direct, met eigen beeld en online boeken. Zelfde mensen, zelfde praktijk. Andere indruk.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HOOFDSTUK II ===================== -->
+    <section class="ch" id="verhalen" data-theme="light" data-chapter="2" style="padding-block:0">
+      <div class="strip" id="strip" style="--n:5">
+        <div class="strip__sticky" id="stripSticky">
+          <div class="container strip__head">
+            <div class="ch__head">
+              <p class="eyebrow"><span class="chapter" data-i18n="ch_2">Hoofdstuk II</span></p>
+              <h2 class="h-l" data-i18n="s_title">Vijf zaken, vijf karakters.</h2>
+            </div>
+            <span class="strip__count" id="stripCount">1 / 5</span>
+          </div>
+          <div class="strip__track" id="stripTrack">
+
+            <article class="story is-current" data-i="1">
+              <div class="story__copy">
+                <span class="story__idx">1 / 5</span>
+                <h3 class="story__name">Simonta</h3>
+                <p class="story__who" data-i18n="st1_who">Groothandel in verse wortelen, elke dag onderweg naar klanten in heel Europa.</p>
+                <p class="story__what" data-i18n="st1_what">Fris en direct, zoals het product: één foto, één belofte, één knop. Geen omwegen voor een inkoper die snel wil weten of hij goed zit.</p>
+                <a class="story__link" href="https://simonta.eu" target="_blank" rel="noopener noreferrer"><span data-i18n="st_live">Bekijk de site</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+              <div class="story__shot"><img src="assets/img/site-simonta.jpg" alt="Homepagina van Simonta" loading="lazy" /></div>
+            </article>
+
+            <article class="story" data-i="2">
+              <div class="story__copy">
+                <span class="story__idx">2 / 5</span>
+                <h3 class="story__name">Mergelgrotten Zichen</h3>
+                <p class="story__who" data-i18n="st2_who">Rondleidingen door eeuwenoude mergelgangen onder Zichen.</p>
+                <p class="story__what" data-i18n="st2_what">Donker, warm en stil, zoals de gangen zelf. Het verhaal gaat voor op de praktische info, want wie hier komt, komt voor de sfeer.</p>
+                <a class="story__link" href="https://mergelgrottenzichen.be" target="_blank" rel="noopener noreferrer"><span data-i18n="st_live">Bekijk de site</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+              <div class="story__shot"><img src="assets/img/site-mergel.jpg" alt="Homepagina van Mergelgrotten Zichen" loading="lazy" /></div>
+            </article>
+
+            <article class="story" data-i="3">
+              <div class="story__copy">
+                <span class="story__idx">3 / 5</span>
+                <h3 class="story__name">Tuinwerken Stas</h3>
+                <p class="story__who" data-i18n="st3_who">Tuinaanleg en onderhoud, met geduld voor wat traag groeit.</p>
+                <p class="story__what" data-i18n="st3_what">Groen, rustig en ruim. De site laat de tuinen spreken, niet de tuinman. Eén knop voor wie een offerte wil, verder geen lawaai.</p>
+                <a class="story__link" href="https://tuinwerkenstas.be" target="_blank" rel="noopener noreferrer"><span data-i18n="st_live">Bekijk de site</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+              <div class="story__shot"><img src="assets/img/site-tuin.jpg" alt="Homepagina van Tuinwerken Stas" loading="lazy" /></div>
+            </article>
+
+            <article class="story" data-i="4">
+              <div class="story__copy">
+                <span class="story__idx">4 / 5</span>
+                <h3 class="story__name">Fadim Official</h3>
+                <p class="story__who" data-i18n="st4_who">Zanger met een volle agenda en een publiek dat terugkomt.</p>
+                <p class="story__what" data-i18n="st4_what">Groot, feestelijk en in beweging. Agenda, fanshop en boekingen op één plek, zodat fans en organisatoren elk hun eigen deur vinden.</p>
+                <a class="story__link" href="https://fadimofficial.be" target="_blank" rel="noopener noreferrer"><span data-i18n="st_live">Bekijk de site</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+              <div class="story__shot"><img src="assets/img/site-fadim.jpg" alt="Homepagina van Fadim Official" loading="lazy" /></div>
+            </article>
+
+            <article class="story" data-i="5">
+              <div class="story__copy">
+                <span class="story__idx">5 / 5</span>
+                <h3 class="story__name">Credo Rehab &amp; Performance</h3>
+                <p class="story__who" data-i18n="st5_who">Kinesisten in Diepenbeek die sporters terugbrengen naar hun niveau, en verder.</p>
+                <p class="story__what" data-i18n="st5_what">Zwart-wit, hard en eerlijk, zoals een trainingsruimte om zes uur 's ochtends. Drie talen en online boeken, zonder dat het een folder wordt.</p>
+                <a class="story__link" href="https://www.credorehabandperformance.com" target="_blank" rel="noopener noreferrer"><span data-i18n="st_live">Bekijk de site</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+              <div class="story__shot"><img src="assets/img/site-credo.jpg" alt="Performancepagina van Credo Rehab & Performance" loading="lazy" /></div>
+            </article>
+
+          </div>
+          <div class="strip__bar" aria-hidden="true"><i></i></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HOOFDSTUK III ===================== -->
+    <section class="ch" id="werkwijze" data-theme="light" data-chapter="3">
+      <div class="container">
+        <div class="ch__head">
+          <p class="eyebrow rv"><span class="chapter" data-i18n="ch_3">Hoofdstuk III</span></p>
+          <h2 class="h-l rv" data-d="1" data-i18n="w_title">Eerst luisteren. Dan tekenen. Dan pas bouwen.</h2>
+          <p class="lead rv" data-d="2" data-i18n="w_lead">Karakter vind je niet in een sjabloon. Je vindt het in een gesprek. Daarom begint elk project bij ons met luisteren, en ziet u uw website vóór u iets betaalt.</p>
+        </div>
+        <ol class="steps" id="steps">
+          <li class="step rv">
+            <span class="step__n" data-i18n="w1_n">Eén</span>
+            <h3 data-i18n="w1_t">Luisteren</h3>
+            <p data-i18n="w1_p">Een gesprek van een half uur over uw zaak, niet over uw website. Wie zijn uw klanten, waar bent u trots op, wat moet iedereen weten.</p>
+          </li>
+          <li class="step step--key rv" data-d="1">
+            <span class="step__badge" data-i18n="w2_badge">Gratis · binnen 24 uur</span>
+            <span class="step__n" data-i18n="w2_n">Twee</span>
+            <h3 data-i18n="w2_t">De karakterschets</h3>
+            <p data-i18n="w2_p">U ziet uw homepagina, ontworpen op maat van dat gesprek. Geen voorschot, geen verplichting. U beslist pas daarna.</p>
+          </li>
+          <li class="step rv" data-d="2">
+            <span class="step__n" data-i18n="w3_n">Drie</span>
+            <h3 data-i18n="w3_t">Bouwen</h3>
+            <p data-i18n="w3_p">Tien tot veertien dagen, met u aan tafel bij elke stap. Teksten, beeld en techniek, allemaal onder één dak.</p>
+          </li>
+          <li class="step rv" data-d="3">
+            <span class="step__n" data-i18n="w4_n">Vier</span>
+            <h3 data-i18n="w4_t">Live</h3>
+            <p data-i18n="w4_p">Uw website gaat online, met uitleg en support. En daarna blijft u bij dezelfde persoon, geen helpdesk.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== HOOFDSTUK IV ===================== -->
+    <section class="ch" id="prijzen" data-theme="light" data-chapter="4">
+      <div class="container">
+        <div class="ch__head">
+          <p class="eyebrow rv"><span class="chapter" data-i18n="ch_4">Hoofdstuk IV</span></p>
+          <h2 class="h-l rv" data-d="1" data-i18n="pr_title">Karakter heeft een prijs. Een eerlijke.</h2>
+          <p class="lead rv" data-d="2" data-i18n="pr_lead">Drie pakketten, vaste vertrekprijzen, geen kleine lettertjes. Elk pakket begint met een gratis karakterschets.</p>
+        </div>
+        <div class="tiers">
+          <article class="tier rv">
+            <span class="tier__sub" data-i18n="t1_sub">Website Basic</span>
+            <h3 class="tier__name" data-i18n="t1_name">Het visitekaartje</h3>
+            <p class="tier__price"><small data-i18n="pr_from">vanaf</small>€999</p>
+            <p class="tier__for" data-i18n="t1_for">Voor wie gevonden wil worden en meteen vertrouwen wil wekken. Freelancers, lokale zaken, starters.</p>
+            <ul>
+              <li data-i18n="t1_1">Website op maat, tot 3 pagina's</li>
+              <li data-i18n="t1_2">Perfect op gsm, tablet en laptop</li>
+              <li data-i18n="t1_3">Contactformulier en social media</li>
+              <li data-i18n="t1_4">Live in 10 tot 14 dagen</li>
+            </ul>
+            <a href="#contact" class="btn btn--ghost btn--sm" data-i18n="pr_cta">Start met een karakterschets</a>
+          </article>
+          <article class="tier rv" data-d="1">
+            <span class="tier__sub" data-i18n="t2_sub">Website Premium</span>
+            <h3 class="tier__name" data-i18n="t2_name">Het verhaal</h3>
+            <p class="tier__price"><small data-i18n="pr_from">vanaf</small>€1.249</p>
+            <p class="tier__for" data-i18n="t2_for">Voor wie bezoekers wil overtuigen en klanten wil winnen. Groeiende zaken, praktijken, dienstverleners.</p>
+            <ul>
+              <li data-i18n="t2_1">Alles uit Het visitekaartje</li>
+              <li data-i18n="t2_2">Tot 5 pagina's, blog of nieuws</li>
+              <li data-i18n="t2_3">Boekings- of offertesysteem</li>
+              <li data-i18n="t2_4">Nieuwsbrief-integratie</li>
+            </ul>
+            <a href="#contact" class="btn btn--gold btn--sm" data-i18n="pr_cta">Start met een karakterschets</a>
+          </article>
+          <article class="tier rv" data-d="2">
+            <span class="tier__sub" data-i18n="t3_sub">Webshop</span>
+            <h3 class="tier__name" data-i18n="t3_name">De winkel</h3>
+            <p class="tier__price"><small data-i18n="pr_from">vanaf</small>€1.899</p>
+            <p class="tier__for" data-i18n="t3_for">Voor wie online verkoopt. Kledingmerken, voeding, beauty, en alles wat in een doos past.</p>
+            <ul>
+              <li data-i18n="t3_1">Alles uit Het verhaal</li>
+              <li data-i18n="t3_2">Winkel-setup, tot 50 producten</li>
+              <li data-i18n="t3_3">Betalen, winkelwagen en afrekenen</li>
+              <li data-i18n="t3_4">Uitleg zodat u zelf producten beheert</li>
+            </ul>
+            <a href="#contact" class="btn btn--ghost btn--sm" data-i18n="pr_cta">Start met een karakterschets</a>
+          </article>
+        </div>
+        <p class="price-note rv" data-i18n="pr_note">Hosting, domeinnaam en tekstschrijven zitten niet in de pakketprijs; we regelen ze desgewenst via de offerte. Geen voorschot: u betaalt pas als de website klaar is en u tevreden bent.</p>
+      </div>
+    </section>
+
+    <!-- ===================== HOOFDSTUK V ===================== -->
+    <section class="ch" id="wie" data-theme="light" data-chapter="5">
+      <div class="container wie">
+        <div class="portret rv">
+          <span class="portret__ph" aria-hidden="true">DI</span>
+          <div class="portret__cap"><b>Stijn Vranken</b><span data-i18n="wie_role">Oprichter, Digital Impression</span></div>
+        </div>
+        <div class="wie__text">
+          <p class="eyebrow rv"><span class="chapter" data-i18n="ch_5">Hoofdstuk V</span></p>
+          <h2 class="h-l rv" data-d="1" data-i18n="wie_title">Eén persoon. Van het eerste gesprek tot lang na de lancering.</h2>
+          <p class="rv" data-d="2" data-i18n="wie_p1">Digital Impression is een kleine webdesignstudio in Belgisch Limburg, actief in België en Nederland. Geen accountmanagers, geen helpdesk, geen anonieme leverancier: u praat met de persoon die uw website ontwerpt en bouwt.</p>
+          <p class="rv" data-d="2" data-i18n="wie_p2">We werken voor bedrijven, zelfstandigen en organisaties die iets te vertellen hebben en dat ook online willen laten voelen.</p>
+          <ul class="sig rv" data-d="3">
+            <li data-i18n="sig1">Geen voorschot.</li>
+            <li data-i18n="sig2">Geen sjablonen.</li>
+            <li data-i18n="sig3">Geen beloftes over Google.</li>
+            <li data-i18n="sig4">Geen anonieme leverancier.</li>
+            <li data-i18n="sig5">Wel karakter.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EPILOOG ===================== -->
+    <section class="ch" id="contact" data-theme="light" data-chapter="6">
+      <div class="container epi">
+        <div>
+          <p class="eyebrow rv"><span class="chapter" data-i18n="ch_6">Epiloog</span></p>
+          <h2 class="h-l rv" data-d="1" style="margin-top:1rem" data-i18n="e_title">Welk karakter heeft uw zaak?</h2>
+          <p class="lead rv" data-d="2" style="margin-top:1.2rem" data-i18n="e_lead">Vertel het ons in één zin. Binnen 24 uur ziet u hoe dat er als website uitziet. Gratis, en u beslist pas daarna.</p>
+
+          <div class="form rv" data-d="3" id="formFields">
+            <div class="field field--big">
+              <label for="zaak"><span data-i18n="f_zaak">Uw zaak in één zin</span> *</label>
+              <textarea id="zaak" rows="2" placeholder="Bijvoorbeeld: wij maken al 30 jaar houten tuinhuizen op maat, met veel vaste klanten." data-i18n-ph="f_zaak_ph"></textarea>
+            </div>
+            <div class="form__row">
+              <div class="field">
+                <label for="naam"><span data-i18n="f_naam">Naam</span> *</label>
+                <input type="text" id="naam" placeholder="Uw naam" data-i18n-ph="f_naam_ph" autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="email"><span data-i18n="f_email">E-mail</span> *</label>
+                <input type="email" id="email" placeholder="u@bedrijf.be" data-i18n-ph="f_email_ph" autocomplete="email" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="website" data-i18n="f_site">Huidige website (optioneel)</label>
+              <input type="text" id="website" placeholder="www.uwbedrijf.be" data-i18n-ph="f_site_ph" inputmode="url" autocomplete="url" />
+            </div>
+            <p class="form__err" id="formError" hidden></p>
+            <button type="button" class="btn btn--gold" id="submitBtn"><span data-i18n="cta_sketch">Vraag uw gratis karakterschets</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <p class="form__fine" data-i18n="f_fine">Door te verzenden gaat u akkoord met een vrijblijvend contact. Geen voorschot, geen verplichting.</p>
+          </div>
+          <div class="form__ok" id="formSuccess" hidden>
+            <h3 data-i18n="f_ok_t">Bedankt. We gaan tekenen.</h3>
+            <p data-i18n="f_ok_p">U hoort binnen 24 uur van ons, met een eerste schets van uw homepagina.</p>
+            <button type="button" id="resetBtn" data-i18n="f_again">Nog een aanvraag versturen</button>
+          </div>
+
+          <div class="contact__meta rv" data-d="4">
+            <a href="mailto:info@digital-impression.be">info@digital-impression.be</a>
+            <a href="tel:+32496251445">+32 496 25 14 45</a>
+            <span data-i18n="ph_region">België &amp; Nederland</span>
+          </div>
+        </div>
+
+        <div>
+          <p class="eyebrow rv" data-i18n="faq_eyebrow">Veelgestelde vragen</p>
+          <div class="faq rv" data-d="1" id="faq">
+            <div class="faq__item">
+              <button class="faq__q" type="button" aria-expanded="false"><span data-i18n="q1">Wat is een karakterschets precies?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+              <div class="faq__a"><div><p data-i18n="a1">Een ontwerp van uw homepagina, gemaakt op basis van één gesprek over uw zaak. U krijgt het binnen 24 uur, gratis, zonder voorschot of verplichting. Beslist u om door te gaan, dan is het de basis van uw website.</p></div></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q" type="button" aria-expanded="false"><span data-i18n="q2">Hoe snel staat mijn website online?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+              <div class="faq__a"><div><p data-i18n="a2">De meeste websites staan binnen 10 tot 14 dagen na uw akkoord online. Een webshop of een site in drie talen kan iets langer duren; dat spreken we vooraf af.</p></div></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q" type="button" aria-expanded="false"><span data-i18n="q3">Wat kost een website precies?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+              <div class="faq__a"><div><p data-i18n="a3">Vanaf €999. De exacte prijs hangt af van wat u nodig hebt en staat zwart op wit in de offerte, zonder verborgen kosten. Hosting, domeinnaam en teksten regelen we desgewenst apart.</p></div></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q" type="button" aria-expanded="false"><span data-i18n="q4">Kan ik mijn website later zelf aanpassen?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+              <div class="faq__a"><div><p data-i18n="a4">Ja. U krijgt uitleg om teksten en beelden zelf te beheren, en voor al de rest blijft u bij dezelfde persoon, ook na de lancering.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <a href="#proloog" class="wordmark"><b>Digital</b><i>Impression</i></a>
+        <p data-i18n="foot_tag">Websites met karakter. Voor bedrijven, zelfstandigen en organisaties in België en Nederland.</p>
+        <div class="social">
+          <a href="https://www.facebook.com/profile.php?id=61592621437290" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/digitalimpression.studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4 data-i18n="foot_story">Het verhaal</h4>
+        <ul>
+          <li><a href="#verhalen" data-i18n="nav_stories">De verhalen</a></li>
+          <li><a href="#werkwijze" data-i18n="nav_how">Werkwijze</a></li>
+          <li><a href="#prijzen" data-i18n="nav_price">Prijzen</a></li>
+          <li><a href="#wie" data-i18n="nav_who">Wie</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot_contact">Contact</h4>
+        <ul>
+          <li><a href="mailto:info@digital-impression.be">info@digital-impression.be</a></li>
+          <li><a href="tel:+32496251445">+32 496 25 14 45</a></li>
+          <li data-i18n="ph_region">België &amp; Nederland</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span data-i18n="foot_rights">© 2026 Digital Impression. Alle rechten voorbehouden.</span>
+      <span><a href="#" data-i18n="foot_privacy">Privacybeleid</a> · <a href="#" data-i18n="foot_terms">Algemene voorwaarden</a></span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
