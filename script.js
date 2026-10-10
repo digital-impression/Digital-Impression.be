@@ -166,25 +166,31 @@
     }
     if (closeBtn) closeBtn.addEventListener("click", unfocus);
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") unfocus(); });
-    ScrollTrigger.create({ trigger: hero, start: "top top", end: "bottom top", scrub: true, onUpdate: function (st) { prog = st.progress; if (focused && Math.abs(prog - focusProg) > 0.03) unfocus(); } });
-    var clock = new THREE.Clock(), visible = true;
-    new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }, { threshold: 0 }).observe(hero);
+    ScrollTrigger.create({ trigger: "#stage", start: "top top", end: "bottom bottom", scrub: true, onUpdate: function (st) { prog = st.progress; if (focused && Math.abs(prog - focusProg) > 0.02) unfocus(); } });
+    gsap.to([".hero__in", ".hero__tip", ".scrollcue"], { opacity: 0, y: -30, ease: "none", scrollTrigger: { trigger: "#stage", start: "top top", end: "+=55%", scrub: true } });
+    var clock = new THREE.Clock(), visible = true, stageEl = $("#stage");
+    new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }, { threshold: 0 }).observe(stageEl || hero);
     function tick() {
       requestAnimationFrame(tick);
       if (!visible && prog >= 1) return;
-      var t = clock.getElapsedTime();
+      var dt = Math.min(clock.getDelta(), 0.05), t = clock.getElapsedTime();
       mx += (tx - mx) * 0.05; my += (ty - my) * 0.05;
-      cam.position.z = 6 - prog * 14;
+      cam.position.z = 6 - prog * 12;
       cam.position.x = mx * 0.6; cam.position.y = -my * 0.4;
       cam.lookAt(mx * 0.3, -my * 0.2, cam.position.z - 6);
       if (FINE && !focused) pick();
       cards.forEach(function (c) {
         var u = c.userData;
         if (c === focused) { return; }
-        c.position.y = u.base[1] + Math.sin(t * u.sp + u.ph) * 0.12;
-        c.position.x = u.base[0] + Math.cos(t * u.sp * 0.7 + u.ph) * 0.06;
-        c.rotation.y = u.ry + Math.sin(t * 0.3 + u.ph) * 0.06 + mx * 0.08;
-        c.rotation.x = Math.sin(t * 0.25 + u.ph) * 0.04 - my * 0.05;
+        // slow conveyor towards the viewer, wrapping to the back
+        u.base[2] += dt * 0.55;
+        if (u.base[2] > cam.position.z - 2.2) { u.base[2] -= 19; u.base[0] = rnd(-3.2, 3.2); u.base[1] = rnd(-1.5, 1.6); }
+        c.position.z = u.base[2];
+        c.position.y = u.base[1] + Math.sin(t * u.sp + u.ph) * 0.22;
+        c.position.x = u.base[0] + Math.cos(t * u.sp * 0.7 + u.ph) * 0.14;
+        c.rotation.y = u.ry + Math.sin(t * 0.3 + u.ph) * 0.12 + mx * 0.12;
+        c.rotation.x = Math.sin(t * 0.25 + u.ph) * 0.07 - my * 0.07;
+        c.rotation.z = u.rz + Math.sin(t * 0.2 + u.ph) * 0.03;
         var want = (c === hovered && !focused) ? 1 : 0;
         u.hover += (want - u.hover) * 0.12;
         var sc = 1 + u.hover * 0.08; c.scale.set(sc, sc, 1);
@@ -295,11 +301,51 @@
       onUpdate: function (st) { var n = Math.floor(st.progress * words.length); words.forEach(function (w, i) { w.classList.toggle("on", i <= n); }); } });
   }
 
+  /* ---------------- intro: two lines + three USPs, pinned ---------------- */
+  function initIntro() {
+    var sec = $(".intro"); if (!sec) return;
+    var l1 = $("#il1"), l2 = $("#il2"), u1 = $("#usp1"), u2 = $("#usp2"), u3 = $("#usp3");
+    var m1 = $$(".line-mask > span", l1), m2 = $$(".line-mask > span", l2);
+    gsap.set([l1, l2, u1, u2, u3], { autoAlpha: 0 });
+    if (REDUCED) { gsap.set([l1], { autoAlpha: 1 }); gsap.set(m1, { y: 0 }); return; }
+    var tl = gsap.timeline({ scrollTrigger: { trigger: sec, start: "top top", end: "bottom bottom", scrub: 0.7 } });
+    tl.to(l1, { autoAlpha: 1, duration: 4 }, 0)
+      .fromTo(m1, { yPercent: 110 }, { yPercent: 0, duration: 8, stagger: 1.5, ease: "power3.out" }, 0)
+      .to(l1, { autoAlpha: 0, y: -40, duration: 6, ease: "power2.in" }, 20)
+      .to(l2, { autoAlpha: 1, duration: 4 }, 24)
+      .fromTo(m2, { yPercent: 110 }, { yPercent: 0, duration: 8, stagger: 1.5, ease: "power3.out" }, 24)
+      .to(l2, { autoAlpha: 0, y: -40, duration: 6, ease: "power2.in" }, 44);
+    [[u1, 50], [u2, 68], [u3, 86]].forEach(function (pair, i) {
+      var el = pair[0], at = pair[1], last = i === 2;
+      tl.fromTo(el, { autoAlpha: 0, scale: 0.86, y: 40 }, { autoAlpha: 1, scale: 1, y: 0, duration: 8, ease: "power3.out" }, at);
+      if (!last) tl.to(el, { autoAlpha: 0, scale: 1.08, y: -40, duration: 6, ease: "power2.in" }, at + 13);
+    });
+    tl.to({}, { duration: 6 }, 100);
+  }
+
+  /* ---------------- sketch CTA ---------------- */
+  function initSketch() {
+    var sec = $("#ontwerp"); if (!sec) return;
+    var paths = $$(".sk", sec), stamp = $(".sk-stamp", sec), pen = $("#sketchPen");
+    paths.forEach(function (p) { var L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; });
+    var tl = gsap.timeline({ scrollTrigger: { trigger: sec, start: "top 70%", end: "center 40%", scrub: 0.8 } });
+    paths.forEach(function (p, i) { tl.to(p, { strokeDashoffset: 0, duration: 1, ease: "none" }, i * 0.55); });
+    tl.fromTo(stamp, { opacity: 0, scale: 0.5, transformOrigin: "50% 50%", rotation: -12 }, { opacity: 1, scale: 1, rotation: -8, duration: 1.2, ease: "back.out(2)" }, paths.length * 0.55);
+    if (pen) { tl.to(pen, { opacity: 1, duration: 0.3 }, 0); tl.to(pen, { motionPath: undefined, opacity: 0, duration: 0.5 }, paths.length * 0.55); }
+    var btn = $("#sketchBtn"), inp = $("#sketchInput");
+    if (btn) btn.addEventListener("click", function () {
+      var v = (inp.value || "").trim(), ber = $("#bericht");
+      if (ber && v) ber.value = (lang === "en" ? "My business: " : lang === "fr" ? "Mon activité : " : "Mijn zaak: ") + v + "\n";
+      var c = $("#contact"); if (lenis) lenis.scrollTo(c, { duration: 1.4 }); else c.scrollIntoView({ behavior: "smooth" });
+      setTimeout(function () { var n = $("#naam"); if (n) n.focus({ preventScroll: true }); }, 1500);
+    });
+  }
+
   /* ---------------- work: horizontal pin ---------------- */
   function initWork() {
     var pin = $("#workPin"), track = $("#workTrack"), count = $("#workCount"), bar = $("#workBar");
     if (!pin || !track) return;
-    var panels = $$(".panel", track), n = panels.length;
+    var panels = $$(".story", track), n = panels.length;
     window.__gotoWork = function (i) {
       var st = ScrollTrigger.getById("workST");
       var y = st ? st.start + (st.end - st.start) * ((i - 1) / Math.max(1, n - 1)) : (panels[i - 1].getBoundingClientRect().top + window.scrollY - 80);
@@ -344,7 +390,10 @@
 
   /* ---------------- services: accordion + cursor image ---------------- */
   function initServices() {
-    var list = $("#svcList"), imgWrap = $("#svcImg"); if (!list) return;
+    var imgWrap = $("#svcImg");
+    $$("#svcList, #planList").forEach(function (list) { initAccordion(list, imgWrap); });
+  }
+  function initAccordion(list, imgWrap) {
     $$(".svc__item", list).forEach(function (it) {
       var row = $(".svc__row", it);
       row.addEventListener("click", function () {
@@ -353,11 +402,11 @@
         setTimeout(function () { ScrollTrigger.refresh(); }, 650);
       });
       if (FINE && imgWrap) {
-        it.addEventListener("mouseenter", function () { var k = it.getAttribute("data-img"); $$("img", imgWrap).forEach(function (im) { im.classList.toggle("is-on", im.getAttribute("data-k") === k); }); imgWrap.classList.add("is-on"); });
+        it.addEventListener("mouseenter", function () { var k = it.getAttribute("data-img"); if (!k) return; $$("img", imgWrap).forEach(function (im) { im.classList.toggle("is-on", im.getAttribute("data-k") === k); }); imgWrap.classList.add("is-on"); });
         it.addEventListener("mouseleave", function () { imgWrap.classList.remove("is-on"); });
       }
     });
-    if (FINE && imgWrap) {
+    if (FINE && imgWrap && list.id === "svcList") {
       var qx = gsap.quickTo(imgWrap, "left", { duration: 0.6, ease: "power3" }), qy = gsap.quickTo(imgWrap, "top", { duration: 0.6, ease: "power3" });
       list.addEventListener("mousemove", function (e) { qx(e.clientX + 40); qy(e.clientY); });
     }
@@ -456,19 +505,50 @@
       p2_b: "Free · within 24 hours", p2_k: "Step 02", p2_t: "Design", p2_p: "You see your homepage, designed to measure. No deposit, no obligation. You decide afterwards.",
       p3_k: "Step 03", p3_t: "Build", p3_p: "Ten to fourteen days, with you at the table at every step. Copy, imagery and tech under one roof.",
       p4_k: "Step 04", p4_t: "Live", p4_p: "Your website goes online, with guidance and support. Afterwards you stay with the same person.",
-      pr_eyebrow: "Pricing", pr_title: "What it costs", pr_lead: "Fixed starting prices, no small print. Every package starts with a free homepage design.", pr_from: "from", pr_cta: "Request your free design",
-      t1_s: "Website Basic", t1_n: "Starter", t1_f: "For freelancers, local businesses and starters who need a professional website.", t1_1: "Bespoke website, up to 3 pages", t1_2: "Perfect on phone, tablet and laptop", t1_3: "Contact form and social media", t1_4: "Live in 10 to 14 days",
-      t2_s: "Website Premium", t2_n: "Growth", t2_f: "For businesses that want to convince visitors and win customers.", t2_1: "Everything in Starter", t2_2: "Up to 5 pages, blog or news", t2_3: "Booking or quote system", t2_4: "Newsletter integration",
-      t3_s: "Webshop", t3_n: "Sales", t3_f: "For those who sell online: fashion, food, beauty and anything that fits in a box.", t3_1: "Everything in Growth", t3_2: "Shop setup, up to 50 products", t3_3: "Payments, cart and checkout", t3_4: "Guidance so you manage it yourself",
+      pr_eyebrow: "Pricing", pr_title: "What it costs. <em class=\"it\">No small print.</em>", pr_lead: "Fixed starting prices, no small print. Every package starts with a free homepage design.", pr_from: "from", pr_cta: "Request your free design",
+      t1_s: "Website Basic", t1_n: "Starter", t1_f: "Freelancers, local businesses and starters who need a professional website.", t1_1: "Bespoke website, up to 3 pages", t1_2: "Perfect on phone, tablet and laptop", t1_3: "Contact form and social media", t1_4: "Live in 10 to 14 days",
+      t2_s: "Website Premium", t2_n: "Growth", t2_f: "Businesses that want to convince visitors and win customers.", t2_1: "Everything in Starter", t2_2: "Up to 5 pages, blog or news", t2_3: "Booking or quote system", t2_4: "Newsletter integration",
+      t3_s: "Webshop", t3_n: "Sales", t3_f: "Anyone selling online: fashion, food, beauty and anything that fits in a box.", t3_1: "Everything in Growth", t3_2: "Shop setup, up to 50 products", t3_3: "Payments, cart and checkout", t3_4: "Guidance so you manage it yourself",
       pr_note: "Hosting, domain name and copywriting are not part of the package price; we arrange them on request via the quote. No deposit: you pay once the website is finished and you are happy.",
-      ab_eyebrow: "Who is behind it", ab_title: "One person, from the first conversation to <em class=\"it\">long after launch.</em>",
+      ab_eyebrow: "Who is behind it", ab_title: "You talk to the person who <em class=\"it\">designs and builds</em> your website.",
       ab_p1: "Digital Impression is a small web design studio in Belgian Limburg, working in Belgium and the Netherlands. No account managers, no helpdesk: you talk to the person who designs and builds your website.",
       ab_p2: "We work for businesses, freelancers and organisations that want to make a strong impression online.",
       sig1: "No deposit.", sig2: "No templates.", sig3: "No promises about Google.", sig4: "One point of contact.", ab_role: "Founder",
       c_eyebrow: "Start your project", c_title: "Let's build something <em class=\"it\">that makes an impression.</em>", c_lead: "Tell us briefly about your business. Within 24 hours you receive a tailored quote plus a free design of your homepage.", region: "Belgium & the Netherlands",
       f_naam: "Name", f_naam_ph: "Your name", f_email: "Email", f_email_ph: "you@company.com", f_site: "Current website (optional)", f_site_ph: "www.yourcompany.com", f_msg: "Your project", f_msg_ph: "How can we help? Tell us briefly about your business.",
       f_fine: "By sending you agree to a no-obligation contact. No deposit, no commitment.", f_ok_t: "Thank you. We get to work.", f_ok_p: "You will hear from us within 24 hours, with a tailored quote and a first design of your homepage.", f_again: "Send another request",
-      foot_rights: "© 2026 Digital Impression. All rights reserved.", foot_privacy: "Privacy policy", foot_terms: "Terms & conditions"
+      foot_rights: "© 2026 Digital Impression. All rights reserved.", foot_privacy: "Privacy policy", foot_terms: "Terms & conditions",
+      in1a: "Your website is the first encounter",
+      in1b: "with a new customer.",
+      in2a: "Make sure it",
+      in2b: "<em class=\"it\">sticks.</em>",
+      usp1: "No deposit",
+      usp1s: "You pay once your website is finished and you are happy with it.",
+      usp2: "Live in 2 weeks",
+      usp2s: "From first conversation to online, for most projects.",
+      usp3: "One point of contact",
+      usp3s: "You talk to the person who designs and builds your website.",
+      w1_tag: "Live",
+      w2_tag: "Redesign",
+      w3_tag: "Redesign",
+      w4_tag: "Concept",
+      w5_tag: "Concept",
+      w1_who: "Physios in Diepenbeek who bring athletes back to their level, and beyond.",
+      w1_what: "From Wix template to a bespoke site: black and white, direct, three languages and online booking.",
+      w2_who: "Wholesaler of fresh carrots from Haspengouw, on the road to all of Europe every day.",
+      w2_what: "Proposal for a new homepage: the field in an arch, the product up front, numbers that build trust.",
+      w3_who: "Guided tours through centuries-old marl caves under the village of Zichen.",
+      w3_what: "Proposal for a new homepage: dark and amber, a centred poster, Google score and booking in one click.",
+      w4_who: "Concept for a platform that tracks vehicle fleets: fuel, maintenance, damage and leasing.",
+      w4_what: "Dark command centre: live map with routes, vehicle cards, numbers and chart on the side.",
+      w5_who: "Concept for an architecture practice in Hasselt and Antwerp.",
+      w5_what: "Editorial: three photos at different heights, the word NOOR as a watermark, light and silence as the subject.",
+      sk_eyebrow: "Free homepage design",
+      sk_title: "Your homepage, <em class=\"it\">drawn within 24 hours.</em>",
+      sk_lead: "Tell us in one sentence what your business does. We draw your homepage, free and without a deposit. Only when you like it do we build on.",
+      sk_ph: "For example: physiotherapist in Diepenbeek, specialised in athletes",
+      sk_btn: "Draw my homepage",
+      sk_fine: "In your inbox within 24 hours · no obligation · you decide afterwards"
     },
     fr: {
       meta_title: "Digital Impression | Des sites web qui font impression", menu: "Menu", close: "Fermer",
@@ -497,19 +577,50 @@
       p2_b: "Gratuit · sous 24 heures", p2_k: "Étape 02", p2_t: "Design", p2_p: "Vous voyez votre page d'accueil, conçue sur mesure. Sans acompte, sans engagement. Vous décidez ensuite.",
       p3_k: "Étape 03", p3_t: "Construction", p3_p: "Dix à quatorze jours, avec vous à chaque étape. Textes, images et technique sous un même toit.",
       p4_k: "Étape 04", p4_t: "En ligne", p4_p: "Votre site est mis en ligne, avec explications et support. Ensuite, vous restez avec la même personne.",
-      pr_eyebrow: "Tarifs", pr_title: "Ce que ça coûte", pr_lead: "Des prix de départ fixes, pas de petits caractères. Chaque formule commence par un design de page d'accueil gratuit.", pr_from: "à partir de", pr_cta: "Demandez votre design gratuit",
-      t1_s: "Website Basic", t1_n: "Starter", t1_f: "Pour les indépendants, commerces locaux et starters qui ont besoin d'un site professionnel.", t1_1: "Site sur mesure, jusqu'à 3 pages", t1_2: "Parfait sur mobile, tablette et ordinateur", t1_3: "Formulaire de contact et réseaux sociaux", t1_4: "En ligne en 10 à 14 jours",
-      t2_s: "Website Premium", t2_n: "Croissance", t2_f: "Pour les entreprises qui veulent convaincre les visiteurs et gagner des clients.", t2_1: "Tout de Starter", t2_2: "Jusqu'à 5 pages, blog ou actualités", t2_3: "Système de réservation ou de devis", t2_4: "Intégration newsletter",
-      t3_s: "Boutique en ligne", t3_n: "Vente", t3_f: "Pour qui vend en ligne : mode, alimentation, beauté et tout ce qui tient dans une boîte.", t3_1: "Tout de Croissance", t3_2: "Boutique, jusqu'à 50 produits", t3_3: "Paiement, panier et commande", t3_4: "Explications pour gérer vous-même",
+      pr_eyebrow: "Tarifs", pr_title: "Ce que ça coûte. <em class=\"it\">Sans petits caractères.</em>", pr_lead: "Des prix de départ fixes, pas de petits caractères. Chaque formule commence par un design de page d'accueil gratuit.", pr_from: "à partir de", pr_cta: "Demandez votre design gratuit",
+      t1_s: "Website Basic", t1_n: "Starter", t1_f: "Indépendants, commerces locaux et starters qui ont besoin d'un site professionnel.", t1_1: "Site sur mesure, jusqu'à 3 pages", t1_2: "Parfait sur mobile, tablette et ordinateur", t1_3: "Formulaire de contact et réseaux sociaux", t1_4: "En ligne en 10 à 14 jours",
+      t2_s: "Website Premium", t2_n: "Croissance", t2_f: "Entreprises qui veulent convaincre les visiteurs et gagner des clients.", t2_1: "Tout de Starter", t2_2: "Jusqu'à 5 pages, blog ou actualités", t2_3: "Système de réservation ou de devis", t2_4: "Intégration newsletter",
+      t3_s: "Boutique en ligne", t3_n: "Vente", t3_f: "Qui vend en ligne : mode, alimentation, beauté et tout ce qui tient dans une boîte.", t3_1: "Tout de Croissance", t3_2: "Boutique, jusqu'à 50 produits", t3_3: "Paiement, panier et commande", t3_4: "Explications pour gérer vous-même",
       pr_note: "L'hébergement, le nom de domaine et la rédaction ne font pas partie du prix du forfait ; nous les organisons sur demande via le devis. Pas d'acompte : vous payez quand le site est terminé et que vous êtes satisfait.",
-      ab_eyebrow: "Qui est derrière", ab_title: "Une seule personne, du premier échange jusqu'à <em class=\"it\">longtemps après le lancement.</em>",
+      ab_eyebrow: "Qui est derrière", ab_title: "Vous parlez à la personne qui <em class=\"it\">conçoit et construit</em> votre site.",
       ab_p1: "Digital Impression est un petit studio de webdesign dans le Limbourg belge, actif en Belgique et aux Pays-Bas. Pas de chargés de compte, pas de helpdesk : vous parlez à la personne qui conçoit et construit votre site.",
       ab_p2: "Nous travaillons pour des entreprises, indépendants et organisations qui veulent faire forte impression en ligne.",
       sig1: "Pas d'acompte.", sig2: "Pas de modèles.", sig3: "Pas de promesses sur Google.", sig4: "Un seul interlocuteur.", ab_role: "Fondateur",
       c_eyebrow: "Démarrez votre projet", c_title: "Construisons quelque chose <em class=\"it\">qui fait impression.</em>", c_lead: "Parlez-nous brièvement de votre entreprise. Sous 24 heures, vous recevez un devis sur mesure et un design gratuit de votre page d'accueil.", region: "Belgique & Pays-Bas",
       f_naam: "Nom", f_naam_ph: "Votre nom", f_email: "E-mail", f_email_ph: "vous@entreprise.be", f_site: "Site web actuel (facultatif)", f_site_ph: "www.votreentreprise.be", f_msg: "Votre projet", f_msg_ph: "Comment pouvons-nous vous aider ? Parlez-nous brièvement de votre entreprise.",
       f_fine: "En envoyant, vous acceptez une prise de contact sans engagement. Pas d'acompte, pas d'obligation.", f_ok_t: "Merci. Nous nous mettons au travail.", f_ok_p: "Vous aurez de nos nouvelles sous 24 heures, avec un devis sur mesure et un premier design de votre page d'accueil.", f_again: "Envoyer une autre demande",
-      foot_rights: "© 2026 Digital Impression. Tous droits réservés.", foot_privacy: "Politique de confidentialité", foot_terms: "Conditions générales"
+      foot_rights: "© 2026 Digital Impression. Tous droits réservés.", foot_privacy: "Politique de confidentialité", foot_terms: "Conditions générales",
+      in1a: "Votre site web est la première rencontre",
+      in1b: "avec un nouveau client.",
+      in2a: "Faites en sorte qu'elle",
+      in2b: "<em class=\"it\">marque.</em>",
+      usp1: "Pas d'acompte",
+      usp1s: "Vous payez quand votre site est terminé et que vous êtes satisfait.",
+      usp2: "En ligne en 2 semaines",
+      usp2s: "Du premier échange à la mise en ligne, pour la plupart des projets.",
+      usp3: "Un seul interlocuteur",
+      usp3s: "Vous parlez à la personne qui conçoit et construit votre site.",
+      w1_tag: "En ligne",
+      w2_tag: "Refonte",
+      w3_tag: "Refonte",
+      w4_tag: "Concept",
+      w5_tag: "Concept",
+      w1_who: "Des kinés à Diepenbeek qui ramènent les sportifs à leur niveau, et au-delà.",
+      w1_what: "D'un modèle Wix à un site sur mesure : noir et blanc, direct, trois langues et réservation en ligne.",
+      w2_who: "Grossiste en carottes fraîches de Hesbaye, chaque jour en route vers toute l'Europe.",
+      w2_what: "Proposition de nouvelle page d'accueil : le champ dans une arche, le produit en avant, des chiffres qui rassurent.",
+      w3_who: "Visites guidées dans des galeries de marne centenaires sous le village de Zichen.",
+      w3_what: "Proposition de nouvelle page d'accueil : sombre et ambre, affiche centrée, note Google et réservation en un clic.",
+      w4_who: "Concept pour une plateforme de suivi de flotte : carburant, entretien, sinistres et leasing.",
+      w4_what: "Centre de commande sombre : carte en direct avec itinéraires, fiches véhicules, chiffres et graphique sur le côté.",
+      w5_who: "Concept pour un bureau d'architectes à Hasselt et Anvers.",
+      w5_what: "Éditorial : trois photos à des hauteurs différentes, le mot NOOR en filigrane, la lumière et le silence comme sujet.",
+      sk_eyebrow: "Design de page d'accueil gratuit",
+      sk_title: "Votre page d'accueil, <em class=\"it\">dessinée sous 24 heures.</em>",
+      sk_lead: "Dites-nous en une phrase ce que fait votre entreprise. Nous dessinons votre page d'accueil, gratuitement et sans acompte. Nous ne construisons la suite que si elle vous plaît.",
+      sk_ph: "Par exemple : kinésithérapeute à Diepenbeek, spécialisé en sportifs",
+      sk_btn: "Dessinez ma page d'accueil",
+      sk_fine: "Dans votre boîte mail sous 24 heures · sans engagement · vous décidez ensuite"
     }
   };
   var NL = {};
@@ -536,7 +647,7 @@
 
   /* ---------------- init ---------------- */
   function init() {
-    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initMarquee(); initStatement(); initWork(); initBA(); initServices(); initNums(); initProcess(); initTilt(); initReveals(); initForm(); initPre();
+    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initIntro(); initWork(); initServices(); initSketch(); initProcess(); initReveals(); initForm(); initPre();
     window.addEventListener("load", function () { ScrollTrigger.refresh(); });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
