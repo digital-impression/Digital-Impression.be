@@ -59,46 +59,114 @@
     var cam = new THREE.PerspectiveCamera(42, 1, 0.1, 60);
     cam.position.set(0, 0, 6);
     var loader = new THREE.TextureLoader();
-    var srcs = ["site-fleetreview", "site-noor", "site-credo", "site-simonta", "site-mergel"];
+    var SITES = [
+      { src: "site-fleetreview", name: "Fleetreview", kind: { nl: "Software · concept", en: "Software · concept", fr: "Logiciel · concept" }, panel: 4 },
+      { src: "site-noor", name: "NOOR architecten", kind: { nl: "Architectuur · concept", en: "Architecture · concept", fr: "Architecture · concept" }, panel: 5 },
+      { src: "site-credo", name: "Credo Rehab & Performance", kind: { nl: "Kinesitherapie · live", en: "Physio · live", fr: "Kiné · en ligne" }, panel: 1, live: "https://www.credorehabandperformance.com" },
+      { src: "site-simonta", name: "Simonta", kind: { nl: "B2B groothandel · herontwerp", en: "B2B wholesale · redesign", fr: "Commerce de gros · refonte" }, panel: 2 },
+      { src: "site-mergel", name: "Mergelgrotten Zichen", kind: { nl: "Toerisme · herontwerp", en: "Tourism · redesign", fr: "Tourisme · refonte" }, panel: 3 }
+    ];
     var cards = [], group = new THREE.Group(); scene.add(group);
     var rnd = function (a, b) { return a + Math.random() * (b - a); };
     var seeded = [
       [-2.6, 0.9, -1], [2.4, -0.7, -2.5], [-1.4, -1.4, -4], [2.9, 1.3, -5.5], [-3.1, 0.2, -7], [0.9, 1.6, -8.5],
       [-0.6, -1.3, -10], [2.6, 0.5, -11.5], [-2.4, 1.1, -13], [1.4, -1.0, -14.5], [-1.8, -0.2, -16], [3.0, -1.3, -17.5]
     ];
+    var frameGeo = new THREE.PlaneGeometry(2.3, 1.475, 1, 1);
     seeded.forEach(function (p, i) {
-      var name = srcs[i % srcs.length];
-      var tex = loader.load("assets/img/" + name + ".jpg");
-      tex.minFilter = THREE.LinearFilter;
-      var isPhoto = false;
-      var geo = new THREE.PlaneGeometry(isPhoto ? 1.9 : 2.2, isPhoto ? 1.19 : 1.375, 1, 1);
+      var site = SITES[i % SITES.length];
+      var tex = loader.load("assets/img/" + site.src + ".jpg");
+      tex.minFilter = THREE.LinearFilter; tex.center.set(0.5, 0.5);
+      var geo = new THREE.PlaneGeometry(2.2, 1.375, 1, 1);
       var mat = new THREE.MeshBasicMaterial({ map: tex, transparent: true, opacity: 0.92, side: THREE.DoubleSide });
       var m = new THREE.Mesh(geo, mat);
       m.position.set(p[0], p[1], p[2]);
       m.rotation.set(rnd(-0.12, 0.12), rnd(-0.35, 0.35), rnd(-0.06, 0.06));
-      m.userData = { base: p.slice(), ph: rnd(0, Math.PI * 2), sp: rnd(0.4, 0.8), ry: m.rotation.y };
+      // gold frame behind the card, shown on hover / focus
+      var frame = new THREE.Mesh(frameGeo, new THREE.MeshBasicMaterial({ color: 0xC9A24A, transparent: true, opacity: 0, side: THREE.DoubleSide }));
+      frame.position.z = -0.01; m.add(frame);
+      m.userData = { site: site, base: p.slice(), ph: rnd(0, Math.PI * 2), sp: rnd(0.4, 0.8), rx: m.rotation.x, ry: m.rotation.y, rz: m.rotation.z, frame: frame, tex: tex, hover: 0, s: 1 };
       group.add(m); cards.push(m);
     });
-    // gold dust
     var N = 260, pos = new Float32Array(N * 3);
     for (var i = 0; i < N; i++) { pos[i * 3] = rnd(-6, 6); pos[i * 3 + 1] = rnd(-3.5, 3.5); pos[i * 3 + 2] = rnd(-18, 2); }
     var pg = new THREE.BufferGeometry(); pg.setAttribute("position", new THREE.BufferAttribute(pos, 3));
     var dust = new THREE.Points(pg, new THREE.PointsMaterial({ color: 0xC9A24A, size: 0.035, transparent: true, opacity: 0.55, depthWrite: false }));
     scene.add(dust);
-    // thin gold ring far back for depth
     var ring = new THREE.Mesh(new THREE.RingGeometry(3.2, 3.23, 96), new THREE.MeshBasicMaterial({ color: 0xC9A24A, transparent: true, opacity: 0.25, side: THREE.DoubleSide }));
     ring.position.set(0.4, 0.2, -12); scene.add(ring);
 
     var mx = 0, my = 0, tx = 0, ty = 0, prog = 0, w = 0, h = 0;
+    var ray = new THREE.Raycaster(), pointer = new THREE.Vector2(-9, -9), hovered = null, focused = null, focusProg = 0, pdown = null;
+    var focusEl = $("#glFocus"), kindEl = $("#glKind"), nameEl = $("#glName"), goBtn = $("#glGo"), liveA = $("#glLive"), closeBtn = $("#glClose"), tip = $("#heroTip");
     function resize() {
       var r = hero.getBoundingClientRect(); w = r.width; h = r.height;
       renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix();
-      if (w < 700) group.scale.setScalar(0.72); else group.scale.setScalar(1);
+      group.scale.setScalar(w < 700 ? 0.72 : 1);
     }
     resize(); window.addEventListener("resize", resize);
-    if (FINE) window.addEventListener("mousemove", function (e) { tx = (e.clientX / window.innerWidth - 0.5) * 2; ty = (e.clientY / window.innerHeight - 0.5) * 2; }, { passive: true });
-    // scroll: fly through the cards while the hero scrolls out + a bit beyond
-    ScrollTrigger.create({ trigger: hero, start: "top top", end: "bottom top", scrub: true, onUpdate: function (st) { prog = st.progress; } });
+    function setPointer(e) { var r = canvas.getBoundingClientRect(); pointer.x = ((e.clientX - r.left) / r.width) * 2 - 1; pointer.y = -((e.clientY - r.top) / r.height) * 2 + 1; }
+    if (FINE) window.addEventListener("mousemove", function (e) { tx = (e.clientX / window.innerWidth - 0.5) * 2; ty = (e.clientY / window.innerHeight - 0.5) * 2; setPointer(e); }, { passive: true });
+    hero.addEventListener("pointerdown", function (e) { if (e.target.closest("a, button, .gl-focus")) return; pdown = [e.clientX, e.clientY]; setPointer(e); });
+    hero.addEventListener("pointerup", function (e) {
+      if (!pdown || e.target.closest("a, button, .gl-focus")) return;
+      var moved = Math.hypot(e.clientX - pdown[0], e.clientY - pdown[1]); pdown = null; if (moved > 8) return;
+      setPointer(e); pick();
+      if (hovered && hovered !== focused) focus(hovered); else if (focused) unfocus();
+    });
+    function pick() {
+      ray.setFromCamera(pointer, cam);
+      var hits = ray.intersectObjects(cards, false).filter(function (hh) { return hh.object.position.z < cam.position.z - 0.8 && (hh.object.material.opacity > 0.3); });
+      var obj = hits.length ? hits[0].object : null;
+      if (obj !== hovered) {
+        hovered = obj;
+        canvas.style.cursor = obj ? "pointer" : "";
+        if (obj) canvas.setAttribute("data-cursor", lang === "en" ? "View" : lang === "fr" ? "Voir" : "Bekijk"); else canvas.removeAttribute("data-cursor");
+        document.dispatchEvent(new CustomEvent("di:cursorcheck"));
+      }
+    }
+    var worldDir = new THREE.Vector3();
+    function focus(card) {
+      focused = card; focusProg = prog;
+      var u = card.userData, site = u.site;
+      cam.getWorldDirection(worldDir);
+      var target = cam.position.clone().add(worldDir.multiplyScalar(3.1));
+      target.x += w > 980 ? 0.55 : 0; target.y += w > 980 ? 0.15 : 0.35;
+      var local = group.worldToLocal(target.clone());
+      gsap.to(card.position, { x: local.x, y: local.y, z: local.z, duration: 1.1, ease: "power4.inOut" });
+      gsap.to(card.rotation, { x: -my * 0.05, y: mx * 0.08, z: 0, duration: 1.1, ease: "power4.inOut" });
+      gsap.to(card.material, { opacity: 1, duration: 0.6 });
+      gsap.to(u.frame.material, { opacity: 0.9, duration: 0.8, delay: 0.3 });
+      gsap.killTweensOf(u.tex.repeat); u.tex.repeat.set(1, 1); u.tex.offset.set(0, 0);
+      gsap.to(u.tex.repeat, { x: 0.9, y: 0.9, duration: 7, ease: "sine.inOut", yoyo: true, repeat: -1, onUpdate: function () { u.tex.offset.set((1 - u.tex.repeat.x) / 2, (1 - u.tex.repeat.y) / 2); } });
+      cards.forEach(function (c) { if (c !== card) gsap.to(c.material, { opacity: 0.18, duration: 0.8 }); });
+      gsap.to(dust.material, { opacity: 0.2, duration: 0.8 });
+      if (focusEl) {
+        kindEl.textContent = site.kind[lang] || site.kind.nl; nameEl.textContent = site.name;
+        if (site.live) { liveA.href = site.live; liveA.hidden = false; } else liveA.hidden = true;
+        focusEl.hidden = false; gsap.fromTo(focusEl, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.35 });
+        goBtn.onclick = function () { unfocus(); setTimeout(function () { if (window.__gotoWork) window.__gotoWork(site.panel); }, 250); };
+      }
+      if (tip) gsap.to(tip, { opacity: 0, duration: 0.4 });
+      hero.classList.add("is-focus");
+    }
+    function unfocus() {
+      if (!focused) return;
+      var card = focused, u = card.userData; focused = null;
+      gsap.killTweensOf(u.tex.repeat);
+      gsap.to(u.tex.repeat, { x: 1, y: 1, duration: 0.8, onUpdate: function () { u.tex.offset.set((1 - u.tex.repeat.x) / 2, (1 - u.tex.repeat.y) / 2); } });
+      gsap.to(card.position, { x: u.base[0], y: u.base[1], z: u.base[2], duration: 1.1, ease: "power4.inOut" });
+      gsap.to(card.rotation, { x: u.rx, y: u.ry, z: u.rz, duration: 1.1, ease: "power4.inOut" });
+      gsap.to(u.frame.material, { opacity: 0, duration: 0.4 });
+      cards.forEach(function (c) { gsap.to(c.material, { opacity: 0.92, duration: 0.8 }); });
+      gsap.to(dust.material, { opacity: 0.55, duration: 0.8 });
+      if (focusEl) gsap.to(focusEl, { opacity: 0, y: 12, duration: 0.4, onComplete: function () { focusEl.hidden = true; } });
+      if (tip) gsap.to(tip, { opacity: 1, duration: 0.6, delay: 0.4 });
+      hero.classList.remove("is-focus");
+    }
+    if (closeBtn) closeBtn.addEventListener("click", unfocus);
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") unfocus(); });
+    ScrollTrigger.create({ trigger: hero, start: "top top", end: "bottom top", scrub: true, onUpdate: function (st) { prog = st.progress; if (focused && Math.abs(prog - focusProg) > 0.03) unfocus(); } });
     var clock = new THREE.Clock(), visible = true;
     new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }, { threshold: 0 }).observe(hero);
     function tick() {
@@ -109,12 +177,19 @@
       cam.position.z = 6 - prog * 14;
       cam.position.x = mx * 0.6; cam.position.y = -my * 0.4;
       cam.lookAt(mx * 0.3, -my * 0.2, cam.position.z - 6);
+      if (FINE && !focused) pick();
       cards.forEach(function (c) {
         var u = c.userData;
+        if (c === focused) { return; }
         c.position.y = u.base[1] + Math.sin(t * u.sp + u.ph) * 0.12;
         c.position.x = u.base[0] + Math.cos(t * u.sp * 0.7 + u.ph) * 0.06;
         c.rotation.y = u.ry + Math.sin(t * 0.3 + u.ph) * 0.06 + mx * 0.08;
         c.rotation.x = Math.sin(t * 0.25 + u.ph) * 0.04 - my * 0.05;
+        var want = (c === hovered && !focused) ? 1 : 0;
+        u.hover += (want - u.hover) * 0.12;
+        var sc = 1 + u.hover * 0.08; c.scale.set(sc, sc, 1);
+        u.frame.material.opacity = u.hover * 0.7;
+        if (!focused) c.material.opacity = 0.92 + u.hover * 0.08;
       });
       dust.rotation.y = t * 0.02; ring.rotation.z = t * 0.05;
       renderer.render(scene, cam);
@@ -124,29 +199,60 @@
 
   /* ---------------- cursor + magnets ---------------- */
   function initCursor() {
-    var dot = $("#cur"), ring = $("#curRing"), label = $("#curLabel");
+    var dot = $("#cur"), ring = $("#curRing"), label = $("#curLabel"), ink = $("#ink");
     if (!FINE || REDUCED || !dot) return;
     document.documentElement.classList.add("has-cur");
-    var x = -100, y = -100, rx = -100, ry = -100;
-    window.addEventListener("mousemove", function (e) { x = e.clientX; y = e.clientY; }, { passive: true });
+    var x = -100, y = -100, rx = -100, ry = -100, pts = [], ctx = null, iw = 0, ih = 0, dpr = Math.min(window.devicePixelRatio || 1, 2), visible = false;
+    if (ink) {
+      ctx = ink.getContext("2d");
+      var size = function () { iw = window.innerWidth; ih = window.innerHeight; ink.width = iw * dpr; ink.height = ih * dpr; ink.style.width = iw + "px"; ink.style.height = ih + "px"; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
+      size(); window.addEventListener("resize", size);
+    }
+    window.addEventListener("mousemove", function (e) { x = e.clientX; y = e.clientY; visible = true; pts.push({ x: x, y: y, t: performance.now() }); if (pts.length > 48) pts.shift(); }, { passive: true });
+    window.addEventListener("mouseout", function (e) { if (!e.relatedTarget) visible = false; });
     gsap.ticker.add(function () {
       rx += (x - rx) * 0.18; ry += (y - ry) * 0.18;
       dot.style.transform = "translate(" + x + "px," + y + "px) translate(-50%,-50%)";
       ring.style.transform = "translate(" + rx + "px," + ry + "px) translate(-50%,-50%)";
+      if (!ctx) return;
+      ctx.clearRect(0, 0, iw, ih);
+      var now = performance.now(), life = 700;
+      pts = pts.filter(function (p) { return now - p.t < life; });
+      if (pts.length > 1) {
+        ctx.lineCap = "round"; ctx.lineJoin = "round";
+        for (var i = 1; i < pts.length; i++) {
+          var p0 = pts[i - 1], p1 = pts[i], al = Math.max(0, 1 - (now - p1.t) / life);
+          ctx.strokeStyle = "rgba(201,162,74," + (al * 0.85).toFixed(3) + ")"; ctx.lineWidth = 0.8 + al * 1.8;
+          ctx.beginPath(); ctx.moveTo(p0.x, p0.y); ctx.lineTo(p1.x, p1.y); ctx.stroke();
+        }
+      }
     });
-    document.addEventListener("mouseover", function (e) {
-      var t = e.target;
-      var lab = t.closest && t.closest("[data-cursor]");
-      var inter = t.closest && t.closest("a, button, .svc__row, [role='slider']");
+    function check(t) {
+      var lab = t && t.closest && t.closest("[data-cursor]");
+      var inter = t && t.closest && t.closest("a, button, .svc__row, [role='slider']");
       if (lab) { label.textContent = lab.getAttribute("data-cursor"); ring.classList.add("is-label"); ring.classList.remove("is-hover"); }
       else { ring.classList.remove("is-label"); ring.classList.toggle("is-hover", !!inter); }
-    });
-    // magnetic buttons
+    }
+    document.addEventListener("mouseover", function (e) { check(e.target); });
+    document.addEventListener("di:cursorcheck", function () { check(document.elementFromPoint(x, y)); });
     $$("[data-magnet]").forEach(function (b) {
       var sx = gsap.quickTo(b, "x", { duration: 0.5, ease: "power3" }), sy = gsap.quickTo(b, "y", { duration: 0.5, ease: "power3" });
       b.addEventListener("mousemove", function (e) { var r = b.getBoundingClientRect(); sx((e.clientX - (r.left + r.width / 2)) * 0.28); sy((e.clientY - (r.top + r.height / 2)) * 0.28); });
       b.addEventListener("mouseleave", function () { sx(0); sy(0); });
     });
+  }
+
+  /* ---------------- theme switch (navy -> cream -> navy) ---------------- */
+  function initTheme() {
+    var secs = $$("[data-theme]"), html = document.documentElement;
+    if (!secs.length) return;
+    function update() {
+      var y = window.scrollY + window.innerHeight * 0.5, cur = secs[0];
+      secs.forEach(function (s) { if (s.offsetTop <= y) cur = s; });
+      html.classList.toggle("is-light", cur.getAttribute("data-theme") === "light");
+    }
+    window.addEventListener("scroll", update, { passive: true }); window.addEventListener("resize", update); update();
+    if (lenis) lenis.on("scroll", update);
   }
 
   /* ---------------- menu ---------------- */
@@ -194,12 +300,17 @@
     var pin = $("#workPin"), track = $("#workTrack"), count = $("#workCount"), bar = $("#workBar");
     if (!pin || !track) return;
     var panels = $$(".panel", track), n = panels.length;
+    window.__gotoWork = function (i) {
+      var st = ScrollTrigger.getById("workST");
+      var y = st ? st.start + (st.end - st.start) * ((i - 1) / Math.max(1, n - 1)) : (panels[i - 1].getBoundingClientRect().top + window.scrollY - 80);
+      if (lenis) lenis.scrollTo(y, { duration: 1.6 }); else window.scrollTo({ top: y, behavior: "smooth" });
+    };
     var pad = function (i) { return (i < 10 ? "0" : "") + i; };
     ScrollTrigger.matchMedia({
       "(min-width: 900px)": function () {
         var dist = function () { return track.scrollWidth - window.innerWidth; };
         var tween = gsap.to(track, { x: function () { return -dist(); }, ease: "none",
-          scrollTrigger: { trigger: pin, start: "top top", end: function () { return "+=" + dist(); }, pin: true, scrub: 0.6, invalidateOnRefresh: true, anticipatePin: 1,
+          scrollTrigger: { id: "workST", trigger: pin, start: "top top", end: function () { return "+=" + dist(); }, pin: true, scrub: 0.6, invalidateOnRefresh: true, anticipatePin: 1,
             onUpdate: function (st) { var i = Math.min(n, Math.floor(st.progress * n) + 1); count.textContent = pad(i) + " / " + pad(n); if (bar) bar.style.transform = "scaleX(" + st.progress + ")"; } } });
         panels.forEach(function (p) {
           var img = $("img", p);
@@ -323,7 +434,7 @@
       nav_work: "Work", nav_services: "Services", nav_process: "Process", nav_pricing: "Pricing", nav_contact: "Contact",
       hero_eyebrow: "Web design studio · Belgium & the Netherlands", h1_a: "Websites that", h1_b: "make an <em class=\"it\">impression.</em>",
       hero_lead: "Designed and built to measure. You see your homepage within 24 hours, free, and pay no deposit.",
-      cta_design: "Request your free design", cta_work: "See our work", scroll: "Scroll",
+      cta_design: "Request your free design", cta_work: "See our work", scroll: "Scroll", hero_tip: "Click a website to see it up close", gl_go: "Show in the gallery", gl_live: "View live", gl_close: "Close",
       mq1: "Business websites", mq2: "Webshops", mq3: "Redesigns", mq4: "Landing pages",
       statement: "Your website is the first handshake with a new customer. We make sure it is a firm one: <em class=\"it\">fast, beautiful and built to win enquiries.</em> You see your design before you decide, and you pay only when you are happy.",
       cta_how: "How we work", st_note: "No deposit · live in 2 weeks · one point of contact",
@@ -364,7 +475,7 @@
       nav_work: "Réalisations", nav_services: "Services", nav_process: "Méthode", nav_pricing: "Tarifs", nav_contact: "Contact",
       hero_eyebrow: "Studio de webdesign · Belgique & Pays-Bas", h1_a: "Des sites web", h1_b: "qui font <em class=\"it\">impression.</em>",
       hero_lead: "Conçus et construits sur mesure. Vous voyez votre page d'accueil sous 24 heures, gratuitement, sans acompte.",
-      cta_design: "Demandez votre design gratuit", cta_work: "Voir nos réalisations", scroll: "Défiler",
+      cta_design: "Demandez votre design gratuit", cta_work: "Voir nos réalisations", scroll: "Défiler", hero_tip: "Cliquez sur un site pour le voir de près", gl_go: "Voir dans la galerie", gl_live: "Voir en ligne", gl_close: "Fermer",
       mq1: "Sites d'entreprise", mq2: "Boutiques en ligne", mq3: "Refontes", mq4: "Landing pages",
       statement: "Votre site web est la première poignée de main avec un nouveau client. Nous veillons à ce qu'elle soit ferme : <em class=\"it\">rapide, élégante et conçue pour générer des demandes.</em> Vous voyez votre design avant de décider, et vous ne payez que lorsque vous êtes satisfait.",
       cta_how: "Notre méthode", st_note: "Sans acompte · en ligne en 2 semaines · un seul interlocuteur",
@@ -425,7 +536,7 @@
 
   /* ---------------- init ---------------- */
   function init() {
-    initI18n(); initLenis(); initMenu(); initCursor(); initGL(); initMarquee(); initStatement(); initWork(); initBA(); initServices(); initNums(); initProcess(); initTilt(); initReveals(); initForm(); initPre();
+    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initMarquee(); initStatement(); initWork(); initBA(); initServices(); initNums(); initProcess(); initTilt(); initReveals(); initForm(); initPre();
     window.addEventListener("load", function () { ScrollTrigger.refresh(); });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();

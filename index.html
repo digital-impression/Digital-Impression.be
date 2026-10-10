@@ -27,6 +27,7 @@
     <div class="pre__word">Digital Impression</div>
   </div>
   <div class="grain" aria-hidden="true"></div>
+  <canvas class="ink" id="ink" aria-hidden="true"></canvas>
   <div class="cur" id="cur" aria-hidden="true"></div>
   <div class="cur-ring" id="curRing" aria-hidden="true"><span id="curLabel"></span></div>
 
@@ -63,7 +64,7 @@
   <main>
 
     <!-- ========== HERO ========== -->
-    <section class="hero" id="hero">
+    <section class="hero" id="hero" data-theme="dark">
       <canvas class="hero__gl" id="gl" aria-hidden="true"></canvas>
       <div class="hero__veil" aria-hidden="true"></div>
       <div class="hero__in">
@@ -81,6 +82,16 @@
         </div>
       </div>
       <div class="scrollcue" aria-hidden="true"><span data-i18n="scroll">Scroll</span><i></i></div>
+      <span class="hero__tip" id="heroTip" data-i18n="hero_tip">Klik op een website om ze van dichtbij te zien</span>
+      <div class="gl-focus" id="glFocus" hidden>
+        <span class="gl-focus__k" id="glKind"></span>
+        <h3 class="gl-focus__n" id="glName"></h3>
+        <div class="gl-focus__a">
+          <button type="button" class="btn btn--gold btn--sm" id="glGo"><span data-i18n="gl_go">Toon in de galerij</span></button>
+          <a class="btn btn--ghost btn--sm" id="glLive" href="#" target="_blank" rel="noopener noreferrer" hidden><span data-i18n="gl_live">Bekijk live</span></a>
+          <button type="button" class="gl-focus__x" id="glClose" aria-label="Sluiten" data-i18n="gl_close">Sluiten</button>
+        </div>
+      </div>
     </section>
 
     <!-- ========== MARQUEE ========== -->
@@ -92,7 +103,7 @@
     </div>
 
     <!-- ========== STATEMENT ========== -->
-    <section class="statement" id="over">
+    <section class="statement" id="over" data-theme="dark">
       <p id="statement" data-i18n="statement">Uw website is de eerste handdruk met een nieuwe klant. Wij zorgen dat die stevig is: <em class="it">snel, mooi en gebouwd om aanvragen op te leveren.</em> U ziet uw ontwerp vóór u beslist, en u betaalt pas als u tevreden bent.</p>
       <div class="statement__row">
         <a href="#werkwijze" class="btn btn--ghost" data-magnet><span data-i18n="cta_how">Zo werken we</span></a>
@@ -101,7 +112,7 @@
     </section>
 
     <!-- ========== WORK (horizontal) ========== -->
-    <section class="work" id="werk">
+    <section class="work" id="werk" data-theme="dark">
       <div class="work__head">
         <div>
           <p class="eyebrow" data-i18n="work_eyebrow">Geselecteerd werk</p>
@@ -167,7 +178,7 @@
     </section>
 
     <!-- ========== BEFORE / AFTER ========== -->
-    <section class="ba-sec" id="voorna">
+    <section class="ba-sec" id="voorna" data-theme="dark">
       <div class="ba-sec__copy">
         <p class="eyebrow" data-i18n="ba_eyebrow">Voor en na</p>
         <h2 class="h-l" data-i18n="ba_title">Van dit. <em class="it">Naar dit.</em></h2>
@@ -184,7 +195,7 @@
     </section>
 
     <!-- ========== SERVICES ========== -->
-    <section class="svc" id="diensten">
+    <section class="svc" id="diensten" data-theme="light">
       <div class="svc__head">
         <p class="eyebrow" data-i18n="svc_eyebrow">Wat we bouwen</p>
         <h2 class="h-xl" style="margin-top:1rem" data-i18n="svc_title">Diensten</h2>
@@ -216,14 +227,14 @@
     </section>
 
     <!-- ========== NUMBERS ========== -->
-    <section class="nums" id="cijfers">
+    <section class="nums" id="cijfers" data-theme="light">
       <div class="num"><span class="num__v"><span data-count="24">0</span><em data-i18n="n1_u">uur</em></span><span class="num__l" data-i18n="n1_l">tot u uw homepagina ziet. Gratis, en u beslist pas daarna.</span></div>
       <div class="num"><span class="num__v"><span data-count="14">0</span><em data-i18n="n2_u">dagen</em></span><span class="num__l" data-i18n="n2_l">van eerste gesprek tot live website, bij de meeste projecten.</span></div>
       <div class="num"><span class="num__v">€<span data-count="0">0</span><em data-i18n="n3_u">voorschot</em></span><span class="num__l" data-i18n="n3_l">U betaalt pas als de website klaar is en u tevreden bent.</span></div>
     </section>
 
     <!-- ========== PROCESS ========== -->
-    <section class="proc" id="werkwijze">
+    <section class="proc" id="werkwijze" data-theme="light">
       <div class="proc__left">
         <p class="eyebrow" data-i18n="proc_eyebrow">Werkwijze</p>
         <h2 class="h-l" data-i18n="proc_title">Van gesprek tot live, <em class="it">in vier stappen.</em></h2>
@@ -238,7 +249,7 @@
     </section>
 
     <!-- ========== PRICING ========== -->
-    <section class="price" id="prijzen">
+    <section class="price" id="prijzen" data-theme="light">
       <div class="price__head">
         <div><p class="eyebrow" data-i18n="pr_eyebrow">Prijzen</p><h2 class="h-xl" style="margin-top:1rem" data-i18n="pr_title">Wat het kost</h2></div>
         <p class="lead" data-i18n="pr_lead">Vaste vertrekprijzen, geen kleine lettertjes. Elk pakket begint met een gratis homepagina-ontwerp.</p>
@@ -273,7 +284,7 @@
     </section>
 
     <!-- ========== ABOUT ========== -->
-    <section class="about" id="wie">
+    <section class="about" id="wie" data-theme="dark">
       <div class="about__text">
         <p class="eyebrow" data-i18n="ab_eyebrow">Wie erachter zit</p>
         <h2 class="h-l" data-i18n="ab_title">Eén persoon, van het eerste gesprek tot <em class="it">lang na de lancering.</em></h2>
@@ -285,7 +296,7 @@
     </section>
 
     <!-- ========== CONTACT ========== -->
-    <section class="contact" id="contact">
+    <section class="contact" id="contact" data-theme="dark">
       <div class="contact__copy">
         <p class="eyebrow" data-i18n="c_eyebrow">Start uw project</p>
         <h2 class="h-l" data-i18n="c_title">Laten we iets bouwen <em class="it">dat indruk maakt.</em></h2>
