@@ -13,7 +13,7 @@
   --gutter: clamp(1.25rem, 5vw, 5rem);
 }
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
@@ -112,7 +112,7 @@ p { margin: 0; }
 
 /* ---------- hero ---------- */
 .stage { position: relative; }
-.hero { position: sticky; top: 0; height: 100svh; min-height: 640px; overflow: hidden; z-index: 0; }
+.hero { position: sticky; top: 0; height: 100vh; height: 100svh; min-height: 640px; overflow: hidden; z-index: 0; }
 .hero__gl { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .hero__veil { position: absolute; inset: 0; background: radial-gradient(70% 60% at 50% 55%, rgba(14,28,58,0.0) 0%, rgba(14,28,58,0.55) 70%, rgba(14,28,58,0.9) 100%); pointer-events: none; }
 .hero__in { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 var(--gutter) clamp(2.5rem, 6vh, 4.5rem); gap: 1.6rem; }
@@ -352,8 +352,8 @@ html.is-light .tier--mid { background: var(--navy); color: var(--beige); }
 
 
 /* ===== v4: intro, stories, sketch, plans ===== */
-.intro { position: relative; z-index: 1; height: 560svh; pointer-events: none; }
-.intro__sticky { position: sticky; top: 0; height: 100svh; display: grid; place-items: center; padding: 0 var(--gutter); }
+.intro { position: relative; z-index: 1; height: 560vh; height: 560svh; pointer-events: none; }
+.intro__sticky { position: sticky; top: 0; height: 100vh; height: 100svh; display: grid; place-items: center; padding: 0 var(--gutter); }
 .intro__line, .usp { grid-area: 1 / 1; text-align: center; max-width: 60rem; }
 .intro__line { font-family: var(--serif); font-size: clamp(2rem, 5.2vw, 5rem); line-height: 1.05; letter-spacing: -0.02em; text-shadow: 0 10px 50px rgba(0,0,0,0.6); }
 .intro__line .line-mask > span { transform: none; }
@@ -380,7 +380,7 @@ html.is-light .tier--mid { background: var(--navy); color: var(--beige); }
 .story__shot img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; transform: scale(1.04); will-change: transform; transition: transform 0.9s var(--ease); }
 @media (min-width: 900px) {
   .work__track { flex-direction: row; gap: 0; padding: 0; height: 100vh; align-items: center; }
-  .story { flex: 0 0 100vw; width: 100vw; padding-inline: var(--gutter); grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 4rem; }
+  .story { flex: 0 0 var(--vw, 100vw); width: var(--vw, 100vw); padding-inline: var(--gutter); grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 4rem; }
   .story__shot { transform: perspective(1400px) rotateY(-9deg) rotateX(2deg); transform-origin: left center; transition: transform 0.9s var(--ease); }
   .story:hover .story__shot { transform: perspective(1400px) rotateY(-4deg); }
 }
@@ -409,7 +409,7 @@ html:not(.is-light) .sketch__paper { background: #0F1F42; }
 .price__head { margin-bottom: 1.5rem; }
 @media (max-width: 900px) { .plist .plan__row { grid-template-columns: minmax(0, 1fr) auto; } .plan__for { display: none; } .plist .svc__n { display: none; } .plist .svc__plus { display: none; } .plan__inner { padding-left: var(--gutter); } }
 .price { padding-top: clamp(4rem, 9vw, 7rem); }
-@media (max-width: 899px) { .intro { height: 460svh; } .usp__t { font-size: clamp(2.6rem, 13vw, 5rem); } }
+@media (max-width: 899px) { .intro { height: 460vh; height: 460svh; } .usp__t { font-size: clamp(2.6rem, 13vw, 5rem); } }
 
 .intro__sticky::before { content: ""; position: absolute; inset: 0; background: radial-gradient(55% 50% at 50% 50%, rgba(14,28,58,0.78) 0%, rgba(14,28,58,0.45) 55%, rgba(14,28,58,0) 100%); pointer-events: none; }
 .intro__line, .usp { position: relative; }

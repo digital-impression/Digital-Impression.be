@@ -354,7 +354,7 @@
     var pad = function (i) { return (i < 10 ? "0" : "") + i; };
     ScrollTrigger.matchMedia({
       "(min-width: 900px)": function () {
-        var dist = function () { return track.scrollWidth - window.innerWidth; };
+        var dist = function () { return track.scrollWidth - document.documentElement.clientWidth; };
         var tween = gsap.to(track, { x: function () { return -dist(); }, ease: "none",
           scrollTrigger: { id: "workST", trigger: pin, start: "top top", end: function () { return "+=" + dist(); }, pin: true, scrub: 0.6, invalidateOnRefresh: true, anticipatePin: 1,
             onUpdate: function (st) { var i = Math.min(n, Math.floor(st.progress * n) + 1); count.textContent = pad(i) + " / " + pad(n); if (bar) bar.style.transform = "scaleX(" + st.progress + ")"; } } });
@@ -646,7 +646,12 @@
   }
 
   /* ---------------- init ---------------- */
+  function initVW() {
+    var set = function () { document.documentElement.style.setProperty("--vw", document.documentElement.clientWidth + "px"); };
+    set(); window.addEventListener("resize", set);
+  }
   function init() {
+    initVW();
     initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initIntro(); initWork(); initServices(); initSketch(); initProcess(); initReveals(); initForm(); initPre();
     window.addEventListener("load", function () { ScrollTrigger.refresh(); });
   }
