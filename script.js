@@ -59,7 +59,7 @@
     var cam = new THREE.PerspectiveCamera(42, 1, 0.1, 60);
     cam.position.set(0, 0, 6);
     var loader = new THREE.TextureLoader();
-    var srcs = ["site-simonta", "site-mergel", "site-tuin", "site-fadim", "site-credo", "site-credo-home", "k-bakker", "k-zanger", "k-tuinman", "k-advocaat"];
+    var srcs = ["site-fleetreview", "site-noor", "site-credo", "site-simonta", "site-mergel"];
     var cards = [], group = new THREE.Group(); scene.add(group);
     var rnd = function (a, b) { return a + Math.random() * (b - a); };
     var seeded = [
@@ -70,7 +70,7 @@
       var name = srcs[i % srcs.length];
       var tex = loader.load("assets/img/" + name + ".jpg");
       tex.minFilter = THREE.LinearFilter;
-      var isPhoto = name.indexOf("k-") === 0;
+      var isPhoto = false;
       var geo = new THREE.PlaneGeometry(isPhoto ? 1.9 : 2.2, isPhoto ? 1.19 : 1.375, 1, 1);
       var mat = new THREE.MeshBasicMaterial({ map: tex, transparent: true, opacity: 0.92, side: THREE.DoubleSide });
       var m = new THREE.Mesh(geo, mat);
@@ -328,11 +328,11 @@
       statement: "Your website is the first handshake with a new customer. We make sure it is a firm one: <em class=\"it\">fast, beautiful and built to win enquiries.</em> You see your design before you decide, and you pay only when you are happy.",
       cta_how: "How we work", st_note: "No deposit · live in 2 weeks · one point of contact",
       work_eyebrow: "Selected work", work_title: "Our work", w_live: "View live", w_design: "View the design",
-      w1_s: "B2B wholesale", w1_m: "Wholesaler of fresh carrots from Haspengouw. New design: their own field as hero, the offer in three steps, a quote within 24 hours.",
-      w2_s: "Tourism & culture", w2_m: "Guided tours through centuries-old marl caves. New design: dark and amber, Google score up front, booking in one click.",
-      w3_s: "Garden & landscape", w3_m: "Garden design and maintenance in Tongeren. New design: moss green and sand, their own project photos and the craftsman speaking for himself.",
-      w4_s: "Artist & events", w4_m: "A singer with calendar, fan shop and bookings in one place. Big, festive and in motion.",
-      w5_s: "Physio & performance", w5_m: "From Wix template to a bespoke site: black and white, direct, three languages and online booking.",
+      w1_s: "Physio & performance · live", w1_m: "From Wix template to a bespoke site: black and white, direct, three languages and online booking.",
+      w2_s: "B2B wholesale · redesign", w2_m: "Wholesaler of fresh carrots from Haspengouw. Proposal for a new homepage: product first, own fields and family in view, a quote within 24 hours.",
+      w3_s: "Tourism & culture · redesign", w3_m: "Guided tours through centuries-old marl caves. Proposal for a new homepage: dark and amber, Google score up front, booking in one click.",
+      w4_s: "Software · concept", w4_m: "Fleet management platform. Concept: a clear SaaS hero with the dashboard itself as proof, numbers that build trust at a glance.",
+      w5_s: "Architecture · concept", w5_m: "Architecture practice. Concept: editorial layout, large type, light and silence as the subject, photos that let the space speak.",
       ba_eyebrow: "Before and after", ba_title: "From this. <em class=\"it\">To this.</em>", ba_body: "Credo Rehab & Performance, Diepenbeek. Left, the Wix template that was there; right, the website we built. Same practice, same people. Different impression.", ba_hint: "Drag the handle", ba_before: "Before", ba_after: "After",
       svc_eyebrow: "What we build", svc_title: "Services",
       s1_t: "Business websites", s1_p: "A website that builds trust and wins enquiries. Designed to measure, fast, and perfect on every screen.", s1_1: "Bespoke", s1_2: "Lead forms", s1_3: "Fast and secure",
@@ -369,11 +369,11 @@
       statement: "Votre site web est la première poignée de main avec un nouveau client. Nous veillons à ce qu'elle soit ferme : <em class=\"it\">rapide, élégante et conçue pour générer des demandes.</em> Vous voyez votre design avant de décider, et vous ne payez que lorsque vous êtes satisfait.",
       cta_how: "Notre méthode", st_note: "Sans acompte · en ligne en 2 semaines · un seul interlocuteur",
       work_eyebrow: "Réalisations choisies", work_title: "Nos réalisations", w_live: "Voir en ligne", w_design: "Voir le design",
-      w1_s: "Commerce de gros B2B", w1_m: "Grossiste en carottes fraîches de Hesbaye. Nouveau design : leur propre champ en hero, l'offre en trois étapes, un devis sous 24 heures.",
-      w2_s: "Tourisme & culture", w2_m: "Visites guidées dans des galeries de marne centenaires. Nouveau design : sombre et ambre, la note Google en avant, réservation en un clic.",
-      w3_s: "Jardin & paysage", w3_m: "Aménagement et entretien de jardins à Tongres. Nouveau design : vert mousse et sable, leurs propres photos de projets et l'artisan qui parle lui-même.",
-      w4_s: "Artiste & événements", w4_m: "Un chanteur avec agenda, boutique et réservations au même endroit. Grand, festif et en mouvement.",
-      w5_s: "Kiné & performance", w5_m: "D'un modèle Wix à un site sur mesure : noir et blanc, direct, trois langues et réservation en ligne.",
+      w1_s: "Kiné & performance · en ligne", w1_m: "D'un modèle Wix à un site sur mesure : noir et blanc, direct, trois langues et réservation en ligne.",
+      w2_s: "Commerce de gros B2B · refonte", w2_m: "Grossiste en carottes fraîches de Hesbaye. Proposition de nouvelle page d'accueil : le produit d'abord, les champs et la famille en image, un devis sous 24 heures.",
+      w3_s: "Tourisme & culture · refonte", w3_m: "Visites guidées dans des galeries de marne centenaires. Proposition de nouvelle page d'accueil : sombre et ambre, la note Google en avant, réservation en un clic.",
+      w4_s: "Logiciel · concept", w4_m: "Plateforme de gestion de flotte. Concept : un hero SaaS clair avec le tableau de bord comme preuve, des chiffres qui inspirent confiance d'un coup d'œil.",
+      w5_s: "Architecture · concept", w5_m: "Bureau d'architectes. Concept : mise en page éditoriale, grands caractères, la lumière et le silence comme sujet, des photos qui laissent parler l'espace.",
       ba_eyebrow: "Avant et après", ba_title: "De ceci. <em class=\"it\">À cela.</em>", ba_body: "Credo Rehab & Performance, Diepenbeek. À gauche, le modèle Wix en place ; à droite, le site que nous avons créé. Même cabinet, mêmes personnes. Autre impression.", ba_hint: "Glissez le curseur", ba_before: "Avant", ba_after: "Après",
       svc_eyebrow: "Ce que nous créons", svc_title: "Services",
       s1_t: "Sites d'entreprise", s1_p: "Un site qui inspire confiance et génère des demandes. Conçu sur mesure, rapide et parfait sur chaque écran.", s1_1: "Sur mesure", s1_2: "Formulaires de contact", s1_3: "Rapide et sécurisé",
