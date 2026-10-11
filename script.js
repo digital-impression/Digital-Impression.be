@@ -40,11 +40,15 @@
       .to(pre, { yPercent: -100, duration: 0.9, ease: "power4.inOut" }, "+=0.15");
   }
   function heroIn() {
+    var hero = $("#hero");
     var tl = gsap.timeline({ defaults: { ease: "power4.out" } });
-    tl.to(".hero .line-mask > span", { y: 0, duration: 1.2, stagger: 0.12 }, 0)
-      .from("#heroEyebrow", { opacity: 0, y: 10, duration: 0.8 }, 0.2)
-      .from(["#heroLead", "#heroCta"], { opacity: 0, y: 16, duration: 1, stagger: 0.1 }, 0.6);
-    if (REDUCED) tl.progress(1);
+    tl.to(".hero .line-mask > span", { y: 0, duration: 1.3, stagger: 0.14 }, 0)
+      .add(function () { hero.classList.add("is-drawn"); }, 0.9)
+      .from("#heroLead", { opacity: 0, y: 14, duration: 1 }, 1.1)
+      .from("#heroCta", { opacity: 0, y: 14, duration: 1 }, 1.3)
+      .add(function () { hero.classList.add("is-loaded-ui"); }, 1.2);
+    if (REDUCED) { tl.progress(1); hero.classList.add("is-drawn", "is-loaded-ui"); }
+    if (window.__glEnter) window.__glEnter();
   }
 
   /* ---------------- WebGL hero: floating site cards ---------------- */
@@ -80,8 +84,11 @@
       var geo = new THREE.PlaneGeometry(2.2, 1.375, 1, 1);
       var mat = new THREE.MeshBasicMaterial({ map: tex, transparent: true, opacity: 0.92, side: THREE.DoubleSide });
       var m = new THREE.Mesh(geo, mat);
+      var band = 1.7 + Math.max(0, -p[2]) * 0.09;
+      if (Math.abs(p[0]) < band) p[0] = (p[0] < 0 ? -1 : 1) * (band + rnd(0, 0.7));
       m.position.set(p[0], p[1], p[2]);
       m.rotation.set(rnd(-0.12, 0.12), rnd(-0.35, 0.35), rnd(-0.06, 0.06));
+      m.scale.setScalar(0.001);
       // gold frame behind the card, shown on hover / focus
       var frame = new THREE.Mesh(frameGeo, new THREE.MeshBasicMaterial({ color: 0xC9A24A, transparent: true, opacity: 0, side: THREE.DoubleSide }));
       frame.position.z = -0.01; m.add(frame);
@@ -125,6 +132,8 @@
         document.dispatchEvent(new CustomEvent("di:cursorcheck"));
       }
     }
+    var entered = false;
+    window.__glEnter = function () { cards.forEach(function (c, i) { gsap.to(c.scale, { x: 1, y: 1, z: 1, duration: 1.6, delay: 0.15 + i * 0.07, ease: "power3.out", onComplete: function () { if (i === cards.length - 1) entered = true; } }); }); };
     var worldDir = new THREE.Vector3();
     function focus(card) {
       focused = card; focusProg = prog;
@@ -167,7 +176,7 @@
     if (closeBtn) closeBtn.addEventListener("click", unfocus);
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") unfocus(); });
     ScrollTrigger.create({ trigger: "#stage", start: "top top", end: "bottom bottom", scrub: true, onUpdate: function (st) { prog = st.progress; if (focused && Math.abs(prog - focusProg) > 0.02) unfocus(); } });
-    gsap.to([".hero__in", ".hero__tip", ".scrollcue"], { opacity: 0, y: -30, ease: "none", scrollTrigger: { trigger: "#stage", start: "top top", end: "+=45%", scrub: true } });
+    gsap.to(".hero__in", { opacity: 0, y: -30, ease: "none", scrollTrigger: { trigger: "#stage", start: "top top", end: "+=45%", scrub: true } });
     var clock = new THREE.Clock(), visible = true, stageEl = $("#stage");
     new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }, { threshold: 0 }).observe(stageEl || hero);
     function tick() {
@@ -184,7 +193,7 @@
         if (c === focused) { return; }
         // slow conveyor towards the viewer, wrapping to the back
         u.base[2] += dt * 0.55;
-        if (u.base[2] > cam.position.z - 2.2) { u.base[2] -= 19; u.base[0] = rnd(-3.2, 3.2); u.base[1] = rnd(-1.5, 1.6); }
+        if (u.base[2] > cam.position.z - 2.2) { u.base[2] -= 19; u.base[0] = (Math.random() < 0.5 ? -1 : 1) * rnd(3.0, 4.2); u.base[1] = rnd(-1.5, 1.6); }
         c.position.z = u.base[2];
         c.position.y = u.base[1] + Math.sin(t * u.sp + u.ph) * 0.22;
         c.position.x = u.base[0] + Math.cos(t * u.sp * 0.7 + u.ph) * 0.14;
@@ -193,7 +202,7 @@
         c.rotation.z = u.rz + Math.sin(t * 0.2 + u.ph) * 0.03;
         var want = (c === hovered && !focused) ? 1 : 0;
         u.hover += (want - u.hover) * 0.12;
-        var sc = 1 + u.hover * 0.08; c.scale.set(sc, sc, 1);
+        if (entered) { var sc = 1 + u.hover * 0.08; c.scale.set(sc, sc, 1); }
         u.frame.material.opacity = u.hover * 0.7;
         if (!focused) c.material.opacity = 0.92 + u.hover * 0.08;
       });
@@ -483,7 +492,7 @@
       nav_work: "Work", nav_services: "Services", nav_process: "Process", nav_pricing: "Pricing", nav_contact: "Contact",
       hero_eyebrow: "Web design studio · Belgium & the Netherlands", h1_a: "Websites that", h1_b: "make an <em class=\"it\">impression.</em>",
       hero_lead: "Designed and built to measure. You see your homepage within 24 hours, free, and pay no deposit.",
-      cta_design: "Request your free design", cta_work: "See our work", scroll: "Scroll", hero_tip: "Click a website to see it up close", gl_go: "Show in the gallery", gl_live: "View live", gl_close: "Close",
+      cta_design: "Request your free design", cta_work: "See our work", scroll: "Scroll", hero_tip: "Click a website to see it up close", hero_tr: "Bespoke websites · since 2024", gl_go: "Show in the gallery", gl_live: "View live", gl_close: "Close",
       mq1: "Business websites", mq2: "Webshops", mq3: "Redesigns", mq4: "Landing pages",
       statement: "Your website is the first handshake with a new customer. We make sure it is a firm one: <em class=\"it\">fast, beautiful and built to win enquiries.</em> You see your design before you decide, and you pay only when you are happy.",
       cta_how: "How we work", st_note: "No deposit · live in 2 weeks · one point of contact",
@@ -555,7 +564,7 @@
       nav_work: "Réalisations", nav_services: "Services", nav_process: "Méthode", nav_pricing: "Tarifs", nav_contact: "Contact",
       hero_eyebrow: "Studio de webdesign · Belgique & Pays-Bas", h1_a: "Des sites web", h1_b: "qui font <em class=\"it\">impression.</em>",
       hero_lead: "Conçus et construits sur mesure. Vous voyez votre page d'accueil sous 24 heures, gratuitement, sans acompte.",
-      cta_design: "Demandez votre design gratuit", cta_work: "Voir nos réalisations", scroll: "Défiler", hero_tip: "Cliquez sur un site pour le voir de près", gl_go: "Voir dans la galerie", gl_live: "Voir en ligne", gl_close: "Fermer",
+      cta_design: "Demandez votre design gratuit", cta_work: "Voir nos réalisations", scroll: "Défiler", hero_tip: "Cliquez sur un site pour le voir de près", hero_tr: "Sites sur mesure · depuis 2024", gl_go: "Voir dans la galerie", gl_live: "Voir en ligne", gl_close: "Fermer",
       mq1: "Sites d'entreprise", mq2: "Boutiques en ligne", mq3: "Refontes", mq4: "Landing pages",
       statement: "Votre site web est la première poignée de main avec un nouveau client. Nous veillons à ce qu'elle soit ferme : <em class=\"it\">rapide, élégante et conçue pour générer des demandes.</em> Vous voyez votre design avant de décider, et vous ne payez que lorsque vous êtes satisfait.",
       cta_how: "Notre méthode", st_note: "Sans acompte · en ligne en 2 semaines · un seul interlocuteur",
