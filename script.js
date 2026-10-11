@@ -34,7 +34,7 @@
     if (REDUCED) { pre.remove(); heroIn(); return; }
     document.documentElement.classList.add("lenis-stopped");
     var o = { v: 0 };
-    gsap.timeline({ onComplete: function () { pre.remove(); document.documentElement.classList.remove("lenis-stopped"); heroIn(); } })
+    gsap.timeline({ onComplete: function () { pre.remove(); document.documentElement.classList.remove("lenis-stopped"); heroIn(); ScrollTrigger.refresh(); } })
       .to(o, { v: 100, duration: 1.4, ease: "power2.inOut", onUpdate: function () { num.textContent = Math.round(o.v); } })
       .to(bar, { scaleX: 1, duration: 1.4, ease: "power2.inOut" }, 0)
       .to(pre, { yPercent: -100, duration: 0.9, ease: "power4.inOut" }, "+=0.15");
@@ -307,7 +307,7 @@
     var l1 = $("#il1"), l2 = $("#il2"), u1 = $("#usp1"), u2 = $("#usp2"), u3 = $("#usp3");
     var m1 = $$(".line-mask > span", l1), m2 = $$(".line-mask > span", l2);
     gsap.set([l1, l2, u1, u2, u3], { autoAlpha: 0 });
-    if (REDUCED) { gsap.set([l1], { autoAlpha: 1 }); gsap.set(m1, { y: 0 }); return; }
+    if (REDUCED) { gsap.set([l1, l2, u1, u2, u3], { clearProps: "all" }); gsap.set(m1.concat(m2), { yPercent: 0 }); return; }
     var tl = gsap.timeline({ scrollTrigger: { trigger: sec, start: "top top", end: "bottom bottom", scrub: 0.35 } });
     tl.to(l1, { autoAlpha: 1, duration: 4 }, 0)
       .fromTo(m1, { yPercent: 110 }, { yPercent: 0, duration: 8, stagger: 1.5, ease: "power3.out" }, 0)

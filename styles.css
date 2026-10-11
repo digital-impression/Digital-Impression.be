@@ -13,7 +13,7 @@
   --gutter: clamp(1.25rem, 5vw, 5rem);
 }
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
+html { -webkit-text-size-adjust: 100%; }
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
@@ -416,3 +416,10 @@ html:not(.is-light) .sketch__paper { background: #0F1F42; }
 
 .work__track, .intro__sticky, .hero__gl { will-change: transform; }
 .svc__img { backdrop-filter: none; }
+
+/* reduced motion: show the intro content stacked instead of hidden */
+@media (prefers-reduced-motion: reduce) {
+  .intro { height: auto; padding: 6rem 0; }
+  .intro__sticky { position: static; height: auto; display: grid; gap: 3rem; place-items: center; }
+  .intro__line, .usp { grid-area: auto; opacity: 1 !important; visibility: visible !important; transform: none !important; }
+}
