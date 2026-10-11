@@ -90,7 +90,9 @@
       // gold frame behind the card, shown on hover / focus
       var frame = new THREE.Mesh(frameGeo, new THREE.MeshBasicMaterial({ color: 0xC9A24A, transparent: true, opacity: 0, side: THREE.DoubleSide }));
       frame.position.z = -0.01; m.add(frame);
-      m.userData = { site: site, base: p.slice(), ph: rnd(0, Math.PI * 2), sp: rnd(0.4, 0.8), rx: m.rotation.x, ry: m.rotation.y, rz: m.rotation.z, frame: frame, tex: tex, hover: 0, s: 1 };
+      var ci = cards.length, leapAt = [0.055, 0.16, 0.29][[1, 4, 7].indexOf(ci)];
+      m.userData = { site: site, base: p.slice(), ph: rnd(0, Math.PI * 2), sp: rnd(0.4, 0.8), rx: m.rotation.x, ry: m.rotation.y, rz: m.rotation.z, frame: frame, tex: tex, hover: 0, s: 1,
+        mode: ci % 3, leap: leapAt != null ? { at: leapAt, len: 0.13, side: (ci % 2 ? 1 : -1) } : null, e: 0 };
       group.add(m); cards.push(m);
     });
     var N = 160, pos = new Float32Array(N * 3);
@@ -121,7 +123,7 @@
     });
     function pick() {
       ray.setFromCamera(pointer, cam);
-      var hits = ray.intersectObjects(cards, false).filter(function (hh) { return hh.object.position.z < cam.position.z - 0.8 && (hh.object.material.opacity > 0.3); });
+      var hits = ray.intersectObjects(cards, false).filter(function (hh) { return hh.object.position.z < cam.position.z - 0.5 && (hh.object.material.opacity > 0.3); });
       var obj = hits.length ? hits[0].object : null;
       if (obj !== hovered) {
         hovered = obj;
@@ -176,6 +178,7 @@
     ScrollTrigger.create({ trigger: "#stage", start: "top top", end: "bottom bottom", scrub: true, onUpdate: function (st) { prog = st.progress; if (focused && Math.abs(prog - focusProg) > 0.02) unfocus(); } });
     gsap.to(".hero__in", { opacity: 0, y: -30, ease: "none", scrollTrigger: { trigger: "#stage", start: "top top", end: "+=45%", scrub: true } });
     gsap.to(".hero__veil", { opacity: 0.3, ease: "none", scrollTrigger: { trigger: "#stage", start: "top top", end: "+=90%", scrub: true } });
+    var rnd0 = function (ph) { return Math.sin(ph) * 0.35; };
     var clock = new THREE.Clock(), visible = true, stageEl = $("#stage");
     new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }, { threshold: 0 }).observe(stageEl || hero);
     function tick() {
@@ -194,17 +197,26 @@
         // slow conveyor towards the viewer, wrapping to the back
         u.base[2] += dt * 0.55;
         if (u.base[2] > cam.position.z - 2.2) { u.base[2] -= 19; u.base[0] = (Math.random() < 0.5 ? -1 : 1) * rnd(3.0, 4.2); u.base[1] = rnd(-1.5, 1.6); }
-        c.position.z = u.base[2];
-        c.position.y = u.base[1] + Math.sin(t * u.sp + u.ph) * 0.22;
-        c.position.x = u.base[0] * (1 - fg * 0.26) + Math.cos(t * u.sp * 0.7 + u.ph) * 0.14;
-        c.rotation.y = u.ry + Math.sin(t * 0.3 + u.ph) * 0.12 + mx * 0.12;
-        c.rotation.x = Math.sin(t * 0.25 + u.ph) * 0.07 - my * 0.07;
-        c.rotation.z = u.rz + Math.sin(t * 0.2 + u.ph) * 0.03;
+        // three movement characters so the field never reads as one loop
+        var bob = u.mode === 1 ? 0.34 : 0.22, swayY = u.mode === 2 ? 0.2 : 0.12, spin = u.mode === 1 ? Math.sin(t * 0.09 + u.ph) * 0.08 : 0;
+        var px = u.base[0] * (1 - fg * 0.26) + Math.cos(t * u.sp * 0.7 + u.ph) * 0.14, py = u.base[1] + Math.sin(t * u.sp + u.ph) * bob, pz = u.base[2];
+        var ry = u.ry + Math.sin(t * 0.3 + u.ph) * swayY + mx * 0.12, rx = Math.sin(t * 0.25 + u.ph) * 0.07 - my * 0.07, rz = u.rz + Math.sin(t * 0.2 + u.ph) * 0.03 + spin;
+        // leapers: scroll-driven jump to right in front of the viewer, then back into the stream
+        var e = 0;
+        if (u.leap) { var k = (prog - u.leap.at) / u.leap.len; if (k > 0 && k < 1) e = Math.sin(k * Math.PI); e = Math.pow(e, 0.8); }
+        u.e += (e - u.e) * 0.2; e = u.e;
+        if (e > 0.001) {
+          var lz = cam.position.z - 4.6, lx = cam.position.x + u.leap.side * 3.0, ly = cam.position.y + rnd0(u.ph);
+          px = px * (1 - e) + lx * e; py = py * (1 - e) + ly * e; pz = pz * (1 - e) + lz * e;
+          ry = ry * (1 - e) + (-u.leap.side * 0.22) * e; rx *= (1 - e); rz *= (1 - e);
+        }
+        c.position.set(px, py, pz); c.rotation.set(rx, ry, rz);
         var want = (c === hovered && !focused) ? 1 : 0;
         u.hover += (want - u.hover) * 0.12;
-        if (entered) { var sc = 1 + fg * 0.34 + u.hover * 0.08; c.scale.set(sc, sc, 1); }
+        var breathe = u.mode === 2 ? 1 + Math.sin(t * 0.6 + u.ph) * 0.035 : 1;
+        if (entered) { var sc = (1 + fg * 0.34 + u.hover * 0.08) * breathe * (1 + e * 0.22); c.scale.set(sc, sc, 1); }
         u.frame.material.opacity = u.hover * 0.7;
-        if (!focused) c.material.opacity = Math.min(1, 0.92 + fg * 0.08 + u.hover * 0.08);
+        if (!focused) c.material.opacity = Math.min(1, 0.92 + fg * 0.08 + u.hover * 0.08 + e * 0.5);
       });
       dust.rotation.y = t * 0.02; ring.rotation.z = t * 0.05;
       renderer.render(scene, cam);
@@ -311,28 +323,57 @@
   }
 
   /* ---------------- intro: two lines + three USPs, pinned ---------------- */
+  function wrapIntroWords(el) {
+    $$(".line-mask > span", el).forEach(function (span) {
+      if ($(".iw", span)) return;
+      var walk = function (node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (n) {
+          if (n.nodeType === 3) {
+            var frag = document.createDocumentFragment();
+            n.textContent.split(/(\s+)/).forEach(function (w) { if (!w) return; if (/^\s+$/.test(w)) frag.appendChild(document.createTextNode(w)); else { var s = document.createElement("span"); s.className = "iw"; s.textContent = w; frag.appendChild(s); } });
+            node.replaceChild(frag, n);
+          } else if (n.nodeType === 1) walk(n);
+        });
+      };
+      walk(span);
+    });
+  }
+  var introKill = null;
   function initIntro() {
     var sec = $(".intro"); if (!sec) return;
+    if (introKill) { introKill(); introKill = null; }
     var items = [$("#il1"), $("#il2"), $("#usp1"), $("#usp2"), $("#usp3")];
     var fill = $("#introFill"), step = $("#introStep"), ticks = $("#introTicks");
     if (REDUCED) { gsap.set(items, { clearProps: "all" }); return; }
     var mob = window.matchMedia("(max-width: 899px)").matches, travel = mob ? 42 : 50;
     gsap.set(items, { autoAlpha: 0 });
-    var tl = gsap.timeline({ scrollTrigger: { trigger: sec, start: "top top", end: "bottom bottom", scrub: 0.65,
+    var tl = gsap.timeline({ scrollTrigger: { trigger: sec, start: "top top", end: "bottom bottom", scrub: 0.55,
       onUpdate: function (st) { var p = st.progress; if (fill) fill.style.transform = "scaleY(" + p + ")"; if (step) step.textContent = "0" + Math.min(5, Math.floor(p * 5.1) + 1); } } });
-    // five beats, 20 units each: rise in (power out), hold in the centre while you read, leave (power in)
     var L = 20;
     items.forEach(function (el, i) {
-      var s = i * L, last = i === items.length - 1;
-      tl.fromTo(el, { y: travel + "vh" }, { y: 0, duration: L * 0.42, ease: "power2.out" }, s);
-      tl.fromTo(el, { autoAlpha: 0, scale: 0.94 }, { autoAlpha: 1, scale: 1, duration: L * 0.3, ease: "power2.out" }, s);
-      if (!last) {
-        tl.to(el, { y: (-travel) + "vh", duration: L * 0.42, ease: "power2.in" }, s + L * 0.58);
-        tl.to(el, { autoAlpha: 0, scale: 1.04, duration: L * 0.3, ease: "power2.in" }, s + L * 0.7);
+      var s = i * L, last = i === items.length - 1, isLine = i < 2;
+      if (isLine) {
+        // the sentence sits still; every word is written by the scroll itself
+        wrapIntroWords(el);
+        var words = $$(".iw", el);
+        tl.fromTo(el, { y: travel * 0.5 + "vh" }, { y: 0, duration: L * 0.2, ease: "power2.out" }, s);
+        tl.fromTo(el, { autoAlpha: 0 }, { autoAlpha: 1, duration: L * 0.12, ease: "power2.out" }, s);
+        var w0 = s + L * 0.1, w1 = s + L * 0.74, each = L * 0.1, gap = words.length > 1 ? (w1 - w0 - each) / (words.length - 1) : 0;
+        words.forEach(function (w, k) { tl.fromTo(w, { opacity: 0.1, yPercent: 55 }, { opacity: 1, yPercent: 0, duration: each, ease: "power2.out" }, w0 + gap * k); });
+        tl.to(el, { y: (-travel) + "vh", duration: L * 0.22, ease: "power2.in" }, s + L * 0.78);
+        tl.to(el, { autoAlpha: 0, duration: L * 0.16, ease: "power2.in" }, s + L * 0.84);
+      } else {
+        tl.fromTo(el, { y: travel + "vh" }, { y: 0, duration: L * 0.42, ease: "power2.out" }, s);
+        tl.fromTo(el, { autoAlpha: 0, scale: 0.94 }, { autoAlpha: 1, scale: 1, duration: L * 0.3, ease: "power2.out" }, s);
+        if (!last) {
+          tl.to(el, { y: (-travel) + "vh", duration: L * 0.42, ease: "power2.in" }, s + L * 0.58);
+          tl.to(el, { autoAlpha: 0, scale: 1.04, duration: L * 0.3, ease: "power2.in" }, s + L * 0.7);
+        }
       }
     });
     tl.to({}, { duration: 8 }, 100);
-    if (ticks) gsap.fromTo(ticks, { yPercent: 0 }, { yPercent: -30, ease: "none", scrollTrigger: { trigger: sec, start: "top top", end: "bottom bottom", scrub: true } });
+    var tk = ticks ? gsap.fromTo(ticks, { yPercent: 0 }, { yPercent: -30, ease: "none", scrollTrigger: { trigger: sec, start: "top top", end: "bottom bottom", scrub: true } }) : null;
+    introKill = function () { tl.scrollTrigger && tl.scrollTrigger.kill(); tl.kill(); if (tk) { tk.scrollTrigger && tk.scrollTrigger.kill(); tk.kill(); } gsap.set(items, { clearProps: "all" }); };
   }
 
   /* ---------------- work: horizontal pin ---------------- */
@@ -817,6 +858,7 @@
     // statement words were wrapped: rewrap
     var st = $("#statement"); if (st) { wrapWords(st); $$(".w", st).forEach(function (w) { w.classList.add("on"); }); }
     if (!silent) { $$(".hero .line-mask > span").forEach(function (s) { s.style.transform = "none"; }); }
+    initIntro();
     if (window.__ctaRefresh) window.__ctaRefresh(); if (window.__offerRefresh) window.__offerRefresh();
     try { localStorage.setItem("di_lang", l); } catch (e) {}
     ScrollTrigger.refresh();
