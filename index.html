@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=c1305f56" />
+  <link rel="stylesheet" href="styles.css?v=6e2ed9fa" />
 </head>
 <body>
 
@@ -63,8 +63,11 @@
 
   <main>
 
-    <!-- ========== HERO ========== -->
+    <!-- ========== HERO + INTRO (sticky stage) ========== -->
+    <div class="stage" id="stage">
     <section class="hero" id="hero" data-theme="dark">
+      <canvas class="hero__gl" id="gl" aria-hidden="true"></canvas>
+      <div class="hero__veil" aria-hidden="true"></div>
       <div class="hero__in">
         <div class="hero__center">
           <h1 class="hero__h1" id="heroTitle">
@@ -73,24 +76,15 @@
           </h1>
         </div>
         <div class="hero__corner hero__corner--bl scrollcue" aria-hidden="true"><i></i><span data-i18n="scroll">Scroll</span></div>
+        <span class="hero__corner hero__corner--br hero__tip" id="heroTip" data-i18n="hero_tip">Klik op een website om ze van dichtbij te zien</span>
       </div>
-      <div class="show" id="heroShow">
-        <button type="button" class="show__meta" id="showMeta">
-          <span class="show__idx" id="showIdx">01 / 05</span>
-          <b class="show__name" id="showName">Credo Rehab &amp; Performance</b>
-          <span class="show__kind" id="showKind">Kinesitherapie · live</span>
-          <span class="show__open"><span data-i18n="show_open">Bekijk in de galerij</span><i></i></span>
-        </button>
-        <div class="show__frame" id="showFrame" data-tilt>
-          <div class="show__bar" aria-hidden="true"><i></i><i></i><i></i><span class="show__url" id="showUrl">credorehabandperformance.com</span></div>
-          <div class="show__screen" id="showScreen">
-            <img class="show__img is-on" src="assets/img/site-credo.jpg" alt="Website van Credo Rehab & Performance" data-panel="1" data-name="Credo Rehab &amp; Performance" data-kind="k_credo" data-url="credorehabandperformance.com" />
-            <img class="show__img" src="assets/img/site-simonta.jpg" alt="Homepagina-ontwerp voor Simonta" data-panel="2" data-name="Simonta" data-kind="k_simonta" data-url="simonta.be" loading="lazy" />
-            <img class="show__img" src="assets/img/site-mergel.jpg" alt="Homepagina-ontwerp voor Mergelgrotten Zichen" data-panel="3" data-name="Mergelgrotten Zichen" data-kind="k_mergel" data-url="mergelgrottenzichen.be" loading="lazy" />
-            <img class="show__img" src="assets/img/site-fleetreview.jpg" alt="Conceptontwerp voor Fleetreview" data-panel="4" data-name="Fleetreview" data-kind="k_fleet" data-url="fleetreview.app" loading="lazy" />
-            <img class="show__img" src="assets/img/site-noor.jpg" alt="Conceptontwerp voor NOOR architecten" data-panel="5" data-name="NOOR architecten" data-kind="k_noor" data-url="noor-architecten.be" loading="lazy" />
-          </div>
-          <div class="show__progress" aria-hidden="true"><i id="showBar"></i></div>
+      <div class="gl-focus" id="glFocus" hidden>
+        <span class="gl-focus__k" id="glKind"></span>
+        <h3 class="gl-focus__n" id="glName"></h3>
+        <div class="gl-focus__a">
+          <button type="button" class="btn btn--gold btn--sm" id="glGo"><span data-i18n="gl_go">Toon in de galerij</span></button>
+          <a class="btn btn--ghost btn--sm" id="glLive" href="#" target="_blank" rel="noopener noreferrer" hidden><span data-i18n="gl_live">Bekijk live</span></a>
+          <button type="button" class="gl-focus__x" id="glClose" aria-label="Sluiten" data-i18n="gl_close">Sluiten</button>
         </div>
       </div>
     </section>
@@ -108,6 +102,7 @@
         </p>
       </div>
     </section>
+    </div><!-- /stage -->
 
     <!-- ========== WORK (horizontal) ========== -->
     <section class="work" id="werk" data-theme="dark">
@@ -300,9 +295,10 @@
     </div>
   </footer>
 
+  <script src="assets/vendor/three.min.js"></script>
   <script src="assets/vendor/gsap.min.js"></script>
   <script src="assets/vendor/ScrollTrigger.min.js"></script>
   <script src="assets/vendor/lenis.min.js"></script>
-  <script src="script.js?v=c1305f56"></script>
+  <script src="script.js?v=6e2ed9fa"></script>
 </body>
 </html>
