@@ -42,8 +42,8 @@
   function heroIn() {
     var hero = $("#hero");
     var tl = gsap.timeline({ defaults: { ease: "power4.out" } });
-    tl.to(".hero .line-mask > span", { y: 0, duration: 1.3, stagger: 0.14 }, 0)
-      .add(function () { hero.classList.add("is-drawn"); }, 0.9)
+    tl.fromTo(".hero .hw", { yPercent: 110, rotateX: -35, opacity: 0 }, { yPercent: 0, rotateX: 0, opacity: 1, duration: 1.6, stagger: 0.11, ease: "power4.out", clearProps: "opacity" }, 0)
+      .add(function () { hero.classList.add("is-drawn"); }, 1.0)
       .add(function () { hero.classList.add("is-loaded-ui"); }, 1.2);
     if (REDUCED) { tl.progress(1); hero.classList.add("is-drawn", "is-loaded-ui"); }
     if (window.__glEnter) window.__glEnter();
@@ -57,7 +57,7 @@
     try { renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true, powerPreference: "high-performance" }); } catch (e) { return; }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.25));
     var scene = new THREE.Scene();
-    scene.fog = new THREE.Fog(0x0E1C3A, 5, 18);
+    scene.fog = new THREE.Fog(0x0E1C3A, 6, 19);
     var cam = new THREE.PerspectiveCamera(42, 1, 0.1, 60);
     cam.position.set(0, 0, 6);
     var loader = new THREE.TextureLoader();
@@ -70,10 +70,10 @@
     ];
     var cards = [], group = new THREE.Group(); scene.add(group);
     var rnd = function (a, b) { return a + Math.random() * (b - a); };
-    var seeded = [
-      [-2.6, 0.9, -1], [2.4, -0.7, -2.5], [-1.4, -1.4, -4], [2.9, 1.3, -5.5], [-3.1, 0.2, -7], [0.9, 1.6, -8.5],
-      [-0.6, -1.3, -10], [2.6, 0.5, -11.5], [-2.4, 1.1, -13], [1.4, -1.0, -14.5]
-    ];
+    // a quiet corridor: cards alternate left/right, evenly spaced in depth, each turned towards the centre
+    var YS = [0.55, -0.5, 0.25, -0.75, 0.05], XS = [0, 0.35, 0.15];
+    var seeded = [];
+    for (var si = 0; si < 10; si++) { var side = si % 2 ? 1 : -1; seeded.push([side * (2.45 + XS[si % 3]), YS[si % 5], -2.2 - si * 1.6, side]); }
     var frameGeo = new THREE.PlaneGeometry(2.3, 1.475, 1, 1);
     seeded.forEach(function (p, i) {
       var site = SITES[i % SITES.length];
@@ -82,17 +82,14 @@
       var geo = new THREE.PlaneGeometry(2.2, 1.375, 1, 1);
       var mat = new THREE.MeshBasicMaterial({ map: tex, transparent: true, opacity: 0.92, side: THREE.DoubleSide });
       var m = new THREE.Mesh(geo, mat);
-      var band = 1.7 + Math.max(0, -p[2]) * 0.09;
-      if (Math.abs(p[0]) < band) p[0] = (p[0] < 0 ? -1 : 1) * (band + rnd(0, 0.7));
       m.position.set(p[0], p[1], p[2]);
-      m.rotation.set(rnd(-0.12, 0.12), rnd(-0.35, 0.35), rnd(-0.06, 0.06));
-      m.scale.setScalar(0.001);
+      m.rotation.set(0, -p[3] * 0.38, 0);
       // gold frame behind the card, shown on hover / focus
       var frame = new THREE.Mesh(frameGeo, new THREE.MeshBasicMaterial({ color: 0xC9A24A, transparent: true, opacity: 0, side: THREE.DoubleSide }));
       frame.position.z = -0.01; m.add(frame);
-      var ci = cards.length, leapAt = [0.055, 0.16, 0.29][[1, 4, 7].indexOf(ci)];
-      m.userData = { site: site, base: p.slice(), ph: rnd(0, Math.PI * 2), sp: rnd(0.4, 0.8), rx: m.rotation.x, ry: m.rotation.y, rz: m.rotation.z, frame: frame, tex: tex, hover: 0, s: 1,
-        mode: ci % 3, leap: leapAt != null ? { at: leapAt, len: 0.13, side: (ci % 2 ? 1 : -1) } : null, e: 0 };
+      var ci = cards.length, leapAt = [0.07, 0.2][[2, 5].indexOf(ci)];
+      m.userData = { site: site, base: p.slice(0, 3), side: p[3], ph: rnd(0, Math.PI * 2), sp: rnd(0.35, 0.6), ry: m.rotation.y, frame: frame, tex: tex, hover: 0, enter: 1,
+        leap: leapAt != null ? { at: leapAt, len: 0.16, side: p[3] } : null, e: 0 };
       group.add(m); cards.push(m);
     });
     var N = 160, pos = new Float32Array(N * 3);
@@ -133,7 +130,7 @@
       }
     }
     var entered = false;
-    window.__glEnter = function () { cards.forEach(function (c, i) { gsap.to(c.scale, { x: 1, y: 1, z: 1, duration: 1.6, delay: 0.15 + i * 0.07, ease: "power3.out", onComplete: function () { if (i === cards.length - 1) entered = true; } }); }); };
+    window.__glEnter = function () { cards.forEach(function (c, i) { gsap.to(c.userData, { enter: 0, duration: 2.0, delay: 0.1 + i * 0.09, ease: "power4.out", onComplete: function () { if (i === cards.length - 1) entered = true; } }); }); };
     var worldDir = new THREE.Vector3();
     function focus(card) {
       focused = card; focusProg = prog;
@@ -186,7 +183,8 @@
       if (!visible && prog >= 1) return;
       var dt = Math.min(clock.getDelta(), 0.05), t = clock.getElapsedTime();
       mx += (tx - mx) * 0.05; my += (ty - my) * 0.05;
-      cam.position.z = 6 - prog * 12;
+      if (FINE && prog < 0.2) { hero.style.setProperty("--px", (mx * -10) + "px"); hero.style.setProperty("--py", (my * -8) + "px"); }
+      cam.position.z = 6 - prog * 11;
       var fg = Math.min(1, Math.max(0, (prog - 0.08) / 0.45)); // 0 in the hero → 1 once the intro copy runs
       cam.position.x = mx * 0.6; cam.position.y = -my * 0.4 - prog * 1.3;
       cam.lookAt(mx * 0.3, -my * 0.2, cam.position.z - 6);
@@ -194,29 +192,29 @@
       cards.forEach(function (c) {
         var u = c.userData;
         if (c === focused) { return; }
-        // slow conveyor towards the viewer, wrapping to the back
-        u.base[2] += dt * 0.55;
-        if (u.base[2] > cam.position.z - 2.2) { u.base[2] -= 19; u.base[0] = (Math.random() < 0.5 ? -1 : 1) * rnd(3.0, 4.2); u.base[1] = rnd(-1.5, 1.6); }
-        // three movement characters so the field never reads as one loop
-        var bob = u.mode === 1 ? 0.34 : 0.22, swayY = u.mode === 2 ? 0.2 : 0.12, spin = u.mode === 1 ? Math.sin(t * 0.09 + u.ph) * 0.08 : 0;
-        var px = u.base[0] * (1 - fg * 0.26) + Math.cos(t * u.sp * 0.7 + u.ph) * 0.14, py = u.base[1] + Math.sin(t * u.sp + u.ph) * bob, pz = u.base[2];
-        var ry = u.ry + Math.sin(t * 0.3 + u.ph) * swayY + mx * 0.12, rx = Math.sin(t * 0.25 + u.ph) * 0.07 - my * 0.07, rz = u.rz + Math.sin(t * 0.2 + u.ph) * 0.03 + spin;
-        // leapers: scroll-driven jump to right in front of the viewer, then back into the stream
+        // slow glide towards the viewer; a card that passes the camera fades out and rejoins at the back on its own side
+        u.base[2] += dt * 0.32;
+        if (u.base[2] > cam.position.z - 1.0) { u.base[2] -= 16; u.base[1] = YS[Math.floor(Math.random() * YS.length)]; u.base[0] = u.side * (2.45 + XS[Math.floor(Math.random() * XS.length)]); }
+        var dist = cam.position.z - u.base[2], near = Math.min(1, Math.max(0, (dist - 1.3) / 1.3));
+        var px = u.base[0] * (1 - fg * 0.2) + u.side * 3.2 * u.enter + Math.cos(t * u.sp * 0.6 + u.ph) * 0.06;
+        var py = u.base[1] + Math.sin(t * u.sp + u.ph) * 0.1;
+        var pz = u.base[2] - u.enter * 2.5;
+        var ry = u.ry + Math.sin(t * 0.25 + u.ph) * 0.05 + mx * 0.1, rx = Math.sin(t * 0.2 + u.ph) * 0.03 - my * 0.05, rz = 0;
+        // two cards step out of the row towards the viewer at their own scroll moment
         var e = 0;
         if (u.leap) { var k = (prog - u.leap.at) / u.leap.len; if (k > 0 && k < 1) e = Math.sin(k * Math.PI); e = Math.pow(e, 0.8); }
         u.e += (e - u.e) * 0.2; e = u.e;
         if (e > 0.001) {
-          var lz = cam.position.z - 4.6, lx = cam.position.x + u.leap.side * 3.0, ly = cam.position.y + rnd0(u.ph);
+          var lz = cam.position.z - 4.4, lx = cam.position.x + u.leap.side * 2.5, ly = cam.position.y + rnd0(u.ph);
           px = px * (1 - e) + lx * e; py = py * (1 - e) + ly * e; pz = pz * (1 - e) + lz * e;
-          ry = ry * (1 - e) + (-u.leap.side * 0.22) * e; rx *= (1 - e); rz *= (1 - e);
+          ry = ry * (1 - e) + (-u.leap.side * 0.2) * e; rx *= (1 - e);
         }
         c.position.set(px, py, pz); c.rotation.set(rx, ry, rz);
         var want = (c === hovered && !focused) ? 1 : 0;
         u.hover += (want - u.hover) * 0.12;
-        var breathe = u.mode === 2 ? 1 + Math.sin(t * 0.6 + u.ph) * 0.035 : 1;
-        if (entered) { var sc = (1 + fg * 0.34 + u.hover * 0.08) * breathe * (1 + e * 0.22); c.scale.set(sc, sc, 1); }
-        u.frame.material.opacity = u.hover * 0.7;
-        if (!focused) c.material.opacity = Math.min(1, 0.92 + fg * 0.08 + u.hover * 0.08 + e * 0.5);
+        var sc = 1.1 * (1 + fg * 0.25 + u.hover * 0.07) * (1 + e * 0.2); c.scale.set(sc, sc, 1);
+        u.frame.material.opacity = u.hover * 0.7 * near;
+        if (!focused) c.material.opacity = Math.min(1, 0.92 + fg * 0.08 + u.hover * 0.08 + e * 0.5) * near * (1 - u.enter);
       });
       dust.rotation.y = t * 0.02; ring.rotation.z = t * 0.05;
       renderer.render(scene, cam);
@@ -342,40 +340,30 @@
   function initIntro() {
     var sec = $(".intro"); if (!sec) return;
     if (introKill) { introKill(); introKill = null; }
-    var lines = [$("#il1"), $("#il2")], usps = [$("#usp1"), $("#usp2"), $("#usp3")], items = lines.concat(usps);
+    var lines = [$("#il1"), $("#il2")], items = lines.slice();
     var fill = $("#introFill"), step = $("#introStep"), ticks = $("#introTicks"), cover = $("#introCover");
     if (REDUCED) { gsap.set(items, { clearProps: "all" }); return; }
-    var mob = window.matchMedia("(max-width: 899px)").matches, travel = mob ? 46 : 56, tu = mob ? 16 : 20;
-    var marks = [0.31, 0.64, 0.75, 0.86];
+    var mob = window.matchMedia("(max-width: 899px)").matches, travel = mob ? 40 : 46;
     gsap.set(items, { autoAlpha: 0 });
-    var tl = gsap.timeline({ scrollTrigger: { trigger: sec, start: "top top", end: "bottom bottom", scrub: 0.55,
-      onUpdate: function (st) { var p = st.progress, n = 1; marks.forEach(function (m) { if (p >= m) n++; }); if (fill) fill.style.transform = "scaleY(" + p + ")"; if (step) step.textContent = "0" + n; } } });
-    // the two sentences: big, blurred rise, written word by word, gold rule, blurred exit
-    var LW = 32;
+    var tl = gsap.timeline({ scrollTrigger: { trigger: sec, start: "top top", end: "bottom bottom", scrub: 0.6,
+      onUpdate: function (st) { var p = st.progress; if (fill) fill.style.transform = "scaleY(" + p + ")"; if (step) step.textContent = p < 0.5 ? "01" : "02"; } } });
+    // two sentences, each written by the scroll: calm rise, word by word, gold rule; the first leaves, the second stays
+    var LW = 52;
     lines.forEach(function (el, i) {
-      var s = i * 31; wrapIntroWords(el);
+      var s = i * 48, last = i === lines.length - 1; wrapIntroWords(el);
       var words = $$(".iw", el);
-      tl.fromTo(el, { y: travel + "vh" }, { y: 0, duration: LW * 0.3, ease: "power3.out" }, s);
-      tl.fromTo(el, { autoAlpha: 0, scale: 0.86, filter: "blur(12px)" }, { autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: LW * 0.24, ease: "power2.out" }, s + LW * 0.02);
-      var w0 = s + LW * 0.12, w1 = s + LW * 0.66, each = LW * 0.08, gap = words.length > 1 ? (w1 - w0 - each) / (words.length - 1) : 0;
-      words.forEach(function (w, k) { tl.fromTo(w, { opacity: 0.1, yPercent: 50 }, { opacity: 1, yPercent: 0, duration: each, ease: "power2.out" }, w0 + gap * k); });
-      tl.fromTo(el, { "--ul": 0 }, { "--ul": 1, duration: LW * 0.12, ease: "power2.inOut" }, w1 + each * 0.6);
-      tl.to(el, { y: (-travel) + "vh", duration: LW * 0.22, ease: "power3.in" }, s + LW * 0.8);
-      tl.to(el, { autoAlpha: 0, scale: 1.1, filter: "blur(10px)", duration: LW * 0.16, ease: "power2.in" }, s + LW * 0.84);
-    });
-    // the stage closes over the sites while the first sentence finishes
-    if (cover) tl.fromTo(cover, { autoAlpha: 0 }, { autoAlpha: 1, duration: 9, ease: "power2.inOut" }, 20);
-    // three USPs: small, quick, smooth
-    var LU = 11;
-    usps.forEach(function (el, i) {
-      var s = 64 + i * 10.5, last = i === usps.length - 1;
-      tl.fromTo(el, { y: tu + "vh" }, { y: 0, duration: LU * 0.42, ease: "power2.out" }, s);
-      tl.fromTo(el, { autoAlpha: 0, filter: "blur(6px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: LU * 0.3, ease: "power2.out" }, s);
+      tl.fromTo(el, { y: travel * 0.7 + "vh" }, { y: 0, duration: LW * 0.3, ease: "power3.out" }, s);
+      tl.fromTo(el, { autoAlpha: 0, scale: 0.95, filter: "blur(6px)" }, { autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: LW * 0.22, ease: "power2.out" }, s + LW * 0.02);
+      var w0 = s + LW * 0.1, w1 = s + LW * 0.68, each = LW * 0.1, gap = words.length > 1 ? (w1 - w0 - each) / (words.length - 1) : 0;
+      words.forEach(function (w, k) { tl.fromTo(w, { opacity: 0.08, yPercent: 40, filter: "blur(4px)" }, { opacity: 1, yPercent: 0, filter: "blur(0px)", duration: each, ease: "power3.out" }, w0 + gap * k); });
+      tl.fromTo(el, { "--ul": 0 }, { "--ul": 1, duration: LW * 0.12, ease: "power2.inOut" }, w1 + each * 0.5);
       if (!last) {
-        tl.to(el, { y: (-tu) + "vh", duration: LU * 0.42, ease: "power2.in" }, s + LU * 0.58);
-        tl.to(el, { autoAlpha: 0, filter: "blur(6px)", duration: LU * 0.3, ease: "power2.in" }, s + LU * 0.68);
+        tl.to(el, { y: (-travel) + "vh", duration: LW * 0.22, ease: "power3.in" }, s + LW * 0.8);
+        tl.to(el, { autoAlpha: 0, scale: 1.06, filter: "blur(8px)", duration: LW * 0.16, ease: "power2.in" }, s + LW * 0.84);
       }
     });
+    // the stage closes over the sites while the first sentence finishes
+    if (cover) tl.fromTo(cover, { autoAlpha: 0 }, { autoAlpha: 1, duration: 12, ease: "power2.inOut" }, 32);
     tl.to({}, { duration: 6 }, 100);
     var tk = ticks ? gsap.fromTo(ticks, { yPercent: 0 }, { yPercent: -30, ease: "none", scrollTrigger: { trigger: sec, start: "top top", end: "bottom bottom", scrub: true } }) : null;
     introKill = function () { tl.scrollTrigger && tl.scrollTrigger.kill(); tl.kill(); if (tk) { tk.scrollTrigger && tk.scrollTrigger.kill(); tk.kill(); } gsap.set(items.concat([cover]), { clearProps: "all" }); };
@@ -428,26 +416,6 @@
     handle.addEventListener("keydown", function (e) { var v = parseFloat(handle.getAttribute("aria-valuenow")) || 50, r = root.getBoundingClientRect(); if (e.key === "ArrowLeft") { setPos(r.left + r.width * (v - 5) / 100); e.preventDefault(); } if (e.key === "ArrowRight") { setPos(r.left + r.width * (v + 5) / 100); e.preventDefault(); } });
   }
 
-
-  /* ---------------- CTA: free homepage design ---------------- */
-  function initCTA() {
-    var sec = $("#ontwerp"), inp = $("#ctaInput"); if (!sec || !inp) return;
-    var field = inp.closest(".cta__field");
-    inp.addEventListener("input", function () { field.classList.toggle("is-filled", !!inp.value.trim()); });
-    $("#ctaSend").addEventListener("click", function () {
-      var v = (inp.value || "").trim(), ber = $("#bericht");
-      if (ber && v) ber.value = (lang === "en" ? "My business: " : lang === "fr" ? "Mon activité : " : "Mijn zaak: ") + v + "\n";
-      var c = $("#contact"); if (lenis) lenis.scrollTo(c, { duration: 1.4 }); else c.scrollIntoView({ behavior: "smooth" });
-      setTimeout(function () { var n = $("#naam"); if (n) n.focus({ preventScroll: true }); }, 1500);
-    });
-    var deck = $("#deck");
-    ScrollTrigger.create({ trigger: deck, start: "top 72%", once: true, onEnter: function () { deck.classList.add("is-open"); } });
-    if (REDUCED) { deck.classList.add("is-open"); return; }
-    gsap.from("#ctaStage", { opacity: 0, y: 80, duration: 1.4, ease: "power4.out", scrollTrigger: { trigger: sec, start: "top 70%", once: true } });
-    gsap.from("#ctaBadge", { scale: 0, rotation: -40, duration: 1, ease: "back.out(2)", scrollTrigger: { trigger: sec, start: "top 50%", once: true } });
-    gsap.to("#ctaBadge", { y: -8, duration: 2.4, yoyo: true, repeat: -1, ease: "sine.inOut" });
-    gsap.from(".cta__steps li", { opacity: 0, y: 14, stagger: 0.1, duration: 0.8, ease: "power3.out", scrollTrigger: { trigger: ".cta__steps", start: "top 88%", once: true } });
-  }
 
   /* ---------------- diensten & prijzen: chooser ---------------- */
   var OFFER = {
@@ -592,7 +560,7 @@
     en: {
       meta_title: "Digital Impression | Websites that make an impression", menu: "Menu", close: "Close",
       nav_work: "Work", nav_services: "Services &amp; pricing", nav_process: "Process", nav_pricing: "Free design", nav_contact: "Contact",
-      hero_eyebrow: "Web design studio · Belgium & the Netherlands", h1_a: "Websites that", h1_b: "make an <em class=\"it\">impression.</em>",
+      hero_eyebrow: "Web design studio · Belgium & the Netherlands", h1_a: "<span class=\"hw\">Websites</span> <span class=\"hw\">that</span>", h1_b: "<span class=\"hw\">make</span> <span class=\"hw\">an</span> <span class=\"hw\"><em class=\"it kw\">impression.</em></span>",
       hero_lead: "Designed and built to measure. You see your homepage within 24 hours, free, and pay no deposit.",
       cta_design: "Request your free design", cta_work: "See our work", scroll: "Scroll", hero_tip: "Click a website to see it up close", hero_tr: "Bespoke websites · since 2024", gl_go: "Show in the gallery", gl_live: "View live", gl_close: "Close",
       mq1: "Business websites", mq2: "Webshops", mq3: "Redesigns", mq4: "Landing pages",
@@ -651,10 +619,8 @@
       w4_what: "Dark command centre: live map with routes, vehicle cards, numbers and chart on the side.",
       w5_who: "Concept for an architecture practice in Hasselt and Antwerp.",
       w5_what: "Editorial: three photos at different heights, the word NOOR as a watermark, light and silence as the subject.",
-      ct_eyebrow: "Free homepage design", ct_title: "Your homepage, <em class=\"it\">drawn for free within 24 hours.</em>",
-      ct_lead: "Tell us in one sentence what your business does. Tomorrow a first design of your homepage is in your inbox: bespoke, without a deposit and without obligation. Only when you like it do we build on.",
-      ct_s1: "You tell", ct_s2: "We draw", ct_s3: "You decide", ct_lbl: "Your business in one sentence", ct_ph: "For example: physiotherapist in Diepenbeek for athletes",
-      ct_btn: "Draw my homepage", ct_fine: "Free · in your inbox within 24 hours · no deposit, no obligation", ct_badge: "free design", ct_proof: "This is what our first designs look like: Simonta, Mergelgrotten Zichen and NOOR.",
+      ct_eyebrow: "Free homepage design", ct_title: "Curious what your homepage <em class=\"it\">could look like?</em>",
+      ct_lead: "Tell us briefly about your business. Within 24 hours you receive a first design of your homepage. Free, no deposit, no obligation.", ct_link: "See services and pricing",
       of_eyebrow: "Services &amp; pricing", of_title: "What we build, <em class=\"it\">and what it costs.</em>",
       of_lead: "Fixed starting prices, no small print. Pick a service and the details appear next to it. Every project starts with a free homepage design.",
       o1_t: "Business website", o1_s: "Build trust and win enquiries.", o2_t: "Webshop", o2_s: "Sell while you sleep, without checkout hassle.", o3_t: "Redesign", o3_s: "Same content, completely new impression. See Credo.", o4_t: "Landing page", o4_s: "One page, one goal, for campaigns and promotions.", o4_p: "tailored"
@@ -662,7 +628,7 @@
     fr: {
       meta_title: "Digital Impression | Des sites web qui font impression", menu: "Menu", close: "Fermer",
       nav_work: "Réalisations", nav_services: "Services &amp; tarifs", nav_process: "Méthode", nav_pricing: "Design gratuit", nav_contact: "Contact",
-      hero_eyebrow: "Studio de webdesign · Belgique & Pays-Bas", h1_a: "Des sites web", h1_b: "qui font <em class=\"it\">impression.</em>",
+      hero_eyebrow: "Studio de webdesign · Belgique & Pays-Bas", h1_a: "<span class=\"hw\">Des</span> <span class=\"hw\">sites</span> <span class=\"hw\">web</span>", h1_b: "<span class=\"hw\">qui</span> <span class=\"hw\">font</span> <span class=\"hw\"><em class=\"it kw\">impression.</em></span>",
       hero_lead: "Conçus et construits sur mesure. Vous voyez votre page d'accueil sous 24 heures, gratuitement, sans acompte.",
       cta_design: "Demandez votre design gratuit", cta_work: "Voir nos réalisations", scroll: "Défiler", hero_tip: "Cliquez sur un site pour le voir de près", hero_tr: "Sites sur mesure · depuis 2024", gl_go: "Voir dans la galerie", gl_live: "Voir en ligne", gl_close: "Fermer",
       mq1: "Sites d'entreprise", mq2: "Boutiques en ligne", mq3: "Refontes", mq4: "Landing pages",
@@ -721,10 +687,8 @@
       w4_what: "Centre de commande sombre : carte en direct avec itinéraires, fiches véhicules, chiffres et graphique sur le côté.",
       w5_who: "Concept pour un bureau d'architectes à Hasselt et Anvers.",
       w5_what: "Éditorial : trois photos à des hauteurs différentes, le mot NOOR en filigrane, la lumière et le silence comme sujet.",
-      ct_eyebrow: "Design de page d'accueil gratuit", ct_title: "Votre page d'accueil, <em class=\"it\">dessinée gratuitement sous 24 heures.</em>",
-      ct_lead: "Dites en une phrase ce que fait votre entreprise. Demain, un premier design de votre page d'accueil est dans votre boîte mail : sur mesure, sans acompte et sans engagement. Nous ne construisons la suite que si elle vous plaît.",
-      ct_s1: "Vous racontez", ct_s2: "Nous dessinons", ct_s3: "Vous décidez", ct_lbl: "Votre entreprise en une phrase", ct_ph: "Par exemple : kinésithérapeute à Diepenbeek pour sportifs",
-      ct_btn: "Dessinez ma page d'accueil", ct_fine: "Gratuit · dans votre boîte mail sous 24 heures · sans acompte, sans engagement", ct_badge: "design gratuit", ct_proof: "Voici à quoi ressemblent nos premiers designs : Simonta, Mergelgrotten Zichen et NOOR.",
+      ct_eyebrow: "Design de page d'accueil gratuit", ct_title: "Curieux de voir à quoi votre page d'accueil <em class=\"it\">pourrait ressembler ?</em>",
+      ct_lead: "Parlez-nous brièvement de votre entreprise. Sous 24 heures, vous recevez un premier design de votre page d'accueil. Gratuit, sans acompte, sans engagement.", ct_link: "Voir services et tarifs",
       of_eyebrow: "Services &amp; tarifs", of_title: "Ce que nous créons, <em class=\"it\">et ce que ça coûte.</em>",
       of_lead: "Des prix de départ fixes, sans petits caractères. Choisissez un service, les détails apparaissent à côté. Chaque projet commence par un design de page d'accueil gratuit.",
       o1_t: "Site d'entreprise", o1_s: "Inspirer confiance et générer des demandes.", o2_t: "Boutique en ligne", o2_s: "Vendre pendant que vous dormez, sans tracas à la caisse.", o3_t: "Refonte", o3_s: "Même contenu, impression entièrement nouvelle. Voyez Credo.", o4_t: "Landing page", o4_s: "Une page, un objectif, pour campagnes et actions.", o4_p: "sur mesure"
@@ -747,7 +711,7 @@
     $$("#lang button").forEach(function (b) { b.classList.toggle("is-on", b.getAttribute("data-lang") === l); });
     // statement words were wrapped: rewrap
     var st = $("#statement"); if (st) { wrapWords(st); $$(".w", st).forEach(function (w) { w.classList.add("on"); }); }
-    if (!silent) { $$(".hero .line-mask > span").forEach(function (s) { s.style.transform = "none"; }); }
+    if (!silent) { $$(".hero .hw").forEach(function (s) { s.style.transform = "none"; s.style.opacity = "1"; }); }
     initIntro();
     if (window.__offerRefresh) window.__offerRefresh();
     try { localStorage.setItem("di_lang", l); } catch (e) {}
@@ -761,7 +725,7 @@
   }
   function init() {
     initVW();
-    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initIntro(); initWork(); initCTA(); initOffer(); initTilt(); initProcess(); initReveals(); initForm(); initPre();
+    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initIntro(); initWork(); initOffer(); initProcess(); initReveals(); initForm(); initPre();
     window.addEventListener("load", function () { ScrollTrigger.refresh(); });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
