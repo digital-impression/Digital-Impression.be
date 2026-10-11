@@ -16,8 +16,8 @@
   <link rel="icon" href="assets/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=afa4d349" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&family=Anton&family=Fraunces:ital,wght@0,500;0,600;1,500&family=Manrope:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=69cea4e4" />
 </head>
 <body>
 
@@ -36,9 +36,9 @@
       <a href="#hero" class="wordmark" aria-label="Digital Impression"><b>Digital</b><i>Impression</i></a>
       <nav class="nav" aria-label="Hoofdnavigatie">
         <a href="#werk" data-i18n="nav_work">Werk</a>
-        <a href="#diensten" data-i18n="nav_services">Diensten</a>
+        <a href="#ontwerp" data-i18n="nav_pricing">Gratis ontwerp</a>
+        <a href="#diensten" data-i18n="nav_services">Diensten &amp; prijzen</a>
         <a href="#werkwijze" data-i18n="nav_process">Werkwijze</a>
-        <a href="#prijzen" data-i18n="nav_pricing">Prijzen</a>
         <a href="#contact" data-i18n="nav_contact">Contact</a>
       </nav>
       <div class="top__right">
@@ -54,9 +54,9 @@
   <div class="menu" id="menu" aria-hidden="true">
     <button class="menu__close" id="menuClose" type="button" data-i18n="close">Sluiten</button>
     <a href="#werk"><span data-i18n="nav_work">Werk</span></a>
-    <a href="#diensten"><span data-i18n="nav_services">Diensten</span></a>
+    <a href="#ontwerp"><span data-i18n="nav_pricing">Gratis ontwerp</span></a>
+    <a href="#diensten"><span data-i18n="nav_services">Diensten &amp; prijzen</span></a>
     <a href="#werkwijze"><span data-i18n="nav_process">Werkwijze</span></a>
-    <a href="#prijzen"><span data-i18n="nav_pricing">Prijzen</span></a>
     <a href="#contact"><span data-i18n="nav_contact">Contact</span></a>
     <div class="menu__foot"><a href="mailto:info@digital-impression.be">info@digital-impression.be</a><a href="tel:+32496251445">+32 496 25 14 45</a></div>
   </div>
@@ -69,18 +69,11 @@
       <canvas class="hero__gl" id="gl" aria-hidden="true"></canvas>
       <div class="hero__veil" aria-hidden="true"></div>
       <div class="hero__in">
-        <p class="hero__corner hero__corner--tl" id="heroEyebrow"><span data-i18n="hero_eyebrow">Webdesignstudio · België &amp; Nederland</span></p>
-        <p class="hero__corner hero__corner--tr"><span data-i18n="hero_tr">Websites op maat · sinds 2024</span></p>
         <div class="hero__center">
           <h1 class="hero__h1" id="heroTitle">
             <span class="line-mask"><span data-i18n="h1_a">Websites die</span></span>
             <span class="line-mask"><span data-i18n="h1_b"><em class="it kw">indruk</em> maken.</span></span>
           </h1>
-          <p class="lead hero__lead" id="heroLead" data-i18n="hero_lead">Op maat ontworpen en gebouwd. U ziet uw homepagina binnen 24 uur, gratis, en betaalt geen voorschot.</p>
-          <div class="hero__cta" id="heroCta">
-            <a href="#ontwerp" class="btn btn--gold" data-magnet><span data-i18n="cta_design">Vraag uw gratis ontwerp</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a href="#werk" class="hero__textlink"><span data-i18n="cta_work">Bekijk ons werk</span><i></i></a>
-          </div>
         </div>
         <div class="hero__corner hero__corner--bl scrollcue" aria-hidden="true"><i></i><span data-i18n="scroll">Scroll</span></div>
         <span class="hero__corner hero__corner--br hero__tip" id="heroTip" data-i18n="hero_tip">Klik op een website om ze van dichtbij te zien</span>
@@ -109,6 +102,8 @@
         <div class="usp" id="usp1"><span class="usp__n">01 / 03</span><h2 class="usp__t" data-i18n="usp1">Geen voorschot</h2><p class="usp__s" data-i18n="usp1s">U betaalt pas als uw website klaar is en u tevreden bent.</p></div>
         <div class="usp" id="usp2"><span class="usp__n">02 / 03</span><h2 class="usp__t" data-i18n="usp2">Live in 2 weken</h2><p class="usp__s" data-i18n="usp2s">Van eerste gesprek tot online, bij de meeste projecten.</p></div>
         <div class="usp" id="usp3"><span class="usp__n">03 / 03</span><h2 class="usp__t" data-i18n="usp3">Eén aanspreekpunt</h2><p class="usp__s" data-i18n="usp3s">U praat met de persoon die uw website ontwerpt en bouwt.</p></div>
+        <div class="intro__ticks" id="introTicks" aria-hidden="true"></div>
+        <div class="intro__rail" aria-hidden="true"><span class="intro__step" id="introStep">01</span><i class="intro__railline"><b id="introFill"></b></i><span class="intro__step">05</span></div>
       </div>
     </section>
     </div><!-- /stage -->
@@ -184,71 +179,112 @@
       </div>
     </section>
 
-    <!-- ========== SERVICES ========== -->
-    <section class="svc" id="diensten" data-theme="light">
-      <div class="svc__head">
-        <p class="eyebrow" data-i18n="svc_eyebrow">Wat we bouwen</p>
-        <h2 class="h-xl" style="margin-top:1rem" data-i18n="svc_title">Diensten</h2>
+    <!-- ========== LIVE CTA: typ één zin, zie uw homepagina ========== -->
+    <section class="cta" id="ontwerp" data-theme="light">
+      <div class="cta__head">
+        <p class="eyebrow" data-i18n="ct_eyebrow">Gratis homepagina-ontwerp · binnen 24 uur</p>
+        <h2 class="h-xl" data-i18n="ct_title">Typ één zin. <em class="it">Zie uw homepagina.</em></h2>
       </div>
-      <div class="svc__list" id="svcList">
-        <div class="svc__item" data-img="advocaat">
-          <button class="svc__row" type="button" aria-expanded="false"><span class="svc__n">01</span><span class="svc__t" data-i18n="s1_t">Bedrijfswebsites</span><span class="svc__plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
-          <div class="svc__body"><div><div class="svc__inner"><p data-i18n="s1_p">Een website die vertrouwen wekt en aanvragen oplevert. Op maat ontworpen, snel, en perfect op elk scherm.</p><div class="svc__tags"><span data-i18n="s1_1">Op maat</span><span data-i18n="s1_2">Leadformulieren</span><span data-i18n="s1_3">Snel en veilig</span></div></div></div></div>
+      <div class="cta__grid">
+        <div class="cta__copy">
+          <p class="lead" data-i18n="ct_lead">Vertel wat uw zaak doet. Het scherm hiernaast verandert mee terwijl u typt: kleur, letter, sfeer. Zo'n eerste ontwerp maken wij echt voor u, gratis en zonder voorschot. U beslist pas daarna.</p>
+          <div class="cta__form">
+            <label class="cta__field" for="ctaInput">
+              <span class="cta__lbl" data-i18n="ct_lbl">Uw zaak in één zin</span>
+              <input type="text" id="ctaInput" maxlength="90" autocomplete="off" spellcheck="false" placeholder="Bijvoorbeeld: kinesist in Diepenbeek voor sporters" data-i18n-ph="ct_ph" />
+            </label>
+            <div class="cta__chips" id="ctaChips" aria-label="Voorbeelden">
+              <button type="button" data-k="kinesist" data-i18n="ct_c1">Kinesist</button>
+              <button type="button" data-k="bakker" data-i18n="ct_c2">Bakkerij</button>
+              <button type="button" data-k="advocaat" data-i18n="ct_c3">Advocaat</button>
+              <button type="button" data-k="tuinman" data-i18n="ct_c4">Tuinaanleg</button>
+              <button type="button" data-k="zanger" data-i18n="ct_c5">Muzikant</button>
+              <button type="button" data-k="webshop" data-i18n="ct_c6">Webshop</button>
+            </div>
+            <button type="button" class="btn btn--gold" id="ctaSend" data-magnet><span data-i18n="ct_btn">Ontwerp mijn echte homepagina</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <p class="cta__fine" data-i18n="ct_fine">Gratis · binnen 24 uur in uw mailbox · geen voorschot, geen verplichting</p>
+          </div>
         </div>
-        <div class="svc__item" data-img="webshop">
-          <button class="svc__row" type="button" aria-expanded="false"><span class="svc__n">02</span><span class="svc__t" data-i18n="s2_t">Webshops</span><span class="svc__plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
-          <div class="svc__body"><div><div class="svc__inner"><p data-i18n="s2_p">Verkoop online met een winkel die klopt: mooie productpagina's, veilig betalen en afrekenen zonder gedoe.</p><div class="svc__tags"><span data-i18n="s2_1">Productpagina's</span><span data-i18n="s2_2">Betaalintegratie</span><span data-i18n="s2_3">Zelf te beheren</span></div></div></div></div>
+        <div class="cta__stage" id="ctaStage">
+          <div class="laptop" id="ctaLaptop" data-tilt>
+            <div class="laptop__bar" aria-hidden="true"><i></i><i></i><i></i><span class="laptop__url" id="ctaUrl">www.uwzaak.be</span></div>
+            <div class="demo" id="demo" data-k="studio" aria-live="polite">
+              <div class="demo__img" aria-hidden="true">
+                <img src="assets/img/k-kinesist.jpg" alt="" data-k="kinesist" loading="lazy" />
+                <img src="assets/img/k-bakker.jpg" alt="" data-k="bakker" loading="lazy" />
+                <img src="assets/img/k-advocaat.jpg" alt="" data-k="advocaat" loading="lazy" />
+                <img src="assets/img/k-tuinman.jpg" alt="" data-k="tuinman" loading="lazy" />
+                <img src="assets/img/k-zanger.jpg" alt="" data-k="zanger" loading="lazy" />
+                <img src="assets/img/k-webshop.jpg" alt="" data-k="webshop" loading="lazy" />
+              </div>
+              <div class="demo__shade" aria-hidden="true"></div>
+              <div class="demo__nav">
+                <span class="demo__logo t" id="dLogo">Uw logo</span>
+                <span class="demo__links"><span class="t" id="dL1">Aanbod</span><span class="t" id="dL2">Over ons</span><span class="t" id="dL3">Contact</span></span>
+                <span class="demo__cta t" id="dCta">Contact</span>
+              </div>
+              <div class="demo__hero">
+                <span class="demo__kick t" id="dKick">Uw sector · uw regio</span>
+                <span class="demo__h" id="dH"><span id="dHText"></span><i class="demo__cursor" aria-hidden="true"></i></span>
+                <span class="demo__p t" id="dP">Een eerste indruk die klopt, geschreven en ontworpen rond uw zaak.</span>
+                <span class="demo__btn t" id="dBtn">Maak een afspraak</span>
+              </div>
+              <div class="demo__strip"><span class="t" id="dS1">Op maat</span><span class="t" id="dS2">Snel</span><span class="t" id="dS3">Eén aanspreekpunt</span></div>
+            </div>
+          </div>
+          <span class="cta__badge" id="ctaBadge" aria-hidden="true"><b>24u</b><span data-i18n="ct_badge">gratis ontwerp</span></span>
         </div>
-        <div class="svc__item" data-img="redesign">
-          <button class="svc__row" type="button" aria-expanded="false"><span class="svc__n">03</span><span class="svc__t" data-i18n="s3_t">Redesigns</span><span class="svc__plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
-          <div class="svc__body"><div><div class="svc__inner"><p data-i18n="s3_p">Uw bestaande website, opnieuw ontworpen. Zelfde inhoud, compleet nieuwe indruk. Zie het Credo-voorbeeld hierboven.</p><div class="svc__tags"><span data-i18n="s3_1">Behoud uw inhoud</span><span data-i18n="s3_2">Sneller en mobiel</span><span data-i18n="s3_3">Nieuwe look</span></div></div></div></div>
-        </div>
-        <div class="svc__item" data-img="zanger">
-          <button class="svc__row" type="button" aria-expanded="false"><span class="svc__n">04</span><span class="svc__t" data-i18n="s4_t">Landingspagina's</span><span class="svc__plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
-          <div class="svc__body"><div><div class="svc__inner"><p data-i18n="s4_p">Eén pagina, één doel. Voor campagnes, lanceringen en acties die moeten converteren.</p><div class="svc__tags"><span data-i18n="s4_1">Eén duidelijk doel</span><span data-i18n="s4_2">Gebouwd voor conversie</span><span data-i18n="s4_3">Snel online</span></div></div></div></div>
-        </div>
-      </div>
-      <div class="svc__img" id="svcImg" aria-hidden="true">
-        <img src="assets/img/k-advocaat.jpg" alt="" data-k="advocaat" class="is-on" />
-        <img src="assets/img/k-webshop.jpg" alt="" data-k="webshop" />
-        <img src="assets/img/credo-after-d.jpg" alt="" data-k="redesign" />
-        <img src="assets/img/k-zanger.jpg" alt="" data-k="zanger" />
       </div>
     </section>
 
-    <!-- ========== GRATIS ONTWERP (sketch) ========== -->
-    <section class="sketch" id="ontwerp" data-theme="light">
-      <div class="sketch__grid">
-        <div class="sketch__copy">
-          <p class="eyebrow" data-i18n="sk_eyebrow">Gratis homepagina-ontwerp</p>
-          <h2 class="h-l" data-i18n="sk_title">Uw homepagina, <em class="it">getekend binnen 24 uur.</em></h2>
-          <p class="lead" data-i18n="sk_lead">Vertel in één zin wat uw zaak doet. Wij tekenen uw homepagina, gratis en zonder voorschot. Pas als u ze goed vindt, bouwen we verder.</p>
-          <div class="sketch__form">
-            <input type="text" id="sketchInput" placeholder="Bijvoorbeeld: kinesist in Diepenbeek, gespecialiseerd in sporters" data-i18n-ph="sk_ph" autocomplete="off" />
-            <button type="button" class="btn btn--gold" id="sketchBtn" data-magnet><span data-i18n="sk_btn">Teken mijn homepagina</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    <!-- ========== ABOUT ========== -->
+    <section class="about" id="wie" data-theme="dark">
+      <div class="about__text">
+        <p class="eyebrow" data-i18n="ab_eyebrow">Wie erachter zit</p>
+        <h2 class="h-l" data-i18n="ab_title">U praat met de persoon die uw website <em class="it">ontwerpt én bouwt.</em></h2>
+        <ul class="sig"><li data-i18n="sig1">Geen voorschot.</li><li data-i18n="sig2">Geen sjablonen.</li><li data-i18n="sig3">Geen beloftes over Google.</li><li data-i18n="sig4">Eén aanspreekpunt.</li></ul>
+      </div>
+      <div class="portret"><span class="portret__ph" aria-hidden="true">DI</span><div class="portret__cap"><b>Stijn Vranken</b><span data-i18n="ab_role">Oprichter</span></div></div>
+    </section>
+
+    <!-- ========== DIENSTEN & PRIJZEN (merged) ========== -->
+    <section class="offer" id="diensten" data-theme="light">
+      <div class="offer__head">
+        <div><p class="eyebrow" data-i18n="of_eyebrow">Diensten &amp; prijzen</p><h2 class="h-xl" style="margin-top:1rem" data-i18n="of_title">Wat we bouwen, <em class="it">en wat het kost.</em></h2></div>
+        <p class="lead" data-i18n="of_lead">Vaste vertrekprijzen, zonder kleine lettertjes. Kies een dienst, de details verschijnen ernaast. Elk project begint met een gratis homepagina-ontwerp.</p>
+      </div>
+      <div class="offer__grid">
+        <ol class="offer__list" id="offerList">
+          <li class="orow is-on" data-o="site">
+            <button type="button" class="orow__btn" aria-expanded="true"><span class="orow__n">01</span><span class="orow__main"><span class="orow__t" data-i18n="o1_t">Bedrijfswebsite</span><span class="orow__s" data-i18n="o1_s">Vertrouwen wekken en aanvragen binnenhalen.</span></span><span class="orow__p"><small data-i18n="pr_from">vanaf</small>€999</span></button>
+            <div class="orow__slot"></div>
+          </li>
+          <li class="orow" data-o="shop">
+            <button type="button" class="orow__btn" aria-expanded="false"><span class="orow__n">02</span><span class="orow__main"><span class="orow__t" data-i18n="o2_t">Webshop</span><span class="orow__s" data-i18n="o2_s">Verkopen terwijl u slaapt, zonder gedoe aan de kassa.</span></span><span class="orow__p"><small data-i18n="pr_from">vanaf</small>€1.899</span></button>
+            <div class="orow__slot"></div>
+          </li>
+          <li class="orow" data-o="redesign">
+            <button type="button" class="orow__btn" aria-expanded="false"><span class="orow__n">03</span><span class="orow__main"><span class="orow__t" data-i18n="o3_t">Herontwerp</span><span class="orow__s" data-i18n="o3_s">Zelfde inhoud, compleet nieuwe indruk. Zie Credo.</span></span><span class="orow__p"><small data-i18n="pr_from">vanaf</small>€999</span></button>
+            <div class="orow__slot"></div>
+          </li>
+          <li class="orow" data-o="landing">
+            <button type="button" class="orow__btn" aria-expanded="false"><span class="orow__n">04</span><span class="orow__main"><span class="orow__t" data-i18n="o4_t">Landingspagina</span><span class="orow__s" data-i18n="o4_s">Eén pagina, één doel, voor campagnes en acties.</span></span><span class="orow__p orow__p--txt" data-i18n="o4_p">op maat</span></button>
+            <div class="orow__slot"></div>
+          </li>
+        </ol>
+        <div class="offer__side" id="offerSide">
+          <div class="opanel" id="offerPanel" data-o="site">
+            <span class="opanel__k" id="opKind">Website op maat</span>
+            <div class="opanel__seg" id="opSeg" data-seg="0" role="tablist" aria-label="Pakket"><button type="button" class="is-on" data-seg="0" role="tab" aria-selected="true">Starter</button><button type="button" data-seg="1" role="tab" aria-selected="false">Groei</button><i class="opanel__segbar"></i></div>
+            <div class="opanel__price"><small id="opFrom">vanaf</small><b id="opPrice">€999</b><span id="opSub">Website Basic</span></div>
+            <p class="opanel__for" id="opFor"></p>
+            <ul class="opanel__incl" id="opIncl"></ul>
+            <a href="#contact" class="btn btn--gold" id="opCta" data-magnet><span data-i18n="pr_cta">Vraag uw gratis ontwerp</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <span class="opanel__ghost" id="opGhost" aria-hidden="true">01</span>
           </div>
-          <p class="sketch__fine" data-i18n="sk_fine">Binnen 24 uur in uw mailbox · geen verplichting · u beslist pas daarna</p>
-        </div>
-        <div class="sketch__paper" id="sketchPaper" aria-hidden="true">
-          <svg class="sketch__svg" viewBox="0 0 640 420" fill="none" stroke="#C9A24A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path class="sk" d="M12 12 H628 V408 H12 Z" />
-            <path class="sk" d="M12 40 H628" />
-            <path class="sk" d="M28 26 a4 4 0 1 0 8 0 a4 4 0 1 0 -8 0 M44 26 a4 4 0 1 0 8 0 a4 4 0 1 0 -8 0 M60 26 a4 4 0 1 0 8 0 a4 4 0 1 0 -8 0" />
-            <path class="sk" d="M40 70 H120" />
-            <path class="sk" d="M440 70 H480 M496 70 H540 M556 70 H600" />
-            <path class="sk" d="M40 128 H300 M40 156 H340 M40 184 H250" stroke-width="10" />
-            <path class="sk" d="M40 214 H260 M40 230 H220" />
-            <path class="sk" d="M40 262 H170 a14 14 0 0 1 0 28 H40 a14 14 0 0 1 0 -28 Z" />
-            <path class="sk" d="M380 100 H600 V300 H380 Z" />
-            <path class="sk" d="M380 300 L470 200 L520 250 L560 215 L600 260" />
-            <path class="sk" d="M540 136 a14 14 0 1 0 28 0 a14 14 0 1 0 -28 0" />
-            <path class="sk" d="M40 340 H200 V392 H40 Z M220 340 H380 V392 H220 Z M400 340 H560 V392 H400 Z" />
-            <path class="sk" d="M56 358 H140 M56 374 H120 M236 358 H320 M236 374 H300 M416 358 H500 M416 374 H480" />
-            <g class="sk-stamp" opacity="0"><circle cx="560" cy="358" r="34" fill="#C9A24A" stroke="none" /><text x="560" y="352" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0E1C3A" stroke="none" letter-spacing="1">24 UUR</text><text x="560" y="368" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#0E1C3A" stroke="none" letter-spacing="1">GRATIS</text></g>
-          </svg>
-          <span class="sketch__pen" id="sketchPen"></span>
         </div>
       </div>
+      <p class="offer__note" data-i18n="pr_note">Hosting, domeinnaam en tekstschrijven zitten niet in de pakketprijs; we regelen ze desgewenst via de offerte. Geen voorschot: u betaalt pas als de website klaar is en u tevreden bent.</p>
     </section>
 
     <!-- ========== PROCESS ========== -->
@@ -264,39 +300,6 @@
         <li class="pstep"><span class="pstep__k" data-i18n="p3_k">Stap 03</span><h3 data-i18n="p3_t">Bouw</h3><p data-i18n="p3_p">Tien tot veertien dagen, met u aan tafel bij elke stap. Teksten, beeld en techniek onder één dak.</p></li>
         <li class="pstep"><span class="pstep__k" data-i18n="p4_k">Stap 04</span><h3 data-i18n="p4_t">Live</h3><p data-i18n="p4_p">Uw website gaat online, met uitleg en support. Daarna blijft u bij dezelfde persoon.</p></li>
       </ol>
-    </section>
-
-    <!-- ========== PRICING ========== -->
-    <section class="price" id="prijzen" data-theme="light">
-      <div class="price__head">
-        <div><p class="eyebrow" data-i18n="pr_eyebrow">Prijzen</p><h2 class="h-l" style="margin-top:1rem" data-i18n="pr_title">Wat het kost. <em class="it">Zonder kleine lettertjes.</em></h2></div>
-        <p class="lead" data-i18n="pr_lead">Vaste vertrekprijzen, geen kleine lettertjes. Elk pakket begint met een gratis homepagina-ontwerp.</p>
-      </div>
-      <div class="svc__list plist" id="planList">
-        <div class="svc__item plan">
-          <button class="svc__row plan__row" type="button" aria-expanded="false"><span class="svc__n">01</span><span class="plan__main"><span class="svc__t" data-i18n="t1_n">Starter</span><span class="plan__sub" data-i18n="t1_s">Website Basic</span></span><span class="plan__for" data-i18n="t1_f">Freelancers, lokale zaken en starters die een professionele website nodig hebben.</span><span class="plan__price"><small data-i18n="pr_from">vanaf</small>€999</span><span class="svc__plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
-          <div class="svc__body"><div><div class="svc__inner plan__inner"><div class="svc__tags"><span data-i18n="t1_1">Website op maat, tot 3 pagina's</span><span data-i18n="t1_2">Perfect op gsm, tablet en laptop</span><span data-i18n="t1_3">Contactformulier en social media</span><span data-i18n="t1_4">Live in 10 tot 14 dagen</span></div><a href="#contact" class="btn btn--dark btn--sm" data-magnet><span data-i18n="pr_cta">Vraag uw gratis ontwerp</span></a></div></div></div>
-        </div>
-        <div class="svc__item plan">
-          <button class="svc__row plan__row" type="button" aria-expanded="false"><span class="svc__n">02</span><span class="plan__main"><span class="svc__t" data-i18n="t2_n">Groei</span><span class="plan__sub" data-i18n="t2_s">Website Premium</span></span><span class="plan__for" data-i18n="t2_f">Bedrijven die bezoekers willen overtuigen en klanten willen winnen.</span><span class="plan__price"><small data-i18n="pr_from">vanaf</small>€1.249</span><span class="svc__plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
-          <div class="svc__body"><div><div class="svc__inner plan__inner"><div class="svc__tags"><span data-i18n="t2_1">Alles uit Starter</span><span data-i18n="t2_2">Tot 5 pagina's, blog of nieuws</span><span data-i18n="t2_3">Boekings- of offertesysteem</span><span data-i18n="t2_4">Nieuwsbrief-integratie</span></div><a href="#contact" class="btn btn--dark btn--sm" data-magnet><span data-i18n="pr_cta">Vraag uw gratis ontwerp</span></a></div></div></div>
-        </div>
-        <div class="svc__item plan">
-          <button class="svc__row plan__row" type="button" aria-expanded="false"><span class="svc__n">03</span><span class="plan__main"><span class="svc__t" data-i18n="t3_n">Verkoop</span><span class="plan__sub" data-i18n="t3_s">Webshop</span></span><span class="plan__for" data-i18n="t3_f">Wie online verkoopt: kleding, voeding, beauty en alles wat in een doos past.</span><span class="plan__price"><small data-i18n="pr_from">vanaf</small>€1.899</span><span class="svc__plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
-          <div class="svc__body"><div><div class="svc__inner plan__inner"><div class="svc__tags"><span data-i18n="t3_1">Alles uit Groei</span><span data-i18n="t3_2">Winkel-setup, tot 50 producten</span><span data-i18n="t3_3">Betalen, winkelwagen en afrekenen</span><span data-i18n="t3_4">Uitleg zodat u zelf beheert</span></div><a href="#contact" class="btn btn--dark btn--sm" data-magnet><span data-i18n="pr_cta">Vraag uw gratis ontwerp</span></a></div></div></div>
-        </div>
-      </div>
-      <p class="price__note" data-i18n="pr_note">Hosting, domeinnaam en tekstschrijven zitten niet in de pakketprijs; we regelen ze desgewenst via de offerte. Geen voorschot: u betaalt pas als de website klaar is en u tevreden bent.</p>
-    </section>
-
-    <!-- ========== ABOUT ========== -->
-    <section class="about" id="wie" data-theme="dark">
-      <div class="about__text">
-        <p class="eyebrow" data-i18n="ab_eyebrow">Wie erachter zit</p>
-        <h2 class="h-l" data-i18n="ab_title">U praat met de persoon die uw website <em class="it">ontwerpt én bouwt.</em></h2>
-        <ul class="sig"><li data-i18n="sig1">Geen voorschot.</li><li data-i18n="sig2">Geen sjablonen.</li><li data-i18n="sig3">Geen beloftes over Google.</li><li data-i18n="sig4">Eén aanspreekpunt.</li></ul>
-      </div>
-      <div class="portret"><span class="portret__ph" aria-hidden="true">DI</span><div class="portret__cap"><b>Stijn Vranken</b><span data-i18n="ab_role">Oprichter</span></div></div>
     </section>
 
     <!-- ========== CONTACT ========== -->
@@ -345,6 +348,6 @@
   <script src="assets/vendor/gsap.min.js"></script>
   <script src="assets/vendor/ScrollTrigger.min.js"></script>
   <script src="assets/vendor/lenis.min.js"></script>
-  <script src="script.js?v=afa4d349"></script>
+  <script src="script.js?v=69cea4e4"></script>
 </body>
 </html>
