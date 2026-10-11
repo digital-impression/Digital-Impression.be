@@ -46,180 +46,57 @@
       .add(function () { hero.classList.add("is-drawn"); }, 1.0)
       .add(function () { hero.classList.add("is-loaded-ui"); }, 1.2);
     if (REDUCED) { tl.progress(1); hero.classList.add("is-drawn", "is-loaded-ui"); }
-    if (window.__glEnter) window.__glEnter();
+    if (window.__heroShowEnter) window.__heroShowEnter(); else { showOn = true; showArm(); }
   }
 
-  /* ---------------- WebGL hero: floating site cards ---------------- */
-  function initGL() {
-    var canvas = $("#gl"); if (!canvas || typeof THREE === "undefined") return;
-    var hero = $("#hero");
-    var renderer;
-    try { renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true, powerPreference: "high-performance" }); } catch (e) { return; }
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.25));
-    var scene = new THREE.Scene();
-    scene.fog = new THREE.Fog(0x0E1C3A, 6, 19);
-    var cam = new THREE.PerspectiveCamera(42, 1, 0.1, 60);
-    cam.position.set(0, 0, 6);
-    var loader = new THREE.TextureLoader();
-    var SITES = [
-      { src: "site-fleetreview", name: "Fleetreview", kind: { nl: "Software · concept", en: "Software · concept", fr: "Logiciel · concept" }, panel: 4 },
-      { src: "site-noor", name: "NOOR architecten", kind: { nl: "Architectuur · concept", en: "Architecture · concept", fr: "Architecture · concept" }, panel: 5 },
-      { src: "site-credo", name: "Credo Rehab & Performance", kind: { nl: "Kinesitherapie · live", en: "Physio · live", fr: "Kiné · en ligne" }, panel: 1, live: "https://www.credorehabandperformance.com" },
-      { src: "site-simonta", name: "Simonta", kind: { nl: "B2B groothandel · herontwerp", en: "B2B wholesale · redesign", fr: "Commerce de gros · refonte" }, panel: 2 },
-      { src: "site-mergel", name: "Mergelgrotten Zichen", kind: { nl: "Toerisme · herontwerp", en: "Tourism · redesign", fr: "Tourisme · refonte" }, panel: 3 }
-    ];
-    var cards = [], group = new THREE.Group(); scene.add(group);
-    var rnd = function (a, b) { return a + Math.random() * (b - a); };
-    // a quiet corridor: cards alternate left/right, evenly spaced in depth, each turned towards the centre
-    var YS = [0.55, -0.5, 0.25, -0.75, 0.05], XS = [0, 0.35, 0.15];
-    var seeded = [];
-    for (var si = 0; si < 10; si++) { var side = si % 2 ? 1 : -1; seeded.push([side * (2.45 + XS[si % 3]), YS[si % 5], -2.2 - si * 1.6, side]); }
-    var frameGeo = new THREE.PlaneGeometry(2.3, 1.475, 1, 1);
-    seeded.forEach(function (p, i) {
-      var site = SITES[i % SITES.length];
-      var tex = loader.load("assets/img/gl-" + site.src.replace("site-", "") + ".jpg");
-      tex.minFilter = THREE.LinearFilter; tex.center.set(0.5, 0.5);
-      var geo = new THREE.PlaneGeometry(2.2, 1.375, 1, 1);
-      var mat = new THREE.MeshBasicMaterial({ map: tex, transparent: true, opacity: 0.92, side: THREE.DoubleSide });
-      var m = new THREE.Mesh(geo, mat);
-      m.position.set(p[0], p[1], p[2]);
-      m.rotation.set(0, -p[3] * 0.38, 0);
-      // gold frame behind the card, shown on hover / focus
-      var frame = new THREE.Mesh(frameGeo, new THREE.MeshBasicMaterial({ color: 0xC9A24A, transparent: true, opacity: 0, side: THREE.DoubleSide }));
-      frame.position.z = -0.01; m.add(frame);
-      var ci = cards.length, leapAt = [0.07, 0.2][[2, 5].indexOf(ci)];
-      m.userData = { site: site, base: p.slice(0, 3), side: p[3], ph: rnd(0, Math.PI * 2), sp: rnd(0.35, 0.6), ry: m.rotation.y, frame: frame, tex: tex, hover: 0, enter: 1,
-        leap: leapAt != null ? { at: leapAt, len: 0.16, side: p[3] } : null, e: 0 };
-      group.add(m); cards.push(m);
-    });
-    var N = 160, pos = new Float32Array(N * 3);
-    for (var i = 0; i < N; i++) { pos[i * 3] = rnd(-6, 6); pos[i * 3 + 1] = rnd(-3.5, 3.5); pos[i * 3 + 2] = rnd(-18, 2); }
-    var pg = new THREE.BufferGeometry(); pg.setAttribute("position", new THREE.BufferAttribute(pos, 3));
-    var dust = new THREE.Points(pg, new THREE.PointsMaterial({ color: 0xC9A24A, size: 0.035, transparent: true, opacity: 0.55, depthWrite: false }));
-    scene.add(dust);
-    var ring = new THREE.Mesh(new THREE.RingGeometry(3.2, 3.23, 96), new THREE.MeshBasicMaterial({ color: 0xC9A24A, transparent: true, opacity: 0.25, side: THREE.DoubleSide }));
-    ring.position.set(0.4, 0.2, -12); scene.add(ring);
-
-    var mx = 0, my = 0, tx = 0, ty = 0, prog = 0, w = 0, h = 0;
-    var ray = new THREE.Raycaster(), pointer = new THREE.Vector2(-9, -9), hovered = null, focused = null, focusProg = 0, pdown = null;
-    var focusEl = $("#glFocus"), kindEl = $("#glKind"), nameEl = $("#glName"), goBtn = $("#glGo"), liveA = $("#glLive"), closeBtn = $("#glClose"), tip = $("#heroTip");
-    function resize() {
-      var r = hero.getBoundingClientRect(); w = r.width; h = r.height;
-      renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix();
-      group.scale.setScalar(w < 700 ? 0.72 : 1);
-    }
-    resize(); window.addEventListener("resize", resize);
-    function setPointer(e) { var r = canvas.getBoundingClientRect(); pointer.x = ((e.clientX - r.left) / r.width) * 2 - 1; pointer.y = -((e.clientY - r.top) / r.height) * 2 + 1; }
-    if (FINE) window.addEventListener("mousemove", function (e) { tx = (e.clientX / window.innerWidth - 0.5) * 2; ty = (e.clientY / window.innerHeight - 0.5) * 2; setPointer(e); }, { passive: true });
-    hero.addEventListener("pointerdown", function (e) { if (e.target.closest("a, button, .gl-focus")) return; pdown = [e.clientX, e.clientY]; setPointer(e); });
-    hero.addEventListener("pointerup", function (e) {
-      if (!pdown || e.target.closest("a, button, .gl-focus")) return;
-      var moved = Math.hypot(e.clientX - pdown[0], e.clientY - pdown[1]); pdown = null; if (moved > 8) return;
-      setPointer(e); pick();
-      if (hovered && hovered !== focused) focus(hovered); else if (focused) unfocus();
-    });
-    function pick() {
-      ray.setFromCamera(pointer, cam);
-      var hits = ray.intersectObjects(cards, false).filter(function (hh) { return hh.object.position.z < cam.position.z - 0.5 && (hh.object.material.opacity > 0.3); });
-      var obj = hits.length ? hits[0].object : null;
-      if (obj !== hovered) {
-        hovered = obj;
-        canvas.style.cursor = obj ? "pointer" : "";
-        if (obj) canvas.setAttribute("data-cursor", lang === "en" ? "View" : lang === "fr" ? "Voir" : "Bekijk"); else canvas.removeAttribute("data-cursor");
-        document.dispatchEvent(new CustomEvent("di:cursorcheck"));
-      }
-    }
-    var entered = false;
-    window.__glEnter = function () { cards.forEach(function (c, i) { gsap.to(c.userData, { enter: 0, duration: 2.0, delay: 0.1 + i * 0.09, ease: "power4.out", onComplete: function () { if (i === cards.length - 1) entered = true; } }); }); };
-    var worldDir = new THREE.Vector3();
-    function focus(card) {
-      focused = card; focusProg = prog;
-      var u = card.userData, site = u.site;
-      cam.getWorldDirection(worldDir);
-      var target = cam.position.clone().add(worldDir.multiplyScalar(3.1));
-      target.x += w > 980 ? 0.55 : 0; target.y += w > 980 ? 0.15 : 0.35;
-      var local = group.worldToLocal(target.clone());
-      gsap.to(card.position, { x: local.x, y: local.y, z: local.z, duration: 1.1, ease: "power4.inOut" });
-      gsap.to(card.rotation, { x: -my * 0.05, y: mx * 0.08, z: 0, duration: 1.1, ease: "power4.inOut" });
-      gsap.to(card.material, { opacity: 1, duration: 0.6 });
-      gsap.to(u.frame.material, { opacity: 0.9, duration: 0.8, delay: 0.3 });
-      gsap.killTweensOf(u.tex.repeat); u.tex.repeat.set(1, 1); u.tex.offset.set(0, 0);
-      gsap.to(u.tex.repeat, { x: 0.9, y: 0.9, duration: 7, ease: "sine.inOut", yoyo: true, repeat: -1, onUpdate: function () { u.tex.offset.set((1 - u.tex.repeat.x) / 2, (1 - u.tex.repeat.y) / 2); } });
-      cards.forEach(function (c) { if (c !== card) gsap.to(c.material, { opacity: 0.18, duration: 0.8 }); });
-      gsap.to(dust.material, { opacity: 0.2, duration: 0.8 });
-      if (focusEl) {
-        kindEl.textContent = site.kind[lang] || site.kind.nl; nameEl.textContent = site.name;
-        if (site.live) { liveA.href = site.live; liveA.hidden = false; } else liveA.hidden = true;
-        focusEl.hidden = false; gsap.fromTo(focusEl, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.35 });
-        goBtn.onclick = function () { unfocus(); setTimeout(function () { if (window.__gotoWork) window.__gotoWork(site.panel); }, 250); };
-      }
-      if (tip) gsap.to(tip, { opacity: 0, duration: 0.4 });
-      hero.classList.add("is-focus");
-    }
-    function unfocus() {
-      if (!focused) return;
-      var card = focused, u = card.userData; focused = null;
-      gsap.killTweensOf(u.tex.repeat);
-      gsap.to(u.tex.repeat, { x: 1, y: 1, duration: 0.8, onUpdate: function () { u.tex.offset.set((1 - u.tex.repeat.x) / 2, (1 - u.tex.repeat.y) / 2); } });
-      gsap.to(card.position, { x: u.base[0], y: u.base[1], z: u.base[2], duration: 1.1, ease: "power4.inOut" });
-      gsap.to(card.rotation, { x: u.rx, y: u.ry, z: u.rz, duration: 1.1, ease: "power4.inOut" });
-      gsap.to(u.frame.material, { opacity: 0, duration: 0.4 });
-      cards.forEach(function (c) { gsap.to(c.material, { opacity: 0.92, duration: 0.8 }); });
-      gsap.to(dust.material, { opacity: 0.55, duration: 0.8 });
-      if (focusEl) gsap.to(focusEl, { opacity: 0, y: 12, duration: 0.4, onComplete: function () { focusEl.hidden = true; } });
-      if (tip) gsap.to(tip, { opacity: 1, duration: 0.6, delay: 0.4 });
-      hero.classList.remove("is-focus");
-    }
-    if (closeBtn) closeBtn.addEventListener("click", unfocus);
-    document.addEventListener("keydown", function (e) { if (e.key === "Escape") unfocus(); });
-    ScrollTrigger.create({ trigger: "#stage", start: "top top", end: "bottom bottom", scrub: true, onUpdate: function (st) { prog = st.progress; if (focused && Math.abs(prog - focusProg) > 0.02) unfocus(); } });
-    gsap.to(".hero__in", { opacity: 0, y: -30, ease: "none", scrollTrigger: { trigger: "#stage", start: "top top", end: "+=45%", scrub: true } });
-    gsap.to(".hero__veil", { opacity: 0.3, ease: "none", scrollTrigger: { trigger: "#stage", start: "top top", end: "+=90%", scrub: true } });
-    var rnd0 = function (ph) { return Math.sin(ph) * 0.35; };
-    var clock = new THREE.Clock(), visible = true, stageEl = $("#stage");
-    new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }, { threshold: 0 }).observe(stageEl || hero);
-    function tick() {
-      requestAnimationFrame(tick);
-      if (!visible && prog >= 1) return;
-      var dt = Math.min(clock.getDelta(), 0.05), t = clock.getElapsedTime();
-      mx += (tx - mx) * 0.05; my += (ty - my) * 0.05;
-      if (FINE && prog < 0.2) { hero.style.setProperty("--px", (mx * -10) + "px"); hero.style.setProperty("--py", (my * -8) + "px"); }
-      cam.position.z = 6 - prog * 11;
-      var fg = Math.min(1, Math.max(0, (prog - 0.08) / 0.45)); // 0 in the hero → 1 once the intro copy runs
-      cam.position.x = mx * 0.6; cam.position.y = -my * 0.4 - prog * 1.3;
-      cam.lookAt(mx * 0.3, -my * 0.2, cam.position.z - 6);
-      if (FINE && !focused) pick();
-      cards.forEach(function (c) {
-        var u = c.userData;
-        if (c === focused) { return; }
-        // slow glide towards the viewer; a card that passes the camera fades out and rejoins at the back on its own side
-        u.base[2] += dt * 0.32;
-        if (u.base[2] > cam.position.z - 1.0) { u.base[2] -= 16; u.base[1] = YS[Math.floor(Math.random() * YS.length)]; u.base[0] = u.side * (2.45 + XS[Math.floor(Math.random() * XS.length)]); }
-        var dist = cam.position.z - u.base[2], near = Math.min(1, Math.max(0, (dist - 1.3) / 1.3));
-        var px = u.base[0] * (1 - fg * 0.2) + u.side * 3.2 * u.enter + Math.cos(t * u.sp * 0.6 + u.ph) * 0.06;
-        var py = u.base[1] + Math.sin(t * u.sp + u.ph) * 0.1;
-        var pz = u.base[2] - u.enter * 2.5;
-        var ry = u.ry + Math.sin(t * 0.25 + u.ph) * 0.05 + mx * 0.1, rx = Math.sin(t * 0.2 + u.ph) * 0.03 - my * 0.05, rz = 0;
-        // two cards step out of the row towards the viewer at their own scroll moment
-        var e = 0;
-        if (u.leap) { var k = (prog - u.leap.at) / u.leap.len; if (k > 0 && k < 1) e = Math.sin(k * Math.PI); e = Math.pow(e, 0.8); }
-        u.e += (e - u.e) * 0.2; e = u.e;
-        if (e > 0.001) {
-          var lz = cam.position.z - 4.4, lx = cam.position.x + u.leap.side * 2.5, ly = cam.position.y + rnd0(u.ph);
-          px = px * (1 - e) + lx * e; py = py * (1 - e) + ly * e; pz = pz * (1 - e) + lz * e;
-          ry = ry * (1 - e) + (-u.leap.side * 0.2) * e; rx *= (1 - e);
-        }
-        c.position.set(px, py, pz); c.rotation.set(rx, ry, rz);
-        var want = (c === hovered && !focused) ? 1 : 0;
-        u.hover += (want - u.hover) * 0.12;
-        var sc = 1.1 * (1 + fg * 0.25 + u.hover * 0.07) * (1 + e * 0.2); c.scale.set(sc, sc, 1);
-        u.frame.material.opacity = u.hover * 0.7 * near;
-        if (!focused) c.material.opacity = Math.min(1, 0.92 + fg * 0.08 + u.hover * 0.08 + e * 0.5) * near * (1 - u.enter);
-      });
-      dust.rotation.y = t * 0.02; ring.rotation.z = t * 0.05;
-      renderer.render(scene, cam);
-    }
-    tick();
+  /* ---------------- hero: one big screen, slow rotation ---------------- */
+  var KINDS = {
+    k_credo: { nl: "Kinesitherapie · live", en: "Physio · live", fr: "Kiné · en ligne" },
+    k_simonta: { nl: "Groothandel · herontwerp", en: "Wholesale · redesign", fr: "Commerce de gros · refonte" },
+    k_mergel: { nl: "Toerisme · herontwerp", en: "Tourism · redesign", fr: "Tourisme · refonte" },
+    k_fleet: { nl: "Software · concept", en: "Software · concept", fr: "Logiciel · concept" },
+    k_noor: { nl: "Architectuur · concept", en: "Architecture · concept", fr: "Architecture · concept" }
+  };
+  var showIdx = 0, showTimer = null, showOn = false, showPaused = false, showBarTween = null;
+  function showFill(i, animate) {
+    var imgs = $$(".show__img"), img = imgs[i], show = $("#heroShow");
+    var apply = function () {
+      imgs.forEach(function (im, k) { im.classList.toggle("is-on", k === i); });
+      $("#showIdx").textContent = "0" + (i + 1) + " / 0" + imgs.length;
+      $("#showName").innerHTML = img.getAttribute("data-name");
+      var kk = KINDS[img.getAttribute("data-kind")]; $("#showKind").textContent = kk ? (kk[lang] || kk.nl) : "";
+      $("#showUrl").textContent = img.getAttribute("data-url");
+    };
+    if (!animate || REDUCED) { apply(); return; }
+    show.classList.add("is-switching");
+    setTimeout(function () { apply(); show.classList.remove("is-switching"); }, 320);
+  }
+  function showArm() {
+    if (showTimer) { clearTimeout(showTimer); showTimer = null; }
+    if (showBarTween) showBarTween.kill();
+    var bar = $("#showBar"); if (!bar) return;
+    if (REDUCED) return;
+    showBarTween = gsap.fromTo(bar, { scaleX: 0 }, { scaleX: 1, duration: 6, ease: "none", paused: !showOn || showPaused });
+    showTimer = setTimeout(function () { if (showOn && !showPaused) { showIdx = (showIdx + 1) % $$(".show__img").length; showFill(showIdx, true); } showArm(); }, 6000);
+  }
+  function initHero() {
+    var hero = $("#hero"), show = $("#heroShow"); if (!hero || !show) return;
+    $$(".show__meta > *").forEach(function (el) { el.classList.add("t"); });
+    showFill(0, false);
+    var open = function () { var img = $$(".show__img")[showIdx]; if (window.__gotoWork) window.__gotoWork(parseInt(img.getAttribute("data-panel"), 10)); };
+    $("#showFrame").addEventListener("click", open); $("#showMeta").addEventListener("click", open);
+    $("#showFrame").setAttribute("data-cursor", lang === "en" ? "View" : lang === "fr" ? "Voir" : "Bekijk");
+    if (FINE) { show.addEventListener("mouseenter", function () { showPaused = true; if (showBarTween) showBarTween.pause(); }); show.addEventListener("mouseleave", function () { showPaused = false; if (showBarTween) showBarTween.play(); }); }
+    if ("IntersectionObserver" in window) new IntersectionObserver(function (en) { showOn = en[0].isIntersecting; if (showBarTween) { if (showOn && !showPaused) showBarTween.play(); else showBarTween.pause(); } }, { threshold: 0.25 }).observe(hero); else showOn = true;
+    if (FINE && !REDUCED) window.addEventListener("mousemove", function (e) { var x = e.clientX / window.innerWidth - 0.5, y = e.clientY / window.innerHeight - 0.5; hero.style.setProperty("--px", (x * -14) + "px"); hero.style.setProperty("--py", (y * -10) + "px"); }, { passive: true });
+    if (REDUCED) return;
+    // scroll: the title drifts up and fades, the screen comes a touch closer
+    gsap.to(".hero__h1", { y: -70, opacity: 0, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "+=60%", scrub: true } });
+    gsap.fromTo(show, { yPercent: 0, scale: 1 }, { yPercent: -6, scale: 1.025, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: true } });
+    window.__heroShowEnter = function () {
+      gsap.fromTo(show, { y: 140, opacity: 0, rotateX: 10, transformPerspective: 1600 }, { y: 0, opacity: 1, rotateX: 0, duration: 1.8, ease: "power4.out", delay: 0.35, clearProps: "transform,opacity", onComplete: function () { showOn = true; showArm(); } });
+    };
+    window.__heroRefresh = function () { showFill(showIdx, false); };
   }
 
   /* ---------------- cursor + magnets ---------------- */
@@ -340,33 +217,20 @@
   function initIntro() {
     var sec = $(".intro"); if (!sec) return;
     if (introKill) { introKill(); introKill = null; }
-    var lines = [$("#il1"), $("#il2")], items = lines.slice();
-    var fill = $("#introFill"), step = $("#introStep"), ticks = $("#introTicks"), cover = $("#introCover");
-    if (REDUCED) { gsap.set(items, { clearProps: "all" }); return; }
-    var mob = window.matchMedia("(max-width: 899px)").matches, travel = mob ? 40 : 46;
-    gsap.set(items, { autoAlpha: 0 });
-    var tl = gsap.timeline({ scrollTrigger: { trigger: sec, start: "top top", end: "bottom bottom", scrub: 0.6,
-      onUpdate: function (st) { var p = st.progress; if (fill) fill.style.transform = "scaleY(" + p + ")"; if (step) step.textContent = p < 0.5 ? "01" : "02"; } } });
-    // two sentences, each written by the scroll: calm rise, word by word, gold rule; the first leaves, the second stays
-    var LW = 52;
-    lines.forEach(function (el, i) {
-      var s = i * 48, last = i === lines.length - 1; wrapIntroWords(el);
-      var words = $$(".iw", el);
-      tl.fromTo(el, { y: travel * 0.7 + "vh" }, { y: 0, duration: LW * 0.3, ease: "power3.out" }, s);
-      tl.fromTo(el, { autoAlpha: 0, scale: 0.95, filter: "blur(6px)" }, { autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: LW * 0.22, ease: "power2.out" }, s + LW * 0.02);
-      var w0 = s + LW * 0.1, w1 = s + LW * 0.68, each = LW * 0.1, gap = words.length > 1 ? (w1 - w0 - each) / (words.length - 1) : 0;
-      words.forEach(function (w, k) { tl.fromTo(w, { opacity: 0.08, yPercent: 40, filter: "blur(4px)" }, { opacity: 1, yPercent: 0, filter: "blur(0px)", duration: each, ease: "power3.out" }, w0 + gap * k); });
-      tl.fromTo(el, { "--ul": 0 }, { "--ul": 1, duration: LW * 0.12, ease: "power2.inOut" }, w1 + each * 0.5);
-      if (!last) {
-        tl.to(el, { y: (-travel) + "vh", duration: LW * 0.22, ease: "power3.in" }, s + LW * 0.8);
-        tl.to(el, { autoAlpha: 0, scale: 1.06, filter: "blur(8px)", duration: LW * 0.16, ease: "power2.in" }, s + LW * 0.84);
-      }
-    });
-    // the stage closes over the sites while the first sentence finishes
-    if (cover) tl.fromTo(cover, { autoAlpha: 0 }, { autoAlpha: 1, duration: 12, ease: "power2.inOut" }, 32);
-    tl.to({}, { duration: 6 }, 100);
-    var tk = ticks ? gsap.fromTo(ticks, { yPercent: 0 }, { yPercent: -30, ease: "none", scrollTrigger: { trigger: sec, start: "top top", end: "bottom bottom", scrub: true } }) : null;
-    introKill = function () { tl.scrollTrigger && tl.scrollTrigger.kill(); tl.kill(); if (tk) { tk.scrollTrigger && tk.scrollTrigger.kill(); tk.kill(); } gsap.set(items.concat([cover]), { clearProps: "all" }); };
+    var lines = [$("#il1"), $("#il2")];
+    if (REDUCED) { gsap.set(lines, { clearProps: "all" }); return; }
+    lines.forEach(wrapIntroWords);
+    var w1 = $$(".iw", lines[0]), w2 = $$(".iw", lines[1]);
+    gsap.set(w1.concat(w2), { opacity: 0.1 });
+    var tl = gsap.timeline({ scrollTrigger: { trigger: sec, start: "top top", end: "bottom bottom", scrub: 0.8 } });
+    // sentence one is written over the first half of the scroll, sentence two over the next third, then it holds
+    tl.fromTo(lines[0], { y: 40 }, { y: 0, duration: 10, ease: "power2.out" }, 0);
+    tl.to(w1, { opacity: 1, duration: 8, stagger: { each: 38 / w1.length, ease: "none" }, ease: "power2.out" }, 4);
+    tl.fromTo(lines[1], { y: 30 }, { y: 0, duration: 10, ease: "power2.out" }, 44);
+    tl.to(w2, { opacity: 1, duration: 8, stagger: { each: 26 / w2.length, ease: "none" }, ease: "power2.out" }, 48);
+    tl.fromTo(lines[1], { "--ul": 0 }, { "--ul": 1, duration: 8, ease: "power2.inOut" }, 80);
+    tl.to({}, { duration: 12 }, 88);
+    introKill = function () { tl.scrollTrigger && tl.scrollTrigger.kill(); tl.kill(); gsap.set(lines.concat(w1, w2), { clearProps: "all" }); };
   }
 
   /* ---------------- work: horizontal pin ---------------- */
@@ -562,7 +426,7 @@
       nav_work: "Work", nav_services: "Services &amp; pricing", nav_process: "Process", nav_pricing: "Free design", nav_contact: "Contact",
       hero_eyebrow: "Web design studio · Belgium & the Netherlands", h1_a: "<span class=\"hw\">Websites</span> <span class=\"hw\">that</span>", h1_b: "<span class=\"hw\">make</span> <span class=\"hw\">an</span> <span class=\"hw\"><em class=\"it kw\">impression.</em></span>",
       hero_lead: "Designed and built to measure. You see your homepage within 24 hours, free, and pay no deposit.",
-      cta_design: "Request your free design", cta_work: "See our work", scroll: "Scroll", hero_tip: "Click a website to see it up close", hero_tr: "Bespoke websites · since 2024", gl_go: "Show in the gallery", gl_live: "View live", gl_close: "Close",
+      cta_design: "Request your free design", cta_work: "See our work", scroll: "Scroll", show_open: "View in the gallery", hero_tip: "Click a website to see it up close", hero_tr: "Bespoke websites · since 2024", gl_go: "Show in the gallery", gl_live: "View live", gl_close: "Close",
       mq1: "Business websites", mq2: "Webshops", mq3: "Redesigns", mq4: "Landing pages",
       statement: "Your website is the first handshake with a new customer. We make sure it is a firm one: <em class=\"it\">fast, beautiful and built to win enquiries.</em> You see your design before you decide, and you pay only when you are happy.",
       cta_how: "How we work", st_note: "No deposit · live in 2 weeks · one point of contact",
@@ -630,7 +494,7 @@
       nav_work: "Réalisations", nav_services: "Services &amp; tarifs", nav_process: "Méthode", nav_pricing: "Design gratuit", nav_contact: "Contact",
       hero_eyebrow: "Studio de webdesign · Belgique & Pays-Bas", h1_a: "<span class=\"hw\">Des</span> <span class=\"hw\">sites</span> <span class=\"hw\">web</span>", h1_b: "<span class=\"hw\">qui</span> <span class=\"hw\">font</span> <span class=\"hw\"><em class=\"it kw\">impression.</em></span>",
       hero_lead: "Conçus et construits sur mesure. Vous voyez votre page d'accueil sous 24 heures, gratuitement, sans acompte.",
-      cta_design: "Demandez votre design gratuit", cta_work: "Voir nos réalisations", scroll: "Défiler", hero_tip: "Cliquez sur un site pour le voir de près", hero_tr: "Sites sur mesure · depuis 2024", gl_go: "Voir dans la galerie", gl_live: "Voir en ligne", gl_close: "Fermer",
+      cta_design: "Demandez votre design gratuit", cta_work: "Voir nos réalisations", scroll: "Défiler", show_open: "Voir dans la galerie", hero_tip: "Cliquez sur un site pour le voir de près", hero_tr: "Sites sur mesure · depuis 2024", gl_go: "Voir dans la galerie", gl_live: "Voir en ligne", gl_close: "Fermer",
       mq1: "Sites d'entreprise", mq2: "Boutiques en ligne", mq3: "Refontes", mq4: "Landing pages",
       statement: "Votre site web est la première poignée de main avec un nouveau client. Nous veillons à ce qu'elle soit ferme : <em class=\"it\">rapide, élégante et conçue pour générer des demandes.</em> Vous voyez votre design avant de décider, et vous ne payez que lorsque vous êtes satisfait.",
       cta_how: "Notre méthode", st_note: "Sans acompte · en ligne en 2 semaines · un seul interlocuteur",
@@ -712,7 +576,7 @@
     // statement words were wrapped: rewrap
     var st = $("#statement"); if (st) { wrapWords(st); $$(".w", st).forEach(function (w) { w.classList.add("on"); }); }
     if (!silent) { $$(".hero .hw").forEach(function (s) { s.style.transform = "none"; s.style.opacity = "1"; }); }
-    initIntro();
+    initIntro(); if (window.__heroRefresh) window.__heroRefresh();
     if (window.__offerRefresh) window.__offerRefresh();
     try { localStorage.setItem("di_lang", l); } catch (e) {}
     ScrollTrigger.refresh();
@@ -725,7 +589,7 @@
   }
   function init() {
     initVW();
-    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initIntro(); initWork(); initOffer(); initProcess(); initReveals(); initForm(); initPre();
+    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initHero(); initIntro(); initWork(); initOffer(); initProcess(); initReveals(); initForm(); initPre();
     window.addEventListener("load", function () { ScrollTrigger.refresh(); });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
