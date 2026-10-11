@@ -342,44 +342,43 @@
   function initIntro() {
     var sec = $(".intro"); if (!sec) return;
     if (introKill) { introKill(); introKill = null; }
-    var items = [$("#il1"), $("#il2"), $("#usp1"), $("#usp2"), $("#usp3")];
-    var fill = $("#introFill"), step = $("#introStep"), ticks = $("#introTicks");
+    var lines = [$("#il1"), $("#il2")], usps = [$("#usp1"), $("#usp2"), $("#usp3")], items = lines.concat(usps);
+    var fill = $("#introFill"), step = $("#introStep"), ticks = $("#introTicks"), cover = $("#introCover");
     if (REDUCED) { gsap.set(items, { clearProps: "all" }); return; }
-    var mob = window.matchMedia("(max-width: 899px)").matches, travel = mob ? 42 : 50;
+    var mob = window.matchMedia("(max-width: 899px)").matches, travel = mob ? 46 : 56, tu = mob ? 16 : 20;
+    var marks = [0.31, 0.64, 0.75, 0.86];
     gsap.set(items, { autoAlpha: 0 });
     var tl = gsap.timeline({ scrollTrigger: { trigger: sec, start: "top top", end: "bottom bottom", scrub: 0.55,
-      onUpdate: function (st) { var p = st.progress; if (fill) fill.style.transform = "scaleY(" + p + ")"; if (step) step.textContent = "0" + Math.min(5, Math.floor(p * 5.1) + 1); } } });
-    var L = 20;
-    items.forEach(function (el, i) {
-      var s = i * L, last = i === items.length - 1, isLine = i < 2;
-      if (isLine) {
-        // the sentence sits still; every word is written by the scroll itself
-        wrapIntroWords(el);
-        var words = $$(".iw", el);
-        tl.fromTo(el, { y: travel * 0.5 + "vh" }, { y: 0, duration: L * 0.2, ease: "power2.out" }, s);
-        tl.fromTo(el, { autoAlpha: 0 }, { autoAlpha: 1, duration: L * 0.12, ease: "power2.out" }, s);
-        var w0 = s + L * 0.1, w1 = s + L * 0.74, each = L * 0.1, gap = words.length > 1 ? (w1 - w0 - each) / (words.length - 1) : 0;
-        words.forEach(function (w, k) { tl.fromTo(w, { opacity: 0.1, yPercent: 55 }, { opacity: 1, yPercent: 0, duration: each, ease: "power2.out" }, w0 + gap * k); });
-        tl.to(el, { y: (-travel) + "vh", duration: L * 0.22, ease: "power2.in" }, s + L * 0.78);
-        tl.to(el, { autoAlpha: 0, duration: L * 0.16, ease: "power2.in" }, s + L * 0.84);
-      } else {
-        // USP beats: solid stage, long vertical travel, blur + scale in and out, gold rule drawn while it holds
-        var t2 = travel * 1.4, title = $(".usp__t", el);
-        tl.fromTo(el, { y: t2 + "vh" }, { y: 0, duration: L * 0.44, ease: "power3.out" }, s);
-        tl.fromTo(el, { autoAlpha: 0, scale: 0.78, filter: "blur(14px)" }, { autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: L * 0.34, ease: "power2.out" }, s + L * 0.04);
-        tl.fromTo(title, { letterSpacing: "0.06em" }, { letterSpacing: "-0.03em", duration: L * 0.4, ease: "power2.out" }, s);
-        tl.fromTo(title, { "--ul": 0 }, { "--ul": 1, duration: L * 0.3, ease: "power2.inOut" }, s + L * 0.3);
-        if (!last) {
-          tl.to(el, { y: (-t2) + "vh", duration: L * 0.44, ease: "power3.in" }, s + L * 0.56);
-          tl.to(el, { autoAlpha: 0, scale: 1.18, filter: "blur(12px)", duration: L * 0.3, ease: "power2.in" }, s + L * 0.68);
-        }
+      onUpdate: function (st) { var p = st.progress, n = 1; marks.forEach(function (m) { if (p >= m) n++; }); if (fill) fill.style.transform = "scaleY(" + p + ")"; if (step) step.textContent = "0" + n; } } });
+    // the two sentences: big, blurred rise, written word by word, gold rule, blurred exit
+    var LW = 32;
+    lines.forEach(function (el, i) {
+      var s = i * 31; wrapIntroWords(el);
+      var words = $$(".iw", el);
+      tl.fromTo(el, { y: travel + "vh" }, { y: 0, duration: LW * 0.3, ease: "power3.out" }, s);
+      tl.fromTo(el, { autoAlpha: 0, scale: 0.86, filter: "blur(12px)" }, { autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: LW * 0.24, ease: "power2.out" }, s + LW * 0.02);
+      var w0 = s + LW * 0.12, w1 = s + LW * 0.66, each = LW * 0.08, gap = words.length > 1 ? (w1 - w0 - each) / (words.length - 1) : 0;
+      words.forEach(function (w, k) { tl.fromTo(w, { opacity: 0.1, yPercent: 50 }, { opacity: 1, yPercent: 0, duration: each, ease: "power2.out" }, w0 + gap * k); });
+      tl.fromTo(el, { "--ul": 0 }, { "--ul": 1, duration: LW * 0.12, ease: "power2.inOut" }, w1 + each * 0.6);
+      tl.to(el, { y: (-travel) + "vh", duration: LW * 0.22, ease: "power3.in" }, s + LW * 0.8);
+      tl.to(el, { autoAlpha: 0, scale: 1.1, filter: "blur(10px)", duration: LW * 0.16, ease: "power2.in" }, s + LW * 0.84);
+    });
+    // the stage closes over the sites while the first sentence finishes
+    if (cover) tl.fromTo(cover, { autoAlpha: 0 }, { autoAlpha: 1, duration: 9, ease: "power2.inOut" }, 20);
+    // three USPs: small, quick, smooth
+    var LU = 11;
+    usps.forEach(function (el, i) {
+      var s = 64 + i * 10.5, last = i === usps.length - 1;
+      tl.fromTo(el, { y: tu + "vh" }, { y: 0, duration: LU * 0.42, ease: "power2.out" }, s);
+      tl.fromTo(el, { autoAlpha: 0, filter: "blur(6px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: LU * 0.3, ease: "power2.out" }, s);
+      if (!last) {
+        tl.to(el, { y: (-tu) + "vh", duration: LU * 0.42, ease: "power2.in" }, s + LU * 0.58);
+        tl.to(el, { autoAlpha: 0, filter: "blur(6px)", duration: LU * 0.3, ease: "power2.in" }, s + LU * 0.68);
       }
     });
-    var cover = $("#introCover");
-    if (cover) tl.fromTo(cover, { autoAlpha: 0 }, { autoAlpha: 1, duration: 5.5, ease: "power2.inOut" }, 36);
-    tl.to({}, { duration: 8 }, 100);
+    tl.to({}, { duration: 6 }, 100);
     var tk = ticks ? gsap.fromTo(ticks, { yPercent: 0 }, { yPercent: -30, ease: "none", scrollTrigger: { trigger: sec, start: "top top", end: "bottom bottom", scrub: true } }) : null;
-    introKill = function () { tl.scrollTrigger && tl.scrollTrigger.kill(); tl.kill(); if (tk) { tk.scrollTrigger && tk.scrollTrigger.kill(); tk.kill(); } gsap.set(items, { clearProps: "all" }); };
+    introKill = function () { tl.scrollTrigger && tl.scrollTrigger.kill(); tl.kill(); if (tk) { tk.scrollTrigger && tk.scrollTrigger.kill(); tk.kill(); } gsap.set(items.concat([cover]), { clearProps: "all" }); };
   }
 
   /* ---------------- work: horizontal pin ---------------- */
@@ -430,129 +429,24 @@
   }
 
 
-  /* ---------------- live CTA: type a sentence, see your homepage ---------------- */
-  var DEMO = {
-    nl: {
-      studio:   { kick: "Uw sector · uw regio", h: "Uw zaak, in één zin.", p: "Een eerste indruk die klopt, geschreven en ontworpen rond uw zaak.", btn: "Maak een afspraak", links: ["Aanbod", "Over ons", "Contact"], strip: ["Op maat", "Snel", "Eén aanspreekpunt"], cta: "Contact" },
-      kinesist: { kick: "Kinesitherapie & performance", p: "Van blessure naar beter dan voorheen. Persoonlijke begeleiding, meetbare vooruitgang.", btn: "Boek een sessie", links: ["Behandelingen", "Team", "Tarieven"], strip: ["Sportrevalidatie", "Manuele therapie", "Online boeken"], cta: "Boek nu" },
-      bakker:   { kick: "Ambachtelijke bakkerij", p: "Elke ochtend vers uit de oven. Brood met tijd, taarten met liefde.", btn: "Bekijk het assortiment", links: ["Brood", "Patisserie", "Bestellen"], strip: ["Dagvers", "Eigen zuurdesem", "Op bestelling"], cta: "Bestel" },
-      advocaat: { kick: "Advocatenkantoor", p: "Heldere raad en vastberaden verdediging, in taal die u begrijpt.", btn: "Plan een eerste gesprek", links: ["Expertise", "Kantoor", "Contact"], strip: ["Ondernemingsrecht", "Familierecht", "Vastgoed"], cta: "Afspraak" },
-      tuinman:  { kick: "Tuinaanleg & onderhoud", p: "Ontwerp, aanleg en onderhoud door mensen die weten wat er in uw grond groeit.", btn: "Vraag een tuinplan", links: ["Tuinen", "Projecten", "Contact"], strip: ["Ontwerp", "Aanleg", "Onderhoud"], cta: "Offerte" },
-      zanger:   { kick: "Live muziek voor uw event", p: "Van intieme ceremonie tot volle dansvloer. Eén stem, de juiste sfeer.", btn: "Check beschikbaarheid", links: ["Repertoire", "Agenda", "Boeken"], strip: ["Bruiloften", "Bedrijfsfeesten", "Festivals"], cta: "Boek" },
-      webshop:  { kick: "Nieuwe collectie", p: "Zorgvuldig gemaakt, eerlijk geprijsd, morgen bij u thuis.", btn: "Shop de collectie", links: ["Shop", "Over", "Verzending"], strip: ["Gratis verzending", "Retour binnen 30 dagen", "Veilig betalen"], cta: "Winkelwagen" }
-    },
-    en: {
-      studio:   { kick: "Your sector · your region", h: "Your business, in one sentence.", p: "A first impression that fits, written and designed around your business.", btn: "Book an appointment", links: ["Services", "About", "Contact"], strip: ["Bespoke", "Fast", "One contact"], cta: "Contact" },
-      kinesist: { kick: "Physiotherapy & performance", p: "From injury to better than before. Personal guidance, measurable progress.", btn: "Book a session", links: ["Treatments", "Team", "Rates"], strip: ["Sports rehab", "Manual therapy", "Online booking"], cta: "Book now" },
-      bakker:   { kick: "Artisan bakery", p: "Fresh from the oven every morning. Bread with time, cakes with love.", btn: "See the range", links: ["Bread", "Pastry", "Order"], strip: ["Fresh daily", "Own sourdough", "Made to order"], cta: "Order" },
-      advocaat: { kick: "Law firm", p: "Clear advice and determined defence, in language you understand.", btn: "Plan a first meeting", links: ["Expertise", "Firm", "Contact"], strip: ["Business law", "Family law", "Real estate"], cta: "Appointment" },
-      tuinman:  { kick: "Garden design & care", p: "Design, planting and maintenance by people who know what grows in your soil.", btn: "Request a garden plan", links: ["Gardens", "Projects", "Contact"], strip: ["Design", "Planting", "Maintenance"], cta: "Quote" },
-      zanger:   { kick: "Live music for your event", p: "From intimate ceremony to packed dance floor. One voice, the right mood.", btn: "Check availability", links: ["Repertoire", "Dates", "Book"], strip: ["Weddings", "Corporate events", "Festivals"], cta: "Book" },
-      webshop:  { kick: "New collection", p: "Carefully made, fairly priced, at your door tomorrow.", btn: "Shop the collection", links: ["Shop", "About", "Shipping"], strip: ["Free shipping", "30-day returns", "Secure payment"], cta: "Cart" }
-    },
-    fr: {
-      studio:   { kick: "Votre secteur · votre région", h: "Votre entreprise, en une phrase.", p: "Une première impression juste, écrite et conçue autour de votre activité.", btn: "Prendre rendez-vous", links: ["Offre", "À propos", "Contact"], strip: ["Sur mesure", "Rapide", "Un interlocuteur"], cta: "Contact" },
-      kinesist: { kick: "Kinésithérapie & performance", p: "De la blessure à mieux qu'avant. Accompagnement personnel, progrès mesurables.", btn: "Réserver une séance", links: ["Soins", "Équipe", "Tarifs"], strip: ["Rééducation sportive", "Thérapie manuelle", "Réservation en ligne"], cta: "Réserver" },
-      bakker:   { kick: "Boulangerie artisanale", p: "Chaque matin, tout frais sorti du four. Du pain avec du temps, des gâteaux avec amour.", btn: "Voir l'assortiment", links: ["Pain", "Pâtisserie", "Commander"], strip: ["Frais du jour", "Levain maison", "Sur commande"], cta: "Commander" },
-      advocaat: { kick: "Cabinet d'avocats", p: "Des conseils clairs et une défense déterminée, dans un langage que vous comprenez.", btn: "Planifier un premier entretien", links: ["Expertise", "Cabinet", "Contact"], strip: ["Droit des affaires", "Droit familial", "Immobilier"], cta: "Rendez-vous" },
-      tuinman:  { kick: "Aménagement & entretien de jardins", p: "Conception, plantation et entretien par des gens qui savent ce qui pousse dans votre sol.", btn: "Demander un plan", links: ["Jardins", "Projets", "Contact"], strip: ["Conception", "Plantation", "Entretien"], cta: "Devis" },
-      zanger:   { kick: "Musique live pour votre événement", p: "De la cérémonie intime à la piste de danse pleine. Une voix, la bonne ambiance.", btn: "Vérifier les disponibilités", links: ["Répertoire", "Agenda", "Réserver"], strip: ["Mariages", "Événements d'entreprise", "Festivals"], cta: "Réserver" },
-      webshop:  { kick: "Nouvelle collection", p: "Fabriqué avec soin, prix honnête, chez vous demain.", btn: "Découvrir la collection", links: ["Boutique", "À propos", "Livraison"], strip: ["Livraison gratuite", "Retour sous 30 jours", "Paiement sécurisé"], cta: "Panier" }
-    }
-  };
-  var EXAMPLES = {
-    nl: [["kinesist", "Kinesist in Diepenbeek, gespecialiseerd in sporters."], ["bakker", "Ambachtelijke bakkerij in het hart van Hasselt."], ["advocaat", "Advocatenkantoor voor ondernemers in Genk."], ["tuinman", "Tuinaanleg en onderhoud in heel Limburg."], ["zanger", "Zangeres voor bruiloften en bedrijfsfeesten."], ["webshop", "Webshop met handgemaakte Belgische sieraden."]],
-    en: [["kinesist", "Physiotherapist in Diepenbeek, specialised in athletes."], ["bakker", "Artisan bakery in the heart of Hasselt."], ["advocaat", "Law firm for entrepreneurs in Genk."], ["tuinman", "Garden design and maintenance across Limburg."], ["zanger", "Singer for weddings and corporate events."], ["webshop", "Webshop with handmade Belgian jewellery."]],
-    fr: [["kinesist", "Kinésithérapeute à Diepenbeek, spécialisé en sportifs."], ["bakker", "Boulangerie artisanale au cœur de Hasselt."], ["advocaat", "Cabinet d'avocats pour entrepreneurs à Genk."], ["tuinman", "Aménagement et entretien de jardins dans tout le Limbourg."], ["zanger", "Chanteuse pour mariages et fêtes d'entreprise."], ["webshop", "Boutique en ligne de bijoux belges faits main."]]
-  };
-  var KEYS = [
-    ["kinesist", /kine|kinésith|fysio|physio|osteo|chiro|sport|rehab|revalid|personal|fitness|gym|coach|yoga|pilates|massa|podolo|logo|diëtist|dietist|tandarts|dentist|dokter|huisarts|psycholo|therap/i],
-    ["bakker", /bakker|boulang|bakery|brood|patiss|pastry|taart|gâteau|chocol|koffie|café|coffee|restaurant|bistro|brasserie|traiteur|catering|frituur|pizza|sushi|slager|boucher|butcher|wijn|vin\b|wine|bier|beer|hotel|b&b|ijs|glace/i],
-    ["advocaat", /advoca|avocat|lawyer|law firm|notar|jurist|boekhoud|account|comptab|fiscal|verzeker|assur|insur|consult|immo|vastgoed|makelaar|real estate|bank|financ|architect|ingenieur|engineer|kantoor|bureau|office|hr|recruit/i],
-    ["tuinman", /tuin|jardin|garden|groen|hovenier|landscap|bouw|construct|dak|roof|toit|schilder|peintre|paint|loodgiet|plomb|plumb|elektr|électr|electric|aannemer|contractor|renovat|chauffag|verwarm|heating|installat|tegel|carrel|tiling|schrijnwerk|menuis|carpent|vloer|floor|zonnepan|solar|poets|clean|nettoy/i],
-    ["zanger", /zang|zing|sing|chant|muziek|music|musique|band|dj\b|fotogra|photogra|artist|kunst|art\b|dans|danc|event|feest|fête|party|bruiloft|wedding|mariage|theater|théâtre|film|video|vidéo|studio|design|grafisch|graphic/i],
-    ["webshop", /webshop|web shop|shop|winkel|boutique|store|verkoop|vente|sell|e-?commerce|online|kled|fashion|mode|vêtement|sieraden|bijou|jewel|cadeau|gift|cosmet|beauty|parfum|meubel|furniture|decor|déco|boek|book|speelgoed|toy|wijnshop/i]
-  ];
-  function detectK(text) {
-    var t = (text || "").toLowerCase(); if (!t.trim()) return "studio";
-    for (var i = 0; i < KEYS.length; i++) if (KEYS[i][1].test(t)) return KEYS[i][0];
-    return "studio";
-  }
-  var ctaCurK = "studio", ctaTyped = "", idleTimer = null, idleOn = false, ctaInView = false, idleIdx = 0;
-  function fillDemo(k, keepH) {
-    var d = (DEMO[lang] || DEMO.nl)[k] || DEMO.nl[k];
-    var set = function (id, v) { var el = $("#" + id); if (el) el.textContent = v; };
-    set("dKick", d.kick); set("dP", d.p); set("dBtn", d.btn); set("dCta", d.cta);
-    set("dL1", d.links[0]); set("dL2", d.links[1]); set("dL3", d.links[2]);
-    set("dS1", d.strip[0]); set("dS2", d.strip[1]); set("dS3", d.strip[2]);
-    set("dLogo", lang === "en" ? "Your logo" : lang === "fr" ? "Votre logo" : "Uw logo");
-    if (!keepH) setDemoH(d.h || "");
-  }
-  function setDemoH(text) { var el = $("#dHText"); if (el) el.textContent = text; }
-  function setUrl(text) {
-    var u = $("#ctaUrl"); if (!u) return;
-    var words = (text || "").toLowerCase().replace(/[^a-z0-9àâäéèêëïîôöùûüç\s-]/g, "").split(/\s+/).filter(function (w) { return w.length > 2 && !/^(een|van|voor|met|het|de|in|en|the|and|for|with|une|des|pour|les|dans|à|et|au|aux|du|la|le)$/.test(w); }).slice(0, 2);
-    u.textContent = "www." + (words.length ? words.join("") : (lang === "en" ? "yourbusiness" : lang === "fr" ? "votreentreprise" : "uwzaak")) + ".be";
-  }
-  function switchK(k, instant) {
-    var demo = $("#demo"); if (!demo || (k === ctaCurK && demo.getAttribute("data-k") === k)) return;
-    ctaCurK = k;
-    $$("#ctaChips button").forEach(function (b) { b.classList.toggle("is-on", b.getAttribute("data-k") === k); });
-    $$(".demo__img img").forEach(function (im) { im.classList.toggle("is-on", im.getAttribute("data-k") === k); });
-    if (instant || REDUCED) { demo.setAttribute("data-k", k); fillDemo(k, true); return; }
-    demo.classList.add("is-switching");
-    setTimeout(function () { demo.setAttribute("data-k", k); fillDemo(k, true); demo.classList.remove("is-switching"); }, 340);
-  }
-  function stopIdle() { idleOn = false; if (idleTimer) { clearTimeout(idleTimer); idleTimer = null; } }
-  function startIdle() {
-    if (idleOn || REDUCED || ctaTyped) return; idleOn = true;
-    var ex = EXAMPLES[lang] || EXAMPLES.nl, hEl = $("#dH");
-    function run() {
-      if (!idleOn) return;
-      var item = ex[idleIdx % ex.length], text = item[1], i = 0; idleIdx++;
-      switchK(item[0]); setUrl(text); if (hEl) hEl.classList.remove("is-done");
-      setDemoH("");
-      (function type() {
-        if (!idleOn) return;
-        i++; setDemoH(text.slice(0, i));
-        if (i < text.length) idleTimer = setTimeout(type, 38 + Math.random() * 45);
-        else { if (hEl) hEl.classList.add("is-done"); idleTimer = setTimeout(function () { if (!idleOn) return; (function erase() { if (!idleOn) return; i -= 3; setDemoH(i > 0 ? text.slice(0, i) : ""); if (i > 0) idleTimer = setTimeout(erase, 14); else idleTimer = setTimeout(run, 350); })(); }, 2600); }
-      })();
-    }
-    idleTimer = setTimeout(run, 500);
-  }
-  function initLiveCTA() {
-    var sec = $("#ontwerp"), inp = $("#ctaInput"), demo = $("#demo"); if (!sec || !inp || !demo) return;
-    fillDemo("studio"); setUrl("");
+  /* ---------------- CTA: free homepage design ---------------- */
+  function initCTA() {
+    var sec = $("#ontwerp"), inp = $("#ctaInput"); if (!sec || !inp) return;
     var field = inp.closest(".cta__field");
-    var onInput = function () {
-      ctaTyped = inp.value; field.classList.toggle("is-filled", !!ctaTyped.trim());
-      if (ctaTyped.trim()) { stopIdle(); var t = ctaTyped.trim(); setDemoH(t.charAt(0).toUpperCase() + t.slice(1)); setUrl(t); switchK(detectK(t)); $("#dH").classList.remove("is-done"); }
-      else { setDemoH(""); setUrl(""); switchK("studio"); if (ctaInView) startIdle(); }
-    };
-    inp.addEventListener("input", onInput);
-    inp.addEventListener("focus", function () { if (!ctaTyped) { stopIdle(); setDemoH(""); } });
-    inp.addEventListener("blur", function () { if (!ctaTyped && ctaInView) startIdle(); });
-    $("#ctaChips").addEventListener("click", function (e) {
-      var b = e.target.closest("button"); if (!b) return;
-      var k = b.getAttribute("data-k"), ex = (EXAMPLES[lang] || EXAMPLES.nl).filter(function (x) { return x[0] === k; })[0];
-      inp.value = ex ? ex[1].replace(/\.$/, "") : ""; onInput(); inp.focus({ preventScroll: true });
-    });
+    inp.addEventListener("input", function () { field.classList.toggle("is-filled", !!inp.value.trim()); });
     $("#ctaSend").addEventListener("click", function () {
       var v = (inp.value || "").trim(), ber = $("#bericht");
       if (ber && v) ber.value = (lang === "en" ? "My business: " : lang === "fr" ? "Mon activité : " : "Mijn zaak: ") + v + "\n";
       var c = $("#contact"); if (lenis) lenis.scrollTo(c, { duration: 1.4 }); else c.scrollIntoView({ behavior: "smooth" });
       setTimeout(function () { var n = $("#naam"); if (n) n.focus({ preventScroll: true }); }, 1500);
     });
-    ScrollTrigger.create({ trigger: sec, start: "top 75%", end: "bottom 25%",
-      onToggle: function (st) { ctaInView = st.isActive; if (st.isActive) { if (!ctaTyped && document.activeElement !== inp) startIdle(); } else stopIdle(); } });
-    if (!REDUCED) {
-      gsap.from("#ctaStage", { opacity: 0, y: 90, rotateX: 14, transformPerspective: 1400, duration: 1.4, ease: "power4.out", scrollTrigger: { trigger: sec, start: "top 70%", once: true } });
-      gsap.from("#ctaBadge", { scale: 0, rotation: -40, duration: 1, ease: "back.out(2)", scrollTrigger: { trigger: sec, start: "top 55%", once: true } });
-      gsap.to("#ctaBadge", { y: -8, duration: 2.4, yoyo: true, repeat: -1, ease: "sine.inOut" });
-      gsap.from(".cta__chips button", { opacity: 0, y: 12, stagger: 0.06, duration: 0.7, ease: "power3.out", scrollTrigger: { trigger: "#ctaChips", start: "top 90%", once: true } });
-    }
-    window.__ctaRefresh = function () { var ex = EXAMPLES[lang] || EXAMPLES.nl; fillDemo(ctaCurK, !!ctaTyped); if (ctaTyped) setUrl(ctaTyped); else { setUrl(""); if (idleOn) { stopIdle(); startIdle(); } } };
+    var deck = $("#deck");
+    ScrollTrigger.create({ trigger: deck, start: "top 72%", once: true, onEnter: function () { deck.classList.add("is-open"); } });
+    if (REDUCED) { deck.classList.add("is-open"); return; }
+    gsap.from("#ctaStage", { opacity: 0, y: 80, duration: 1.4, ease: "power4.out", scrollTrigger: { trigger: sec, start: "top 70%", once: true } });
+    gsap.from("#ctaBadge", { scale: 0, rotation: -40, duration: 1, ease: "back.out(2)", scrollTrigger: { trigger: sec, start: "top 50%", once: true } });
+    gsap.to("#ctaBadge", { y: -8, duration: 2.4, yoyo: true, repeat: -1, ease: "sine.inOut" });
+    gsap.from(".cta__steps li", { opacity: 0, y: 14, stagger: 0.1, duration: 0.8, ease: "power3.out", scrollTrigger: { trigger: ".cta__steps", start: "top 88%", once: true } });
   }
 
   /* ---------------- diensten & prijzen: chooser ---------------- */
@@ -757,12 +651,10 @@
       w4_what: "Dark command centre: live map with routes, vehicle cards, numbers and chart on the side.",
       w5_who: "Concept for an architecture practice in Hasselt and Antwerp.",
       w5_what: "Editorial: three photos at different heights, the word NOOR as a watermark, light and silence as the subject.",
-      ct_eyebrow: "Free homepage design · within 24 hours",
-      ct_title: "Type one sentence. <em class=\"it\">See your homepage.</em>",
-      ct_lead: "Tell us what your business does. The screen next to it changes as you type: colour, type, mood. We really make such a first design for you, free and without a deposit. You decide afterwards.",
-      ct_lbl: "Your business in one sentence", ct_ph: "For example: physiotherapist in Diepenbeek for athletes",
-      ct_c1: "Physio", ct_c2: "Bakery", ct_c3: "Lawyer", ct_c4: "Gardening", ct_c5: "Musician", ct_c6: "Webshop",
-      ct_btn: "Design my real homepage", ct_fine: "Free · in your inbox within 24 hours · no deposit, no obligation", ct_badge: "free design",
+      ct_eyebrow: "Free homepage design", ct_title: "Your homepage, <em class=\"it\">drawn for free within 24 hours.</em>",
+      ct_lead: "Tell us in one sentence what your business does. Tomorrow a first design of your homepage is in your inbox: bespoke, without a deposit and without obligation. Only when you like it do we build on.",
+      ct_s1: "You tell", ct_s2: "We draw", ct_s3: "You decide", ct_lbl: "Your business in one sentence", ct_ph: "For example: physiotherapist in Diepenbeek for athletes",
+      ct_btn: "Draw my homepage", ct_fine: "Free · in your inbox within 24 hours · no deposit, no obligation", ct_badge: "free design", ct_proof: "This is what our first designs look like: Simonta, Mergelgrotten Zichen and NOOR.",
       of_eyebrow: "Services &amp; pricing", of_title: "What we build, <em class=\"it\">and what it costs.</em>",
       of_lead: "Fixed starting prices, no small print. Pick a service and the details appear next to it. Every project starts with a free homepage design.",
       o1_t: "Business website", o1_s: "Build trust and win enquiries.", o2_t: "Webshop", o2_s: "Sell while you sleep, without checkout hassle.", o3_t: "Redesign", o3_s: "Same content, completely new impression. See Credo.", o4_t: "Landing page", o4_s: "One page, one goal, for campaigns and promotions.", o4_p: "tailored"
@@ -829,12 +721,10 @@
       w4_what: "Centre de commande sombre : carte en direct avec itinéraires, fiches véhicules, chiffres et graphique sur le côté.",
       w5_who: "Concept pour un bureau d'architectes à Hasselt et Anvers.",
       w5_what: "Éditorial : trois photos à des hauteurs différentes, le mot NOOR en filigrane, la lumière et le silence comme sujet.",
-      ct_eyebrow: "Design de page d'accueil gratuit · sous 24 heures",
-      ct_title: "Tapez une phrase. <em class=\"it\">Voyez votre page d'accueil.</em>",
-      ct_lead: "Dites ce que fait votre entreprise. L'écran à côté change pendant que vous tapez : couleur, typographie, ambiance. Nous réalisons vraiment ce premier design pour vous, gratuitement et sans acompte. Vous décidez ensuite.",
-      ct_lbl: "Votre entreprise en une phrase", ct_ph: "Par exemple : kinésithérapeute à Diepenbeek pour sportifs",
-      ct_c1: "Kiné", ct_c2: "Boulangerie", ct_c3: "Avocat", ct_c4: "Jardins", ct_c5: "Musicien", ct_c6: "Boutique",
-      ct_btn: "Concevez ma vraie page d'accueil", ct_fine: "Gratuit · dans votre boîte mail sous 24 heures · sans acompte, sans engagement", ct_badge: "design gratuit",
+      ct_eyebrow: "Design de page d'accueil gratuit", ct_title: "Votre page d'accueil, <em class=\"it\">dessinée gratuitement sous 24 heures.</em>",
+      ct_lead: "Dites en une phrase ce que fait votre entreprise. Demain, un premier design de votre page d'accueil est dans votre boîte mail : sur mesure, sans acompte et sans engagement. Nous ne construisons la suite que si elle vous plaît.",
+      ct_s1: "Vous racontez", ct_s2: "Nous dessinons", ct_s3: "Vous décidez", ct_lbl: "Votre entreprise en une phrase", ct_ph: "Par exemple : kinésithérapeute à Diepenbeek pour sportifs",
+      ct_btn: "Dessinez ma page d'accueil", ct_fine: "Gratuit · dans votre boîte mail sous 24 heures · sans acompte, sans engagement", ct_badge: "design gratuit", ct_proof: "Voici à quoi ressemblent nos premiers designs : Simonta, Mergelgrotten Zichen et NOOR.",
       of_eyebrow: "Services &amp; tarifs", of_title: "Ce que nous créons, <em class=\"it\">et ce que ça coûte.</em>",
       of_lead: "Des prix de départ fixes, sans petits caractères. Choisissez un service, les détails apparaissent à côté. Chaque projet commence par un design de page d'accueil gratuit.",
       o1_t: "Site d'entreprise", o1_s: "Inspirer confiance et générer des demandes.", o2_t: "Boutique en ligne", o2_s: "Vendre pendant que vous dormez, sans tracas à la caisse.", o3_t: "Refonte", o3_s: "Même contenu, impression entièrement nouvelle. Voyez Credo.", o4_t: "Landing page", o4_s: "Une page, un objectif, pour campagnes et actions.", o4_p: "sur mesure"
@@ -859,7 +749,7 @@
     var st = $("#statement"); if (st) { wrapWords(st); $$(".w", st).forEach(function (w) { w.classList.add("on"); }); }
     if (!silent) { $$(".hero .line-mask > span").forEach(function (s) { s.style.transform = "none"; }); }
     initIntro();
-    if (window.__ctaRefresh) window.__ctaRefresh(); if (window.__offerRefresh) window.__offerRefresh();
+    if (window.__offerRefresh) window.__offerRefresh();
     try { localStorage.setItem("di_lang", l); } catch (e) {}
     ScrollTrigger.refresh();
   }
@@ -871,7 +761,7 @@
   }
   function init() {
     initVW();
-    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initIntro(); initWork(); initLiveCTA(); initOffer(); initTilt(); initProcess(); initReveals(); initForm(); initPre();
+    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initIntro(); initWork(); initCTA(); initOffer(); initTilt(); initProcess(); initReveals(); initForm(); initPre();
     window.addEventListener("load", function () { ScrollTrigger.refresh(); });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
