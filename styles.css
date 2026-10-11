@@ -551,3 +551,10 @@ html.is-light .tier--mid { background: var(--navy); color: var(--beige); }
 .hero__veil { will-change: opacity; }
 .iw { display: inline-block; will-change: transform, opacity; }
 .intro__line { text-wrap: balance; }
+
+.intro__cover { position: absolute; inset: 0; opacity: 0; pointer-events: none; background: radial-gradient(70% 70% at 50% 42%, #13244A 0%, #0E1C3A 55%, #0A1530 100%); }
+.intro__cover::after { content: ""; position: absolute; inset: 0; background: radial-gradient(40% 30% at 50% 50%, rgba(201,162,74,0.1), transparent 70%); }
+.usp__t { --ul: 0; position: relative; padding-bottom: 0.08em; text-shadow: none; }
+.usp__t::after { content: ""; position: absolute; left: 12%; right: 12%; bottom: 0; height: 2px; background: var(--gold); transform: scaleX(var(--ul)); transform-origin: left; }
+.usp { gap: 0; }
+@media (prefers-reduced-motion: reduce) { .intro__cover { display: none; } .usp__t { --ul: 1; } }

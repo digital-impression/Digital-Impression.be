@@ -363,14 +363,20 @@
         tl.to(el, { y: (-travel) + "vh", duration: L * 0.22, ease: "power2.in" }, s + L * 0.78);
         tl.to(el, { autoAlpha: 0, duration: L * 0.16, ease: "power2.in" }, s + L * 0.84);
       } else {
-        tl.fromTo(el, { y: travel + "vh" }, { y: 0, duration: L * 0.42, ease: "power2.out" }, s);
-        tl.fromTo(el, { autoAlpha: 0, scale: 0.94 }, { autoAlpha: 1, scale: 1, duration: L * 0.3, ease: "power2.out" }, s);
+        // USP beats: solid stage, long vertical travel, blur + scale in and out, gold rule drawn while it holds
+        var t2 = travel * 1.4, title = $(".usp__t", el);
+        tl.fromTo(el, { y: t2 + "vh" }, { y: 0, duration: L * 0.44, ease: "power3.out" }, s);
+        tl.fromTo(el, { autoAlpha: 0, scale: 0.78, filter: "blur(14px)" }, { autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: L * 0.34, ease: "power2.out" }, s + L * 0.04);
+        tl.fromTo(title, { letterSpacing: "0.06em" }, { letterSpacing: "-0.03em", duration: L * 0.4, ease: "power2.out" }, s);
+        tl.fromTo(title, { "--ul": 0 }, { "--ul": 1, duration: L * 0.3, ease: "power2.inOut" }, s + L * 0.3);
         if (!last) {
-          tl.to(el, { y: (-travel) + "vh", duration: L * 0.42, ease: "power2.in" }, s + L * 0.58);
-          tl.to(el, { autoAlpha: 0, scale: 1.04, duration: L * 0.3, ease: "power2.in" }, s + L * 0.7);
+          tl.to(el, { y: (-t2) + "vh", duration: L * 0.44, ease: "power3.in" }, s + L * 0.56);
+          tl.to(el, { autoAlpha: 0, scale: 1.18, filter: "blur(12px)", duration: L * 0.3, ease: "power2.in" }, s + L * 0.68);
         }
       }
     });
+    var cover = $("#introCover");
+    if (cover) tl.fromTo(cover, { autoAlpha: 0 }, { autoAlpha: 1, duration: 5.5, ease: "power2.inOut" }, 36);
     tl.to({}, { duration: 8 }, 100);
     var tk = ticks ? gsap.fromTo(ticks, { yPercent: 0 }, { yPercent: -30, ease: "none", scrollTrigger: { trigger: sec, start: "top top", end: "bottom bottom", scrub: true } }) : null;
     introKill = function () { tl.scrollTrigger && tl.scrollTrigger.kill(); tl.kill(); if (tk) { tk.scrollTrigger && tk.scrollTrigger.kill(); tk.kill(); } gsap.set(items, { clearProps: "all" }); };
@@ -734,11 +740,8 @@
       in2a: "Make sure it",
       in2b: "<em class=\"it\">sticks.</em>",
       usp1: "No deposit",
-      usp1s: "You pay once your website is finished and you are happy with it.",
       usp2: "Live in 2 weeks",
-      usp2s: "From first conversation to online, for most projects.",
       usp3: "One point of contact",
-      usp3s: "You talk to the person who designs and builds your website.",
       w1_tag: "Live",
       w2_tag: "Redesign",
       w3_tag: "Redesign",
@@ -809,11 +812,8 @@
       in2a: "Faites en sorte qu'elle",
       in2b: "<em class=\"it\">marque.</em>",
       usp1: "Pas d'acompte",
-      usp1s: "Vous payez quand votre site est terminé et que vous êtes satisfait.",
       usp2: "En ligne en 2 semaines",
-      usp2s: "Du premier échange à la mise en ligne, pour la plupart des projets.",
       usp3: "Un seul interlocuteur",
-      usp3s: "Vous parlez à la personne qui conçoit et construit votre site.",
       w1_tag: "En ligne",
       w2_tag: "Refonte",
       w3_tag: "Refonte",
