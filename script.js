@@ -13,7 +13,7 @@
   /* ---------------- smooth scroll ---------------- */
   function initLenis() {
     if (REDUCED || typeof Lenis === "undefined") return;
-    lenis = new Lenis({ lerp: 0.085, wheelMultiplier: 1, smoothWheel: true });
+    lenis = new Lenis({ lerp: 0.11, wheelMultiplier: 1, smoothWheel: true });
     lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
     gsap.ticker.lagSmoothing(0);
@@ -53,7 +53,7 @@
     var hero = $("#hero");
     var renderer;
     try { renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true, powerPreference: "high-performance" }); } catch (e) { return; }
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.6));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.25));
     var scene = new THREE.Scene();
     scene.fog = new THREE.Fog(0x0E1C3A, 5, 18);
     var cam = new THREE.PerspectiveCamera(42, 1, 0.1, 60);
@@ -70,12 +70,12 @@
     var rnd = function (a, b) { return a + Math.random() * (b - a); };
     var seeded = [
       [-2.6, 0.9, -1], [2.4, -0.7, -2.5], [-1.4, -1.4, -4], [2.9, 1.3, -5.5], [-3.1, 0.2, -7], [0.9, 1.6, -8.5],
-      [-0.6, -1.3, -10], [2.6, 0.5, -11.5], [-2.4, 1.1, -13], [1.4, -1.0, -14.5], [-1.8, -0.2, -16], [3.0, -1.3, -17.5]
+      [-0.6, -1.3, -10], [2.6, 0.5, -11.5], [-2.4, 1.1, -13], [1.4, -1.0, -14.5]
     ];
     var frameGeo = new THREE.PlaneGeometry(2.3, 1.475, 1, 1);
     seeded.forEach(function (p, i) {
       var site = SITES[i % SITES.length];
-      var tex = loader.load("assets/img/" + site.src + ".jpg");
+      var tex = loader.load("assets/img/gl-" + site.src.replace("site-", "") + ".jpg");
       tex.minFilter = THREE.LinearFilter; tex.center.set(0.5, 0.5);
       var geo = new THREE.PlaneGeometry(2.2, 1.375, 1, 1);
       var mat = new THREE.MeshBasicMaterial({ map: tex, transparent: true, opacity: 0.92, side: THREE.DoubleSide });
@@ -88,7 +88,7 @@
       m.userData = { site: site, base: p.slice(), ph: rnd(0, Math.PI * 2), sp: rnd(0.4, 0.8), rx: m.rotation.x, ry: m.rotation.y, rz: m.rotation.z, frame: frame, tex: tex, hover: 0, s: 1 };
       group.add(m); cards.push(m);
     });
-    var N = 260, pos = new Float32Array(N * 3);
+    var N = 160, pos = new Float32Array(N * 3);
     for (var i = 0; i < N; i++) { pos[i * 3] = rnd(-6, 6); pos[i * 3 + 1] = rnd(-3.5, 3.5); pos[i * 3 + 2] = rnd(-18, 2); }
     var pg = new THREE.BufferGeometry(); pg.setAttribute("position", new THREE.BufferAttribute(pos, 3));
     var dust = new THREE.Points(pg, new THREE.PointsMaterial({ color: 0xC9A24A, size: 0.035, transparent: true, opacity: 0.55, depthWrite: false }));
@@ -167,7 +167,7 @@
     if (closeBtn) closeBtn.addEventListener("click", unfocus);
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") unfocus(); });
     ScrollTrigger.create({ trigger: "#stage", start: "top top", end: "bottom bottom", scrub: true, onUpdate: function (st) { prog = st.progress; if (focused && Math.abs(prog - focusProg) > 0.02) unfocus(); } });
-    gsap.to([".hero__in", ".hero__tip", ".scrollcue"], { opacity: 0, y: -30, ease: "none", scrollTrigger: { trigger: "#stage", start: "top top", end: "+=55%", scrub: true } });
+    gsap.to([".hero__in", ".hero__tip", ".scrollcue"], { opacity: 0, y: -30, ease: "none", scrollTrigger: { trigger: "#stage", start: "top top", end: "+=45%", scrub: true } });
     var clock = new THREE.Clock(), visible = true, stageEl = $("#stage");
     new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }, { threshold: 0 }).observe(stageEl || hero);
     function tick() {
@@ -208,7 +208,7 @@
     var dot = $("#cur"), ring = $("#curRing"), label = $("#curLabel"), ink = $("#ink");
     if (!FINE || REDUCED || !dot) return;
     document.documentElement.classList.add("has-cur");
-    var x = -100, y = -100, rx = -100, ry = -100, pts = [], ctx = null, iw = 0, ih = 0, dpr = Math.min(window.devicePixelRatio || 1, 2), visible = false;
+    var x = -100, y = -100, rx = -100, ry = -100, pts = [], ctx = null, iw = 0, ih = 0, dpr = Math.min(window.devicePixelRatio || 1, 1.5), visible = false;
     if (ink) {
       ctx = ink.getContext("2d");
       var size = function () { iw = window.innerWidth; ih = window.innerHeight; ink.width = iw * dpr; ink.height = ih * dpr; ink.style.width = iw + "px"; ink.style.height = ih + "px"; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
@@ -308,7 +308,7 @@
     var m1 = $$(".line-mask > span", l1), m2 = $$(".line-mask > span", l2);
     gsap.set([l1, l2, u1, u2, u3], { autoAlpha: 0 });
     if (REDUCED) { gsap.set([l1], { autoAlpha: 1 }); gsap.set(m1, { y: 0 }); return; }
-    var tl = gsap.timeline({ scrollTrigger: { trigger: sec, start: "top top", end: "bottom bottom", scrub: 0.7 } });
+    var tl = gsap.timeline({ scrollTrigger: { trigger: sec, start: "top top", end: "bottom bottom", scrub: 0.35 } });
     tl.to(l1, { autoAlpha: 1, duration: 4 }, 0)
       .fromTo(m1, { yPercent: 110 }, { yPercent: 0, duration: 8, stagger: 1.5, ease: "power3.out" }, 0)
       .to(l1, { autoAlpha: 0, y: -40, duration: 6, ease: "power2.in" }, 20)
@@ -356,7 +356,7 @@
       "(min-width: 900px)": function () {
         var dist = function () { return track.scrollWidth - document.documentElement.clientWidth; };
         var tween = gsap.to(track, { x: function () { return -dist(); }, ease: "none",
-          scrollTrigger: { id: "workST", trigger: pin, start: "top top", end: function () { return "+=" + dist(); }, pin: true, scrub: 0.6, invalidateOnRefresh: true, anticipatePin: 1,
+          scrollTrigger: { id: "workST", trigger: pin, start: "top top", end: function () { return "+=" + dist(); }, pin: true, scrub: 0.35, invalidateOnRefresh: true, anticipatePin: 1,
             onUpdate: function (st) { var i = Math.min(n, Math.floor(st.progress * n) + 1); count.textContent = pad(i) + " / " + pad(n); if (bar) bar.style.transform = "scaleX(" + st.progress + ")"; } } });
         panels.forEach(function (p) {
           var img = $("img", p);
