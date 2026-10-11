@@ -166,37 +166,6 @@
     $$("a", m).forEach(function (a) { a.addEventListener("click", closeMenu); });
   }
 
-  /* ---------------- marquee (velocity reactive) ---------------- */
-  function initMarquee() {
-    var track = $("#mqTrack"); if (!track) return;
-    var x = 0, base = REDUCED ? 0 : 0.6, vel = 0;
-    if (lenis) lenis.on("scroll", function (e) { vel = e.velocity || 0; });
-    gsap.ticker.add(function (t, dt) {
-      var half = track.scrollWidth / 2; if (!half) return;
-      x -= (base + Math.min(Math.abs(vel) * 0.08, 6)) * (dt / 16.7);
-      if (x <= -half) x += half;
-      track.style.transform = "translate3d(" + x.toFixed(2) + "px,0,0)";
-    });
-  }
-
-  /* ---------------- statement word reveal ---------------- */
-  function wrapWords(el) {
-    var nodes = Array.prototype.slice.call(el.childNodes), out = "";
-    nodes.forEach(function (n) {
-      if (n.nodeType === 3) { out += n.textContent.split(/(\s+)/).map(function (w) { return /^\s+$/.test(w) || !w ? w : '<span class="w">' + w + "</span>"; }).join(""); }
-      else if (n.nodeType === 1) { out += '<span class="w it">' + n.innerHTML + "</span>"; }
-    });
-    el.innerHTML = out;
-  }
-  function initStatement() {
-    var el = $("#statement"); if (!el) return;
-    wrapWords(el);
-    var words = $$(".w", el);
-    if (REDUCED) { words.forEach(function (w) { w.classList.add("on"); }); return; }
-    ScrollTrigger.create({ trigger: el, start: "top 78%", end: "bottom 45%", scrub: true,
-      onUpdate: function (st) { var n = Math.floor(st.progress * words.length); words.forEach(function (w, i) { w.classList.toggle("on", i <= n); }); } });
-  }
-
   /* ---------------- intro: two lines + three USPs, pinned ---------------- */
   function wrapIntroWords(el) {
     $$(".line-mask > span", el).forEach(function (span) {
@@ -213,6 +182,7 @@
       walk(span);
     });
   }
+  function wrapWords(el) {}
   var introKill = null;
   function initIntro() {
     var sec = $(".intro"); if (!sec) return;
@@ -263,23 +233,6 @@
       }
     });
   }
-
-  /* ---------------- before / after ---------------- */
-  function initBA() {
-    var root = $("#ba"), before = $("#baBefore"), handle = $("#baHandle"); if (!root) return;
-    var dragging = false;
-    function syncW() { before.firstElementChild.style.setProperty("--w", root.getBoundingClientRect().width + "px"); }
-    syncW(); window.addEventListener("resize", syncW);
-    function setPos(x) { var r = root.getBoundingClientRect(), pct = Math.max(3, Math.min(97, ((x - r.left) / r.width) * 100)); before.style.width = pct + "%"; handle.style.left = pct + "%"; handle.setAttribute("aria-valuenow", Math.round(pct)); }
-    var start = function (e) { dragging = true; setPos(e.touches ? e.touches[0].clientX : e.clientX); };
-    var move = function (e) { if (!dragging) return; setPos(e.touches ? e.touches[0].clientX : e.clientX); };
-    var end = function () { dragging = false; };
-    root.addEventListener("mousedown", start); root.addEventListener("touchstart", start, { passive: true });
-    window.addEventListener("mousemove", move); window.addEventListener("touchmove", move, { passive: true });
-    window.addEventListener("mouseup", end); window.addEventListener("touchend", end);
-    handle.addEventListener("keydown", function (e) { var v = parseFloat(handle.getAttribute("aria-valuenow")) || 50, r = root.getBoundingClientRect(); if (e.key === "ArrowLeft") { setPos(r.left + r.width * (v - 5) / 100); e.preventDefault(); } if (e.key === "ArrowRight") { setPos(r.left + r.width * (v + 5) / 100); e.preventDefault(); } });
-  }
-
 
   /* ---------------- diensten & prijzen: chooser ---------------- */
   var OFFER = {
@@ -356,17 +309,6 @@
     }
   }
 
-  /* ---------------- numbers ---------------- */
-  function initNums() {
-    $$("[data-count]").forEach(function (el) {
-      var target = parseFloat(el.getAttribute("data-count")), o = { v: 0 };
-      ScrollTrigger.create({ trigger: el, start: "top 85%", once: true, onEnter: function () {
-        if (REDUCED) { el.textContent = target; return; }
-        gsap.to(o, { v: target, duration: 1.6, ease: "power3.out", onUpdate: function () { el.textContent = Math.round(o.v); } });
-      } });
-    });
-  }
-
   /* ---------------- process: sticky number ---------------- */
   function initProcess() {
     var big = $("#procBig"), steps = $$(".pstep"); if (!big) return;
@@ -391,7 +333,7 @@
   /* ---------------- section reveals ---------------- */
   function initReveals() {
     if (REDUCED) return;
-    $$(".eyebrow, .h-xl, .h-l, .h-m, .lead, .tier, .num, .about__text > p, .sig, .portret, .contact__copy > p, .form, .ba-sec__copy > *").forEach(function (el) {
+    $$(".eyebrow, .h-xl, .h-l, .h-m, .lead, .sig, .portret, .contact__copy > p, .form, .cta__actions, .proc__steps").forEach(function (el) {
       if (el.closest(".hero")) return;
       gsap.from(el, { opacity: 0, y: 24, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 90%", once: true } });
     });
@@ -574,7 +516,6 @@
     document.title = (d && d.meta_title) || NL.meta_title; document.documentElement.lang = l;
     $$("#lang button").forEach(function (b) { b.classList.toggle("is-on", b.getAttribute("data-lang") === l); });
     // statement words were wrapped: rewrap
-    var st = $("#statement"); if (st) { wrapWords(st); $$(".w", st).forEach(function (w) { w.classList.add("on"); }); }
     if (!silent) { $$(".hero .hw").forEach(function (s) { s.style.transform = "none"; s.style.opacity = "1"; }); }
     initIntro(); if (window.__heroRefresh) window.__heroRefresh();
     if (window.__offerRefresh) window.__offerRefresh();
@@ -589,7 +530,7 @@
   }
   function init() {
     initVW();
-    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initHero(); initIntro(); initWork(); initOffer(); initProcess(); initReveals(); initForm(); initPre();
+    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initHero(); initIntro(); initWork(); initOffer(); initTilt(); initProcess(); initReveals(); initForm(); initPre();
     window.addEventListener("load", function () { ScrollTrigger.refresh(); });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
