@@ -41,12 +41,14 @@
   }
   function heroIn() {
     var hero = $("#hero");
-    var tl = gsap.timeline({ defaults: { ease: "power4.out" } });
-    tl.fromTo(".hero .line-mask:not(.line-mask--2) .hw", { yPercent: 110, rotateX: -30, opacity: 0 }, { yPercent: 0, rotateX: 0, opacity: 1, duration: 1.5, stagger: 0.07, ease: "power4.out", clearProps: "opacity" }, 0)
-      .fromTo(".hero .line-mask--2 .hw", { yPercent: 110, rotateX: -30 }, { yPercent: 0, rotateX: 0, duration: 1.5, stagger: 0.1, ease: "power4.out" }, 0.75)
-      .add(function () { hero.classList.add("is-drawn"); }, 1.7)
-      .add(function () { hero.classList.add("is-loaded-ui"); }, 1.2);
-    if (REDUCED) { tl.progress(1); hero.classList.add("is-drawn", "is-loaded-ui"); }
+    splitLetters($("#brandName"));
+    var letters = $$("#brandName .bl");
+    var tl = gsap.timeline();
+    tl.fromTo(letters,
+      { x: function () { return gsap.utils.random(-260, 260); }, y: function () { return gsap.utils.random(-180, 180); }, scale: function () { return gsap.utils.random(1.6, 3); }, rotation: function () { return gsap.utils.random(-35, 35); }, opacity: 0, filter: "blur(10px)" },
+      { x: 0, y: 0, scale: 1, rotation: 0, opacity: 1, filter: "blur(0px)", duration: 1.7, stagger: { each: 0.045, from: "center" }, ease: "expo.out", clearProps: "filter" }, 0.1)
+      .add(function () { hero.classList.add("is-loaded-ui"); }, 1.4);
+    if (REDUCED) { tl.progress(1); hero.classList.add("is-loaded-ui"); gsap.set("#brandTag .bw", { opacity: 1 }); }
     if (window.__glEnter) window.__glEnter();
   }
 
@@ -153,7 +155,7 @@
         goBtn.onclick = function () { unfocus(); setTimeout(function () { if (window.__gotoWork) window.__gotoWork(site.panel); }, 250); };
       }
       if (tip) gsap.to(tip, { opacity: 0, duration: 0.4 });
-      gsap.to(".hero__center", { opacity: 0, y: -20, duration: 0.5, ease: "power2.out", overwrite: "auto" });
+      gsap.to("#brandName, #brandTag", { opacity: 0, y: -20, duration: 0.5, ease: "power2.out" });
       hero.classList.add("is-focus");
     }
     function unfocus() {
@@ -169,7 +171,7 @@
       gsap.to(dust.material, { opacity: 0.55, duration: 0.8 });
       if (focusEl) gsap.to(focusEl, { opacity: 0, y: 12, duration: 0.4, onComplete: function () { focusEl.hidden = true; } });
       if (tip) gsap.to(tip, { opacity: 1, duration: 0.6, delay: 0.4 });
-      gsap.to(".hero__center", { opacity: 1, y: 0, duration: 0.7, ease: "power2.out", overwrite: "auto" });
+      gsap.to("#brandName, #brandTag", { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" });
       hero.classList.remove("is-focus");
     }
     if (closeBtn) closeBtn.addEventListener("click", unfocus);
@@ -179,10 +181,10 @@
     function kf(pts, x) { if (x <= pts[0][0]) return pts[0][1]; for (var i = 1; i < pts.length; i++) { if (x <= pts[i][0]) { var a = pts[i - 1], b = pts[i], k = (x - a[0]) / (b[0] - a[0]); k = k * k * (3 - 2 * k); return a[1] + (b[1] - a[1]) * k; } } return pts[pts.length - 1][1]; }
     var bell = function (x, c, wdt) { var q = (x - c) / wdt; return Math.exp(-q * q); };
     // ring radius, card scale, alpha and depth offset along the scroll: breathe → explode outwards → re-form around the brand → gather and vanish
-    var KR = [[0, 0.80], [0.2, 0.88], [0.34, 1.95], [0.48, 0.98], [0.8, 0.98], [1, 0.06]];
-    var KS = [[0, 1], [0.3, 1.3], [0.48, 0.9], [0.8, 0.9], [1, 0.3]];
-    var KA = [[0, 1], [0.3, 1], [0.4, 0.8], [0.5, 0.68], [0.8, 0.68], [1, 0]];
-    var KZ = [[0, 0], [0.34, 3.6], [0.5, -1.4], [0.8, -1.4], [1, -5]];
+    var KR = [[0, 0.80], [0.18, 0.86], [0.26, 0.92], [0.42, 2.1], [0.56, 2.6]];
+    var KS = [[0, 1], [0.26, 1.08], [0.42, 1.45], [0.56, 1.6]];
+    var KA = [[0, 1], [0.3, 1], [0.44, 0.6], [0.54, 0]];
+    var KZ = [[0, 0], [0.26, 0.4], [0.42, 3.8], [0.56, 6]];
     var clock = new THREE.Clock(), visible = true, stageEl = $("#stage");
     new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }, { threshold: 0 }).observe(stageEl || hero);
     function tick() {
@@ -191,8 +193,9 @@
       var dt = Math.min(clock.getDelta(), 0.05), t = clock.getElapsedTime(), now = performance.now();
       mx += (tx - mx) * 0.05; my += (ty - my) * 0.05;
       sp += (prog - sp) * 0.12;
-      if (FINE && sp < 0.25) { hero.style.setProperty("--px", (mx * -10) + "px"); hero.style.setProperty("--py", (my * -8) + "px"); }
-      var Rr = kf(KR, sp), Ss = kf(KS, sp), Aa = kf(KA, sp), Zo = kf(KZ, sp), burst = bell(sp, 0.34, 0.11);
+      if (FINE && sp < 0.3) { hero.style.setProperty("--px", (mx * -10) + "px"); hero.style.setProperty("--py", (my * -8) + "px"); }
+      var Rr = kf(KR, sp), Ss = kf(KS, sp), Aa = kf(KA, sp), Zo = kf(KZ, sp), burst = bell(sp, 0.4, 0.12);
+      if (Aa <= 0.001 && !focused) { renderer.render(scene, cam); return; }
       cam.position.z = 6 - sp * 1.6;
       cam.position.x = mx * 0.5 + Math.sin(t * 0.2) * 0.18; cam.position.y = -my * 0.35 + Math.cos(t * 0.16) * 0.1;
       cam.lookAt(mx * 0.25, -my * 0.18, cam.position.z - 6);
@@ -224,10 +227,10 @@
     tick();
   }
 
-  /* ---------------- scroll story: hook → brand ---------------- */
+  /* ---------------- scroll story: brand → tagline → new backdrop → hook ---------------- */
   var storyKill = null;
   function splitLetters(el) {
-    if ($(".bl", el)) return;
+    if (!el || $(".bl", el)) return;
     var walk = function (node) {
       Array.prototype.slice.call(node.childNodes).forEach(function (n) {
         if (n.nodeType === 3) {
@@ -239,32 +242,54 @@
     };
     walk(el);
   }
+  function splitWords(el) {
+    if (!el || $(".iw", el)) return;
+    var walk = function (node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (n) {
+        if (n.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function (w) { if (!w) return; if (/^\s+$/.test(w)) frag.appendChild(document.createTextNode(w)); else { var s = document.createElement("span"); s.className = "iw"; s.textContent = w; frag.appendChild(s); } });
+          node.replaceChild(frag, n);
+        } else if (n.nodeType === 1) walk(n);
+      });
+    };
+    walk(el);
+  }
   function initStory() {
-    var stage = $("#stage"), brand = $("#brand"); if (!stage || !brand) return;
+    var stage = $("#stage"), brand = $("#brand"), hook = $("#hook"), cover = $("#heroCover"); if (!stage || !brand || !hook) return;
     if (storyKill) { storyKill(); storyKill = null; }
-    var w2 = $$(".hero .line-mask--2 .hw"), kw = $(".hero__h1 .kw"), h1 = $(".hero__h1"), tag = $("#brandTag");
-    splitLetters($("#brandName"));
-    var letters = $$(".bl", brand), tagWords = $$(".bw", tag);
-    if (REDUCED) { gsap.set(w2, { opacity: 1 }); if (kw) kw.style.setProperty("--ul", 1); return; }
-    var tl = gsap.timeline({ scrollTrigger: { trigger: stage, start: "top top", end: "bottom bottom", scrub: 0.5 } });
-    // 0–22: the second line is written by the scroll, then underlined
-    tl.fromTo(w2, { opacity: 0.42, y: "0.25em" }, { opacity: 1, y: 0, duration: 7, stagger: { each: 12 / Math.max(1, w2.length - 1) }, ease: "power2.out" }, 2);
-    if (kw) tl.fromTo(kw, { "--ul": 0 }, { "--ul": 1, duration: 6, ease: "power2.inOut" }, 18);
-    // 25–37: the hook recedes into depth
-    tl.to(h1, { scale: 0.84, y: -50, opacity: 0, filter: "blur(10px)", transformOrigin: "50% 50%", duration: 12, ease: "power1.in" }, 25);
+    var tag = $("#brandTag"), tagWords = $$(".bw", tag), l1 = $("#hookL1"), l2 = $("#hookL2"), kw = $(".kw", hook);
+    splitWords(l1); splitWords(l2);
+    var w1 = $$(".iw", l1), w2 = $$(".iw", l2);
+    if (REDUCED) { gsap.set(tagWords, { opacity: 1 }); return; }
+    gsap.set(tagWords, { opacity: 0, y: 30 });
+    gsap.set(hook, { visibility: "hidden" });
+    // the hook has its own clock: line one as soon as the beat is reached, line two a few seconds later
+    var hookTL = gsap.timeline({ paused: true });
+    hookTL.set(hook, { visibility: "visible" }, 0)
+      .fromTo(w1, { opacity: 0, yPercent: 60, rotateX: -24 }, { opacity: 1, yPercent: 0, rotateX: 0, duration: 1.3, stagger: 0.07, ease: "expo.out" }, 0.1)
+      .fromTo(w2, { opacity: 0, yPercent: 70, filter: "blur(6px)" }, { opacity: 1, yPercent: 0, filter: "blur(0px)", duration: 1.3, stagger: 0.1, ease: "expo.out", clearProps: "filter" }, 2.6)
+      .fromTo(kw, { "--ul": 0 }, { "--ul": 1, duration: 0.9, ease: "power3.inOut" }, 3.3);
+    var tl = gsap.timeline({ scrollTrigger: { trigger: stage, start: "top top", end: "bottom bottom", scrub: 0.6 } });
+    // 2–18: the first scroll writes the tagline under the brand, then underlines it
+    tl.to(tagWords, { opacity: 1, y: 0, duration: 7, stagger: { each: 9 / Math.max(1, tagWords.length - 1) }, ease: "power3.out" }, 2);
+    tl.fromTo(tag, { "--ul": 0 }, { "--ul": 1, duration: 6, ease: "power2.inOut" }, 14);
     tl.to(".hero__corner", { opacity: 0, duration: 10, ease: "none" }, 0);
-    tl.to(".hero__veil", { opacity: 0.35, duration: 40, ease: "none" }, 0);
-    // 32–54: Digital Impression flies in letter by letter from all directions, then the tagline rises and is underlined
-    tl.set(brand, { opacity: 1 }, 31);
-    tl.fromTo(letters,
-      { x: function () { return gsap.utils.random(-320, 320); }, y: function () { return gsap.utils.random(-220, 220); }, scale: function () { return gsap.utils.random(1.8, 3.4); }, rotation: function () { return gsap.utils.random(-40, 40); }, opacity: 0, filter: "blur(10px)" },
-      { x: 0, y: 0, scale: 1, rotation: 0, opacity: 1, filter: "blur(0px)", duration: 14, stagger: { each: 8 / Math.max(1, letters.length - 1), from: "center" }, ease: "power3.out" }, 32);
-    tl.fromTo(tagWords, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 8, stagger: { each: 6 / Math.max(1, tagWords.length - 1) }, ease: "power3.out" }, 48);
-    if (tag) tl.fromTo(tag, { "--ul": 0 }, { "--ul": 1, duration: 6, ease: "power2.inOut" }, 58);
-    // 80–94: the brand recedes as the ring gathers; Work slides over
-    tl.to(brand, { scale: 1.12, opacity: 0, filter: "blur(8px)", duration: 14, ease: "power2.in" }, 80);
-    tl.to({}, { duration: 6 }, 94);
-    storyKill = function () { tl.scrollTrigger && tl.scrollTrigger.kill(); tl.kill(); gsap.set([brand, h1].concat(letters, tagWords, w2), { clearProps: "all" }); if (kw) kw.style.removeProperty("--ul"); if (tag) tag.style.removeProperty("--ul"); };
+    // 26–44: the brand recedes into depth while the ring explodes outwards
+    tl.to(brand, { scale: 0.84, y: -60, opacity: 0, filter: "blur(12px)", transformOrigin: "50% 50%", duration: 18, ease: "power2.in" }, 26);
+    // 34–54: a fresh backdrop rises underneath, overlapping the explosion so nothing cuts
+    tl.fromTo(cover, { opacity: 0 }, { opacity: 0.92, duration: 20, ease: "power2.inOut" }, 34);
+    tl.to(".hero__veil", { opacity: 0, duration: 20, ease: "none" }, 34);
+    // 50: the hook starts on its own clock; scrolling back resets it
+    tl.add(function () { }, 50);
+    ScrollTrigger.create({ trigger: stage, start: "top top-=" + 0 + "", end: "bottom bottom", onUpdate: function (st) {
+      if (st.progress >= 0.5 && !hookTL.isActive() && hookTL.progress() === 0) hookTL.play(0);
+      if (st.progress < 0.44 && hookTL.progress() > 0) { hookTL.pause(0); gsap.set(hook, { visibility: "hidden" }); }
+    } });
+    // 86–98: the hook recedes as Work slides over
+    tl.to(hook, { scale: 0.92, y: -40, opacity: 0, filter: "blur(8px)", duration: 12, ease: "power2.in" }, 86);
+    tl.to({}, { duration: 2 }, 98);
+    storyKill = function () { tl.scrollTrigger && tl.scrollTrigger.kill(); tl.kill(); hookTL.kill(); gsap.set([brand, hook, cover, tag].concat(tagWords, w1, w2), { clearProps: "all" }); if (kw) kw.style.removeProperty("--ul"); if (tag) tag.style.removeProperty("--ul"); };
   }
 
   /* ---------------- cursor + magnets ---------------- */
@@ -532,11 +557,11 @@
   /* ---------------- i18n ---------------- */
   var I18N = {
     en: {
-      meta_title: "Digital Impression | Your website is the first encounter", menu: "Menu", close: "Close",
+      meta_title: "Digital Impression | Websites that make an impression", menu: "Menu", close: "Close",
       nav_work: "Work", nav_services: "Services &amp; pricing", nav_process: "Process", nav_pricing: "Free design", nav_contact: "Contact",
       hero_eyebrow: "Web design studio · Belgium & the Netherlands", h1_a: "<span class=\"hw\">Your</span> <span class=\"hw\">website</span> <span class=\"hw\">is</span> <span class=\"hw\">the</span> <span class=\"hw\">first</span> <span class=\"hw\">encounter</span> <span class=\"hw\">with</span> <span class=\"hw\">your</span> <span class=\"hw\">customer.</span>", h1_b: "<span class=\"hw\">Make</span> <span class=\"hw\">sure</span> <span class=\"hw\"><em class=\"it kw\">it sticks.</em></span>",
       hero_lead: "Designed and built to measure. You see your homepage within 24 hours, free, and pay no deposit.",
-      cta_design: "Request your free design", cta_work: "See our work", scroll: "Scroll", show_open: "View in the gallery", brand_tag: "<span class=\"bw\">Websites</span> <span class=\"bw\">that</span> <span class=\"bw\">make</span> <span class=\"bw\">an</span> <span class=\"bw it\">impression.</span>", hero_tip: "Click a website to see it up close", hero_tr: "Bespoke websites · since 2024", gl_go: "Show in the gallery", gl_live: "View live", gl_close: "Close",
+      cta_design: "Request your free design", cta_work: "See our work", scroll: "Scroll", show_open: "View in the gallery", hk1: "Your website is your first encounter with the customer.", hk2: "Make sure it <em class=\"it kw\">sticks.</em>", brand_tag: "<span class=\"bw\">Websites</span> <span class=\"bw\">that</span> <span class=\"bw\">make</span> <span class=\"bw\">an</span> <span class=\"bw it\">impression.</span>", hero_tip: "Click a website to see it up close", hero_tr: "Bespoke websites · since 2024", gl_go: "Show in the gallery", gl_live: "View live", gl_close: "Close",
       mq1: "Business websites", mq2: "Webshops", mq3: "Redesigns", mq4: "Landing pages",
       statement: "Your website is the first handshake with a new customer. We make sure it is a firm one: <em class=\"it\">fast, beautiful and built to win enquiries.</em> You see your design before you decide, and you pay only when you are happy.",
       cta_how: "How we work", st_note: "No deposit · live in 2 weeks · one point of contact",
@@ -600,11 +625,11 @@
       o1_t: "Business website", o1_s: "Build trust and win enquiries.", o2_t: "Webshop", o2_s: "Sell while you sleep, without checkout hassle.", o3_t: "Redesign", o3_s: "Same content, completely new impression. See Credo.", o4_t: "Landing page", o4_s: "One page, one goal, for campaigns and promotions.", o4_p: "tailored"
     },
     fr: {
-      meta_title: "Digital Impression | Votre site web est la première rencontre", menu: "Menu", close: "Fermer",
+      meta_title: "Digital Impression | Des sites web qui font impression", menu: "Menu", close: "Fermer",
       nav_work: "Réalisations", nav_services: "Services &amp; tarifs", nav_process: "Méthode", nav_pricing: "Design gratuit", nav_contact: "Contact",
       hero_eyebrow: "Studio de webdesign · Belgique & Pays-Bas", h1_a: "<span class=\"hw\">Votre</span> <span class=\"hw\">site</span> <span class=\"hw\">web</span> <span class=\"hw\">est</span> <span class=\"hw\">la</span> <span class=\"hw\">première</span> <span class=\"hw\">rencontre</span> <span class=\"hw\">avec</span> <span class=\"hw\">votre</span> <span class=\"hw\">client.</span>", h1_b: "<span class=\"hw\">Faites</span> <span class=\"hw\">en</span> <span class=\"hw\">sorte</span> <span class=\"hw\"><em class=\"it kw\">qu'elle marque.</em></span>",
       hero_lead: "Conçus et construits sur mesure. Vous voyez votre page d'accueil sous 24 heures, gratuitement, sans acompte.",
-      cta_design: "Demandez votre design gratuit", cta_work: "Voir nos réalisations", scroll: "Défiler", show_open: "Voir dans la galerie", brand_tag: "<span class=\"bw\">Des</span> <span class=\"bw\">sites</span> <span class=\"bw\">web</span> <span class=\"bw\">qui</span> <span class=\"bw\">font</span> <span class=\"bw it\">impression.</span>", hero_tip: "Cliquez sur un site pour le voir de près", hero_tr: "Sites sur mesure · depuis 2024", gl_go: "Voir dans la galerie", gl_live: "Voir en ligne", gl_close: "Fermer",
+      cta_design: "Demandez votre design gratuit", cta_work: "Voir nos réalisations", scroll: "Défiler", show_open: "Voir dans la galerie", hk1: "Votre site web est votre première rencontre avec le client.", hk2: "Faites en sorte qu'elle <em class=\"it kw\">marque.</em>", brand_tag: "<span class=\"bw\">Des</span> <span class=\"bw\">sites</span> <span class=\"bw\">web</span> <span class=\"bw\">qui</span> <span class=\"bw\">font</span> <span class=\"bw it\">impression.</span>", hero_tip: "Cliquez sur un site pour le voir de près", hero_tr: "Sites sur mesure · depuis 2024", gl_go: "Voir dans la galerie", gl_live: "Voir en ligne", gl_close: "Fermer",
       mq1: "Sites d'entreprise", mq2: "Boutiques en ligne", mq3: "Refontes", mq4: "Landing pages",
       statement: "Votre site web est la première poignée de main avec un nouveau client. Nous veillons à ce qu'elle soit ferme : <em class=\"it\">rapide, élégante et conçue pour générer des demandes.</em> Vous voyez votre design avant de décider, et vous ne payez que lorsque vous êtes satisfait.",
       cta_how: "Notre méthode", st_note: "Sans acompte · en ligne en 2 semaines · un seul interlocuteur",
@@ -684,7 +709,6 @@
     document.title = (d && d.meta_title) || NL.meta_title; document.documentElement.lang = l;
     $$("#lang button").forEach(function (b) { b.classList.toggle("is-on", b.getAttribute("data-lang") === l); });
     // statement words were wrapped: rewrap
-    if (!silent) { $$(".hero .hw").forEach(function (s) { s.style.transform = "none"; s.style.opacity = "1"; }); }
     initIntro(); initStory();
     if (window.__offerRefresh) window.__offerRefresh();
     try { localStorage.setItem("di_lang", l); } catch (e) {}
@@ -698,7 +722,6 @@
   }
   function init() {
     initVW();
-    if (!REDUCED) gsap.set(".hero .hw", { yPercent: 110 });
     initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initStory(); initIntro(); initWork(); initOffer(); initTilt(); initProcess(); initReveals(); initForm(); initPre();
     window.addEventListener("load", function () { ScrollTrigger.refresh(); });
   }
