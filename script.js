@@ -271,9 +271,9 @@
     var hookTL = gsap.timeline({ paused: true });
     hookTL.set(hook, { visibility: "visible" }, 0)
       .fromTo(w1, { opacity: 0, yPercent: 60, rotateX: -24 }, { opacity: 1, yPercent: 0, rotateX: 0, duration: 1.3, stagger: 0.07, ease: "expo.out" }, 0.1)
-      .to(w1, { opacity: 0, yPercent: -50, filter: "blur(8px)", duration: 0.9, stagger: 0.035, ease: "power2.in" }, 3.2)
-      .fromTo(w2, { opacity: 0, yPercent: 70, filter: "blur(6px)" }, { opacity: 1, yPercent: 0, filter: "blur(0px)", duration: 1.3, stagger: 0.1, ease: "expo.out", clearProps: "filter" }, 3.75)
-      .fromTo(kw, { "--ul": 0 }, { "--ul": 1, duration: 0.9, ease: "power3.inOut" }, 4.6);
+      .to(w1, { opacity: 0, yPercent: -50, filter: "blur(8px)", duration: 0.7, stagger: 0.03, ease: "power2.in" }, 2.6)
+      .fromTo(w2, { opacity: 0, yPercent: 60, filter: "blur(6px)" }, { opacity: 1, yPercent: 0, filter: "blur(0px)", duration: 0.75, stagger: 0.05, ease: "expo.out", clearProps: "filter" }, 2.95)
+      .fromTo(kw, { "--ul": 0 }, { "--ul": 1, duration: 0.6, ease: "power3.inOut" }, 3.35);
     var tl = gsap.timeline({ scrollTrigger: { trigger: stage, start: "top top", end: "bottom bottom", scrub: 0.6 } });
     tl.to(".hero__corner", { opacity: 0, duration: 10, ease: "none" }, 0);
     // 12–32: the brand recedes into depth while the ring explodes outwards
