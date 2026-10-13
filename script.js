@@ -39,6 +39,7 @@
       .to(bar, { scaleX: 1, duration: 1.4, ease: "power2.inOut" }, 0)
       .to(pre, { yPercent: -100, duration: 0.9, ease: "power4.inOut" }, "+=0.15");
   }
+  var heroPlayed = false;
   function heroIn() {
     var hero = $("#hero");
     splitLetters($("#brandName"));
@@ -47,7 +48,9 @@
     tl.fromTo(letters,
       { x: function () { return gsap.utils.random(-260, 260); }, y: function () { return gsap.utils.random(-180, 180); }, scale: function () { return gsap.utils.random(1.6, 3); }, rotation: function () { return gsap.utils.random(-35, 35); }, opacity: 0, filter: "blur(10px)" },
       { x: 0, y: 0, scale: 1, rotation: 0, opacity: 1, filter: "blur(0px)", duration: 1.7, stagger: { each: 0.045, from: "center" }, ease: "expo.out", clearProps: "filter" }, 0.1)
-      .add(function () { hero.classList.add("is-loaded-ui"); }, 1.4);
+      .fromTo("#brandTag .bw", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1.2, stagger: 0.09, ease: "expo.out" }, 1.25)
+      .fromTo("#brandTag", { "--ul": 0 }, { "--ul": 1, duration: 0.9, ease: "power3.inOut" }, 2.1)
+      .add(function () { hero.classList.add("is-loaded-ui"); heroPlayed = true; }, 1.4);
     if (REDUCED) { tl.progress(1); hero.classList.add("is-loaded-ui"); gsap.set("#brandTag .bw", { opacity: 1 }); }
     if (window.__glEnter) window.__glEnter();
   }
@@ -181,10 +184,10 @@
     function kf(pts, x) { if (x <= pts[0][0]) return pts[0][1]; for (var i = 1; i < pts.length; i++) { if (x <= pts[i][0]) { var a = pts[i - 1], b = pts[i], k = (x - a[0]) / (b[0] - a[0]); k = k * k * (3 - 2 * k); return a[1] + (b[1] - a[1]) * k; } } return pts[pts.length - 1][1]; }
     var bell = function (x, c, wdt) { var q = (x - c) / wdt; return Math.exp(-q * q); };
     // ring radius, card scale, alpha and depth offset along the scroll: breathe → explode outwards → re-form around the brand → gather and vanish
-    var KR = [[0, 0.80], [0.18, 0.86], [0.26, 0.92], [0.42, 2.1], [0.56, 2.6]];
-    var KS = [[0, 1], [0.26, 1.08], [0.42, 1.45], [0.56, 1.6]];
-    var KA = [[0, 1], [0.3, 1], [0.44, 0.6], [0.54, 0]];
-    var KZ = [[0, 0], [0.26, 0.4], [0.42, 3.8], [0.56, 6]];
+    var KR = [[0, 0.80], [0.08, 0.84], [0.14, 0.9], [0.3, 2.1], [0.44, 2.6]];
+    var KS = [[0, 1], [0.14, 1.08], [0.3, 1.45], [0.44, 1.6]];
+    var KA = [[0, 1], [0.18, 1], [0.32, 0.6], [0.42, 0]];
+    var KZ = [[0, 0], [0.14, 0.4], [0.3, 3.8], [0.44, 6]];
     var clock = new THREE.Clock(), visible = true, stageEl = $("#stage");
     new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }, { threshold: 0 }).observe(stageEl || hero);
     function tick() {
@@ -194,7 +197,7 @@
       mx += (tx - mx) * 0.05; my += (ty - my) * 0.05;
       sp += (prog - sp) * 0.12;
       if (FINE && sp < 0.3) { hero.style.setProperty("--px", (mx * -10) + "px"); hero.style.setProperty("--py", (my * -8) + "px"); }
-      var Rr = kf(KR, sp), Ss = kf(KS, sp), Aa = kf(KA, sp), Zo = kf(KZ, sp), burst = bell(sp, 0.4, 0.12);
+      var Rr = kf(KR, sp), Ss = kf(KS, sp), Aa = kf(KA, sp), Zo = kf(KZ, sp), burst = bell(sp, 0.28, 0.11);
       if (Aa <= 0.001 && !focused) { renderer.render(scene, cam); return; }
       cam.position.z = 6 - sp * 1.6;
       cam.position.x = mx * 0.5 + Math.sin(t * 0.2) * 0.18; cam.position.y = -my * 0.35 + Math.cos(t * 0.16) * 0.1;
@@ -262,29 +265,26 @@
     splitWords(l1); splitWords(l2);
     var w1 = $$(".iw", l1), w2 = $$(".iw", l2);
     if (REDUCED) { gsap.set(tagWords, { opacity: 1 }); return; }
-    gsap.set(tagWords, { opacity: 0, y: 30 });
+    if (!heroPlayed) gsap.set(tagWords, { opacity: 0, y: 30 });
     gsap.set(hook, { visibility: "hidden" });
     // the hook has its own clock: line one as soon as the beat is reached, line two a few seconds later
     var hookTL = gsap.timeline({ paused: true });
     hookTL.set(hook, { visibility: "visible" }, 0)
       .fromTo(w1, { opacity: 0, yPercent: 60, rotateX: -24 }, { opacity: 1, yPercent: 0, rotateX: 0, duration: 1.3, stagger: 0.07, ease: "expo.out" }, 0.1)
-      .fromTo(w2, { opacity: 0, yPercent: 70, filter: "blur(6px)" }, { opacity: 1, yPercent: 0, filter: "blur(0px)", duration: 1.3, stagger: 0.1, ease: "expo.out", clearProps: "filter" }, 2.6)
-      .fromTo(kw, { "--ul": 0 }, { "--ul": 1, duration: 0.9, ease: "power3.inOut" }, 3.3);
+      .to(w1, { opacity: 0, yPercent: -50, filter: "blur(8px)", duration: 0.9, stagger: 0.035, ease: "power2.in" }, 3.2)
+      .fromTo(w2, { opacity: 0, yPercent: 70, filter: "blur(6px)" }, { opacity: 1, yPercent: 0, filter: "blur(0px)", duration: 1.3, stagger: 0.1, ease: "expo.out", clearProps: "filter" }, 3.75)
+      .fromTo(kw, { "--ul": 0 }, { "--ul": 1, duration: 0.9, ease: "power3.inOut" }, 4.6);
     var tl = gsap.timeline({ scrollTrigger: { trigger: stage, start: "top top", end: "bottom bottom", scrub: 0.6 } });
-    // 2–18: the first scroll writes the tagline under the brand, then underlines it
-    tl.to(tagWords, { opacity: 1, y: 0, duration: 7, stagger: { each: 9 / Math.max(1, tagWords.length - 1) }, ease: "power3.out" }, 2);
-    tl.fromTo(tag, { "--ul": 0 }, { "--ul": 1, duration: 6, ease: "power2.inOut" }, 14);
     tl.to(".hero__corner", { opacity: 0, duration: 10, ease: "none" }, 0);
-    // 26–44: the brand recedes into depth while the ring explodes outwards
-    tl.to(brand, { scale: 0.84, y: -60, opacity: 0, filter: "blur(12px)", transformOrigin: "50% 50%", duration: 18, ease: "power2.in" }, 26);
-    // 34–54: a fresh backdrop rises underneath, overlapping the explosion so nothing cuts
-    tl.fromTo(cover, { opacity: 0 }, { opacity: 0.92, duration: 20, ease: "power2.inOut" }, 34);
-    tl.to(".hero__veil", { opacity: 0, duration: 20, ease: "none" }, 34);
-    // 50: the hook starts on its own clock; scrolling back resets it
-    tl.add(function () { }, 50);
-    ScrollTrigger.create({ trigger: stage, start: "top top-=" + 0 + "", end: "bottom bottom", onUpdate: function (st) {
-      if (st.progress >= 0.5 && !hookTL.isActive() && hookTL.progress() === 0) hookTL.play(0);
-      if (st.progress < 0.44 && hookTL.progress() > 0) { hookTL.pause(0); gsap.set(hook, { visibility: "hidden" }); }
+    // 12–32: the brand recedes into depth while the ring explodes outwards
+    tl.to(brand, { scale: 0.84, y: -60, opacity: 0, filter: "blur(12px)", transformOrigin: "50% 50%", duration: 20, ease: "power2.in" }, 12);
+    // 22–44: a fresh backdrop rises underneath, overlapping the explosion so nothing cuts
+    tl.fromTo(cover, { opacity: 0 }, { opacity: 0.92, duration: 22, ease: "power2.inOut" }, 22);
+    tl.to(".hero__veil", { opacity: 0, duration: 22, ease: "none" }, 22);
+    // 42: the hook starts on its own clock; scrolling back resets it
+    ScrollTrigger.create({ trigger: stage, start: "top top", end: "bottom bottom", onUpdate: function (st) {
+      if (st.progress >= 0.42 && !hookTL.isActive() && hookTL.progress() === 0) hookTL.play(0);
+      if (st.progress < 0.36 && hookTL.progress() > 0) { hookTL.pause(0); gsap.set(hook, { visibility: "hidden" }); }
     } });
     // 86–98: the hook recedes as Work slides over
     tl.to(hook, { scale: 0.92, y: -40, opacity: 0, filter: "blur(8px)", duration: 12, ease: "power2.in" }, 86);
