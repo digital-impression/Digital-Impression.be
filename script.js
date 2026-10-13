@@ -43,7 +43,7 @@
     var hero = $("#hero");
     var tl = gsap.timeline({ defaults: { ease: "power4.out" } });
     tl.fromTo(".hero .line-mask:not(.line-mask--2) .hw", { yPercent: 110, rotateX: -30, opacity: 0 }, { yPercent: 0, rotateX: 0, opacity: 1, duration: 1.5, stagger: 0.07, ease: "power4.out", clearProps: "opacity" }, 0)
-      .fromTo(".hero .line-mask--2 .hw", { yPercent: 110, rotateX: -30, opacity: 0 }, { yPercent: 0, rotateX: 0, opacity: 1, duration: 1.5, stagger: 0.1, ease: "power4.out", clearProps: "opacity" }, 0.75)
+      .fromTo(".hero .line-mask--2 .hw", { yPercent: 110, rotateX: -30 }, { yPercent: 0, rotateX: 0, duration: 1.5, stagger: 0.1, ease: "power4.out" }, 0.75)
       .add(function () { hero.classList.add("is-drawn"); }, 1.7)
       .add(function () { hero.classList.add("is-loaded-ui"); }, 1.2);
     if (REDUCED) { tl.progress(1); hero.classList.add("is-drawn", "is-loaded-ui"); }
@@ -72,9 +72,9 @@
     var cards = [], group = new THREE.Group(); scene.add(group);
     var rnd = function (a, b) { return a + Math.random() * (b - a); };
     // a quiet corridor: cards alternate left/right, evenly spaced in depth, each turned towards the centre
-    var YS = [0.55, -0.5, 0.25, -0.75, 0.05], XS = [0, 0.35, 0.15];
-    var seeded = [];
-    for (var si = 0; si < 10; si++) { var side = si % 2 ? 1 : -1; seeded.push([side * (2.9 + XS[si % 3]), YS[si % 5], -2.2 - si * 1.6, side]); }
+    // a silhouette of sites around the centre: ten cards on an ellipse, each at its own depth
+    var ZS = [0, 2.2, 1.1, 3.3, 0.6, 2.8, 1.7, 3.6, 0.3, 2.4], seeded = [];
+    for (var si = 0; si < 10; si++) seeded.push([si * Math.PI * 2 / 10 + 0.28, -1.8 - ZS[si]]);
     var frameGeo = new THREE.PlaneGeometry(2.3, 1.475, 1, 1);
     seeded.forEach(function (p, i) {
       var site = SITES[i % SITES.length];
@@ -83,14 +83,11 @@
       var geo = new THREE.PlaneGeometry(2.2, 1.375, 1, 1);
       var mat = new THREE.MeshBasicMaterial({ map: tex, transparent: true, opacity: 0.92, side: THREE.DoubleSide });
       var m = new THREE.Mesh(geo, mat);
-      m.position.set(p[0], p[1], p[2]);
-      m.rotation.set(0, -p[3] * 0.38, 0);
+      m.position.set(0, 0, p[1]);
       // gold frame behind the card, shown on hover / focus
       var frame = new THREE.Mesh(frameGeo, new THREE.MeshBasicMaterial({ color: 0xC9A24A, transparent: true, opacity: 0, side: THREE.DoubleSide }));
       frame.position.z = -0.01; m.add(frame);
-      var ci = cards.length, leapAt = [0.07, 0.2][[2, 5].indexOf(ci)];
-      m.userData = { site: site, base: p.slice(0, 3), side: p[3], ph: rnd(0, Math.PI * 2), sp: rnd(0.35, 0.6), ry: m.rotation.y, frame: frame, tex: tex, hover: 0, enter: 1,
-        leap: leapAt != null ? { at: leapAt, len: 0.16, side: p[3] } : null, e: 0 };
+      m.userData = { site: site, ang0: p[0], z0: p[1], base: [0, 0, p[1]], rx: 0, ry: 0, rz: 0, ph: rnd(0, Math.PI * 2), sp: rnd(0.3, 0.55), frame: frame, tex: tex, hover: 0, enter: 1, lock: 0 };
       group.add(m); cards.push(m);
     });
     var N = 320, pos = new Float32Array(N * 3);
@@ -101,13 +98,13 @@
     var ring = new THREE.Mesh(new THREE.RingGeometry(3.2, 3.23, 96), new THREE.MeshBasicMaterial({ color: 0xC9A24A, transparent: true, opacity: 0.25, side: THREE.DoubleSide }));
     ring.position.set(0.4, 0.2, -12); scene.add(ring);
 
-    var mx = 0, my = 0, tx = 0, ty = 0, prog = 0, w = 0, h = 0;
+    var mx = 0, my = 0, tx = 0, ty = 0, prog = 0, w = 0, h = 0, small = false;
     var ray = new THREE.Raycaster(), pointer = new THREE.Vector2(-9, -9), hovered = null, focused = null, focusProg = 0, pdown = null;
     var focusEl = $("#glFocus"), kindEl = $("#glKind"), nameEl = $("#glName"), goBtn = $("#glGo"), liveA = $("#glLive"), closeBtn = $("#glClose"), tip = $("#heroTip");
     function resize() {
       var r = hero.getBoundingClientRect(); w = r.width; h = r.height;
       renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix();
-      group.scale.setScalar(w < 700 ? 0.72 : 1);
+      small = w < 700;
     }
     resize(); window.addEventListener("resize", resize);
     function setPointer(e) { var r = canvas.getBoundingClientRect(); pointer.x = ((e.clientX - r.left) / r.width) * 2 - 1; pointer.y = -((e.clientY - r.top) / r.height) * 2 + 1; }
@@ -131,7 +128,8 @@
       }
     }
     var entered = false;
-    window.__glEnter = function () { cards.forEach(function (c, i) { gsap.to(c.userData, { enter: 0, duration: 2.0, delay: 0.1 + i * 0.09, ease: "power4.out", onComplete: function () { if (i === cards.length - 1) entered = true; } }); }); };
+    // burst: every card starts in the centre and shoots out to its place on the ring
+    window.__glEnter = function () { cards.forEach(function (c, i) { gsap.to(c.userData, { enter: 0, duration: 1.6, delay: 0.05 + i * 0.045, ease: "expo.out", onComplete: function () { if (i === cards.length - 1) entered = true; } }); }); };
     var worldDir = new THREE.Vector3();
     function focus(card) {
       focused = card; focusProg = prog;
@@ -164,6 +162,7 @@
       gsap.killTweensOf(u.tex.repeat);
       gsap.to(u.tex.repeat, { x: 1, y: 1, duration: 0.8, onUpdate: function () { u.tex.offset.set((1 - u.tex.repeat.x) / 2, (1 - u.tex.repeat.y) / 2); } });
       gsap.to(card.position, { x: u.base[0], y: u.base[1], z: u.base[2], duration: 1.1, ease: "power4.inOut" });
+      u.lock = performance.now() + 1150;
       gsap.to(card.rotation, { x: u.rx, y: u.ry, z: u.rz, duration: 1.1, ease: "power4.inOut" });
       gsap.to(u.frame.material, { opacity: 0, duration: 0.4 });
       cards.forEach(function (c) { gsap.to(c.material, { opacity: 0.92, duration: 0.8 }); });
@@ -176,61 +175,96 @@
     if (closeBtn) closeBtn.addEventListener("click", unfocus);
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") unfocus(); });
     ScrollTrigger.create({ trigger: "#stage", start: "top top", end: "bottom bottom", scrub: true, onUpdate: function (st) { prog = st.progress; if (focused && Math.abs(prog - focusProg) > 0.02) unfocus(); } });
-    gsap.to(".hero__h1", { scale: 0.86, y: -40, opacity: 0, filter: "blur(10px)", transformOrigin: "50% 50%", ease: "power1.in", scrollTrigger: { trigger: "#stage", start: "top top", end: "+=60%", scrub: 0.4 } });
-    gsap.to(".hero__corner", { opacity: 0, ease: "none", scrollTrigger: { trigger: "#stage", start: "top top", end: "+=25%", scrub: true } });
-    gsap.to(".hero__veil", { opacity: 0.25, ease: "none", scrollTrigger: { trigger: "#stage", start: "top top", end: "+=60%", scrub: true } });
-    var sp = 0, lastZ = 6;
-    var rnd0 = function (ph) { return Math.sin(ph) * 0.35; };
+    var sp = 0;
+    function kf(pts, x) { if (x <= pts[0][0]) return pts[0][1]; for (var i = 1; i < pts.length; i++) { if (x <= pts[i][0]) { var a = pts[i - 1], b = pts[i], k = (x - a[0]) / (b[0] - a[0]); k = k * k * (3 - 2 * k); return a[1] + (b[1] - a[1]) * k; } } return pts[pts.length - 1][1]; }
+    var bell = function (x, c, wdt) { var q = (x - c) / wdt; return Math.exp(-q * q); };
+    // ring radius, card scale, alpha and depth offset along the scroll: breathe → explode outwards → re-form around the brand → gather and vanish
+    var KR = [[0, 0.80], [0.2, 0.88], [0.34, 1.95], [0.48, 0.98], [0.8, 0.98], [1, 0.06]];
+    var KS = [[0, 1], [0.3, 1.3], [0.48, 0.9], [0.8, 0.9], [1, 0.3]];
+    var KA = [[0, 1], [0.3, 1], [0.4, 0.8], [0.5, 0.68], [0.8, 0.68], [1, 0]];
+    var KZ = [[0, 0], [0.34, 3.6], [0.5, -1.4], [0.8, -1.4], [1, -5]];
     var clock = new THREE.Clock(), visible = true, stageEl = $("#stage");
     new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }, { threshold: 0 }).observe(stageEl || hero);
     function tick() {
       requestAnimationFrame(tick);
       if (!visible) return;
-      var dt = Math.min(clock.getDelta(), 0.05), t = clock.getElapsedTime();
+      var dt = Math.min(clock.getDelta(), 0.05), t = clock.getElapsedTime(), now = performance.now();
       mx += (tx - mx) * 0.05; my += (ty - my) * 0.05;
-      if (FINE && sp < 0.2) { hero.style.setProperty("--px", (mx * -10) + "px"); hero.style.setProperty("--py", (my * -8) + "px"); }
-      sp += (prog - sp) * 0.12; // smoothed scroll progress
-      var flight = sp * sp * (3 - 2 * sp); // ease in, ease out
-      cam.position.z = 6 - flight * 26;
-      var speed = Math.min(1, Math.abs(lastZ - cam.position.z) / Math.max(dt, 0.001) / 14); lastZ = cam.position.z;
-      var fg = Math.min(1, Math.max(0, (sp - 0.04) / 0.3));            // sites come forward as the text recedes
-      var gather = Math.min(1, Math.max(0, (sp - 0.74) / 0.24));       // at the end they pull together and shrink into the distance
-      cam.position.x = mx * 0.6 + Math.sin(t * 0.22) * 0.28 * (1 - sp); cam.position.y = -my * 0.4 - sp * 0.8 + Math.cos(t * 0.17) * 0.12 * (1 - sp);
-      cam.lookAt(mx * 0.3, -my * 0.2, cam.position.z - 6);
-      cam.rotateZ(mx * 0.035 * (1 - gather));
-      dust.material.size = 0.035 + speed * 0.09; dust.material.opacity = 0.55 + speed * 0.3;
+      sp += (prog - sp) * 0.12;
+      if (FINE && sp < 0.25) { hero.style.setProperty("--px", (mx * -10) + "px"); hero.style.setProperty("--py", (my * -8) + "px"); }
+      var Rr = kf(KR, sp), Ss = kf(KS, sp), Aa = kf(KA, sp), Zo = kf(KZ, sp), burst = bell(sp, 0.34, 0.11);
+      cam.position.z = 6 - sp * 1.6;
+      cam.position.x = mx * 0.5 + Math.sin(t * 0.2) * 0.18; cam.position.y = -my * 0.35 + Math.cos(t * 0.16) * 0.1;
+      cam.lookAt(mx * 0.25, -my * 0.18, cam.position.z - 6);
+      cam.rotateZ(mx * 0.03 + burst * 0.06);
+      dust.material.size = 0.035 + burst * 0.12; dust.material.opacity = focused ? 0.2 : 0.55 + burst * 0.35;
+      var fovT = Math.tan(cam.fov * Math.PI / 360), RX = small ? 0.92 : 0.9, RY = small ? 0.84 : 0.8;
       if (FINE && !focused) pick();
       cards.forEach(function (c) {
         var u = c.userData;
-        if (c === focused) { return; }
-        // slow glide towards the viewer; a card that passes the camera fades out and rejoins at the back on its own side
-        u.base[2] += dt * 0.48;
-        if (u.base[2] > cam.position.z - 1.0) { u.base[2] -= 16; u.base[1] = YS[Math.floor(Math.random() * YS.length)]; u.base[0] = u.side * (2.9 + XS[Math.floor(Math.random() * XS.length)]); }
-        var dist = cam.position.z - u.base[2], near = Math.min(1, Math.max(0, (dist - 1.3) / 1.3));
-        var px = (u.base[0] * (1 - fg * 0.2) + u.side * 3.2 * u.enter + Math.cos(t * u.sp * 0.6 + u.ph) * 0.06) * (1 - gather * 0.55);
-        var py = (u.base[1] + Math.sin(t * u.sp + u.ph) * 0.1) * (1 - gather * 0.55);
-        var pz = u.base[2] - u.enter * 2.5;
-        var ry = u.ry + Math.sin(t * 0.25 + u.ph) * 0.05 + mx * 0.1, rx = Math.sin(t * 0.2 + u.ph) * 0.03 - my * 0.05, rz = 0;
-        // two cards step out of the row towards the viewer at their own scroll moment
-        var e = 0;
-        if (u.leap) { var k = (sp - u.leap.at) / u.leap.len; if (k > 0 && k < 1) e = Math.sin(k * Math.PI); e = Math.pow(e, 0.8); }
-        u.e += (e - u.e) * 0.2; e = u.e;
-        if (e > 0.001) {
-          var lz = cam.position.z - 4.4, lx = cam.position.x + u.leap.side * 2.5, ly = cam.position.y + rnd0(u.ph);
-          px = px * (1 - e) + lx * e; py = py * (1 - e) + ly * e; pz = pz * (1 - e) + lz * e;
-          ry = ry * (1 - e) + (-u.leap.side * 0.2) * e; rx *= (1 - e);
-        }
-        c.position.set(px, py, pz); c.rotation.set(rx, ry, rz);
+        if (c === focused || u.lock > now) return;
+        var ang = u.ang0 + t * 0.04 + sp * 1.1 + burst * 0.9;
+        var z = u.z0 + Math.sin(t * 0.3 + u.ph) * 0.35 + Zo;
+        var d = Math.max(2.4, cam.position.z - z), hh = fovT * d, hw = hh * cam.aspect;
+        var R = Rr * (1 - u.enter);
+        var px = Math.cos(ang) * RX * R * hw + Math.cos(t * u.sp + u.ph) * 0.08;
+        var py = Math.sin(ang) * RY * R * hh + Math.sin(t * u.sp * 0.8 + u.ph) * 0.1;
+        var rx = py * 0.045 - my * 0.05, ry = -px * 0.06 + mx * 0.1, rz = Math.sin(t * 0.2 + u.ph) * 0.02;
+        c.position.set(px, py, z); c.rotation.set(rx, ry, rz);
+        u.base[0] = px; u.base[1] = py; u.base[2] = z; u.rx = rx; u.ry = ry; u.rz = rz;
         var want = (c === hovered && !focused) ? 1 : 0;
         u.hover += (want - u.hover) * 0.12;
-        var sc = 1.1 * (1 + fg * 0.25 + u.hover * 0.07) * (1 + e * 0.2) * (1 - gather * 0.45); c.scale.set(sc, sc, 1);
-        u.frame.material.opacity = u.hover * 0.7 * near;
-        if (!focused) c.material.opacity = Math.min(1, 0.92 + fg * 0.08 + u.hover * 0.08 + e * 0.5) * near * (1 - u.enter) * (1 - gather);
+        var sc = (small ? 0.78 : 1.08) * Ss * (0.12 + 0.88 * (1 - u.enter)) * (1 + u.hover * 0.07); c.scale.set(sc, sc, 1);
+        u.frame.material.opacity = u.hover * 0.7;
+        c.material.opacity = Math.min(1, 0.94 * Aa + u.hover * 0.06) * (1 - u.enter * 0.9);
       });
       dust.rotation.y = t * 0.02; ring.rotation.z = t * 0.05;
       renderer.render(scene, cam);
     }
     tick();
+  }
+
+  /* ---------------- scroll story: hook → brand ---------------- */
+  var storyKill = null;
+  function splitLetters(el) {
+    if ($(".bl", el)) return;
+    var walk = function (node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (n) {
+        if (n.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          n.textContent.split("").forEach(function (ch) { if (ch === " ") { frag.appendChild(document.createTextNode(" ")); return; } var s = document.createElement("span"); s.className = "bl"; s.textContent = ch; frag.appendChild(s); });
+          node.replaceChild(frag, n);
+        } else if (n.nodeType === 1) walk(n);
+      });
+    };
+    walk(el);
+  }
+  function initStory() {
+    var stage = $("#stage"), brand = $("#brand"); if (!stage || !brand) return;
+    if (storyKill) { storyKill(); storyKill = null; }
+    var w2 = $$(".hero .line-mask--2 .hw"), kw = $(".hero__h1 .kw"), h1 = $(".hero__h1"), tag = $("#brandTag");
+    splitLetters($("#brandName"));
+    var letters = $$(".bl", brand), tagWords = $$(".bw", tag);
+    if (REDUCED) { gsap.set(w2, { opacity: 1 }); if (kw) kw.style.setProperty("--ul", 1); return; }
+    var tl = gsap.timeline({ scrollTrigger: { trigger: stage, start: "top top", end: "bottom bottom", scrub: 0.5 } });
+    // 0–22: the second line is written by the scroll, then underlined
+    tl.fromTo(w2, { opacity: 0.42, y: "0.25em" }, { opacity: 1, y: 0, duration: 7, stagger: { each: 12 / Math.max(1, w2.length - 1) }, ease: "power2.out" }, 2);
+    if (kw) tl.fromTo(kw, { "--ul": 0 }, { "--ul": 1, duration: 6, ease: "power2.inOut" }, 18);
+    // 25–37: the hook recedes into depth
+    tl.to(h1, { scale: 0.84, y: -50, opacity: 0, filter: "blur(10px)", transformOrigin: "50% 50%", duration: 12, ease: "power1.in" }, 25);
+    tl.to(".hero__corner", { opacity: 0, duration: 10, ease: "none" }, 0);
+    tl.to(".hero__veil", { opacity: 0.35, duration: 40, ease: "none" }, 0);
+    // 32–54: Digital Impression flies in letter by letter from all directions, then the tagline rises and is underlined
+    tl.set(brand, { opacity: 1 }, 31);
+    tl.fromTo(letters,
+      { x: function () { return gsap.utils.random(-320, 320); }, y: function () { return gsap.utils.random(-220, 220); }, scale: function () { return gsap.utils.random(1.8, 3.4); }, rotation: function () { return gsap.utils.random(-40, 40); }, opacity: 0, filter: "blur(10px)" },
+      { x: 0, y: 0, scale: 1, rotation: 0, opacity: 1, filter: "blur(0px)", duration: 14, stagger: { each: 8 / Math.max(1, letters.length - 1), from: "center" }, ease: "power3.out" }, 32);
+    tl.fromTo(tagWords, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 8, stagger: { each: 6 / Math.max(1, tagWords.length - 1) }, ease: "power3.out" }, 48);
+    if (tag) tl.fromTo(tag, { "--ul": 0 }, { "--ul": 1, duration: 6, ease: "power2.inOut" }, 58);
+    // 80–94: the brand recedes as the ring gathers; Work slides over
+    tl.to(brand, { scale: 1.12, opacity: 0, filter: "blur(8px)", duration: 14, ease: "power2.in" }, 80);
+    tl.to({}, { duration: 6 }, 94);
+    storyKill = function () { tl.scrollTrigger && tl.scrollTrigger.kill(); tl.kill(); gsap.set([brand, h1].concat(letters, tagWords, w2), { clearProps: "all" }); if (kw) kw.style.removeProperty("--ul"); if (tag) tag.style.removeProperty("--ul"); };
   }
 
   /* ---------------- cursor + magnets ---------------- */
@@ -502,7 +536,7 @@
       nav_work: "Work", nav_services: "Services &amp; pricing", nav_process: "Process", nav_pricing: "Free design", nav_contact: "Contact",
       hero_eyebrow: "Web design studio · Belgium & the Netherlands", h1_a: "<span class=\"hw\">Your</span> <span class=\"hw\">website</span> <span class=\"hw\">is</span> <span class=\"hw\">the</span> <span class=\"hw\">first</span> <span class=\"hw\">encounter</span> <span class=\"hw\">with</span> <span class=\"hw\">your</span> <span class=\"hw\">customer.</span>", h1_b: "<span class=\"hw\">Make</span> <span class=\"hw\">sure</span> <span class=\"hw\"><em class=\"it kw\">it sticks.</em></span>",
       hero_lead: "Designed and built to measure. You see your homepage within 24 hours, free, and pay no deposit.",
-      cta_design: "Request your free design", cta_work: "See our work", scroll: "Scroll", show_open: "View in the gallery", hero_tip: "Click a website to see it up close", hero_tr: "Bespoke websites · since 2024", gl_go: "Show in the gallery", gl_live: "View live", gl_close: "Close",
+      cta_design: "Request your free design", cta_work: "See our work", scroll: "Scroll", show_open: "View in the gallery", brand_tag: "<span class=\"bw\">Websites</span> <span class=\"bw\">that</span> <span class=\"bw\">make</span> <span class=\"bw\">an</span> <span class=\"bw it\">impression.</span>", hero_tip: "Click a website to see it up close", hero_tr: "Bespoke websites · since 2024", gl_go: "Show in the gallery", gl_live: "View live", gl_close: "Close",
       mq1: "Business websites", mq2: "Webshops", mq3: "Redesigns", mq4: "Landing pages",
       statement: "Your website is the first handshake with a new customer. We make sure it is a firm one: <em class=\"it\">fast, beautiful and built to win enquiries.</em> You see your design before you decide, and you pay only when you are happy.",
       cta_how: "How we work", st_note: "No deposit · live in 2 weeks · one point of contact",
@@ -570,7 +604,7 @@
       nav_work: "Réalisations", nav_services: "Services &amp; tarifs", nav_process: "Méthode", nav_pricing: "Design gratuit", nav_contact: "Contact",
       hero_eyebrow: "Studio de webdesign · Belgique & Pays-Bas", h1_a: "<span class=\"hw\">Votre</span> <span class=\"hw\">site</span> <span class=\"hw\">web</span> <span class=\"hw\">est</span> <span class=\"hw\">la</span> <span class=\"hw\">première</span> <span class=\"hw\">rencontre</span> <span class=\"hw\">avec</span> <span class=\"hw\">votre</span> <span class=\"hw\">client.</span>", h1_b: "<span class=\"hw\">Faites</span> <span class=\"hw\">en</span> <span class=\"hw\">sorte</span> <span class=\"hw\"><em class=\"it kw\">qu'elle marque.</em></span>",
       hero_lead: "Conçus et construits sur mesure. Vous voyez votre page d'accueil sous 24 heures, gratuitement, sans acompte.",
-      cta_design: "Demandez votre design gratuit", cta_work: "Voir nos réalisations", scroll: "Défiler", show_open: "Voir dans la galerie", hero_tip: "Cliquez sur un site pour le voir de près", hero_tr: "Sites sur mesure · depuis 2024", gl_go: "Voir dans la galerie", gl_live: "Voir en ligne", gl_close: "Fermer",
+      cta_design: "Demandez votre design gratuit", cta_work: "Voir nos réalisations", scroll: "Défiler", show_open: "Voir dans la galerie", brand_tag: "<span class=\"bw\">Des</span> <span class=\"bw\">sites</span> <span class=\"bw\">web</span> <span class=\"bw\">qui</span> <span class=\"bw\">font</span> <span class=\"bw it\">impression.</span>", hero_tip: "Cliquez sur un site pour le voir de près", hero_tr: "Sites sur mesure · depuis 2024", gl_go: "Voir dans la galerie", gl_live: "Voir en ligne", gl_close: "Fermer",
       mq1: "Sites d'entreprise", mq2: "Boutiques en ligne", mq3: "Refontes", mq4: "Landing pages",
       statement: "Votre site web est la première poignée de main avec un nouveau client. Nous veillons à ce qu'elle soit ferme : <em class=\"it\">rapide, élégante et conçue pour générer des demandes.</em> Vous voyez votre design avant de décider, et vous ne payez que lorsque vous êtes satisfait.",
       cta_how: "Notre méthode", st_note: "Sans acompte · en ligne en 2 semaines · un seul interlocuteur",
@@ -651,7 +685,7 @@
     $$("#lang button").forEach(function (b) { b.classList.toggle("is-on", b.getAttribute("data-lang") === l); });
     // statement words were wrapped: rewrap
     if (!silent) { $$(".hero .hw").forEach(function (s) { s.style.transform = "none"; s.style.opacity = "1"; }); }
-    initIntro();
+    initIntro(); initStory();
     if (window.__offerRefresh) window.__offerRefresh();
     try { localStorage.setItem("di_lang", l); } catch (e) {}
     ScrollTrigger.refresh();
@@ -664,7 +698,8 @@
   }
   function init() {
     initVW();
-    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initIntro(); initWork(); initOffer(); initTilt(); initProcess(); initReveals(); initForm(); initPre();
+    if (!REDUCED) gsap.set(".hero .hw", { yPercent: 110 });
+    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initStory(); initIntro(); initWork(); initOffer(); initTilt(); initProcess(); initReveals(); initForm(); initPre();
     window.addEventListener("load", function () { ScrollTrigger.refresh(); });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
