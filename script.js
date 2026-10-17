@@ -78,8 +78,9 @@
     var rnd = function (a, b) { return a + Math.random() * (b - a); };
     // a quiet corridor: cards alternate left/right, evenly spaced in depth, each turned towards the centre
     // a silhouette of sites around the centre: ten cards on an ellipse, each at its own depth
-    var ZS = [0, 2.2, 1.1, 3.3, 0.6, 2.8, 1.7, 3.6, 0.3, 2.4], seeded = [];
-    for (var si = 0; si < 10; si++) seeded.push([si * Math.PI * 2 / 10 + 0.28, -1.8 - ZS[si]]);
+    // one card per site: five on the ellipse, starting at the top, each at its own depth
+    var ZS = [0.9, 0, 1.7, 0.4, 1.3], seeded = [];
+    for (var si = 0; si < 5; si++) seeded.push([Math.PI / 2 + si * Math.PI * 2 / 5, -1.8 - ZS[si]]);
     var frameGeo = new THREE.PlaneGeometry(2.3, 1.475, 1, 1);
     seeded.forEach(function (p, i) {
       var site = SITES[i % SITES.length];
@@ -179,16 +180,16 @@
     }
     if (closeBtn) closeBtn.addEventListener("click", unfocus);
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") unfocus(); });
-    ScrollTrigger.create({ trigger: "#stage", start: "top top", end: "bottom bottom", scrub: true, onUpdate: function (st) { prog = st.progress; if (focused && Math.abs(prog - focusProg) > 0.02) unfocus(); } });
+    ScrollTrigger.create({ trigger: "#hero", start: "top top", end: "bottom top", scrub: true, onUpdate: function (st) { prog = st.progress; if (focused && Math.abs(prog - focusProg) > 0.02) unfocus(); } });
     var sp = 0;
     function kf(pts, x) { if (x <= pts[0][0]) return pts[0][1]; for (var i = 1; i < pts.length; i++) { if (x <= pts[i][0]) { var a = pts[i - 1], b = pts[i], k = (x - a[0]) / (b[0] - a[0]); k = k * k * (3 - 2 * k); return a[1] + (b[1] - a[1]) * k; } } return pts[pts.length - 1][1]; }
     var bell = function (x, c, wdt) { var q = (x - c) / wdt; return Math.exp(-q * q); };
     // ring radius, card scale, alpha and depth offset along the scroll: breathe → explode outwards → re-form around the brand → gather and vanish
-    var KR = [[0, 0.80], [0.08, 0.84], [0.14, 0.9], [0.3, 2.1], [0.44, 2.6]];
-    var KS = [[0, 1], [0.14, 1.08], [0.3, 1.45], [0.44, 1.6]];
-    var KA = [[0, 1], [0.18, 1], [0.32, 0.6], [0.42, 0]];
-    var KZ = [[0, 0], [0.14, 0.4], [0.3, 3.8], [0.44, 6]];
-    var clock = new THREE.Clock(), visible = true, stageEl = $("#stage");
+    var KR = [[0, 0.80], [0.12, 0.86], [0.55, 2.1], [0.85, 2.6]];
+    var KS = [[0, 1], [0.2, 1.08], [0.55, 1.45], [0.85, 1.6]];
+    var KA = [[0, 1], [0.25, 1], [0.6, 0.55], [0.85, 0]];
+    var KZ = [[0, 0], [0.2, 0.4], [0.55, 3.8], [0.85, 6]];
+    var clock = new THREE.Clock(), visible = true, stageEl = $("#hero");
     new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }, { threshold: 0 }).observe(stageEl || hero);
     function tick() {
       requestAnimationFrame(tick);
@@ -197,14 +198,14 @@
       mx += (tx - mx) * 0.05; my += (ty - my) * 0.05;
       sp += (prog - sp) * 0.12;
       if (FINE && sp < 0.3) { hero.style.setProperty("--px", (mx * -10) + "px"); hero.style.setProperty("--py", (my * -8) + "px"); }
-      var Rr = kf(KR, sp), Ss = kf(KS, sp), Aa = kf(KA, sp), Zo = kf(KZ, sp), burst = bell(sp, 0.28, 0.11);
+      var Rr = kf(KR, sp), Ss = kf(KS, sp), Aa = kf(KA, sp), Zo = kf(KZ, sp), burst = bell(sp, 0.45, 0.14);
       if (Aa <= 0.001 && !focused) { renderer.render(scene, cam); return; }
       cam.position.z = 6 - sp * 1.6;
       cam.position.x = mx * 0.5 + Math.sin(t * 0.2) * 0.18; cam.position.y = -my * 0.35 + Math.cos(t * 0.16) * 0.1;
       cam.lookAt(mx * 0.25, -my * 0.18, cam.position.z - 6);
       cam.rotateZ(mx * 0.03 + burst * 0.06);
       dust.material.size = 0.035 + burst * 0.12; dust.material.opacity = focused ? 0.2 : 0.55 + burst * 0.35;
-      var fovT = Math.tan(cam.fov * Math.PI / 360), RX = small ? 0.92 : 0.9, RY = small ? 0.84 : 0.8;
+      var fovT = Math.tan(cam.fov * Math.PI / 360), RX = small ? 0.98 : 0.86, RY = small ? 0.84 : 0.76;
       if (FINE && !focused) pick();
       cards.forEach(function (c) {
         var u = c.userData;
@@ -220,7 +221,7 @@
         u.base[0] = px; u.base[1] = py; u.base[2] = z; u.rx = rx; u.ry = ry; u.rz = rz;
         var want = (c === hovered && !focused) ? 1 : 0;
         u.hover += (want - u.hover) * 0.12;
-        var sc = (small ? 0.78 : 1.08) * Ss * (0.12 + 0.88 * (1 - u.enter)) * (1 + u.hover * 0.07); c.scale.set(sc, sc, 1);
+        var sc = (small ? 0.72 : 1.38) * Ss * (0.12 + 0.88 * (1 - u.enter)) * (1 + u.hover * 0.07); c.scale.set(sc, sc, 1);
         u.frame.material.opacity = u.hover * 0.7;
         c.material.opacity = Math.min(1, 0.94 * Aa + u.hover * 0.06) * (1 - u.enter * 0.9);
       });
@@ -259,37 +260,49 @@
     walk(el);
   }
   function initStory() {
-    var stage = $("#stage"), brand = $("#brand"), hook = $("#hook"), cover = $("#heroCover"); if (!stage || !brand || !hook) return;
+    var hero = $("#hero"), brand = $("#brand"), hook = $("#hook"); if (!hero || !brand || !hook) return;
     if (storyKill) { storyKill(); storyKill = null; }
     var tag = $("#brandTag"), tagWords = $$(".bw", tag), l1 = $("#hookL1"), l2 = $("#hookL2"), kw = $(".kw", hook);
     splitWords(l1); splitWords(l2);
     var w1 = $$(".iw", l1), w2 = $$(".iw", l2);
-    if (REDUCED) { gsap.set(tagWords, { opacity: 1 }); return; }
+    if (REDUCED) { gsap.set(tagWords, { opacity: 1 }); gsap.set([l1, l2], { opacity: 1, position: "static" }); return; }
     if (!heroPlayed) gsap.set(tagWords, { opacity: 0, y: 30 });
-    gsap.set(hook, { visibility: "hidden" });
-    // the hook has its own clock: line one as soon as the beat is reached, line two a few seconds later
+    gsap.set([l1, l2], { opacity: 1 }); gsap.set(w1.concat(w2), { opacity: 0 }); if (kw) kw.style.setProperty("--ul", 0);
+    // the brand recedes as the hero scrolls away under the hook
+    var out = gsap.to(brand, { scale: 0.9, y: -60, opacity: 0, filter: "blur(10px)", transformOrigin: "50% 50%", ease: "power1.in", scrollTrigger: { trigger: hero, start: "top top", end: "70% top", scrub: 0.5 } });
+    var outC = gsap.to(".hero__corner", { opacity: 0, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "30% top", scrub: true } });
+    // the hook on its own clock: line one, half a second, line one leaves and line two takes its place
     var hookTL = gsap.timeline({ paused: true });
-    hookTL.set(hook, { visibility: "visible" }, 0)
-      .fromTo(w1, { opacity: 0, yPercent: 60, rotateX: -24 }, { opacity: 1, yPercent: 0, rotateX: 0, duration: 1.3, stagger: 0.07, ease: "expo.out" }, 0.1)
-      .to(w1, { opacity: 0, yPercent: -50, filter: "blur(8px)", duration: 0.7, stagger: 0.03, ease: "power2.in" }, 2.6)
-      .fromTo(w2, { opacity: 0, yPercent: 60, filter: "blur(6px)" }, { opacity: 1, yPercent: 0, filter: "blur(0px)", duration: 0.75, stagger: 0.05, ease: "expo.out", clearProps: "filter" }, 2.95)
-      .fromTo(kw, { "--ul": 0 }, { "--ul": 1, duration: 0.6, ease: "power3.inOut" }, 3.35);
-    var tl = gsap.timeline({ scrollTrigger: { trigger: stage, start: "top top", end: "bottom bottom", scrub: 0.6 } });
-    tl.to(".hero__corner", { opacity: 0, duration: 10, ease: "none" }, 0);
-    // 12–32: the brand recedes into depth while the ring explodes outwards
-    tl.to(brand, { scale: 0.84, y: -60, opacity: 0, filter: "blur(12px)", transformOrigin: "50% 50%", duration: 20, ease: "power2.in" }, 12);
-    // 22–44: a fresh backdrop rises underneath, overlapping the explosion so nothing cuts
-    tl.fromTo(cover, { opacity: 0 }, { opacity: 0.92, duration: 22, ease: "power2.inOut" }, 22);
-    tl.to(".hero__veil", { opacity: 0, duration: 22, ease: "none" }, 22);
-    // 42: the hook starts on its own clock; scrolling back resets it
-    ScrollTrigger.create({ trigger: stage, start: "top top", end: "bottom bottom", onUpdate: function (st) {
-      if (st.progress >= 0.42 && !hookTL.isActive() && hookTL.progress() === 0) hookTL.play(0);
-      if (st.progress < 0.36 && hookTL.progress() > 0) { hookTL.pause(0); gsap.set(hook, { visibility: "hidden" }); }
-    } });
-    // 86–98: the hook recedes as Work slides over
-    tl.to(hook, { scale: 0.92, y: -40, opacity: 0, filter: "blur(8px)", duration: 12, ease: "power2.in" }, 86);
-    tl.to({}, { duration: 2 }, 98);
-    storyKill = function () { tl.scrollTrigger && tl.scrollTrigger.kill(); tl.kill(); hookTL.kill(); gsap.set([brand, hook, cover, tag].concat(tagWords, w1, w2), { clearProps: "all" }); if (kw) kw.style.removeProperty("--ul"); if (tag) tag.style.removeProperty("--ul"); };
+    hookTL.fromTo(w1, { opacity: 0, yPercent: 60, rotateX: -24 }, { opacity: 1, yPercent: 0, rotateX: 0, duration: 1.1, stagger: 0.06, ease: "expo.out" }, 0.15)
+      .to(w1, { opacity: 0, yPercent: -50, filter: "blur(8px)", duration: 0.6, stagger: 0.025, ease: "power2.in" }, 2.15)
+      .fromTo(w2, { opacity: 0, yPercent: 60, filter: "blur(6px)" }, { opacity: 1, yPercent: 0, filter: "blur(0px)", duration: 0.75, stagger: 0.05, ease: "expo.out", clearProps: "filter" }, 2.45)
+      .fromTo(kw, { "--ul": 0 }, { "--ul": 1, duration: 0.6, ease: "power3.inOut" }, 2.85);
+    var st = ScrollTrigger.create({ trigger: hook, start: "top 55%", end: "bottom 45%",
+      onEnter: function () { hookTL.play(0); }, onEnterBack: function () { if (hookTL.progress() === 0) hookTL.play(0); },
+      onLeaveBack: function () { hookTL.pause(0); gsap.set(w1.concat(w2), { opacity: 0, clearProps: "filter,transform" }); if (kw) kw.style.setProperty("--ul", 0); } });
+    storyKill = function () { out.scrollTrigger && out.scrollTrigger.kill(); out.kill(); outC.scrollTrigger && outC.scrollTrigger.kill(); outC.kill(); st.kill(); hookTL.kill(); gsap.set([brand, tag].concat(tagWords, w1, w2), { clearProps: "all" }); if (kw) kw.style.removeProperty("--ul"); if (tag) tag.style.removeProperty("--ul"); };
+  }
+
+  /* ---------------- snap: one wheel step = hero → hook → werk ---------------- */
+  function initSnap() {
+    if (!lenis || REDUCED || !FINE) return;
+    var hook = $("#hook"), werk = $("#werk"); if (!hook || !werk) return;
+    var snapping = false, cool = 0;
+    var tops = function () { return [0, Math.round(hook.getBoundingClientRect().top + window.scrollY), Math.round(werk.getBoundingClientRect().top + window.scrollY)]; };
+    window.addEventListener("wheel", function (e) {
+      if (Math.abs(e.deltaY) < 2 || e.ctrlKey) return;
+      var y = window.scrollY, T = tops();
+      if (y > T[2] + 2 || (y > T[2] - 2 && e.deltaY > 0)) return;   // past the snap zone: free scrolling (up from Werk still snaps back)
+      if (document.getElementById("menu").classList.contains("is-open")) return;
+      e.preventDefault(); e.stopPropagation();
+      if (snapping || performance.now() < cool) return;
+      var target = null;
+      if (e.deltaY > 0) { for (var i = 0; i < T.length; i++) if (T[i] > y + 4) { target = T[i]; break; } }
+      else { for (var k = T.length - 1; k >= 0; k--) if (T[k] < y - 4) { target = T[k]; break; } }
+      if (target == null) return;
+      snapping = true;
+      lenis.scrollTo(target, { duration: 1.15, easing: function (t) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); }, lock: true, onComplete: function () { snapping = false; cool = performance.now() + 350; } });
+    }, { capture: true, passive: false });
   }
 
   /* ---------------- cursor + magnets ---------------- */
@@ -698,7 +711,7 @@
   }
   function init() {
     initVW();
-    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initStory(); initIntro(); initWork(); initFAQ(); initTilt(); initProcess(); initReveals(); initForm(); initPre();
+    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initStory(); initSnap(); initIntro(); initWork(); initFAQ(); initTilt(); initProcess(); initReveals(); initForm(); initPre();
     window.addEventListener("load", function () { ScrollTrigger.refresh(); });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();

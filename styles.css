@@ -622,3 +622,13 @@ body.sub { background: var(--beige); color: var(--navy); cursor: auto; }
 .footer--sub { background: var(--navy); color: var(--beige); --fg: var(--beige); --fg-soft: rgba(241,235,223,0.7); --line: rgba(241,235,223,0.12); }
 .top--sub .nav a { color: var(--navy); }
 .top--sub .nav a:hover, .top--sub .nav a.is-on { color: var(--gold); }
+
+/* ===== v15: free-scrolling hero, hook as its own screen, five unique sites ===== */
+.hero { position: relative; top: auto; height: 100vh; height: 100svh; min-height: 640px; }
+.hook { position: relative; left: auto; top: auto; transform: none; width: auto; height: 100vh; height: 100svh; min-height: 560px; display: grid; place-items: center; padding: 0 var(--gutter); visibility: visible; overflow: hidden;
+  background: radial-gradient(70% 60% at 50% 40%, #16284F 0%, #0F1D3C 50%, var(--navy) 100%); }
+.hook::before { content: ""; position: absolute; inset: 0; background: radial-gradient(45% 35% at 50% 48%, rgba(201,162,74,0.12), transparent 70%); pointer-events: none; }
+.hook::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 28%; background: linear-gradient(180deg, transparent, var(--navy)); pointer-events: none; }
+.hook__in { position: relative; z-index: 1; width: min(100%, 62rem); display: grid; place-items: center; text-align: center; }
+.hook__l1, .hook__l2 { grid-area: 1 / 1; margin: 0; opacity: 0; }
+.brand { will-change: transform, opacity; }
