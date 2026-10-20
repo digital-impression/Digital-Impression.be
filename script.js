@@ -260,49 +260,15 @@
     walk(el);
   }
   function initStory() {
-    var hero = $("#hero"), brand = $("#brand"), hook = $("#hook"); if (!hero || !brand || !hook) return;
+    var hero = $("#hero"), brand = $("#brand"); if (!hero || !brand) return;
     if (storyKill) { storyKill(); storyKill = null; }
-    var tag = $("#brandTag"), tagWords = $$(".bw", tag), l1 = $("#hookL1"), l2 = $("#hookL2"), kw = $(".kw", hook);
-    splitWords(l1); splitWords(l2);
-    var w1 = $$(".iw", l1), w2 = $$(".iw", l2);
-    if (REDUCED) { gsap.set(tagWords, { opacity: 1 }); gsap.set([l1, l2], { opacity: 1, position: "static" }); return; }
+    var tag = $("#brandTag"), tagWords = $$(".bw", tag);
+    if (REDUCED) { gsap.set(tagWords, { opacity: 1 }); return; }
     if (!heroPlayed) gsap.set(tagWords, { opacity: 0, y: 30 });
-    gsap.set([l1, l2], { opacity: 1 }); gsap.set(w1.concat(w2), { opacity: 0 }); if (kw) kw.style.setProperty("--ul", 0);
-    // the brand recedes as the hero scrolls away under the hook
+    // the brand recedes as the hero scrolls away
     var out = gsap.to(brand, { scale: 0.9, y: -60, opacity: 0, filter: "blur(10px)", transformOrigin: "50% 50%", ease: "power1.in", scrollTrigger: { trigger: hero, start: "top top", end: "70% top", scrub: 0.5 } });
     var outC = gsap.to(".hero__corner", { opacity: 0, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "30% top", scrub: true } });
-    // the hook on its own clock: line one, half a second, line one leaves and line two takes its place
-    var hookTL = gsap.timeline({ paused: true });
-    hookTL.fromTo(w1, { opacity: 0, yPercent: 60, rotateX: -24 }, { opacity: 1, yPercent: 0, rotateX: 0, duration: 1.1, stagger: 0.06, ease: "expo.out" }, 0.15)
-      .to(w1, { opacity: 0, yPercent: -50, filter: "blur(8px)", duration: 0.6, stagger: 0.025, ease: "power2.in" }, 2.15)
-      .fromTo(w2, { opacity: 0, yPercent: 60, filter: "blur(6px)" }, { opacity: 1, yPercent: 0, filter: "blur(0px)", duration: 0.75, stagger: 0.05, ease: "expo.out", clearProps: "filter" }, 2.45)
-      .fromTo(kw, { "--ul": 0 }, { "--ul": 1, duration: 0.6, ease: "power3.inOut" }, 2.85);
-    var st = ScrollTrigger.create({ trigger: hook, start: "top 55%", end: "bottom 45%",
-      onEnter: function () { hookTL.play(0); }, onEnterBack: function () { if (hookTL.progress() === 0) hookTL.play(0); },
-      onLeaveBack: function () { hookTL.pause(0); gsap.set(w1.concat(w2), { opacity: 0, clearProps: "filter,transform" }); if (kw) kw.style.setProperty("--ul", 0); } });
-    storyKill = function () { out.scrollTrigger && out.scrollTrigger.kill(); out.kill(); outC.scrollTrigger && outC.scrollTrigger.kill(); outC.kill(); st.kill(); hookTL.kill(); gsap.set([brand, tag].concat(tagWords, w1, w2), { clearProps: "all" }); if (kw) kw.style.removeProperty("--ul"); if (tag) tag.style.removeProperty("--ul"); };
-  }
-
-  /* ---------------- snap: one wheel step = hero → hook → werk ---------------- */
-  function initSnap() {
-    if (!lenis || REDUCED || !FINE) return;
-    var hook = $("#hook"), werk = $("#werk"); if (!hook || !werk) return;
-    var snapping = false, cool = 0;
-    var tops = function () { return [0, Math.round(hook.getBoundingClientRect().top + window.scrollY), Math.round(werk.getBoundingClientRect().top + window.scrollY)]; };
-    window.addEventListener("wheel", function (e) {
-      if (Math.abs(e.deltaY) < 2 || e.ctrlKey) return;
-      var y = window.scrollY, T = tops();
-      if (y > T[2] + 2 || (y > T[2] - 2 && e.deltaY > 0)) return;   // past the snap zone: free scrolling (up from Werk still snaps back)
-      if (document.getElementById("menu").classList.contains("is-open")) return;
-      e.preventDefault(); e.stopPropagation();
-      if (snapping || performance.now() < cool) return;
-      var target = null;
-      if (e.deltaY > 0) { for (var i = 0; i < T.length; i++) if (T[i] > y + 4) { target = T[i]; break; } }
-      else { for (var k = T.length - 1; k >= 0; k--) if (T[k] < y - 4) { target = T[k]; break; } }
-      if (target == null) return;
-      snapping = true;
-      lenis.scrollTo(target, { duration: 1.15, easing: function (t) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); }, lock: true, onComplete: function () { snapping = false; cool = performance.now() + 350; } });
-    }, { capture: true, passive: false });
+    storyKill = function () { out.scrollTrigger && out.scrollTrigger.kill(); out.kill(); outC.scrollTrigger && outC.scrollTrigger.kill(); outC.kill(); gsap.set([brand, tag].concat(tagWords), { clearProps: "all" }); if (tag) tag.style.removeProperty("--ul"); };
   }
 
   /* ---------------- cursor + magnets ---------------- */
@@ -711,7 +677,7 @@
   }
   function init() {
     initVW();
-    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initStory(); initSnap(); initIntro(); initWork(); initFAQ(); initTilt(); initProcess(); initReveals(); initForm(); initPre();
+    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initStory(); initIntro(); initWork(); initFAQ(); initTilt(); initProcess(); initReveals(); initForm(); initPre();
     window.addEventListener("load", function () { ScrollTrigger.refresh(); });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
