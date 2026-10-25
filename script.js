@@ -81,7 +81,7 @@
     // a silhouette of sites around the centre: ten cards on an ellipse, each at its own depth
     // one card per site: five on the ellipse, starting at the top, each at its own depth
     var ZS = [0.9, 0, 1.7, 0.4, 1.3], seeded = [];
-    for (var si = 0; si < 5; si++) seeded.push([Math.PI / 2 + si * Math.PI * 2 / 5, -1.8 - ZS[si]]);
+    for (var si = 0; si < 5; si++) seeded.push([Math.PI / 2 + Math.PI / 5 + si * Math.PI * 2 / 5, -1.8 - ZS[si]]);
     var frameGeo = new THREE.PlaneGeometry(2.3, 1.475, 1, 1);
     seeded.forEach(function (p, i) {
       var site = SITES[i % SITES.length];
@@ -105,13 +105,13 @@
     var ring = new THREE.Mesh(new THREE.RingGeometry(3.2, 3.23, 96), new THREE.MeshBasicMaterial({ color: 0xC9A24A, transparent: true, opacity: 0.25, side: THREE.DoubleSide }));
     ring.position.set(0.4, 0.2, -12); scene.add(ring);
 
-    var mx = 0, my = 0, tx = 0, ty = 0, prog = 0, w = 0, h = 0, small = false;
+    var mx = 0, my = 0, tx = 0, ty = 0, prog = 0, w = 0, h = 0, small = false, short = false;
     var ray = new THREE.Raycaster(), pointer = new THREE.Vector2(-9, -9), hovered = null, focused = null, focusProg = 0, pdown = null;
     var focusEl = $("#glFocus"), kindEl = $("#glKind"), nameEl = $("#glName"), goBtn = $("#glGo"), liveA = $("#glLive"), closeBtn = $("#glClose"), tip = $("#heroTip");
     function resize() {
       var r = hero.getBoundingClientRect(); w = r.width; h = r.height;
       renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix();
-      small = w < 700;
+      small = w < 700; short = !small && h < 800;
     }
     resize(); window.addEventListener("resize", resize);
     function setPointer(e) { var r = canvas.getBoundingClientRect(); pointer.x = ((e.clientX - r.left) / r.width) * 2 - 1; pointer.y = -((e.clientY - r.top) / r.height) * 2 + 1; }
@@ -206,7 +206,7 @@
       cam.lookAt(mx * 0.25, -my * 0.18, cam.position.z - 6);
       cam.rotateZ(mx * 0.03 + burst * 0.06);
       dust.material.size = 0.035 + burst * 0.12; dust.material.opacity = focused ? 0.2 : 0.55 + burst * 0.35;
-      var fovT = Math.tan(cam.fov * Math.PI / 360), RX = small ? 0.98 : 0.86, RY = small ? 0.84 : 0.76;
+      var fovT = Math.tan(cam.fov * Math.PI / 360), RX = small ? 1.02 : 1.06, RY = small ? 0.98 : (short ? 0.96 : 0.88);
       if (FINE && !focused) pick();
       cards.forEach(function (c) {
         var u = c.userData;
@@ -222,7 +222,7 @@
         u.base[0] = px; u.base[1] = py; u.base[2] = z; u.rx = rx; u.ry = ry; u.rz = rz;
         var want = (c === hovered && !focused) ? 1 : 0;
         u.hover += (want - u.hover) * 0.12;
-        var sc = (small ? 0.72 : 1.38) * Ss * (0.12 + 0.88 * (1 - u.enter)) * (1 + u.hover * 0.07); c.scale.set(sc, sc, 1);
+        var sc = (small ? 0.62 : (short ? 0.96 : 1.12)) * Ss * (0.12 + 0.88 * (1 - u.enter)) * (1 + u.hover * 0.07); c.scale.set(sc, sc, 1);
         u.frame.material.opacity = u.hover * 0.7;
         c.material.opacity = Math.min(1, 0.94 * Aa + u.hover * 0.06) * (1 - u.enter * 0.9);
       });
@@ -321,10 +321,20 @@
   function initTheme() {
     var secs = $$("[data-theme]"), html = document.documentElement;
     if (!secs.length) return;
+    var top = $("#top"), lastY = window.scrollY, band = $(".band");
+    function themeAt(y) { var cur = secs[0]; secs.forEach(function (s) { if (s.offsetTop <= y) cur = s; }); return cur; }
     function update() {
-      var y = window.scrollY + window.innerHeight * 0.5, cur = secs[0];
-      secs.forEach(function (s) { if (s.offsetTop <= y) cur = s; });
+      var sy = window.scrollY, cur = themeAt(sy + window.innerHeight * 0.5);
       html.classList.toggle("is-light", cur.getAttribute("data-theme") === "light");
+      if (!top) return;
+      var under = themeAt(sy + 40), light = under.getAttribute("data-theme") === "light";
+      if (band && band.offsetTop <= sy + 40 && band.offsetTop + band.offsetHeight > sy + 40) light = "gold";
+      top.classList.toggle("top--light", light === true); top.classList.toggle("top--gold", light === "gold");
+      top.classList.toggle("is-scrolled", sy > 40);
+      var d = sy - lastY;
+      if (sy < 160 || d < -6 || $("#menu").classList.contains("is-open")) top.classList.remove("is-hidden");
+      else if (d > 6) top.classList.add("is-hidden");
+      lastY = sy;
     }
     window.addEventListener("scroll", update, { passive: true }); window.addEventListener("resize", update); update();
     if (lenis) lenis.on("scroll", update);
@@ -422,11 +432,17 @@
 
   /* ---------------- process: sticky number ---------------- */
   function initProcess() {
-    var big = $("#procBig"), steps = $$(".pstep"); if (!big) return;
-    steps.forEach(function (s, i) {
-      ScrollTrigger.create({ trigger: s, start: "top 55%", end: "bottom 55%",
-        onToggle: function (st) { if (st.isActive) { big.textContent = "0" + (i + 1); steps.forEach(function (o, k) { o.classList.toggle("is-on", k === i); }); } } });
-    });
+    var big = $("#procBig"), steps = $$(".pstep"), list = $("#procSteps"); if (!big || !list) return;
+    var roll = $(".proc__roll", big), cur = -1;
+    function setStep(i) {
+      if (i === cur) return; cur = i;
+      if (roll) gsap.to(roll, { yPercent: -100 * i / steps.length, duration: 0.9, ease: "expo.out" }); else big.textContent = "0" + (i + 1);
+      steps.forEach(function (o, k) { o.classList.toggle("is-on", k === i); o.classList.toggle("is-past", k < i); });
+    }
+    setStep(0);
+    ScrollTrigger.create({ trigger: list, start: "top 62%", end: "bottom 45%", onUpdate: function (st) { setStep(Math.min(steps.length - 1, Math.floor(st.progress * steps.length))); }, onLeave: function () { setStep(steps.length - 1); }, onLeaveBack: function () { setStep(0); } });
+    var fill = $("#procFill");
+    if (fill && list) gsap.fromTo(fill, { scaleY: 0 }, { scaleY: 1, ease: "none", scrollTrigger: { trigger: list, start: "top 55%", end: "bottom 55%", scrub: 0.4 } });
   }
 
   /* ---------------- pricing tilt ---------------- */
@@ -444,13 +460,79 @@
   /* ---------------- section reveals ---------------- */
   function initReveals() {
     if (REDUCED) return;
-    $$(".eyebrow, .h-xl, .h-l, .h-m, .lead, .sig, .portret, .contact__copy > p, .checks, .form, .proc__steps, .faq__list").forEach(function (el) {
+    $$(".h-xl, .h-l, .band__t, .case__t").forEach(function (el) {
+      if (el.closest(".hero") || el.closest(".story")) return;
+      var walk = function (node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (n) {
+          if (n.nodeType === 3) {
+            var frag = document.createDocumentFragment();
+            n.textContent.split(/(\s+)/).forEach(function (w) { if (!w) return; if (/^\s+$/.test(w)) { frag.appendChild(document.createTextNode(w)); return; } var m = document.createElement("span"); m.className = "wm"; var i = document.createElement("span"); i.className = "wi"; i.textContent = w; m.appendChild(i); frag.appendChild(m); });
+            n.parentNode.replaceChild(frag, n);
+          } else if (n.nodeType === 1 && !n.classList.contains("vh")) walk(n);
+        });
+      };
+      walk(el);
+      gsap.from($$(".wi", el), { yPercent: 110, rotate: 3, duration: 1.15, stagger: 0.045, ease: "expo.out", scrollTrigger: { trigger: el, start: "top 88%", once: true } });
+    });
+    $$(".case__voor, .case__na, .story__vis, .portret__arch").forEach(function (el) {
+      gsap.fromTo(el, { clipPath: "inset(18% 6% 18% 6% round 18px)", opacity: 0 }, { clipPath: "inset(0% 0% 0% 0% round 0px)", opacity: 1, duration: 1.4, ease: "expo.out", clearProps: "clipPath", scrollTrigger: { trigger: el, start: "top 85%", once: true } });
+    });
+    $$(".eyebrow, .h-m, .lead, .sig, .letter, .contact__copy > p, .contact__person, .checks, .form, .proc__steps, .faq__list").forEach(function (el) {
       if (el.closest(".hero")) return;
       gsap.from(el, { opacity: 0, y: 24, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 90%", once: true } });
     });
-    $$(".case__vis, .case__txt, .band__in").forEach(function (el) { gsap.from(el, { opacity: 0, y: 34, duration: 1.1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%", once: true } }); });
+    $$(".case__txt, .band__acts").forEach(function (el) { gsap.from(el, { opacity: 0, y: 34, duration: 1.1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%", once: true } }); });
     $$(".quote, .scard").forEach(function (el, i) { gsap.from(el, { opacity: 0, y: 30, duration: 0.9, delay: (i % 4) * 0.08, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 90%", once: true } }); });
     gsap.from(".footer__big", { yPercent: 40, opacity: 0, duration: 1.2, ease: "power4.out", scrollTrigger: { trigger: ".footer", start: "top 90%", once: true } });
+  }
+
+  /* ---------------- ontwerp-venster ---------------- */
+  function initViewer() {
+    var v = $("#viewer"); if (!v) return;
+    var img = $("#viewerImg"), title = $("#viewerTitle"), scroller = $(".viewer__scroll", v), frame = $(".viewer__frame", v), inner = $(".viewer__in", v);
+    var btns = $$(".story__open"), list = btns.map(function (b) { return { key: b.getAttribute("data-design"), title: b.getAttribute("data-title") }; });
+    var cur = 0, mode = "d", last = null;
+    function show(i, dir) {
+      cur = (i + list.length) % list.length;
+      var d = list[cur];
+      title.textContent = d.title;
+      var src = "assets/img/full/" + d.key + "-" + mode + ".jpg";
+      if (!REDUCED && dir) gsap.fromTo(frame, { x: dir * 40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.7, ease: "expo.out" });
+      img.src = src; img.alt = d.title; scroller.scrollTop = 0;
+    }
+    function setMode(m) {
+      mode = m; v.classList.toggle("is-mobile", m === "m");
+      $$(".viewer__mode button", v).forEach(function (b) { b.classList.toggle("is-on", b.getAttribute("data-mode") === m); b.setAttribute("aria-pressed", b.getAttribute("data-mode") === m); });
+      show(cur);
+    }
+    function open(i) {
+      last = document.activeElement;
+      setMode(window.innerWidth < 760 ? "m" : "d"); show(i);
+      v.hidden = false; document.documentElement.classList.add("viewer-open"); if (lenis) lenis.stop();
+      if (!REDUCED) { gsap.fromTo($(".viewer__bg", v), { opacity: 0 }, { opacity: 1, duration: 0.5 }); gsap.fromTo(inner, { y: 60, opacity: 0, scale: 0.97 }, { y: 0, opacity: 1, scale: 1, duration: 0.9, ease: "expo.out" }); }
+      setTimeout(function () { scroller.focus({ preventScroll: true }); }, 50);
+    }
+    function close() {
+      var done = function () { v.hidden = true; document.documentElement.classList.remove("viewer-open"); if (lenis) lenis.start(); if (last) last.focus({ preventScroll: true }); };
+      if (REDUCED) return done();
+      gsap.to(inner, { y: 40, opacity: 0, duration: 0.4, ease: "power2.in" }); gsap.to($(".viewer__bg", v), { opacity: 0, duration: 0.45, onComplete: done });
+    }
+    btns.forEach(function (b, i) {
+      b.addEventListener("click", function () { open(i); });
+      var shot = b.closest(".story") && $(".story__shot", b.closest(".story"));
+      if (shot) { shot.style.cursor = "zoom-in"; shot.setAttribute("data-cursor", lang === "en" ? "View" : lang === "fr" ? "Voir" : "Bekijk"); shot.addEventListener("click", function () { open(i); }); }
+    });
+    $$("[data-close]", v).forEach(function (b) { b.addEventListener("click", close); });
+    $("#viewerPrev").addEventListener("click", function () { show(cur - 1, -1); });
+    $("#viewerNext").addEventListener("click", function () { show(cur + 1, 1); });
+    $$(".viewer__mode button", v).forEach(function (b) { b.addEventListener("click", function () { setMode(b.getAttribute("data-mode")); }); });
+    document.addEventListener("keydown", function (e) {
+      if (v.hidden) return;
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowRight") show(cur + 1, 1);
+      if (e.key === "ArrowLeft") show(cur - 1, -1);
+      if (e.key === "Tab") { var f = $$("button, [tabindex='0']", v).filter(function (x) { return x.offsetParent; }); var a = f[0], z = f[f.length - 1]; if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); } }
+    });
   }
 
   /* ---------------- form ---------------- */
@@ -727,6 +809,15 @@
       foot_tag: "Webdesign depuis le Limbourg. Des sites sur mesure pour les indépendants et les PME en Belgique et aux Pays-Bas.", foot_cta: "Demandez votre exemple gratuit"
     }
   };
+  I18N_UP.en.nav_about = "About"; I18N_UP.fr.nav_about = "À propos";
+  I18N_UP.en.w_open = "View the design"; I18N_UP.fr.w_open = "Voir le design";
+  I18N_UP.en.sv1_foot = "No deposit. You pay once the site is finished and you are happy."; I18N_UP.fr.sv1_foot = "Sans acompte. Vous payez quand le site est terminé et que vous êtes satisfait.";
+  I18N_UP.en.ab_letter = "I design and build every website myself. So you don't talk to a salesperson or a project manager, but to the person working on your site, from the first example until after launch.";
+  I18N_UP.fr.ab_letter = "Je conçois et construis chaque site moi-même. Vous ne parlez donc pas à un commercial ou à un chef de projet, mais à la personne qui travaille sur votre site, du premier exemple jusqu'après la mise en ligne.";
+  I18N_UP.en.ab_place = "Limburg · Belgium"; I18N_UP.fr.ab_place = "Limbourg · Belgique";
+  I18N_UP.en.c_person = "Your request goes straight to Stijn. You get a personal reply, not an automatic email."; I18N_UP.fr.c_person = "Votre demande arrive directement chez Stijn. Vous recevez une réponse personnelle, pas un e-mail automatique.";
+  I18N_UP.en.v_kind = "Design"; I18N_UP.fr.v_kind = "Design"; I18N_UP.en.v_desk = "Laptop"; I18N_UP.fr.v_desk = "Ordinateur"; I18N_UP.en.v_mob = "Phone"; I18N_UP.fr.v_mob = "Mobile";
+  I18N_UP.en.v_hint = "Scroll through the full homepage."; I18N_UP.fr.v_hint = "Faites défiler toute la page d'accueil.";
   Object.keys(I18N_UP).forEach(function (l) { Object.keys(I18N_UP[l]).forEach(function (k) { I18N[l][k] = I18N_UP[l][k]; }); });
   var NL = {};
   function initI18n() {
@@ -756,7 +847,7 @@
   }
   function init() {
     initVW();
-    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initStory(); initIntro(); initWork(); initFAQ(); initTilt(); initProcess(); initReveals(); initForm(); initPre();
+    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initStory(); initIntro(); initWork(); initFAQ(); initTilt(); initProcess(); initReveals(); initForm(); initViewer(); initPre();
     window.addEventListener("load", function () { ScrollTrigger.refresh(); });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
