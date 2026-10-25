@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=up2" />
+  <link rel="stylesheet" href="styles.css?v=up3" />
 </head>
 <body>
 
@@ -43,18 +43,44 @@
           <button type="button" data-lang="en">EN</button>
           <button type="button" data-lang="fr">FR</button>
         </div>
-        <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><span data-i18n="menu">Menu</span><i></i></button>
+        <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu openen"><span data-i18n="menu">Menu</span><i></i></button>
       </div>
     </div>
+    <span class="top__progress" aria-hidden="true"><i id="topProgress"></i></span>
   </header>
-  <div class="menu" id="menu" aria-hidden="true">
-    <button class="menu__close" id="menuClose" type="button" data-i18n="close">Sluiten</button>
-    <a href="#werk"><span data-i18n="nav_work">Werk</span></a>
-    <a href="#diensten"><span data-i18n="nav_services">Prijs</span></a>
-    <a href="#werkwijze"><span data-i18n="nav_process">Werkwijze</span></a>
-    <a href="#faq"><span data-i18n="nav_faq">FAQ</span></a>
-    <a href="#contact"><span data-i18n="nav_pricing">Gratis voorbeeld</span></a>
-    <div class="menu__foot"><a href="mailto:info@digital-impression.be">info@digital-impression.be</a><a href="tel:+32496251445">+32 496 25 14 45</a><a href="https://wa.me/32496251445" target="_blank" rel="noopener noreferrer">WhatsApp</a></div>
+  <div class="menu" id="menu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="menu__glow" aria-hidden="true"></div>
+    <div class="menu__top">
+      <a href="#hero" class="wordmark" aria-label="Digital Impression"><b>Digital</b><i>Impression</i></a>
+      <button class="menu__close" id="menuClose" type="button" aria-label="Menu sluiten"><i aria-hidden="true"></i></button>
+    </div>
+    <nav class="menu__nav" aria-label="Menu">
+      <a href="#werk"><small>01</small><span data-i18n="nav_work">Werk</span><i aria-hidden="true"></i></a>
+      <a href="#diensten"><small>02</small><span data-i18n="nav_services">Prijs</span><i aria-hidden="true"></i></a>
+      <a href="#werkwijze"><small>03</small><span data-i18n="nav_process">Werkwijze</span><i aria-hidden="true"></i></a>
+      <a href="#wie"><small>04</small><span data-i18n="nav_about">Over ons</span><i aria-hidden="true"></i></a>
+      <a href="#faq"><small>05</small><span data-i18n="nav_faq">FAQ</span><i aria-hidden="true"></i></a>
+    </nav>
+    <div class="menu__foot">
+      <a href="#contact" class="btn btn--gold menu__cta"><span data-i18n="cta_free">Vraag uw gratis voorbeeld</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="menu__quick">
+        <a href="tel:+32496251445" class="menu__pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span data-i18n="m_call">Bellen</span></a>
+        <a href="https://wa.me/32496251445" target="_blank" rel="noopener noreferrer" class="menu__pill"><svg viewBox="0 0 24 24" aria-hidden="true" class="ic-fill"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z"/></svg><span>WhatsApp</span></a>
+      </div>
+      <div class="menu__meta">
+        <a href="mailto:info@digital-impression.be">info@digital-impression.be</a>
+        <div class="lang lang--menu" role="group" aria-label="Taal">
+          <button type="button" data-lang="nl" class="is-on">NL</button>
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="fr">FR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dock" id="dock" aria-label="Snel contact">
+    <a href="https://wa.me/32496251445" target="_blank" rel="noopener noreferrer" class="dock__wa" aria-label="WhatsApp Stijn"><svg viewBox="0 0 24 24" aria-hidden="true" class="ic-fill"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z"/></svg></a>
+    <a href="#contact" class="dock__cta"><span data-i18n="cta_free">Vraag uw gratis voorbeeld</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 
   <main>
@@ -197,6 +223,16 @@
           <span class="case__sun" aria-hidden="true"></span>
           <figure class="case__voor"><div class="case__frame"><img src="assets/img/credo-voor.jpg" alt="De vroegere Wix-website van Credo" loading="lazy" /></div><figcaption data-i18n="cs_before">Vroeger · Wix-sjabloon</figcaption></figure>
           <figure class="case__na"><div class="case__frame"><img src="assets/img/site-credo.jpg" alt="De nieuwe website van Credo" loading="lazy" /></div><figcaption data-i18n="cs_after">Nu · op maat</figcaption></figure>
+          <div class="fl case__phone" data-depth="0.18"><div class="fl__bob"><div class="phone"><img src="assets/img/credo-after-m.jpg" alt="" loading="lazy" /></div></div></div>
+          <div class="fl case__book" data-depth="0.32" aria-hidden="true"><div class="fl__bob fl__bob--2">
+            <div class="mk mk--book">
+              <div class="mk__h"><b data-i18n="mk_book">Afspraak boeken</b><span>Credo</span></div>
+              <div class="mk__days"><span><small>ma</small>3</span><span class="on"><small>di</small>4</span><span><small>wo</small>5</span><span><small>do</small>6</span></div>
+              <div class="mk__slots"><span>09:00</span><span class="on">10:30</span><span>14:00</span><span class="off">16:30</span></div>
+              <div class="mk__ok"><i></i><span data-i18n="mk_booked">Bevestigd · di 4 om 10:30</span></div>
+            </div>
+          </div></div>
+          <div class="fl case__lang" data-depth="0.4" aria-hidden="true"><div class="fl__bob fl__bob--3"><span class="chip"><i class="chip__dot"></i>NL · EN · FR</span></div></div>
         </div>
         <div class="case__txt">
           <p class="case__who"><span class="case__dot" aria-hidden="true"></span><b>Credo Rehab &amp; Performance</b><span data-i18n="rv1_m">Kinesitherapie · Diepenbeek</span></p>
@@ -229,6 +265,15 @@
           <span class="scard__n" data-i18n="sv1_k">01 · Webdesign</span>
           <h3 class="scard__t" data-i18n="sv1_h">Uw website</h3>
           <span class="scard__prijs"><sup>€</sup>499</span>
+          <div class="fl scard__bon" data-depth="0.12" aria-hidden="true"><div class="fl__bob fl__bob--2">
+            <div class="mk mk--bon">
+              <div class="mk__h"><b data-i18n="mk_bill">Uw factuur</b><span>#2026-041</span></div>
+              <div class="mk__row"><span data-i18n="mk_dep">Voorschot</span><b>€ 0,00</b></div>
+              <div class="mk__row"><span data-i18n="mk_on">Bij oplevering</span><b>€ 499,00</b></div>
+              <div class="mk__row mk__row--tot"><span data-i18n="mk_tot">Totaal</span><b>€ 499,00</b></div>
+              <span class="mk__stamp" data-i18n="mk_stamp">Pas als u tevreden bent</span>
+            </div>
+          </div></div>
           <span class="scard__once" data-i18n="sv1_once">eenmalig, alles inbegrepen</span>
           <ul class="scard__list">
             <li data-i18n="sv1_l1">Ontworpen voor uw zaak, met uw eigen foto's en teksten</li>
@@ -274,14 +319,81 @@
         <p class="eyebrow" data-i18n="proc_eyebrow">Werkwijze</p>
         <h2 class="h-l" data-i18n="proc_title">Van gratis voorbeeld tot online, <em class="it">in vijf stappen.</em></h2>
         <span class="proc__big" id="procBig" aria-hidden="true"><span>0</span><span class="proc__roll"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></span></span>
+        <div class="proc__stage" id="procStage" aria-hidden="true">
+          <div class="pmock is-on"><div class="mk mk--mail">
+  <div class="mk__bar"><span class="mk__av">S</span><div><b>Stijn Vranken</b><small data-i18n="mk_m_sub">Uw voorbeeldsite is klaar</small></div><time>09:12</time></div>
+  <div class="mk__mail"><div class="mk__thumb"><img src="assets/img/m-salon.jpg" alt="" loading="lazy" /></div><div><p data-i18n="mk_m_p">Zoals beloofd: uw nieuwe homepagina, met uw eigen foto's.</p><span class="mk__link">demo-uwzaak.digital-impression.be</span></div></div>
+  <span class="mk__badge" data-i18n="mk_new">Nieuw</span>
+</div></div>
+          <div class="pmock"><div class="mk mk--review">
+  <div class="mk__browser"><i></i><i></i><i></i><span>demo-uwzaak</span></div>
+  <div class="mk__shot"><img src="assets/img/site-fitness.jpg" alt="" loading="lazy" /></div>
+  <div class="mk__pin mk__pin--a"><span class="mk__av mk__av--you">U</span><p data-i18n="mk_r1">Kan deze foto van onze studio?</p></div>
+  <div class="mk__pin mk__pin--b"><span class="mk__av">S</span><p data-i18n="mk_r2">Komt in orde, morgen staat ze erop.</p></div>
+</div></div>
+          <div class="pmock"><div class="mk mk--list">
+  <div class="mk__h"><b data-i18n="mk_l_h">Aanpassingen</b><span>3/3</span></div>
+  <ul>
+    <li><i></i><span data-i18n="mk_l1">Foto bovenaan vervangen</span></li>
+    <li><i></i><span data-i18n="mk_l2">Prijslijst toegevoegd</span></li>
+    <li><i></i><span data-i18n="mk_l3">Openingsuren juist gezet</span></li>
+  </ul>
+  <div class="mk__prog"><i></i></div>
+</div></div>
+          <div class="pmock"><div class="mk mk--live">
+  <div class="mk__url"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="4" y="9" width="12" height="8" rx="2"/><path d="M7 9V7a3 3 0 0 1 6 0v2" fill="none"/></svg>www.uwzaak<em>.be</em><span class="mk__on">Online</span></div>
+  <div class="mk__serp">
+    <small>uwzaak.be</small>
+    <b data-i18n="mk_g_t">Uw Zaak · Gemeente</b>
+    <p data-i18n="mk_g_p">Openingsuren, prijzen en meteen een afspraak maken. Bekijk ons werk en neem contact op.</p>
+  </div>
+  <div class="mk__devices"><span data-i18n="mk_gsm">Gsm</span><span>Tablet</span><span>Laptop</span></div>
+</div></div>
+          <div class="pmock"><div class="mk mk--chat">
+  <div class="mk__chat-h"><span class="mk__av">S</span><div><b>Stijn</b><small>WhatsApp</small></div></div>
+  <div class="mk__msg mk__msg--in" data-i18n="mk_c1">Kunnen de openingsuren voor de feestdagen erop?</div>
+  <div class="mk__msg mk__msg--out"><span data-i18n="mk_c2">Staan erop. Bekijk maar even.</span><small>14:02 ✓✓</small></div>
+  <span class="chip chip--gold" data-i18n="mk_c3">Zorgeloos · € 19,99 per maand</span>
+</div></div>
+        </div>
       </div>
       <ol class="proc__steps" id="procSteps">
         <li class="proc__rail" aria-hidden="true"><i id="procFill"></i></li>
-        <li class="pstep is-on"><span class="pstep__badge" data-i18n="p1_b">Gratis · binnen 5 werkdagen</span><span class="pstep__k" data-i18n="p1_k">Stap 01</span><h3 data-i18n="p1_t">Gratis voorbeeld</h3><p data-i18n="p1_p">We maken een voorbeeld van uw nieuwe homepagina, met de foto's, teksten en reviews van uw zaak. U hoeft niets in te vullen of uit te leggen.</p></li>
-        <li class="pstep"><span class="pstep__k" data-i18n="p2_k">Stap 02</span><h3 data-i18n="p2_t">U kijkt en beslist</h3><p data-i18n="p2_p">Overtuigt het? Dan gaan we verder. Vindt u het niets, dan stopt het daar, zonder kosten en zonder verplichting.</p></li>
-        <li class="pstep"><span class="pstep__k" data-i18n="p3_k">Stap 03</span><h3 data-i18n="p3_t">Samen afwerken</h3><p data-i18n="p3_p">U zegt wat anders moet: foto's, teksten, kleuren, prijslijst. We passen aan tot het klopt, op gsm en op laptop.</p></li>
-        <li class="pstep"><span class="pstep__k" data-i18n="p4_k">Stap 04</span><h3 data-i18n="p4_t">Online</h3><p data-i18n="p4_p">Binnen tien tot veertien dagen staat uw site op uw eigen domein. U betaalt pas als hij klaar is en u tevreden bent.</p></li>
-        <li class="pstep"><span class="pstep__k" data-i18n="p5_k">Stap 05</span><h3 data-i18n="p5_t">Nazorg</h3><p data-i18n="p5_p">Zelf beheren, of zorgeloos voor € 19,99 per maand. U blijft bij dezelfde persoon.</p></li>
+        <li class="pstep is-on"><span class="pstep__badge" data-i18n="p1_b">Gratis · binnen 5 werkdagen</span><span class="pstep__k" data-i18n="p1_k">Stap 01</span><h3 data-i18n="p1_t">Gratis voorbeeld</h3><p data-i18n="p1_p">We maken een voorbeeld van uw nieuwe homepagina, met de foto's, teksten en reviews van uw zaak. U hoeft niets in te vullen of uit te leggen.</p><div class="pstep__mock" aria-hidden="true"><div class="mk mk--mail">
+  <div class="mk__bar"><span class="mk__av">S</span><div><b>Stijn Vranken</b><small data-i18n="mk_m_sub">Uw voorbeeldsite is klaar</small></div><time>09:12</time></div>
+  <div class="mk__mail"><div class="mk__thumb"><img src="assets/img/m-salon.jpg" alt="" loading="lazy" /></div><div><p data-i18n="mk_m_p">Zoals beloofd: uw nieuwe homepagina, met uw eigen foto's.</p><span class="mk__link">demo-uwzaak.digital-impression.be</span></div></div>
+  <span class="mk__badge" data-i18n="mk_new">Nieuw</span>
+</div></div></li>
+        <li class="pstep"><span class="pstep__k" data-i18n="p2_k">Stap 02</span><h3 data-i18n="p2_t">U kijkt en beslist</h3><p data-i18n="p2_p">Overtuigt het? Dan gaan we verder. Vindt u het niets, dan stopt het daar, zonder kosten en zonder verplichting.</p><div class="pstep__mock" aria-hidden="true"><div class="mk mk--review">
+  <div class="mk__browser"><i></i><i></i><i></i><span>demo-uwzaak</span></div>
+  <div class="mk__shot"><img src="assets/img/site-fitness.jpg" alt="" loading="lazy" /></div>
+  <div class="mk__pin mk__pin--a"><span class="mk__av mk__av--you">U</span><p data-i18n="mk_r1">Kan deze foto van onze studio?</p></div>
+  <div class="mk__pin mk__pin--b"><span class="mk__av">S</span><p data-i18n="mk_r2">Komt in orde, morgen staat ze erop.</p></div>
+</div></div></li>
+        <li class="pstep"><span class="pstep__k" data-i18n="p3_k">Stap 03</span><h3 data-i18n="p3_t">Samen afwerken</h3><p data-i18n="p3_p">U zegt wat anders moet: foto's, teksten, kleuren, prijslijst. We passen aan tot het klopt, op gsm en op laptop.</p><div class="pstep__mock" aria-hidden="true"><div class="mk mk--list">
+  <div class="mk__h"><b data-i18n="mk_l_h">Aanpassingen</b><span>3/3</span></div>
+  <ul>
+    <li><i></i><span data-i18n="mk_l1">Foto bovenaan vervangen</span></li>
+    <li><i></i><span data-i18n="mk_l2">Prijslijst toegevoegd</span></li>
+    <li><i></i><span data-i18n="mk_l3">Openingsuren juist gezet</span></li>
+  </ul>
+  <div class="mk__prog"><i></i></div>
+</div></div></li>
+        <li class="pstep"><span class="pstep__k" data-i18n="p4_k">Stap 04</span><h3 data-i18n="p4_t">Online</h3><p data-i18n="p4_p">Binnen tien tot veertien dagen staat uw site op uw eigen domein. U betaalt pas als hij klaar is en u tevreden bent.</p><div class="pstep__mock" aria-hidden="true"><div class="mk mk--live">
+  <div class="mk__url"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="4" y="9" width="12" height="8" rx="2"/><path d="M7 9V7a3 3 0 0 1 6 0v2" fill="none"/></svg>www.uwzaak<em>.be</em><span class="mk__on">Online</span></div>
+  <div class="mk__serp">
+    <small>uwzaak.be</small>
+    <b data-i18n="mk_g_t">Uw Zaak · Gemeente</b>
+    <p data-i18n="mk_g_p">Openingsuren, prijzen en meteen een afspraak maken. Bekijk ons werk en neem contact op.</p>
+  </div>
+  <div class="mk__devices"><span data-i18n="mk_gsm">Gsm</span><span>Tablet</span><span>Laptop</span></div>
+</div></div></li>
+        <li class="pstep"><span class="pstep__k" data-i18n="p5_k">Stap 05</span><h3 data-i18n="p5_t">Nazorg</h3><p data-i18n="p5_p">Zelf beheren, of zorgeloos voor € 19,99 per maand. U blijft bij dezelfde persoon.</p><div class="pstep__mock" aria-hidden="true"><div class="mk mk--chat">
+  <div class="mk__chat-h"><span class="mk__av">S</span><div><b>Stijn</b><small>WhatsApp</small></div></div>
+  <div class="mk__msg mk__msg--in" data-i18n="mk_c1">Kunnen de openingsuren voor de feestdagen erop?</div>
+  <div class="mk__msg mk__msg--out"><span data-i18n="mk_c2">Staan erop. Bekijk maar even.</span><small>14:02 ✓✓</small></div>
+  <span class="chip chip--gold" data-i18n="mk_c3">Zorgeloos · € 19,99 per maand</span>
+</div></div></li>
       </ol>
     </section>
 
@@ -289,6 +401,11 @@
     <section class="band" aria-labelledby="bandTitle" data-theme="dark">
       <div class="band__in">
         <h2 class="band__t" id="bandTitle" data-i18n="band_t">Benieuwd hoe <em>uw</em> website eruit kan zien?</h2>
+        <div class="band__phones" aria-hidden="true">
+          <div class="fl" data-depth="0.25"><div class="fl__bob"><div class="phone"><img src="assets/img/m-salon.jpg" alt="" loading="lazy" /></div></div></div>
+          <div class="fl" data-depth="0.45"><div class="fl__bob fl__bob--2"><div class="phone"><img src="assets/img/m-fitness.jpg" alt="" loading="lazy" /></div></div></div>
+          <div class="fl" data-depth="0.15"><div class="fl__bob fl__bob--3"><div class="phone"><img src="assets/img/m-bnb.jpg" alt="" loading="lazy" /></div></div></div>
+        </div>
         <div class="band__acts">
           <a href="#contact" class="btn btn--dark" data-magnet><span data-i18n="cta_free">Vraag uw gratis voorbeeld</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a href="https://wa.me/32496251445" class="band__wa" target="_blank" rel="noopener noreferrer"><span data-i18n="band_wa">of stuur een WhatsApp</span></a>
@@ -312,6 +429,9 @@
       <figure class="portret">
         <span class="portret__ring" aria-hidden="true"></span>
         <div class="portret__arch"><span class="portret__mono" aria-hidden="true">S<i>V</i></span></div>
+        <div class="fl portret__chip portret__chip--a" data-depth="0.3" aria-hidden="true"><div class="fl__bob"><span class="chip"><svg viewBox="0 0 24 24"><path d="M4 20l4-1 10-10-3-3L5 16l-1 4zM14 6l3 3"/></svg><span data-i18n="ch_design">Ontwerp</span></span></div></div>
+        <div class="fl portret__chip portret__chip--b" data-depth="0.5" aria-hidden="true"><div class="fl__bob fl__bob--2"><span class="chip"><svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg><span data-i18n="ch_build">Bouw</span></span></div></div>
+        <div class="fl portret__chip portret__chip--c" data-depth="0.22" aria-hidden="true"><div class="fl__bob fl__bob--3"><span class="chip"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span data-i18n="ch_care">Nazorg</span></span></div></div>
         <figcaption class="portret__cap"><b>Stijn Vranken</b><span data-i18n="ab_place">Limburg · België</span></figcaption>
       </figure>
     </section>
@@ -429,6 +549,6 @@
   <script src="assets/vendor/gsap.min.js"></script>
   <script src="assets/vendor/ScrollTrigger.min.js"></script>
   <script src="assets/vendor/lenis.min.js"></script>
-  <script src="script.js?v=up2"></script>
+  <script src="script.js?v=up3"></script>
 </body>
 </html>

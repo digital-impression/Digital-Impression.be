@@ -341,12 +341,39 @@
   }
 
   /* ---------------- menu ---------------- */
-  function closeMenu() { var m = $("#menu"); if (m && m.classList.contains("is-open")) { m.classList.remove("is-open"); m.setAttribute("aria-hidden", "true"); $("#menuBtn").setAttribute("aria-expanded", "false"); if (lenis) lenis.start(); } }
+  var menuLast = null;
+  function closeMenu() {
+    var m = $("#menu"); if (!m || !m.classList.contains("is-open")) return;
+    m.classList.remove("is-open"); m.setAttribute("aria-hidden", "true");
+    var b = $("#menuBtn"); b.setAttribute("aria-expanded", "false"); b.classList.remove("is-x");
+    document.documentElement.classList.remove("menu-open");
+    if (lenis) lenis.start();
+    if (menuLast && menuLast.focus) menuLast.focus({ preventScroll: true });
+  }
   function initMenu() {
     var m = $("#menu"), b = $("#menuBtn"), c = $("#menuClose");
-    b.addEventListener("click", function () { m.classList.add("is-open"); m.setAttribute("aria-hidden", "false"); b.setAttribute("aria-expanded", "true"); if (lenis) lenis.stop(); });
+    function open() {
+      menuLast = document.activeElement;
+      m.classList.add("is-open"); m.setAttribute("aria-hidden", "false"); b.setAttribute("aria-expanded", "true"); b.classList.add("is-x");
+      document.documentElement.classList.add("menu-open");
+      if (lenis) lenis.stop();
+      if (!REDUCED) {
+        gsap.fromTo($$(".menu__nav a", m), { yPercent: 60, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.9, stagger: 0.06, ease: "expo.out", delay: 0.15 });
+        gsap.fromTo($$(".menu__foot > *", m), { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.07, ease: "expo.out", delay: 0.4 });
+      }
+      // huidige sectie markeren
+      var y = window.scrollY + window.innerHeight * 0.4;
+      $$(".menu__nav a", m).forEach(function (a) { var t = $(a.getAttribute("href")); var on = t && t.offsetTop <= y && t.offsetTop + t.offsetHeight > y; a.classList.toggle("is-here", !!on); });
+      setTimeout(function () { c.focus({ preventScroll: true }); }, 60);
+    }
+    b.addEventListener("click", function () { if (m.classList.contains("is-open")) closeMenu(); else open(); });
     c.addEventListener("click", closeMenu);
     $$("a", m).forEach(function (a) { a.addEventListener("click", closeMenu); });
+    document.addEventListener("keydown", function (e) {
+      if (!m.classList.contains("is-open")) return;
+      if (e.key === "Escape") closeMenu();
+      if (e.key === "Tab") { var f = $$("a, button", m).filter(function (x) { return x.offsetParent; }); var a0 = f[0], z = f[f.length - 1]; if (e.shiftKey && document.activeElement === a0) { e.preventDefault(); z.focus(); } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a0.focus(); } }
+    });
   }
 
   /* ---------------- intro: two lines + three USPs, pinned ---------------- */
@@ -438,6 +465,7 @@
       if (i === cur) return; cur = i;
       if (roll) gsap.to(roll, { yPercent: -100 * i / steps.length, duration: 0.9, ease: "expo.out" }); else big.textContent = "0" + (i + 1);
       steps.forEach(function (o, k) { o.classList.toggle("is-on", k === i); o.classList.toggle("is-past", k < i); });
+      $$("#procStage .pmock").forEach(function (o, k) { o.classList.toggle("is-on", k === i); o.classList.toggle("is-past", k < i); });
     }
     setStep(0);
     ScrollTrigger.create({ trigger: list, start: "top 62%", end: "bottom 45%", onUpdate: function (st) { setStep(Math.min(steps.length - 1, Math.floor(st.progress * steps.length))); }, onLeave: function () { setStep(steps.length - 1); }, onLeaveBack: function () { setStep(0); } });
@@ -484,6 +512,40 @@
     $$(".case__txt, .band__acts").forEach(function (el) { gsap.from(el, { opacity: 0, y: 34, duration: 1.1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%", once: true } }); });
     $$(".quote, .scard").forEach(function (el, i) { gsap.from(el, { opacity: 0, y: 30, duration: 0.9, delay: (i % 4) * 0.08, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 90%", once: true } }); });
     gsap.from(".footer__big", { yPercent: 40, opacity: 0, duration: 1.2, ease: "power4.out", scrollTrigger: { trigger: ".footer", start: "top 90%", once: true } });
+  }
+
+  /* ---------------- diepte: zwevende objecten ---------------- */
+  function initDepth() {
+    if (REDUCED) return;
+    $$("[data-depth]").forEach(function (el) {
+      var d = parseFloat(el.getAttribute("data-depth")) || 0.2, sec = el.closest("section") || el.parentNode;
+      gsap.fromTo(el, { y: d * 160 }, { y: -d * 160, ease: "none", scrollTrigger: { trigger: sec, start: "top bottom", end: "bottom top", scrub: 0.6 } });
+    });
+    if (FINE) {
+      $$(".case__vis, .portret, .band__in").forEach(function (box) {
+        var items = $$("[data-depth]", box);
+        box.addEventListener("mousemove", function (e) {
+          var r = box.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - 0.5, py = (e.clientY - r.top) / r.height - 0.5;
+          items.forEach(function (it) { var d = parseFloat(it.getAttribute("data-depth")) || 0.2; gsap.to($(".fl__bob", it) || it, { x: -px * d * 60, rotateY: px * d * 14, rotateX: -py * d * 10, duration: 1, ease: "power3.out" }); });
+        });
+        box.addEventListener("mouseleave", function () { items.forEach(function (it) { gsap.to($(".fl__bob", it) || it, { x: 0, rotateY: 0, rotateX: 0, duration: 1.2, ease: "power3.out" }); }); });
+      });
+    }
+  }
+
+  function initDock() {
+    var dock = $("#dock"), bar = $("#topProgress"), hero = $("#hero"), contact = $("#contact"), foot = $(".footer");
+    function tick() {
+      var sy = window.scrollY, vh = window.innerHeight, max = document.documentElement.scrollHeight - vh;
+      if (bar) bar.style.transform = "scaleX(" + (max > 0 ? Math.min(1, sy / max) : 0) + ")";
+      if (!dock) return;
+      var past = hero ? sy > hero.offsetHeight * 0.6 : sy > 400;
+      var near = contact && contact.getBoundingClientRect().top < vh * 0.85;
+      var busy = document.documentElement.classList.contains("menu-open") || document.documentElement.classList.contains("viewer-open");
+      var on = past && !near && !busy; dock.classList.toggle("is-on", on); document.documentElement.classList.toggle("dock-on", on);
+    }
+    window.addEventListener("scroll", tick, { passive: true }); window.addEventListener("resize", tick); if (lenis) lenis.on("scroll", tick); tick();
+    var mo = new MutationObserver(tick); mo.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
   }
 
   /* ---------------- ontwerp-venster ---------------- */
@@ -818,13 +880,26 @@
   I18N_UP.en.c_person = "Your request goes straight to Stijn. You get a personal reply, not an automatic email."; I18N_UP.fr.c_person = "Votre demande arrive directement chez Stijn. Vous recevez une réponse personnelle, pas un e-mail automatique.";
   I18N_UP.en.v_kind = "Design"; I18N_UP.fr.v_kind = "Design"; I18N_UP.en.v_desk = "Laptop"; I18N_UP.fr.v_desk = "Ordinateur"; I18N_UP.en.v_mob = "Phone"; I18N_UP.fr.v_mob = "Mobile";
   I18N_UP.en.v_hint = "Scroll through the full homepage."; I18N_UP.fr.v_hint = "Faites défiler toute la page d'accueil.";
+  (function () {
+    var T = {
+      m_call: ["Call", "Appeler"], mk_book: ["Book an appointment", "Prendre rendez-vous"], mk_booked: ["Confirmed · Tue 4 at 10:30", "Confirmé · mar 4 à 10h30"],
+      mk_bill: ["Your invoice", "Votre facture"], mk_dep: ["Deposit", "Acompte"], mk_on: ["On delivery", "À la livraison"], mk_tot: ["Total", "Total"], mk_stamp: ["Only when you are happy", "Seulement si vous êtes satisfait"],
+      mk_m_sub: ["Your example site is ready", "Votre site d'exemple est prêt"], mk_m_p: ["As promised: your new homepage, with your own photos.", "Comme promis : votre nouvelle page d'accueil, avec vos propres photos."], mk_new: ["New", "Nouveau"],
+      mk_r1: ["Could you use this photo of our studio?", "Vous pouvez mettre cette photo de notre studio ?"], mk_r2: ["Sure, it will be there tomorrow.", "Bien sûr, elle sera en ligne demain."],
+      mk_l_h: ["Changes", "Modifications"], mk_l1: ["Top photo replaced", "Photo principale remplacée"], mk_l2: ["Price list added", "Tarifs ajoutés"], mk_l3: ["Opening hours corrected", "Horaires corrigés"],
+      mk_g_t: ["Your Business · Town", "Votre entreprise · Commune"], mk_g_p: ["Opening hours, prices and booking right away. See our work and get in touch.", "Horaires, prix et prise de rendez-vous immédiate. Découvrez notre travail et contactez-nous."], mk_gsm: ["Phone", "Mobile"],
+      mk_c1: ["Can you add the holiday opening hours?", "Vous pouvez ajouter les horaires des fêtes ?"], mk_c2: ["Done. Have a look.", "C'est fait. Jetez un œil."], mk_c3: ["Carefree · €19.99 a month", "Sans souci · 19,99 € par mois"],
+      ch_design: ["Design", "Design"], ch_build: ["Build", "Développement"], ch_care: ["Aftercare", "Suivi"]
+    };
+    Object.keys(T).forEach(function (k) { I18N_UP.en[k] = T[k][0]; I18N_UP.fr[k] = T[k][1]; });
+  })();
   Object.keys(I18N_UP).forEach(function (l) { Object.keys(I18N_UP[l]).forEach(function (k) { I18N[l][k] = I18N_UP[l][k]; }); });
   var NL = {};
   function initI18n() {
     $$("[data-i18n]").forEach(function (el) { var k = el.getAttribute("data-i18n"); if (!(k in NL)) NL[k] = el.innerHTML; });
     $$("[data-i18n-ph]").forEach(function (el) { var k = el.getAttribute("data-i18n-ph"); if (!(k in NL)) NL[k] = el.getAttribute("placeholder"); });
     NL.meta_title = document.title;
-    $("#lang").addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) applyLang(b.getAttribute("data-lang")); });
+    $$(".lang").forEach(function (g) { g.addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) applyLang(b.getAttribute("data-lang")); }); });
     var saved = null; try { saved = localStorage.getItem("di_lang"); } catch (e) {}
     if (saved && saved !== "nl" && I18N[saved]) applyLang(saved, true);
   }
@@ -833,7 +908,7 @@
     $$("[data-i18n]").forEach(function (el) { var k = el.getAttribute("data-i18n"); var v = d ? d[k] : NL[k]; if (v != null) el.innerHTML = v; });
     $$("[data-i18n-ph]").forEach(function (el) { var k = el.getAttribute("data-i18n-ph"); var v = d ? d[k] : NL[k]; if (v != null) el.setAttribute("placeholder", v); });
     document.title = (d && d.meta_title) || NL.meta_title; document.documentElement.lang = l;
-    $$("#lang button").forEach(function (b) { b.classList.toggle("is-on", b.getAttribute("data-lang") === l); });
+    $$(".lang button").forEach(function (b) { b.classList.toggle("is-on", b.getAttribute("data-lang") === l); });
     // statement words were wrapped: rewrap
     initIntro(); initStory();
     try { localStorage.setItem("di_lang", l); } catch (e) {}
@@ -847,7 +922,7 @@
   }
   function init() {
     initVW();
-    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initStory(); initIntro(); initWork(); initFAQ(); initTilt(); initProcess(); initReveals(); initForm(); initViewer(); initPre();
+    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initStory(); initIntro(); initWork(); initFAQ(); initTilt(); initProcess(); initReveals(); initForm(); initViewer(); initDepth(); initDock(); initPre();
     window.addEventListener("load", function () { ScrollTrigger.refresh(); });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
