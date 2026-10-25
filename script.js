@@ -1,4 +1,4 @@
-/* Digital Impression v3 · immersive */
+/* Digital Impression v3 · immersive (upgrade 10/2026) */
 (function () {
   "use strict";
   var REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -30,7 +30,7 @@
   /* ---------------- preloader ---------------- */
   function initPre() {
     var pre = $("#pre"), num = $("#preNum"), bar = $("#preBar");
-    if (!pre) return;
+    if (!pre) { heroIn(); return; }
     if (REDUCED) { pre.remove(); heroIn(); return; }
     document.documentElement.classList.add("lenis-stopped");
     var o = { v: 0 };
@@ -50,8 +50,9 @@
       { x: 0, y: 0, scale: 1, rotation: 0, opacity: 1, filter: "blur(0px)", duration: 1.7, stagger: { each: 0.045, from: "center" }, ease: "expo.out", clearProps: "filter" }, 0.1)
       .fromTo("#brandTag .bw", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1.2, stagger: 0.09, ease: "expo.out" }, 1.25)
       .fromTo("#brandTag", { "--ul": 0 }, { "--ul": 1, duration: 0.9, ease: "power3.inOut" }, 2.1)
-      .add(function () { hero.classList.add("is-loaded-ui"); heroPlayed = true; }, 1.4);
-    if (REDUCED) { tl.progress(1); hero.classList.add("is-loaded-ui"); gsap.set("#brandTag .bw", { opacity: 1 }); }
+      .add(function () { hero.classList.add("is-loaded-ui"); heroPlayed = true; }, 1.4)
+      .fromTo(".brand__sub, .brand__cta, .brand__facts", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 1, stagger: 0.12, ease: "expo.out" }, 1.55);
+    if (REDUCED) { tl.progress(1); hero.classList.add("is-loaded-ui"); gsap.set("#brandTag .bw, .brand__sub, .brand__cta, .brand__facts", { opacity: 1, y: 0 }); }
     if (window.__glEnter) window.__glEnter();
   }
 
@@ -68,11 +69,11 @@
     cam.position.set(0, 0, 6);
     var loader = new THREE.TextureLoader();
     var SITES = [
-      { src: "site-fleetreview", name: "Fleetreview", kind: { nl: "Software · concept", en: "Software · concept", fr: "Logiciel · concept" }, panel: 4 },
-      { src: "site-noor", name: "NOOR architecten", kind: { nl: "Architectuur · concept", en: "Architecture · concept", fr: "Architecture · concept" }, panel: 5 },
+      { src: "site-salon", name: "Studio Elin", kind: { nl: "Schoonheidssalon · voorbeeld", en: "Beauty salon · example", fr: "Institut de beauté · exemple" }, panel: 2 },
+      { src: "site-fitness", name: "Studio Kern", kind: { nl: "Fitnessstudio · voorbeeld", en: "Fitness studio · example", fr: "Salle de fitness · exemple" }, panel: 3 },
       { src: "site-credo", name: "Credo Rehab & Performance", kind: { nl: "Kinesitherapie · live", en: "Physio · live", fr: "Kiné · en ligne" }, panel: 1, live: "https://www.credorehabandperformance.com" },
-      { src: "site-simonta", name: "Simonta", kind: { nl: "B2B groothandel · herontwerp", en: "B2B wholesale · redesign", fr: "Commerce de gros · refonte" }, panel: 2 },
-      { src: "site-mergel", name: "Mergelgrotten Zichen", kind: { nl: "Toerisme · herontwerp", en: "Tourism · redesign", fr: "Tourisme · refonte" }, panel: 3 }
+      { src: "site-bnb", name: "Hoeve Kersengaard", kind: { nl: "B&B · voorbeeld", en: "B&B · example", fr: "Chambres d'hôtes · exemple" }, panel: 4 },
+      { src: "site-boekhouder", name: "Accountancy Verhaeghe", kind: { nl: "Boekhouder · voorbeeld", en: "Accountant · example", fr: "Comptable · exemple" }, panel: 5 }
     ];
     var cards = [], group = new THREE.Group(); scene.add(group);
     var rnd = function (a, b) { return a + Math.random() * (b - a); };
@@ -447,6 +448,7 @@
       if (el.closest(".hero")) return;
       gsap.from(el, { opacity: 0, y: 24, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 90%", once: true } });
     });
+    $$(".case__vis, .case__txt, .band__in").forEach(function (el) { gsap.from(el, { opacity: 0, y: 34, duration: 1.1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%", once: true } }); });
     $$(".quote, .scard").forEach(function (el, i) { gsap.from(el, { opacity: 0, y: 30, duration: 0.9, delay: (i % 4) * 0.08, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 90%", once: true } }); });
     gsap.from(".footer__big", { yPercent: 40, opacity: 0, duration: 1.2, ease: "power4.out", scrollTrigger: { trigger: ".footer", start: "top 90%", once: true } });
   }
@@ -649,6 +651,85 @@
       o1_t: "Site d'entreprise", o1_s: "Inspirer confiance et générer des demandes.", o2_t: "Boutique en ligne", o2_s: "Vendre pendant que vous dormez, sans tracas à la caisse.", o3_t: "Refonte", o3_s: "Même contenu, impression entièrement nouvelle. Voyez Credo.", o4_t: "Landing page", o4_s: "Une page, un objectif, pour campagnes et actions.", o4_p: "sur mesure"
     }
   };
+  var I18N_UP = {
+    en: {
+      nav_services: "Pricing", nav_pricing: "Free example",
+      hero_sub: "Bespoke for freelancers and small businesses in Belgium and the Netherlands. First you see a free example with your own photos.",
+      cta_free: "Request your free example", cta_work: "See our work", hf1: "€499, all included", hf2: "No deposit", hf3: "Online within two weeks",
+      work_note: "Credo is a client. The sector examples show what we can make for your business, with fictional names.",
+      w1_before: "Before · Wix template",
+      w2_tag: "Example · salon", w2_who: "Example site for a beauty salon with three specialists.", w2_what: "Treatments with price and duration. Clients put together their own appointment and pick a time.",
+      w3_tag: "Example · fitness", w3_who: "Example site for a fitness studio with small groups and personal training.", w3_what: "Coaches with a face, a class schedule with open spots and a free trial class in three taps.",
+      w4_tag: "Example · B&B", w4_who: "Example site for a B&B in an old square farmstead among the fruit trees.", w4_what: "Availability per night and direct booking, without a booking platform's commission.",
+      w5_tag: "Example · accountant", w5_who: "Example site for a family accounting firm.", w5_what: "Calm and reliable: services per type of client, familiar faces and booking an introduction right away.",
+      w6_tag: "Redesign", w6_who: "Wholesaler of fresh carrots from Haspengouw, on the road to all of Europe every day.", w6_what: "Proposal for a new homepage: the field in an arch, the product up front, numbers that build trust.",
+      cs_before: "Before · Wix template", cs_after: "Now · bespoke",
+      cs_t: "From a template like all the others to a site that sounds like their practice.",
+      cs_1: "languages: Dutch, English and French", cs_2: "patients book an appointment online themselves", cs_3: "templates: black and white and direct, like the practice itself", cs_next: "Your business next? Start for free",
+      sv_eyebrow: "Services &amp; pricing", sv_title: "One price, <em class=\"it\">everything included.</em>",
+      sv_lead: "Already received an example site from us? This is the same offer. No deposit: you pay once the site is finished.",
+      sv1_k: "01 · Web design", sv1_h: "Your website", sv1_once: "one-off, all included",
+      sv1_l1: "Designed for your business, with your own photos and texts", sv1_l2: "Perfect on phone, tablet and laptop", sv1_l3: "Enquiries land straight in your inbox", sv1_l4: "Findable on Google with your name and town",
+      sv4_t: "Maintenance &amp; hosting", sv4_p: "Manage it yourself for €0, or carefree: hosting, domain and small changes taken care of.", sv4_k: "per month",
+      sv2_t: "Webshop &amp; custom work", sv2_p: "Sell online, take payments or connect with what you already use. Fixed price up front.", sv_more2: "More about webshops",
+      sv3_p: "The technical basis so Google finds you: fast, well structured, locally visible.",
+      proc_title: "From free example to online, <em class=\"it\">in five steps.</em>",
+      p1_t: "Free example", p1_p: "We make an example of your new homepage with the photos, texts and reviews of your business. You don't need to fill in or explain anything.",
+      p2_t: "You look and decide", p2_p: "Convinced? Then we continue. Not for you? Then it stops there, at no cost and with no obligation.",
+      p3_t: "Finishing it together", p3_p: "You tell us what should change: photos, texts, colours, price list. We adjust until it is right, on phone and laptop.",
+      p4_t: "Online", p4_p: "Within ten to fourteen days your site is live on your own domain. You pay only once it is finished and you are happy.",
+      p5_t: "Aftercare", p5_p: "Manage it yourself, or carefree for €19.99 a month. You stay with the same person.",
+      band_t: "Curious what <em>your</em> website could look like?", band_wa: "or send a WhatsApp", ab_call: "Call Stijn: +32 496 25 14 45",
+      fq1_a: "Your website costs €499, one-off and all included. Afterwards you choose: manage it yourself for €0, or carefree for €19.99 a month. A webshop or custom work starts at €1,899, with a fixed price up front.",
+      fq2_a: "You see the free example within five working days. After your go-ahead your site is usually online within ten to fourteen days.",
+      fq4_a: "With carefree (€19.99 a month) hosting and domain are included and we put new photos, prices or opening hours online for you. If you manage it yourself, hosting and domain are in your name.",
+      fq5_q: "What if I don't like the example?", fq5_a: "Then it stops there, at no cost. The example is free and you pay no deposit. You decide only after you have seen it.",
+      c_eyebrow: "Free example", c_title: "See your new website <em class=\"it\">before you decide.</em>",
+      c_lead: "Tell us briefly about your business, or just share your website or Instagram. Within five working days you receive an example with your own photos. No obligation, no deposit.",
+      f_site: "Current website or Instagram (optional)", f_site_ph: "www.yourcompany.com or @yourbusiness", cta_design: "Request your free example",
+      f_ok_p: "You will hear from us soon. Within five working days you receive an example of your new website, without obligation.",
+      foot_tag: "Web design from Limburg. Bespoke websites for freelancers and small businesses in Belgium and the Netherlands.", foot_cta: "Request your free example"
+    },
+    fr: {
+      nav_services: "Tarifs", nav_pricing: "Exemple gratuit",
+      hero_sub: "Sur mesure pour les indépendants et les PME en Belgique et aux Pays-Bas. Vous voyez d'abord un exemple gratuit avec vos propres photos.",
+      cta_free: "Demandez votre exemple gratuit", cta_work: "Voir nos réalisations", hf1: "499 €, tout compris", hf2: "Sans acompte", hf3: "En ligne en deux semaines",
+      work_note: "Credo est un client. Les exemples par secteur montrent ce que nous pouvons créer pour votre entreprise, avec des noms fictifs.",
+      w1_before: "Avant · modèle Wix",
+      w2_tag: "Exemple · institut", w2_who: "Site d'exemple pour un institut de beauté avec trois spécialistes.", w2_what: "Soins avec prix et durée. Les clients composent eux-mêmes leur rendez-vous et choisissent un moment.",
+      w3_tag: "Exemple · fitness", w3_who: "Site d'exemple pour une salle de fitness avec petits groupes et coaching personnel.", w3_what: "Des coachs avec un visage, un planning avec les places libres et une séance d'essai gratuite en trois clics.",
+      w4_tag: "Exemple · chambres d'hôtes", w4_who: "Site d'exemple pour des chambres d'hôtes dans une ferme carrée entourée de vergers.", w4_what: "Disponibilité par nuit et réservation directe, sans commission d'une plateforme de réservation.",
+      w5_tag: "Exemple · comptable", w5_who: "Site d'exemple pour un cabinet comptable familial.", w5_what: "Calme et fiable : services par type de client, des visages connus et un premier rendez-vous en un clic.",
+      w6_tag: "Refonte", w6_who: "Grossiste en carottes fraîches de Hesbaye, chaque jour en route vers toute l'Europe.", w6_what: "Proposition de nouvelle page d'accueil : le champ dans une arche, le produit en avant, des chiffres qui rassurent.",
+      cs_before: "Avant · modèle Wix", cs_after: "Maintenant · sur mesure",
+      cs_t: "D'un modèle comme tous les autres à un site qui ressemble à leur cabinet.",
+      cs_1: "langues : néerlandais, anglais et français", cs_2: "les patients réservent eux-mêmes en ligne", cs_3: "modèle : noir et blanc et direct, comme le cabinet lui-même", cs_next: "Votre entreprise ensuite ? Commencez gratuitement",
+      sv_eyebrow: "Services &amp; tarifs", sv_title: "Un prix, <em class=\"it\">tout compris.</em>",
+      sv_lead: "Vous avez déjà reçu un site d'exemple de notre part ? C'est la même offre. Sans acompte : vous payez quand le site est terminé.",
+      sv1_k: "01 · Webdesign", sv1_h: "Votre site web", sv1_once: "en une fois, tout compris",
+      sv1_l1: "Conçu pour votre entreprise, avec vos propres photos et textes", sv1_l2: "Parfait sur mobile, tablette et ordinateur", sv1_l3: "Les demandes arrivent directement dans votre boîte mail", sv1_l4: "Trouvable sur Google avec votre nom et votre commune",
+      sv4_t: "Maintenance &amp; hébergement", sv4_p: "Gérez vous-même pour 0 €, ou sans souci : hébergement, domaine et petites modifications pris en charge.", sv4_k: "par mois",
+      sv2_t: "Boutique en ligne &amp; sur mesure", sv2_p: "Vendre en ligne, encaisser ou connecter vos outils actuels. Prix fixe à l'avance.", sv_more2: "En savoir plus sur les boutiques",
+      sv3_p: "La base technique pour que Google vous trouve : rapide, bien structuré, visible localement.",
+      proc_title: "De l'exemple gratuit à la mise en ligne, <em class=\"it\">en cinq étapes.</em>",
+      p1_t: "Exemple gratuit", p1_p: "Nous créons un exemple de votre nouvelle page d'accueil avec les photos, textes et avis de votre entreprise. Vous n'avez rien à remplir ni à expliquer.",
+      p2_t: "Vous regardez et décidez", p2_p: "Convaincu ? Alors nous continuons. Pas pour vous ? Cela s'arrête là, sans frais ni engagement.",
+      p3_t: "Finaliser ensemble", p3_p: "Vous dites ce qui doit changer : photos, textes, couleurs, tarifs. Nous ajustons jusqu'à ce que ce soit juste, sur mobile et sur ordinateur.",
+      p4_t: "En ligne", p4_p: "En dix à quatorze jours, votre site est en ligne sur votre propre domaine. Vous payez seulement quand il est terminé et que vous êtes satisfait.",
+      p5_t: "Suivi", p5_p: "Gérez vous-même, ou sans souci pour 19,99 € par mois. Vous restez avec la même personne.",
+      band_t: "Curieux de voir à quoi <em>votre</em> site pourrait ressembler ?", band_wa: "ou envoyez un WhatsApp", ab_call: "Appelez Stijn : +32 496 25 14 45",
+      fq1_a: "Votre site coûte 499 €, en une fois et tout compris. Ensuite vous choisissez : gérer vous-même pour 0 €, ou sans souci pour 19,99 € par mois. Une boutique en ligne ou du sur-mesure commence à 1 899 €, avec un prix fixe à l'avance.",
+      fq2_a: "Vous voyez l'exemple gratuit sous cinq jours ouvrables. Après votre accord, votre site est généralement en ligne en dix à quatorze jours.",
+      fq4_a: "Avec la formule sans souci (19,99 € par mois), l'hébergement et le domaine sont compris et nous mettons en ligne vos nouvelles photos, prix ou horaires. Si vous gérez vous-même, hébergement et domaine sont à votre nom.",
+      fq5_q: "Et si l'exemple ne me plaît pas ?", fq5_a: "Alors cela s'arrête là, sans frais. L'exemple est gratuit et vous ne payez aucun acompte. Vous décidez seulement après l'avoir vu.",
+      c_eyebrow: "Exemple gratuit", c_title: "Voyez votre nouveau site <em class=\"it\">avant de décider.</em>",
+      c_lead: "Parlez-nous brièvement de votre entreprise, ou indiquez simplement votre site ou votre Instagram. Sous cinq jours ouvrables, vous recevez un exemple avec vos propres photos. Sans engagement, sans acompte.",
+      f_site: "Site actuel ou Instagram (facultatif)", f_site_ph: "www.votreentreprise.be ou @votreentreprise", cta_design: "Demandez votre exemple gratuit",
+      f_ok_p: "Vous aurez bientôt de nos nouvelles. Sous cinq jours ouvrables, vous recevez un exemple de votre nouveau site, sans engagement.",
+      foot_tag: "Webdesign depuis le Limbourg. Des sites sur mesure pour les indépendants et les PME en Belgique et aux Pays-Bas.", foot_cta: "Demandez votre exemple gratuit"
+    }
+  };
+  Object.keys(I18N_UP).forEach(function (l) { Object.keys(I18N_UP[l]).forEach(function (k) { I18N[l][k] = I18N_UP[l][k]; }); });
   var NL = {};
   function initI18n() {
     $$("[data-i18n]").forEach(function (el) { var k = el.getAttribute("data-i18n"); if (!(k in NL)) NL[k] = el.innerHTML; });
