@@ -69,11 +69,11 @@
     cam.position.set(0, 0, 6);
     var loader = new THREE.TextureLoader();
     var SITES = [
-      { src: "site-salon", name: "Studio Elin", kind: { nl: "Schoonheidssalon · voorbeeld", en: "Beauty salon · example", fr: "Institut de beauté · exemple" }, panel: 2 },
-      { src: "site-fitness", name: "Studio Kern", kind: { nl: "Fitnessstudio · voorbeeld", en: "Fitness studio · example", fr: "Salle de fitness · exemple" }, panel: 3 },
+      { src: "site-salon", name: "Studio Elin", kind: { nl: "Schoonheidssalon · ontwerp", en: "Beauty salon · design", fr: "Institut de beauté · design" }, panel: 2 },
+      { src: "site-fitness", name: "Studio Kern", kind: { nl: "Fitnessstudio · ontwerp", en: "Fitness studio · design", fr: "Salle de fitness · design" }, panel: 3 },
       { src: "site-credo", name: "Credo Rehab & Performance", kind: { nl: "Kinesitherapie · live", en: "Physio · live", fr: "Kiné · en ligne" }, panel: 1, live: "https://www.credorehabandperformance.com" },
-      { src: "site-bnb", name: "Hoeve Kersengaard", kind: { nl: "B&B · voorbeeld", en: "B&B · example", fr: "Chambres d'hôtes · exemple" }, panel: 4 },
-      { src: "site-boekhouder", name: "Accountancy Verhaeghe", kind: { nl: "Boekhouder · voorbeeld", en: "Accountant · example", fr: "Comptable · exemple" }, panel: 5 }
+      { src: "site-bnb", name: "Hoeve Kersengaard", kind: { nl: "B&B · ontwerp", en: "B&B · design", fr: "Chambres d'hôtes · design" }, panel: 4 },
+      { src: "site-boekhouder", name: "Accountancy Verhaeghe", kind: { nl: "Boekhouder · ontwerp", en: "Accountant · design", fr: "Comptable · design" }, panel: 5 }
     ];
     var cards = [], group = new THREE.Group(); scene.add(group);
     var rnd = function (a, b) { return a + Math.random() * (b - a); };
@@ -656,12 +656,11 @@
       nav_services: "Pricing", nav_pricing: "Free example",
       hero_sub: "Bespoke for freelancers and small businesses in Belgium and the Netherlands. First you see a free example with your own photos.",
       cta_free: "Request your free example", cta_work: "See our work", hf1: "€499, all included", hf2: "No deposit", hf3: "Online within two weeks",
-      work_note: "Credo is a client. The sector examples show what we can make for your business, with fictional names.",
       w1_before: "Before · Wix template",
-      w2_tag: "Example · salon", w2_who: "Example site for a beauty salon with three specialists.", w2_what: "Treatments with price and duration. Clients put together their own appointment and pick a time.",
-      w3_tag: "Example · fitness", w3_who: "Example site for a fitness studio with small groups and personal training.", w3_what: "Coaches with a face, a class schedule with open spots and a free trial class in three taps.",
-      w4_tag: "Example · B&B", w4_who: "Example site for a B&B in an old square farmstead among the fruit trees.", w4_what: "Availability per night and direct booking, without a booking platform's commission.",
-      w5_tag: "Example · accountant", w5_who: "Example site for a family accounting firm.", w5_what: "Calm and reliable: services per type of client, familiar faces and booking an introduction right away.",
+      w2_tag: "Design · salon", w2_who: "Beauty salon with three specialists: facials, nails, lashes and brows.", w2_what: "Treatments with price and duration. Clients put together their own appointment and pick a time.",
+      w3_tag: "Design · fitness", w3_who: "Fitness studio with personal training and small groups of up to eight.", w3_what: "Coaches with a face, a class schedule with open spots and a free trial class in three taps.",
+      w4_tag: "Design · B&B", w4_who: "B&B with four rooms in an old square farmstead among the orchards of Haspengouw.", w4_what: "Availability per night and direct booking, without a booking platform's commission.",
+      w5_tag: "Design · accountant", w5_who: "Family accounting firm for freelancers, companies and private clients.", w5_what: "Calm and reliable: services per type of client, familiar faces and booking an introduction right away.",
       w6_tag: "Redesign", w6_who: "Wholesaler of fresh carrots from Haspengouw, on the road to all of Europe every day.", w6_what: "Proposal for a new homepage: the field in an arch, the product up front, numbers that build trust.",
       cs_before: "Before · Wix template", cs_after: "Now · bespoke",
       cs_t: "From a template like all the others to a site that sounds like their practice.",
@@ -694,12 +693,11 @@
       nav_services: "Tarifs", nav_pricing: "Exemple gratuit",
       hero_sub: "Sur mesure pour les indépendants et les PME en Belgique et aux Pays-Bas. Vous voyez d'abord un exemple gratuit avec vos propres photos.",
       cta_free: "Demandez votre exemple gratuit", cta_work: "Voir nos réalisations", hf1: "499 €, tout compris", hf2: "Sans acompte", hf3: "En ligne en deux semaines",
-      work_note: "Credo est un client. Les exemples par secteur montrent ce que nous pouvons créer pour votre entreprise, avec des noms fictifs.",
       w1_before: "Avant · modèle Wix",
-      w2_tag: "Exemple · institut", w2_who: "Site d'exemple pour un institut de beauté avec trois spécialistes.", w2_what: "Soins avec prix et durée. Les clients composent eux-mêmes leur rendez-vous et choisissent un moment.",
-      w3_tag: "Exemple · fitness", w3_who: "Site d'exemple pour une salle de fitness avec petits groupes et coaching personnel.", w3_what: "Des coachs avec un visage, un planning avec les places libres et une séance d'essai gratuite en trois clics.",
-      w4_tag: "Exemple · chambres d'hôtes", w4_who: "Site d'exemple pour des chambres d'hôtes dans une ferme carrée entourée de vergers.", w4_what: "Disponibilité par nuit et réservation directe, sans commission d'une plateforme de réservation.",
-      w5_tag: "Exemple · comptable", w5_who: "Site d'exemple pour un cabinet comptable familial.", w5_what: "Calme et fiable : services par type de client, des visages connus et un premier rendez-vous en un clic.",
+      w2_tag: "Design · institut", w2_who: "Institut de beauté avec trois spécialistes : soins du visage, ongles, cils et sourcils.", w2_what: "Soins avec prix et durée. Les clients composent eux-mêmes leur rendez-vous et choisissent un moment.",
+      w3_tag: "Design · fitness", w3_who: "Salle de fitness avec coaching personnel et petits groupes de huit maximum.", w3_what: "Des coachs avec un visage, un planning avec les places libres et une séance d'essai gratuite en trois clics.",
+      w4_tag: "Design · chambres d'hôtes", w4_who: "Quatre chambres d'hôtes dans une ferme carrée entourée de vergers en Hesbaye.", w4_what: "Disponibilité par nuit et réservation directe, sans commission d'une plateforme de réservation.",
+      w5_tag: "Design · comptable", w5_who: "Cabinet comptable familial pour indépendants, sociétés et particuliers.", w5_what: "Calme et fiable : services par type de client, des visages connus et un premier rendez-vous en un clic.",
       w6_tag: "Refonte", w6_who: "Grossiste en carottes fraîches de Hesbaye, chaque jour en route vers toute l'Europe.", w6_what: "Proposition de nouvelle page d'accueil : le champ dans une arche, le produit en avant, des chiffres qui rassurent.",
       cs_before: "Avant · modèle Wix", cs_after: "Maintenant · sur mesure",
       cs_t: "D'un modèle comme tous les autres à un site qui ressemble à leur cabinet.",
