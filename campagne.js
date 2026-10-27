@@ -2,10 +2,10 @@
 (function () {
   "use strict";
   var ENDPOINT = "https://formspree.io/f/xlgqkgbd";
-  var DEADLINE = new Date("2026-11-22T23:59:59+01:00");
-  var WINNER = new Date("2026-12-04T00:00:00+01:00");
+  var DEADLINE = new Date("2026-11-04T23:59:59+01:00");
+  var WINNER = new Date("2026-11-06T00:00:00+01:00");
   var SHARE_URL = "https://digital-impression.be/gratis-website";
-  var SHARE_TEXT = "Digital Impression schenkt één ondernemer een nieuwe website. Kent u iemand die het verdient? Nomineren kan tot en met 22 november:";
+  var SHARE_TEXT = "Digital Impression schenkt één ondernemer een nieuwe website. Kent u iemand die het verdient? Nomineren kan tot en met 4 november:";
 
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
@@ -36,10 +36,10 @@
     html.classList.add("is-closed");
     cnt.classList.add("is-closed");
     var after = now() >= WINNER;
-    $("#gwCountK").textContent = after ? "De winnaar is gekozen" : "Nominaties gesloten · de winnaar volgt op 4 december";
-    var lab = $("[data-phase-label]"); if (lab) lab.textContent = after ? "Actie afgelopen · bedankt voor elke nominatie" : "Nominaties gesloten · de jury leest";
+    $("#gwCountK").textContent = after ? "De winnaar is getrokken" : "Nominaties gesloten · trekking op 5 november";
+    var lab = $("[data-phase-label]"); if (lab) lab.textContent = after ? "Actie afgelopen · bedankt voor elke nominatie" : "Nominaties gesloten · trekking op 5 november";
     $("#gwForm").hidden = true; $("#gwOk").hidden = true; $("#gwClosed").hidden = false;
-    if (after) $("[data-closed-text]").textContent = "Bedankt aan iedereen die een zaak voordroeg. De winnaar is gekozen en de nieuwe website is in de maak. Volg het verhaal op Instagram.";
+    if (after) $("[data-closed-text]").textContent = "Bedankt aan iedereen die een zaak voordroeg. De winnaar is getrokken en de nieuwe website is in de maak. Volg het verhaal op Instagram.";
   }
   function tick() {
     var ms = DEADLINE - now();
