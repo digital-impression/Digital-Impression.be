@@ -84,12 +84,12 @@
     };
     // key, name, sector, work panel (0 = none)
     var SITES = [
-      ["ventisette", "Osteria Ventisette", "resto", 1], ["credo", "Credo Rehab & Performance", "physio", 0, "https://www.credorehabandperformance.com"], ["lemmens", "Dakwerken Lemmens", "roof", 0], ["kapitein", "Barbier Kapitein", "barber", 2],
-      ["lindenhof", "Tandartspraktijk Lindenhof", "dentist", 0], ["claes", "Elektro Claes", "elec", 3], ["mergel", "Mergelgrotten Zichen", "caves", 0], ["lindeloof", "Bakkerij Lindeloof", "bakery", 5],
-      ["maesthys", "Maes & Thys", "law", 4], ["elodie", "Maison Elodie", "beauty", 0], ["simonta", "Simonta", "whole", 0], ["daems", "Schrijnwerkerij Daems", "joiner", 6],
-      ["kade14", "Kade 14", "coffee", 0], ["weideke", "Het Weideke", "vet", 7], ["tuin", "Tuinwerken Stas", "garden", 0], ["vandael", "Slagerij Vandael", "butcher", 8],
-      ["broeckx", "Schilderwerken Broeckx", "painter", 0], ["boekhouder", "Accountancy Verhaeghe", "acc", 0], ["lena", "Haarwerk Lena", "hair", 9], ["smeets", "Garage Smeets", "garage", 10],
-      ["fleetreview", "Fleetreview", "soft", 0]
+      ["credo", "Credo Rehab & Performance", "physio", 1, "https://www.credorehabandperformance.com"], ["fleetreview", "Fleetreview", "soft", 2], ["boekhouder", "Accountancy Verhaeghe", "acc", 3],
+      ["lindeloof", "Bakkerij Lindeloof", "bakery", 4], ["mergel", "Mergelgrotten Zichen", "caves", 5], ["tuin", "Tuinwerken Stas", "garden", 6],
+      ["credo-2", "Credo Rehab & Performance", "physio", 1, "https://www.credorehabandperformance.com"], ["fleetreview-2", "Fleetreview", "soft", 2], ["boekhouder-2", "Accountancy Verhaeghe", "acc", 3],
+      ["lindeloof-2", "Bakkerij Lindeloof", "bakery", 4], ["mergel-2", "Mergelgrotten Zichen", "caves", 5], ["tuin-2", "Tuinwerken Stas", "garden", 6],
+      ["fleetreview-3", "Fleetreview", "soft", 2], ["boekhouder-3", "Accountancy Verhaeghe", "acc", 3], ["lindeloof-3", "Bakkerij Lindeloof", "bakery", 4],
+      ["mergel-3", "Mergelgrotten Zichen", "caves", 5], ["tuin-3", "Tuinwerken Stas", "garden", 6]
     ].map(function (a) {
       var k = K[a[2]] || ["", "", ""], live = !!a[4];
       return { src: a[0], name: a[1], panel: a[3], live: a[4], kind: { nl: k[0] + (live ? " · live" : " · ontwerp"), en: k[1] + (live ? " · live" : " · design"), fr: k[2] + (live ? " · en ligne" : " · design") } };
@@ -601,7 +601,7 @@
   function initViewer() {
     var v = $("#viewer"); if (!v) return;
     var img = $("#viewerImg"), title = $("#viewerTitle"), scroller = $(".viewer__scroll", v), frame = $(".viewer__frame", v), inner = $(".viewer__in", v);
-    var btns = $$(".story__open"), list = btns.map(function (b) { return { key: b.getAttribute("data-design"), title: b.getAttribute("data-title") }; });
+    var btns = $$("button.story__open"), list = btns.map(function (b) { return { key: b.getAttribute("data-design"), title: b.getAttribute("data-title") }; });
     var cur = 0, mode = "d", last = null;
     function show(i, dir) {
       cur = (i + list.length) % list.length;
@@ -931,17 +931,13 @@
   I18N_UP.en.v_hint = "Scroll through the full homepage."; I18N_UP.fr.v_hint = "Faites défiler toute la page d'accueil.";
   (function () {
     var T = {
-      wk1: ["Osteria · Ghent", "Osteria · Gand"],
-      wk2: ["Barber · Antwerp", "Barbier · Anvers"],
-      wk3: ["Electrician · Herentals", "Électricien · Herentals"],
-      wk4: ["Law firm · Mechelen", "Cabinet d'avocats · Malines"],
-      wk5: ["Bakery · Bree", "Boulangerie · Bree"],
-      wk6: ["Joinery · Turnhout", "Menuiserie · Turnhout"],
-      wk7: ["Vet · Lommel", "Vétérinaire · Lommel"],
-      wk8: ["Butcher & caterer · Diest", "Boucherie-traiteur · Diest"],
-      wk9: ["Hair salon · Leuven", "Salon de coiffure · Louvain"],
-      wk10: ["Garage · Maasmechelen", "Garage · Maasmechelen"],
-      wall_t: ["And many more", "Et bien d'autres"],
+      wk1: ["Physiotherapy · Diepenbeek · live", "Kinésithérapie · Diepenbeek · en ligne"],
+      wk2: ["Fleet software · concept", "Logiciel de flotte · concept"],
+      wk3: ["Accounting firm · Oudenaarde", "Cabinet comptable · Audenarde"],
+      wk4: ["Bakery · Bree", "Boulangerie · Bree"],
+      wk5: ["Cave tours · Riemst", "Visites guidées · Riemst"],
+      wk6: ["Landscaping · Tongeren", "Jardinier · Tongres"],
+      wall_t: ["This is how it looks on a phone", "Voici le rendu sur mobile"],
       bp_w1: ["Day 1–5", "Jour 1–5"], bp_w2: ["Day 6", "Jour 6"], bp_w3: ["Week 2", "Semaine 2"], bp_w4: ["Day 10–14", "Jour 10–14"], bp_w5: ["After", "Ensuite"], bp_yes: ["Yes, let's go on", "Oui, on continue"], bp_no: ["Rather not", "Plutôt pas"], cr_eyebrow: ["Client in the spotlight", "Client à la une"], cr_hint: ["Drag to compare", "Glissez pour comparer"],
       m_call: ["Call", "Appeler"], mk_book: ["Book an appointment", "Prendre rendez-vous"], mk_booked: ["Confirmed · Tue 4 at 10:30", "Confirmé · mar 4 à 10h30"],
       mk_bill: ["Your invoice", "Votre facture"], mk_dep: ["Deposit", "Acompte"], mk_on: ["On delivery", "À la livraison"], mk_tot: ["Total", "Total"], mk_stamp: ["Only when you are happy", "Seulement si vous êtes satisfait"],
