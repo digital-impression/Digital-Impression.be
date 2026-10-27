@@ -488,18 +488,25 @@
 
   /* ---------------- process: sticky number ---------------- */
   function initProcess() {
-    var big = $("#procBig"), steps = $$(".pstep"), list = $("#procSteps"); if (!big || !list) return;
-    var roll = $(".proc__roll", big), cur = -1;
+    // het bouwplan: the section pins and one website gets built in five steps (wireframe, design, feedback, online, aftercare)
+    var sec = $("#werkwijze"), pin = $("#bpPin"); if (!sec || !pin) return;
+    document.documentElement.classList.add("bp-js");
+    var stops = $$(".bp__stop", sec), txts = $$(".bp__txt", sec), num = $("#bpNum"), fill = $("#bpFill"), n = txts.length, cur = -1;
     function setStep(i) {
-      if (i === cur) return; cur = i;
-      if (roll) gsap.to(roll, { yPercent: -100 * i / steps.length, duration: 0.9, ease: "expo.out" }); else big.textContent = "0" + (i + 1);
-      steps.forEach(function (o, k) { o.classList.toggle("is-on", k === i); o.classList.toggle("is-past", k < i); });
-      $$("#procStage .pmock").forEach(function (o, k) { o.classList.toggle("is-on", k === i); o.classList.toggle("is-past", k < i); });
+      if (i === cur) return; cur = i; sec.setAttribute("data-step", i);
+      stops.forEach(function (o, k) { o.classList.toggle("is-on", k === i); o.classList.toggle("is-past", k < i); });
+      txts.forEach(function (o, k) { o.classList.toggle("is-on", k === i); });
+      if (num) num.textContent = "0" + (i + 1);
     }
-    setStep(0);
-    ScrollTrigger.create({ trigger: list, start: "top 62%", end: "bottom 45%", onUpdate: function (st) { setStep(Math.min(steps.length - 1, Math.floor(st.progress * steps.length))); }, onLeave: function () { setStep(steps.length - 1); }, onLeaveBack: function () { setStep(0); } });
-    var fill = $("#procFill");
-    if (fill && list) gsap.fromTo(fill, { scaleY: 0 }, { scaleY: 1, ease: "none", scrollTrigger: { trigger: list, start: "top 55%", end: "bottom 55%", scrub: 0.4 } });
+    sec.removeAttribute("data-step");
+    ScrollTrigger.create({ trigger: sec, start: "top 70%", once: true, onEnter: function () { setStep(0); } });
+    if (REDUCED) { setStep(0); return; }
+    var st = ScrollTrigger.create({
+      trigger: sec, start: "top top", end: "+=" + (n * 70) + "%", pin: pin, pinSpacing: true, anticipatePin: 1,
+      snap: { snapTo: 1 / (n - 1), duration: { min: 0.2, max: 0.6 }, ease: "power2.inOut", delay: 0.05 },
+      onUpdate: function (t) { setStep(Math.min(n - 1, Math.round(t.progress * (n - 1)))); if (fill) fill.style.transform = "scaleX(" + (0.1 + 0.9 * t.progress) + ")"; }
+    });
+    stops.forEach(function (o, k) { o.style.cursor = "pointer"; o.addEventListener("click", function () { var y = st.start + (st.end - st.start) * (k / (n - 1)); if (lenis) lenis.scrollTo(y, { duration: 1.2 }); else window.scrollTo({ top: y, behavior: "smooth" }); }); });
   }
 
   /* ---------------- pricing tilt ---------------- */
@@ -534,7 +541,7 @@
     $$(".case__voor, .case__na, .story__vis, .portret__arch").forEach(function (el) {
       gsap.fromTo(el, { clipPath: "inset(18% 6% 18% 6% round 18px)", opacity: 0 }, { clipPath: "inset(0% 0% 0% 0% round 0px)", opacity: 1, duration: 1.4, ease: "expo.out", clearProps: "clipPath", scrollTrigger: { trigger: el, start: "top 85%", once: true } });
     });
-    $$(".eyebrow, .h-m, .lead, .sig, .letter, .contact__copy > p, .contact__person, .checks, .form, .proc__steps, .faq__list").forEach(function (el) {
+    $$(".eyebrow, .h-m, .lead, .sig, .letter, .contact__copy > p, .contact__person, .checks, .form, .faq__list").forEach(function (el) {
       if (el.closest(".hero")) return;
       gsap.from(el, { opacity: 0, y: 24, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 90%", once: true } });
     });
@@ -545,19 +552,15 @@
 
   /* ---------------- Credo: voor en na ---------------- */
   function initCompare() {
-    var c = $("#cmp"); if (!c) return;
-    var range = $(".cmp__range", c), view = $(".cmp__view", c), st = { v: 50 };
-    var set = function (v) { st.v = v; c.style.setProperty("--pos", v + "%"); range.value = v; };
-    set(50);
-    range.addEventListener("input", function () { gsap.killTweensOf(st); set(parseFloat(range.value)); });
-    var sweep = function () {
-      if (REDUCED) return;
-      gsap.timeline({ onUpdate: function () { set(st.v); } })
-        .to(st, { v: 88, duration: 1.1, ease: "power3.inOut" })
-        .to(st, { v: 14, duration: 1.6, ease: "power3.inOut" })
-        .to(st, { v: 50, duration: 1.1, ease: "power3.inOut" });
-    };
-    ScrollTrigger.create({ trigger: c, start: "top 70%", once: true, onEnter: sweep });
+    // Credo: the old Wix site is in front; while scrolling it steps back (grey, tilted) and the new site rises over it, then the phone slides in.
+    var deck = $("#credoDeck"); if (!deck || REDUCED) return;
+    var old = $(".cdeck__card--old", deck), neu = $(".cdeck__card--new", deck), ph = $(".cdeck__phone", deck), oi = $("img", old);
+    var tl = gsap.timeline({ defaults: { ease: "none" }, scrollTrigger: { trigger: deck, start: "top 72%", end: "center 42%", scrub: 0.8 } });
+    tl.fromTo(old, { xPercent: 0, yPercent: 0, scale: 1.0, rotation: 0, zIndex: 3 }, { xPercent: -10, yPercent: -13, scale: 0.84, rotation: -4, duration: 1 }, 0)
+      .fromTo(oi, { filter: "grayscale(0) brightness(1) contrast(1)" }, { filter: "grayscale(1) brightness(0.62) contrast(0.95)", duration: 0.8 }, 0.1)
+      .set(old, { zIndex: 1 }, 0.35)
+      .fromTo(neu, { yPercent: 62, rotationX: -14, opacity: 0 }, { yPercent: 0, rotationX: 0, opacity: 1, duration: 0.9 }, 0.2)
+      .fromTo(ph, { xPercent: 70, yPercent: 20, opacity: 0 }, { xPercent: 0, yPercent: 0, opacity: 1, duration: 0.5 }, 0.75);
   }
 
   /* ---------------- diepte: zwevende objecten ---------------- */
@@ -568,7 +571,7 @@
       gsap.fromTo(el, { y: d * 160 }, { y: -d * 160, ease: "none", scrollTrigger: { trigger: sec, start: "top bottom", end: "bottom top", scrub: 0.6 } });
     });
     if (FINE) {
-      $$(".case__vis, .credo__stage, .portret, .band__in").forEach(function (box) {
+      $$(".case__vis, .portret, .band__in").forEach(function (box) {
         var items = $$("[data-depth]", box);
         box.addEventListener("mousemove", function (e) {
           var r = box.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - 0.5, py = (e.clientY - r.top) / r.height - 0.5;
@@ -938,7 +941,8 @@
       wk8: ["Butcher & caterer · Diest", "Boucherie-traiteur · Diest"],
       wk9: ["Hair salon · Leuven", "Salon de coiffure · Louvain"],
       wk10: ["Garage · Maasmechelen", "Garage · Maasmechelen"],
-      wall_t: ["And many more", "Et bien d'autres"], cr_eyebrow: ["Client in the spotlight", "Client à la une"], cr_hint: ["Drag to compare", "Glissez pour comparer"],
+      wall_t: ["And many more", "Et bien d'autres"],
+      bp_w1: ["Day 1–5", "Jour 1–5"], bp_w2: ["Day 6", "Jour 6"], bp_w3: ["Week 2", "Semaine 2"], bp_w4: ["Day 10–14", "Jour 10–14"], bp_w5: ["After", "Ensuite"], bp_yes: ["Yes, let's go on", "Oui, on continue"], bp_no: ["Rather not", "Plutôt pas"], cr_eyebrow: ["Client in the spotlight", "Client à la une"], cr_hint: ["Drag to compare", "Glissez pour comparer"],
       m_call: ["Call", "Appeler"], mk_book: ["Book an appointment", "Prendre rendez-vous"], mk_booked: ["Confirmed · Tue 4 at 10:30", "Confirmé · mar 4 à 10h30"],
       mk_bill: ["Your invoice", "Votre facture"], mk_dep: ["Deposit", "Acompte"], mk_on: ["On delivery", "À la livraison"], mk_tot: ["Total", "Total"], mk_stamp: ["Only when you are happy", "Seulement si vous êtes satisfait"],
       mk_m_sub: ["Your example site is ready", "Votre site d'exemple est prêt"], mk_m_p: ["As promised: your new homepage, with your own photos.", "Comme promis : votre nouvelle page d'accueil, avec vos propres photos."], mk_new: ["New", "Nouveau"],
