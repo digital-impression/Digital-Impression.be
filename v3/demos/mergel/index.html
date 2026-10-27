@@ -221,9 +221,87 @@ form.sent .ok{display:block}form.sent .f{display:none}
   .rcard{padding:1.6rem}.rcard p{font-size:1.2rem}
   form{grid-template-columns:1fr}
   .foot__grid{grid-template-columns:1fr 1fr}
+  .foot__grid > div:first-child{grid-column:1/-1}
   .offer,.gal,.prac,.book,.info,.rev{padding:5rem 0}
   .cta-band{min-height:480px;align-items:flex-end;padding-bottom:3rem}
   .cta-band::after{background:linear-gradient(180deg,rgba(15,10,6,.15),rgba(15,10,6,.9) 70%)}
+}
+
+/* ===== polijstronde ===== */
+/* marl-sections as cut slabs, like the opening of a gallery */
+.marl{position:relative;z-index:2;--ch:clamp(22px,3vw,44px);clip-path:polygon(0 var(--ch),var(--ch) 0,calc(100% - var(--ch)) 0,100% var(--ch),100% calc(100% - var(--ch)),calc(100% - var(--ch)) 100%,var(--ch) 100%,0 calc(100% - var(--ch)));margin:calc(var(--ch) * -1) 0}
+.offer,.rev,.book,.foot{position:relative;z-index:1}
+.offer,.book{padding-top:calc(7rem + 44px);padding-bottom:calc(7rem + 44px)}
+.rev{padding-top:calc(5rem + 44px)!important;padding-bottom:calc(5rem + 44px)!important}
+.foot{padding-top:calc(5rem + 44px)}
+.marl::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .3 0 0 0 0 .15 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.marl > .wrap{position:relative;z-index:1}
+.h2{text-wrap:balance}
+.kick{font-size:.7rem}
+/* offer */
+.cards{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);grid-template-rows:auto auto}
+.card--big{grid-row:span 2;display:flex;flex-direction:column}
+.card--big figure{aspect-ratio:auto;flex:1;min-height:340px}
+.card--big div{padding:2rem 2.1rem 2.2rem}
+.card--big h3{font-size:2.3rem}
+.card--big p{font-size:1rem;max-width:32rem}
+.card__k{display:block;margin-bottom:.6rem;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--amber)}
+.card:not(.card--big){display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr)}
+.card:not(.card--big) figure{aspect-ratio:auto;height:100%;min-height:220px;clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+.card:not(.card--big) div{display:flex;flex-direction:column;justify-content:center}
+.card:not(.card--big) a{margin-top:auto;padding-top:1rem}
+/* reviews strip */
+.rev{background:radial-gradient(50% 120% at 50% 50%,rgba(217,154,59,.1),transparent 70%),var(--ink);border-top:0}
+.rev__row{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:3.5vw;align-items:center;border-top:1px solid rgba(217,154,59,.28);border-bottom:1px solid rgba(217,154,59,.28);padding:2.4rem 0}
+.score b{font-size:4.6rem}
+.rq{margin:0;padding-left:3.5vw;border-left:1px solid rgba(234,223,203,.14)}
+.rq p{font-family:var(--serif);font-style:italic;font-size:clamp(1.25rem,1.9vw,1.65rem);line-height:1.4;color:#FFF6E6;max-width:40rem}
+.rwho{display:flex;align-items:center;gap:.8rem;font-size:.84rem;color:var(--mute)}
+.rwho i{width:40px;height:40px;border-radius:50%;background:var(--amber);color:var(--ink);display:grid;place-items:center;font-style:normal;font-weight:700}
+.rwho b{display:block;color:#FFF6E6;font-weight:600}
+/* praktisch */
+.prac__grid{margin:0 auto;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:5vw;align-items:start;background:none;border:0}
+.prac__grid > div{background:none;padding:0}
+.prac__img{margin:2.4rem 0 0}
+.prac__img img{width:100%;aspect-ratio:5/4;object-fit:cover;clip-path:var(--cut)}
+.prac__img figcaption{margin-top:.7rem;font-size:.78rem;color:var(--mute-d)}
+.spec{margin:0;border-top:1px solid rgba(42,29,14,.2)}
+.spec > div{display:grid;grid-template-columns:8.5rem minmax(0,1fr);gap:1.5rem;padding:1.6rem 0;border-bottom:1px solid rgba(42,29,14,.2)}
+.spec dt{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:#9A6A1E;padding-top:.6rem}
+.spec dd{margin:0}
+.spec b{display:block;font-family:var(--serif);font-weight:500;font-size:2.2rem;line-height:1;color:var(--text)}
+.spec span{display:block;margin-top:.45rem;color:var(--mute-d);font-size:.95rem}
+.spec .nb{margin-top:.5rem;font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--text)}
+/* cta */
+.cta-band{min-height:560px}
+.cta-band h2{line-height:.98}
+/* form polish */
+form{background:var(--earth-2);border:1px solid rgba(217,154,59,.18);padding:2.2rem;clip-path:var(--cut)}
+input,select,textarea{background:var(--ink)}
+/* map */
+.map{clip-path:var(--cut)}
+@media (max-width:980px){
+  .marl{--ch:18px}
+  .offer,.book{padding-top:calc(5rem + 18px);padding-bottom:calc(5rem + 18px)}
+  .rev{padding-top:calc(3.6rem + 18px)!important;padding-bottom:calc(3.6rem + 18px)!important}
+  .cards{grid-template-columns:1fr}
+  .card--big{grid-row:auto}.card--big figure{min-height:260px}
+  .card--big h3{font-size:1.9rem}.card--big div{padding:1.5rem}
+  .card:not(.card--big){grid-template-columns:38% minmax(0,1fr)}
+  .card:not(.card--big) figure{min-height:0}
+  .card:not(.card--big) div{padding:1.1rem 1.1rem 1.2rem}
+  .card:not(.card--big) h3{font-size:1.3rem}
+  .card:not(.card--big) p{font-size:.85rem}
+  .rev__row{grid-template-columns:1fr;gap:1.4rem;padding:2rem 0}
+  .rq{padding-left:0;border-left:0}
+  .score b{font-size:3.6rem}
+  .prac__grid{grid-template-columns:1fr;gap:2.4rem}
+  .prac__img{margin-top:1.8rem}
+  .spec > div{grid-template-columns:1fr;gap:.3rem;padding:1.2rem 0}
+  .spec dt{padding-top:0}
+  .spec b{font-size:1.7rem}
+  form{padding:1.4rem}
+  .gal__grid{grid-auto-rows:130px}
 }
 </style>
 </head>
@@ -287,7 +365,7 @@ form.sent .ok{display:block}form.sent .f{display:none}
       <p>Altijd met een gids, altijd op afspraak. Voor een gezin, een klas of een hele vereniging.</p>
     </div>
     <div class="cards">
-      <article class="card rv"><span class="tag">€ 7 p.p.</span><figure><img src="img/04.jpg" alt="Gang met kleurrijke schilderingen"></figure><div><h3>De rondleiding</h3><p>Met een gids langs de mooiste gangen, tekeningen en verhalen van de mergelgroeve.</p><a href="#boeken">Boek een rondleiding →</a></div></article>
+      <article class="card card--big rv"><span class="tag">€ 7 p.p.</span><figure><img src="img/04.jpg" alt="Gang met kleurrijke schilderingen"></figure><div><span class="card__k">Het populairst</span><h3>De rondleiding</h3><p>Met een gids langs de mooiste gangen, tekeningen en reliëfs. Onderweg vertelt de gids hoe het dorp de mergel uithakte en wat de tekeningen op de wanden betekenen.</p><a href="#boeken">Boek een rondleiding →</a></div></article>
       <article class="card rv"><figure><img src="img/03.jpg" alt="Brede gang met tafel en kaars"></figure><div><h3>Groepsuitstap</h3><p>Geen weerbericht nodig. Ideaal voor scholen, verenigingen en teams.</p><a href="#boeken">Vraag een datum aan →</a></div></article>
       <article class="card rv"><figure><img src="img/10.jpg" alt="Lange gang met stoelen bij kaarslicht"></figure><div><h3>Ondergronds tafelen</h3><p>Een lange tafel bij kaarslicht, voor wie het bijzonder wil.</p><a href="#boeken">Vraag naar de mogelijkheden →</a></div></article>
     </div>
@@ -309,28 +387,27 @@ form.sent .ok{display:block}form.sent .f{display:none}
 </section>
 
 <section class="rev">
-  <div class="wrap rev__grid">
-    <div class="rv">
-      <span class="kick">Reviews</span>
-      <div class="score" style="margin-top:1.4rem"><b>4,7</b><div><span class="stars">★★★★★</span><small>83 Google-reviews</small></div></div>
-    </div>
-    <blockquote class="rcard rv" style="margin:0">
-      <p>“We wisten niet wat ons te wachten stond, maar stonden met onze mond vol tanden vanaf dat we naar beneden wandelden.”</p>
-      <footer><i>K</i>Keennan D.<span class="g">Google</span></footer>
-    </blockquote>
+  <div class="wrap rev__row rv">
+    <div class="score"><b>4,7</b><div><span class="stars" aria-label="4,7 op 5">★★★★★</span><small>83 reviews op Google</small></div></div>
+    <blockquote class="rq"><p>“We wisten niet wat ons te wachten stond, maar stonden met onze mond vol tanden vanaf dat we naar beneden wandelden.”</p></blockquote>
+    <div class="rwho"><i>K</i><span><b>Keennan D.</b>via Google</span></div>
   </div>
 </section>
 
 <section class="marl prac" id="praktisch">
-  <div class="wrap">
-    <div class="rv"><span class="kick">Praktisch</span><h2 class="h2" style="margin-top:1.1rem">Goed om te weten <em>voor u afdaalt.</em></h2></div>
-    <div class="prac__grid rv">
-      <div><b>€ 7</b><span>per persoon, voor groepen vanaf 6 personen</span></div>
-      <div><b>12 °C</b><span>het hele jaar droog en fris: neem een jas mee</span></div>
-      <div><b>Op afspraak</b><span>ook in het weekend, met een gids</span></div>
-      <div><b>Voor iedereen</b><span>families, scholen, bedrijven en verenigingen</span></div>
+  <div class="wrap prac__grid">
+    <div class="prac__side rv">
+      <span class="kick">Praktisch</span>
+      <h2 class="h2" style="margin-top:1.1rem">Goed om te weten <em>voor u afdaalt.</em></h2>
+      <figure class="prac__img"><img src="img/11.jpg" alt="Ronde tafels in een zijgang, klaar voor een groep"><figcaption>Een zijgang, klaar voor een groep</figcaption></figure>
     </div>
-    <p class="prac__note rv">Studio 100 nam hier opnames voor een film met K3.</p>
+    <dl class="spec rv">
+      <div><dt>Prijs</dt><dd><b>€ 7</b><span>per persoon, voor groepen vanaf 6 personen</span></dd></div>
+      <div><dt>Temperatuur</dt><dd><b>12 °C</b><span>het hele jaar droog en fris: neem een jas of trui mee</span></dd></div>
+      <div><dt>Wanneer</dt><dd><b>Op afspraak</b><span>ook op zaterdag en zondag, altijd met een gids</span></dd></div>
+      <div><dt>Voor wie</dt><dd><b>Iedereen</b><span>families, scholen, bedrijven en verenigingen</span></dd></div>
+      <div><dt>Weetje</dt><dd><span class="nb">Studio 100 nam hier opnames voor een film met K3.</span></dd></div>
+    </dl>
   </div>
 </section>
 
@@ -373,7 +450,7 @@ form.sent .ok{display:block}form.sent .f{display:none}
       <h2 class="h2" style="margin-top:1.1rem">Onder <em>Zichen,</em> in Riemst.</h2>
       <dl><dt>Ligging</dt><dd>Zichen-Zussen-Bolder, Riemst (Zuid-Limburg)</dd><dt>Bezoek</dt><dd>Enkel op afspraak, met gids</dd><dt>Groepen</dt><dd>Vanaf 6 personen</dd></dl>
       <div class="map" style="margin-top:2.2rem" aria-hidden="true">
-        <svg viewBox="0 0 500 400"><rect width="500" height="400" fill="#E4D6B8"/><path d="M0 250 C120 230 200 280 300 250 S460 210 500 220" stroke="#D2C19C" stroke-width="22" fill="none"/><path d="M40 0 L120 400 M260 0 C250 140 300 260 280 400 M0 120 L500 160" stroke="#F4ECDA" stroke-width="9" fill="none"/><path d="M200 120 h40 v20 h-40z M300 190 h30 v26 h-30z M150 220 h36 v20 h-36z M330 90 h44 v22 h-44z" fill="#D2C19C"/><circle cx="270" cy="176" r="60" fill="none" stroke="#9A6A1E" stroke-dasharray="4 6"/></svg>
+        <svg viewBox="0 0 500 400"><rect width="500" height="400" fill="#E4D6B8"/><g fill="#D9C8A3"><path d="M0 0h130l-40 120H0z"/><path d="M360 0h140v150l-90 20z"/><path d="M0 300l140-30 40 130H0z"/><path d="M330 290l170-40v150H360z"/></g><path d="M0 250 C120 230 200 280 300 250 S460 210 500 220" stroke="#CDB98F" stroke-width="18" fill="none"/><path d="M40 0 L120 400 M260 0 C250 140 300 260 280 400 M0 120 L500 160" stroke="#F4ECDA" stroke-width="8" fill="none"/><path d="M200 120 h40 v20 h-40z M300 190 h30 v26 h-30z M150 220 h36 v20 h-36z M330 90 h44 v22 h-44z M210 170 h24 v18 h-24z" fill="#C9B387"/><path d="M175 205 C210 160 300 150 330 205 S300 270 250 255 S160 250 175 205z" fill="none" stroke="#9A6A1E" stroke-width="1.4" stroke-dasharray="3 6"/><text x="372" y="372" font-family="Inter,sans-serif" font-size="11" letter-spacing="3" fill="#8A6A3A">ZICHEN</text><text x="24" y="40" font-family="Inter,sans-serif" font-size="10" letter-spacing="2" fill="#8A6A3A">RIEMST</text><text x="196" y="285" font-family="Fraunces,serif" font-style="italic" font-size="13" fill="#9A6A1E">de gangen</text></svg>
         <span class="pin">Mergelgrotten Zichen</span>
       </div>
     </div>

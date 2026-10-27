@@ -212,6 +212,74 @@ form.sent .ok{display:block}form.sent .f{display:none}
   form{grid-template-columns:1fr;padding:1.4rem}
   .foot__grid{grid-template-columns:1fr 1fr}
 }
+
+/* ===== polish 28/10 ===== */
+img{image-rendering:auto}
+.svcs{flex-wrap:nowrap;gap:1.1rem}
+.svcs a{white-space:nowrap}
+@media (max-width:1240px){.svcs small{display:none}.svcs img{width:40px;height:40px}}
+/* hedge edge above the moss projects band */
+.proj-s{position:relative}
+.proj-s::before{content:"";position:absolute;left:0;right:0;top:-22px;height:23px;background:radial-gradient(circle at 18px 24px,var(--moss) 17px,transparent 18px) 0 0/36px 24px repeat-x}
+.svc{padding-bottom:8rem}
+/* year */
+.year{background:var(--paper)}
+.year__head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap}
+.year__head p{max-width:26rem;color:var(--mute)}
+.months{position:relative;margin-top:2.6rem;display:grid;grid-template-columns:repeat(12,1fr);border-top:1.5px solid rgba(23,32,27,.14);border-bottom:1.5px solid rgba(23,32,27,.14)}
+.months span{padding:.7rem 0;text-align:center;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--mute);border-left:1px solid rgba(23,32,27,.08)}
+.months span:first-child{border-left:0}
+.months span.on{color:var(--paper);background:var(--moss)}
+.months span.now{background:var(--corten);color:#fff;position:relative}
+.months span.now::after{content:"nu";position:absolute;left:50%;top:-1.55rem;transform:translateX(-50%);font-size:.62rem;letter-spacing:.16em;color:var(--corten)}
+.year__grid{margin-top:1.6rem;gap:1.2rem}
+.season{border:0;padding:0;background:#fff;border-radius:1.2rem;overflow:hidden;box-shadow:0 1px 0 rgba(23,32,27,.06),0 24px 50px -36px rgba(17,28,21,.45);transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s}
+.season:hover{transform:translateY(-4px)}
+.season figure{margin:0;aspect-ratio:4/3;overflow:hidden}
+.season figure img{width:100%;height:100%;object-fit:cover}
+.season__b{padding:1.3rem 1.4rem 1.5rem;border-top:3px solid var(--corten)}
+.season h3{font-size:1.75rem;margin-top:.15rem}
+.season.is-now{background:var(--moss);color:var(--paper)}
+.season.is-now small{color:var(--leaf)}
+.season.is-now li::before{background:var(--gold)}
+.season.is-now .season__b::before{content:"Nu aan de beurt";float:right;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;background:var(--corten);color:#fff;padding:.3rem .55rem;border-radius:999px}
+/* werkwijze */
+.steps{padding:7rem 0;background:var(--moss-2)}
+.steps__grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:6vw;align-items:start}
+.steps__side p{margin-top:1.2rem;color:var(--mute-l);max-width:26rem}
+.steps__img{margin:2.2rem 0 0;position:relative;max-width:30rem}
+.steps__img img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:1.2rem 1.2rem 1.2rem 6rem}
+.steps__img figcaption{margin-top:.8rem;font-size:.82rem;color:var(--mute-l);padding-left:1.1rem;border-left:2px solid var(--corten)}
+.path{position:relative;list-style:none;margin:0;padding:0;display:grid;gap:0}
+.path::before{content:"";position:absolute;left:31px;top:30px;bottom:30px;width:2px;background:repeating-linear-gradient(180deg,rgba(207,227,197,.45) 0 6px,transparent 6px 12px)}
+.path li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:1.4rem;align-items:start;padding:1.6rem 0;border-bottom:1px solid rgba(247,244,238,.1)}
+.path li:last-child{border-bottom:0}
+.path__ic{grid-row:1;grid-column:1;position:relative;z-index:1;width:64px;height:64px;border-radius:50%;background:var(--moss);border:1.5px solid rgba(207,227,197,.35);display:grid;place-items:center;transition:background .4s,border-color .4s}
+.path__ic svg{width:26px;height:26px;fill:none;stroke:var(--leaf);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.path li:hover .path__ic{background:var(--corten);border-color:var(--corten)}
+.path li:hover .path__ic svg{stroke:#fff}
+.path__n{position:absolute;right:0;top:1.2rem;font-family:var(--serif);font-size:4.2rem;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(220,198,166,.45)}
+.path h3{font-size:1.9rem;color:var(--paper);margin-top:.35rem}
+.path p{margin-top:.45rem;color:var(--mute-l);max-width:24rem}
+@media (max-width:980px){
+  .proj-s::before{top:-14px;height:15px;background:radial-gradient(circle at 11px 15px,var(--moss) 10px,transparent 11px) 0 0/22px 15px repeat-x}
+  .months{display:none}
+  .year__grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:.9rem;margin:2rem -4vw 0;padding:0 4vw 1rem;scrollbar-width:none}
+  .year__grid::-webkit-scrollbar{display:none}
+  .season{flex:0 0 78%;scroll-snap-align:start}
+  .steps{padding:5rem 0}
+  .steps__grid{grid-template-columns:1fr;gap:2.4rem}
+  .steps__img{display:none}
+  .path li{grid-template-columns:52px 1fr;gap:1rem;padding:1.3rem 0}
+  .path__ic{width:52px;height:52px}.path::before{left:25px}
+  .path__n{font-size:3rem;top:1rem}
+  .path h3{font-size:1.55rem}
+}
+.steps ol.path{grid-template-columns:1fr;gap:0;margin:0;counter-reset:none}
+.steps .path li{background:none;border:0;border-bottom:1px solid rgba(247,244,238,.1);border-radius:0;padding:1.6rem 0}
+.steps .path li:last-child{border-bottom:0}
+.steps .path li::before{content:none;display:none}
+@media (max-width:980px){.steps .path li{padding:1.3rem 0}}
 </style>
 </head>
 <body class="no-js">
@@ -233,22 +301,22 @@ form.sent .ok{display:block}form.sent .f{display:none}
       <p class="lead">Aanleg, onderhoud en snoeiwerk door één vakman die uw tuin kent. Netjes afgewerkt, het hele jaar door.</p>
       <div class="cta"><a class="btn btn--m" href="#offerte">Vraag een offerte <span aria-hidden="true">→</span></a><a class="btn btn--o" href="#contact">Bel Andrija</a></div>
       <div class="svcs">
-        <a href="#diensten"><img src="img/00.jpg" alt=""><span>Snoeiwerk<small>hagen en bomen</small></span></a>
-        <a href="#diensten"><img src="img/03.jpg" alt=""><span>Gazon<small>aanleg en herstel</small></span></a>
-        <a href="#diensten"><img src="img/07.jpg" alt=""><span>Aanleg<small>borders en paden</small></span></a>
+        <a href="#diensten"><img src="img/p00.jpg" alt=""><span>Snoeiwerk<small>hagen en bomen</small></span></a>
+        <a href="#diensten"><img src="img/p03.jpg" alt=""><span>Gazon<small>aanleg en herstel</small></span></a>
+        <a href="#diensten"><img src="img/p07.jpg" alt=""><span>Aanleg<small>borders en paden</small></span></a>
       </div>
     </div>
     <div class="frame">
-      <div class="frame__img"><img src="img/08.jpg" alt="Tuin met koivijver, kiezelterras, gazon en tuinhuis"></div>
+      <div class="frame__img"><img src="img/p08.jpg" alt="Tuin met koivijver, kiezelterras, gazon en tuinhuis"></div>
       <span class="frame__tag">Recent project</span>
-      <div class="proj"><img src="img/07.jpg" alt=""><div><i></i><b>Vijver, kiezel en cortenstaal</b><span>Aangelegd en nu in onderhoud</span></div></div>
+      <div class="proj"><img src="img/p07.jpg" alt=""><div><i></i><b>Vijver, kiezel en cortenstaal</b><span>Aangelegd en nu in onderhoud</span></div></div>
     </div>
   </div>
   <div class="wrap msvcs">
-    <a href="#diensten"><img src="img/00.jpg" alt="">Snoeiwerk</a>
-    <a href="#diensten"><img src="img/03.jpg" alt="">Gazon</a>
-    <a href="#diensten"><img src="img/02.jpg" alt="">Aanleg</a>
-    <a href="#diensten"><img src="img/06.jpg" alt="">Onderhoud</a>
+    <a href="#diensten"><img src="img/p00.jpg" alt="">Snoeiwerk</a>
+    <a href="#diensten"><img src="img/p03.jpg" alt="">Gazon</a>
+    <a href="#diensten"><img src="img/p02.jpg" alt="">Aanleg</a>
+    <a href="#diensten"><img src="img/p06.jpg" alt="">Onderhoud</a>
   </div>
 </section>
 
@@ -256,11 +324,11 @@ form.sent .ok{display:block}form.sent .f{display:none}
   <div class="wrap">
     <div class="svc__head rv"><div><span class="kick">Diensten</span><h2 class="h2" style="margin-top:1rem">Van snoeiwerk tot <em>een nieuwe tuin.</em></h2></div><p>Vijf diensten, één aanspreekpunt. U belt Andrija, en Andrija komt ook zelf.</p></div>
     <div class="svc__grid">
-      <article class="tile tile--big rv"><img src="img/07.jpg" alt="Borders met cortenstaal en grijze kiezel"><div><span class="lbl">Aanleg</span><h3>Uw tuin opnieuw aangelegd</h3><p>Terrassen, paden, borders, vijvers en gazon. Van plan tot laatste plant.</p></div></article>
-      <article class="tile rv"><img src="img/00.jpg" alt="Strak gesnoeide haag langs een grindpad"><div><h3>Snoeiwerken</h3><p>Hagen, struiken en bomen, strak en gezond.</p></div></article>
-      <article class="tile rv"><img src="img/03.jpg" alt="Nieuw gazon in een tuin"><div><h3>Gazon</h3><p>Aanleg, herstel en maaien.</p></div></article>
-      <article class="tile rv"><img src="img/02.jpg" alt="Talud met gras langs een terras"><div><h3>Beplanting</h3><p>Borders die elk seizoen kleur geven.</p></div></article>
-      <article class="tile rv"><img src="img/06.jpg" alt="Gesnoeide haag met kruiwagen en hark"><div><h3>Onderhoud</h3><p>Vaste rondes, zodat het altijd netjes ligt.</p></div></article>
+      <article class="tile tile--big rv"><img src="img/p07.jpg" alt="Borders met cortenstaal en grijze kiezel"><div><span class="lbl">Aanleg</span><h3>Uw tuin opnieuw aangelegd</h3><p>Terrassen, paden, borders, vijvers en gazon. Van plan tot laatste plant.</p></div></article>
+      <article class="tile rv"><img src="img/p00.jpg" alt="Strak gesnoeide haag langs een grindpad"><div><h3>Snoeiwerken</h3><p>Hagen, struiken en bomen, strak en gezond.</p></div></article>
+      <article class="tile rv"><img src="img/p03.jpg" alt="Nieuw gazon in een tuin"><div><h3>Gazon</h3><p>Aanleg, herstel en maaien.</p></div></article>
+      <article class="tile rv"><img src="img/p02.jpg" alt="Talud met gras langs een terras"><div><h3>Beplanting</h3><p>Borders die elk seizoen kleur geven.</p></div></article>
+      <article class="tile rv"><img src="img/p06.jpg" alt="Gesnoeide haag met kruiwagen en hark"><div><h3>Onderhoud</h3><p>Vaste rondes, zodat het altijd netjes ligt.</p></div></article>
     </div>
   </div>
 </section>
@@ -269,18 +337,18 @@ form.sent .ok{display:block}form.sent .f{display:none}
   <div class="wrap">
     <div class="rv"><span class="kick">Projecten</span><h2 class="h2" style="margin-top:1rem">Tuinen in Tongeren <em>en omgeving.</em></h2></div>
     <div class="pgrid rv">
-      <figure class="p1"><img src="img/08.jpg" alt="Koivijver met kiezelterras"><figcaption>Vijver en kiezelterras</figcaption></figure>
-      <figure class="p2"><img src="img/07.jpg" alt="Borders met cortenstaal"><figcaption>Borders in cortenstaal</figcaption></figure>
-      <figure class="p3"><img src="img/01.jpg" alt="Klimop en smeedijzeren poort" style="object-position:50% 70%"><figcaption>Voortuin</figcaption></figure>
-      <figure class="p4"><img src="img/05.jpg" alt="Nieuw grindpad naar de voordeur" style="object-position:50% 85%"><figcaption>Grindpad</figcaption></figure>
-      <figure class="p5"><img src="img/04.jpg" alt="Close-up van nieuw gras"><figcaption>Nieuw gazon</figcaption></figure>
+      <figure class="p1"><img src="img/p08.jpg" alt="Koivijver met kiezelterras"><figcaption>Vijver en kiezelterras</figcaption></figure>
+      <figure class="p2"><img src="img/p07.jpg" alt="Borders met cortenstaal"><figcaption>Borders in cortenstaal</figcaption></figure>
+      <figure class="p3"><img src="img/p01.jpg" alt="Klimop en smeedijzeren poort" style="object-position:50% 70%"><figcaption>Voortuin</figcaption></figure>
+      <figure class="p4"><img src="img/p05.jpg" alt="Nieuw grindpad naar de voordeur" style="object-position:50% 85%"><figcaption>Grindpad</figcaption></figure>
+      <figure class="p5"><img src="img/p04.jpg" alt="Close-up van nieuw gras"><figcaption>Nieuw gazon</figcaption></figure>
     </div>
   </div>
 </section>
 
 <section class="about" id="over">
   <div class="wrap about__grid">
-    <div class="about__img rv"><img src="img/01.jpg" alt="Voortuin met klimop en poort"></div>
+    <div class="about__img rv"><img src="img/p01.jpg" alt="Voortuin met klimop en poort"></div>
     <div class="rv">
       <span class="kick">Over Andrija</span>
       <h2 class="h2" style="margin-top:1rem">Eén vakman <em>die uw tuin kent.</em></h2>
@@ -290,32 +358,37 @@ form.sent .ok{display:block}form.sent .f{display:none}
   </div>
 </section>
 
-<section class="year">
+<section class="year" id="onderhoud">
   <div class="wrap">
-    <div class="rv"><span class="kick">Onderhoud</span><h2 class="h2" style="margin-top:1rem">Het hele jaar <em>netjes.</em></h2></div>
+    <div class="year__head rv"><div><span class="kick">Onderhoud</span><h2 class="h2" style="margin-top:1rem">Het hele jaar <em>netjes.</em></h2></div><p>Met vaste rondes doet Andrija wat er in elk seizoen moet gebeuren. U hoeft er zelf niet aan te denken.</p></div>
+    <div class="months rv" aria-hidden="true"><span>jan</span><span>feb</span><span class="sp">mrt</span><span class="sp">apr</span><span class="sp">mei</span><span class="su">jun</span><span class="su">jul</span><span class="su">aug</span><span class="au">sep</span><span class="au">okt</span><span class="au">nov</span><span>dec</span><i class="months__now"></i></div>
     <div class="year__grid rv">
-      <div class="season"><small>Maart – mei</small><h3>Lente</h3><ul><li>Gazon herstellen en bijzaaien</li><li>Borders aanplanten</li><li>Tuin klaarmaken voor de zomer</li></ul></div>
-      <div class="season"><small>Juni – augustus</small><h3>Zomer</h3><ul><li>Hagen scheren</li><li>Maaien op vaste rondes</li><li>Onkruid onder controle</li></ul></div>
-      <div class="season"><small>September – november</small><h3>Herfst</h3><ul><li>Blad ruimen</li><li>Snoeien na de groei</li><li>Nieuwe aanleg plannen</li></ul></div>
-      <div class="season"><small>December – februari</small><h3>Winter</h3><ul><li>Bomen en struiken snoeien</li><li>Paden en terrassen</li><li>Plannen voor het voorjaar</li></ul></div>
+      <article class="season" data-s="sp"><figure><img src="img/p03.jpg" alt="Nieuw gazon in een achtertuin" style="object-position:50% 70%"></figure><div class="season__b"><small>Maart – mei</small><h3>Lente</h3><ul><li>Gazon herstellen en bijzaaien</li><li>Borders aanplanten</li><li>Tuin klaarmaken voor de zomer</li></ul></div></article>
+      <article class="season" data-s="su"><figure><img src="img/p00.jpg" alt="Strak geschoren haag langs een grindpad" style="object-position:50% 45%"></figure><div class="season__b"><small>Juni – augustus</small><h3>Zomer</h3><ul><li>Hagen scheren</li><li>Maaien op vaste rondes</li><li>Onkruid onder controle</li></ul></div></article>
+      <article class="season" data-s="au"><figure><img src="img/p06.jpg" alt="Kruiwagen en hark naast een gesnoeide haag" style="object-position:50% 60%"></figure><div class="season__b"><small>September – november</small><h3>Herfst</h3><ul><li>Blad ruimen</li><li>Snoeien na de groei</li><li>Nieuwe aanleg plannen</li></ul></div></article>
+      <article class="season" data-s="wi"><figure><img src="img/p01.jpg" alt="Klimop rond een smeedijzeren poort" style="object-position:50% 35%"></figure><div class="season__b"><small>December – februari</small><h3>Winter</h3><ul><li>Bomen en struiken snoeien</li><li>Paden en terrassen</li><li>Plannen voor het voorjaar</li></ul></div></article>
     </div>
   </div>
 </section>
 
 <section class="steps" id="werkwijze">
-  <div class="wrap">
-    <div class="rv"><span class="kick">Werkwijze</span><h2 class="h2" style="margin-top:1rem">Zo pakken <em>we het aan.</em></h2></div>
-    <ol class="rv">
-      <li><h3>Kennismaking</h3><p>Andrija komt ter plaatse kijken en luistert wat u wilt.</p></li>
-      <li><h3>Voorstel</h3><p>U krijgt een duidelijke offerte, zonder verrassingen achteraf.</p></li>
-      <li><h3>Uitvoering</h3><p>Het werk wordt netjes uitgevoerd en afgewerkt.</p></li>
-      <li><h3>Onderhoud</h3><p>Wilt u het zo houden? Dan komt hij op vaste rondes terug.</p></li>
+  <div class="wrap steps__grid">
+    <div class="steps__side rv">
+      <span class="kick">Werkwijze</span><h2 class="h2" style="margin-top:1rem">Zo pakken <em>we het aan.</em></h2>
+      <p>Van het eerste bezoek tot het onderhoud achteraf: u heeft altijd met dezelfde vakman te maken.</p>
+      <figure class="steps__img"><img src="img/p02.jpg" alt="Grastalud naast een terras met klinkers" style="object-position:40% 60%"><figcaption>Afgewerkt tot in de randen.</figcaption></figure>
+    </div>
+    <ol class="path rv">
+      <li><span class="path__n">01</span><span class="path__ic"><svg viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><div><h3>Kennismaking</h3><p>Andrija komt ter plaatse kijken en luistert wat u wilt.</p></div></li>
+      <li><span class="path__n">02</span><span class="path__ic"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><div><h3>Voorstel</h3><p>U krijgt een duidelijke offerte, zonder verrassingen achteraf.</p></div></li>
+      <li><span class="path__n">03</span><span class="path__ic"><svg viewBox="0 0 24 24"><path d="M12 3v11M8 14h8l-1 7H9z"/><path d="M9 6h6"/></svg></span><div><h3>Uitvoering</h3><p>Het werk wordt netjes uitgevoerd en afgewerkt.</p></div></li>
+      <li><span class="path__n">04</span><span class="path__ic"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v5h-5"/></svg></span><div><h3>Onderhoud</h3><p>Wilt u het zo houden? Dan komt hij op vaste rondes terug.</p></div></li>
     </ol>
   </div>
 </section>
 
 <section class="cta-band">
-  <img src="img/04.jpg" alt="">
+  <img src="img/p04.jpg" alt="">
   <div class="wrap rv">
     <span class="kick" style="color:var(--leaf)">Offerte</span>
     <h2 style="margin-top:1rem">Klaar voor een tuin <em>zonder zorgen?</em></h2>
@@ -382,6 +455,11 @@ form.sent .ok{display:block}form.sent .f{display:none}
 document.body.classList.remove('no-js');
 (function(){var els=document.querySelectorAll('.rv');if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(function(e){e.classList.add('in')});return}
 var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e)})})();
+</script>
+<script>
+(function(){var m=new Date().getMonth(),sp=m>=2&&m<=4?'sp':m>=5&&m<=7?'su':m>=8&&m<=10?'au':'wi';
+var c=document.querySelector('.season[data-s="'+sp+'"]');if(c)c.classList.add('is-now');
+var ms=document.querySelectorAll('.months span');ms.forEach(function(e,i){if(e.className===sp||(sp==='wi'&&(i===11||i<2)))e.classList.add('on');if(i===m)e.classList.add('now')})})();
 </script>
 <a href="https://digital-impression.be/#werk" style="position:fixed;left:50%;bottom:1.2rem;transform:translateX(-50%);z-index:999;display:inline-flex;align-items:center;gap:.7rem;padding:.65rem 1.1rem .65rem .9rem;border-radius:999px;background:#0E1C3A;color:#F1EBDF;font:600 .8rem/1 Inter,system-ui,sans-serif;letter-spacing:.02em;box-shadow:0 14px 34px -12px rgba(0,0,0,.55);text-decoration:none;white-space:nowrap"><span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.05rem;font-weight:600">Digital <i style="color:#C9A24A">Impression</i></span><span style="opacity:.75">Voorbeeldontwerp · terug naar het overzicht →</span></a>
 </body>
