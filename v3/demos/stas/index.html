@@ -42,6 +42,28 @@ h1 em{font-style:italic;color:#DCC6A6}
 .quote cite b{display:block;color:var(--ink);font-weight:700}
 .quote img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:1rem}
 </style>
+<style>
+.hx{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;overflow:hidden;background:var(--moss)}
+.hx__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 58%;transform:scale(1.02)}
+.hx::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(28,46,36,.94) 0%,rgba(28,46,36,.78) 34%,rgba(28,46,36,.15) 66%,rgba(28,46,36,0) 100%),linear-gradient(0deg,rgba(23,32,27,.75) 0%,rgba(23,32,27,0) 34%),linear-gradient(180deg,rgba(23,32,27,.45) 0%,rgba(23,32,27,0) 20%)}
+.hx__in{position:relative;z-index:2;padding:0 4vw 3.4rem;max-width:52rem}
+.hx h1{font-size:clamp(3rem,5.6vw,5.6rem);max-width:12.5ch;margin-top:1.1rem;line-height:.98}
+.hx .lead{max-width:28rem}
+.hx__svc{position:relative;z-index:2;list-style:none;margin:0;padding:0 4vw;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.22)}
+.hx__svc li{padding:1.25rem 1.4rem 1.6rem 0;font-size:.82rem;color:rgba(255,255,255,.72)}
+.hx__svc li+li{padding-left:1.4rem;border-left:1px solid rgba(255,255,255,.14)}
+.hx__svc b{display:block;font-family:var(--serif);font-weight:400;font-size:1.35rem;color:#fff;margin-bottom:.15rem}
+@media (max-width:900px){
+ .hx{min-height:auto;display:block}
+ .hx__img{position:relative;height:58vh;min-height:360px;transform:none;object-position:60% 70%}
+ .hx::before{display:none}
+ .hx__in{padding:2.2rem 6vw 2.4rem;max-width:none}
+ .hx h1{font-size:clamp(2.6rem,11vw,3.4rem)}
+ .hx__svc{grid-template-columns:1fr 1fr;padding:0 6vw 2rem}
+ .hx__svc li,.hx__svc li+li{padding:1rem .8rem 1rem 0;border-left:0;border-bottom:1px solid rgba(255,255,255,.12)}
+ .top{background:linear-gradient(180deg,rgba(23,32,27,.55),transparent)}
+}
+</style>
 </head>
 <body>
 <header class="top">
@@ -49,18 +71,20 @@ h1 em{font-style:italic;color:#DCC6A6}
   <nav class="nav"><a>Diensten</a><a>Projecten</a><a>Over ons</a><a>Contact</a></nav>
   <a class="pill" href="#">Offerte aanvragen</a>
 </header>
-<section class="hero">
-  <div class="hero__txt">
-    <span class="kick">Tongeren &amp; omgeving</span>
+<section class="hx">
+  <img class="hx__img" src="img/08.jpg" alt="Tuin met koivijver, kiezelterras en haag in Tongeren">
+  <div class="hx__in">
+    <span class="kick">Tuinaanleg &amp; onderhoud · Tongeren</span>
     <h1>Een tuin waar u <em>elke dag</em> van geniet.</h1>
     <p class="lead">Aanleg, onderhoud en snoeiwerk door één vakman die uw tuin kent. Netjes afgewerkt, het hele jaar door.</p>
-    <div class="cta"><a class="btn btn--w" href="#">Vraag een offerte →</a><a class="btn btn--g" href="#">Bel Andrija</a></div>
-    <div class="meta"><div><b>150+</b>tevreden klanten</div><div><b>5</b>diensten, één aanspreekpunt</div><div><b>Ma–vr</b>9.30 tot 17.00</div></div>
+    <div class="cta"><a class="btn btn--w" href="#">Vraag een offerte <span aria-hidden="true">→</span></a><a class="btn btn--g" href="#">Bel Andrija</a></div>
   </div>
-  <div class="hero__img">
-    <img src="img/08.jpg" alt="">
-    <div class="tag"><b>Project · Tongeren</b>Vijver, kiezelterras en haag, aangelegd en in onderhoud.</div>
-  </div>
+  <ul class="hx__svc" aria-label="Diensten">
+    <li><b>Aanleg</b>Terras, vijver en borders</li>
+    <li><b>Snoeiwerken</b>Hagen, struiken en bomen</li>
+    <li><b>Gazon</b>Aanleg, herstel en maaien</li>
+    <li><b>Onderhoud</b>Vaste rondes, het hele jaar</li>
+  </ul>
 </section>
 <section class="sec">
   <span class="kick" style="color:var(--moss)">Onze diensten</span>
