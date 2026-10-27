@@ -68,34 +68,65 @@
     var cam = new THREE.PerspectiveCamera(42, 1, 0.1, 60);
     cam.position.set(0, 0, 6);
     var loader = new THREE.TextureLoader();
+    var K = { // sector labels
+      wellness: ["Privéwellness", "Private spa", "Wellness privé"], bakery: ["Bakkerij", "Bakery", "Boulangerie"], beauty: ["Schoonheidsinstituut", "Beauty salon", "Institut de beauté"],
+      sound: ["Licht en geluid", "Sound & light hire", "Son et lumière"], florist: ["Bloemist", "Florist", "Fleuriste"], carwash: ["Carwash", "Car wash", "Car wash"],
+      hair: ["Kapsalon", "Hair salon", "Salon de coiffure"], barber: ["Barbershop", "Barbershop", "Barbier"], choc: ["Chocolatier", "Chocolatier", "Chocolatier"],
+      coffee: ["Koffiebar", "Coffee bar", "Bar à café"], photo: ["Fotostudio", "Photo studio", "Studio photo"], film: ["Trouwfilms", "Wedding films", "Films de mariage"],
+      frituur: ["Frituur", "Chip shop", "Friterie"], cats: ["Kattenhotel", "Cat hotel", "Pension pour chats"], ceremony: ["Ceremoniemeester", "Wedding host", "Maître de cérémonie"],
+      riding: ["Manege", "Riding school", "Manège"], lash: ["Lash- en browstudio", "Lash & brow studio", "Studio cils et sourcils"], butcher: ["Slagerij", "Butcher", "Boucherie"],
+      ice: ["IJssalon", "Ice-cream parlour", "Glacier"], patis: ["Patisserie", "Patisserie", "Pâtisserie"], bikes: ["Fietsenwinkel", "Bike shop", "Magasin de vélos"],
+      skin: ["Huidstudio", "Skin studio", "Studio de soins"], bnb: ["B&B", "B&B", "Chambres d'hôtes"], acc: ["Boekhouder", "Accountant", "Comptable"], physio: ["Kinesitherapie", "Physio", "Kiné"],
+      artist: ["Artiest", "Performer", "Artiste"], fitness: ["Fitnessstudio", "Fitness studio", "Salle de fitness"], soft: ["Software", "Software", "Logiciel"], caves: ["Toerisme", "Tourism", "Tourisme"],
+      arch: ["Architectuur", "Architecture", "Architecture"], whole: ["Groothandel", "Wholesale", "Commerce de gros"], garden: ["Tuinaanleg", "Landscaping", "Jardinier"]
+    };
+    // key, name, sector, work panel (0 = none)
     var SITES = [
-      { src: "site-salon", name: "Studio Elin", kind: { nl: "Schoonheidssalon · ontwerp", en: "Beauty salon · design", fr: "Institut de beauté · design" }, panel: 2 },
-      { src: "site-fitness", name: "Studio Kern", kind: { nl: "Fitnessstudio · ontwerp", en: "Fitness studio · design", fr: "Salle de fitness · design" }, panel: 3 },
-      { src: "site-credo", name: "Credo Rehab & Performance", kind: { nl: "Kinesitherapie · live", en: "Physio · live", fr: "Kiné · en ligne" }, panel: 1, live: "https://www.credorehabandperformance.com" },
-      { src: "site-bnb", name: "Hoeve Kersengaard", kind: { nl: "B&B · ontwerp", en: "B&B · design", fr: "Chambres d'hôtes · design" }, panel: 4 },
-      { src: "site-boekhouder", name: "Accountancy Verhaeghe", kind: { nl: "Boekhouder · ontwerp", en: "Accountant · design", fr: "Comptable · design" }, panel: 5 }
-    ];
+      ["bakkerke", "'t Bakkerke", "bakery", 1], ["salon", "Studio Elin", "beauty", 2], ["carwash", "Carwash VDB", "carwash", 3], ["credo", "Credo Rehab & Performance", "physio", 0, "https://www.credorehabandperformance.com"],
+      ["depla", "Pol Depla", "choc", 4], ["fitness", "Studio Kern", "fitness", 5], ["lamont", "Lamont", "ceremony", 6], ["kingkong", "King Kong Coffee", "coffee", 7],
+      ["bnb", "Hoeve Kersengaard", "bnb", 8], ["beautiq", "BEAUTIQ", "beauty", 9], ["frituurnoord", "Frituur Noord", "frituur", 10], ["aquasana", "Aquasana", "wellness", 0],
+      ["dechapper", "De Chapper", "barber", 0], ["peeters", "Patisserie Peeters", "patis", 0], ["focus", "FOCUS", "photo", 0], ["golden", "The Golden Wellness", "wellness", 0],
+      ["muse", "Muse Studio", "lash", 0], ["java", "Bakkerij Java", "bakery", 0], ["kattenhotel", "Kattenhotel Overpelt", "cats", 0], ["bloemist", "Bloemisterij Patrick", "florist", 0],
+      ["kingofkings", "King of the Kings", "barber", 0], ["oeters", "Oeters ijs", "ice", 0], ["skinclub", "Skin Club", "skin", 0], ["boekhouder", "Accountancy Verhaeghe", "acc", 0],
+      ["velolux", "Velolux", "bikes", 0], ["dpdk", "De Prins Drinkt Koffie", "coffee", 0], ["erichair", "Eric Hairteam", "hair", 0], ["sandra", "Bloemerie Sandra", "florist", 0],
+      ["bigsound", "Big Sound Systems", "sound", 0], ["hoorebeke", "Van Hoorebeke", "choc", 0], ["fris", "Fris Wedding Films", "film", 0], ["mylle", "Slagerij Mylle", "butcher", 0],
+      ["romeorosie", "Romeo & Rosie", "ice", 0], ["natalys", "Natalys", "beauty", 0], ["cutcolor", "Cut & Color", "hair", 0], ["manege", "Manege Sanders", "riding", 0],
+      ["simonta", "Simonta", "whole", 0], ["tuin", "Tuinwerken Stas", "garden", 0], ["noor", "Noor", "arch", 0], ["fleetreview", "Fleetreview", "soft", 0], ["fadim", "Fadim", "artist", 0], ["mergel", "Grotten van Zichen", "caves", 0]
+    ].map(function (a) {
+      var k = K[a[2]] || ["", "", ""], live = !!a[4];
+      return { src: a[0], name: a[1], panel: a[3], live: a[4], kind: { nl: k[0] + (live ? " · live" : " · ontwerp"), en: k[1] + (live ? " · live" : " · design"), fr: k[2] + (live ? " · en ligne" : " · design") } };
+    });
     var cards = [], group = new THREE.Group(); scene.add(group);
     var rnd = function (a, b) { return a + Math.random() * (b - a); };
-    // a quiet corridor: cards alternate left/right, evenly spaced in depth, each turned towards the centre
-    // a silhouette of sites around the centre: ten cards on an ellipse, each at its own depth
-    // one card per site: five on the ellipse, starting at the top, each at its own depth
-    var ZS = [0.9, 0, 1.7, 0.4, 1.3], seeded = [];
-    for (var si = 0; si < 5; si++) seeded.push([Math.PI / 2 + Math.PI / 5 + si * Math.PI * 2 / 5, -1.8 - ZS[si]]);
-    var frameGeo = new THREE.PlaneGeometry(2.3, 1.475, 1, 1);
-    seeded.forEach(function (p, i) {
-      var site = SITES[i % SITES.length];
-      var tex = loader.load("assets/img/" + site.src + ".jpg");
-      tex.minFilter = THREE.LinearFilter; tex.generateMipmaps = false; tex.anisotropy = renderer.capabilities.getMaxAnisotropy(); tex.center.set(0.5, 0.5);
-      var geo = new THREE.PlaneGeometry(2.2, 1.375, 1, 1);
-      var mat = new THREE.MeshBasicMaterial({ map: tex, transparent: true, opacity: 0.92, side: THREE.DoubleSide });
-      var m = new THREE.Mesh(geo, mat);
-      m.position.set(0, 0, p[1]);
-      // gold frame behind the card, shown on hover / focus
+    // a dense swirl of sites around the copy: three elliptical rings at three depths, each turning its own way
+    var small0 = window.innerWidth < 700;
+    var list = small0 ? SITES.slice(0, 18) : SITES;
+    var NR = small0 ? 2 : 3;
+    var RING = small0 ? [{ r: 1.1, z: -3.6, s: 0.86, d: 1, a: 0.6 }, { r: 1.28, z: -1.9, s: 0.7, d: -1, a: 1 }]
+                      : [{ r: 1.08, z: -6.4, s: 1.02, d: 1, a: 0.5 }, { r: 1.22, z: -3.8, s: 0.84, d: -1, a: 0.78 }, { r: 1.4, z: -1.7, s: 0.7, d: 1, a: 1 }];
+    var per = []; for (var q = 0; q < NR; q++) per.push(0);
+    list.forEach(function (site, i) { per[i % NR]++; });
+    var idx = []; for (q = 0; q < NR; q++) idx.push(0);
+    var frameGeo = new THREE.PlaneGeometry(2.3, 1.475, 1, 1), cardGeo = new THREE.PlaneGeometry(2.2, 1.375, 1, 1);
+    list.forEach(function (site, i) {
+      var ri = i % NR, rg = RING[ri], k = idx[ri]++;
+      var ang = Math.PI / 2 + (k / per[ri]) * Math.PI * 2 + ri * (Math.PI / per[ri]) * 0.9;
+      var mat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0, side: THREE.DoubleSide });
+      var m = new THREE.Mesh(cardGeo, mat);
+      var z0 = rg.z + rnd(-0.35, 0.35);
+      m.position.set(0, 0, z0);
       var frame = new THREE.Mesh(frameGeo, new THREE.MeshBasicMaterial({ color: 0xC9A24A, transparent: true, opacity: 0, side: THREE.DoubleSide }));
       frame.position.z = -0.01; m.add(frame);
-      m.userData = { site: site, ang0: p[0], z0: p[1], base: [0, 0, p[1]], rx: 0, ry: 0, rz: 0, ph: rnd(0, Math.PI * 2), sp: rnd(0.3, 0.55), frame: frame, tex: tex, hover: 0, enter: 1, lock: 0 };
+      m.userData = { site: site, ang0: ang, z0: z0, ring: rg, base: [0, 0, z0], rx: 0, ry: 0, rz: 0, ph: rnd(0, Math.PI * 2), sp: rnd(0.3, 0.55), frame: frame, tex: null, hover: 0, enter: 1, lock: 0, ready: 0 };
       group.add(m); cards.push(m);
+      var load = function () {
+        loader.load("assets/img/gl/" + site.src + ".jpg", function (tex) {
+          tex.minFilter = THREE.LinearFilter; tex.generateMipmaps = false; tex.anisotropy = renderer.capabilities.getMaxAnisotropy(); tex.center.set(0.5, 0.5);
+          mat.map = tex; mat.needsUpdate = true; m.userData.tex = tex;
+          gsap.to(m.userData, { ready: 1, duration: 0.9, ease: "power2.out" });
+        });
+      };
+      if (i < 14) load(); else setTimeout(load, 900 + i * 40);
     });
     var N = 320, pos = new Float32Array(N * 3);
     for (var i = 0; i < N; i++) { pos[i * 3] = rnd(-7, 7); pos[i * 3 + 1] = rnd(-4, 4); pos[i * 3 + 2] = rnd(-30, 4); }
@@ -136,7 +167,7 @@
     }
     var entered = false;
     // burst: every card starts in the centre and shoots out to its place on the ring
-    window.__glEnter = function () { cards.forEach(function (c, i) { gsap.to(c.userData, { enter: 0, duration: 1.6, delay: 0.05 + i * 0.045, ease: "expo.out", onComplete: function () { if (i === cards.length - 1) entered = true; } }); }); };
+    window.__glEnter = function () { cards.forEach(function (c, i) { gsap.to(c.userData, { enter: 0, duration: 1.7, delay: 0.05 + (i % 14) * 0.035 + Math.floor(i / 14) * 0.12, ease: "expo.out", onComplete: function () { if (i === cards.length - 1) entered = true; } }); }); };
     var worldDir = new THREE.Vector3();
     function focus(card) {
       focused = card; focusProg = prog;
@@ -149,14 +180,14 @@
       gsap.to(card.rotation, { x: -my * 0.05, y: mx * 0.08, z: 0, duration: 1.1, ease: "power4.inOut" });
       gsap.to(card.material, { opacity: 1, duration: 0.6 });
       gsap.to(u.frame.material, { opacity: 0.9, duration: 0.8, delay: 0.3 });
-      gsap.killTweensOf(u.tex.repeat); u.tex.repeat.set(1, 1); u.tex.offset.set(0, 0);
-      gsap.to(u.tex.repeat, { x: 0.9, y: 0.9, duration: 7, ease: "sine.inOut", yoyo: true, repeat: -1, onUpdate: function () { u.tex.offset.set((1 - u.tex.repeat.x) / 2, (1 - u.tex.repeat.y) / 2); } });
-      cards.forEach(function (c) { if (c !== card) gsap.to(c.material, { opacity: 0.18, duration: 0.8 }); });
+      if (u.tex) { gsap.killTweensOf(u.tex.repeat); u.tex.repeat.set(1, 1); u.tex.offset.set(0, 0); }
+      if (u.tex) gsap.to(u.tex.repeat, { x: 0.9, y: 0.9, duration: 7, ease: "sine.inOut", yoyo: true, repeat: -1, onUpdate: function () { u.tex.offset.set((1 - u.tex.repeat.x) / 2, (1 - u.tex.repeat.y) / 2); } });
       gsap.to(dust.material, { opacity: 0.2, duration: 0.8 });
       if (focusEl) {
         kindEl.textContent = site.kind[lang] || site.kind.nl; nameEl.textContent = site.name;
         if (site.live) { liveA.href = site.live; liveA.hidden = false; } else liveA.hidden = true;
         focusEl.hidden = false; gsap.fromTo(focusEl, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.35 });
+        goBtn.hidden = !site.panel;
         goBtn.onclick = function () { unfocus(); setTimeout(function () { if (window.__gotoWork) window.__gotoWork(site.panel); }, 250); };
       }
       if (tip) gsap.to(tip, { opacity: 0, duration: 0.4 });
@@ -166,13 +197,11 @@
     function unfocus() {
       if (!focused) return;
       var card = focused, u = card.userData; focused = null;
-      gsap.killTweensOf(u.tex.repeat);
-      gsap.to(u.tex.repeat, { x: 1, y: 1, duration: 0.8, onUpdate: function () { u.tex.offset.set((1 - u.tex.repeat.x) / 2, (1 - u.tex.repeat.y) / 2); } });
+      if (u.tex) { gsap.killTweensOf(u.tex.repeat); gsap.to(u.tex.repeat, { x: 1, y: 1, duration: 0.8, onUpdate: function () { u.tex.offset.set((1 - u.tex.repeat.x) / 2, (1 - u.tex.repeat.y) / 2); } }); }
       gsap.to(card.position, { x: u.base[0], y: u.base[1], z: u.base[2], duration: 1.1, ease: "power4.inOut" });
       u.lock = performance.now() + 1150;
       gsap.to(card.rotation, { x: u.rx, y: u.ry, z: u.rz, duration: 1.1, ease: "power4.inOut" });
       gsap.to(u.frame.material, { opacity: 0, duration: 0.4 });
-      cards.forEach(function (c) { gsap.to(c.material, { opacity: 0.92, duration: 0.8 }); });
       gsap.to(dust.material, { opacity: 0.55, duration: 0.8 });
       if (focusEl) gsap.to(focusEl, { opacity: 0, y: 12, duration: 0.4, onComplete: function () { focusEl.hidden = true; } });
       if (tip) gsap.to(tip, { opacity: 1, duration: 0.6, delay: 0.4 });
@@ -206,15 +235,17 @@
       cam.lookAt(mx * 0.25, -my * 0.18, cam.position.z - 6);
       cam.rotateZ(mx * 0.03 + burst * 0.06);
       dust.material.size = 0.035 + burst * 0.12; dust.material.opacity = focused ? 0.2 : 0.55 + burst * 0.35;
-      var fovT = Math.tan(cam.fov * Math.PI / 360), RX = small ? 1.02 : 1.06, RY = small ? 0.98 : (short ? 0.96 : 0.88);
+      var fovT = Math.tan(cam.fov * Math.PI / 360), RX = small ? 1.0 : 1.04, RY = small ? 1.04 : (short ? 1.06 : 1.0);
       if (FINE && !focused) pick();
       cards.forEach(function (c) {
         var u = c.userData;
-        if (c === focused || u.lock > now) return;
-        var ang = u.ang0 + t * 0.04 + sp * 1.1 + burst * 0.9;
-        var z = u.z0 + Math.sin(t * 0.3 + u.ph) * 0.35 + Zo;
+        if (c === focused) { c.material.opacity = u.ready; return; }
+        if (u.lock > now) return;
+        var dir = u.ring.d;
+        var ang = u.ang0 + dir * (t * 0.035 + sp * 0.9 + burst * 0.7);
+        var z = u.z0 + Math.sin(t * 0.3 + u.ph) * 0.25 + Zo;
         var d = Math.max(2.4, cam.position.z - z), hh = fovT * d, hw = hh * cam.aspect;
-        var R = Rr * (1 - u.enter);
+        var R = Rr * u.ring.r * (1 - u.enter);
         var px = Math.cos(ang) * RX * R * hw + Math.cos(t * u.sp + u.ph) * 0.08;
         var py = Math.sin(ang) * RY * R * hh + Math.sin(t * u.sp * 0.8 + u.ph) * 0.1;
         var rx = py * 0.045 - my * 0.05, ry = -px * 0.06 + mx * 0.1, rz = Math.sin(t * 0.2 + u.ph) * 0.02;
@@ -222,9 +253,9 @@
         u.base[0] = px; u.base[1] = py; u.base[2] = z; u.rx = rx; u.ry = ry; u.rz = rz;
         var want = (c === hovered && !focused) ? 1 : 0;
         u.hover += (want - u.hover) * 0.12;
-        var sc = (small ? 0.62 : (short ? 0.96 : 1.12)) * Ss * (0.12 + 0.88 * (1 - u.enter)) * (1 + u.hover * 0.07); c.scale.set(sc, sc, 1);
+        var sc = u.ring.s * (small ? 0.78 : (short ? 0.9 : 1)) * Ss * (0.12 + 0.88 * (1 - u.enter)) * (1 + u.hover * 0.1); c.scale.set(sc, sc, 1);
         u.frame.material.opacity = u.hover * 0.7;
-        c.material.opacity = Math.min(1, 0.94 * Aa + u.hover * 0.06) * (1 - u.enter * 0.9);
+        c.material.opacity = Math.min(1, 0.94 * Aa * (u.ring.a + (1 - u.ring.a) * u.hover) + u.hover * 0.06) * (1 - u.enter * 0.9) * u.ready * (focused ? 0.18 : 1);
       });
       dust.rotation.y = t * 0.02; ring.rotation.z = t * 0.05;
       renderer.render(scene, cam);
@@ -514,6 +545,23 @@
     gsap.from(".footer__big", { yPercent: 40, opacity: 0, duration: 1.2, ease: "power4.out", scrollTrigger: { trigger: ".footer", start: "top 90%", once: true } });
   }
 
+  /* ---------------- Credo: voor en na ---------------- */
+  function initCompare() {
+    var c = $("#cmp"); if (!c) return;
+    var range = $(".cmp__range", c), view = $(".cmp__view", c), st = { v: 50 };
+    var set = function (v) { st.v = v; c.style.setProperty("--pos", v + "%"); range.value = v; };
+    set(50);
+    range.addEventListener("input", function () { gsap.killTweensOf(st); set(parseFloat(range.value)); });
+    var sweep = function () {
+      if (REDUCED) return;
+      gsap.timeline({ onUpdate: function () { set(st.v); } })
+        .to(st, { v: 88, duration: 1.1, ease: "power3.inOut" })
+        .to(st, { v: 14, duration: 1.6, ease: "power3.inOut" })
+        .to(st, { v: 50, duration: 1.1, ease: "power3.inOut" });
+    };
+    ScrollTrigger.create({ trigger: c, start: "top 70%", once: true, onEnter: sweep });
+  }
+
   /* ---------------- diepte: zwevende objecten ---------------- */
   function initDepth() {
     if (REDUCED) return;
@@ -522,7 +570,7 @@
       gsap.fromTo(el, { y: d * 160 }, { y: -d * 160, ease: "none", scrollTrigger: { trigger: sec, start: "top bottom", end: "bottom top", scrub: 0.6 } });
     });
     if (FINE) {
-      $$(".case__vis, .portret, .band__in").forEach(function (box) {
+      $$(".case__vis, .credo__stage, .portret, .band__in").forEach(function (box) {
         var items = $$("[data-depth]", box);
         box.addEventListener("mousemove", function (e) {
           var r = box.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - 0.5, py = (e.clientY - r.top) / r.height - 0.5;
@@ -882,6 +930,10 @@
   I18N_UP.en.v_hint = "Scroll through the full homepage."; I18N_UP.fr.v_hint = "Faites défiler toute la page d'accueil.";
   (function () {
     var T = {
+      wk1: ["Bakery · Kapellen", "Boulangerie · Kapellen"], wk2: ["Beauty salon · Mechelen", "Institut de beauté · Malines"], wk3: ["Car wash · Sint-Niklaas", "Car wash · Saint-Nicolas"],
+      wk4: ["Chocolatier · Bruges", "Chocolatier · Bruges"], wk5: ["Fitness studio · Hasselt", "Salle de fitness · Hasselt"], wk6: ["Wedding host · Wortegem-Petegem", "Maître de cérémonie · Wortegem-Petegem"],
+      wk7: ["Coffee bar · Hasselt", "Bar à café · Hasselt"], wk8: ["B&B · Borgloon", "Chambres d'hôtes · Looz"], wk9: ["Beauty clinic · Lommel", "Institut de beauté · Lommel"], wk10: ["Chip shop · Boom", "Friterie · Boom"],
+      wall_t: ["And many more", "Et bien d'autres"], cr_eyebrow: ["Client in the spotlight", "Client à la une"], cr_hint: ["Drag to compare", "Glissez pour comparer"],
       m_call: ["Call", "Appeler"], mk_book: ["Book an appointment", "Prendre rendez-vous"], mk_booked: ["Confirmed · Tue 4 at 10:30", "Confirmé · mar 4 à 10h30"],
       mk_bill: ["Your invoice", "Votre facture"], mk_dep: ["Deposit", "Acompte"], mk_on: ["On delivery", "À la livraison"], mk_tot: ["Total", "Total"], mk_stamp: ["Only when you are happy", "Seulement si vous êtes satisfait"],
       mk_m_sub: ["Your example site is ready", "Votre site d'exemple est prêt"], mk_m_p: ["As promised: your new homepage, with your own photos.", "Comme promis : votre nouvelle page d'accueil, avec vos propres photos."], mk_new: ["New", "Nouveau"],
@@ -922,7 +974,7 @@
   }
   function init() {
     initVW();
-    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initStory(); initIntro(); initWork(); initFAQ(); initTilt(); initProcess(); initReveals(); initForm(); initViewer(); initDepth(); initDock(); initPre();
+    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initStory(); initIntro(); initWork(); initFAQ(); initTilt(); initProcess(); initReveals(); initForm(); initViewer(); initCompare(); initDepth(); initDock(); initPre();
     window.addEventListener("load", function () { ScrollTrigger.refresh(); });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
