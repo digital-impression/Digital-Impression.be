@@ -701,7 +701,7 @@
       pr_note: "Hosting, domain name and copywriting are not part of the package price; we arrange them on request via the quote. No deposit: you pay once the website is finished and you are happy.",
       ab_eyebrow: "About us", ab_title: "People buy <em class=\"it\">from people.</em>",
       sig1: "No deposit.", sig2: "No templates.", sig3: "No promises about Google.", sig4: "One point of contact.", ab_role: "Founder · design and build",
-      c_eyebrow: "Start your project", c_title: "Let's build something <em class=\"it\">that makes an impression.</em>", c_lead: "Tell us briefly about your business. Within five working days you receive a tailored quote plus a free design of your homepage.", region: "Belgium & the Netherlands",
+      c_eyebrow: "Start your project", c_title: "Let's build something <em class=\"it\">that makes an impression.</em>", c_lead: "Tell us briefly about your business. Within five working days you receive a tailored quote plus a free design of your homepage.", region: "Leuven · Belgium & the Netherlands",
       f_naam: "Name", f_naam_ph: "Your name", f_email: "Email", f_email_ph: "you@company.com", f_site: "Current website (optional)", f_site_ph: "www.yourcompany.com", f_msg: "Your project", f_msg_ph: "How can we help? Tell us briefly about your business.",
       f_fine: "By sending you agree to a no-obligation contact. No deposit, no commitment.", f_ok_t: "Thank you. We get to work.", f_ok_p: "You will hear from us soon. Within five working days you receive a first design of your homepage, without obligation.", f_again: "Send another request",
       nav_faq: "FAQ",
@@ -714,7 +714,7 @@
       sv3_t: "SEO", sv3_p: "The technical basis so Google finds you: fast, well structured, locally visible. No empty promises.", sv3_m: "Basics included", sv_more3: "More about SEO",
       sv4_t: "Maintenance & hosting", sv4_p: "Hosting, domain, updates and small changes. Taken care of, so you never have to think about it.", sv4_m: "Via the quote", sv_more4: "More about maintenance",
       p1_b: "Free · within 5 working days", p5_k: "Step 05", p5_t: "Live and aftercare", p5_p: "Your website goes online, with guidance and support. Afterwards you stay with the same person.",
-      ab_p1: "Digital Impression is the web design studio of Stijn Vranken, in Belgian Limburg. From the first conversation to launch you talk to the person who designs and builds your website.",
+      ab_p1: "Digital Impression is the web design studio of Stijn Vranken, in Leuven, Belgium. From the first conversation to launch you talk to the person who designs and builds your website.",
       fq_eyebrow: "Frequently asked questions", fq_title: "What you are <em class=\"it\">probably wondering.</em>",
       fq1_q: "What does a website cost?", fq1_a: "A bespoke website starts at €999 (Starter, up to 3 pages). Growth starts at €1,249, a webshop at €1,899. You always get a fixed price up front, with no surprises.",
       fq2_q: "How long does it take?", fq2_a: "You see the free homepage design within five working days. After your go-ahead most websites are online in ten to fourteen days.",
@@ -723,7 +723,7 @@
       fq5_q: "What if I don't like the design?", fq5_a: "Then it stops there, at no cost. The first design is free and you pay no deposit. You decide only after you have seen it.",
       fq6_q: "Do I have to pay a deposit?", fq6_a: "No. You pay once the website is finished and you are happy with it.",
       c_b1: "Free and without obligation", c_b2: "In your inbox within 5 working days", c_b3: "No deposit, you decide afterwards",
-      foot_tag: "Web design studio in Limburg. Bespoke websites for SMEs in Belgium and the Netherlands.", foot_cta: "Request your free homepage design", foot_contact: "Contact", foot_addr: "Limburg, Belgium", foot_company: "Company", foot_kbo: "Company number on request", foot_follow: "Follow us",
+      foot_tag: "Web design studio in Leuven. Bespoke websites for SMEs in Belgium and the Netherlands.", foot_cta: "Request your free homepage design", foot_contact: "Contact", foot_addr: "Brabançonnestraat 32 bus 0101<br>3000 Leuven, Belgium", foot_company: "Company", foot_kbo: "Company number on request", foot_follow: "Follow us",
       foot_rights: "© 2026 Digital Impression. All rights reserved.", foot_privacy: "Privacy policy", foot_terms: "Terms & conditions",
       in1a: "Your website is the first encounter",
       in1b: "with a new customer.",
@@ -788,7 +788,7 @@
       pr_note: "L'hébergement, le nom de domaine et la rédaction ne font pas partie du prix du forfait ; nous les organisons sur demande via le devis. Pas d'acompte : vous payez quand le site est terminé et que vous êtes satisfait.",
       ab_eyebrow: "À propos", ab_title: "On achète <em class=\"it\">à des personnes.</em>",
       sig1: "Pas d'acompte.", sig2: "Pas de modèles.", sig3: "Pas de promesses sur Google.", sig4: "Un seul interlocuteur.", ab_role: "Fondateur · design et construction",
-      c_eyebrow: "Démarrez votre projet", c_title: "Construisons quelque chose <em class=\"it\">qui fait impression.</em>", c_lead: "Parlez-nous brièvement de votre entreprise. Sous cinq jours ouvrables, vous recevez un devis sur mesure et un design gratuit de votre page d'accueil.", region: "Belgique & Pays-Bas",
+      c_eyebrow: "Démarrez votre projet", c_title: "Construisons quelque chose <em class=\"it\">qui fait impression.</em>", c_lead: "Parlez-nous brièvement de votre entreprise. Sous cinq jours ouvrables, vous recevez un devis sur mesure et un design gratuit de votre page d'accueil.", region: "Louvain · Belgique & Pays-Bas",
       f_naam: "Nom", f_naam_ph: "Votre nom", f_email: "E-mail", f_email_ph: "vous@entreprise.be", f_site: "Site web actuel (facultatif)", f_site_ph: "www.votreentreprise.be", f_msg: "Votre projet", f_msg_ph: "Comment pouvons-nous vous aider ? Parlez-nous brièvement de votre entreprise.",
       f_fine: "En envoyant, vous acceptez une prise de contact sans engagement. Pas d'acompte, pas d'obligation.", f_ok_t: "Merci. Nous nous mettons au travail.", f_ok_p: "Vous aurez bientôt de nos nouvelles. Sous cinq jours ouvrables, vous recevez un premier design de votre page d'accueil, sans engagement.", f_again: "Envoyer une autre demande",
       nav_faq: "FAQ",
@@ -801,7 +801,7 @@
       sv3_t: "SEO", sv3_p: "La base technique pour que Google vous trouve : rapide, bien structuré, visible localement. Sans promesses creuses.", sv3_m: "Base comprise", sv_more3: "En savoir plus sur le SEO",
       sv4_t: "Maintenance & hébergement", sv4_p: "Hébergement, nom de domaine, mises à jour et petites modifications. Pris en charge, pour ne plus y penser.", sv4_m: "Via le devis", sv_more4: "En savoir plus sur la maintenance",
       p1_b: "Gratuit · sous 5 jours ouvrables", p5_k: "Étape 05", p5_t: "En ligne et suivi", p5_p: "Votre site est mis en ligne, avec explications et support. Ensuite, vous restez avec la même personne.",
-      ab_p1: "Digital Impression est le studio de webdesign de Stijn Vranken, dans le Limbourg belge. Du premier échange à la mise en ligne, vous parlez à la personne qui conçoit et construit votre site.",
+      ab_p1: "Digital Impression est le studio de webdesign de Stijn Vranken, à Louvain, en Belgique. Du premier échange à la mise en ligne, vous parlez à la personne qui conçoit et construit votre site.",
       fq_eyebrow: "Questions fréquentes", fq_title: "Ce que vous vous demandez <em class=\"it\">probablement.</em>",
       fq1_q: "Combien coûte un site web ?", fq1_a: "Un site sur mesure commence à 999 € (Starter, jusqu'à 3 pages). Croissance démarre à 1 249 €, une boutique en ligne à 1 899 €. Vous recevez toujours un prix fixe à l'avance, sans surprise.",
       fq2_q: "Combien de temps cela prend-il ?", fq2_a: "Vous voyez le design gratuit de votre page d'accueil sous cinq jours ouvrables. Après votre accord, la plupart des sites sont en ligne en dix à quatorze jours.",
@@ -810,7 +810,7 @@
       fq5_q: "Et si le design ne me plaît pas ?", fq5_a: "Alors cela s'arrête là, sans frais. Le premier design est gratuit et vous ne payez aucun acompte. Vous décidez seulement après l'avoir vu.",
       fq6_q: "Dois-je payer un acompte ?", fq6_a: "Non. Vous payez quand le site est terminé et que vous êtes satisfait.",
       c_b1: "Gratuit et sans engagement", c_b2: "Dans votre boîte mail sous 5 jours ouvrables", c_b3: "Pas d'acompte, vous décidez ensuite",
-      foot_tag: "Studio de webdesign dans le Limbourg. Des sites sur mesure pour les PME en Belgique et aux Pays-Bas.", foot_cta: "Demandez votre design de page d'accueil gratuit", foot_contact: "Contact", foot_addr: "Limbourg, Belgique", foot_company: "Entreprise", foot_kbo: "Numéro d'entreprise sur demande", foot_follow: "Suivez-nous",
+      foot_tag: "Studio de webdesign à Louvain. Des sites sur mesure pour les PME en Belgique et aux Pays-Bas.", foot_cta: "Demandez votre design de page d'accueil gratuit", foot_contact: "Contact", foot_addr: "Brabançonnestraat 32 bus 0101<br>3000 Leuven, Belgique", foot_company: "Entreprise", foot_kbo: "Numéro d'entreprise sur demande", foot_follow: "Suivez-nous",
       foot_rights: "© 2026 Digital Impression. Tous droits réservés.", foot_privacy: "Politique de confidentialité", foot_terms: "Conditions générales",
       in1a: "Votre site web est la première rencontre",
       in1b: "avec un nouveau client.",
@@ -877,7 +877,7 @@
       c_lead: "Tell us briefly about your business, or just share your website or Instagram. Within five working days you receive an example with your own photos. No obligation, no deposit.",
       f_site: "Current website or Instagram (optional)", f_site_ph: "www.yourcompany.com or @yourbusiness", cta_design: "Request your free example",
       f_ok_p: "You will hear from us soon. Within five working days you receive an example of your new website, without obligation.",
-      foot_tag: "Web design from Limburg. Bespoke websites for freelancers and small businesses in Belgium and the Netherlands.", foot_cta: "Request your free example"
+      foot_tag: "Web design from Leuven. Bespoke websites for freelancers and small businesses in Belgium and the Netherlands.", foot_cta: "Request your free example"
     },
     fr: {
       nav_services: "Tarifs", nav_pricing: "Exemple gratuit",
@@ -914,7 +914,7 @@
       c_lead: "Parlez-nous brièvement de votre entreprise, ou indiquez simplement votre site ou votre Instagram. Sous cinq jours ouvrables, vous recevez un exemple avec vos propres photos. Sans engagement, sans acompte.",
       f_site: "Site actuel ou Instagram (facultatif)", f_site_ph: "www.votreentreprise.be ou @votreentreprise", cta_design: "Demandez votre exemple gratuit",
       f_ok_p: "Vous aurez bientôt de nos nouvelles. Sous cinq jours ouvrables, vous recevez un exemple de votre nouveau site, sans engagement.",
-      foot_tag: "Webdesign depuis le Limbourg. Des sites sur mesure pour les indépendants et les PME en Belgique et aux Pays-Bas.", foot_cta: "Demandez votre exemple gratuit"
+      foot_tag: "Webdesign depuis Louvain. Des sites sur mesure pour les indépendants et les PME en Belgique et aux Pays-Bas.", foot_cta: "Demandez votre exemple gratuit"
     }
   };
   I18N_UP.en.nav_about = "About"; I18N_UP.fr.nav_about = "À propos";
