@@ -84,11 +84,11 @@
     };
     // key, name, sector, work panel (0 = none)
     var SITES = [
-      ["credo", "Credo Rehab & Performance", "physio", 1, "https://www.credorehabandperformance.com"], ["fleetreview", "Fleetreview", "soft", 2], ["boekhouder", "Accountancy Verhaeghe", "acc", 3],
-      ["lindeloof", "Bakkerij Lindeloof", "bakery", 4], ["mergel", "Mergelgrotten Zichen", "caves", 5], ["tuin", "Tuinwerken Stas", "garden", 6],
-      ["credo-2", "Credo Rehab & Performance", "physio", 1, "https://www.credorehabandperformance.com"], ["fleetreview-2", "Fleetreview", "soft", 2], ["boekhouder-2", "Accountancy Verhaeghe", "acc", 3],
-      ["lindeloof-2", "Bakkerij Lindeloof", "bakery", 4], ["mergel-2", "Mergelgrotten Zichen", "caves", 5], ["tuin-2", "Tuinwerken Stas", "garden", 6],
-      ["fleetreview-3", "Fleetreview", "soft", 2], ["boekhouder-3", "Accountancy Verhaeghe", "acc", 3], ["lindeloof-3", "Bakkerij Lindeloof", "bakery", 4],
+      ["credo", "Credo Rehab & Performance", "physio", 1, "https://www.credorehabandperformance.com"], ["fleetreview", "Fleetreview", "soft", 4], ["boekhouder", "Accountancy Verhaeghe", "acc", 2],
+      ["lindeloof", "Bakkerij Lindeloof", "bakery", 3], ["mergel", "Mergelgrotten Zichen", "caves", 5], ["tuin", "Tuinwerken Stas", "garden", 6],
+      ["credo-2", "Credo Rehab & Performance", "physio", 1, "https://www.credorehabandperformance.com"], ["fleetreview-2", "Fleetreview", "soft", 4], ["boekhouder-2", "Accountancy Verhaeghe", "acc", 2],
+      ["lindeloof-2", "Bakkerij Lindeloof", "bakery", 3], ["mergel-2", "Mergelgrotten Zichen", "caves", 5], ["tuin-2", "Tuinwerken Stas", "garden", 6],
+      ["fleetreview-3", "Fleetreview", "soft", 4], ["boekhouder-3", "Accountancy Verhaeghe", "acc", 2], ["lindeloof-3", "Bakkerij Lindeloof", "bakery", 3],
       ["mergel-3", "Mergelgrotten Zichen", "caves", 5], ["tuin-3", "Tuinwerken Stas", "garden", 6]
     ].map(function (a) {
       var k = K[a[2]] || ["", "", ""], live = !!a[4];
@@ -442,31 +442,47 @@
     introKill = function () { tl.scrollTrigger && tl.scrollTrigger.kill(); tl.kill(); gsap.set(lines.concat(w1, w2), { clearProps: "all" }); };
   }
 
-  /* ---------------- work: horizontal pin ---------------- */
+  /* ---------------- work: horizontal pin, three first, the rest on request ---------------- */
   function initWork() {
     var pin = $("#workPin"), track = $("#workTrack"), count = $("#workCount"), bar = $("#workBar");
     if (!pin || !track) return;
-    var panels = $$(".story", track), n = panels.length;
+    var more = $("#workMore"), moreBtn = $("#workMoreBtn");
+    var cases = $$(".story", track).filter(function (p) { return p !== more; });
+    var slots = function () { return $$(".story", track).filter(function (p) { return !p.hidden; }); };
+    var shown = function () { return cases.filter(function (p) { return !p.hidden; }); };
+    var pad = function (i) { return (i < 10 ? "0" : "") + i; };
+    var setCount = function (i) { var n = shown().length; count.textContent = pad(Math.min(i, n)) + " / " + pad(n); };
+    function reveal() {
+      if (!more || more.hidden) return;
+      cases.forEach(function (p) { p.hidden = false; });
+      more.hidden = true;
+      ScrollTrigger.refresh();
+      setCount(4);
+      var first = $("[data-more] .story__open", track); if (first) first.focus({ preventScroll: true });
+    }
+    if (moreBtn) moreBtn.addEventListener("click", reveal);
     window.__gotoWork = function (i) {
+      if (i > 3) reveal();
+      var target = cases[i - 1], list = slots(), k = Math.max(0, list.indexOf(target));
       var st = ScrollTrigger.getById("workST");
-      var y = st ? st.start + (st.end - st.start) * ((i - 1) / Math.max(1, n - 1)) : (panels[i - 1].getBoundingClientRect().top + window.scrollY - 80);
+      var y = st ? st.start + (st.end - st.start) * (k / Math.max(1, list.length - 1)) : (target.getBoundingClientRect().top + window.scrollY - 80);
       if (lenis) lenis.scrollTo(y, { duration: 1.6 }); else window.scrollTo({ top: y, behavior: "smooth" });
     };
-    var pad = function (i) { return (i < 10 ? "0" : "") + i; };
+    setCount(1);
     ScrollTrigger.matchMedia({
       "(min-width: 900px)": function () {
         var dist = function () { return track.scrollWidth - document.documentElement.clientWidth; };
         var tween = gsap.to(track, { x: function () { return -dist(); }, ease: "none",
           scrollTrigger: { id: "workST", trigger: pin, start: "top top", end: function () { return "+=" + dist(); }, pin: true, scrub: 0.35, invalidateOnRefresh: true, anticipatePin: 1,
-            onUpdate: function (st) { var i = Math.min(n, Math.floor(st.progress * n) + 1); count.textContent = pad(i) + " / " + pad(n); if (bar) bar.style.transform = "scaleX(" + st.progress + ")"; } } });
-        panels.forEach(function (p) {
+            onUpdate: function (st) { var n = slots().length; setCount(Math.min(n, Math.floor(st.progress * n) + 1)); if (bar) bar.style.transform = "scaleX(" + st.progress + ")"; } } });
+        cases.forEach(function (p) {
           var img = $("img", p);
           gsap.fromTo(img, { xPercent: -6 }, { xPercent: 6, ease: "none", scrollTrigger: { trigger: p, containerAnimation: tween, start: "left right", end: "right left", scrub: true } });
         });
       },
       "(max-width: 899px)": function () {
-        panels.forEach(function (p, i) {
-          ScrollTrigger.create({ trigger: p, start: "top 60%", onEnter: function () { count.textContent = pad(i + 1) + " / " + pad(n); }, onEnterBack: function () { count.textContent = pad(i + 1) + " / " + pad(n); } });
+        cases.forEach(function (p, i) {
+          ScrollTrigger.create({ trigger: p, start: "top 60%", onEnter: function () { setCount(i + 1); }, onEnterBack: function () { setCount(i + 1); } });
           gsap.fromTo($("img", p), { yPercent: -6 }, { yPercent: 6, ease: "none", scrollTrigger: { trigger: p, start: "top bottom", end: "bottom top", scrub: true } });
         });
       }
@@ -501,12 +517,29 @@
     sec.removeAttribute("data-step");
     ScrollTrigger.create({ trigger: sec, start: "top 70%", once: true, onEnter: function () { setStep(0); } });
     if (REDUCED) { setStep(0); return; }
+    var done = false;
     var st = ScrollTrigger.create({
       trigger: sec, start: "top top", end: "+=" + (n * 70) + "%", pin: pin, pinSpacing: true, anticipatePin: 1,
       snap: { snapTo: 1 / (n - 1), duration: { min: 0.2, max: 0.6 }, ease: "power2.inOut", delay: 0.05 },
-      onUpdate: function (t) { setStep(Math.min(n - 1, Math.round(t.progress * (n - 1)))); if (fill) fill.style.transform = "scaleX(" + (0.1 + 0.9 * t.progress) + ")"; }
+      onUpdate: function (t) { setStep(Math.min(n - 1, Math.round(t.progress * (n - 1)))); if (fill) fill.style.transform = "scaleX(" + (0.1 + 0.9 * t.progress) + ")"; },
+      // once the five steps have been scrolled through, release the section: no pin, no snapping, the last step stays
+      onLeave: function () { release(); }
     });
-    stops.forEach(function (o, k) { o.style.cursor = "pointer"; o.addEventListener("click", function () { var y = st.start + (st.end - st.start) * (k / (n - 1)); if (lenis) lenis.scrollTo(y, { duration: 1.2 }); else window.scrollTo({ top: y, behavior: "smooth" }); }); });
+    function release() {
+      if (done) return; done = true;
+      var dist = st.end - st.start, y = window.scrollY;
+      st.kill(true);
+      sec.classList.add("bp--free");
+      setStep(n - 1); if (fill) fill.style.transform = "scaleX(1)";
+      ScrollTrigger.refresh();
+      // the pin spacer is gone, so everything below moved up by its height: keep the view where it was
+      var to = Math.max(0, y - dist);
+      if (lenis) lenis.scrollTo(to, { immediate: true, force: true }); else window.scrollTo(0, to);
+    }
+    stops.forEach(function (o, k) { o.style.cursor = "pointer"; o.addEventListener("click", function () {
+      if (done) { setStep(k); if (fill) fill.style.transform = "scaleX(" + (0.1 + 0.9 * k / (n - 1)) + ")"; return; }
+      var y = st.start + (st.end - st.start) * (k / (n - 1)); if (lenis) lenis.scrollTo(y, { duration: 1.2 }); else window.scrollTo({ top: y, behavior: "smooth" });
+    }); });
   }
 
   /* ---------------- pricing tilt ---------------- */
@@ -932,6 +965,7 @@
   (function () {
     var T = {
       wk1: ["Physiotherapy · Diepenbeek · live", "Kinésithérapie · Diepenbeek · en ligne"],
+      w_more: ["More work", "Plus de réalisations"],
       wk2: ["Fleet software · concept", "Logiciel de flotte · concept"],
       wk3: ["Accounting firm · Oudenaarde", "Cabinet comptable · Audenarde"],
       wk4: ["Bakery · Bree", "Boulangerie · Bree"],
@@ -942,7 +976,7 @@
       m_call: ["Call", "Appeler"], mk_book: ["Book an appointment", "Prendre rendez-vous"], mk_booked: ["Confirmed · Tue 4 at 10:30", "Confirmé · mar 4 à 10h30"],
       mk_bill: ["Your invoice", "Votre facture"], mk_dep: ["Deposit", "Acompte"], mk_on: ["On delivery", "À la livraison"], mk_tot: ["Total", "Total"], mk_stamp: ["Only when you are happy", "Seulement si vous êtes satisfait"],
       mk_m_sub: ["Your example site is ready", "Votre site d'exemple est prêt"], mk_m_p: ["As promised: your new homepage, with your own photos.", "Comme promis : votre nouvelle page d'accueil, avec vos propres photos."], mk_new: ["New", "Nouveau"],
-      mk_r1: ["Could you use this photo of our studio?", "Vous pouvez mettre cette photo de notre studio ?"], mk_r2: ["Sure, it will be there tomorrow.", "Bien sûr, elle sera en ligne demain."],
+      mk_r1: ["Could you use this photo of our bakehouse?", "Vous pouvez mettre cette photo de notre atelier ?"], mk_r2: ["Sure, it will be there tomorrow.", "Bien sûr, elle sera en ligne demain."],
       mk_l_h: ["Changes", "Modifications"], mk_l1: ["Top photo replaced", "Photo principale remplacée"], mk_l2: ["Price list added", "Tarifs ajoutés"], mk_l3: ["Opening hours corrected", "Horaires corrigés"],
       mk_g_t: ["Your Business · Town", "Votre entreprise · Commune"], mk_g_p: ["Opening hours, prices and booking right away. See our work and get in touch.", "Horaires, prix et prise de rendez-vous immédiate. Découvrez notre travail et contactez-nous."], mk_gsm: ["Phone", "Mobile"],
       mk_c1: ["Can you add the holiday opening hours?", "Vous pouvez ajouter les horaires des fêtes ?"], mk_c2: ["Done. Have a look.", "C'est fait. Jetez un œil."], mk_c3: ["Carefree · €19.99 a month", "Sans souci · 19,99 € par mois"],

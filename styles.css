@@ -1411,3 +1411,33 @@ html:not(.bp-js) .bp__txt h3 { font-size: 1.6rem; }
   .bp__txt h3 { font-size: 1.6rem; }
 }
 @media (min-width: 901px) { .bp__canvas { max-width: calc((100vh - 24rem) * 1.5); max-width: calc((100svh - 24rem) * 1.5); } .bp__pin { padding-bottom: 2.5rem; } }
+
+/* ===== v22: Ons werk, naam boven de case en links uitgelijnd, drie eerst ===== */
+.work--v2 .scene__cap { display: grid; grid-template-columns: auto minmax(0, 1fr); justify-items: start; align-items: baseline; gap: 0.9rem 1rem; text-align: left; }
+.work--v2 .scene__cap .story__open { grid-column: 1 / -1; margin: 0; justify-self: start; }
+.work--v2 .scene__id { display: flex; flex-direction: column; align-items: flex-start; gap: 0.45rem; }
+@media (max-width: 899px) { .work--v2 .scene__cap { width: calc(100% - 4%); } }
+.work--v2 .story.scene[hidden] { display: none !important; }
+.work--v2 .story.scene--more { justify-content: center; }
+.more { display: flex; width: min(22rem, 100%); padding: 0.6rem; border: 1px dashed rgba(201,162,74,0.4); border-radius: 999px; }
+.more__btn { flex: 1; display: flex; align-items: center; gap: 0.7rem; padding: 0.95rem 1.4rem; border-radius: 999px; border: 1px solid rgba(201,162,74,0.35); color: var(--gold); font-size: 0.86rem; font-weight: 600; letter-spacing: 0.02em; transition: background-color 0.45s var(--ease), color 0.45s, border-color 0.45s; }
+.more__btn small { font-size: 0.72rem; font-weight: 600; color: var(--fg-mute); letter-spacing: 0.06em; transition: color 0.45s; }
+.more__btn i { margin-left: auto; width: 7px; height: 7px; border-top: 1.5px solid currentColor; border-right: 1.5px solid currentColor; transform: rotate(45deg); transition: transform 0.45s var(--ease); }
+.more__btn:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+.more__btn:hover small { color: rgba(14,28,58,0.6); }
+.more__btn:hover i { transform: translateX(3px) rotate(45deg); }
+@media (min-width: 900px) { .work--v2 .story.scene--more { width: auto; padding-inline: clamp(2rem, 4vw, 4.5rem) var(--gutter); } .work--v2 .scene--more .more { width: 24rem; } }
+@media (max-width: 899px) { .more { width: 100%; } }
+
+/* ===== v22: werkwijze, in stap 3 komt de foto van het atelier er echt op ===== */
+.bp__site--atelier { opacity: 0; transition: clip-path 1.3s var(--ease), opacity 0.9s ease; }
+.bp[data-step="2"] .bp__site--atelier { opacity: 1; transition-delay: 0s, 1.15s; }
+.bp[data-step="3"] .bp__site--atelier, .bp[data-step="4"] .bp__site--atelier { opacity: 1; }
+
+/* ===== v23: hero gecentreerd via de layout, niet via translate(-50%) =====
+   Een animatie die bij het laden de transform uitleest, onthield de centrering
+   in pixels van dat moment. Laadde de pagina in een kader zonder breedte
+   (de Claude-app op iPhone), dan stond de hero daarna half naast het scherm. */
+.hero__in { display: grid; place-items: center; }
+.brand, .hero__center { position: relative; left: auto; top: auto; transform: none; margin: 0 auto; }
+@media (max-width: 760px) { .brand { transform: none; } }
