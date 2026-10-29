@@ -78,7 +78,7 @@ h3{font-size:1.6rem;line-height:1.1}
 .hero{padding:30px 0 90px;position:relative}
 .hero .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:center}
 .hero .tag{font:italic 400 1.4rem/1 var(--f-d);color:var(--honey-d);margin-bottom:22px;display:block}
-.hero h1{font-size:clamp(3.4rem,6.8vw,6.4rem);margin-bottom:28px}
+.hero h1{font-size:clamp(3.4rem,6.6vw,6.6rem);line-height:.95;margin-bottom:28px;max-width:11ch}
 .hero h1 em{display:block}
 .hero .lead{margin-bottom:34px}
 .hero .cta{display:flex;flex-wrap:wrap;gap:12px}
@@ -87,7 +87,7 @@ h3{font-size:1.6rem;line-height:1.1}
 .hero .proof span{font-size:.88rem;color:var(--muted);line-height:1.4}
 .stars{display:inline-flex;gap:2px;color:var(--honey)}
 .stars .ic{width:13px;height:13px;fill:currentColor;stroke:none}
-.mood{position:relative;display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:1fr 1fr;gap:14px;height:640px}
+.mood{position:relative;display:grid;grid-template-columns:1.25fr 1fr;grid-template-rows:1.15fr .85fr;gap:14px;height:700px}
 .mood figure{position:relative;overflow:hidden;border-radius:var(--r)}
 .mood figure:first-child{grid-row:1/3;border-radius:999px 999px var(--r) var(--r)}
 .mood img{width:100%;height:100%;object-fit:cover}
@@ -96,13 +96,26 @@ h3{font-size:1.6rem;line-height:1.1}
 .mood .seal b{font:400 2.3rem/1 var(--f-d);color:#fff}
 .mood .seal span{font:500 .58rem/1.3 var(--f-b);letter-spacing:.16em;text-transform:uppercase;margin-top:4px}
 
-/* strip */
-.strip{background:var(--esp);color:#D8CABB}
-.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
-.strip div{padding:30px 26px;font-size:.86rem;line-height:1.4}
-.strip div+div{border-left:1px solid rgba(255,255,255,.08)}
-.strip b{display:block;font:400 2.1rem/1 var(--f-d);color:#fff;margin-bottom:6px}
-.strip b em{color:var(--champ-2)}
+/* team */
+.team{padding:40px 0 130px}
+.team .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:80px;align-items:center}
+.tm-vis{position:relative;height:680px}
+.tm-vis .a{position:absolute;left:0;top:0;width:78%;height:76%;border-radius:var(--r);overflow:hidden}
+.tm-vis .b{position:absolute;right:0;bottom:0;width:46%;height:46%;border-radius:999px 999px var(--r) var(--r);overflow:hidden;border:8px solid var(--bg)}
+.tm-vis img{width:100%;height:100%;object-fit:cover}
+.tm-vis .note{position:absolute;left:6%;bottom:6%;background:var(--esp);color:#E9DCCB;border-radius:20px;padding:22px 24px;max-width:250px}
+.tm-vis .note b{display:block;font:400 3.4rem/.9 var(--f-d);color:#fff}
+.tm-vis .note span{display:block;font-size:.92rem;margin-top:8px;line-height:1.45}
+.team h2{margin-bottom:24px}
+.team p{color:var(--ink-2);font-size:1.06rem;margin-bottom:16px;max-width:52ch}
+.lk3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:34px}
+.lk3 a{display:block}
+.lk3 .ph{height:170px;border-radius:18px;overflow:hidden}
+.lk3 img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.lk3 a:hover img{transform:scale(1.05)}
+.lk3 b{display:block;font:400 1.15rem/1.2 var(--f-d);margin-top:10px}
+.lk3 span{font-size:.84rem;color:var(--muted)}
+.team .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
 
 /* blond finder */
 .bf-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:44px}
@@ -233,8 +246,8 @@ h3{font-size:1.6rem;line-height:1.1}
   .bf-head{gap:20px}
   .mood{height:560px;max-width:620px}
   .mood .seal{left:-10px}
-  .strip .wrap{grid-template-columns:1fr 1fr}
-  .strip div:nth-child(3){border-left:0}.strip div:nth-child(n+3){border-top:1px solid rgba(255,255,255,.08)}
+  .team .wrap{grid-template-columns:1fr;gap:50px}
+  .tm-vis{max-width:600px;width:100%}
   .rgrid{grid-template-columns:1fr 1fr}
   .rv-head{flex-direction:column;align-items:flex-start}
   .ex-vis{max-width:560px}
@@ -250,8 +263,10 @@ h3{font-size:1.6rem;line-height:1.1}
   .hero .btn{flex:1}
   .mood{height:440px;gap:8px}
   .mood .seal{width:92px;height:92px;left:auto;right:-6px;top:-20px}.mood .seal b{font-size:1.8rem}
-  .strip .wrap{width:100%}
-  .strip div{padding:22px 20px}.strip b{font-size:1.7rem}
+  .team{padding:10px 0 84px}
+  .tm-vis{height:440px}
+  .tm-vis .note{padding:16px 18px;max-width:200px}.tm-vis .note b{font-size:2.6rem}
+  .lk3{gap:8px}.lk3 .ph{height:120px}.lk3 b{font-size:.98rem}
   .looks{grid-template-columns:1fr 1fr;gap:8px}
   .lk{flex-direction:column;align-items:flex-start;gap:10px;padding:12px}
   .lk b{font-size:1.05rem}
@@ -293,8 +308,8 @@ h3{font-size:1.6rem;line-height:1.1}
   <div class="wrap">
     <div>
       <span class="tag" data-r>the house of balayage</span>
-      <h1 data-r="80">Waar kleur <em>een kunst is.</em></h1>
-      <p class="lead" data-r="160">En waar elke balayage met de grootste zorg geplaatst wordt. Bij Team MODJOO in Sint-Gillis kom je voor blond dat er ook na maanden nog mooi uitziet, voor copper, brunette of gewoon een goede knip.</p>
+      <h1 data-r="80">Blond dat na maanden nog mooi is.</h1>
+      <p class="lead" data-r="160">Elke balayage wordt met de grootste zorg geplaatst. Bij Team MODJOO in Sint-Gillis kom je voor blond, copper of brunette, of gewoon voor een goede knip.</p>
       <div class="cta" data-r="220"><a class="btn pr" href="https://salonkee.be/salon/modjoo" target="_blank" rel="noopener">Boek je afspraak <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a><a class="btn ln" href="#blond">Vind jouw blond</a></div>
       <div class="proof" data-r="300"><b>4,9</b><span><span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span><br>400 geverifieerde reviews op Salonkee</span></div>
     </div>
@@ -302,17 +317,28 @@ h3{font-size:1.6rem;line-height:1.1}
       <figure><img src="img/hero.webp" alt="Vrouw met warme, golvende balayage" width="1400" height="2100" fetchpriority="high" style="object-position:50% 20%"></figure>
       <figure><img src="img/blond.webp" alt="Blonde balayage" width="1000" height="1500" style="object-position:50% 30%"><figcaption>Balayage blond</figcaption></figure>
       <figure><img src="img/copper.webp" alt="Cowboy copper" width="1000" height="1777" style="object-position:50% 40%"><figcaption>Cowboy copper</figcaption></figure>
-      <div class="seal"><b>80%</b><span>blondines</span></div>
     </div>
   </div>
 </section>
 
-<section class="strip">
+<section class="team">
   <div class="wrap">
-    <div data-r><b>4,9 <em>★</em></b>400 reviews op Salonkee</div>
-    <div data-r="60"><b>80%</b>van onze klanten is blond</div>
-    <div data-r="120"><b>Team</b>meerdere kapsters, elk een vakvrouw</div>
-    <div data-r="180"><b>Do <em>tot 19u</em></b>en vrijdag al vanaf 8u30</div>
+    <div class="tm-vis" data-r>
+      <div class="a"><img src="img/room.webp" alt="Het salon van MODJOO in Sint-Gillis" loading="lazy" width="1000" height="750"></div>
+      <div class="b"><img src="img/duo.webp" alt="Kapster werkt aan een balayage" loading="lazy" width="1000" height="1000"></div>
+      <div class="note"><b>80%</b><span>van wie bij ons in de stoel zit, gaat voor blond</span></div>
+    </div>
+    <div>
+      <h2 data-r>Een team dat leeft voor kleur</h2>
+      <p data-r="80">Bij MODJOO werken meerdere kapsters, en volgens de reviews kan je bij elk van hen terecht. Blond is onze grootste liefde: handgeschilderde balayages, zachte teddy blonde en een toner die je kleur warm of koel afwerkt.</p>
+      <p data-r="120">Maar ook voor een forgotten brunette, een cowboy copper of extensions ben je hier op de juiste plek. En gewoon een goede knip? Die hoort er altijd bij.</p>
+      <div class="lk3" data-r="160">
+        <a href="#blond"><div class="ph"><img src="img/blond.webp" alt="" loading="lazy" width="1000" height="1500" style="object-position:50% 30%"></div><b>Balayage blond</b><span>vanaf €186,50</span></a>
+        <a href="#blond"><div class="ph"><img src="img/brun.webp" alt="" loading="lazy" width="1000" height="616"></div><b>Forgotten brunette</b><span>vanaf €173,50</span></a>
+        <a href="#blond"><div class="ph"><img src="img/copper2.webp" alt="" loading="lazy" width="1000" height="1500"></div><b>Cowboy copper</b><span>vanaf €133</span></a>
+      </div>
+      <div class="row" data-r="200"><a class="btn pr" href="https://salonkee.be/salon/modjoo" target="_blank" rel="noopener">Boek je afspraak</a><a class="btn ln" href="#prijzen">Alle prijzen</a></div>
+    </div>
   </div>
 </section>
 
