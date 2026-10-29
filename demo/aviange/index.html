@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Avi&amp;Ange · Hairstylist en colorist in Ninove</title>
+<meta name="description" content="Avi&amp;Ange in Ninove: kleur, blond, balayage, headspa en huidverzorging bij Avina. Elke afspraak begint met een persoonlijke diagnose.">
+<link rel="preload" href="img/cormorant.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/jost.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:Cormorant;src:url(img/cormorant.woff2) format('woff2');font-weight:400 700;font-display:swap}
+@font-face{font-family:Cormorant;src:url(img/cormorant-i.woff2) format('woff2');font-weight:400 600;font-style:italic;font-display:swap}
+@font-face{font-family:Jost;src:url(img/jost.woff2) format('woff2');font-weight:300 700;font-display:swap}
+@font-face{font-family:Allura;src:url(img/allura.woff2) format('woff2');font-display:swap}
+:root{
+  --blush:#F7EDE8;--pearl:#FFFAF7;--rose:#EDD3CC;--rose-2:#E2B9B1;--peach:#F5D5BF;--sage:#DDE5DE;--champ:#EEDFC8;
+  --plum:#3B1D2B;--plum-2:#5B2D41;--plum-3:#2A1420;--gold:#BF9363;--gold-l:#E6CDAA;--wine:#8E2F3F;
+  --ink:#3A2530;--muted:#8B717A;--line:rgba(59,29,43,.12);
+  --f-d:Cormorant,'Cormorant Garamond',Georgia,serif;--f-b:Jost,system-ui,-apple-system,'Segoe UI',sans-serif;--f-s:Allura,'Segoe Script',cursive;
+  --sh:0 2px 6px rgba(59,29,43,.05),0 18px 40px -18px rgba(59,29,43,.28);--sh-l:0 40px 80px -32px rgba(59,29,43,.45);
+  --w:1240px;--ease:cubic-bezier(.2,.7,.2,1)
+}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{font:400 17px/1.65 var(--f-b);color:var(--ink);background:var(--blush);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.ic{width:1.1em;height:1.1em;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.wrap{width:min(100% - 48px,var(--w));margin-inline:auto}
+h1,h2,h3{font-family:var(--f-d);font-weight:600;line-height:1;letter-spacing:-.01em;color:var(--plum)}
+h2{font-size:clamp(2.5rem,4.8vw,4.1rem)}
+h3{font-size:1.9rem;line-height:1.05}
+.eyebrow{display:inline-flex;align-items:center;gap:.7em;font:500 .76rem/1 var(--f-b);letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
+.lead{font-size:1.1rem;color:var(--muted);max-width:52ch;font-weight:400}
+.script{font-family:var(--f-s);font-weight:400;line-height:1;color:var(--gold)}
+.btn{--bg:var(--plum);--fg:var(--pearl);display:inline-flex;align-items:center;gap:.7em;padding:1em 1.7em;border-radius:999px;background:var(--bg);color:var(--fg);font:500 .95rem/1 var(--f-b);letter-spacing:.04em;text-decoration:none;transition:transform .4s var(--ease),box-shadow .4s var(--ease),background .3s,color .3s;box-shadow:0 14px 30px -16px rgba(59,29,43,.8)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 20px 36px -16px rgba(59,29,43,.85)}
+.btn .ic:last-child{transition:transform .4s var(--ease)}.btn:hover .ic:last-child{transform:translateX(3px)}
+.btn.line{--bg:transparent;--fg:var(--plum);box-shadow:inset 0 0 0 1px rgba(59,29,43,.4)}
+.btn.line:hover{--bg:var(--plum);--fg:var(--pearl)}
+.btn.gold{--bg:linear-gradient(135deg,#D7B184,#B98957);--fg:var(--plum-3);background:linear-gradient(135deg,#D9B386,#B98957);box-shadow:0 14px 30px -14px rgba(185,137,87,.9)}
+.btn.pearl{--bg:var(--pearl);--fg:var(--plum)}
+[data-r]{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease) var(--d,0ms),transform 1s var(--ease) var(--d,0ms)}
+[data-r].in{opacity:1;transform:none}
+.spark{position:absolute;width:var(--s,22px);height:var(--s,22px);color:var(--gold);animation:tw 3.6s ease-in-out infinite var(--dl,0s);pointer-events:none}
+@keyframes tw{0%,100%{transform:scale(.6) rotate(0);opacity:.35}50%{transform:scale(1) rotate(20deg);opacity:1}}
+.ghost{position:absolute;font:italic 600 clamp(7rem,17vw,15rem)/1 var(--f-d);color:rgba(191,147,99,.12);white-space:nowrap;pointer-events:none;letter-spacing:-.02em;user-select:none}
+
+.demo{position:relative;z-index:60;background:var(--plum-3);color:#EAD9DE;font-size:.82rem;text-align:center;padding:.55em 1em;letter-spacing:.02em}
+.demo a{color:var(--gold-l);font-weight:600;text-underline-offset:3px}
+
+.head{position:sticky;top:0;z-index:50;transition:background .4s,box-shadow .4s}
+.head.scrolled{background:rgba(247,237,232,.86);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);box-shadow:0 1px 0 var(--line)}
+.head .wrap{display:flex;align-items:center;gap:30px;height:86px}
+.logo{text-decoration:none;display:flex;flex-direction:column;line-height:1}
+.logo b{font:400 2.35rem/.9 var(--f-s);color:var(--plum)}
+.logo small{font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-top:4px;padding-left:4px}
+.nav{display:flex;gap:6px;margin-left:auto}
+.nav a{padding:.5em 1em;text-decoration:none;font-size:.95rem;letter-spacing:.02em;color:var(--ink);position:relative}
+.nav a::after{content:"";position:absolute;left:1em;right:1em;bottom:.25em;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.nav a:hover::after{transform:none}
+.menu-btn{display:none;width:46px;height:46px;border-radius:50%;background:var(--plum);color:var(--pearl);align-items:center;justify-content:center;margin-left:auto}
+.op{display:inline-flex;align-items:center;gap:.55em;font-size:.84rem;color:var(--muted);white-space:nowrap}
+.op i{width:8px;height:8px;border-radius:50%;background:#bbb;position:relative}
+.is-open .op i,.op.is-open i{background:#3BA272}
+.is-open .op i::after,.op.is-open i::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1.5px solid #3BA272;animation:ping 2.2s infinite}
+.is-closed .op i,.op.is-closed i{background:var(--wine)}
+.op b{font-weight:600;color:var(--plum)}
+@keyframes ping{0%{transform:scale(.4);opacity:.9}80%,100%{transform:scale(1.5);opacity:0}}
+
+/* hero */
+.hero{position:relative;padding:30px 0 110px;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-10%;top:-20%;width:70%;height:120%;background:radial-gradient(closest-side,rgba(245,213,191,.75),transparent);pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
+.hero .script{font-size:2.6rem;display:block;margin-bottom:6px}
+.hero h1{font-size:clamp(3.4rem,7vw,6.6rem);line-height:.9;letter-spacing:-.02em;font-weight:600}
+.hero h1 em{display:block;font-style:italic;font-weight:500;color:var(--plum-2)}
+.hero .lead{margin:28px 0 36px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px}
+.proof{display:flex;align-items:center;gap:26px;margin-top:48px}
+.proof .p{display:flex;flex-direction:column}
+.proof b{font:600 2.3rem/1 var(--f-d);color:var(--plum)}
+.proof span{font-size:.82rem;color:var(--muted);letter-spacing:.02em}
+.proof .sep{width:1px;height:44px;background:var(--line)}
+.stars{display:inline-flex;gap:2px;color:var(--gold)}
+.stars .ic{width:14px;height:14px;fill:currentColor;stroke:none}
+.stage{position:relative;height:680px}
+.arch{position:absolute;left:12%;right:6%;bottom:0;top:16%;border-radius:999px 999px 40px 40px;background:linear-gradient(170deg,#F2CDBE 0%,#E3AFA6 55%,#C98D8F 100%);overflow:hidden;box-shadow:var(--sh-l)}
+.arch::before{content:"";position:absolute;inset:18px;border-radius:999px 999px 26px 26px;border:1px solid rgba(255,255,255,.45)}
+.arch::after{content:"Avi&Ange";position:absolute;left:50%;bottom:10%;transform:translateX(-50%);font:400 7rem/1 var(--f-s);color:rgba(255,255,255,.22);white-space:nowrap}
+.stage .model{position:absolute;left:10%;bottom:0;width:86%;filter:drop-shadow(0 30px 30px rgba(59,29,43,.35));z-index:2}
+.dots{position:absolute;right:0;top:40%;display:grid;gap:12px;z-index:3}
+.dots i{width:22px;height:22px;border-radius:50%;box-shadow:0 0 0 4px rgba(255,255,255,.7)}
+.chip{position:absolute;z-index:4;display:flex;align-items:center;gap:12px;background:rgba(255,250,247,.95);backdrop-filter:blur(8px);border-radius:20px;padding:12px 18px 12px 12px;box-shadow:var(--sh-l);font-size:.8rem;color:var(--muted);line-height:1.25}
+.chip b{display:block;font:600 1.15rem/1.1 var(--f-d);color:var(--plum)}
+.chip .ic{width:42px;height:42px;padding:10px;border-radius:50%;background:var(--rose);color:var(--plum)}
+.chip.c1{left:-2%;top:30%}
+.chip.c2{right:-3%;bottom:14%}
+.chip.c2 .ic{background:var(--champ);color:var(--gold)}
+.rot{position:absolute;left:4%;bottom:6%;width:124px;height:124px;z-index:4}
+.rot svg{width:100%;height:100%;animation:spin 26s linear infinite}
+.rot .c{position:absolute;inset:30px;border-radius:50%;background:var(--plum);color:var(--gold-l);display:grid;place-items:center}
+.rot .c .ic{width:28px;height:28px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ticker */
+.tick{background:var(--plum);color:var(--gold-l);overflow:hidden;padding:18px 0;position:relative}
+.tick [data-marquee]{display:flex;width:max-content;animation:mq 50s linear infinite}
+.tick ul{display:flex;list-style:none;padding:0}
+.tick li{display:flex;align-items:center;gap:28px;padding-right:28px;font:italic 500 1.55rem/1 var(--f-d);white-space:nowrap;letter-spacing:.01em}
+.tick li svg{width:16px;height:16px;color:var(--gold)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{position:relative}
+.sec{padding:140px 0}
+
+/* about */
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about .pics{position:relative;height:640px}
+.about .a1{position:absolute;left:0;top:0;width:72%;height:86%;border-radius:999px 999px 30px 30px;overflow:hidden;box-shadow:var(--sh-l)}
+.about .a1 img,.about .a2 img{width:100%;height:100%;object-fit:cover}
+.about .a2{position:absolute;right:0;bottom:0;width:46%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:10px solid var(--blush);box-shadow:var(--sh-l)}
+.about .ring{position:absolute;right:6%;bottom:2%;width:50%;aspect-ratio:1;border-radius:50%;border:1px solid var(--gold);transform:translate(16px,-16px)}
+.about .ghost{left:-4%;top:-110px}
+.about h2{margin:18px 0 24px;max-width:13ch}
+.about p{color:var(--muted);margin-bottom:16px;max-width:54ch}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:34px 0}
+.pil{display:flex;gap:14px;padding:18px;border-radius:22px;background:var(--pearl);box-shadow:inset 0 0 0 1px var(--line);transition:transform .4s var(--ease),box-shadow .4s}
+.pil:hover{transform:translateY(-3px);box-shadow:var(--sh)}
+.pil .ic{width:44px;height:44px;padding:11px;border-radius:50%;background:var(--rose);color:var(--plum)}
+.pil:nth-child(2) .ic{background:var(--champ);color:var(--gold)}.pil:nth-child(3) .ic{background:var(--sage);color:#4D6B58}.pil:nth-child(4) .ic{background:var(--peach);color:var(--wine)}
+.pil b{display:block;font:600 1.2rem/1.15 var(--f-d);color:var(--plum);margin-bottom:3px}
+.pil span{font-size:.88rem;color:var(--muted);line-height:1.45;display:block}
+.sign{display:flex;align-items:center;gap:20px}
+.sign .script{font-size:3.4rem;color:var(--plum)}
+.sign small{font-size:.82rem;color:var(--muted);line-height:1.35}
+
+/* colour fan */
+.fan-sec{background:var(--plum);color:#D9C3CB;padding:150px 0;overflow:hidden}
+.fan-sec::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 75% 50%,rgba(191,147,99,.18),transparent 70%)}
+.fan-sec h2{color:var(--pearl)}
+.fan-sec .lead{color:#BFA6AF}
+.fan-sec .ghost{color:rgba(255,255,255,.04);right:-2%;top:40px}
+.fan-grid{position:relative;display:grid;grid-template-columns:.95fr 1.05fr;gap:40px;align-items:center;margin-top:60px}
+.fan{position:relative;height:520px}
+.fan .pivot{position:absolute;left:34%;bottom:40px;width:46px;height:46px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#F3DDBE,#B98957);box-shadow:0 0 0 6px rgba(255,255,255,.06),0 10px 20px rgba(0,0,0,.4);z-index:20}
+.sw{position:absolute;left:calc(34% + 23px);bottom:63px;width:64px;height:420px;transform-origin:50% calc(100% - 0px);transform:translateX(-50%) rotate(var(--rot));transition:transform .7s var(--ease),filter .4s;border-radius:32px 32px 10px 10px;cursor:pointer;z-index:var(--z);box-shadow:0 20px 30px -14px rgba(0,0,0,.6)}
+.sw::before{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--g);}
+.sw::after{content:"";position:absolute;left:8px;right:8px;top:12px;height:58%;border-radius:22px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.12) 0 2px,transparent 2px 5px);mix-blend-mode:overlay}
+.sw span{position:absolute;left:50%;top:36px;transform:translateX(-50%) rotate(90deg);transform-origin:center;white-space:nowrap;font:600 .7rem/1 var(--f-b);letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.88);text-shadow:0 1px 2px rgba(0,0,0,.35);margin-top:70px}
+.sw:hover{filter:brightness(1.08)}
+.sw[aria-pressed=true]{transform:translateX(-50%) rotate(var(--rot)) translateY(-26px)}
+.fan-hint{position:absolute;left:30%;bottom:0;font-family:var(--f-s);font-size:2rem;color:var(--gold-l);transform:rotate(-4deg)}
+.tone{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.tone .disc{position:relative;aspect-ratio:1;border-radius:50%;background:var(--tc,#E3AFA6);transition:background .8s var(--ease);box-shadow:inset 0 -30px 60px rgba(0,0,0,.12),0 40px 80px -30px rgba(0,0,0,.6)}
+.tone .disc::before{content:"";position:absolute;inset:-16px;border-radius:50%;border:1px solid rgba(255,255,255,.18)}
+.tone .disc img{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:112%;width:auto;max-width:none;filter:drop-shadow(0 24px 24px rgba(0,0,0,.35));transition:opacity .45s,transform .7s var(--ease)}
+.tone .disc img.out{opacity:0;transform:translateX(-50%) translateY(14px)}
+.tone .num{font:italic 500 1rem/1 var(--f-d);color:var(--gold);letter-spacing:.1em}
+.tone h3{color:var(--pearl);font-size:2.7rem;margin:10px 0 14px}
+.tone p{color:#CDB6BE;font-size:.98rem}
+.tone .tip{display:flex;gap:12px;margin:20px 0 26px;padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.06);font-size:.88rem;color:#E4D2D8;line-height:1.45}
+.tone .tip .ic{color:var(--gold);width:20px;height:20px;margin-top:2px}
+
+/* metamorphose */
+.meta .wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.meta figure{position:relative;border-radius:34px;overflow:hidden;box-shadow:var(--sh-l)}
+.meta figure img{width:100%;aspect-ratio:1;object-fit:cover}
+.meta .tagl{position:absolute;left:18px;top:18px;background:rgba(255,250,247,.9);border-radius:999px;padding:.5em 1em;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--plum)}
+.meta blockquote{position:relative;margin:28px 0;padding:30px 30px 26px;background:var(--pearl);border-radius:26px;box-shadow:var(--sh);font:italic 500 1.5rem/1.35 var(--f-d);color:var(--plum)}
+.meta blockquote::before{content:"“";position:absolute;left:20px;top:-34px;font:600 6rem/1 var(--f-d);color:var(--gold)}
+.meta blockquote cite{display:block;margin-top:14px;font:500 .82rem/1 var(--f-b);font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.meta h2{margin:16px 0 20px;max-width:12ch}
+.meta p{color:var(--muted);max-width:50ch}
+
+/* services */
+.serv{background:var(--pearl);padding:140px 0}
+.serv .ghost{left:50%;transform:translateX(-50%);top:40px}
+.serv-head{text-align:center;max-width:720px;margin:0 auto 70px;position:relative}
+.serv-head .lead{margin:18px auto 0}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.sv{position:relative;border-radius:30px;padding:30px;min-height:320px;display:flex;flex-direction:column;background:var(--bg);overflow:hidden;transition:transform .5s var(--ease),box-shadow .5s var(--ease);text-decoration:none}
+.sv:hover{transform:translateY(-6px);box-shadow:var(--sh-l)}
+.sv>.ic,.sv>span>.ic{width:52px;height:52px;padding:13px;border-radius:50%;background:rgba(255,255,255,.7);color:var(--plum)}
+.sv h3{margin:22px 0 10px;font-size:2rem}
+.sv p{font-size:.93rem;color:var(--muted);max-width:30ch}
+.sv .from{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between}
+.sv .from span{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.sv .from b{display:block;font:600 2.1rem/1 var(--f-d);color:var(--plum);letter-spacing:0}
+.sv .go{width:48px;height:48px;border-radius:50%;background:var(--plum);color:var(--pearl);display:grid;place-items:center;flex:none;transition:transform .5s var(--ease)}
+.sv:hover .go{transform:rotate(-45deg)}
+.sv img.cut{position:absolute;right:-14px;bottom:-10px;height:78%;width:auto;opacity:.95;filter:drop-shadow(0 10px 16px rgba(59,29,43,.25));transition:transform .7s var(--ease)}
+.sv:hover img.cut{transform:translateY(-8px) rotate(-2deg)}
+.sv.has-cut p,.sv.has-cut h3{max-width:56%}
+.b1{--bg:var(--rose)}.b2{--bg:var(--champ)}.b3{--bg:var(--sage)}.b4{--bg:var(--peach)}.b5{--bg:#EADCE3}.b6{--bg:#F3E3DA}
+
+.prices{margin-top:90px;display:grid;grid-template-columns:.75fr 1.25fr;gap:50px;align-items:start}
+.prices .side{position:sticky;top:120px;border-radius:30px;padding:34px;background:var(--plum);color:#D9C3CB;overflow:hidden}
+.prices .side h3{color:var(--pearl);font-size:2.2rem;margin:14px 0 12px}
+.prices .side p{font-size:.92rem}
+.prices .side .btn{margin-top:24px}
+.prices .side .script{font-size:2.6rem;position:absolute;right:20px;top:16px;opacity:.5}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.tabs button{padding:.65em 1.2em;border-radius:999px;font-size:.9rem;letter-spacing:.02em;box-shadow:inset 0 0 0 1px var(--line);background:var(--blush);transition:background .3s,color .3s}
+.tabs button[aria-selected=true]{background:var(--plum);color:var(--pearl);box-shadow:none}
+.pl{display:grid;grid-template-columns:1fr 1fr;column-gap:36px}
+.pi{display:flex;align-items:baseline;gap:10px;padding:15px 0;border-bottom:1px solid var(--line)}
+.pi div{display:flex;flex-direction:column}
+.pi span{font-weight:500;color:var(--plum)}
+.pi small{font-size:.8rem;color:var(--muted);line-height:1.3}
+.pi::after{content:"";order:2;flex:1;border-bottom:1px dotted rgba(59,29,43,.3);transform:translateY(-5px)}
+.pi b{order:3;font:600 1.3rem/1 var(--f-d);color:var(--plum-2);white-space:nowrap}
+.pnote{margin-top:20px;font-size:.9rem;color:var(--muted)}
+.pnote a{color:var(--plum);font-weight:600}
+
+/* najaar */
+.najaar{padding:0 0 140px;background:var(--pearl)}
+.nj{position:relative;border-radius:40px;overflow:hidden;background:linear-gradient(120deg,#E7C7A1 0%,#D9A67E 45%,#B9774F 100%);display:grid;grid-template-columns:1.2fr .8fr;align-items:center;color:var(--plum-3);box-shadow:var(--sh-l)}
+.nj .t{padding:60px 64px;position:relative;z-index:2}
+.nj .eyebrow{color:var(--plum-2)}
+.nj h2{color:var(--plum-3);margin:16px 0 14px}
+.nj p{max-width:44ch;color:#4E2A2A}
+.nj .price{position:relative;z-index:2;text-align:center;padding:40px}
+.nj .price b{display:block;font:600 8rem/.85 var(--f-d);color:var(--pearl);text-shadow:0 10px 30px rgba(90,40,30,.35)}
+.nj .price span{font-size:.86rem;letter-spacing:.2em;text-transform:uppercase;color:var(--plum-3)}
+.nj .leaf{position:absolute;color:rgba(255,255,255,.35);animation:fall 9s ease-in-out infinite var(--dl,0s)}
+@keyframes fall{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(16px) rotate(calc(var(--r,0deg) + 14deg))}}
+
+/* reviews */
+.rev{padding:140px 0 130px;overflow:hidden}
+.rev-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:56px}
+.rev-head h2{max-width:14ch;margin-top:16px}
+.big{display:flex;align-items:center;gap:20px}
+.big b{font:600 6.4rem/.8 var(--f-d);color:var(--plum)}
+.big .stars .ic{width:20px;height:20px}
+.big small{display:block;font-size:.88rem;color:var(--muted);max-width:24ch;margin-top:6px;line-height:1.4}
+.lane{display:flex;width:max-content;gap:20px;animation:mq 70s linear infinite;padding:10px 0}
+.lane.rev2{animation-direction:reverse;animation-duration:80s;margin-top:10px}
+.lanes:hover .lane{animation-play-state:paused}
+.lane .group{display:flex;gap:20px}
+.rc{width:380px;flex:none;background:var(--pearl);border-radius:26px;padding:28px;box-shadow:var(--sh);display:flex;flex-direction:column}
+.rc q{font:italic 500 1.3rem/1.38 var(--f-d);color:var(--plum);quotes:none;flex:1;margin:14px 0 20px}
+.rc .who{display:flex;align-items:center;gap:12px;font-size:.85rem;color:var(--muted)}
+.rc .av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-weight:600;color:var(--plum);background:var(--rose)}
+.rc:nth-child(3n+2) .av{background:var(--champ)}.rc:nth-child(3n) .av{background:var(--sage)}
+.rc .who b{display:block;color:var(--plum);font-weight:600}
+.rc .src{margin-left:auto;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.4em .75em;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line)}
+
+/* insta */
+.insta{padding:0 0 140px}
+.ig-head{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:28px;flex-wrap:wrap}
+.ig-head .h{display:flex;align-items:center;gap:16px}
+.ig-head .av{width:64px;height:64px;border-radius:50%;padding:3px;background:conic-gradient(#F6C27C,#E35D8B,#9C4FD1,#F6C27C)}
+.ig-head .av span{display:grid;place-items:center;width:100%;height:100%;border-radius:50%;background:var(--plum);color:var(--gold-l);font:400 1.7rem/1 var(--f-s);border:3px solid var(--blush)}
+.ig-head b{display:block;font:600 1.6rem/1 var(--f-d);color:var(--plum)}
+.ig-head span{font-size:.88rem;color:var(--muted)}
+.ig{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.ig a{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:3/4}
+.ig a:nth-child(even){transform:translateY(26px)}
+.ig img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.ig a::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(42,20,32,.6));opacity:0;transition:opacity .4s}
+.ig a:hover img{transform:scale(1.06)}.ig a:hover::after{opacity:1}
+.ig a span{position:absolute;left:14px;bottom:12px;color:#fff;font-size:.82rem;z-index:2;opacity:0;transform:translateY(8px);transition:.4s var(--ease)}
+.ig a:hover span{opacity:1;transform:none}
+
+/* visit */
+.visit{padding:0 0 150px}
+.vcard{display:grid;grid-template-columns:1fr 1fr;border-radius:40px;overflow:hidden;background:var(--pearl);box-shadow:var(--sh-l)}
+.vcard .ph{position:relative;min-height:560px}
+.vcard .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vcard .ph .pin{position:absolute;left:24px;bottom:24px;right:24px;display:flex;align-items:center;gap:14px;background:rgba(255,250,247,.94);backdrop-filter:blur(8px);border-radius:20px;padding:14px 18px}
+.vcard .ph .pin .ic{width:44px;height:44px;padding:11px;border-radius:50%;background:var(--plum);color:var(--gold-l)}
+.vcard .ph .pin b{display:block;font:600 1.25rem/1.1 var(--f-d);color:var(--plum)}
+.vcard .ph .pin span{font-size:.85rem;color:var(--muted)}
+.vcard .info{padding:56px 54px}
+.vcard h2{margin:16px 0 8px}
+.vcard .op{margin:12px 0 18px}
+.hours{list-style:none;padding:0;margin:0 0 28px}
+.hours li{display:flex;justify-content:space-between;padding:10px 14px;border-radius:12px;font-size:.96rem}
+.hours li:nth-child(odd){background:rgba(59,29,43,.025)}
+.hours li.today{background:var(--plum);color:var(--pearl);font-weight:500}
+.hours li.today span:first-child::after{content:"  vandaag";font-size:.76rem;color:var(--gold-l);letter-spacing:.08em}
+.hours li.closed span:last-child{color:var(--wine)}
+.hours li.today.closed span:last-child{color:#F0B7C1}
+.vrow{display:flex;gap:10px;flex-wrap:wrap}
+.vlinks{display:flex;gap:22px;margin-top:26px;font-size:.92rem;flex-wrap:wrap}
+.vlinks a{display:inline-flex;align-items:center;gap:.5em;text-decoration:none;color:var(--plum)}
+.vlinks .ic{color:var(--gold)}
+
+/* footer */
+.foot{background:var(--plum-3);color:#B89FA9;padding:90px 0 40px;position:relative;overflow:hidden}
+.foot .ghost{color:rgba(255,255,255,.035);left:50%;transform:translateX(-50%);bottom:-40px;font-style:normal;font-family:var(--f-s);font-weight:400}
+.fg{position:relative;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.foot .logo b{color:var(--pearl)}
+.foot p{max-width:34ch;margin-top:16px;font-size:.92rem}
+.foot h4{font:500 .74rem/1 var(--f-b);letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.foot ul{list-style:none;padding:0;display:grid;gap:9px;font-size:.93rem}
+.foot a{text-decoration:none}.foot a:hover{color:#fff}
+.legal{position:relative;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:70px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);font-size:.8rem;color:#8E7480}
+.legal a{color:var(--gold-l)}
+.mbar{display:none}
+
+@media (max-width:1080px){
+  .nav,.head .op,.head .btn{display:none}
+  .menu-btn{display:inline-flex}
+  body.menu-open .nav{display:flex;position:fixed;inset:120px 16px auto;flex-direction:column;background:var(--pearl);padding:14px;border-radius:24px;box-shadow:var(--sh-l)}
+  .hero .wrap,.about .wrap,.meta .wrap,.fan-grid,.prices,.vcard,.nj{grid-template-columns:1fr}
+  .stage{height:600px;max-width:560px;width:100%;margin:20px auto 0}
+  .sgrid{grid-template-columns:1fr 1fr}
+  .prices .side{position:relative;top:0}
+  .ig{grid-template-columns:repeat(3,1fr)}
+  .fg{grid-template-columns:1fr 1fr}
+  .rev-head{flex-direction:column;align-items:flex-start}
+  .fan{height:480px;max-width:520px}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 32px)}
+  .head .wrap{height:72px}.logo b{font-size:2rem}
+  .hero{padding:8px 0 80px}
+  .hero .script{font-size:2.1rem}
+  .proof{gap:16px;margin-top:36px}.proof b{font-size:1.9rem}
+  .stage{height:470px}
+  .arch{left:8%;right:4%}
+  .chip{font-size:.72rem;padding:8px 12px 8px 8px}.chip .ic{width:34px;height:34px;padding:8px}.chip b{font-size:1rem}
+  .chip.c1{left:0;top:22%}.chip.c2{right:0;bottom:8%}
+  .rot{width:96px;height:96px;left:0;bottom:2%}.rot .c{inset:24px}
+  .dots{display:none}
+  .sec,.serv,.fan-sec,.rev{padding:96px 0}
+  .about .pics{height:460px}
+  .pillars{grid-template-columns:1fr}
+  .fan{height:400px}
+  .sw{height:320px;width:54px}
+  .fan-hint{font-size:1.6rem;left:auto;right:0}
+  .tone{grid-template-columns:1fr}
+  .tone .disc{width:78%;max-width:300px;margin:30px auto 10px}
+  .tone h3{font-size:2.2rem}
+  .sgrid{grid-template-columns:1fr}
+  .sv{min-height:260px}
+  .pl{grid-template-columns:1fr}
+  .nj .t{padding:44px 26px 10px}.nj .price b{font-size:6rem}
+  .big b{font-size:5rem}
+  .rc{width:300px;padding:22px}.rc q{font-size:1.15rem}
+  .ig{grid-template-columns:repeat(2,1fr)}.ig a:nth-child(even){transform:none}.ig a:nth-child(n+5){display:none}
+  .vcard .ph{min-height:320px}.vcard .info{padding:36px 24px}
+  .fg{grid-template-columns:1fr}
+  .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:70;gap:8px;padding:8px;border-radius:999px;background:rgba(42,20,32,.94);backdrop-filter:blur(10px);box-shadow:0 20px 40px -12px rgba(0,0,0,.5)}
+  .mbar a{flex:1;justify-content:center;padding:.9em 1em;font-size:.9rem}
+  .foot{padding-bottom:120px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-calendar-heart" viewBox="0 0 24 24"><path d="M12.127 21H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v5.125" /> <path d="M14.62 17.8A2.25 2.25 0 1118 14.836a2.25 2.25 0 113.38 2.966l-2.626 2.856a.998.998 0 01-1.507 0z" /> <path d="M16 2v3" /> <path d="M3 9h18" /> <path d="M8 2v3" /></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 5h16" /> <path d="M4 12h16" /> <path d="M4 19h16" /></symbol><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /></symbol><symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z" /> <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /> <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /> <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /> <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /> <path d="M20 2v4" /> <path d="M22 4h-4" /> <circle cx="4" cy="20" r="2" /></symbol><symbol id="i-award" viewBox="0 0 24 24"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526" /> <circle cx="12" cy="8" r="6" /></symbol><symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3" /> <path d="M8.12 8.12 12 12" /> <path d="M20 4 8.12 15.88" /> <circle cx="6" cy="18" r="3" /> <path d="M14.8 14.8 20 20" /></symbol><symbol id="i-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34" /> <circle cx="11" cy="11" r="8" /></symbol><symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20a10 10 0 0010-10 25.9 25.9 0 00-1.04-7.281 1 1 0 00-1.755-.325C15.833 5.5 13 5.5 9.8 6.1A7 7 0 0011 20" /> <path d="M2 21a5 5 0 012.911-4.544C7.613 15.212 8.351 15.24 11 13" /></symbol><symbol id="i-flower-2" viewBox="0 0 24 24"><path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1" /> <circle cx="12" cy="8" r="2" /> <path d="M12 10v12" /> <path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z" /> <path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z" /></symbol><symbol id="i-lightbulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /> <path d="M9 18h6" /> <path d="M10 22h4" /></symbol><symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10" /> <path d="M7 17 17 7" /></symbol><symbol id="i-flower" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /> <path d="M12 16.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 1 1 12 7.5a4.5 4.5 0 1 1 4.5 4.5 4.5 4.5 0 1 1-4.5 4.5" /> <path d="M12 7.5V9" /> <path d="M7.5 12H9" /> <path d="M16.5 12H15" /> <path d="M12 16.5V15" /> <path d="m8 8 1.88 1.88" /> <path d="M14.12 9.88 16 8" /> <path d="m8 16 1.88-1.88" /> <path d="M14.12 14.12 16 16" /></symbol><symbol id="i-feather" viewBox="0 0 24 24"><path d="M14.086 18.412A2 2 0 0112.67 19H5v-7.672a2 2 0 01.586-1.414L11.75 3.75a6 6 0 118.49 8.49z" /> <path d="M16 8 2 22" /> <path d="M17.488 15H9" /></symbol><symbol id="i-hand" viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2" /> <path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2" /> <path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8" /> <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" /></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></symbol><symbol id="i-navigation" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11" /></symbol><symbol id="i-phone" viewBox="0 0 24 24"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></symbol><symbol id="i-camera" viewBox="0 0 24 24"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" /> <circle cx="12" cy="13" r="3" /></symbol><symbol id="i-message-circle" viewBox="0 0 24 24"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></symbol></defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="sp" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.6 5.6 3.4 9.4 12 12-8.6 2.6-11.4 6.4-12 12-.6-5.6-3.4-9.4-12-12C8.6 9.4 11.4 5.6 12 0z"/></symbol>
+<symbol id="leaf" viewBox="0 0 40 40"><path fill="currentColor" d="M20 2c7 6 14 14 12 24-2 8-10 12-12 12S10 34 8 26C6 16 13 8 20 2zm0 6v28"/><path d="M20 8v28M20 18l6-5M20 25l-6-5M20 31l6-4" stroke="rgba(0,0,0,.15)" stroke-width="1.4" fill="none"/></symbol>
+</defs></svg>
+
+<div class="demo">Voorbeeldsite van Digital Impression voor Avi&amp;Ange. Benieuwd wat zoiets kost? <a href="https://wa.me/32496251445?text=Hallo%20Stijn%2C%20ik%20zag%20de%20voorbeeldsite%20voor%20Avi%26Ange." target="_blank" rel="noopener">Stuur Stijn een bericht</a></div>
+
+<header class="head" data-head>
+  <div class="wrap">
+    <a class="logo" href="#top"><b>Avi&amp;Ange</b><small>your hairstylist · Ninove</small></a>
+    <nav class="nav" data-menu>
+      <a href="#avina">Avina</a><a href="#kleur">Kleur</a><a href="#behandelingen">Behandelingen</a><a href="#reviews">Reviews</a><a href="#bezoek">Bezoek</a>
+    </nav>
+    <span class="op" data-open><i></i><span><b data-open-t></b> <span data-open-s></span></span></span>
+    <a class="btn" href="https://salonkee.be/salon/aviange?lang=nl" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-calendar-heart"/></svg> Afspraak maken</a>
+    <button class="menu-btn" data-menu-btn aria-label="Menu" aria-expanded="false"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <svg class="spark" style="left:44%;top:12%;--s:18px"><use href="#sp"/></svg>
+  <svg class="spark" style="left:6%;top:78%;--s:14px;--dl:1.2s"><use href="#sp"/></svg>
+  <div class="wrap">
+    <div>
+      <span class="script" data-r>your hairstylist in Ninove</span>
+      <h1 data-r="80">Kleur die <em>bij jou past.</em></h1>
+      <p class="lead" data-r="160">Avina kijkt eerst naar je haar, je huid en hoe je leeft. Pas dan kiest ze de kleur. Al vijfentwintig jaar werkt ze zo, met technieken die ze zelf ontwikkelde, hier aan de Aalstersesteenweg.</p>
+      <div class="cta" data-r="220">
+        <a class="btn" href="https://salonkee.be/salon/aviange?lang=nl" target="_blank" rel="noopener">Boek je afspraak <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        <a class="btn line" href="#kleur"><svg class="ic" aria-hidden="true"><use href="#i-palette"/></svg> Ontdek de kleuren</a>
+      </div>
+      <div class="proof" data-r="300">
+        <div class="p"><b data-count="4.9">4,9</b><span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span></div>
+        <div class="p"><span>243 reviews op Google<br>245 op Salonkee</span></div>
+        <span class="sep"></span>
+        <div class="p"><b>25 jaar</b><span>in haar, kleur en beauty</span></div>
+      </div>
+    </div>
+    <div class="stage" data-r="120">
+      <div class="arch" data-px="20"></div>
+      <img class="model" src="img/c-model.webp" alt="Platinablonde bob, gekleurd bij Avi&amp;Ange" width="894" height="1100" fetchpriority="high">
+      <div class="dots"><i style="background:#8E2F3F"></i><i style="background:#D2733A"></i><i style="background:#E9DCC1"></i><i style="background:#9FC3BB"></i></div>
+      <svg class="spark" style="right:8%;top:10%;--s:30px;--dl:.6s"><use href="#sp"/></svg>
+      <svg class="spark" style="left:6%;top:18%;--s:18px;--dl:2s"><use href="#sp"/></svg>
+      <div class="chip c1"><svg class="ic" aria-hidden="true"><use href="#i-sparkles"/></svg><div><b>Persoonlijke diagnose</b>bij elke behandeling</div></div>
+      <div class="chip c2"><svg class="ic" aria-hidden="true"><use href="#i-award"/></svg><div><b>Kérastase &amp; Thalgo</b>voor haar en huid</div></div>
+      <div class="rot"><svg viewBox="0 0 120 120"><defs><path id="cr" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text font-family="Jost,sans-serif" font-size="9.6" letter-spacing="3.1" fill="#3B1D2B"><textPath href="#cr">COLORIST · HAIRSTYLIST · BEAUTY · NINOVE ·</textPath></text></svg><span class="c"><svg class="ic" aria-hidden="true"><use href="#i-scissors"/></svg></span></div>
+    </div>
+  </div>
+</section>
+
+<div class="tick"><div data-marquee><ul>
+  <li>Balayage<svg><use href="#sp"/></svg></li><li>Stralend blond<svg><use href="#sp"/></svg></li><li>Koper en rood<svg><use href="#sp"/></svg></li><li>Headspa<svg><use href="#sp"/></svg></li><li>Kérastase Fusio-Dose<svg><use href="#sp"/></svg></li><li>Thalgo gelaatsverzorging<svg><use href="#sp"/></svg></li><li>Bruidskapsels<svg><use href="#sp"/></svg></li><li>Heren en baard<svg><use href="#sp"/></svg></li><li>Gelish<svg><use href="#sp"/></svg></li>
+</ul></div></div>
+
+<section class="sec about" id="avina">
+  <div class="wrap">
+    <div class="pics" data-r>
+      <div class="a1" data-px="-16"><img src="img/salon.webp" alt="Het onthaal van het salon in Ninove" loading="lazy" width="1200" height="800"></div>
+      <div class="ring"></div>
+      <div class="a2" data-px="18"><img src="img/makeup.webp" alt="Make-uptafel in het salon" loading="lazy" width="800" height="1000"></div>
+      <svg class="spark" style="right:30%;top:4%;--s:24px"><use href="#sp"/></svg>
+    </div>
+    <div style="position:relative">
+      <span class="ghost">Avina</span>
+      <span class="eyebrow" data-r>Maak kennis</span>
+      <h2 data-r="80">Avina neemt de tijd voor je haar</h2>
+      <p data-r="120">Een afspraak bij Avi&amp;Ange begint niet met een schaar, maar met een gesprek. Wat wil je? Wat past bij de structuur van je haar? Hoeveel tijd steek je er thuis in? Daarna stelt Avina voor wat ze zelf zou doen, en waarom.</p>
+      <p data-r="140">Ze geeft ook les aan andere kappers, in binnen- en buitenland. Wat ze daar leert, neemt ze mee terug naar de stoel in Ninove.</p>
+      <div class="pillars" data-r="180">
+        <div class="pil"><svg class="ic" aria-hidden="true"><use href="#i-palette"/></svg><div><b>Signature kleur</b><span>Blond, koper en rood, met eigen technieken.</span></div></div>
+        <div class="pil"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><div><b>Eerst een diagnose</b><span>Zodat je weet waar je aan begint.</span></div></div>
+        <div class="pil"><svg class="ic" aria-hidden="true"><use href="#i-leaf"/></svg><div><b>Kérastase en Thalgo</b><span>Professionele zorg voor haar en huid.</span></div></div>
+        <div class="pil"><svg class="ic" aria-hidden="true"><use href="#i-flower-2"/></svg><div><b>Ook huid en lichaam</b><span>Headspa, massage, ontharing, nagels.</span></div></div>
+      </div>
+      <div class="sign" data-r="220"><span class="script">Avina</span><small>Avina Khalilova<br>colorist en oprichter</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="fan-sec" id="kleur">
+  <span class="ghost">kleur</span>
+  <div class="wrap">
+    <span class="eyebrow" data-r>De kleurenwaaier</span>
+    <h2 data-r="80" style="margin-top:18px;max-width:14ch">Welke tint wordt het?</h2>
+    <p class="lead" data-r="120" style="margin-top:18px">Vier kleuren uit de salon. Tik op een staal en zie hoe het eruitziet in het echt. De juiste toon voor jou bepaalt Avina samen met jou, tijdens de diagnose.</p>
+    <div class="fan-grid">
+      <div class="fan" id="fan" data-r="140">
+        <button class="sw" style="--rot:-42deg;--z:1;--g:linear-gradient(180deg,#E9DCC1,#C9A97A)" data-t="0" aria-pressed="false"><span>Zacht blond</span></button>
+        <button class="sw" style="--rot:-24deg;--z:2;--g:linear-gradient(180deg,#EEF0EA,#BFD8D1 70%,#78B5AA)" data-t="1" aria-pressed="false"><span>Platina met mint</span></button>
+        <button class="sw" style="--rot:-6deg;--z:3;--g:linear-gradient(180deg,#F2A066,#C9541F)" data-t="2" aria-pressed="false"><span>Warm koper</span></button>
+        <button class="sw" style="--rot:12deg;--z:4;--g:linear-gradient(180deg,#B8414F,#6E1F2C)" data-t="3" aria-pressed="true"><span>Kersenrood</span></button>
+        <span class="pivot"></span>
+        <span class="fan-hint">tik op een kleur</span>
+      </div>
+      <div class="tone" data-r="200">
+        <div class="disc" id="disc"><img id="timg" src="img/c-rood.webp" alt="Kersenrode bob" width="700" height="967"></div>
+        <div>
+          <span class="num" id="tnum">04 / 04</span>
+          <h3 id="tname">Kersenrood</h3>
+          <p id="tdesc">Diep, warm rood dat glanst onder het licht. Een kleur die opvalt, en daarom ook een kleur die je goed moet verzorgen.</p>
+          <div class="tip"><svg class="ic" aria-hidden="true"><use href="#i-lightbulb"/></svg><span id="ttip">Avina geeft je mee hoe je de kleur thuis mooi houdt, en welke producten daarbij helpen.</span></div>
+          <a class="btn gold" href="https://salonkee.be/salon/aviange?lang=nl" target="_blank" rel="noopener">Boek een diagnose <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec meta">
+  <div class="wrap">
+    <figure data-r><img src="img/metamorfose.webp" alt="Lang bruin haar, twee looks uit de salon" loading="lazy" width="1100" height="1100"><span class="tagl">Uit de salon</span></figure>
+    <div>
+      <span class="eyebrow" data-r>Tweede kans</span>
+      <h2 data-r="80">Ook als het elders misliep</h2>
+      <p data-r="120">Een kleur die te donker uitviel, of een snit die niet werd wat je vroeg. Het gebeurt. Avina kijkt dan eerst wat je haar nog aankan, en werkt van daaruit verder. Zonder oordeel, en zonder je iets te beloven wat je haar niet aankan.</p>
+      <blockquote data-r="160">Ik ging langs bij Aviange nadat een ander kapsalon mijn haar had verpest. Ik werd met open armen ontvangen, en wat hebben ze mijn haar opnieuw mooi gemaakt!<cite>Maartje, op Salonkee</cite></blockquote>
+      <a class="btn" href="https://salonkee.be/salon/aviange?lang=nl" target="_blank" rel="noopener" data-r="200">Boek eerst een diagnose <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="serv" id="behandelingen">
+  <span class="ghost">beauty</span>
+  <div class="wrap">
+    <div class="serv-head">
+      <span class="eyebrow" data-r>Behandelingen</span>
+      <h2 data-r="80" style="margin-top:18px">Haar, huid en een moment voor jezelf</h2>
+      <p class="lead" data-r="120">Van een herensnit tot een bruidskapsel, van een headspa tot een Thalgo-gelaatsverzorging. Alles onder één dak in Ninove.</p>
+    </div>
+    <div class="sgrid">
+      <a class="sv b1 has-cut" href="#prijzen" data-goto-tab="#ptabs|haar" data-r><img class="cut" src="img/c-rood.webp" alt="" loading="lazy" width="700" height="967"><svg class="ic" aria-hidden="true"><use href="#i-palette"/></svg><h3>Haar en kleur</h3><p>Kleur, balayage, blond, haarbotox en opsteken.</p><div class="from"><div><span>vanaf</span><b>€50</b></div><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span></div></a>
+      <a class="sv b2 has-cut" href="#prijzen" data-goto-tab="#ptabs|heren" data-r="80"><img class="cut" src="img/c-heren.webp" alt="" loading="lazy" width="533" height="772"><svg class="ic" aria-hidden="true"><use href="#i-scissors"/></svg><h3>Heren en baard</h3><p>Snit, tondeuse, baard verzorgen of kleuren.</p><div class="from"><div><span>vanaf</span><b>€35</b></div><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span></div></a>
+      <a class="sv b3" href="#prijzen" data-goto-tab="#ptabs|spa" data-r="160"><svg class="ic" aria-hidden="true"><use href="#i-flower"/></svg><h3>Headspa en massage</h3><p>Van een basis-headspa tot een Rituel Cold Cream met gommage en modelage.</p><div class="from"><div><span>vanaf</span><b>€35</b></div><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span></div></a>
+      <a class="sv b4" href="#prijzen" data-goto-tab="#ptabs|huid" data-r><svg class="ic" aria-hidden="true"><use href="#i-sparkles"/></svg><h3>Huidverzorging</h3><p>Thalgo-behandelingen, van express tot anti-aging en Peeling Marin.</p><div class="from"><div><span>vanaf</span><b>€50</b></div><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span></div></a>
+      <a class="sv b5" href="#prijzen" data-goto-tab="#ptabs|ontharing" data-r="80"><svg class="ic" aria-hidden="true"><use href="#i-feather"/></svg><h3>Ontharing</h3><p>Wenkbrauwen, gelaat, benen, rug of borst. Voor vrouwen en mannen.</p><div class="from"><div><span>vanaf</span><b>€25</b></div><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span></div></a>
+      <a class="sv b6" href="#prijzen" data-goto-tab="#ptabs|handen" data-r="160"><svg class="ic" aria-hidden="true"><use href="#i-hand"/></svg><h3>Handen en voeten</h3><p>Manicure, gelish, gel en pedicure.</p><div class="from"><div><span>vanaf</span><b>€30</b></div><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span></div></a>
+    </div>
+
+    <div class="prices" id="prijzen">
+      <aside class="side" data-r>
+        <span class="script">prijzen</span>
+        <span class="eyebrow">Prijslijst</span>
+        <h3>Wat kost het?</h3>
+        <p>Alle prijzen zoals ze op Salonkee staan. Voor kleur en balayage hangt de prijs af van je haar. Die krijg je na de diagnose, zodat je achteraf niet verrast wordt.</p>
+        <a class="btn gold" href="https://salonkee.be/salon/aviange?lang=nl" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-calendar-heart"/></svg> Boek via Salonkee</a>
+      </aside>
+      <div data-tabs id="ptabs" data-r="100">
+        <div class="tabs" role="tablist">
+          <button data-tab="haar" aria-selected="true">Haar</button><button data-tab="heren" aria-selected="false">Heren</button><button data-tab="spa" aria-selected="false">Headspa en massage</button><button data-tab="huid" aria-selected="false">Huid</button><button data-tab="ontharing" aria-selected="false">Ontharing</button><button data-tab="handen" aria-selected="false">Handen en voeten</button>
+        </div>
+        <div data-panel="haar"><div class="pl">
+          <div class="pi"><div><span>Diagnose</span><small>Persoonlijk advies over kleur, snit en verzorging</small></div><b>€50</b></div>
+          <div class="pi"><div><span>Najaarspakket</span><small>Zolang het najaar duurt</small></div><b>€70</b></div>
+          <div class="pi"><div><span>Spa Mist</span><small>Intensieve verzorging met scrub</small></div><b>€60</b></div>
+          <div class="pi"><div><span>Kérastase Fusio-Dose</span><small>Masker en serum</small></div><b>€30</b></div>
+          <div class="pi"><div><span>Haarbotox</span></div><b>€100</b></div>
+          <div class="pi"><div><span>Studentensnit en losdrogen</span></div><b>€75</b></div>
+          <div class="pi"><div><span>Opsteken of feestelijke brushing</span></div><b>€150</b></div>
+          <div class="pi"><div><span>Bruidsmake-up en opsteken</span></div><b>€500</b></div>
+          <div class="pi"><div><span>Wenkbrauwen kleuren</span></div><b>€45</b></div>
+          <div class="pi"><div><span>Extra voor lang haar</span></div><b>€20</b></div>
+        </div></div>
+        <div data-panel="heren" hidden><div class="pl">
+          <div class="pi"><div><span>Herensnit</span></div><b>€50</b></div>
+          <div class="pi"><div><span>Tondeusesnit</span></div><b>€35</b></div>
+          <div class="pi"><div><span>Herensnit met baardbehandeling</span></div><b>€70</b></div>
+          <div class="pi"><div><span>Baard</span></div><b>€45</b></div>
+          <div class="pi"><div><span>Baard kleuren</span></div><b>€75</b></div>
+          <div class="pi"><div><span>Thalgo Men gelaatsverzorging</span></div><b>€85</b></div>
+          <div class="pi"><div><span>Ontharing met wax</span></div><b>€25</b></div>
+        </div></div>
+        <div data-panel="spa" hidden><div class="pl">
+          <div class="pi"><div><span>Headspa basis</span></div><b>€35</b></div>
+          <div class="pi"><div><span>Headspa deluxe</span></div><b>€45</b></div>
+          <div class="pi"><div><span>Relaxing massage</span></div><b>€35 – €45</b></div>
+          <div class="pi"><div><span>Rituel Cold Cream</span><small>Gommage en modelage</small></div><b>€100</b></div>
+          <div class="pi"><div><span>Gommage</span></div><b>€50</b></div>
+          <div class="pi"><div><span>Headspa voor kinderen</span></div><b>€30</b></div>
+          <div class="pi"><div><span>Kindermassage</span></div><b>€35</b></div>
+        </div></div>
+        <div data-panel="huid" hidden><div class="pl">
+          <div class="pi"><div><span>Express behandeling</span></div><b>€50</b></div>
+          <div class="pi"><div><span>Fundamentele zorg</span></div><b>€85</b></div>
+          <div class="pi"><div><span>Basisbehandeling</span></div><b>€90</b></div>
+          <div class="pi"><div><span>Anti-aging behandeling</span></div><b>€110</b></div>
+          <div class="pi"><div><span>Peeling Marin</span></div><b>€85</b></div>
+          <div class="pi"><div><span>Toofruit voor kinderen</span></div><b>€50</b></div>
+        </div></div>
+        <div data-panel="ontharing" hidden><div class="pl">
+          <div class="pi"><div><span>Wenkbrauwen</span></div><b>€30</b></div>
+          <div class="pi"><div><span>Bovenlip of kin</span></div><b>€25</b></div>
+          <div class="pi"><div><span>Gelaat</span></div><b>€45</b></div>
+          <div class="pi"><div><span>Armen</span></div><b>€45</b></div>
+          <div class="pi"><div><span>Onderbenen</span></div><b>€55</b></div>
+          <div class="pi"><div><span>Volledige benen</span></div><b>€70</b></div>
+          <div class="pi"><div><span>Rug of borst</span></div><b>€60</b></div>
+        </div></div>
+        <div data-panel="handen" hidden><div class="pl">
+          <div class="pi"><div><span>Manicure</span></div><b>€30</b></div>
+          <div class="pi"><div><span>Gelish</span></div><b>€40</b></div>
+          <div class="pi"><div><span>Gel</span></div><b>€50</b></div>
+          <div class="pi"><div><span>Pedicure</span></div><b>€30</b></div>
+        </div></div>
+        <p class="pnote">Twijfel je welke behandeling je nodig hebt? Bel even naar <a href="tel:+3254253268">054 25 32 68</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="najaar">
+  <div class="wrap">
+    <div class="nj" data-r>
+      <svg class="leaf" style="left:46%;top:12%;width:46px;--r:30deg"><use href="#leaf"/></svg>
+      <svg class="leaf" style="left:60%;bottom:10%;width:30px;--r:-40deg;--dl:2s"><use href="#leaf"/></svg>
+      <svg class="leaf" style="right:6%;top:8%;width:38px;--r:120deg;--dl:4s"><use href="#leaf"/></svg>
+      <div class="t">
+        <span class="eyebrow">Nu, zolang het najaar duurt</span>
+        <h2>Het najaarspakket</h2>
+        <p>Na een zomer vol zon, zout en chloor kan je haar wat extra zorg gebruiken. Het najaarspakket boek je gewoon online.</p>
+        <a class="btn" href="https://salonkee.be/salon/aviange?lang=nl" target="_blank" rel="noopener" style="margin-top:26px">Boek het najaarspakket <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+      </div>
+      <div class="price"><b>€70</b><span>via Salonkee</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="rev" id="reviews">
+  <div class="wrap rev-head">
+    <div><span class="eyebrow" data-r>Reviews</span><h2 data-r="80">Wat klanten na hun afspraak schrijven</h2></div>
+    <div class="big" data-r="120"><b data-count="4.9">4,9</b><div><span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span><small>Van de 245 beoordelingen op Salonkee zijn er 234 met vijf sterren.</small></div></div>
+  </div>
+  <div class="lanes">
+    <div class="lane" data-lane><div class="group">
+      <article class="rc"><span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span><q>Het is zo'n kapsel waarvan je niet wist dat je het nodig had, tot je in de spiegel kijkt en denkt: wow! Merci Avina!</q><div class="who"><span class="av">C</span><div><b>Cristina</b></div><span class="src">Google</span></div></article>
+      <article class="rc"><span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span><q>De massage die je erbij krijgt bij het haren wassen is altijd op en top. Je krijgt ook tips en tricks. Het is en blijft mijn vaste kapperszaak.</q><div class="who"><span class="av">V</span><div><b>Vanessa</b></div><span class="src">Salonkee</span></div></article>
+      <article class="rc"><span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span><q>Ik heb enorm genoten van de anderhalf uur durende head spa en gelaatsverzorging. Mijn huid voelde achteraf fris en stralend aan.</q><div class="who"><span class="av">L</span><div><b>Lize</b></div><span class="src">Google</span></div></article>
+      <article class="rc"><span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span><q>Zeer eerlijk, en zegt wat bij je past.</q><div class="who"><span class="av">I</span><div><b>Ines</b></div><span class="src">Salonkee</span></div></article>
+    </div></div>
+    <div class="lane rev2" data-lane><div class="group">
+      <article class="rc"><span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span><q>Ze gaf mee wat ik het best kon doen en wat me goed zou staan. Ik heb haar volledig vertrouwd.</q><div class="who"><span class="av">C</span><div><b>Chanel</b></div><span class="src">Salonkee</span></div></article>
+      <article class="rc"><span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span><q>90 minuten bodymassage. Compleet relax van de tafel gerold!</q><div class="who"><span class="av">T</span><div><b>Tom</b></div><span class="src">Google</span></div></article>
+      <article class="rc"><span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span><q>Ik ging langs nadat een ander kapsalon mijn haar had verpest. Ik werd met open armen ontvangen.</q><div class="who"><span class="av">M</span><div><b>Maartje</b></div><span class="src">Salonkee</span></div></article>
+      <article class="rc"><span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span><q>Mijn dochtertje heeft zich een prinses gewaand.</q><div class="who"><span class="av">J</span><div><b>Justine</b></div><span class="src">Salonkee</span></div></article>
+    </div></div>
+  </div>
+</section>
+
+<section class="insta">
+  <div class="wrap">
+    <div class="ig-head" data-r>
+      <div class="h"><span class="av"><span>A</span></span><div><b>@avi_ange</b><span>21.000 volgers kijken mee in de salon</span></div></div>
+      <a class="btn line" href="https://www.instagram.com/avi_ange" target="_blank" rel="noopener">Volg op Instagram <svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+    </div>
+    <div class="ig" data-r="100">
+      <a href="https://www.instagram.com/avi_ange" target="_blank" rel="noopener"><img src="img/rood.webp" alt="Kersenrode bob" loading="lazy" width="800" height="800"><span>Kersenrood</span></a>
+      <a href="https://www.instagram.com/avi_ange" target="_blank" rel="noopener"><img src="img/platina.webp" alt="Platina met mint in de punten" loading="lazy" width="800" height="800"><span>Platina met mint</span></a>
+      <a href="https://www.instagram.com/avi_ange" target="_blank" rel="noopener"><img src="img/koper.webp" alt="Warm koper, lang en golvend" loading="lazy" width="540" height="960"><span>Warm koper</span></a>
+      <a href="https://www.instagram.com/avi_ange" target="_blank" rel="noopener"><img src="img/nagels.webp" alt="Donkere nagels met glitter" loading="lazy" width="800" height="900"><span>Nagels</span></a>
+      <a href="https://www.instagram.com/avi_ange" target="_blank" rel="noopener"><img src="img/blond.webp" alt="Zacht blond met golven" loading="lazy" width="700" height="900"><span>Zacht blond</span></a>
+      <a href="https://www.instagram.com/avi_ange" target="_blank" rel="noopener"><img src="img/heren.webp" alt="Herenkapsel in de salon" loading="lazy" width="640" height="960"><span>Heren</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="bezoek">
+  <div class="wrap">
+    <div class="vcard" data-r data-today data-open>
+      <div class="ph"><img src="img/salon.webp" alt="Het salon van Avi&amp;Ange" loading="lazy" width="1200" height="800"><div class="pin"><svg class="ic" aria-hidden="true"><use href="#i-map-pin"/></svg><div><b>Aalstersesteenweg 93</b><span>9400 Ninove</span></div></div></div>
+      <div class="info">
+        <span class="eyebrow">Bezoek de salon</span>
+        <h2>Tot in Ninove</h2>
+        <span class="op"><i></i><span><b data-open-t></b> <span data-open-s></span></span></span>
+        <ul class="hours">
+          <li data-day="1"><span>maandag</span><span>9:00 – 18:00</span></li>
+          <li data-day="2" class="closed"><span>dinsdag</span><span>gesloten</span></li>
+          <li data-day="3"><span>woensdag</span><span>9:00 – 18:00</span></li>
+          <li data-day="4"><span>donderdag</span><span>9:00 – 18:00</span></li>
+          <li data-day="5"><span>vrijdag</span><span>9:00 – 19:00</span></li>
+          <li data-day="6"><span>zaterdag</span><span>9:00 – 18:00</span></li>
+          <li data-day="0" class="closed"><span>zondag</span><span>gesloten</span></li>
+        </ul>
+        <div class="vrow"><a class="btn" href="https://salonkee.be/salon/aviange?lang=nl" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-calendar-heart"/></svg> Boek online</a><a class="btn line" href="https://www.google.com/maps/dir/?api=1&destination=Aalstersesteenweg+93+9400+Ninove" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-navigation"/></svg> Route</a></div>
+        <div class="vlinks"><a href="tel:+3254253268"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> 054 25 32 68</a><a href="https://www.instagram.com/avi_ange" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg> @avi_ange</a><a href="https://www.facebook.com/profile.php?id=100063648006157" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-message-circle"/></svg> Facebook</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <span class="ghost">Avi&amp;Ange</span>
+  <div class="wrap">
+    <div class="fg">
+      <div><a class="logo" href="#top"><b>Avi&amp;Ange</b><small>your hairstylist · Ninove</small></a><p>Hairstylist, colorist en schoonheidssalon in Ninove. Elke afspraak begint met een persoonlijke diagnose.</p></div>
+      <div><h4>Salon</h4><ul><li>Aalstersesteenweg 93</li><li>9400 Ninove</li><li><a href="tel:+3254253268">054 25 32 68</a></li></ul></div>
+      <div><h4>Behandelingen</h4><ul><li><a href="#prijzen" data-goto-tab="#ptabs|haar">Haar en kleur</a></li><li><a href="#prijzen" data-goto-tab="#ptabs|heren">Heren</a></li><li><a href="#prijzen" data-goto-tab="#ptabs|spa">Headspa en massage</a></li><li><a href="#prijzen" data-goto-tab="#ptabs|huid">Huid</a></li></ul></div>
+      <div><h4>Volg ons</h4><ul><li><a href="https://www.instagram.com/avi_ange" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/profile.php?id=100063648006157" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://salonkee.be/salon/aviange?lang=nl" target="_blank" rel="noopener">Salonkee</a></li></ul></div>
+    </div>
+    <div class="legal"><span>© Avi&amp;Ange, Ninove · BE 0600.917.968</span><span>Voorbeeldsite door <a href="https://digital-impression.be" target="_blank" rel="noopener">Digital Impression</a></span></div>
+  </div>
+</footer>
+
+<div class="mbar"><a class="btn gold" href="https://salonkee.be/salon/aviange?lang=nl" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-calendar-heart"/></svg> Afspraak</a><a class="btn pearl" href="tel:+3254253268"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Bellen</a></div>
+
+<script>window.HOURS={0:[],1:[[540,1080]],2:[],3:[[540,1080]],4:[[540,1080]],5:[[540,1140]],6:[[540,1080]]};</script>
+<script>(()=>{
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+/* Brussels time, so a visitor abroad sees the shop's real state */
+const now=(off=0)=>{const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Brussels',weekday:'short',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date(Date.now()+off*864e5));const g=t=>p.find(x=>x.type===t).value;return{d:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(g('weekday')),m:(+g('hour')%24)*60+(+g('minute')),ymd:g('year')+'-'+g('month')+'-'+g('day')}};
+window.DI={now,$,$$};
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px',threshold:.08});
+$$('[data-r]').forEach((el,i)=>{if(RM){el.classList.add('in');return}const st=el.dataset.r;if(st)el.style.setProperty('--d',st+'ms');io.observe(el)});
+/* counters */
+const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;co.unobserve(e.target);const el=e.target,to=parseFloat(el.dataset.count),dec=(el.dataset.count.split(/[.,]/)[1]||'').length,dur=1400,t0=performance.now();const fmt=v=>v.toFixed(dec).replace('.',',');if(RM){el.textContent=fmt(to);return}const step=t=>{const k=Math.min(1,(t-t0)/dur),e2=1-Math.pow(1-k,3);el.textContent=fmt(to*e2);if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}),{threshold:.6});
+$$('[data-count]').forEach(el=>co.observe(el));
+/* header state */
+const hd=$('[data-head]');if(hd){const f=()=>hd.classList.toggle('scrolled',scrollY>30);f();addEventListener('scroll',f,{passive:true})}
+/* opening hours: window.HOURS = {1:[[420,1110]],...} minutes, 0=sunday */
+const H=window.HOURS;
+const hm=m=>{const h=Math.floor(m/60),mm=m%60;return h+'u'+(mm?String(mm).padStart(2,'0'):'')};
+const days=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+const SP=window.SPECIAL||{};const hrs=(off)=>{const n=now(off);return SP[n.ymd]||H[n.d]||[]};
+window.DI.hrs=hrs;
+window.DI.status=()=>{if(!H)return null;const{d,m}=now();const t=hrs(0);for(const[a,b]of t){if(m>=a&&m<b)return{open:true,txt:'Nu open',sub:'tot '+hm(b),close:b,m}}
+ const later=t.find(([a])=>a>m);if(later)return{open:false,txt:'Nu gesloten',sub:'open om '+hm(later[0])};
+ for(let i=1;i<8;i++){const dd=(d+i)%7,tt=hrs(i);if(tt.length)return{open:false,txt:'Nu gesloten',sub:'open '+(i===1?'morgen':days[dd])+' om '+hm(tt[0][0])}}return null};
+const st=window.DI.status();
+if(st)$$('[data-open]').forEach(el=>{el.classList.toggle('is-open',st.open);el.classList.toggle('is-closed',!st.open);const a=$('[data-open-t]',el),b=$('[data-open-s]',el);if(a)a.textContent=st.txt;if(b)b.textContent=st.sub});
+$$('[data-today]').forEach(tb=>{const{d}=now();const r=tb.querySelector(`[data-day="${d}"]`);if(r)r.classList.add('today')});
+/* tabs */
+$$('[data-tabs]').forEach(w=>{const bs=$$('[data-tab]',w),ps=$$('[data-panel]',w);const set=k=>{bs.forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===k));ps.forEach(p=>p.hidden=p.dataset.panel!==k);w.dispatchEvent(new CustomEvent('tab',{detail:k}))};bs.forEach(b=>b.addEventListener('click',()=>set(b.dataset.tab)));w._set=set});
+$$('[data-goto-tab]').forEach(a=>a.addEventListener('click',()=>{const [sel,k]=a.dataset.gotoTab.split('|');const w=$(sel);if(w&&w._set)w._set(k)}));
+/* accordion */
+$$('[data-acc] > button').forEach(b=>b.addEventListener('click',()=>{const it=b.parentElement,o=it.classList.toggle('open');b.setAttribute('aria-expanded',o)}));
+/* marquee: duplicate content for a seamless loop */
+$$('[data-marquee]').forEach(m=>{const t=m.firstElementChild;if(!t)return;m.appendChild(t.cloneNode(true)).setAttribute('aria-hidden','true')});
+/* gentle parallax for decorative layers */
+if(!RM&&innerWidth>900){const px=$$('[data-px]');if(px.length){let tk=false;const run=()=>{const vh=innerHeight;px.forEach(el=>{const r=el.getBoundingClientRect();const c=(r.top+r.height/2-vh/2)/vh;el.style.translate=`0 ${(c*parseFloat(el.dataset.px)).toFixed(1)}px`});tk=false};addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(run)}},{passive:true});run()}}
+/* mobile menu */
+const mb=$('[data-menu-btn]'),mn=$('[data-menu]');if(mb&&mn){mb.addEventListener('click',()=>{const o=document.body.classList.toggle('menu-open');mb.setAttribute('aria-expanded',o)});$$('a',mn).forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-open')))}
+})();
+</script>
+<script>
+(()=>{const{$,$$}=DI;
+const T=[
+ {n:'Zacht blond',img:'img/c-blond.webp',c:'#E7D7BC',d:'Golvend blond, warm in de lengtes en zacht aan de inplant. Mooi voor een trouw, een feest, of gewoon voor elke dag.',t:'Blond vraagt verzorging. Een Kérastase-masker houdt het soepel tussen twee afspraken.'},
+ {n:'Platina met mint',img:'img/c-platina.webp',c:'#C9DED7',d:'IJsblond met een speelse kleur in de punten. Voor wie het eens anders wil, zonder dat de hele kop meteen anders is.',t:'Pastel in de punten vervaagt na een paar wassen. Dat hoort zo, en dat maakt het ook leuk.'},
+ {n:'Warm koper',img:'img/c-koper.webp',c:'#EFA77A',d:'Koper kan warm of fris uitvallen. Welke toon bij jou past, hangt af van je huid en je ogen. Daarvoor dient de diagnose.',t:'Was koper met lauw water en een shampoo voor gekleurd haar. Dan blijft het langer glanzen.'},
+ {n:'Kersenrood',img:'img/c-rood.webp',c:'#C9606B',d:'Diep, warm rood dat glanst onder het licht. Een kleur die opvalt, en daarom ook een kleur die je goed moet verzorgen.',t:'Avina geeft je mee hoe je de kleur thuis mooi houdt, en welke producten daarbij helpen.'}];
+const sw=$$('#fan .sw'),img=$('#timg'),disc=$('#disc');
+const set=i=>{const t=T[i];sw.forEach(b=>b.setAttribute('aria-pressed',+b.dataset.t===i));img.classList.add('out');setTimeout(()=>{img.src=t.img;img.alt=t.n;img.onload=()=>img.classList.remove('out')},280);disc.style.setProperty('--tc',t.c);$('#tname').textContent=t.n;$('#tdesc').textContent=t.d;$('#ttip').textContent=t.t;$('#tnum').textContent='0'+(i+1)+' / 04'};
+sw.forEach(b=>b.addEventListener('click',()=>set(+b.dataset.t)));disc.style.setProperty('--tc',T[3].c);
+T.forEach(t=>{const i=new Image();i.src=t.img});
+$$('[data-lane]').forEach(l=>{const g=l.firstElementChild;l.appendChild(g.cloneNode(true)).setAttribute('aria-hidden','true')});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Bakkerij Het Brood · Twee keer per dag vers brood</title>
+<meta name="description" content="Bakkerij Het Brood bakt in Hoegaarden, twee keer per dag. Brood, pistolets, koeken en patisserie in Bost en negen andere winkels rond Tienen en Leuven.">
+<link rel="preload" href="img/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/figtree.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:Fraunces;src:url(img/fraunces.woff2) format('woff2');font-weight:300 800;font-display:swap}
+@font-face{font-family:Fraunces;src:url(img/fraunces-i.woff2) format('woff2');font-weight:300 700;font-style:italic;font-display:swap}
+@font-face{font-family:Figtree;src:url(img/figtree.woff2) format('woff2');font-weight:300 900;font-display:swap}
+@font-face{font-family:Caveat;src:url(img/caveat.woff2) format('woff2');font-weight:500 700;font-display:swap}
+:root{
+  --cream:#FBF4E6;--paper:#FFFBF4;--dough:#F4E2BE;--dough-2:#EBCF97;
+  --crust:#E0912E;--crust-d:#B76B12;--teal:#1C5753;--teal-2:#2B7A74;--teal-3:#123C39;--mint:#D3EAE5;--mint-2:#A9D2CB;
+  --berry:#CF4660;--rose:#F9DCDD;--cocoa:#2A1A10;--ink:#3A291D;--muted:#7B6756;--line:rgba(58,41,29,.12);
+  --f-d:Fraunces,Georgia,'Times New Roman',serif;--f-b:Figtree,system-ui,-apple-system,'Segoe UI',sans-serif;--f-s:Caveat,'Segoe Print','Bradley Hand',cursive;
+  --r:28px;--sh:0 1px 2px rgba(42,26,16,.06),0 12px 32px -12px rgba(42,26,16,.22);--sh-l:0 30px 60px -24px rgba(42,26,16,.35);
+  --w:1240px;--ease:cubic-bezier(.2,.7,.2,1)
+}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+body{font:400 17px/1.6 var(--f-b);color:var(--ink);background:var(--cream);overflow-x:clip;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.35;mix-blend-mode:multiply;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .35 0 0 0 0 .25 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.ic{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.wrap{width:min(100% - 48px,var(--w));margin-inline:auto}
+h1,h2,h3,h4{font-family:var(--f-d);font-weight:600;line-height:1.04;letter-spacing:-.022em;color:var(--cocoa);font-variation-settings:"SOFT" 100,"WONK" 0}
+h2{font-size:clamp(2.1rem,4.2vw,3.5rem)}
+h3{font-size:1.55rem;letter-spacing:-.015em}
+.script{font-family:var(--f-s);font-weight:600;letter-spacing:0;line-height:1}
+.eyebrow{display:inline-flex;align-items:center;gap:.6em;font:700 .78rem/1 var(--f-b);letter-spacing:.14em;text-transform:uppercase;color:var(--teal-2)}
+.eyebrow .ic{width:30px;height:30px;padding:7px;border-radius:50%;background:var(--mint);color:var(--teal)}
+.lead{font-size:1.12rem;color:var(--muted);max-width:56ch}
+.btn{--bg:var(--crust);--fg:var(--cocoa);display:inline-flex;align-items:center;gap:.65em;padding:.95em 1.5em;border-radius:999px;background:var(--bg);color:var(--fg);font-weight:700;font-size:.98rem;text-decoration:none;box-shadow:0 10px 24px -12px rgba(183,107,18,.7),inset 0 -2px 0 rgba(0,0,0,.12);transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .3s}
+.btn .ic{transition:transform .35s var(--ease)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(183,107,18,.75),inset 0 -2px 0 rgba(0,0,0,.12)}
+.btn:hover .ic:last-child{transform:translateX(3px)}
+.btn.ghost{--bg:transparent;--fg:var(--cocoa);box-shadow:inset 0 0 0 1.6px rgba(42,26,16,.75)}
+.btn.ghost:hover{--bg:var(--cocoa);--fg:var(--cream)}
+.btn.teal{--bg:var(--teal);--fg:#fff;box-shadow:0 10px 24px -12px rgba(28,87,83,.8)}
+.btn.light{--bg:var(--cream);--fg:var(--teal-3);box-shadow:0 10px 24px -14px rgba(0,0,0,.5)}
+[data-r]{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease) var(--d,0ms),transform .9s var(--ease) var(--d,0ms)}
+[data-r].in{opacity:1;transform:none}
+.torn,.wave{position:absolute;left:0;width:100%;height:34px;display:block;pointer-events:none;z-index:3}
+.wave{height:60px}
+.torn.flip{top:-1px}.torn:not(.flip){bottom:-1px}
+.wave.flip{top:-1px;transform:scaleY(-1)}.wave:not(.flip){bottom:-1px}
+
+/* demo ribbon */
+.demo{position:relative;z-index:60;background:var(--teal-3);color:#E7F2EF;font-size:.83rem;text-align:center;padding:.55em 1em}
+.demo a{color:#fff;font-weight:700;text-underline-offset:3px}
+
+/* header */
+.head{position:sticky;top:0;z-index:50;transition:background .4s,box-shadow .4s,backdrop-filter .4s}
+.head.scrolled{background:rgba(251,244,230,.86);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);box-shadow:0 1px 0 var(--line)}
+.head .wrap{display:flex;align-items:center;gap:28px;height:82px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo svg{width:46px;height:46px}
+.logo b{display:block;font:650 1.42rem/1 var(--f-d);letter-spacing:-.02em;color:var(--cocoa);font-variation-settings:"SOFT" 100}
+.logo small{display:block;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{padding:.55em .95em;border-radius:999px;text-decoration:none;font-weight:600;font-size:.95rem;color:var(--ink);transition:background .25s}
+.nav a:hover{background:rgba(42,26,16,.06)}
+.open-pill{display:inline-flex;align-items:center;gap:.55em;font-size:.85rem;font-weight:600;color:var(--muted);white-space:nowrap}
+.open-pill i{width:9px;height:9px;border-radius:50%;background:#bbb;position:relative}
+.is-open .open-pill i,.open-pill.is-open i{background:#2BA36B}
+.is-open .open-pill i::after,.open-pill.is-open i::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid #2BA36B;animation:ping 2s infinite}
+.is-closed .open-pill i,.open-pill.is-closed i{background:var(--berry)}
+@keyframes ping{0%{transform:scale(.4);opacity:.9}80%,100%{transform:scale(1.4);opacity:0}}
+.open-pill b{color:var(--cocoa)}
+.head .btn{padding:.75em 1.15em;font-size:.9rem}
+.menu-btn{display:none;width:46px;height:46px;border-radius:50%;background:var(--cocoa);color:var(--cream);align-items:center;justify-content:center}
+
+/* hero */
+.hero{position:relative;padding:26px 0 120px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.02fr 1fr;gap:40px;align-items:center}
+.hero .script{font-size:2rem;color:var(--crust-d);display:inline-block;position:relative;transform:rotate(-2deg);margin-bottom:10px}
+.hero .script svg{position:absolute;left:0;bottom:-10px;width:100%;height:14px}
+.hero h1{font-size:clamp(2.7rem,5vw,4.5rem);font-weight:650;letter-spacing:-.035em;line-height:.95;font-variation-settings:"SOFT" 100,"WONK" 1}
+.hero h1 span{display:block;color:var(--teal)}
+.hero h1 .l1{color:inherit;white-space:nowrap}
+.hero .lead{margin:26px 0 34px;font-size:1.16rem;color:#6b5847}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px}
+.feats{display:flex;gap:0;margin-top:46px;padding-top:28px;border-top:1.5px dashed rgba(42,26,16,.18);max-width:560px}
+.feat{flex:1;display:flex;gap:12px;align-items:flex-start;padding-right:18px}
+.feat+.feat{padding-left:18px;border-left:1px solid var(--line)}
+.feat .ic{width:42px;height:42px;padding:10px;border-radius:14px;background:var(--dough);color:var(--crust-d)}
+.feat b{display:block;font-size:.98rem;color:var(--cocoa);line-height:1.25}
+.feat span{font-size:.84rem;color:var(--muted);line-height:1.3}
+.stage{position:relative;aspect-ratio:1/1;max-width:620px;margin-left:auto;width:100%}
+.stage .blob{position:absolute;inset:4% 0 2% 6%;width:94%;height:94%}
+.stage .brush{position:absolute;left:-6%;top:6%;width:56%;opacity:.95}
+.stage .main{position:absolute;left:10%;top:10%;width:80%;filter:drop-shadow(0 34px 34px rgba(18,60,57,.45));animation:float 7s ease-in-out infinite}
+.stage .side{position:absolute;left:-4%;bottom:4%;width:40%;filter:drop-shadow(0 22px 20px rgba(18,60,57,.4));animation:float 7s ease-in-out -3s infinite}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(-1deg)}}
+.chip{position:absolute;display:flex;align-items:center;gap:12px;background:rgba(255,251,244,.96);border-radius:18px;padding:11px 16px 11px 11px;box-shadow:var(--sh-l);font-size:.82rem;line-height:1.25;color:var(--muted);z-index:3}
+.chip b{display:block;color:var(--cocoa);font-size:.95rem}
+.chip .ic{width:40px;height:40px;padding:9px;border-radius:12px;background:var(--mint);color:var(--teal)}
+.chip.rate{right:-2%;top:14%}
+.chip.rate .g{width:40px;height:40px;border-radius:12px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);display:grid;place-items:center}
+.stars{display:inline-flex;gap:1px;color:#F2A93B}
+.stars .ic{width:14px;height:14px;padding:0;background:none;fill:currentColor;stroke:none}
+.chip.bake{right:4%;bottom:10%}
+.chip.bake .ic{background:var(--dough);color:var(--crust-d)}
+.note{position:absolute;left:46%;top:-1%;font-family:var(--f-s);font-size:1.75rem;color:var(--teal);transform:rotate(-6deg);z-index:3}
+.note svg{position:absolute;left:-46px;top:26px;width:60px;height:56px}
+.wheat{position:absolute;color:var(--dough-2);pointer-events:none}
+.hero .wheat.a{right:-30px;top:40px;width:70px;transform:rotate(18deg);opacity:.9}
+.hero .wheat.b{left:47%;bottom:40px;width:48px;transform:rotate(-24deg);opacity:.7}
+.crumbs{position:absolute;inset:0;pointer-events:none}
+.crumbs i{position:absolute;width:var(--s,8px);height:calc(var(--s,8px)*.62);border-radius:50%;background:var(--c,#E8C98E);transform:rotate(var(--a,0deg))}
+
+/* marquee */
+.marq-wrap{overflow:hidden;padding:40px 0;margin:-70px 0 -40px;position:relative;z-index:4}
+.marq{position:relative;background:var(--teal);color:var(--cream);overflow:hidden;padding:20px 0;transform:rotate(-1.2deg);margin:0 -20px;box-shadow:0 18px 40px -20px rgba(18,60,57,.6);z-index:4}
+.marq [data-marquee]{display:flex;width:max-content;animation:marq 48s linear infinite}
+.marq ul{display:flex;list-style:none;padding:0;gap:0}
+.marq li{display:flex;align-items:center;gap:26px;padding-right:26px;font:italic 500 1.7rem/1 var(--f-d);font-variation-settings:"SOFT" 100;white-space:nowrap}
+.marq li svg{width:18px;height:18px;color:var(--crust)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* sections */
+section{position:relative}
+.sec{padding:130px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:56px}
+.sec-head h2{max-width:15ch;margin-top:16px}
+.sec-head .lead{max-width:40ch}
+
+/* categories */
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:120px}
+.cat{position:relative;border-radius:var(--r);padding:150px 26px 26px;background:var(--bg);text-decoration:none;display:flex;flex-direction:column;min-height:340px;transition:transform .5s var(--ease),box-shadow .5s var(--ease);box-shadow:inset 0 0 0 1px rgba(42,26,16,.05)}
+.cat:hover{transform:translateY(-6px);box-shadow:var(--sh-l)}
+.cat .pic{position:absolute;left:50%;top:-86px;width:86%;transform:translateX(-50%);transition:transform .6s var(--ease);filter:drop-shadow(0 22px 18px rgba(42,26,16,.28))}
+.cat:hover .pic{transform:translateX(-50%) translateY(-8px) rotate(-3deg) scale(1.04)}
+.cat .tag{align-self:flex-start;margin-bottom:12px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.45em .8em;border-radius:999px;background:rgba(255,255,255,.7);color:var(--cocoa);box-shadow:inset 0 0 0 1px rgba(42,26,16,.06)}
+.cat h3{font-size:1.75rem}
+.cat p{font-size:.94rem;color:var(--muted);margin:8px 0 22px;line-height:1.5}
+.cat .cfoot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;font-size:.88rem;color:var(--muted)}
+.cat .cfoot b{font:650 1.25rem/1 var(--f-d);color:var(--cocoa)}
+.cat .go{width:46px;height:46px;border-radius:50%;background:var(--cocoa);color:var(--cream);display:grid;place-items:center;transition:transform .4s var(--ease),background .3s}
+.cat:hover .go{transform:rotate(-45deg);background:var(--crust-d)}
+.c1{--bg:#F6E3BC}.c2{--bg:var(--mint)}.c3{--bg:#EFDCCB}.c4{--bg:var(--rose)}
+
+/* day */
+.day{background:var(--teal-3);color:#DDEBE7;padding:150px 0 140px;overflow:hidden}
+.day::after{content:"";position:absolute;inset:0;opacity:.07;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M30 100 C30 80 31 60 30 30'/%3E%3Cellipse cx='24' cy='44' rx='4' ry='8' transform='rotate(-25 24 44)'/%3E%3Cellipse cx='36' cy='44' rx='4' ry='8' transform='rotate(25 36 44)'/%3E%3Cellipse cx='24' cy='60' rx='4' ry='8' transform='rotate(-25 24 60)'/%3E%3Cellipse cx='36' cy='60' rx='4' ry='8' transform='rotate(25 36 60)'/%3E%3Cellipse cx='30' cy='28' rx='4' ry='8'/%3E%3C/svg%3E")}
+.day h2{color:#fff}
+.day .eyebrow{color:var(--mint-2)}.day .eyebrow .ic{background:rgba(255,255,255,.1);color:var(--crust)}
+.day .lead{color:#A9C6C0}
+.day-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+.clock-card{position:relative;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:32px;padding:34px 34px 30px;margin-top:44px;backdrop-filter:blur(4px)}
+.now-line{display:flex;align-items:center;gap:14px;margin-bottom:34px}
+.now-line .t{font:600 2.6rem/1 var(--f-d);color:#fff;font-variant-numeric:tabular-nums;font-variation-settings:"SOFT" 100}
+.now-line .m{font-size:1rem;color:#CFE2DD;line-height:1.35}
+.now-line .m b{color:var(--crust);display:block;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:3px}
+.track{position:relative;height:10px;border-radius:99px;background:linear-gradient(90deg,#24504c 0%,#E0912E 18%,#F4C871 50%,#E0912E 82%,#24504c 100%);margin:64px 6px 70px}
+.track .ev{position:absolute;top:50%;transform:translate(-50%,-50%);width:22px;height:22px;border-radius:50%;background:var(--teal-3);border:3px solid var(--cream)}
+.track .ev span{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:.82rem;color:#CFE2DD;text-align:center;line-height:1.3}
+.track .ev span b{display:block;color:#fff;font-size:.9rem}
+.track .ev.up span{bottom:30px}.track .ev.dn span{top:30px}
+.track .ev.big{width:30px;height:30px;background:var(--crust);border-color:#fff}
+.track::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 calc(100%/14 - 2px),rgba(18,60,57,.35) calc(100%/14 - 2px) calc(100%/14));border-radius:inherit}
+.track .me{position:absolute;top:50%;transform:translate(-50%,-50%);z-index:2;transition:left 1s var(--ease)}
+.track .me i{display:block;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 0 0 6px rgba(255,255,255,.18),0 0 0 14px rgba(255,255,255,.08)}
+.track .hrs{position:absolute;inset:auto 0 -34px;display:flex;justify-content:space-between;font-size:.72rem;color:#6F9892;letter-spacing:.06em}
+.sat{display:flex;gap:16px;align-items:flex-start;padding:18px 20px;border-radius:20px;background:rgba(224,145,46,.12);color:#F3DDBB;font-size:.95rem;line-height:1.5}
+.sat .ic{width:38px;height:38px;padding:9px;border-radius:12px;background:var(--crust);color:var(--cocoa)}
+.sat b{color:#fff}
+.day-pics{position:relative;height:620px}
+.day-pics figure{position:absolute;border-radius:26px;overflow:hidden;box-shadow:0 40px 70px -30px rgba(0,0,0,.7)}
+.day-pics img{width:100%;height:100%;object-fit:cover}
+.day-pics .p1{inset:0 18% 26% 0;transform:rotate(-2deg)}
+.day-pics .p2{inset:52% 0 0 30%;transform:rotate(3deg);border:6px solid var(--teal-3)}
+.day-pics figcaption{position:absolute;left:14px;bottom:14px;background:rgba(18,60,57,.78);backdrop-filter:blur(6px);color:#fff;font-size:.8rem;padding:.5em .85em;border-radius:999px}
+.badge-rot{position:absolute;right:4%;top:6%;width:132px;height:132px;z-index:2;color:var(--cream)}
+.badge-rot svg{width:100%;height:100%;animation:spin 22s linear infinite}
+.badge-rot .core{position:absolute;inset:34px;border-radius:50%;background:var(--crust);display:grid;place-items:center;color:var(--cocoa)}
+.badge-rot .core .ic{width:30px;height:30px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* prices */
+.prices{background:var(--paper)}
+.price-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.price-pic{position:sticky;top:110px;border-radius:32px;overflow:hidden;aspect-ratio:4/5;box-shadow:var(--sh-l)}
+.price-pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .7s var(--ease),transform 1.2s var(--ease)}
+.price-pic img.on{opacity:1;transform:none}
+.price-pic .lbl{position:absolute;left:18px;bottom:18px;right:18px;background:rgba(255,251,244,.94);border-radius:18px;padding:14px 18px;display:flex;align-items:center;gap:12px;font-size:.9rem;color:var(--muted)}
+.price-pic .lbl b{font:600 1.2rem/1.1 var(--f-d);color:var(--cocoa);display:block}
+.price-pic .lbl .ic{width:40px;height:40px;padding:9px;border-radius:12px;background:var(--dough);color:var(--crust-d)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;padding:6px;border-radius:999px;background:var(--cream);box-shadow:inset 0 0 0 1px var(--line);width:max-content;max-width:100%}
+.tabs button{display:flex;align-items:center;gap:.5em;padding:.7em 1.15em;border-radius:999px;font-weight:700;font-size:.92rem;color:var(--muted);transition:background .3s,color .3s}
+.tabs button[aria-selected=true]{background:var(--cocoa);color:var(--cream)}
+.tools{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:26px 0 10px;flex-wrap:wrap}
+.search{display:flex;align-items:center;gap:10px;padding:.7em 1.1em;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);min-width:260px;color:var(--muted)}
+.search input{border:0;outline:0;font:inherit;font-size:.95rem;background:none;width:100%;color:var(--cocoa)}
+.plist{display:grid;grid-template-columns:1fr 1fr;column-gap:40px}
+.pi{display:flex;align-items:baseline;gap:10px;padding:14px 0;border-bottom:1px solid var(--line)}
+.pi span{font-weight:600;color:var(--cocoa)}
+.pi small{color:var(--muted);font-size:.8rem}
+.pi::after{content:"";order:2;flex:1;border-bottom:2px dotted rgba(42,26,16,.18);transform:translateY(-4px)}
+.pi b{order:3;font:600 1.08rem/1 var(--f-d);color:var(--crust-d);font-variant-numeric:tabular-nums}
+.pi.hide{display:none}
+.namegrid{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.namegrid span{display:inline-flex;align-items:center;gap:.5em;padding:.6em 1em;border-radius:14px;background:var(--cream);box-shadow:inset 0 0 0 1px var(--line);font-weight:600;font-size:.94rem;color:var(--cocoa)}
+.namegrid span .ic{color:var(--crust-d)}
+.pnote{display:flex;gap:12px;align-items:center;margin-top:26px;padding:16px 18px;border-radius:18px;background:var(--mint);color:var(--teal-3);font-size:.95rem}
+.pnote .ic{width:22px;height:22px;flex:none}
+.empty{padding:30px 0;color:var(--muted);display:none}
+
+/* story */
+.story{padding:140px 0 150px}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.collage{position:relative;height:600px}
+.collage .b1{position:absolute;inset:6% 8% 8% 0;border-radius:46% 54% 42% 58%/52% 44% 56% 48%;background:var(--dough)}
+.collage figure{position:absolute;overflow:hidden;box-shadow:var(--sh-l)}
+.collage figure img{width:100%;height:100%;object-fit:cover}
+.collage .f1{left:4%;top:0;width:58%;height:64%;border-radius:200px 200px 26px 26px}
+.collage .f2{right:0;bottom:2%;width:52%;height:52%;border-radius:26px;border:8px solid var(--cream)}
+.collage .c-pic{position:absolute;left:-4%;bottom:2%;width:42%;z-index:2;filter:drop-shadow(0 26px 22px rgba(42,26,16,.35))}
+.story .script.big{font-size:2.2rem;color:var(--crust-d);transform:rotate(-2deg);display:inline-block}
+.story h2{margin:6px 0 22px;max-width:14ch}
+.story p{color:#6b5847;margin-bottom:16px;max-width:52ch}
+.quote{position:relative;margin:28px 0;padding:24px 26px 24px 30px;border-radius:22px;background:var(--paper);box-shadow:var(--sh);font:italic 500 1.35rem/1.35 var(--f-d);color:var(--cocoa);font-variation-settings:"SOFT" 100}
+.quote::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:4px;border-radius:4px;background:var(--crust)}
+.sign{font-family:var(--f-s);font-size:2.3rem;color:var(--teal);margin-top:4px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
+.stat{padding:20px;border-radius:22px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--line)}
+.stat:first-child{background:var(--teal);color:#CFE2DD;box-shadow:none}
+.stat:first-child b{color:#fff}
+.stat b{display:block;font:600 2.4rem/1 var(--f-d);color:var(--cocoa);font-variation-settings:"SOFT" 100;margin-bottom:6px}
+.stat em{font-style:normal;font-size:.86rem;line-height:1.3;display:block}
+
+/* seasons */
+.seasons{background:var(--dough);padding:130px 0}
+.sgrid{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:22px}
+.sc{position:relative;border-radius:30px;overflow:hidden;min-height:460px;display:flex;flex-direction:column;justify-content:flex-end;padding:28px;background:var(--bg,#fff);box-shadow:var(--sh)}
+.sc h3{font-size:1.9rem;margin:10px 0 8px}
+.sc p{font-size:.96rem;color:var(--muted);max-width:34ch}
+.sc .when{display:inline-flex;align-items:center;gap:.45em;align-self:flex-start;font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.5em .85em;border-radius:999px;background:var(--cocoa);color:var(--cream)}
+.sc.s1{color:#fff;--bg:#1d1410}
+.sc.s1 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.72;transition:transform 1.4s var(--ease)}
+.sc.s1:hover img{transform:scale(1.05)}
+.sc.s1::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(20,12,8,.92));z-index:1}
+.sc.s1>*{position:relative;z-index:2}
+.sc.s1 h3{color:#fff}.sc.s1 p{color:#E8DCD0}
+.sc.s1 .when{background:var(--crust);color:var(--cocoa)}
+.sc.s1 .boo{position:absolute;right:22px;top:20px;font-family:var(--f-s);font-size:1.9rem;color:#F4C871;transform:rotate(8deg);z-index:2}
+.sc .float{position:absolute;left:50%;top:26px;width:74%;transform:translateX(-50%);filter:drop-shadow(0 24px 20px rgba(42,26,16,.3));transition:transform .7s var(--ease)}
+.sc:hover .float{transform:translateX(-50%) translateY(-6px) rotate(3deg)}
+.sc.s2{--bg:var(--paper)}.sc.s3{--bg:var(--rose)}
+
+/* reviews */
+.reviews{padding:140px 0 120px}
+.rv-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
+.score{display:flex;align-items:flex-end;gap:18px;margin:26px 0 12px}
+.score b{font:600 7rem/.8 var(--f-d);color:var(--cocoa);letter-spacing:-.04em;font-variation-settings:"SOFT" 100}
+.score .stars .ic{width:24px;height:24px}
+.score small{display:block;color:var(--muted);font-size:.92rem;margin-top:6px}
+.bars{display:grid;gap:8px;margin-top:22px;max-width:360px}
+.topics{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.topics span{display:inline-flex;align-items:center;gap:.5em;padding:.5em .9em;border-radius:999px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--line);font-size:.88rem;font-weight:600}
+.topics span em{font-style:normal;font-size:.75rem;color:#fff;background:var(--teal-2);border-radius:99px;padding:.1em .55em}
+.rcard{position:relative;background:var(--paper);border-radius:34px;padding:48px 46px 40px;box-shadow:var(--sh-l)}
+.rcard .qm{position:absolute;right:34px;top:-30px;width:78px;height:78px;border-radius:50%;background:var(--crust);display:grid;place-items:center;color:var(--cocoa);box-shadow:0 14px 30px -12px rgba(183,107,18,.7)}
+.rcard .qm .ic{width:34px;height:34px;fill:currentColor;stroke:none}
+.rcard blockquote{font:500 1.7rem/1.32 var(--f-d);color:var(--cocoa);letter-spacing:-.012em;font-variation-settings:"SOFT" 100}
+.rcard blockquote mark{background:linear-gradient(transparent 60%,rgba(224,145,46,.35) 60%);color:inherit}
+.who{display:flex;align-items:center;gap:14px;margin-top:30px;padding-top:24px;border-top:1px dashed var(--line)}
+.who .av{width:52px;height:52px;border-radius:50%;background:var(--mint);color:var(--teal);display:grid;place-items:center;font:700 1.1rem/1 var(--f-b)}
+.who b{display:block;color:var(--cocoa)}.who span{font-size:.86rem;color:var(--muted)}
+.who .gg{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted)}
+.rcard .note2{position:absolute;left:-26px;bottom:-34px;font-family:var(--f-s);font-size:1.7rem;color:var(--teal);transform:rotate(-5deg)}
+
+/* shops */
+.shops{background:var(--paper);padding:140px 0}
+.shop-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:stretch;margin-top:10px}
+.mapcard{position:relative;border-radius:32px;background:var(--mint);overflow:hidden;min-height:520px;box-shadow:inset 0 0 0 1px rgba(28,87,83,.12)}
+.mapcard svg.map{position:absolute;inset:0;width:100%;height:100%}
+.map .pin{cursor:pointer}
+.map .pin circle.o{transition:r .3s}
+.map .pin:hover circle.o,.map .pin.on circle.o{r:13}
+.map text{font:600 11px var(--f-b);fill:var(--teal-3)}
+.map .hq text{font:italic 600 13px var(--f-d)}
+.mapcard .legend{position:absolute;left:18px;bottom:16px;display:flex;gap:16px;font-size:.78rem;color:var(--teal-3);background:rgba(255,255,255,.7);padding:.5em .9em;border-radius:999px;backdrop-filter:blur(4px)}
+.mapcard .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--teal);margin-right:6px;vertical-align:-1px}
+.mapcard .legend i.h{background:var(--crust)}
+.bost{background:var(--cocoa);color:#E9DCCB;border-radius:32px;padding:34px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.bost::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(224,145,46,.35),transparent 70%)}
+.bost .eyebrow{color:var(--crust)}.bost .eyebrow .ic{background:rgba(255,255,255,.08);color:var(--crust)}
+.bost h3{color:#fff;font-size:2.1rem;margin:14px 0 6px}
+.bost .addr{color:#BFAE9C;font-size:.98rem}
+.bost .open-pill{margin:18px 0 8px;color:#BFAE9C}.bost .open-pill b{color:#fff}
+.hours{list-style:none;padding:0;margin:10px 0 24px;font-size:.93rem}
+.hours li{display:flex;justify-content:space-between;padding:8px 12px;border-radius:10px}
+.hours li.today{background:rgba(255,255,255,.08);color:#fff;font-weight:700}
+.hours li.today span:first-child::after{content:" · vandaag";font-weight:500;color:var(--crust)}
+.hours li.closed span:last-child{color:#E98C9C}
+.bost .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+.others{margin-top:28px}
+.others h4{font:700 .78rem/1 var(--f-b);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.olist{display:flex;flex-wrap:wrap;gap:8px}
+.olist button{display:inline-flex;align-items:center;gap:.45em;padding:.55em .95em;border-radius:999px;background:var(--cream);box-shadow:inset 0 0 0 1px var(--line);font-weight:600;font-size:.9rem;transition:background .25s,color .25s}
+.olist button .ic{width:15px;height:15px;color:var(--teal-2)}
+.olist button:hover,.olist button.on{background:var(--teal);color:#fff}
+.olist button:hover .ic,.olist button.on .ic{color:var(--crust)}
+.small-note{font-size:.84rem;color:var(--muted);margin-top:12px}
+
+/* franchise */
+.fr{padding:120px 0 150px}
+.fr-card{position:relative;display:grid;grid-template-columns:1.1fr .9fr;border-radius:40px;overflow:hidden;background:var(--teal);color:#CFE2DD;box-shadow:var(--sh-l)}
+.fr-card .txt{padding:64px 60px;position:relative;z-index:2}
+.fr-card h2{color:#fff;max-width:13ch;margin:16px 0 18px}
+.fr-card p{max-width:46ch;margin-bottom:30px}
+.fr-card .eyebrow{color:var(--mint-2)}.fr-card .eyebrow .ic{background:rgba(255,255,255,.1);color:var(--crust)}
+.fr-card .ph{position:relative;min-height:420px}
+.fr-card .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fr-card .ph::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--teal) 0%,transparent 40%);z-index:1}
+.fr-card .row{display:flex;gap:12px;flex-wrap:wrap}
+.fr-card .wheat{right:46%;bottom:-20px;width:90px;color:rgba(255,255,255,.08);transform:rotate(14deg)}
+
+/* footer */
+.foot{position:relative;background:var(--cocoa);color:#BFAE9C;padding:100px 0 40px;font-size:.95rem}
+.foot .torn{top:-33px;bottom:auto}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.foot .logo b{color:#fff}.foot .logo small{color:#9C8B79}
+.foot h4{font:700 .78rem/1 var(--f-b);letter-spacing:.14em;text-transform:uppercase;color:var(--crust);margin-bottom:18px}
+.foot ul{list-style:none;padding:0;display:grid;gap:10px}
+.foot a{text-decoration:none;transition:color .2s}.foot a:hover{color:#fff}
+.foot p{max-width:34ch;margin-top:18px}
+.social{display:flex;gap:10px;margin-top:22px}
+.social a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.07);color:#fff}
+.social a:hover{background:var(--crust);color:var(--cocoa)}
+.social svg{width:18px;height:18px;fill:currentColor}
+.legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:70px;padding-top:26px;border-top:1px solid rgba(255,255,255,.08);font-size:.82rem;color:#8E7D6B}
+.legal a{color:#D9C8B4}
+
+/* mobile bar */
+.mbar{display:none}
+
+@media (max-width:1080px){
+  .nav,.head .open-pill{display:none}
+  .menu-btn{display:inline-flex;margin-left:auto}
+  .head .btn{display:none}
+  body.menu-open .nav{display:flex;position:fixed;inset:118px 16px auto;flex-direction:column;background:var(--paper);padding:14px;border-radius:24px;box-shadow:var(--sh-l)}
+  body.menu-open .nav a{padding:.9em 1em;font-size:1.05rem}
+  .hero .wrap,.day-grid,.price-wrap,.story-grid,.rv-grid,.shop-grid,.fr-card{grid-template-columns:1fr}
+  .stage{max-width:560px;margin:10px auto 0}
+  .cats{grid-template-columns:repeat(2,1fr);row-gap:120px}
+  .sgrid{grid-template-columns:1fr 1fr}.sc.s1{grid-column:1/-1}
+  .price-pic{position:relative;top:0;aspect-ratio:16/10}
+  .day-pics{height:520px}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .sec-head{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 32px)}
+  .head .wrap{height:70px}
+  .logo svg{width:40px;height:40px}.logo b{font-size:1.25rem}
+  .hero{padding:10px 0 90px}
+  .hero .wheat.a{display:none}
+  .hero .script{font-size:1.6rem}
+  .feats{flex-direction:column;gap:14px}
+  .feat+.feat{padding-left:0;border-left:0}
+  .chip{font-size:.74rem;padding:8px 12px 8px 8px}
+  .chip .ic,.chip.rate .g{width:32px;height:32px;padding:7px}
+  .chip b{font-size:.84rem}
+  .chip.rate{right:0;top:2%}.chip.bake{right:0;bottom:4%}
+  .note{font-size:1.35rem;left:4%;top:4%}
+  .note svg{display:none}
+  .sec,.story,.reviews,.shops,.seasons{padding:96px 0}
+  .day{padding:110px 0 100px}
+  .cats{grid-template-columns:1fr;row-gap:110px;margin-top:100px}
+  .cat{min-height:0;padding-top:170px}
+  .cat .pic{width:72%}
+  .clock-card{padding:24px 18px}
+  .now-line{flex-direction:column;align-items:flex-start;gap:8px}
+  .track .ev span{font-size:.7rem}.track .ev span b{font-size:.76rem}
+  .track .ev.hide-m span{display:none}
+  .day-pics{height:420px}
+  .plist{grid-template-columns:1fr}
+  .tabs{width:100%;border-radius:22px}.tabs button{flex:1;justify-content:center;padding:.7em .6em}
+  .search{min-width:0;width:100%}
+  .collage{height:440px}
+  .stats{grid-template-columns:1fr 1fr 1fr;gap:8px}.stat{padding:14px}.stat b{font-size:1.8rem}.stat span{font-size:.76rem}
+  .sgrid{grid-template-columns:1fr}.sc{min-height:400px}
+  .sc.s2,.sc.s3{padding-top:250px;min-height:0}.sc .float{width:58%;top:18px}.sc.s3 .float{width:46%!important}
+  .cat .pic{top:-70px}
+  .score b{font-size:5.2rem}
+  .rcard{padding:40px 24px 30px}.rcard blockquote{font-size:1.35rem}
+  .rcard .note2{left:6px;bottom:-40px}
+  .mapcard{min-height:360px}
+  .bost{padding:26px}
+  .fr-card .txt{padding:44px 26px}
+  .fgrid{grid-template-columns:1fr}
+  .marq li{font-size:1.3rem}
+  .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:70;gap:8px;padding:8px;border-radius:999px;background:rgba(42,26,16,.94);backdrop-filter:blur(10px);box-shadow:0 20px 40px -12px rgba(0,0,0,.5)}
+  .mbar a{flex:1;justify-content:center;padding:.85em 1em;font-size:.92rem}
+  .foot{padding-bottom:110px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-phone" viewBox="0 0 24 24"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 5h16" /> <path d="M4 12h16" /> <path d="M4 19h16" /></symbol><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></symbol><symbol id="i-sunrise" viewBox="0 0 24 24"><path d="M12 2v8" /> <path d="m4.93 10.93 1.41 1.41" /> <path d="M2 18h2" /> <path d="M20 18h2" /> <path d="m19.07 10.93-1.41 1.41" /> <path d="M22 22H2" /> <path d="m8 6 4-4 4 4" /> <path d="M16 18a4 4 0 0 0-8 0" /></symbol><symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /> <path d="M12 2v2" /> <path d="M12 20v2" /> <path d="m4.93 4.93 1.41 1.41" /> <path d="m17.66 17.66 1.41 1.41" /> <path d="M2 12h2" /> <path d="M20 12h2" /> <path d="m6.34 17.66-1.41 1.41" /> <path d="m19.07 4.93-1.41 1.41" /></symbol><symbol id="i-store" viewBox="0 0 24 24"><path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5" /> <path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244" /> <path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05" /></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></symbol><symbol id="i-star-half" viewBox="0 0 24 24"><path d="M12 18.338a2.1 2.1 0 0 0-.987.244L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16l2.309-4.679A.53.53 0 0 1 12 2" /></symbol><symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4" /></symbol><symbol id="i-wheat" viewBox="0 0 24 24"><path d="M2 22 16 8" /> <path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /> <path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /> <path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /> <path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z" /> <path d="M11.47 17.47 13 19l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L5 19l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /> <path d="M15.47 13.47 17 15l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L9 15l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /> <path d="M19.47 9.47 21 11l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L13 11l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /></symbol><symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10" /> <path d="M7 17 17 7" /></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></symbol><symbol id="i-calendar-heart" viewBox="0 0 24 24"><path d="M12.127 21H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v5.125" /> <path d="M14.62 17.8A2.25 2.25 0 1118 14.836a2.25 2.25 0 113.38 2.966l-2.626 2.856a.998.998 0 01-1.507 0z" /> <path d="M16 2v3" /> <path d="M3 9h18" /> <path d="M8 2v3" /></symbol><symbol id="i-badge-check" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /> <path d="m16 9-5.5 5.5L8 12" /></symbol><symbol id="i-sandwich" viewBox="0 0 24 24"><path d="m2.37 11.223 8.372-6.777a2 2 0 0 1 2.516 0l8.371 6.777" /> <path d="M21 15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-5.25" /> <path d="M3 15a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h9" /> <path d="m6.67 15 6.13 4.6a2 2 0 0 0 2.8-.4l3.15-4.2" /> <rect width="20" height="4" x="2" y="11" rx="1" /></symbol><symbol id="i-croissant" viewBox="0 0 24 24"><path d="M10.2 18H4.774a1.5 1.5 0 0 1-1.352-.97 11 11 0 0 1 .132-6.487" /> <path d="M18 10.2V4.774a1.5 1.5 0 0 0-.97-1.352 11 11 0 0 0-6.486.132" /> <path d="M18 5a4 3 0 0 1 4 3 2 2 0 0 1-2 2 10 10 0 0 0-5.139 1.42" /> <path d="M5 18a3 4 0 0 0 3 4 2 2 0 0 0 2-2 10 10 0 0 1 1.42-5.14" /> <path d="M8.709 2.554a10 10 0 0 0-6.155 6.155 1.5 1.5 0 0 0 .676 1.626l9.807 5.42a2 2 0 0 0 2.718-2.718l-5.42-9.807a1.5 1.5 0 0 0-1.626-.676" /></symbol><symbol id="i-cake-slice" viewBox="0 0 24 24"><path d="M16 13H3" /> <path d="M16 17H3" /> <path d="m7.2 7.9-3.388 2.5A2 2 0 0 0 3 12.01V20a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-8.654c0-2-2.44-6.026-6.44-8.026a1 1 0 0 0-1.082.057L10.4 5.6" /> <circle cx="9" cy="7" r="2" /></symbol><symbol id="i-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34" /> <circle cx="11" cy="11" r="8" /></symbol><symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <path d="M16 3.128a4 4 0 0 1 0 7.744" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <circle cx="9" cy="7" r="4" /></symbol><symbol id="i-cookie" viewBox="0 0 24 24"><path d="M11 17h.01" /> <path d="M11.496 2c.324-.016.558.292.529.615a4 4 0 004.235 4.368.713.713 0 01.758.757 4 4 0 004.366 4.237c.323-.03.63.204.614.527a10 10 0 01-2.915 6.566A1 1 0 114.93 4.918 10 10 0 0111.496 2" /> <path d="M12 12h.01" /> <path d="M16 16h.01" /> <path d="M16 3h.01" /> <path d="M21 4h.01" /> <path d="M21 8h.01" /> <path d="M7 14h.01" /> <path d="M9 8h.01" /></symbol><symbol id="i-cake" viewBox="0 0 24 24"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8" /> <path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1" /> <path d="M2 21h20" /> <path d="M7 8v3" /> <path d="M12 8v3" /> <path d="M17 8v3" /> <path d="M7 4h.01" /> <path d="M12 4h.01" /> <path d="M17 4h.01" /></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /> <path d="M20 2v4" /> <path d="M22 4h-4" /> <circle cx="4" cy="20" r="2" /></symbol><symbol id="i-ghost" viewBox="0 0 24 24"><path d="M15 10v1" /> <path d="M7.528 20.472a1.6 1.6 0 012.277 0l1.057 1.056a1.6 1.6 0 002.276 0l1.057-1.056a1.6 1.6 0 012.277 0l1.114 1.114a1.4 1.4 0 002.414-1V10a8 8 0 00-16 0v10.586a1.4 1.4 0 002.414 1z" /> <path d="M9 10v1" /></symbol><symbol id="i-crown" viewBox="0 0 24 24"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z" /> <path d="M5 21h14" /></symbol><symbol id="i-message-circle" viewBox="0 0 24 24"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></symbol><symbol id="i-quote" viewBox="0 0 24 24"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /> <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /></symbol><symbol id="i-navigation" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11" /></symbol><symbol id="i-handshake" viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3" /> <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" /> <path d="m21 3 1 11h-2" /> <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" /> <path d="M3 4h8" /></symbol><symbol id="i-mail" viewBox="0 0 24 24"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /> <rect x="2" y="4" width="20" height="16" rx="2" /></symbol></defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="wheat" viewBox="0 0 60 220" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M30 218c0-40 1-90-1-170"/><g fill="currentColor" stroke="none"><ellipse cx="22" cy="64" rx="6" ry="13" transform="rotate(-28 22 64)"/><ellipse cx="38" cy="64" rx="6" ry="13" transform="rotate(28 38 64)"/><ellipse cx="21" cy="90" rx="6" ry="13" transform="rotate(-28 21 90)"/><ellipse cx="39" cy="90" rx="6" ry="13" transform="rotate(28 39 90)"/><ellipse cx="21" cy="116" rx="6" ry="13" transform="rotate(-28 21 116)"/><ellipse cx="39" cy="116" rx="6" ry="13" transform="rotate(28 39 116)"/><ellipse cx="22" cy="142" rx="5.5" ry="12" transform="rotate(-28 22 142)"/><ellipse cx="38" cy="142" rx="5.5" ry="12" transform="rotate(28 38 142)"/><ellipse cx="29" cy="40" rx="5.5" ry="13"/></g><path d="M29 30l-3-26M31 34l8-24M27 36L16 14" stroke-width="1.6"/></symbol>
+<symbol id="g-logo" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></symbol>
+</defs></svg>
+
+<div class="demo">Voorbeeldsite van Digital Impression voor Bakkerij Het Brood. Benieuwd wat zoiets kost? <a href="https://wa.me/32496251445?text=Hallo%20Stijn%2C%20ik%20zag%20de%20voorbeeldsite%20voor%20Het%20Brood." target="_blank" rel="noopener">Stuur Stijn een bericht</a></div>
+
+<header class="head" data-head>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Bakkerij Het Brood">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#1C5753"/><circle cx="24" cy="24" r="19.5" fill="none" stroke="#E0912E" stroke-width="1" stroke-dasharray="2 3"/><use href="#wheat" x="14.5" y="8" width="19" height="32" color="#F4E2BE"/></svg>
+      <span><b>Het Brood</b><small>bakkerij · Hoegaarden</small></span>
+    </a>
+    <nav class="nav" data-menu>
+      <a href="#assortiment">Assortiment</a>
+      <a href="#dag">Een dag</a>
+      <a href="#prijzen">Prijzen</a>
+      <a href="#winkels">Winkels</a>
+      <a href="#franchise">Franchise</a>
+    </nav>
+    <span class="open-pill" data-open><i></i><span><b data-open-t>Bost</b> <span data-open-s></span></span></span>
+    <a class="btn teal" href="tel:+3216854748"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> 016 85 47 48</a>
+    <button class="menu-btn" data-menu-btn aria-label="Menu" aria-expanded="false"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="crumbs" aria-hidden="true">
+    <i style="left:8%;top:18%;--s:7px;--a:30deg"></i><i style="left:42%;top:12%;--s:5px;--a:-20deg;--c:#D9B26B"></i><i style="left:52%;top:78%;--s:9px;--a:60deg"></i><i style="left:4%;top:72%;--s:6px;--c:#D9B26B"></i><i style="left:93%;top:70%;--s:7px;--a:-40deg"></i><i style="left:61%;top:6%;--s:6px;--a:80deg"></i>
+  </div>
+  <svg class="wheat a" viewBox="0 0 60 220" data-px="-40"><use href="#wheat"/></svg>
+  <svg class="wheat b" viewBox="0 0 60 220" data-px="30"><use href="#wheat"/></svg>
+  <div class="wrap">
+    <div>
+      <span class="script" data-r>uit de oven in Hoegaarden<svg viewBox="0 0 300 14" preserveAspectRatio="none"><path d="M3 9c60-6 130-8 200-4 30 2 60 3 94-1" fill="none" stroke="#E0912E" stroke-width="3" stroke-linecap="round"/></svg></span>
+      <h1 data-r="80"><span class="l1">Twee keer per dag</span> <span>vers brood.</span></h1>
+      <p class="lead" data-r="160">De eerste bak gaat de oven in voor de zon op is. Rond de middag volgt de tweede. Zo kraakt je brood om vier uur nog als je het snijdt. In Bost en in negen andere winkels in de streek.</p>
+      <div class="cta" data-r="240">
+        <a class="btn" href="#assortiment">Bekijk wat er ligt <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        <a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&destination=Bakkerij+Het+Brood+Hannuitsesteenweg+149+3300+Tienen" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-map-pin"/></svg> Route naar Bost</a>
+      </div>
+      <div class="feats" data-r="320">
+        <div class="feat"><svg class="ic" aria-hidden="true"><use href="#i-sunrise"/></svg><div><b>Eerste bak</b><span>voor dag en dauw</span></div></div>
+        <div class="feat"><svg class="ic" aria-hidden="true"><use href="#i-sun"/></svg><div><b>Tweede bak</b><span>rond de middag</span></div></div>
+        <div class="feat"><svg class="ic" aria-hidden="true"><use href="#i-store"/></svg><div><b>10 winkels</b><span>rond Tienen en Leuven</span></div></div>
+      </div>
+    </div>
+    <div class="stage" data-r="120">
+      <svg class="blob" viewBox="0 0 600 560" aria-hidden="true"><defs><linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2B7A74"/><stop offset="1" stop-color="#1C5753"/></linearGradient></defs><path fill="url(#bg1)" d="M318 22c92-6 190 40 238 122 46 80 40 190-8 270-50 84-150 132-252 126C190 534 86 484 40 398-6 312 6 196 66 120 120 52 226 28 318 22z"/><path fill="none" stroke="#F4E2BE" stroke-opacity=".35" stroke-width="2" stroke-dasharray="3 9" d="M320 52c80-4 164 36 206 106 40 70 34 166-8 236-44 74-130 116-218 110-92-6-182-50-222-124-40-76-30-176 22-242 46-60 140-82 220-86z"/></svg>
+      <svg class="brush" viewBox="0 0 300 200" aria-hidden="true"><defs><filter id="rough"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="3" seed="4"/><feDisplacementMap in="SourceGraphic" scale="22"/></filter></defs><ellipse cx="150" cy="100" rx="128" ry="66" fill="#E0912E" filter="url(#rough)" transform="rotate(-12 150 100)"/></svg>
+      <img class="main" src="img/c-pistolets.webp" alt="Een mand verse pistolets" width="900" height="830" fetchpriority="high">
+      <img class="side" src="img/c-choco.webp" alt="Koeken met een laagje chocolade" width="700" height="677">
+      <span class="note">nog warm!<svg viewBox="0 0 60 56" fill="none" stroke="#1C5753" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M52 6C36 6 18 16 12 44"/><path d="M4 34l8 12 10-9"/></svg></span>
+      <div class="chip rate"><span class="g"><svg width="22" height="22"><use href="#g-logo"/></svg></span><div><b>4,4 <span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star-half"/></svg></span></b>291 reviews voor Bost</div></div>
+      <div class="chip bake" id="bakechip"><svg class="ic" aria-hidden="true"><use href="#i-flame"/></svg><div><b id="bakeT">Tweede bak</b><span id="bakeS">rond 12u in de winkel</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="marq-wrap"><div class="marq" aria-label="Uit ons assortiment"><div data-marquee><ul>
+  <li>Waldkorn<svg><use href="#wheat"/></svg></li><li>Pistolets<svg><use href="#wheat"/></svg></li><li>Kramiek<svg><use href="#wheat"/></svg></li><li>Éclairs<svg><use href="#wheat"/></svg></li><li>Gozet kriek<svg><use href="#wheat"/></svg></li><li>Spelt<svg><use href="#wheat"/></svg></li><li>Merveilleux<svg><use href="#wheat"/></svg></li><li>Suikerbrood<svg><use href="#wheat"/></svg></li><li>Rijsttaart<svg><use href="#wheat"/></svg></li><li>Croissants<svg><use href="#wheat"/></svg></li><li>Wolfke<svg><use href="#wheat"/></svg></li><li>Berlijnse bol<svg><use href="#wheat"/></svg></li>
+</ul></div></div></div>
+
+<section class="sec" id="assortiment">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow" data-r><svg class="ic" aria-hidden="true"><use href="#i-wheat"/></svg> Ons assortiment</span><h2 data-r="80">Van een gewone grijze tot een Saint-Honoré</h2></div>
+      <p class="lead" data-r="160">Alles komt uit ons eigen atelier in Hoegaarden. Voor dag en dauw gaat het naar de winkels, rond de middag volgt er nog een lading.</p>
+    </div>
+    <div class="cats">
+      <a class="cat c1" href="#prijzen" data-goto-tab="#plist|brood" data-r><span class="tag">20+ soorten</span><img class="pic" src="img/c-tijger.webp" alt="Twee tijgerbroden" loading="lazy" width="800" height="307"><h3>Brood</h3><p>Van gallet en boerebrood tot Waldkorn, spelt en een Wolfke. Ook zonder zout.</p><div class="cfoot"><span>vanaf <b>€2,00</b></span><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span></div></a>
+      <a class="cat c2" href="#prijzen" data-goto-tab="#plist|pistolets" data-r="90"><span class="tag">ook op zondag</span><img class="pic" src="img/c-pistolets.webp" alt="Pistolets" loading="lazy" width="900" height="830" style="width:74%;top:-110px"><h3>Pistolets</h3><p>Plaat, tijger, steen of een kampioentje voor wie echt honger heeft.</p><div class="cfoot"><span>vanaf <b>€0,45</b></span><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span></div></a>
+      <a class="cat c3" href="#prijzen" data-goto-tab="#plist|koeken" data-r="180"><span class="tag">bij de koffie</span><img class="pic" src="img/c-krenten.webp" alt="Krentenbollen" loading="lazy" width="700" height="412" style="top:-60px"><h3>Koeken</h3><p>Gozet met appel of kriek, croissant, krentenbol, een pudding hoorntje.</p><div class="cfoot"><span>elke ochtend vers</span><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span></div></a>
+      <a class="cat c4" href="#prijzen" data-goto-tab="#plist|patisserie" data-r="270"><span class="tag">ook op bestelling</span><img class="pic" src="img/c-eclairs.webp" alt="Éclairs in drie kleuren" loading="lazy" width="700" height="556" style="width:78%;top:-80px"><h3>Patisserie</h3><p>Éclairs in alle kleuren, merveilleux, rijsttaart en taarten voor een feest.</p><div class="cfoot"><span>voor elk feest</span><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="day" id="dag">
+  <svg class="torn flip" viewBox="0 0 1440 34" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0 L0 11.5 L8 19.0 L16 16.8 L27 6.9 L42 7.1 L54 8.3 L62 16.2 L81 10.3 L91 21.5 L112 20.8 L124 29.7 L131 27.2 L142 11.6 L150 15.2 L169 12.2 L184 22.0 L196 19.7 L203 8.9 L212 22.1 L225 13.7 L240 16.1 L251 23.1 L268 10.4 L284 15.8 L304 19.4 L314 24.4 L322 11.8 L340 5.3 L354 2.4 L371 17.7 L386 19.8 L397 15.7 L412 13.0 L426 18.6 L447 10.8 L463 2.0 L481 15.2 L502 19.7 L513 10.6 L530 3.3 L543 7.1 L551 5.0 L569 7.4 L579 13.5 L599 7.7 L612 18.4 L633 25.0 L652 13.8 L665 15.9 L685 29.2 L694 12.3 L703 13.6 L717 21.3 L727 8.5 L740 16.3 L755 28.7 L772 18.7 L788 21.7 L795 26.3 L813 25.0 L832 13.7 L844 6.8 L861 5.2 L868 8.1 L876 10.6 L883 2.9 L891 4.7 L903 2.6 L923 14.8 L932 6.6 L943 8.8 L951 19.2 L973 10.5 L987 2.2 L994 7.8 L1005 18.4 L1013 1.0 L1035 12.3 L1043 12.9 L1049 12.7 L1071 20.7 L1088 8.2 L1100 6.7 L1118 15.4 L1137 11.9 L1146 22.8 L1168 24.6 L1187 24.6 L1205 12.3 L1219 15.5 L1226 8.6 L1236 13.8 L1253 29.2 L1266 28.9 L1288 29.2 L1300 13.1 L1310 12.4 L1319 21.5 L1339 25.7 L1353 21.2 L1372 8.1 L1388 25.4 L1407 21.1 L1420 8.0 L1439 10.5 L1440 17.0 L1440 0 Z" fill="#FBF4E6"/></svg>
+  <div class="wrap day-grid">
+    <div>
+      <span class="eyebrow" data-r><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg> Een dag bij Het Brood</span>
+      <h2 data-r="80">Wie vroeg komt, heeft het warmst. Wie later komt ook.</h2>
+      <div class="clock-card" data-r="160">
+        <div class="now-line"><span class="t" id="nowT">--:--</span><span class="m"><b id="nowK">Nu in de winkel</b><span id="nowM">De tweede bak ligt in de rekken.</span></span></div>
+        <div class="track" id="track">
+          <span class="ev up" style="left:7%"><span><b>Voor dag en dauw</b>eerste bak</span></span>
+          <span class="ev dn" style="left:14.3%"><span><b>07:00</b>deuren open</span></span>
+          <span class="ev big up" style="left:50%"><span><b>± 12:00</b>tweede bak</span></span>
+          <span class="ev dn hide-m" style="left:96.4%"><span><b>18:30</b>Bost sluit</span></span>
+          <span class="me" id="me" style="left:50%"><i></i></span>
+          
+        </div>
+        <div class="sat"><svg class="ic" aria-hidden="true"><use href="#i-calendar-heart"/></svg><div><b>Op zaterdag nog wat extra.</b> Om 8u komt er een nieuwe lading pistolets en sandwiches binnen, om 10u opnieuw kraakverse pistolets, koeken en brood.</div></div>
+      </div>
+    </div>
+    <div class="day-pics" data-r="200">
+      <div class="badge-rot"><svg viewBox="0 0 120 120"><defs><path id="circ" d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0"/></defs><text font-family="Figtree,sans-serif" font-size="10.4" font-weight="700" letter-spacing="2.6" fill="currentColor"><textPath href="#circ">GEBAKKEN IN HOEGAARDEN · TWEE KEER PER DAG ·</textPath></text></svg><span class="core"><svg class="ic" aria-hidden="true"><use href="#i-wheat"/></svg></span></div>
+      <figure class="p1" data-px="-24"><img src="img/atelier.webp" alt="Rekken vol vers gebakken broodjes in het atelier" loading="lazy" width="1000" height="1000"><figcaption>Uit het atelier, klaar voor de winkels</figcaption></figure>
+      <figure class="p2" data-px="20"><img src="img/spuiten.webp" alt="Hoorntjes worden met de hand gevuld" loading="lazy" width="1100" height="733"><figcaption>Hoorntjes vullen, een voor een</figcaption></figure>
+    </div>
+  </div>
+  <svg class="torn" viewBox="0 0 1440 34" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34 L0 8.0 L17 19.0 L31 10.5 L49 24.1 L64 18.1 L73 7.5 L85 20.5 L92 25.2 L102 13.2 L109 29.9 L127 27.5 L142 9.2 L154 19.3 L162 29.1 L173 11.6 L193 10.6 L213 17.1 L228 14.2 L242 10.3 L249 24.8 L258 22.5 L268 26.2 L288 20.6 L306 16.0 L324 5.3 L337 20.1 L347 21.8 L367 10.0 L379 10.7 L391 22.3 L403 1.0 L411 16.0 L432 11.2 L446 12.4 L464 5.6 L480 13.2 L496 5.5 L505 9.4 L526 10.2 L541 10.0 L549 5.1 L568 21.4 L580 19.9 L597 25.4 L618 15.5 L640 28.3 L655 27.1 L669 16.3 L679 27.4 L688 9.9 L707 25.3 L720 26.7 L727 14.0 L738 17.4 L746 9.6 L758 27.4 L780 23.5 L793 12.2 L815 17.3 L832 5.8 L842 23.0 L860 23.1 L876 12.5 L891 21.0 L902 13.7 L913 18.5 L919 16.5 L940 1.5 L956 14.6 L975 13.1 L985 9.2 L1007 20.1 L1015 2.6 L1022 1.2 L1035 3.9 L1055 15.6 L1063 13.4 L1075 12.8 L1084 6.0 L1093 11.0 L1110 15.5 L1117 19.3 L1137 21.5 L1156 5.7 L1169 7.5 L1187 10.6 L1205 12.9 L1222 14.7 L1229 16.5 L1240 27.8 L1250 19.3 L1265 29.1 L1273 21.6 L1287 24.4 L1308 14.9 L1325 19.3 L1340 8.8 L1359 28.0 L1371 13.2 L1393 7.7 L1400 6.6 L1419 20.7 L1432 17.1 L1439 17.3 L1440 17.0 L1440 34 Z" fill="#FFFBF4"/></svg>
+</section>
+
+<section class="sec prices" id="prijzen">
+  <div class="wrap price-wrap">
+    <div class="price-pic" id="ppic">
+      <img class="on" data-k="brood" src="img/rekken.webp" alt="Rekken vol brood" loading="lazy" width="1000" height="1000">
+      <img data-k="pistolets" src="img/rolls.webp" alt="Pistolets in een mand" loading="lazy" width="900" height="1125">
+      <img data-k="koeken" src="img/croissants.webp" alt="Croissants" loading="lazy" width="1200" height="900">
+      <img data-k="patisserie" src="img/taartjes.webp" alt="Taartjes met vers fruit" loading="lazy" width="900" height="1020">
+      <div class="lbl"><svg class="ic" aria-hidden="true"><use href="#i-wheat"/></svg><div><b id="plbl">20 soorten brood</b><span id="plbl2">wit, grijs, meergranen en meer</span></div></div>
+    </div>
+    <div data-tabs id="plist">
+      <span class="eyebrow" data-r><svg class="ic" aria-hidden="true"><use href="#i-badge-check"/></svg> Prijslijst</span>
+      <h2 style="margin:16px 0 14px" data-r="80">Wat kost het?</h2>
+      <p class="lead" data-r="120">De prijzen van onze prijslijst. Zoek even, of klik door de vier rekken.</p>
+      <div class="tools" data-r="160">
+        <div class="tabs" role="tablist">
+          <button data-tab="brood" aria-selected="true"><svg class="ic" aria-hidden="true"><use href="#i-wheat"/></svg> Brood</button>
+          <button data-tab="pistolets" aria-selected="false"><svg class="ic" aria-hidden="true"><use href="#i-sandwich"/></svg> Pistolets</button>
+          <button data-tab="koeken" aria-selected="false"><svg class="ic" aria-hidden="true"><use href="#i-croissant"/></svg> Koeken</button>
+          <button data-tab="patisserie" aria-selected="false"><svg class="ic" aria-hidden="true"><use href="#i-cake-slice"/></svg> Patisserie</button>
+        </div>
+      </div>
+      <label class="search" data-r="200"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><input id="q" type="search" placeholder="Zoek, bv. spelt of kampioentje" autocomplete="off"></label>
+      <div data-panel="brood">
+        <div class="plist">
+          <div class="pi"><span>Wit of grijs, groot <small>800 g</small></span><b>€3,10</b></div>
+          <div class="pi"><span>Wit of grijs, klein <small>400 g</small></span><b>€2,00</b></div>
+          <div class="pi"><span>Tijger, wit of grijs</span><b>€3,10</b></div>
+          <div class="pi"><span>Toastbrood</span><b>€6,00</b></div>
+          <div class="pi"><span>Justinneke</span><b>€3,50</b></div>
+          <div class="pi"><span>Linea</span><b>€3,60</b></div>
+          <div class="pi"><span>Tosca</span><b>€3,60</b></div>
+          <div class="pi"><span>Volkoren</span><b>€3,60</b></div>
+          <div class="pi"><span>Spelt</span><b>€3,90</b></div>
+          <div class="pi"><span>Cereform</span><b>€3,90</b></div>
+          <div class="pi"><span>Multivlokken</span><b>€3,90</b></div>
+          <div class="pi"><span>Waldkorn</span><b>€4,50</b></div>
+          <div class="pi"><span>Synergie</span><b>€4,50</b></div>
+          <div class="pi"><span>Suikerbrood</span><b>€4,50</b></div>
+          <div class="pi"><span>Proteïnebrood</span><b>€4,60</b></div>
+          <div class="pi"><span>Kramiek</span><b>€4,80</b></div>
+          <div class="pi"><span>Notenbrood</span><b>€4,80</b></div>
+          <div class="pi"><span>Wolfke</span><b>€4,90</b></div>
+          <div class="pi"><span>Monkeybread</span><b>€5,90</b></div>
+          <div class="pi"><span>Toteman rozijn <small>500 g</small></span><b>€6,00</b></div>
+        </div>
+        <div class="pnote"><svg class="ic" aria-hidden="true"><use href="#i-wheat"/></svg> Wit en grijs bestaan als gallet, lang en boerebrood. Zonder zout kan ook, vraag het gerust.</div>
+      </div>
+      <div data-panel="pistolets" hidden>
+        <div class="plist">
+          <div class="pi"><span>Pistolet plaat</span><b>€0,75</b></div>
+          <div class="pi"><span>Pistolet tijger</span><b>€0,80</b></div>
+          <div class="pi"><span>Pistolet steen</span><b>€0,80</b></div>
+          <div class="pi"><span>Grijze pistolet</span><b>€0,80</b></div>
+          <div class="pi"><span>Sesam of maanzaad</span><b>€0,80</b></div>
+          <div class="pi"><span>Peper en zout</span><b>€0,80</b></div>
+          <div class="pi"><span>Piccolo</span><b>€0,80</b></div>
+          <div class="pi"><span>Boerke</span><b>€0,80</b></div>
+          <div class="pi"><span>Boterpistolet</span><b>€0,90</b></div>
+          <div class="pi"><span>Grijze met noot</span><b>€0,90</b></div>
+          <div class="pi"><span>Kampioentje</span><b>€1,00</b></div>
+          <div class="pi"><span>Waldkornpistolet</span><b>€1,00</b></div>
+          <div class="pi"><span>Hamburger of hotdog</span><b>€1,10</b></div>
+          <div class="pi"><span>Sandwich</span><b>€0,75</b></div>
+          <div class="pi"><span>Kleine pistolet of sandwich</span><b>€0,45</b></div>
+          <div class="pi"><span>Karrewiel</span><b>€7,20</b></div>
+        </div>
+        <div class="pnote"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg> Voor een feest of een vergadering? Bestel je pistolets een dag op voorhand in de winkel.</div>
+      </div>
+      <div data-panel="koeken" hidden>
+        <div class="namegrid">
+          <span><svg class="ic" aria-hidden="true"><use href="#i-croissant"/></svg> Croissant</span><span><svg class="ic" aria-hidden="true"><use href="#i-croissant"/></svg> Chocoladebroodje</span><span><svg class="ic" aria-hidden="true"><use href="#i-cookie"/></svg> Rozijnenkoek</span><span><svg class="ic" aria-hidden="true"><use href="#i-cookie"/></svg> Frangipanekoek</span><span><svg class="ic" aria-hidden="true"><use href="#i-cookie"/></svg> Cremekoek</span><span><svg class="ic" aria-hidden="true"><use href="#i-cookie"/></svg> Gozet appel</span><span><svg class="ic" aria-hidden="true"><use href="#i-cookie"/></svg> Gozet abrikoos</span><span><svg class="ic" aria-hidden="true"><use href="#i-cookie"/></svg> Gozet kriek</span><span><svg class="ic" aria-hidden="true"><use href="#i-cookie"/></svg> Spiegel kriek</span><span><svg class="ic" aria-hidden="true"><use href="#i-cookie"/></svg> Pudding hoorntje</span><span><svg class="ic" aria-hidden="true"><use href="#i-cookie"/></svg> Boterkoek</span><span><svg class="ic" aria-hidden="true"><use href="#i-cookie"/></svg> Krentenbol</span><span><svg class="ic" aria-hidden="true"><use href="#i-cookie"/></svg> Chocoladebol</span><span><svg class="ic" aria-hidden="true"><use href="#i-cookie"/></svg> Cinnamon roll</span><span><svg class="ic" aria-hidden="true"><use href="#i-croissant"/></svg> Mini croissant</span><span><svg class="ic" aria-hidden="true"><use href="#i-croissant"/></svg> Mini chocoladebroodje</span>
+        </div>
+        <div class="pnote"><svg class="ic" aria-hidden="true"><use href="#i-sun"/></svg> Koeken liggen 's morgens vroeg klaar. Op zaterdag komt er om 10u een nieuwe lading bij.</div>
+      </div>
+      <div data-panel="patisserie" hidden>
+        <div class="namegrid">
+          <span><svg class="ic" aria-hidden="true"><use href="#i-cake-slice"/></svg> Rijsttaart</span><span><svg class="ic" aria-hidden="true"><use href="#i-cake-slice"/></svg> Kaastaart</span><span><svg class="ic" aria-hidden="true"><use href="#i-cake-slice"/></svg> Appeltaart</span><span><svg class="ic" aria-hidden="true"><use href="#i-cake-slice"/></svg> Getreld abrikoos</span><span><svg class="ic" aria-hidden="true"><use href="#i-cake-slice"/></svg> Getreld pruim</span><span><svg class="ic" aria-hidden="true"><use href="#i-cake-slice"/></svg> Getreld kriek</span><span><svg class="ic" aria-hidden="true"><use href="#i-cake-slice"/></svg> Aardbeientaart</span><span><svg class="ic" aria-hidden="true"><use href="#i-cake-slice"/></svg> Merveilleux</span><span><svg class="ic" aria-hidden="true"><use href="#i-cake-slice"/></svg> Javanais</span><span><svg class="ic" aria-hidden="true"><use href="#i-cake-slice"/></svg> Misérable</span><span><svg class="ic" aria-hidden="true"><use href="#i-cake-slice"/></svg> Mokka</span><span><svg class="ic" aria-hidden="true"><use href="#i-cake-slice"/></svg> Crème brûlée</span><span><svg class="ic" aria-hidden="true"><use href="#i-cake-slice"/></svg> Chocomousse</span><span><svg class="ic" aria-hidden="true"><use href="#i-cake-slice"/></svg> Saint-Honoré</span><span><svg class="ic" aria-hidden="true"><use href="#i-cake-slice"/></svg> Smurfentaart</span><span><svg class="ic" aria-hidden="true"><use href="#i-cake-slice"/></svg> Éclair</span><span><svg class="ic" aria-hidden="true"><use href="#i-cake-slice"/></svg> Mattentaartje</span><span><svg class="ic" aria-hidden="true"><use href="#i-cake-slice"/></svg> Berlijnse bol</span><span><svg class="ic" aria-hidden="true"><use href="#i-cake-slice"/></svg> Donut</span>
+        </div>
+        <div class="pnote"><svg class="ic" aria-hidden="true"><use href="#i-cake"/></svg> Een taart voor een verjaardag of communie bestel je best een paar dagen vooraf in je winkel.</div>
+      </div>
+      <p class="empty" id="empty">Niets gevonden. Vraag het gerust in de winkel, we bakken meer dan er op een lijst past.</p>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="wrap story-grid">
+    <div class="collage" data-r>
+      <div class="b1"></div>
+      <figure class="f1" data-px="-18"><img src="img/croissants.webp" alt="Croissants, net uit de oven" loading="lazy" width="1200" height="900"></figure>
+      <figure class="f2" data-px="18"><img src="img/eclair-geel.webp" alt="Een geel geglazuurde éclair met chocoladestrepen" loading="lazy" width="900" height="1200"></figure>
+      <img class="c-pic" src="img/c-krenten.webp" alt="" loading="lazy" width="700" height="412" data-px="-30">
+    </div>
+    <div>
+      <span class="script big" data-r>een familiezaak</span>
+      <h2 data-r="80">Michel begon, Els groeide erin op</h2>
+      <p data-r="120">Michel Vanderveken bakt al dertig jaar. Zijn dochter Els is, zoals ze het zelf zegt, geboren tussen de taarten en de paté'kes. Vandaag houden ze samen de ovens in Hoegaarden warm, voor tien winkels in de buurt.</p>
+      <div class="quote" data-r="160">Brood dat 's middags nog kraakt, dat is geen geheim. Dat is gewoon een tweede keer bakken.</div>
+      <p data-r="200">Daarom gaat er rond de middag een nieuwe lading de oven in. Wie na het werk binnenspringt, krijgt geen brood van 's morgens vroeg mee.</p>
+      <div class="sign" data-r="220">Michel &amp; Els</div>
+      <div class="stats" data-r="260">
+        <div class="stat"><b data-count="10">10</b><em>winkels rond Tienen en Leuven</em></div>
+        <div class="stat"><b>2×</b><em>per dag vers uit de oven</em></div>
+        <div class="stat"><b data-count="30">30</b><em>jaar ervaring achter de oven</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="seasons">
+  <svg class="wave flip" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 25 C 300 7, 520 58, 760 31 S 1200 3, 1440 27 L1440 60 L0 60 Z" fill="#FBF4E6"/></svg>
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow" data-r><svg class="ic" aria-hidden="true"><use href="#i-sparkles"/></svg> Door het jaar</span><h2 data-r="80">Elk seizoen ligt er iets anders</h2></div>
+      <p class="lead" data-r="160">Het brood blijft hetzelfde. Op de toonbank verandert er al eens wat.</p>
+    </div>
+    <div class="sgrid">
+      <article class="sc s1" data-r><img src="img/mummie.webp" alt="Een verkoper verkleed als mummie achter de toonbank in Bost" loading="lazy" width="800" height="1000"><span class="boo">boe!</span><span class="when"><svg class="ic" aria-hidden="true"><use href="#i-ghost"/></svg> Deze week</span><h3>Halloween in Bost</h3><p>Zie je een mummie achter de toonbank? Geen paniek. Hij verkoopt gewoon koeken.</p></article>
+      <article class="sc s2" data-r="100"><img class="float" src="img/c-galette.webp" alt="Driekoningentaart met een papieren kroon" loading="lazy" width="600" height="548"><span class="when"><svg class="ic" aria-hidden="true"><use href="#i-crown"/></svg> In januari</span><h3>Driekoningentaart</h3><p>Met frangipane en een kroon erbij. Wie de boon vindt, is een dag koning.</p></article>
+      <article class="sc s3" data-r="200"><img class="float" src="img/c-aardbei.webp" alt="Taart met aardbeien en meringue" loading="lazy" width="700" height="847" style="width:60%;top:16px"><span class="when"><svg class="ic" aria-hidden="true"><use href="#i-cake"/></svg> Het hele jaar</span><h3>Een taart voor je feest</h3><p>Verjaardag, communie of gewoon een zondag. Bestel een paar dagen vooraf in je winkel.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <svg class="wave flip" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 29 C 300 8, 520 59, 760 32 S 1200 16, 1440 40 L1440 60 L0 60 Z" fill="#F4E2BE"/></svg>
+  <div class="wrap rv-grid">
+    <div>
+      <span class="eyebrow" data-r><svg class="ic" aria-hidden="true"><use href="#i-message-circle"/></svg> Wat klanten zeggen</span>
+      <div class="score" data-r="80"><b data-count="4.4">4,4</b><div><span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star-half"/></svg></span><small>291 reviews op Google voor de winkel in Bost</small></div></div>
+      <p class="lead" data-r="120" style="font-size:1rem">Waar het in de reviews het vaakst over gaat:</p>
+      <div class="topics" data-r="160"><span>pistolets <em>9</em></span><span>personeel <em>9</em></span><span>zondag <em>4</em></span><span>bestellen <em>4</em></span><span>koeken <em>4</em></span><span>keuze <em>3</em></span><span>sandwiches <em>2</em></span></div>
+    </div>
+    <div class="rcard" data-r="120">
+      <span class="qm"><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg></span>
+      <blockquote>Na 32 jaar in het nabije gehucht te wonen, pas ontdekt. <mark>Wat een dijk van een bakkerij.</mark> In het weekend bemand met een voltallige minivoetbalploeg. Alles is er heel erg vers en lekker.</blockquote>
+      <div class="who"><span class="av">TV</span><div><b>Trikke Van Roey</b><span>Local Guide, op Google</span></div><span class="gg"><svg width="20" height="20"><use href="#g-logo"/></svg> Google</span></div>
+      <span class="note2">een minivoetbalploeg, ja.</span>
+    </div>
+  </div>
+</section>
+
+<section class="shops" id="winkels">
+  <svg class="torn flip" viewBox="0 0 1440 34" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0 L0 16.8 L16 22.9 L27 19.8 L47 26.2 L56 21.0 L72 18.3 L93 19.4 L106 28.7 L122 15.0 L133 19.3 L140 21.7 L158 17.7 L178 28.4 L192 22.7 L200 8.9 L222 13.2 L231 26.1 L249 8.6 L261 10.7 L271 5.1 L285 10.9 L298 7.8 L305 4.1 L325 18.8 L340 4.7 L349 4.3 L360 2.6 L370 5.5 L379 15.1 L393 10.9 L404 12.2 L423 7.0 L430 10.8 L442 17.4 L450 19.5 L456 12.4 L469 7.7 L489 16.6 L498 12.4 L514 2.9 L521 15.6 L539 13.3 L552 14.8 L562 23.3 L583 15.7 L589 14.1 L608 13.4 L616 10.6 L633 20.7 L644 21.1 L662 29.0 L681 17.8 L700 28.6 L720 24.8 L736 19.4 L755 21.5 L773 12.4 L780 13.1 L796 19.1 L805 10.4 L826 7.0 L847 21.3 L862 25.5 L879 3.2 L900 11.2 L921 19.2 L929 2.1 L935 18.1 L954 5.6 L962 8.5 L980 16.5 L1000 21.4 L1018 18.7 L1025 0.8 L1044 14.5 L1056 4.2 L1067 9.1 L1081 12.1 L1090 4.4 L1099 5.8 L1107 12.4 L1115 21.1 L1130 14.4 L1146 10.2 L1152 7.1 L1164 13.7 L1174 13.0 L1193 7.2 L1206 15.8 L1217 23.5 L1226 8.9 L1235 29.4 L1247 10.9 L1268 22.5 L1289 15.6 L1308 9.1 L1318 25.3 L1332 24.8 L1345 26.3 L1352 20.6 L1361 11.0 L1381 15.2 L1400 11.2 L1418 24.0 L1434 8.6 L1440 17.0 L1440 0 Z" fill="#FBF4E6"/></svg>
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow" data-r><svg class="ic" aria-hidden="true"><use href="#i-map-pin"/></svg> Onze winkels</span><h2 data-r="80">Tien winkels, één oven</h2></div>
+      <p class="lead" data-r="160">Alles komt uit hetzelfde atelier in Hoegaarden. Kies de winkel die op je weg ligt.</p>
+    </div>
+    <div class="shop-grid">
+      <div class="mapcard" data-r>
+        <svg class="map" viewBox="0 0 420 330" preserveAspectRatio="xMidYMid meet" aria-label="Schematische kaart van de winkels">
+          <defs><pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#1C5753" opacity=".14"/></pattern></defs>
+          <rect x="-300" y="-200" width="1020" height="730" fill="url(#dots)"/>
+          <path d="M-10 74 C 40 70, 80 96, 130 118 S 210 170, 262 214 S 360 214, 430 196" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
+          <path d="M-10 74 C 40 70, 80 96, 130 118 S 210 170, 262 214 S 360 214, 430 196" fill="none" stroke="#A9D2CB" stroke-width="2" stroke-dasharray="6 6"/>
+          <text x="150" y="122" style="font:700 10px Figtree,sans-serif;fill:#2B7A74;letter-spacing:1px">E40</text>
+          <path d="M268 222 C 262 236, 240 248, 224 258" fill="none" stroke="#E0912E" stroke-width="1.6" stroke-dasharray="3 4"/>
+          <g class="hq"><circle cx="222" cy="262" r="10" fill="#E0912E"/><circle cx="222" cy="262" r="4" fill="#fff"/><text x="238" y="270">Hoegaarden · atelier</text></g>
+          <g id="pins"></g>
+        </svg>
+        <div class="legend"><span><i class="h"></i>atelier</span><span><i></i>winkel</span><span>schematisch, niet op schaal</span></div>
+      </div>
+      <div class="bost" data-r="120" data-today data-open>
+        <span class="eyebrow"><svg class="ic" aria-hidden="true"><use href="#i-store"/></svg> Winkel in de kijker</span>
+        <h3>Het Brood Bost</h3>
+        <p class="addr">Hannuitsesteenweg 149, 3300 Tienen</p>
+        <span class="open-pill"><i></i><span><b data-open-t></b> <span data-open-s></span></span></span>
+        <ul class="hours">
+          <li data-day="1"><span>maandag</span><span>7:00 – 18:30</span></li>
+          <li data-day="2" class="closed"><span>dinsdag</span><span>gesloten</span></li>
+          <li data-day="3"><span>woensdag</span><span>7:00 – 18:30</span></li>
+          <li data-day="4"><span>donderdag</span><span>7:00 – 18:30</span></li>
+          <li data-day="5"><span>vrijdag</span><span>7:00 – 18:30</span></li>
+          <li data-day="6"><span>zaterdag</span><span>7:00 – 18:30</span></li>
+          <li data-day="0"><span>zondag</span><span>7:00 – 18:30</span></li>
+        </ul>
+        <div class="row"><a class="btn" href="tel:+3216854748"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Bel de winkel</a><a class="btn light" href="https://www.google.com/maps/dir/?api=1&destination=Bakkerij+Het+Brood+Hannuitsesteenweg+149+3300+Tienen" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-navigation"/></svg> Route</a></div>
+      </div>
+    </div>
+    <div class="others" data-r>
+      <h4>Ook een Het Brood in</h4>
+      <div class="olist" id="olist"></div>
+      <p class="small-note">De uren verschillen een beetje per winkel. Bij twijfel: bel even naar de bakkerij op 016 85 05 00.</p>
+    </div>
+  </div>
+</section>
+
+<section class="fr" id="franchise">
+  <div class="wrap">
+    <div class="fr-card" data-r>
+      <svg class="wheat" viewBox="0 0 60 220"><use href="#wheat"/></svg>
+      <div class="txt">
+        <span class="eyebrow"><svg class="ic" aria-hidden="true"><use href="#i-handshake"/></svg> Franchise</span>
+        <h2>Zelf een Het Brood-winkel?</h2>
+        <p>Je krijgt het brood, het vakmanschap en de naam. Jij zorgt voor de winkel en de mensen aan de toonbank. Er is plaats voor meer dan tien.</p>
+        <div class="row"><a class="btn" href="mailto:info@hetbrood.be?subject=Franchise%20Het%20Brood"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> Vraag info over franchise</a><a class="btn light" href="mailto:jobs@hetbrood.be"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg> Werken bij Het Brood</a></div>
+      </div>
+      <div class="ph"><img src="img/rolls.webp" alt="Een mand vol verse broodjes" loading="lazy" width="900" height="1125"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <svg class="torn" viewBox="0 0 1440 34" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34 L0 25.7 L7 20.5 L21 25.8 L33 25.9 L42 27.9 L54 10.7 L66 20.9 L72 15.8 L79 9.1 L87 12.8 L98 25.0 L110 26.9 L131 28.0 L152 21.0 L169 27.5 L183 11.2 L198 19.3 L206 9.5 L215 22.4 L234 20.8 L247 6.6 L253 20.0 L268 15.0 L277 7.4 L285 7.1 L301 10.3 L316 12.3 L331 18.5 L349 4.9 L371 19.6 L390 10.5 L411 18.1 L421 15.3 L440 16.8 L461 12.2 L477 2.7 L494 4.7 L512 21.8 L524 4.1 L530 14.1 L539 19.3 L555 14.8 L571 8.0 L585 6.3 L599 23.2 L608 21.3 L630 14.1 L639 12.9 L658 9.7 L677 14.0 L695 27.8 L714 12.7 L729 15.3 L749 14.5 L758 16.7 L765 12.5 L783 14.3 L791 27.2 L802 23.7 L819 17.8 L835 17.7 L854 19.2 L865 17.9 L879 23.1 L887 12.6 L908 3.4 L926 20.9 L942 2.2 L960 6.3 L974 18.2 L985 5.7 L993 7.8 L1001 15.5 L1020 1.8 L1035 18.1 L1053 7.1 L1067 16.6 L1082 24.0 L1102 24.2 L1110 4.0 L1126 16.8 L1136 9.9 L1155 22.8 L1161 8.4 L1178 15.7 L1187 27.4 L1198 8.9 L1211 16.4 L1227 24.7 L1234 18.4 L1255 19.0 L1275 28.1 L1294 22.5 L1302 29.7 L1312 14.8 L1326 19.4 L1345 19.0 L1366 23.6 L1382 11.8 L1398 16.0 L1416 10.3 L1435 19.0 L1440 17.0 L1440 34 Z" fill="#2A1A10"/></svg>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="logo" href="#top"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#E0912E"/><use href="#wheat" x="14.5" y="8" width="19" height="32" color="#2A1A10"/></svg><span><b>Het Brood</b><small>bakkerij · Hoegaarden</small></span></a>
+        <p>Twee keer per dag vers brood, gebakken in Hoegaarden. Te koop in Bost en in negen andere winkels in de streek.</p>
+        <div class="social"><a href="https://www.facebook.com/hetbroodbost/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H7.9v3h2.6V21h3z"/></svg></a><a href="mailto:info@hetbrood.be" aria-label="Mail"><svg viewBox="0 0 24 24"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11zm1.9.2L12 12l7.1-5.3H4.9z"/></svg></a></div>
+      </div>
+      <div><h4>Winkel Bost</h4><ul><li>Hannuitsesteenweg 149</li><li>3300 Tienen</li><li><a href="tel:+3216854748">016 85 47 48</a></li><li>Elke dag 7u tot 18u30</li><li>Dinsdag gesloten</li></ul></div>
+      <div><h4>Assortiment</h4><ul><li><a href="#prijzen" data-goto-tab="#plist|brood">Brood</a></li><li><a href="#prijzen" data-goto-tab="#plist|pistolets">Pistolets</a></li><li><a href="#prijzen" data-goto-tab="#plist|koeken">Koeken</a></li><li><a href="#prijzen" data-goto-tab="#plist|patisserie">Patisserie</a></li></ul></div>
+      <div><h4>Het Brood bv</h4><ul><li>Bleyveldstraat 1</li><li>3320 Hoegaarden</li><li><a href="tel:+3216850500">016 85 05 00</a></li><li><a href="mailto:info@hetbrood.be">info@hetbrood.be</a></li><li><a href="#franchise">Franchise</a></li></ul></div>
+    </div>
+    <div class="legal"><span>© Het Brood bv · BE 0841.102.737</span><span>Voorbeeldsite door <a href="https://digital-impression.be" target="_blank" rel="noopener">Digital Impression</a></span></div>
+  </div>
+</footer>
+
+<div class="mbar"><a class="btn" href="tel:+3216854748"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Bel Bost</a><a class="btn light" href="https://www.google.com/maps/dir/?api=1&destination=Bakkerij+Het+Brood+Hannuitsesteenweg+149+3300+Tienen" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-navigation"/></svg> Route</a></div>
+
+<script>
+window.HOURS={0:[[420,1110]],1:[[420,1110]],2:[],3:[[420,1110]],4:[[420,1110]],5:[[420,1110]],6:[[420,1110]]};
+</script>
+<script>(()=>{
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+/* Brussels time, so a visitor abroad sees the shop's real state */
+const now=(off=0)=>{const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Brussels',weekday:'short',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date(Date.now()+off*864e5));const g=t=>p.find(x=>x.type===t).value;return{d:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(g('weekday')),m:(+g('hour')%24)*60+(+g('minute')),ymd:g('year')+'-'+g('month')+'-'+g('day')}};
+window.DI={now,$,$$};
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px',threshold:.08});
+$$('[data-r]').forEach((el,i)=>{if(RM){el.classList.add('in');return}const st=el.dataset.r;if(st)el.style.setProperty('--d',st+'ms');io.observe(el)});
+/* counters */
+const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;co.unobserve(e.target);const el=e.target,to=parseFloat(el.dataset.count),dec=(el.dataset.count.split(/[.,]/)[1]||'').length,dur=1400,t0=performance.now();const fmt=v=>v.toFixed(dec).replace('.',',');if(RM){el.textContent=fmt(to);return}const step=t=>{const k=Math.min(1,(t-t0)/dur),e2=1-Math.pow(1-k,3);el.textContent=fmt(to*e2);if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}),{threshold:.6});
+$$('[data-count]').forEach(el=>co.observe(el));
+/* header state */
+const hd=$('[data-head]');if(hd){const f=()=>hd.classList.toggle('scrolled',scrollY>30);f();addEventListener('scroll',f,{passive:true})}
+/* opening hours: window.HOURS = {1:[[420,1110]],...} minutes, 0=sunday */
+const H=window.HOURS;
+const hm=m=>{const h=Math.floor(m/60),mm=m%60;return h+'u'+(mm?String(mm).padStart(2,'0'):'')};
+const days=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+const SP=window.SPECIAL||{};const hrs=(off)=>{const n=now(off);return SP[n.ymd]||H[n.d]||[]};
+window.DI.hrs=hrs;
+window.DI.status=()=>{if(!H)return null;const{d,m}=now();const t=hrs(0);for(const[a,b]of t){if(m>=a&&m<b)return{open:true,txt:'Nu open',sub:'tot '+hm(b),close:b,m}}
+ const later=t.find(([a])=>a>m);if(later)return{open:false,txt:'Nu gesloten',sub:'open om '+hm(later[0])};
+ for(let i=1;i<8;i++){const dd=(d+i)%7,tt=hrs(i);if(tt.length)return{open:false,txt:'Nu gesloten',sub:'open '+(i===1?'morgen':days[dd])+' om '+hm(tt[0][0])}}return null};
+const st=window.DI.status();
+if(st)$$('[data-open]').forEach(el=>{el.classList.toggle('is-open',st.open);el.classList.toggle('is-closed',!st.open);const a=$('[data-open-t]',el),b=$('[data-open-s]',el);if(a)a.textContent=st.txt;if(b)b.textContent=st.sub});
+$$('[data-today]').forEach(tb=>{const{d}=now();const r=tb.querySelector(`[data-day="${d}"]`);if(r)r.classList.add('today')});
+/* tabs */
+$$('[data-tabs]').forEach(w=>{const bs=$$('[data-tab]',w),ps=$$('[data-panel]',w);const set=k=>{bs.forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===k));ps.forEach(p=>p.hidden=p.dataset.panel!==k);w.dispatchEvent(new CustomEvent('tab',{detail:k}))};bs.forEach(b=>b.addEventListener('click',()=>set(b.dataset.tab)));w._set=set});
+$$('[data-goto-tab]').forEach(a=>a.addEventListener('click',()=>{const [sel,k]=a.dataset.gotoTab.split('|');const w=$(sel);if(w&&w._set)w._set(k)}));
+/* accordion */
+$$('[data-acc] > button').forEach(b=>b.addEventListener('click',()=>{const it=b.parentElement,o=it.classList.toggle('open');b.setAttribute('aria-expanded',o)}));
+/* marquee: duplicate content for a seamless loop */
+$$('[data-marquee]').forEach(m=>{const t=m.firstElementChild;if(!t)return;m.appendChild(t.cloneNode(true)).setAttribute('aria-hidden','true')});
+/* gentle parallax for decorative layers */
+if(!RM&&innerWidth>900){const px=$$('[data-px]');if(px.length){let tk=false;const run=()=>{const vh=innerHeight;px.forEach(el=>{const r=el.getBoundingClientRect();const c=(r.top+r.height/2-vh/2)/vh;el.style.translate=`0 ${(c*parseFloat(el.dataset.px)).toFixed(1)}px`});tk=false};addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(run)}},{passive:true});run()}}
+/* mobile menu */
+const mb=$('[data-menu-btn]'),mn=$('[data-menu]');if(mb&&mn){mb.addEventListener('click',()=>{const o=document.body.classList.toggle('menu-open');mb.setAttribute('aria-expanded',o)});$$('a',mn).forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-open')))}
+})();
+</script>
+<script>
+(()=>{const {now,$,$$}=DI;
+/* live day track: 05:00 -> 19:00 */
+const T0=300,T1=1140;
+const upd=()=>{const {d,m}=now();const hh=String(Math.floor(m/60)).padStart(2,'0'),mm=String(m%60).padStart(2,'0');$('#nowT').textContent=hh+':'+mm;
+ const pos=Math.max(0,Math.min(1,(m-T0)/(T1-T0)));$('#me').style.left=(pos*100)+'%';
+ let k='Nu in de winkel',t;const st=DI.status();
+ if(d===2){k='Dinsdag';t='Op dinsdag is Bost dicht. Woensdag om 7u ligt alles weer klaar.'}
+ else if(m<420){k='Nog even geduld';t='De oven draait al. Om 7u gaan de deuren open.'}
+ else if(m<720){k='Nu in de winkel';t='De eerste bak ligt klaar. Rond de middag komt er nieuw.'}
+ else if(m<1110){k='Nu in de winkel';t='De tweede bak ligt in de rekken.'}
+ else{k='Na sluitingstijd';t=(d===1?'Morgen is het dinsdag, dan zijn we dicht. Woensdag om 7u weer vers.':'Morgen vanaf 7u weer vers uit de oven.')}
+ $('#nowK').textContent=k;$('#nowM').textContent=t;
+ const bt=$('#bakeT'),bs=$('#bakeS');
+ if(d===2){bt.textContent='Dinsdag rustdag';bs.textContent='woensdag weer vers'}
+ else if(m<720&&m>=300){bt.textContent='Tweede bak';bs.textContent='komt rond 12u binnen'}
+ else if(m>=720&&m<1110){bt.textContent='Tweede bak';bs.textContent='ligt nu in de rekken'}
+ else{bt.textContent='Eerste bak';bs.textContent='voor dag en dauw'}};
+upd();setInterval(upd,30000);
+/* price photo per tab */
+const lbl={brood:['20 soorten brood','wit, grijs, meergranen en meer'],pistolets:['16 soorten pistolets','en een karrewiel voor een feestje'],koeken:['Koeken voor bij de koffie','croissant, gozet, krentenbol'],patisserie:['Patisserie','van rijsttaart tot Saint-Honoré']};
+const pl=$('#plist');pl.addEventListener('tab',e=>{const k=e.detail;$$('#ppic img').forEach(i=>i.classList.toggle('on',i.dataset.k===k));$('#plbl').textContent=lbl[k][0];$('#plbl2').textContent=lbl[k][1];$('#q').value='';filter('')});
+/* search across all tabs */
+const items=$$('#plist .pi, #plist .namegrid span');
+const norm=s=>s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+const filter=q=>{q=norm(q.trim());if(!q){items.forEach(i=>i.classList.remove('hide'));$('#empty').style.display='none';return}
+ let hit=null,count={};items.forEach(i=>{const ok=norm(i.textContent).includes(q);i.classList.toggle('hide',!ok);i.style.display=ok?'':'none';if(ok){const p=i.closest('[data-panel]').dataset.panel;count[p]=(count[p]||0)+1}});
+ const cur=$$('[data-panel]',pl).find(p=>!p.hidden).dataset.panel;
+ if(!count[cur]){const best=Object.keys(count)[0];if(best){pl._set(best);$('#q').value=q;filter(q);return}}
+ $('#empty').style.display=Object.keys(count).length?'none':'block'};
+$('#q').addEventListener('input',e=>{if(!e.target.value)items.forEach(i=>i.style.display='');filter(e.target.value)});
+/* map pins */
+const shops=[['Bost',270,222,1],['Boutersem',172,141],['Glabbeek',279,70],['Bunsbeek',274,122],['Linter',352,159],['Lubbeek',177,54],['Heverlee',50,100],['Leuven, Julius',36,64],['Kessel-Lo',96,40],['Kessel-Lo, Becker Remy',74,74]];
+const g=$('#pins'),ol=$('#olist');const NS='http://www.w3.org/2000/svg';
+const lab={'Leuven, Julius':['Julius',0,-14,'middle'],'Kessel-Lo, Becker Remy':['Becker Remy',14,4,'start'],'Kessel-Lo':['Kessel-Lo',14,4,'start'],'Heverlee':['Heverlee',14,4,'start'],'Bost':['Bost',16,5,'start'],'Linter':['Linter',-14,4,'end']};
+shops.forEach(([n,x,y,main])=>{const p=document.createElementNS(NS,'g');p.setAttribute('class','pin'+(main?' on':''));
+ p.innerHTML=`<circle class="o" cx="${x}" cy="${y}" r="${main?12:9}" fill="${main?'#1C5753':'#2B7A74'}" fill-opacity="${main?1:.22}"/><circle cx="${x}" cy="${y}" r="${main?5:4}" fill="${main?'#E0912E':'#1C5753'}"/>`;
+ const L=lab[n]||[n,12,4,'start'];const t=document.createElementNS(NS,'text');t.setAttribute('x',x+L[1]);t.setAttribute('y',y+L[2]);t.setAttribute('text-anchor',L[3]);t.textContent=L[0];if(main)t.style.cssText='font:700 13px Figtree,sans-serif';p.appendChild(t);g.appendChild(p);
+ if(!main){const b=document.createElement('button');b.innerHTML='<svg class="ic"><use href="#i-map-pin"/></svg>'+n;const on=v=>{p.classList.toggle('on',v);b.classList.toggle('on',v)};b.addEventListener('mouseenter',()=>on(true));b.addEventListener('mouseleave',()=>on(false));b.addEventListener('focus',()=>on(true));b.addEventListener('blur',()=>on(false));b.addEventListener('click',()=>open('https://www.google.com/maps/search/'+encodeURIComponent('Bakkerij Het Brood '+n),'_blank','noopener'));p.addEventListener('mouseenter',()=>on(true));p.addEventListener('mouseleave',()=>on(false));ol.appendChild(b)}});
+})();
+</script>
+</body>
+</html>

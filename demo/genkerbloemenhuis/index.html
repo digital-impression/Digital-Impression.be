@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Genker Bloemenhuis · Bloemen en planten aan de Onderwijslaan</title>
+<meta name="description" content="Boeketten, rozen, orchideeën, planten en ballonnen aan de Onderwijslaan in Genk. Zeg wat je wil uitgeven, wij maken er iets moois van.">
+<link rel="preload" href="img/gloock.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/instrument.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:Gloock;src:url(img/gloock.woff2) format('woff2');font-display:swap}
+@font-face{font-family:Instrument;src:url(img/instrument.woff2) format('woff2');font-weight:400 700;font-display:swap}
+@font-face{font-family:Gochi;src:url(img/gochi.woff2) format('woff2');font-display:swap}
+:root{
+  --cream:#FFF8F1;--paper:#FFFDF9;--blush:#FBE2E6;--blush-2:#F7CBD4;--pink:#E4477A;--pink-d:#B92B5B;
+  --leaf:#1E5B39;--leaf-2:#2E7A4D;--leaf-3:#123B25;--mint:#DCEEDB;--butter:#F9E28F;--sun:#F1B238;--lilac:#E8DDF3;
+  --ink:#2B221E;--muted:#7A6A62;--line:rgba(43,34,30,.12);
+  --f-d:Gloock,Georgia,'Times New Roman',serif;--f-b:Instrument,system-ui,-apple-system,'Segoe UI',sans-serif;--f-s:Gochi,'Comic Sans MS','Segoe Print',cursive;
+  --sh:0 2px 6px rgba(43,34,30,.05),0 16px 36px -16px rgba(43,34,30,.28);--sh-l:0 36px 70px -30px rgba(30,40,30,.45);
+  --w:1240px;--ease:cubic-bezier(.2,.7,.2,1)
+}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{font:400 17px/1.6 var(--f-b);color:var(--ink);background:var(--cream);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.ic{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.wrap{width:min(100% - 48px,var(--w));margin-inline:auto}
+h1,h2,h3{font-family:var(--f-d);font-weight:400;line-height:1.02;letter-spacing:-.012em;color:var(--leaf-3)}
+h2{font-size:clamp(2.3rem,4.4vw,3.7rem)}
+h3{font-size:1.65rem}
+.hand{font-family:var(--f-s);line-height:1;color:var(--pink)}
+.eyebrow{display:inline-flex;align-items:center;gap:.6em;font:700 .78rem/1 var(--f-b);letter-spacing:.14em;text-transform:uppercase;color:var(--leaf-2)}
+.eyebrow .ic{width:32px;height:32px;padding:7px;border-radius:50%;background:var(--mint);color:var(--leaf)}
+.lead{font-size:1.12rem;color:var(--muted);max-width:52ch}
+.btn{--bg:var(--pink);--fg:#fff;display:inline-flex;align-items:center;gap:.6em;padding:.95em 1.5em;border-radius:999px;background:var(--bg);color:var(--fg);font-weight:700;font-size:.98rem;text-decoration:none;box-shadow:0 12px 26px -12px rgba(185,43,91,.75),inset 0 -2px 0 rgba(0,0,0,.14);transition:transform .35s var(--ease),box-shadow .35s,background .3s,color .3s}
+.btn:hover{transform:translateY(-2px)}
+.btn .ic:last-child{transition:transform .35s var(--ease)}.btn:hover .ic:last-child{transform:translateX(3px)}
+.btn.leaf{--bg:var(--leaf);box-shadow:0 12px 26px -12px rgba(18,59,37,.75)}
+.btn.line{--bg:transparent;--fg:var(--leaf-3);box-shadow:inset 0 0 0 1.6px var(--leaf-3)}
+.btn.line:hover{--bg:var(--leaf-3);--fg:#fff}
+.btn.white{--bg:#fff;--fg:var(--leaf-3);box-shadow:0 12px 26px -14px rgba(0,0,0,.4)}
+[data-r]{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease) var(--d,0ms),transform .9s var(--ease) var(--d,0ms)}
+[data-r].in{opacity:1;transform:none}
+.wave{position:absolute;left:0;width:100%;height:60px;display:block;pointer-events:none;z-index:3}
+.wave.flip{top:-1px;transform:scaleY(-1)}.wave:not(.flip){bottom:-1px}
+.lf{position:absolute;color:var(--leaf-2);pointer-events:none;transform-origin:50% 100%;animation:sway 6s ease-in-out infinite var(--dl,0s)}
+@keyframes sway{0%,100%{rotate:var(--r,0deg)}50%{rotate:calc(var(--r,0deg) + 8deg)}}
+
+.demo{position:relative;z-index:61;background:var(--leaf-3);color:#D9EAD8;font-size:.83rem;text-align:center;padding:.55em 1em}
+.demo a{color:#fff;font-weight:700;text-underline-offset:3px}
+.ah{position:relative;z-index:60;background:var(--butter);color:var(--leaf-3);font-size:.9rem;font-weight:600;text-align:center;padding:.6em 1em;display:flex;justify-content:center;align-items:center;gap:.6em;flex-wrap:wrap}
+.ah b{background:var(--leaf-3);color:var(--butter);border-radius:999px;padding:.15em .7em;font-size:.8rem}
+.ah a{color:var(--leaf-3)}
+
+.head{position:sticky;top:0;z-index:50;transition:background .4s,box-shadow .4s}
+.head.scrolled{background:rgba(255,248,241,.88);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);box-shadow:0 1px 0 var(--line)}
+.head .wrap{display:flex;align-items:center;gap:26px;height:84px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo svg{width:48px;height:48px}
+.logo b{display:block;font:400 1.4rem/1 var(--f-d);color:var(--leaf-3)}
+.logo small{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{padding:.55em .95em;border-radius:999px;text-decoration:none;font-weight:600;font-size:.95rem;transition:background .25s}
+.nav a:hover{background:var(--blush)}
+.op{display:inline-flex;align-items:center;gap:.55em;font-size:.86rem;font-weight:600;color:var(--muted);white-space:nowrap}
+.op i{width:9px;height:9px;border-radius:50%;background:#bbb;position:relative}
+.is-open .op i,.op.is-open i{background:#2BA36B}
+.is-open .op i::after,.op.is-open i::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid #2BA36B;animation:ping 2s infinite}
+.is-closed .op i,.op.is-closed i{background:var(--pink)}
+.op b{color:var(--leaf-3)}
+@keyframes ping{0%{transform:scale(.4);opacity:.9}80%,100%{transform:scale(1.4);opacity:0}}
+.head .btn{padding:.75em 1.15em;font-size:.92rem}
+.menu-btn{display:none;width:46px;height:46px;border-radius:50%;background:var(--leaf-3);color:#fff;align-items:center;justify-content:center;margin-left:auto}
+
+/* hero */
+.hero{position:relative;padding:30px 0 120px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.hero .hand{font-size:1.9rem;display:inline-block;transform:rotate(-3deg);margin-bottom:14px}
+.hero h1{font-size:clamp(2.9rem,5.6vw,5.1rem);line-height:.98}
+.hero h1 span{color:var(--pink)}
+.hero .lead{margin:26px 0 34px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px}
+.mini{display:flex;gap:12px;margin-top:40px;flex-wrap:wrap}
+.mini div{display:flex;align-items:center;gap:12px;padding:12px 18px 12px 12px;border-radius:18px;background:var(--paper);box-shadow:var(--sh)}
+.mini .ic{width:40px;height:40px;padding:9px;border-radius:12px;background:var(--blush);color:var(--pink-d)}
+.mini div:nth-child(2) .ic{background:var(--mint);color:var(--leaf)}
+.mini b{display:block;font-size:.98rem;color:var(--leaf-3);line-height:1.2}
+.mini span{font-size:.82rem;color:var(--muted)}
+.stars{display:inline-flex;gap:1px;color:var(--sun)}
+.stars .ic{width:14px;height:14px;fill:currentColor;stroke:none}
+.stage{position:relative;height:640px}
+.stage .b1{position:absolute;right:0;top:4%;width:88%;aspect-ratio:1;border-radius:58% 42% 52% 48%/48% 56% 44% 52%;background:radial-gradient(circle at 35% 30%,#FCD3DD,#F2A0B6 70%);animation:morph 14s ease-in-out infinite}
+.stage .b2{position:absolute;left:4%;bottom:6%;width:42%;aspect-ratio:1;border-radius:50%;background:var(--mint)}
+.stage .b3{position:absolute;right:6%;top:0;width:24%;aspect-ratio:1;border-radius:50%;background:var(--butter)}
+@keyframes morph{0%,100%{border-radius:58% 42% 52% 48%/48% 56% 44% 52%}50%{border-radius:44% 56% 40% 60%/58% 42% 58% 42%}}
+.stage .main{position:absolute;left:30%;top:2%;height:94%;width:auto;max-width:none;filter:drop-shadow(0 30px 30px rgba(120,30,60,.35));z-index:2}
+.stage .sub{position:absolute;left:0;bottom:2%;width:40%;filter:drop-shadow(0 20px 20px rgba(18,59,37,.35));z-index:3;rotate:-8deg}
+.stage .bal{position:absolute;right:-2%;top:6%;width:26%;z-index:1;animation:bob 6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-18px) rotate(3deg)}}
+.chip{position:absolute;z-index:4;display:flex;align-items:center;gap:12px;background:rgba(255,253,249,.96);border-radius:18px;padding:11px 16px 11px 11px;box-shadow:var(--sh-l);font-size:.8rem;line-height:1.25;color:var(--muted)}
+.chip b{display:block;color:var(--leaf-3);font-size:.95rem}
+.chip .ic{width:40px;height:40px;padding:9px;border-radius:12px;background:var(--mint);color:var(--leaf)}
+.chip.c1{right:2%;bottom:16%}
+.chip.c2{left:2%;top:18%;max-width:240px}
+.chip.c2 .q{font-family:var(--f-d);font-size:1.02rem;color:var(--leaf-3);line-height:1.2;display:block;margin-bottom:3px}
+.note{position:absolute;right:20%;bottom:4%;z-index:5;font-family:var(--f-s);font-size:1.6rem;color:var(--leaf);rotate:-6deg}
+
+/* marquee */
+.mq-wrap{overflow:hidden;padding:30px 0;margin:-60px 0 -30px;position:relative;z-index:4}
+.mq{background:var(--leaf);color:#fff;padding:18px 0;transform:rotate(1.4deg);margin:0 -20px;box-shadow:0 18px 40px -20px rgba(18,59,37,.6)}
+.mq [data-marquee]{display:flex;width:max-content;animation:mq 46s linear infinite}
+.mq ul{display:flex;list-style:none;padding:0}
+.mq li{display:flex;align-items:center;gap:24px;padding-right:24px;font:400 1.7rem/1 var(--f-d);white-space:nowrap}
+.mq li svg{width:22px;height:22px;color:var(--butter)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{position:relative}
+.sec{padding:130px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:60px}
+.sec-head h2{max-width:15ch;margin-top:16px}
+.sec-head .lead{max-width:40ch}
+
+/* offer */
+.offer{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.of{position:relative;border-radius:30px;padding:28px;min-height:300px;background:var(--bg);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;transition:transform .5s var(--ease),box-shadow .5s;text-decoration:none}
+.of:hover{transform:translateY(-6px);box-shadow:var(--sh-l)}
+.of img.cut{position:absolute;right:-6px;top:-4px;height:68%;width:auto;filter:drop-shadow(0 16px 18px rgba(0,0,0,.22));transition:transform .7s var(--ease)}
+.of:hover img.cut{transform:translateY(-6px) rotate(-3deg) scale(1.04)}
+.of .circ{position:absolute;right:22px;top:22px;width:46%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:6px solid rgba(255,255,255,.7);box-shadow:var(--sh)}
+.of .circ img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.of:hover .circ img{transform:scale(1.08)}
+.of .n{font:400 .95rem/1 var(--f-s);color:var(--pink-d);margin-bottom:8px}
+.of h3{font-size:1.9rem;margin-bottom:8px}
+.of p{font-size:.94rem;color:var(--muted);max-width:30ch}
+.o1{--bg:var(--blush)}.o2{--bg:#FDEFE3}.o3{--bg:var(--lilac)}.o4{--bg:var(--mint)}.o5{--bg:#FFF1C9}.o6{--bg:#E9E4D8}
+
+/* builder */
+.build{background:var(--leaf-3);color:#CFE2D2;padding:150px 0;overflow:hidden}
+.build h2{color:#fff}
+.build .eyebrow{color:#A9D2B3}.build .eyebrow .ic{background:rgba(255,255,255,.1);color:var(--butter)}
+.build .lead{color:#A7C2AC}
+.bgrid{display:grid;grid-template-columns:1fr 1.05fr;gap:60px;align-items:start;margin-top:60px}
+.ctrl{display:grid;gap:30px}
+.ctrl h4{font:700 .78rem/1 var(--f-b);letter-spacing:.14em;text-transform:uppercase;color:var(--butter);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.ctrl h4 i{font-style:normal;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.1);color:#fff;font-size:.74rem;letter-spacing:0}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts button{padding:.65em 1.1em;border-radius:999px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);color:#E4F0E5;font-weight:600;font-size:.94rem;transition:background .25s,color .25s,transform .25s}
+.opts button:hover{transform:translateY(-2px)}
+.opts button[aria-pressed=true]{background:#fff;color:var(--leaf-3);box-shadow:none}
+.opts.col button{display:inline-flex;align-items:center;gap:.6em}
+.opts.col button i{display:inline-flex;gap:2px}
+.opts.col button i b{width:12px;height:12px;border-radius:50%;display:block}
+.budget{position:relative;padding:8px 0 4px}
+.budget input{width:100%;appearance:none;-webkit-appearance:none;height:8px;border-radius:99px;background:linear-gradient(90deg,var(--pink) var(--p,25%),rgba(255,255,255,.15) var(--p,25%));outline:0}
+.budget input::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:#fff;border:6px solid var(--pink);box-shadow:0 6px 14px rgba(0,0,0,.35);cursor:grab}
+.budget input::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:6px solid var(--pink);cursor:grab}
+.budget .ticks{display:flex;justify-content:space-between;margin-top:12px;font-size:.86rem;color:#A7C2AC}
+.budget .ticks span.on{color:#fff;font-weight:700}
+.bview{position:relative;display:grid;grid-template-columns:1fr;gap:0}
+.vase{position:relative;aspect-ratio:1/1;border-radius:40px;background:radial-gradient(circle at 50% 40%,#2C6B47,#164A2E 70%);overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+.vase svg{position:absolute;inset:-6% 0 6%;width:100%;height:100%}
+.vase .fl{transform-box:fill-box;transform-origin:center;animation:pop .6s var(--ease) both}
+@keyframes pop{from{transform:scale(0) rotate(-40deg);opacity:0}to{transform:none;opacity:1}}
+.vase .price{position:absolute;right:22px;top:22px;width:96px;height:96px;border-radius:50%;background:var(--butter);color:var(--leaf-3);display:grid;place-items:center;text-align:center;font:400 2rem/1 var(--f-d);box-shadow:0 14px 30px -12px rgba(0,0,0,.5);rotate:8deg}
+.vase .price small{display:block;font:700 .62rem/1 var(--f-b);letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+.vase .lbl{position:absolute;left:24px;top:24px;font-family:var(--f-s);font-size:1.5rem;color:var(--butter);rotate:-4deg}
+.ticket{position:relative;margin:-40px 24px 0;background:var(--paper);color:var(--ink);border-radius:22px;padding:26px 26px 22px;box-shadow:0 30px 60px -20px rgba(0,0,0,.55)}
+.ticket::before,.ticket::after{content:"";position:absolute;top:64px;width:22px;height:22px;border-radius:50%;background:var(--leaf-3)}
+.ticket::before{left:-11px}.ticket::after{right:-11px}
+.ticket .hd{display:flex;justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:2px dashed var(--line);font:700 .74rem/1 var(--f-b);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.ticket p{font:400 1.45rem/1.3 var(--f-d);color:var(--leaf-3);margin:18px 0 20px}
+.ticket .row{display:flex;gap:10px;flex-wrap:wrap}
+.ticket .row .btn{padding:.8em 1.2em;font-size:.92rem}
+.ticket .ok{font-size:.85rem;color:var(--leaf-2);margin-top:10px;min-height:1.2em}
+
+/* allerheiligen */
+.allh{padding:140px 0;background:var(--paper)}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.ag .pics{position:relative;height:600px}
+.ag .pics .ph{position:absolute;right:0;top:0;width:66%;height:82%;border-radius:200px 200px 30px 30px;overflow:hidden;box-shadow:var(--sh-l)}
+.ag .pics .ph img{width:100%;height:100%;object-fit:cover}
+.ag .pics .cut{position:absolute;left:0;bottom:0;width:52%;filter:drop-shadow(0 26px 24px rgba(0,0,0,.3));z-index:2}
+.ag .pics .cd{position:absolute;right:6%;bottom:2%;z-index:3;width:150px;height:150px;border-radius:50%;background:var(--leaf-3);color:#fff;display:grid;place-items:center;text-align:center;box-shadow:var(--sh-l)}
+.ag .pics .cd b{display:block;font:400 3.4rem/1 var(--f-d);color:var(--butter)}
+.ag .pics .cd span{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+.ag h2{margin:16px 0 20px;max-width:13ch}
+.ag p{color:var(--muted);max-width:50ch;margin-bottom:16px}
+.ag .when{display:flex;gap:16px;align-items:center;margin:26px 0;padding:20px;border-radius:22px;background:var(--butter);color:var(--leaf-3)}
+.ag .when .d{width:70px;height:76px;border-radius:14px;background:#fff;display:flex;flex-direction:column;overflow:hidden;text-align:center;flex:none;box-shadow:var(--sh)}
+.ag .when .d span{background:var(--pink);color:#fff;font:700 .66rem/1 var(--f-b);letter-spacing:.1em;text-transform:uppercase;padding:6px 0}
+.ag .when .d b{font:400 2.1rem/1.4 var(--f-d)}
+.ag .when strong{display:block;font:400 1.35rem/1.2 var(--f-d)}
+.ag ul{list-style:none;padding:0;display:grid;gap:10px;margin:0 0 28px}
+.ag li{display:flex;gap:10px;align-items:center}
+.ag li .ic{color:var(--leaf-2)}
+
+/* shop gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:16px}
+.gal figure{position:relative;border-radius:24px;overflow:hidden;box-shadow:var(--sh)}
+.gal figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.gal figure:hover img{transform:scale(1.06)}
+.gal figcaption{position:absolute;left:12px;bottom:12px;background:rgba(255,253,249,.92);border-radius:999px;padding:.45em .9em;font-size:.82rem;font-weight:600;color:var(--leaf-3)}
+.g1{grid-column:span 2;grid-row:span 2}.g2{grid-row:span 2}.g5{grid-column:span 2}
+.callout{display:flex;gap:18px;align-items:center;margin-top:30px;padding:22px 26px;border-radius:24px;background:var(--blush)}
+.callout .ic{width:48px;height:48px;padding:12px;border-radius:50%;background:#fff;color:var(--pink-d)}
+.callout b{font:400 1.3rem/1.2 var(--f-d);color:var(--leaf-3);display:block}
+.callout span{color:var(--muted);font-size:.95rem}
+.callout .btn{margin-left:auto;flex:none}
+
+/* reviews */
+.rv{background:var(--blush);padding:140px 0}
+.rgrid{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
+.score{display:flex;align-items:flex-end;gap:16px;margin:24px 0 10px}
+.score b{font:400 6.6rem/.8 var(--f-d);color:var(--leaf-3)}
+.score .stars .ic{width:22px;height:22px}
+.score small{display:block;color:var(--muted);font-size:.92rem;margin-top:6px}
+.topics{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.topics span{display:inline-flex;align-items:center;gap:.5em;padding:.5em .9em;border-radius:999px;background:var(--paper);font-size:.9rem;font-weight:600}
+.topics em{font-style:normal;font-size:.75rem;color:#fff;background:var(--pink);border-radius:99px;padding:.1em .55em}
+.rcard{position:relative;background:var(--paper);border-radius:34px;padding:50px 46px 40px;box-shadow:var(--sh-l)}
+.rcard .flower{position:absolute;right:-54px;top:-80px;width:110px;rotate:12deg;filter:drop-shadow(0 16px 16px rgba(0,0,0,.2))}
+.rcard blockquote{font:400 2rem/1.25 var(--f-d);color:var(--leaf-3)}
+.who{display:flex;align-items:center;gap:14px;margin-top:28px;padding-top:22px;border-top:2px dashed var(--line)}
+.who .av{width:50px;height:50px;border-radius:50%;background:var(--mint);color:var(--leaf);display:grid;place-items:center;font-weight:700}
+.who b{display:block}.who span{font-size:.86rem;color:var(--muted)}
+.rcard .hand{position:absolute;left:30px;bottom:-40px;font-size:1.6rem;rotate:-4deg;color:var(--leaf)}
+
+/* visit */
+.visit{padding:140px 0 150px}
+.vgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:30px}
+.vphoto{position:relative;border-radius:34px;overflow:hidden;min-height:540px;box-shadow:var(--sh-l)}
+.vphoto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vphoto .tag{position:absolute;left:20px;top:20px;display:flex;gap:10px;align-items:center;background:rgba(255,253,249,.94);border-radius:18px;padding:12px 16px 12px 12px;box-shadow:var(--sh)}
+.vphoto .tag .ic{width:40px;height:40px;padding:9px;border-radius:12px;background:var(--pink);color:#fff}
+.vphoto .tag b{display:block;font:400 1.2rem/1.1 var(--f-d);color:var(--leaf-3)}
+.vphoto .tag span{font-size:.84rem;color:var(--muted)}
+.vphoto .park{position:absolute;right:20px;bottom:20px;display:flex;gap:8px;align-items:center;background:var(--leaf-3);color:#fff;border-radius:999px;padding:.6em 1em;font-size:.86rem;font-weight:600}
+.vcard{background:var(--leaf);color:#D3E6D6;border-radius:34px;padding:38px;display:flex;flex-direction:column}
+.vcard h3{color:#fff;font-size:2.2rem;margin:14px 0 4px}
+.vcard .eyebrow{color:#A9D2B3}.vcard .eyebrow .ic{background:rgba(255,255,255,.1);color:var(--butter)}
+.vcard .op{color:#B8D3BD;margin:12px 0 10px}.vcard .op b{color:#fff}
+.hours{list-style:none;padding:0;margin:8px 0 24px;font-size:.95rem}
+.hours li{display:flex;justify-content:space-between;padding:9px 12px;border-radius:10px}
+.hours li.today{background:rgba(255,255,255,.12);color:#fff;font-weight:700}
+.hours li.today span:first-child::after{content:" · vandaag";font-weight:500;color:var(--butter)}
+.hours li.closed span:last-child{color:#F7B2C6}
+.hours li.sp{background:var(--butter);color:var(--leaf-3);font-weight:700;margin-top:6px}
+.vcard .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+
+/* footer */
+.foot{position:relative;background:var(--leaf-3);color:#A7C2AC;padding:100px 0 40px}
+.foot .wave{top:-59px;bottom:auto;transform:none}
+.fg{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.foot .logo b{color:#fff}.foot .logo small{color:#8FB298}
+.foot p{max-width:36ch;margin-top:16px;font-size:.94rem}
+.foot h4{font:700 .78rem/1 var(--f-b);letter-spacing:.14em;text-transform:uppercase;color:var(--butter);margin-bottom:16px}
+.foot ul{list-style:none;padding:0;display:grid;gap:9px;font-size:.95rem}
+.foot a{text-decoration:none}.foot a:hover{color:#fff}
+.legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:60px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);font-size:.82rem;color:#7FA088}
+.legal a{color:#D3E6D6}
+.mbar{display:none}
+
+@media (max-width:1080px){
+  .nav,.head .op,.head .btn{display:none}
+  .menu-btn{display:inline-flex}
+  body.menu-open .nav{display:flex;position:fixed;inset:150px 16px auto;flex-direction:column;background:var(--paper);padding:14px;border-radius:24px;box-shadow:var(--sh-l)}
+  .hero .wrap,.bgrid,.ag,.rgrid,.vgrid{grid-template-columns:1fr}
+  .stage{height:560px;max-width:600px;width:100%;margin:0 auto}
+  .offer{grid-template-columns:1fr 1fr}
+  .gal{grid-template-columns:repeat(2,1fr)}
+  .sec-head{flex-direction:column;align-items:flex-start}
+  .fg{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 32px)}
+  .head .wrap{height:70px}.logo svg{width:40px;height:40px}.logo b{font-size:1.2rem}
+  .hero{padding:12px 0 90px}
+  .hero .hand{font-size:1.5rem}
+  .hero>.lf{display:none}
+  .rcard .flower{width:64px;right:-4px;top:-44px}
+  .mini{flex-direction:column}
+  .stage{height:440px}
+  .chip{font-size:.72rem;padding:8px 12px 8px 8px}.chip .ic{width:32px;height:32px;padding:7px}.chip b{font-size:.84rem}
+  .chip.c2{max-width:190px;top:4%}.chip.c2 .q{font-size:.9rem}
+  .note{font-size:1.25rem;right:4%}
+  .sec,.allh,.rv,.visit,.build{padding:96px 0}
+  .offer{grid-template-columns:1fr}
+  .of{min-height:260px}
+  .vase{border-radius:28px}
+  .ticket{margin:-30px 10px 0;padding:22px 20px}
+  .ticket p{font-size:1.2rem}
+  .ag .pics{height:440px}.ag .pics .cd{width:118px;height:118px}.ag .pics .cd b{font-size:2.6rem}
+  .gal{grid-auto-rows:160px}.g1{grid-column:span 2}.g5{grid-column:span 2}
+  .callout{flex-direction:column;align-items:flex-start}.callout .btn{margin-left:0}
+  .score b{font-size:5rem}
+  .rcard{padding:40px 24px 30px}.rcard blockquote{font-size:1.5rem}.rcard .flower{width:90px;right:-6px;top:-40px}
+  .vphoto{min-height:320px}.vcard{padding:28px}
+  .fg{grid-template-columns:1fr}
+  .mq li{font-size:1.3rem}
+  .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:70;gap:8px;padding:8px;border-radius:999px;background:rgba(18,59,37,.95);backdrop-filter:blur(10px);box-shadow:0 20px 40px -12px rgba(0,0,0,.5)}
+  .mbar a{flex:1;justify-content:center;padding:.85em 1em;font-size:.92rem}
+  .foot{padding-bottom:120px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-calendar-heart" viewBox="0 0 24 24"><path d="M12.127 21H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v5.125" /> <path d="M14.62 17.8A2.25 2.25 0 1118 14.836a2.25 2.25 0 113.38 2.966l-2.626 2.856a.998.998 0 01-1.507 0z" /> <path d="M16 2v3" /> <path d="M3 9h18" /> <path d="M8 2v3" /></symbol><symbol id="i-phone" viewBox="0 0 24 24"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 5h16" /> <path d="M4 12h16" /> <path d="M4 19h16" /></symbol><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></symbol><symbol id="i-store" viewBox="0 0 24 24"><path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5" /> <path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244" /> <path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05" /></symbol><symbol id="i-flower-2" viewBox="0 0 24 24"><path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1" /> <circle cx="12" cy="8" r="2" /> <path d="M12 10v12" /> <path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z" /> <path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z" /></symbol><symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" /> <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" /></symbol><symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /> <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></symbol><symbol id="i-flower" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /> <path d="M12 16.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 1 1 12 7.5a4.5 4.5 0 1 1 4.5 4.5 4.5 4.5 0 1 1-4.5 4.5" /> <path d="M12 7.5V9" /> <path d="M7.5 12H9" /> <path d="M16.5 12H15" /> <path d="M12 16.5V15" /> <path d="m8 8 1.88 1.88" /> <path d="M14.12 9.88 16 8" /> <path d="m8 16 1.88-1.88" /> <path d="M14.12 14.12 16 16" /></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol><symbol id="i-camera" viewBox="0 0 24 24"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" /> <circle cx="12" cy="13" r="3" /></symbol><symbol id="i-hand-heart" viewBox="0 0 24 24"><path d="M11 14h2a2 2 0 0 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16" /> <path d="m14.45 13.39 5.05-4.694C20.196 8 21 6.85 21 5.75a2.75 2.75 0 0 0-4.797-1.837.276.276 0 0 1-.406 0A2.75 2.75 0 0 0 11 5.75c0 1.2.802 2.248 1.5 2.946L16 11.95" /> <path d="m2 15 6 6" /> <path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a1 1 0 0 0-2.75-2.91" /></symbol><symbol id="i-message-circle" viewBox="0 0 24 24"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></symbol><symbol id="i-star-half" viewBox="0 0 24 24"><path d="M12 18.338a2.1 2.1 0 0 0-.987.244L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16l2.309-4.679A.53.53 0 0 1 12 2" /></symbol><symbol id="i-car" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" /> <circle cx="7" cy="17" r="2" /> <path d="M9 17h6" /> <circle cx="17" cy="17" r="2" /></symbol><symbol id="i-navigation" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11" /></symbol></defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="lf" viewBox="0 0 40 90"><path fill="currentColor" d="M20 88C18 60 4 50 6 28 8 12 18 4 20 2c2 2 12 10 14 26 2 22-12 32-14 60z"/><path d="M20 86V8" stroke="rgba(255,255,255,.35)" stroke-width="1.6" fill="none"/></symbol>
+<symbol id="fl" viewBox="0 0 40 40"><g fill="currentColor"><ellipse cx="20" cy="9" rx="7" ry="9"/><ellipse cx="31" cy="17" rx="7" ry="9" transform="rotate(72 31 17)"/><ellipse cx="27" cy="31" rx="7" ry="9" transform="rotate(144 27 31)"/><ellipse cx="13" cy="31" rx="7" ry="9" transform="rotate(216 13 31)"/><ellipse cx="9" cy="17" rx="7" ry="9" transform="rotate(288 9 17)"/></g><circle cx="20" cy="20" r="5.5" fill="#F9E28F"/></symbol>
+</defs></svg>
+
+<div class="demo">Voorbeeldsite van Digital Impression voor Genker Bloemenhuis. Benieuwd wat zoiets kost? <a href="https://wa.me/32496251445?text=Hallo%20Stijn%2C%20ik%20zag%20de%20voorbeeldsite%20voor%20Genker%20Bloemenhuis." target="_blank" rel="noopener">Stuur Stijn een bericht</a></div>
+<div class="ah" id="ahbar"><svg class="ic" aria-hidden="true"><use href="#i-calendar-heart"/></svg> Allerheiligen: zondag 1 november open van 9 tot 17 uur <b id="ahcount">nog 3 dagen</b> <a href="#allerheiligen">Meer info</a></div>
+
+<header class="head" data-head>
+  <div class="wrap">
+    <a class="logo" href="#top"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#E4477A"/><use href="#fl" x="10" y="9" width="28" height="28" color="#FFF8F1"/><path d="M24 36c0-3 0-5 0-7" stroke="#FFF8F1" stroke-width="2" stroke-linecap="round"/></svg><span><b>Genker Bloemenhuis</b><small>Onderwijslaan · Genk</small></span></a>
+    <nav class="nav" data-menu><a href="#aanbod">Aanbod</a><a href="#budget">Boeket op budget</a><a href="#allerheiligen">Allerheiligen</a><a href="#winkel">De winkel</a><a href="#bezoek">Bezoek</a></nav>
+    <span class="op" data-open><i></i><span><b data-open-t></b> <span data-open-s></span></span></span>
+    <a class="btn leaf" href="tel:+3289217760"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> 089 21 77 60</a>
+    <button class="menu-btn" data-menu-btn aria-label="Menu" aria-expanded="false"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <svg class="lf" style="left:2%;top:58%;width:34px;--r:-30deg"><use href="#lf"/></svg>
+  <svg class="lf" style="left:44%;top:6%;width:22px;--r:24deg;--dl:1.4s;color:#7DB38F"><use href="#lf"/></svg>
+  <div class="wrap">
+    <div>
+      <span class="hand" data-r>bloemen, planten en een ballon erbij</span>
+      <h1 data-r="80">Zeg wat je wil uitgeven. <span>Wij maken er iets moois van.</span></h1>
+      <p class="lead" data-r="160">Een boeket voor een verjaardag, een orchidee voor op de vensterbank of rozen voor iemand die je graag ziet. Bij Genker Bloemenhuis kies jij het bedrag, wij kiezen de bloemen erbij.</p>
+      <div class="cta" data-r="220"><a class="btn" href="#budget">Stel je boeket samen <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a><a class="btn line" href="#bezoek"><svg class="ic" aria-hidden="true"><use href="#i-map-pin"/></svg> Kom langs</a></div>
+      <div class="mini" data-r="300">
+        <div><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><span><b>4,2 op Google</b>118 reviews</span></div>
+        <div><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><span><b>Maandag tot zaterdag</b>van 9 tot 18 uur</span></div>
+      </div>
+    </div>
+    <div class="stage" data-r="120">
+      <span class="b1"></span><span class="b2"></span><span class="b3"></span>
+      <img class="bal" src="img/c-ballon.webp" alt="" width="488" height="446">
+      <img class="main" src="img/c-pastel.webp" alt="Boeket in roze papier met een satijnen lint" width="640" height="951" fetchpriority="high">
+      <img class="sub" src="img/c-zon.webp" alt="Zonnebloemen in kraftpapier" width="712" height="644">
+      <svg class="lf" style="right:10%;bottom:30%;width:30px;--r:40deg;z-index:3"><use href="#lf"/></svg>
+      <div class="chip c2"><span><span class="q">"Zeer mooi boeket. Aanrader!"</span>Rosetta, op Google</span></div>
+      <div class="chip c1" data-open><svg class="ic" aria-hidden="true"><use href="#i-store"/></svg><div><b data-open-t>Nu open</b><span data-open-s>tot 18u</span></div></div>
+      <span class="note">vers binnen!</span>
+    </div>
+  </div>
+</section>
+
+<div class="mq-wrap"><div class="mq"><div data-marquee><ul>
+  <li>Rozen<svg><use href="#fl"/></svg></li><li>Orchideeën<svg><use href="#fl"/></svg></li><li>Flowerboxen<svg><use href="#fl"/></svg></li><li>Kamerplanten<svg><use href="#fl"/></svg></li><li>Chrysanten<svg><use href="#fl"/></svg></li><li>Ballonnen<svg><use href="#fl"/></svg></li><li>Boeketten op maat<svg><use href="#fl"/></svg></li><li>Cadeautjes<svg><use href="#fl"/></svg></li>
+</ul></div></div></div>
+
+<section class="sec" id="aanbod">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow" data-r><svg class="ic" aria-hidden="true"><use href="#i-flower-2"/></svg> Ons aanbod</span><h2 data-r="80">Van één roos tot een volle flowerbox</h2></div>
+      <p class="lead" data-r="160">Veel kleur en veel keuze. Wat je hier ziet, staat zo in de winkel aan de Onderwijslaan.</p>
+    </div>
+    <div class="offer">
+      <a class="of o1" href="#budget" data-r><img class="cut" src="img/c-roze.webp" alt="" loading="lazy" width="450" height="379"><span class="n">voor elk moment</span><h3>Boeketten</h3><p>Voor het bedrag dat jij kiest, in de kleuren die jij wil.</p></a>
+      <a class="of o2" href="#winkel" data-r="80"><img class="cut" src="img/c-rozen.webp" alt="" loading="lazy" width="800" height="486" style="height:auto;width:72%;top:20px"><span class="n">klaar om mee te geven</span><h3>Rozen en flowerboxen</h3><p>Rozen in een doos met strik. Roze, rood of wit.</p></a>
+      <a class="of o3" href="#winkel" data-r="160"><span class="circ"><img src="img/orchidee.webp" alt="" loading="lazy" width="1100" height="825"></span><span class="n">ook in het blauw</span><h3>Orchideeën</h3><p>Wit, roze, paars en de opvallende Magic Blue.</p></a>
+      <a class="of o4" href="#winkel" data-r><span class="circ"><img src="img/planten.webp" alt="" loading="lazy" width="720" height="960"></span><span class="n">die het lang volhouden</span><h3>Kamerplanten</h3><p>Groene en bloeiende potten voor binnen, groot en klein.</p></a>
+      <a class="of o5" href="#winkel" data-r="80"><img class="cut" src="img/c-ballon.webp" alt="" loading="lazy" width="488" height="446" style="height:62%"><span class="n">iets kleins erbij</span><h3>Ballonnen en cadeautjes</h3><p>Een ballon, een kaartje of een potje. Voor een verjaardag of Valentijn.</p></a>
+      <a class="of o6" href="#allerheiligen" data-r="160"><img class="cut" src="img/c-chrys.webp" alt="" loading="lazy" width="700" height="934" style="height:80%"><span class="n">nu in de winkel</span><h3>Allerheiligen</h3><p>Chrysanten in pot en bloemen voor het kerkhof.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="build" id="budget">
+  <svg class="wave flip" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 32 C 300 13, 520 64, 760 37 S 1200 13, 1440 37 L1440 60 L0 60 Z" fill="#FFF8F1"/></svg>
+  <div class="wrap">
+    <span class="eyebrow" data-r><svg class="ic" aria-hidden="true"><use href="#i-wallet"/></svg> Boeket op budget</span>
+    <h2 data-r="80" style="margin-top:16px;max-width:16ch">Je weet vooraf wat je betaalt</h2>
+    <p class="lead" data-r="120" style="margin-top:16px">Kies hieronder waarvoor, hoeveel en welke kleuren. Zeg het zo aan de telefoon of aan de toonbank, en wij maken het klaar.</p>
+    <div class="bgrid">
+      <div class="ctrl" data-r="160">
+        <div><h4><i>1</i> Waarvoor is het?</h4><div class="opts" data-g="for">
+          <button aria-pressed="true" data-v="een verjaardag">een verjaardag</button><button aria-pressed="false" data-v="een bedankje">een bedankje</button><button aria-pressed="false" data-v="iemand die je graag ziet">iemand die je graag ziet</button><button aria-pressed="false" data-v="een afscheid">een afscheid</button><button aria-pressed="false" data-v="het kerkhof">het kerkhof</button><button aria-pressed="false" data-v="zomaar">zomaar</button>
+        </div></div>
+        <div><h4><i>2</i> Hoeveel wil je uitgeven?</h4>
+          <div class="budget"><input id="bud" type="range" min="0" max="4" step="1" value="1" aria-label="Budget"><div class="ticks" id="ticks"><span>€20</span><span>€30</span><span>€45</span><span>€60</span><span>€80</span></div></div>
+        </div>
+        <div><h4><i>3</i> Welke kleuren?</h4><div class="opts col" data-g="col">
+          <button aria-pressed="false" data-v="wit en groen" data-c="#FFFFFF,#F3F1E7,#DCEBD8"><i><b style="background:#fff"></b><b style="background:#DCEBD8"></b></i>wit en groen</button>
+          <button aria-pressed="true" data-v="roze en zacht" data-c="#F7B6C8,#FBD8E0,#F28CAB"><i><b style="background:#F7B6C8"></b><b style="background:#FBD8E0"></b></i>roze en zacht</button>
+          <button aria-pressed="false" data-v="fel en vrolijk" data-c="#F1B238,#E4477A,#F26B3A,#8B5CF6"><i><b style="background:#F1B238"></b><b style="background:#E4477A"></b><b style="background:#8B5CF6"></b></i>fel en vrolijk</button>
+          <button aria-pressed="false" data-v="rood" data-c="#C8102E,#E23B4E,#9E0F2A"><i><b style="background:#C8102E"></b><b style="background:#9E0F2A"></b></i>rood</button>
+          <button aria-pressed="false" data-v="kleuren naar keuze van de winkel" data-c="#F7B6C8,#F1B238,#FFFFFF,#B794F4,#E4477A"><i><b style="background:#F1B238"></b><b style="background:#B794F4"></b></i>laat het aan jullie</button>
+        </div></div>
+      </div>
+      <div class="bview" data-r="200">
+        <div class="vase"><svg id="bq" viewBox="0 0 400 400" aria-label="Voorbeeld van je boeket"></svg><span class="price"><span><small>budget</small><span id="pv">€30</span></span></span><span class="lbl">ongeveer zo</span></div>
+        <div class="ticket">
+          <div class="hd"><span>Jouw bestelling</span><span>Genker Bloemenhuis</span></div>
+          <p id="sum">Een boeket van €30 voor een verjaardag, in roze en zacht.</p>
+          <div class="row"><a class="btn" href="tel:+3289217760"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Bel en bestel</a><button class="btn line" id="copy" type="button"><svg class="ic" aria-hidden="true"><use href="#i-copy"/></svg> Kopieer tekst</button></div>
+          <div class="ok" id="ok"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 29 C 300 2, 520 53, 760 26 S 1200 -3, 1440 21 L1440 60 L0 60 Z" fill="#FFFDF9"/></svg>
+</section>
+
+<section class="allh" id="allerheiligen">
+  <div class="wrap ag">
+    <div class="pics" data-r>
+      <div class="ph"><img src="img/chrys-paars.webp" alt="Paarse chrysanten in een terracotta pot" loading="lazy" width="800" height="1000"></div>
+      <img class="cut" src="img/c-chrys.webp" alt="Gele chrysanten in een stenen urn" loading="lazy" width="700" height="934">
+      <div class="cd" id="cd"><div><b id="cdn">3</b><span id="cdl">dagen nog</span></div></div>
+    </div>
+    <div>
+      <span class="eyebrow" data-r><svg class="ic" aria-hidden="true"><use href="#i-flower"/></svg> Allerheiligen</span>
+      <h2 data-r="80">Bloemen voor wie je mist</h2>
+      <p data-r="120">Op zoek naar bloemen voor het kerkhof? Kom gerust kijken. Er staan chrysanten in pot klaar, en we helpen je graag kiezen.</p>
+      <div class="when" data-r="160"><span class="d"><span>nov</span><b>1</b></span><div><strong>Zondag uitzonderlijk open</strong>van 9 tot 17 uur</div></div>
+      <ul data-r="200"><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Chrysanten in pot, groot en klein</li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Iets speciaals in gedachten? Bel even, dan kijken we wat kan</li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Parkeren kan vlak voor de winkel</li></ul>
+      <a class="btn leaf" href="tel:+3289217760" data-r="240"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Bel 089 21 77 60</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="winkel" style="padding-top:40px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow" data-r><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg> In de winkel</span><h2 data-r="80">Kom gerust rondkijken</h2></div>
+      <p class="lead" data-r="160">Tafels vol bloemstukjes, een wand met potten en harten, en orchideeën in kleuren die je niet overal ziet.</p>
+    </div>
+    <div class="gal" data-r>
+      <figure class="g1"><img src="img/tafel.webp" alt="Tafel vol bloemstukjes en rozen" loading="lazy" width="1100" height="825"><figcaption>Bloemstukjes en rozen</figcaption></figure>
+      <figure class="g2"><img src="img/flowerbox.webp" alt="Roze rozen in een flowerbox" loading="lazy" width="800" height="1000"><figcaption>Flowerbox</figcaption></figure>
+      <figure><img src="img/orchidee.webp" alt="Orchideeën in wit, paars en blauw" loading="lazy" width="1100" height="825"><figcaption>Orchideeën</figcaption></figure>
+      <figure><img src="img/wand.webp" alt="Houten wand met potten en harten" loading="lazy" width="1000" height="750"><figcaption>Potten en deco</figcaption></figure>
+      <figure class="g5"><img src="img/ballonnen.webp" alt="Rode hartjesballonnen" loading="lazy" width="528" height="960" style="object-position:50% 30%"><figcaption>Ballonnen</figcaption></figure>
+      <figure><img src="img/rozen.webp" alt="Roze rozen met een hart" loading="lazy" width="800" height="1000"><figcaption>Rozen</figcaption></figure>
+      <figure><img src="img/planten.webp" alt="Rekken met planten" loading="lazy" width="720" height="960"><figcaption>Planten</figcaption></figure>
+    </div>
+    <div class="callout" data-r><svg class="ic" aria-hidden="true"><use href="#i-hand-heart"/></svg><div><b>Iets speciaals in gedachten?</b><span>Bloemen voor een feest, een tafel of een afscheid. Bel even en vraag wat er mogelijk is.</span></div><a class="btn" href="tel:+3289217760"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> 089 21 77 60</a></div>
+  </div>
+</section>
+
+<section class="rv">
+  <svg class="wave flip" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 C 300 15, 520 66, 760 39 S 1200 17, 1440 41 L1440 60 L0 60 Z" fill="#FFF8F1"/></svg>
+  <div class="wrap rgrid">
+    <div>
+      <span class="eyebrow" data-r><svg class="ic" aria-hidden="true"><use href="#i-message-circle"/></svg> Reviews</span>
+      <div class="score" data-r="80"><b data-count="4.2">4,2</b><div><span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star-half"/></svg></span><small>118 reviews op Google</small></div></div>
+      <p class="lead" data-r="120" style="font-size:1rem">Waar klanten het vaakst over schrijven:</p>
+      <div class="topics" data-r="160"><span>boeket <em>7</em></span><span>planten <em>6</em></span><span>prijzen <em>5</em></span><span>personeel <em>3</em></span></div>
+    </div>
+    <div class="rcard" data-r="120">
+      <img class="flower" src="img/c-hart.webp" alt="" loading="lazy" width="600" height="754">
+      <blockquote>Zeer tevreden over de service in Genk. Goed geholpen en zeer vriendelijk. Zeer mooi boeket. Aanrader!</blockquote>
+      <div class="who"><span class="av">R</span><div><b>Rosetta</b><span>op Google</span></div></div>
+      <span class="hand">dankjewel, Rosetta!</span>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="bezoek">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow" data-r><svg class="ic" aria-hidden="true"><use href="#i-map-pin"/></svg> Bezoek</span><h2 data-r="80">Aan de Onderwijslaan, met parking voor de deur</h2></div></div>
+    <div class="vgrid">
+      <div class="vphoto" data-r><img src="img/gevel.webp" alt="De winkel aan de Onderwijslaan met parking ervoor" loading="lazy" width="1100" height="619"><div class="tag"><svg class="ic" aria-hidden="true"><use href="#i-map-pin"/></svg><div><b style="font-family:var(--f-b);font-weight:700;font-size:1.05rem">Onderwijslaan 55/75</b><span>3600 Genk</span></div></div><span class="park"><svg class="ic" aria-hidden="true"><use href="#i-car"/></svg> Parkeren voor de winkel</span></div>
+      <div class="vcard" data-r="100" data-today data-open>
+        <span class="eyebrow"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg> Openingsuren</span>
+        <h3>Genker Bloemenhuis</h3>
+        <span class="op"><i></i><span><b data-open-t></b> <span data-open-s></span></span></span>
+        <ul class="hours">
+          <li data-day="1"><span>maandag</span><span>9:00 – 18:00</span></li>
+          <li data-day="2"><span>dinsdag</span><span>9:00 – 18:00</span></li>
+          <li data-day="3"><span>woensdag</span><span>9:00 – 18:00</span></li>
+          <li data-day="4"><span>donderdag</span><span>9:00 – 18:00</span></li>
+          <li data-day="5"><span>vrijdag</span><span>9:00 – 18:00</span></li>
+          <li data-day="6"><span>zaterdag</span><span>9:00 – 18:00</span></li>
+          <li data-day="0" class="closed"><span>zondag</span><span>gesloten</span></li>
+          <li class="sp" id="sp"><span>zondag 1 november</span><span>9:00 – 17:00</span></li>
+        </ul>
+        <div class="row"><a class="btn" href="tel:+3289217760"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Bellen</a><a class="btn white" href="https://www.google.com/maps/dir/?api=1&destination=Genker+Bloemenhuis+Onderwijslaan+3600+Genk" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-navigation"/></svg> Route</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 38 C 300 19, 520 70, 760 43 S 1200 15, 1440 39 L1440 60 L0 60 Z" fill="#123B25"/></svg>
+  <div class="wrap">
+    <div class="fg">
+      <div><a class="logo" href="#top"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#F9E28F"/><use href="#fl" x="10" y="9" width="28" height="28" color="#E4477A"/></svg><span><b>Genker Bloemenhuis</b><small>Onderwijslaan · Genk</small></span></a><p>Bloemen, planten, ballonnen en cadeautjes. Zeg wat je wil uitgeven, wij maken er iets moois van.</p></div>
+      <div><h4>Winkel</h4><ul><li>Onderwijslaan 55/75</li><li>3600 Genk</li><li><a href="tel:+3289217760">089 21 77 60</a></li></ul></div>
+      <div><h4>Uren</h4><ul><li>Maandag tot zaterdag</li><li>9:00 tot 18:00</li><li>Zondag 1 november: 9 tot 17 uur</li></ul></div>
+    </div>
+    <div class="legal"><span>© Genker Bloemenhuis, Genk</span><span>Voorbeeldsite door <a href="https://digital-impression.be" target="_blank" rel="noopener">Digital Impression</a></span></div>
+  </div>
+</footer>
+
+<div class="mbar"><a class="btn" href="tel:+3289217760"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Bellen</a><a class="btn white" href="https://www.google.com/maps/dir/?api=1&destination=Genker+Bloemenhuis+Onderwijslaan+3600+Genk" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-navigation"/></svg> Route</a></div>
+
+<script>window.HOURS={0:[],1:[[540,1080]],2:[[540,1080]],3:[[540,1080]],4:[[540,1080]],5:[[540,1080]],6:[[540,1080]]};window.SPECIAL={'2026-11-01':[[540,1020]]};</script>
+<script>(()=>{
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+/* Brussels time, so a visitor abroad sees the shop's real state */
+const now=(off=0)=>{const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Brussels',weekday:'short',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date(Date.now()+off*864e5));const g=t=>p.find(x=>x.type===t).value;return{d:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(g('weekday')),m:(+g('hour')%24)*60+(+g('minute')),ymd:g('year')+'-'+g('month')+'-'+g('day')}};
+window.DI={now,$,$$};
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px',threshold:.08});
+$$('[data-r]').forEach((el,i)=>{if(RM){el.classList.add('in');return}const st=el.dataset.r;if(st)el.style.setProperty('--d',st+'ms');io.observe(el)});
+/* counters */
+const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;co.unobserve(e.target);const el=e.target,to=parseFloat(el.dataset.count),dec=(el.dataset.count.split(/[.,]/)[1]||'').length,dur=1400,t0=performance.now();const fmt=v=>v.toFixed(dec).replace('.',',');if(RM){el.textContent=fmt(to);return}const step=t=>{const k=Math.min(1,(t-t0)/dur),e2=1-Math.pow(1-k,3);el.textContent=fmt(to*e2);if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}),{threshold:.6});
+$$('[data-count]').forEach(el=>co.observe(el));
+/* header state */
+const hd=$('[data-head]');if(hd){const f=()=>hd.classList.toggle('scrolled',scrollY>30);f();addEventListener('scroll',f,{passive:true})}
+/* opening hours: window.HOURS = {1:[[420,1110]],...} minutes, 0=sunday */
+const H=window.HOURS;
+const hm=m=>{const h=Math.floor(m/60),mm=m%60;return h+'u'+(mm?String(mm).padStart(2,'0'):'')};
+const days=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+const SP=window.SPECIAL||{};const hrs=(off)=>{const n=now(off);return SP[n.ymd]||H[n.d]||[]};
+window.DI.hrs=hrs;
+window.DI.status=()=>{if(!H)return null;const{d,m}=now();const t=hrs(0);for(const[a,b]of t){if(m>=a&&m<b)return{open:true,txt:'Nu open',sub:'tot '+hm(b),close:b,m}}
+ const later=t.find(([a])=>a>m);if(later)return{open:false,txt:'Nu gesloten',sub:'open om '+hm(later[0])};
+ for(let i=1;i<8;i++){const dd=(d+i)%7,tt=hrs(i);if(tt.length)return{open:false,txt:'Nu gesloten',sub:'open '+(i===1?'morgen':days[dd])+' om '+hm(tt[0][0])}}return null};
+const st=window.DI.status();
+if(st)$$('[data-open]').forEach(el=>{el.classList.toggle('is-open',st.open);el.classList.toggle('is-closed',!st.open);const a=$('[data-open-t]',el),b=$('[data-open-s]',el);if(a)a.textContent=st.txt;if(b)b.textContent=st.sub});
+$$('[data-today]').forEach(tb=>{const{d}=now();const r=tb.querySelector(`[data-day="${d}"]`);if(r)r.classList.add('today')});
+/* tabs */
+$$('[data-tabs]').forEach(w=>{const bs=$$('[data-tab]',w),ps=$$('[data-panel]',w);const set=k=>{bs.forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===k));ps.forEach(p=>p.hidden=p.dataset.panel!==k);w.dispatchEvent(new CustomEvent('tab',{detail:k}))};bs.forEach(b=>b.addEventListener('click',()=>set(b.dataset.tab)));w._set=set});
+$$('[data-goto-tab]').forEach(a=>a.addEventListener('click',()=>{const [sel,k]=a.dataset.gotoTab.split('|');const w=$(sel);if(w&&w._set)w._set(k)}));
+/* accordion */
+$$('[data-acc] > button').forEach(b=>b.addEventListener('click',()=>{const it=b.parentElement,o=it.classList.toggle('open');b.setAttribute('aria-expanded',o)}));
+/* marquee: duplicate content for a seamless loop */
+$$('[data-marquee]').forEach(m=>{const t=m.firstElementChild;if(!t)return;m.appendChild(t.cloneNode(true)).setAttribute('aria-hidden','true')});
+/* gentle parallax for decorative layers */
+if(!RM&&innerWidth>900){const px=$$('[data-px]');if(px.length){let tk=false;const run=()=>{const vh=innerHeight;px.forEach(el=>{const r=el.getBoundingClientRect();const c=(r.top+r.height/2-vh/2)/vh;el.style.translate=`0 ${(c*parseFloat(el.dataset.px)).toFixed(1)}px`});tk=false};addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(run)}},{passive:true});run()}}
+/* mobile menu */
+const mb=$('[data-menu-btn]'),mn=$('[data-menu]');if(mb&&mn){mb.addEventListener('click',()=>{const o=document.body.classList.toggle('menu-open');mb.setAttribute('aria-expanded',o)});$$('a',mn).forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-open')))}
+})();
+</script>
+<script>
+(()=>{const{$,$$,now}=DI;
+/* Allerheiligen countdown */
+const t=now();const [y,mo,da]=t.ymd.split('-').map(Number);const diff=Math.round((Date.UTC(2026,10,1)-Date.UTC(y,mo-1,da))/864e5);
+if(diff<0){$('#ahbar').remove();$('#sp').remove();$('#cd').remove()}
+else{const txt=diff===0?'vandaag':diff===1?'morgen':'nog '+diff+' dagen';$('#ahcount').textContent=txt;$('#cdn').textContent=diff===0?'nu':diff;$('#cdl').textContent=diff===0?'open tot 17u':diff===1?'dag nog':'dagen nog'}
+/* bouquet builder */
+const B=[20,30,45,60,80],N=[5,8,11,15,19];
+const st={for:'een verjaardag',col:'roze en zacht',cols:['#F7B6C8','#FBD8E0','#F28CAB'],b:1};
+const svg=$('#bq');
+const rnd=(s=>()=>(s=(s*9301+49297)%233280)/233280)(7);
+function draw(){
+ const n=N[st.b];let h='';
+ const wrapCol=st.col==='rood'?'#F3E3D3':st.col==='wit en groen'?'#E7EFE2':'#F9D9E1';
+ h+=`<path d="M150 236 L200 372 L250 236 Z" fill="#2E7A4D"/>`;
+ for(let i=0;i<11;i++){const a=-75+i*15,r=130+(i%2)*20;h+=`<ellipse cx="${200+Math.sin(a*Math.PI/180)*r*.85}" cy="${190-Math.cos(a*Math.PI/180)*r*.62}" rx="14" ry="40" fill="${i%2?'#3F8F5C':'#2E7A4D'}" transform="rotate(${a} ${200+Math.sin(a*Math.PI/180)*r*.8} ${180-Math.cos(a*Math.PI/180)*r*.5})"/>`}
+ const pts=[];let r=0;while(pts.length<n){const cnt=2+r*2,spread=40+r*34,y=150-r*0+r*26;for(let j=0;j<cnt&&pts.length<n;j++){const k=cnt===1?0:j/(cnt-1)-.5;pts.push([200+k*spread*2*(1-r*.04)+(rnd()-.5)*10,y+Math.abs(k)*22+(rnd()-.5)*8])}r++}
+ const sc=1-Math.max(0,(st.b-2))*.06;
+ pts.sort((a,b)=>a[1]-b[1]);
+ pts.forEach(([x,y])=>{h+=`<path d="M${x} ${y} Q ${(x+200)/2} ${(y+290)/2+10} 200 300" stroke="#3F8F5C" stroke-width="3" fill="none"/>`});
+ pts.forEach(([x,y],i)=>{const c=st.cols[i%st.cols.length];const s=(46+(i*7%16))*sc;const rot=Math.round(rnd()*70);
+  h+=`<g class="fl" style="animation-delay:${i*45}ms"><g transform="translate(${x-s/2} ${y-s/2}) rotate(${rot} ${s/2} ${s/2})"><use href="#fl" width="${s}" height="${s}" style="color:${c}"/></g></g>`});
+ h+=`<path d="M112 218 Q200 256 288 218 L236 352 Q200 362 164 352 Z" fill="${wrapCol}"/><path d="M112 218 Q200 256 288 218" fill="none" stroke="rgba(0,0,0,.08)" stroke-width="3"/><path d="M164 352 Q200 362 236 352 L232 340 Q200 350 168 340Z" fill="rgba(0,0,0,.06)"/>`;
+ h+=`<path d="M186 300 q14 10 28 0 M200 298 l-16 30 M200 298 l16 30" stroke="#E4477A" stroke-width="5" fill="none" stroke-linecap="round"/>`;
+ svg.innerHTML=h;
+ $('#pv').textContent='€'+B[st.b];
+ $('#sum').textContent=`Een boeket van €${B[st.b]} voor ${st.for}, in ${st.col}.`;
+ const inp=$('#bud');inp.style.setProperty('--p',(st.b/4*100)+'%');$$('#ticks span').forEach((s,i)=>s.classList.toggle('on',i===st.b));$('#ok').textContent=''}
+$$('.opts').forEach(g=>g.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('button',g).forEach(x=>x.setAttribute('aria-pressed',x===b));if(g.dataset.g==='for')st.for=b.dataset.v;else{st.col=b.dataset.v;st.cols=b.dataset.c.split(',')}draw()}));
+$('#bud').addEventListener('input',e=>{st.b=+e.target.value;draw()});
+$$('#ticks span').forEach((s,i)=>s.addEventListener('click',()=>{$('#bud').value=i;st.b=i;draw()}));
+$('#copy').addEventListener('click',async()=>{const t=$('#sum').textContent;try{await navigator.clipboard.writeText(t);$('#ok').textContent='Gekopieerd. Plak het in een bericht of lees het voor aan de telefoon.'}catch(e){$('#ok').textContent=t}});
+draw();
+})();
+</script>
+</body>
+</html>

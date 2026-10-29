@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Slagerij Raf Boen · Kempisch Natuurvlees in Grobbendonk</title>
+<meta name="description" content="De slager van Grobbendonk sinds 1996. Kempisch Natuurvlees, zelf uitgebeend, frikadellen met de hand gemaakt en een traiteur voor elke dag en de feestdagen.">
+<link rel="preload" href="img/zilla-b.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/public.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:Zilla;src:url(img/zilla-b.woff2) format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:Zilla;src:url(img/zilla-s.woff2) format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:Public;src:url(img/public.woff2) format('woff2');font-weight:400 800;font-display:swap}
+@font-face{font-family:Caveat;src:url(img/caveat.woff2) format('woff2');font-weight:500 700;font-display:swap}
+:root{
+  --navy:#1C2943;--navy-2:#26365A;--navy-3:#121B2F;--red:#C5302A;--red-d:#9E2420;--green:#3C9A4A;--green-l:#DDEFD9;
+  --cream:#F7F0E4;--paper:#FFFBF4;--kraft:#E7D3B3;--board:#2A302C;--chalk:#F3EFE6;
+  --ink:#1D2433;--muted:#6F6A62;--line:rgba(29,36,51,.12);
+  --f-d:Zilla,'Rockwell','Courier New',serif;--f-b:Public,system-ui,-apple-system,'Segoe UI',sans-serif;--f-s:Caveat,'Segoe Print',cursive;
+  --sh:0 2px 6px rgba(18,27,47,.06),0 18px 40px -18px rgba(18,27,47,.32);--sh-l:0 40px 80px -30px rgba(18,27,47,.5);
+  --stripe:repeating-linear-gradient(90deg,#fff 0 10px,var(--red) 10px 13px);
+  --w:1240px;--ease:cubic-bezier(.2,.7,.2,1)
+}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{font:400 17px/1.6 var(--f-b);color:var(--ink);background:var(--cream);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.ic{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.wrap{width:min(100% - 48px,var(--w));margin-inline:auto}
+h1,h2,h3{font-family:var(--f-d);font-weight:700;line-height:1;letter-spacing:-.01em;color:var(--navy)}
+h2{font-size:clamp(2.4rem,4.8vw,4.2rem)}
+h3{font-size:1.7rem}
+.hand{font-family:var(--f-s);font-weight:600;line-height:1}
+.eyebrow{display:inline-flex;align-items:center;gap:.7em;font:800 .78rem/1 var(--f-b);letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.eyebrow i{width:26px;height:10px;background:var(--stripe);border-radius:2px;box-shadow:inset 0 0 0 1px rgba(197,48,42,.3)}
+.lead{font-size:1.12rem;color:var(--muted);max-width:52ch}
+.btn{--bg:var(--red);--fg:#fff;display:inline-flex;align-items:center;gap:.6em;padding:1em 1.5em;border-radius:10px;background:var(--bg);color:var(--fg);font-weight:800;font-size:.98rem;text-decoration:none;box-shadow:0 12px 26px -12px rgba(158,36,32,.8);transition:transform .3s var(--ease),box-shadow .3s,background .3s,color .3s}
+.btn:hover{transform:translateY(-2px)}
+.btn .ic:last-child{transition:transform .3s var(--ease)}.btn:hover .ic:last-child{transform:translateX(3px)}
+.btn.navy{--bg:var(--navy);box-shadow:0 12px 26px -12px rgba(18,27,47,.8)}
+.btn.line{--bg:transparent;--fg:var(--navy);box-shadow:inset 0 0 0 2px var(--navy)}
+.btn.line:hover{--bg:var(--navy);--fg:#fff}
+.btn.white{--bg:#fff;--fg:var(--navy)}
+[data-r]{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease) var(--d,0ms),transform .9s var(--ease) var(--d,0ms)}
+[data-r].in{opacity:1;transform:none}
+.paper-edge{height:14px;background:var(--stripe)}
+
+.demo{position:relative;z-index:60;background:var(--navy-3);color:#D5DBE8;font-size:.83rem;text-align:center;padding:.55em 1em}
+.demo a{color:#fff;font-weight:700;text-underline-offset:3px}
+.head{position:sticky;top:0;z-index:50;background:var(--paper);box-shadow:0 1px 0 var(--line)}
+.head .wrap{display:flex;align-items:center;gap:26px;height:84px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{width:44px;height:auto}
+.logo b{display:block;font:700 1.45rem/1 var(--f-d);color:var(--navy)}
+.logo small{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:700;margin-top:3px}
+.nav{display:flex;gap:2px;margin-left:auto}
+.nav a{padding:.55em .9em;border-radius:8px;text-decoration:none;font-weight:700;font-size:.94rem;transition:background .25s}
+.nav a:hover{background:var(--cream)}
+.op{display:inline-flex;align-items:center;gap:.55em;font-size:.86rem;color:var(--muted);white-space:nowrap}
+.op i{width:9px;height:9px;border-radius:50%;background:#bbb;position:relative}
+.is-open .op i,.op.is-open i{background:var(--green)}
+.is-open .op i::after,.op.is-open i::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid var(--green);animation:ping 2s infinite}
+.is-closed .op i,.op.is-closed i{background:var(--red)}
+.op b{color:var(--navy)}
+@keyframes ping{0%{transform:scale(.4);opacity:.9}80%,100%{transform:scale(1.4);opacity:0}}
+.head .btn{padding:.75em 1.1em;font-size:.92rem}
+.menu-btn{display:none;width:46px;height:46px;border-radius:10px;background:var(--navy);color:#fff;align-items:center;justify-content:center;margin-left:auto}
+
+/* hero */
+.hero{position:relative;padding:40px 0 110px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:50px;align-items:center}
+.hero .hand{font-size:2rem;color:var(--red);display:inline-block;rotate:-3deg;margin-bottom:10px}
+.hero h1{font-size:clamp(3rem,6vw,5.6rem);line-height:.95}
+.hero h1 span{color:var(--red)}
+.hero .lead{margin:24px 0 32px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:44px}
+.stats div{padding:16px;border-radius:14px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--line)}
+.stats b{display:block;font:700 2.2rem/1 var(--f-d);color:var(--navy)}
+.stats span{font-size:.82rem;color:var(--muted);line-height:1.3;display:block;margin-top:4px}
+.stats div:first-child{background:var(--navy);box-shadow:none}.stats div:first-child b{color:#fff}.stats div:first-child span{color:#B7C1D6}
+.frame{position:relative}
+.frame .ph{position:relative;border-radius:24px;overflow:hidden;box-shadow:var(--sh-l);aspect-ratio:1.05}
+.frame .ph img{width:100%;height:100%;object-fit:cover}
+.frame .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(18,27,47,.55))}
+.frame .ph .cap{position:absolute;left:20px;bottom:18px;z-index:2;color:#fff;font-weight:700;font-size:.9rem;display:flex;align-items:center;gap:8px}
+.frame .board{position:absolute;left:-46px;bottom:-40px;width:56%;z-index:3}
+.frame .board .wood{position:absolute;left:-4%;right:-14%;bottom:4px;height:30%;border-radius:22px 60px 60px 22px;background:repeating-linear-gradient(176deg,rgba(255,255,255,.07) 0 3px,transparent 3px 11px),linear-gradient(180deg,#D3A56C,#A8763F);box-shadow:inset 0 -8px 0 rgba(0,0,0,.18),0 26px 30px -12px rgba(0,0,0,.5)}
+.frame .board .wood::after{content:"";position:absolute;right:16px;top:50%;width:18px;height:18px;border-radius:50%;background:#7E5730;transform:translateY(-50%);box-shadow:inset 0 2px 3px rgba(0,0,0,.4)}
+.frame .board img{position:relative;width:100%;filter:drop-shadow(0 18px 14px rgba(0,0,0,.35))}
+.frame .kn{position:absolute;right:-20px;top:-28px;width:110px;z-index:3;rotate:10deg;filter:drop-shadow(0 14px 16px rgba(0,0,0,.25));animation:wob 6s ease-in-out infinite}
+@keyframes wob{0%,100%{rotate:10deg}50%{rotate:2deg}}
+.frame .since{position:absolute;right:-18px;bottom:30px;z-index:3;background:var(--red);color:#fff;border-radius:16px;padding:14px 18px;box-shadow:var(--sh-l);text-align:center}
+.frame .since small{display:block;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:800}
+.frame .since b{font:700 2.4rem/1 var(--f-d)}
+
+/* marquee */
+.mq{background:var(--navy);color:#fff;overflow:hidden;padding:20px 0;position:relative}
+.mq::before,.mq::after{content:"";position:absolute;left:0;right:0;height:8px;background:var(--stripe)}
+.mq::before{top:0}.mq::after{bottom:0}
+.mq [data-marquee]{display:flex;width:max-content;animation:mq 44s linear infinite}
+.mq ul{display:flex;list-style:none;padding:0}
+.mq li{display:flex;align-items:center;gap:24px;padding-right:24px;font:700 1.8rem/1 var(--f-d);white-space:nowrap}
+.mq li svg{width:26px;height:26px;color:var(--red)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{position:relative}
+.sec{padding:130px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:56px}
+.sec-head h2{max-width:14ch;margin-top:16px}
+.sec-head .lead{max-width:40ch}
+
+/* frikadellen */
+.frik .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch}
+.chalk{position:relative;border-radius:26px;background:var(--board);color:var(--chalk);padding:48px 44px;overflow:hidden;box-shadow:inset 0 0 0 10px #4A3A2A,inset 0 0 0 12px #2A2016,var(--sh-l)}
+.chalk::before{content:"";position:absolute;inset:0;opacity:.12;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.7' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.chalk>*{position:relative}
+.chalk .day{display:inline-flex;align-items:center;gap:10px;font:700 1.1rem/1 var(--f-b);letter-spacing:.14em;text-transform:uppercase;color:#F6D27A}
+.chalk .day i{width:10px;height:10px;border-radius:50%;background:#F6D27A}
+.chalk h2{color:var(--chalk);font-family:var(--f-s);font-weight:700;font-size:clamp(3rem,6vw,5rem);line-height:.95;margin:20px 0 10px}
+.chalk h2 u{text-decoration:none;background:linear-gradient(transparent 70%,rgba(246,210,122,.55) 70%)}
+.chalk .big{display:flex;align-items:center;gap:16px;margin:24px 0}
+.chalk .big b{font:700 5.4rem/.85 var(--f-s);color:#fff}
+.chalk .big span{font:700 2.2rem/1 var(--f-s);color:#F6D27A}
+.chalk p{color:#D9D5CB;max-width:40ch}
+.chalk .cd{margin-top:26px;display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:14px;border:2px dashed rgba(243,239,230,.35);font:600 1.5rem/1.1 var(--f-s);width:max-content;max-width:100%}
+.chalk .cd .ic{width:26px;height:26px;color:#F6D27A}
+.chalk .doodle{position:absolute;right:30px;top:40px;width:120px;opacity:.85}
+.frik-info{display:flex;flex-direction:column;gap:20px}
+.kg{position:relative;flex:1;border-radius:26px;background:var(--red);color:#fff;padding:40px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:280px}
+.kg::before{content:"";position:absolute;right:-50px;top:-50px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.18),transparent 70%)}
+.kg b{font:700 6rem/.85 var(--f-d)}
+.kg b small{font-size:2rem;margin-left:6px}
+.kg p{max-width:36ch;margin-top:12px;color:#FFE1DD}
+.kg .scale{position:absolute;right:30px;top:30px;width:90px;height:90px;color:rgba(255,255,255,.25)}
+.frik-info figure{position:relative;border-radius:26px;overflow:hidden;min-height:260px;box-shadow:var(--sh)}
+.frik-info figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.frik-info figcaption{position:absolute;left:16px;bottom:16px;background:var(--paper);border-radius:10px;padding:.5em .9em;font-weight:700;font-size:.86rem}
+
+/* natuurvlees */
+.kn-sec{background:var(--paper)}
+.kn-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:center}
+.kn-badge{position:relative;display:grid;place-items:center;aspect-ratio:1;border-radius:50%;background:var(--green-l);max-width:440px}
+.kn-badge::before{content:"";position:absolute;inset:22px;border-radius:50%;border:2px dashed rgba(60,154,74,.4)}
+.kn-badge img{width:52%;filter:drop-shadow(0 20px 20px rgba(0,0,0,.15))}
+.kn-badge svg.ring{position:absolute;inset:0;width:100%;height:100%;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.kn-grid h2{margin:16px 0 18px}
+.pts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+.pt{display:flex;gap:14px;padding:20px;border-radius:18px;background:var(--cream)}
+.pt .ic{width:44px;height:44px;padding:11px;border-radius:12px;background:var(--navy);color:#fff}
+.pt:nth-child(2) .ic{background:var(--green)}.pt:nth-child(3) .ic{background:#E0A93A;color:var(--navy)}.pt:nth-child(4) .ic{background:var(--red)}
+.pt b{display:block;font:700 1.2rem/1.15 var(--f-d);color:var(--navy);margin-bottom:3px}
+.pt span{font-size:.9rem;color:var(--muted);line-height:1.45;display:block}
+
+/* counter */
+.toog .cats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.ct{position:relative;border-radius:22px;overflow:hidden;background:var(--paper);box-shadow:var(--sh);display:flex;flex-direction:column;transition:transform .5s var(--ease),box-shadow .5s}
+.ct:hover{transform:translateY(-5px);box-shadow:var(--sh-l)}
+.ct figure{aspect-ratio:1;overflow:hidden;position:relative}
+.ct figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.ct:hover figure img{transform:scale(1.06)}
+.ct .lab{position:absolute;left:14px;top:14px;background:var(--paper);border-radius:8px;padding:.35em .7em;font-size:.76rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--red)}
+.ct .tx{padding:22px}
+.ct h3{font-size:1.5rem;margin-bottom:6px}
+.ct p{font-size:.92rem;color:var(--muted);line-height:1.5}
+.ct.ws{background:var(--navy)}.ct.ws h3{color:#fff}.ct.ws p{color:#B7C1D6}
+.ct.ws figure{background:radial-gradient(circle at 50% 60%,#2F4370,#1C2943);display:grid;place-items:center}
+.ct.ws figure img{width:84%;height:auto;object-fit:contain;filter:drop-shadow(0 20px 18px rgba(0,0,0,.5))}
+
+/* traiteur */
+.trait{background:var(--navy);color:#C9D1E3;padding:150px 0;overflow:hidden}
+.trait h2{color:#fff}
+.trait .eyebrow{color:#F6D27A}
+.trait .lead{color:#AAB5CC}
+.tgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:start;margin-top:50px}
+.menu{position:relative;background:var(--paper);color:var(--ink);border-radius:8px;padding:48px 46px 40px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6);rotate:-1deg}
+.menu::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;background:var(--stripe);border-radius:8px 8px 0 0}
+.menu h3{font-size:2.2rem;text-align:center;margin-bottom:6px}
+.menu .sub{text-align:center;font-family:var(--f-s);font-size:1.5rem;color:var(--red);margin-bottom:26px}
+.menu ul{list-style:none;padding:0;columns:2;column-gap:40px}
+.menu li{break-inside:avoid;padding:10px 0;border-bottom:1px dashed var(--line);font:600 1.15rem/1.2 var(--f-d);color:var(--navy)}
+.menu li small{display:block;font:400 .82rem/1.3 var(--f-b);color:var(--muted);margin-top:2px}
+.menu .stamp{position:absolute;right:-20px;bottom:-26px;width:120px;height:120px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;text-align:center;font:700 .9rem/1.1 var(--f-d);rotate:-12deg;box-shadow:var(--sh-l);border:4px dashed rgba(255,255,255,.4)}
+.tips{display:grid;gap:16px}
+.tip{display:flex;gap:16px;padding:22px;border-radius:20px;background:var(--navy-2);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+.tip .ic{width:46px;height:46px;padding:11px;border-radius:12px;background:#F6D27A;color:var(--navy)}
+.tip b{display:block;color:#fff;font:700 1.25rem/1.2 var(--f-d);margin-bottom:4px}
+.tip span{font-size:.94rem}
+.fest{position:relative;margin-top:6px;padding:26px;border-radius:20px;background:var(--red);color:#fff;overflow:hidden}
+.fest b{display:block;font:700 1.6rem/1.1 var(--f-d)}
+.fest p{color:#FFE1DD;margin:8px 0 18px;font-size:.95rem}
+.fest .ic.big{position:absolute;right:20px;top:20px;width:60px;height:60px;color:rgba(255,255,255,.25)}
+
+/* story */
+.story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.story h2{margin:16px 0 20px}
+.story p{color:var(--muted);max-width:50ch;margin-bottom:16px}
+.tl{position:relative;list-style:none;padding:0;margin:30px 0 0}
+.tl::before{content:"";position:absolute;left:39px;top:8px;bottom:8px;width:3px;background:repeating-linear-gradient(180deg,var(--red) 0 8px,transparent 8px 14px)}
+.tl li{position:relative;display:grid;grid-template-columns:80px 1fr;gap:20px;padding:14px 0}
+.tl li b{position:relative;z-index:1;display:grid;place-items:center;width:80px;height:46px;border-radius:12px;background:var(--navy);color:#fff;font:700 1.15rem/1 var(--f-d)}
+.tl li:last-child b{background:var(--red)}
+.tl li span{padding-top:10px;color:var(--ink)}
+.story .pics{position:relative;height:600px}
+.story .pics figure{position:absolute;border-radius:22px;overflow:hidden;box-shadow:var(--sh-l)}
+.story .pics figure img{width:100%;height:100%;object-fit:cover}
+.story .pics .p1{left:0;top:0;width:78%;height:56%}
+.story .pics .p2{right:0;bottom:0;width:62%;height:52%;border:8px solid var(--cream)}
+.story .pics .q{position:absolute;left:0;bottom:6%;width:46%;background:var(--paper);border-radius:18px;padding:22px;box-shadow:var(--sh-l);z-index:2;font:600 1.15rem/1.35 var(--f-d);color:var(--navy)}
+.story .pics .q small{display:block;font:400 .82rem/1 var(--f-b);color:var(--muted);margin-top:10px}
+
+/* reviews */
+.rev{background:var(--kraft);padding:130px 0;position:relative}
+.rev::before{content:"";position:absolute;inset:0;opacity:.25;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .32 0 0 0 0 .18 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.rev .wrap{position:relative}
+.rtop{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;margin-bottom:50px}
+.rtop .num{display:block;font:700 8rem/.8 var(--f-d);color:var(--navy);margin-bottom:10px}
+.rtop small{display:block;color:#5E5241;margin-top:12px}
+.rtop .kw{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.rtop .kw span{padding:.4em .9em;border-radius:999px;background:rgba(255,255,255,.6);font-weight:700;font-size:.88rem}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tick{position:relative;background:var(--paper);padding:30px 28px 26px;box-shadow:0 20px 40px -20px rgba(60,40,20,.5);display:flex;flex-direction:column}
+.tick::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:10px;background:linear-gradient(-45deg,transparent 7px,var(--paper) 7px) 0 0/14px 10px,linear-gradient(45deg,transparent 7px,var(--paper) 7px) 0 0/14px 10px}
+.tick:nth-child(2){rotate:1deg}.tick:nth-child(3){rotate:-1deg}
+.tick .stars{color:var(--red)}
+.stars{display:inline-flex;gap:1px}.stars .ic{width:15px;height:15px;fill:currentColor;stroke:none}
+.tick q{display:block;quotes:none;font:600 1.2rem/1.4 var(--f-d);color:var(--navy);margin:14px 0 18px;flex:1}
+.tick .who{font-size:.86rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:12px}
+.tick .who b{color:var(--navy)}
+
+/* visit */
+.visit{padding:130px 0 140px}
+.vg{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+.vph{position:relative;border-radius:24px;overflow:hidden;min-height:520px;box-shadow:var(--sh-l)}
+.vph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vph .awn{position:absolute;left:0;right:0;top:0;height:40px;background:var(--stripe);opacity:.9}
+.vph .adr{position:absolute;left:20px;bottom:20px;display:flex;gap:12px;align-items:center;background:var(--paper);border-radius:16px;padding:14px 18px 14px 14px;box-shadow:var(--sh)}
+.vph .adr .ic{width:42px;height:42px;padding:10px;border-radius:10px;background:var(--red);color:#fff}
+.vph .adr b{display:block;font:700 1.25rem/1.1 var(--f-d);color:var(--navy)}
+.vph .adr span{font-size:.86rem;color:var(--muted)}
+.vi{border-radius:24px;background:var(--navy);color:#C9D1E3;padding:40px;display:flex;flex-direction:column}
+.vi h3{color:#fff;font-size:2.2rem;margin:14px 0 4px}
+.vi .eyebrow{color:#F6D27A}
+.vi .op{color:#AAB5CC;margin:12px 0 8px}.vi .op b{color:#fff}
+.hours{list-style:none;padding:0;margin:8px 0 24px;font-size:.95rem}
+.hours li{display:flex;justify-content:space-between;gap:12px;padding:9px 12px;border-radius:10px}
+.hours li.today{background:rgba(255,255,255,.1);color:#fff;font-weight:700}
+.hours li.today span:first-child::after{content:" · vandaag";font-weight:500;color:#F6D27A}
+.hours li.closed span:last-child{color:#F4A39C}
+.vi .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+
+.foot{background:var(--navy-3);color:#9AA6BF;padding:80px 0 40px}
+.fg{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.foot .logo b{color:#fff}
+.foot p{max-width:36ch;margin-top:16px;font-size:.94rem}
+.foot h4{font:800 .78rem/1 var(--f-b);letter-spacing:.16em;text-transform:uppercase;color:#F6D27A;margin-bottom:16px}
+.foot ul{list-style:none;padding:0;display:grid;gap:9px;font-size:.95rem}
+.foot a{text-decoration:none}.foot a:hover{color:#fff}
+.legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:60px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);font-size:.82rem;color:#77839C}
+.legal a{color:#D5DBE8}
+.mbar{display:none}
+
+@media (max-width:1080px){
+  .nav,.head .op,.head .btn{display:none}
+  .menu-btn{display:inline-flex}
+  body.menu-open .nav{display:flex;position:fixed;inset:120px 16px auto;flex-direction:column;background:var(--paper);padding:14px;border-radius:18px;box-shadow:var(--sh-l)}
+  .hero .wrap,.frik .wrap,.kn-grid,.tgrid,.story .wrap,.vg{grid-template-columns:1fr}
+  .frame{max-width:620px;margin:20px auto 0}
+  .toog .cats{grid-template-columns:1fr 1fr}
+  .rg{grid-template-columns:1fr}
+  .rtop{grid-template-columns:1fr;gap:6px}
+  .kn-badge{margin:0 auto;max-width:360px}
+  .sec-head{flex-direction:column;align-items:flex-start}
+  .fg{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 32px)}
+  .head .wrap{height:70px}.logo b{font-size:1.2rem}.logo img{width:38px}
+  .hero{padding:20px 0 90px}
+  .stats{grid-template-columns:1fr 1fr 1fr;gap:8px}.stats div{padding:12px}.stats b{font-size:1.6rem}.stats span{font-size:.72rem}
+  .frame .board{left:-10px;bottom:-30px;width:58%}.frame .kn{width:80px;right:-4px}.frame .since{right:-4px}
+  .sec,.trait,.rev,.visit{padding:96px 0}
+  .chalk{padding:36px 26px}.chalk .big b{font-size:4rem}.chalk .doodle{display:none}
+  .kg{padding:30px}.kg b{font-size:4.4rem}
+  .pts{grid-template-columns:1fr}
+  .toog .cats{grid-template-columns:1fr 1fr;gap:10px}.ct .tx{padding:14px}.ct h3{font-size:1.15rem}.ct p{display:none}
+  .menu{padding:40px 22px 30px;rotate:0deg}.menu ul{columns:1}.menu .stamp{width:96px;height:96px;font-size:.78rem;right:-6px}
+  .story .pics{height:460px}.story .pics .q{width:70%;font-size:1rem}
+  .rtop .num{font-size:6rem}
+  .vph{min-height:340px}.vi{padding:28px 22px}
+  .hours li{font-size:.86rem}
+  .fg{grid-template-columns:1fr}
+  .mq li{font-size:1.4rem}
+  .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:70;gap:8px;padding:8px;border-radius:14px;background:rgba(18,27,47,.96);box-shadow:0 20px 40px -12px rgba(0,0,0,.5)}
+  .mbar a{flex:1;justify-content:center;padding:.85em 1em;font-size:.92rem}
+  .foot{padding-bottom:120px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-phone" viewBox="0 0 24 24"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 5h16" /> <path d="M4 12h16" /> <path d="M4 19h16" /></symbol><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></symbol><symbol id="i-calendar-days" viewBox="0 0 24 24"><path d="M8 2v3" /> <path d="M16 2v3" /> <rect x="3" y="3" width="18" height="18" rx="2" /> <path d="M3 9h18" /> <path d="M8 13h.01" /> <path d="M12 13h.01" /> <path d="M16 13h.01" /> <path d="M8 17h.01" /> <path d="M12 17h.01" /> <path d="M16 17h.01" /></symbol><symbol id="i-beef" viewBox="0 0 24 24"><path d="M16.4 13.7A6.5 6.5 0 1 0 6.28 6.6c-1.1 3.13-.78 3.9-3.18 6.08A3 3 0 0 0 5 18c4 0 8.4-1.8 11.4-4.3" /> <path d="m18.5 6 1.754 3.5a6.48 6.48 0 0 1-1.854 8.2C15.4 20.2 11 22 7 22a3 3 0 0 1-2.68-1.66L2.4 16.5" /> <circle cx="12.5" cy="8.5" r="2.5" /></symbol><symbol id="i-tractor" viewBox="0 0 24 24"><path d="m10 11 11 .9a1 1 0 0 1 .8 1.1l-.665 4.158a1 1 0 0 1-.988.842H20" /> <path d="M16 18h-5" /> <path d="M18 5a1 1 0 0 0-1 1v5.573" /> <path d="M3 4h8.129a1 1 0 0 1 .99.863L13 11.246" /> <path d="M4 11V4" /> <path d="M7 15h.01" /> <path d="M8 10.1V4" /> <circle cx="18" cy="18" r="2" /> <circle cx="7" cy="15" r="5" /></symbol><symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /> <path d="M12 2v2" /> <path d="M12 20v2" /> <path d="m4.93 4.93 1.41 1.41" /> <path d="m17.66 17.66 1.41 1.41" /> <path d="M2 12h2" /> <path d="M20 12h2" /> <path d="m6.34 17.66-1.41 1.41" /> <path d="m19.07 4.93-1.41 1.41" /></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /></symbol><symbol id="i-soup" viewBox="0 0 24 24"><path d="M11.248 3c.273.1.808.53.747 1.36-.05.83-.938 1.2-.989 2.02-.06.78.333 1.24.727 1.62" /> <path d="M16.252 3c.268.1.794.53.745 1.36-.06.83-.923 1.2-.993 2.02-.05.78.338 1.24.725 1.62" /> <path d="M19.5 12 22 6" /> <path d="M4 12a1 1 0 00-.99 1.133A9 9 0 0012 21a9 9 0 008.99-7.867A1 1 0 0020 12z" /> <path d="M6.252 3c.268.1.794.53.745 1.36-.06.83-.923 1.2-.993 2.02-.05.78.338 1.24.735 1.62" /> <path d="M7 21h10" /></symbol><symbol id="i-refrigerator" viewBox="0 0 24 24"><path d="M5 6a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6Z" /> <path d="M5 10h14" /> <path d="M15 7v6" /></symbol><symbol id="i-gift" viewBox="0 0 24 24"><path d="M12 7v14" /> <path d="M20 11v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8" /> <path d="M7.5 7a1 1 0 0 1 0-5A4.8 8 0 0 1 12 7a4.8 8 0 0 1 4.5-5 1 1 0 0 1 0 5" /> <rect x="3" y="7" width="18" height="4" rx="1" /></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></symbol><symbol id="i-navigation" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11" /></symbol></defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="cow" viewBox="0 0 64 40"><path fill="currentColor" d="M8 14c0-4 4-7 9-7h22c5 0 9 2 11 6l4 1c3 1 5 3 5 6v3c0 2-2 3-4 3h-3l-1 8h-4l-1-7H28l-1 7h-4l-1-8c-4-1-7-3-8-6l-4 1-2-3 3-2c-2-1-3-2-3-2z"/><circle cx="54" cy="19" r="1.4" fill="#fff"/></symbol>
+<symbol id="ball" viewBox="0 0 40 40"><circle cx="20" cy="22" r="15" fill="currentColor"/><path d="M10 18c3-3 7-4 10-3M24 30c3 0 6-2 7-4" stroke="rgba(255,255,255,.35)" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+</defs></svg>
+
+<div class="demo">Voorbeeldsite van Digital Impression voor Slagerij Raf Boen. Benieuwd wat zoiets kost? <a href="https://wa.me/32496251445?text=Hallo%20Stijn%2C%20ik%20zag%20de%20voorbeeldsite%20voor%20Slagerij%20Raf%20Boen." target="_blank" rel="noopener">Stuur Stijn een bericht</a></div>
+
+<header class="head">
+  <div class="wrap">
+    <a class="logo" href="#top"><img src="img/c-kn.webp" alt="" width="311" height="400"><span><b>Slagerij Raf Boen</b><small>Kempisch Natuurvlees</small></span></a>
+    <nav class="nav" data-menu><a href="#frikadellen">Frikadellen</a><a href="#vlees">Ons vlees</a><a href="#traiteur">Traiteur</a><a href="#verhaal">Ons verhaal</a><a href="#uren">Uren</a></nav>
+    <span class="op" data-open><i></i><span><b data-open-t></b> <span data-open-s></span></span></span>
+    <a class="btn navy" href="tel:+3214517803"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> 014 51 78 03</a>
+    <button class="menu-btn" data-menu-btn aria-label="Menu" aria-expanded="false"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="hand" data-r>de slager van Grobbendonk</span>
+      <h1 data-r="80">Vlees waar je het verhaal van kent. <span>Al sinds 1996.</span></h1>
+      <p class="lead" data-r="160">Kempisch Natuurvlees, rechtstreeks van twee boeren en volledig zelf uitgebeend. Met frikadellen die heel de streek kent, charcuterie van het huis en een traiteur waar je de feestdagen op kan bouwen.</p>
+      <div class="cta" data-r="220"><a class="btn" href="#traiteur">Bekijk de traiteur <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a><a class="btn line" href="#uren"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg> Openingsuren</a></div>
+      <div class="stats" data-r="300">
+        <div><b data-count="500">500</b><span>kilo frikadellen per week, tot zoveel</span></div>
+        <div><b>4,7</b><span>op Google en op Handelsgids</span></div>
+        <div><b>3</b><span>soorten vlees, hele dieren uitgebeend</span></div>
+      </div>
+    </div>
+    <div class="frame" data-r="120">
+      <div class="ph"><img src="img/gevel.webp" alt="De slagerij aan de Boudewijnstraat met de luifel van Kempisch Natuurvlees" width="1400" height="632" fetchpriority="high" style="object-position:50% 40%"><span class="cap"><svg class="ic" aria-hidden="true"><use href="#i-map-pin"/></svg> Boudewijnstraat 13, Grobbendonk</span></div>
+      <img class="kn" src="img/c-kn.webp" alt="Logo Kempisch Natuurvlees" width="311" height="400">
+      <div class="board" data-px="-20"><span class="wood"></span><img src="img/c-cote.webp" alt="Côte à l'os van Belgisch wit-blauw" width="452" height="405"></div>
+      <div class="since"><small>sinds</small><b>1996</b></div>
+    </div>
+  </div>
+</section>
+
+<div class="mq"><div data-marquee><ul>
+  <li>Belgisch wit-blauw<svg><use href="#cow"/></svg></li><li>Limousin kalf<svg><use href="#cow"/></svg></li><li>Frikadellen<svg><use href="#cow"/></svg></li><li>Charcuterie van het huis<svg><use href="#cow"/></svg></li><li>Traiteur<svg><use href="#cow"/></svg></li><li>Gourmet en fondue<svg><use href="#cow"/></svg></li><li>Koude buffetten<svg><use href="#cow"/></svg></li>
+</ul></div></div>
+
+<section class="sec frik" id="frikadellen">
+  <div class="wrap">
+    <div class="chalk" data-r>
+      <svg class="doodle" viewBox="0 0 120 80" fill="none" stroke="#F3EFE6" stroke-width="2.4" stroke-linecap="round"><circle cx="34" cy="44" r="20"/><circle cx="74" cy="40" r="22"/><path d="M20 70c20 6 60 6 84-2"/><path d="M96 16l8-8M100 22l12-2M90 12l2-10"/></svg>
+      <span class="day"><i></i> Elke donderdag</span>
+      <h2>Frikadellen<br><u>1 + 1 gratis</u></h2>
+      <div class="big"><b>1 kg</b><span>kopen,<br>1 kg erbij</span></div>
+      <p>Zolang de voorraad strekt. Ideaal om er een paar in te vriezen voor een drukke week.</p>
+      <div class="cd" id="cd"><svg class="ic" aria-hidden="true"><use href="#i-calendar-days"/></svg> <span id="cdt">nog 0 dagen tot donderdag</span></div>
+    </div>
+    <div class="frik-info">
+      <div class="kg" data-r="100"><svg class="scale"><use href="#ball"/></svg><b><span data-count="500">500</span><small>kg</small></b><p>Tot zoveel frikadellen gaan er elke week over de toonbank. Allemaal met de hand gedraaid, in het eigen atelier.</p></div>
+      <figure data-r="160"><img src="img/atelier.webp" alt="Frikadellen draaien in het atelier" loading="lazy" width="1200" height="675"><figcaption>Met de hand, elke week opnieuw</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec kn-sec" id="vlees">
+  <div class="wrap kn-grid">
+    <div class="kn-badge" data-r>
+      <svg class="ring" viewBox="0 0 200 200"><defs><path id="rg" d="M100,100 m-86,0 a86,86 0 1,1 172,0 a86,86 0 1,1 -172,0"/></defs><text font-family="Public,sans-serif" font-size="10.5" font-weight="800" letter-spacing="3.6" fill="#3C9A4A"><textPath href="#rg">KEMPISCH NATUURVLEES · VAN HIER · VAN BIJ ONS ·</textPath></text></svg>
+      <img src="img/c-kn.webp" alt="Kempisch Natuurvlees" loading="lazy" width="311" height="400">
+    </div>
+    <div>
+      <span class="eyebrow" data-r><i></i> Kempisch Natuurvlees</span>
+      <h2 data-r="80">Hele dieren, en niets gaat verloren</h2>
+      <p class="lead" data-r="120">Raf koopt hele karkassen en beent ze zelf uit. Zo weet hij waar elk stuk vandaan komt. Kop, tong en restjes krijgen allemaal een bestemming.</p>
+      <div class="pts" data-r="160">
+        <div class="pt"><svg class="ic" aria-hidden="true"><use href="#i-beef"/></svg><div><b>Belgisch wit-blauw</b><span>Voor een steak, een stoofvlees of een côte à l'os op de barbecue.</span></div></div>
+        <div class="pt"><svg class="ic" aria-hidden="true"><use href="#i-tractor"/></svg><div><b>Twee boeren</b><span>Die met respect voor het milieu werken.</span></div></div>
+        <div class="pt"><svg class="ic" aria-hidden="true"><use href="#i-sun"/></svg><div><b>Zonnepanelen</b><span>Op het dak, voor de machines in het atelier.</span></div></div>
+        <div class="pt"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg><div><b>Limousin kalf</b><span>Zacht en mager, voor een blanquette of een kalfsfricassee zoals vroeger.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec toog">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow" data-r><i></i> In de toonbank</span><h2 data-r="80">Kiezen is hier altijd moeilijk</h2></div>
+      <p class="lead" data-r="160">Dat zegt een klant op Google, en ze heeft gelijk. Van vers vlees tot salades, dit ligt elke dag klaar.</p>
+    </div>
+    <div class="cats">
+      <article class="ct ws" data-r><figure><img src="img/c-cote.webp" alt="Côte à l'os" loading="lazy" width="452" height="405"><span class="lab">vers</span></figure><div class="tx"><h3>Vers vlees</h3><p>Rund, kalf en varken. Vraag gerust een tip om het klaar te maken.</p></div></article>
+      <article class="ct" data-r="80"><figure><img src="img/vleeswaren.webp" alt="De toonbank met vleeswaren" loading="lazy" width="900" height="1100"><span class="lab">van het huis</span></figure><div class="tx"><h3>Charcuterie</h3><p>Vleeswaren en charcuterie, waar de zaak om bekend staat.</p></div></article>
+      <article class="ct" data-r="160"><figure><img src="img/salades.webp" alt="Bakken met huisgemaakte salades" loading="lazy" width="900" height="1100"><span class="lab">vers gemaakt</span></figure><div class="tx"><h3>Salades</h3><p>Voor op de boterham of bij de barbecue.</p></div></article>
+      <article class="ct" data-r="240"><figure><img src="img/bereidingen.webp" alt="Huisbereide gerechten en bereidingen" loading="lazy" width="900" height="1100"><span class="lab">klaar om te bakken</span></figure><div class="tx"><h3>Bereidingen</h3><p>Huisbereid, zodat je 's avonds snel aan tafel zit.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="trait" id="traiteur">
+  <div class="wrap">
+    <span class="eyebrow" data-r><i></i> Traiteur</span>
+    <h2 data-r="80" style="margin-top:16px;max-width:16ch">Gerechten zoals je ze thuis zou maken, als je de tijd had</h2>
+    <div class="tgrid">
+      <div class="menu" data-r>
+        <h3>Van de traiteur</h3>
+        <div class="sub">vacuüm verpakt en gepasteuriseerd</div>
+        <ul>
+          <li>Stoofvlees<small>op z'n Vlaams</small></li><li>Vidé<small>koninginnenhapje</small></li><li>Goulash</li><li>Kalfsfricassee</li><li>Varkenswangen<small>met kroketten</small></li><li>Normandische tongen</li><li>Macaroni</li><li>Soepen</li><li>Koude buffetten<small>voor een feest of een verjaardag</small></li><li>Fondue en gourmet<small>voor gezellige avonden</small></li>
+        </ul>
+        <span class="stamp">huis-<br>gemaakt</span>
+      </div>
+      <div class="tips">
+        <div class="tip" data-r="100"><svg class="ic" aria-hidden="true"><use href="#i-soup"/></svg><div><b>Opwarmen zonder afwas</b><span>De gerechten warm je op au bain-marie, in het zakje. Geen stapel potten achteraf.</span></div></div>
+        <div class="tip" data-r="160"><svg class="ic" aria-hidden="true"><use href="#i-refrigerator"/></svg><div><b>Langer goed</b><span>Vacuüm verpakt en gepasteuriseerd, dus je hoeft het niet meteen op te eten.</span></div></div>
+        <div class="fest" data-r="220"><svg class="ic" aria-hidden="true"><use href="#i-gift"/></svg><b>De feestdagen komen eraan</b><p>Feestkalkoen, gourmet of een koud buffet. Vraag de feestfolder in de winkel, of bel even.</p><a class="btn white" href="tel:+3214517803"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Bel 014 51 78 03</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec story" id="verhaal">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow" data-r><i></i> Ons verhaal</span>
+      <h2 data-r="80">Geen slagerszoon, wel een slager</h2>
+      <p data-r="120">Raf groeide niet op tussen de messen. Thuis hadden ze een varken en een koe, en daar begon het. Hij studeerde eerst bedrijfsbeheer, maar op zijn zeventiende wist hij het al.</p>
+      <ol class="tl" data-r="160">
+        <li><b>1996</b><span>Raf neemt een slagerij in Grobbendonk over.</span></li>
+        <li><b>12 jaar</b><span>Op het Astridplein bouwt hij zijn klanten op.</span></li>
+        <li><b>100 m</b><span>Verderop, in de Boudewijnstraat, opent de winkel van vandaag.</span></li>
+        <li><b>Nu</b><span>Zijn vrouw en zonen staan mee in de zaak. De chipolata's draait Nicolas.</span></li>
+      </ol>
+    </div>
+    <div class="pics" data-r="120">
+      <figure class="p1" data-px="-14"><img src="img/winkel.webp" alt="De winkel van binnen" loading="lazy" width="900" height="1100"></figure>
+      <figure class="p2" data-px="16"><img src="img/toog.webp" alt="De toonbank" loading="lazy" width="900" height="1100"></figure>
+      <div class="q">"Naast hun mooie waar voel je de betrokkenheid en passie voor hun vak."<small>Alice, op Google</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="rev">
+  <div class="wrap">
+    <div class="rtop">
+      <span class="num" data-count="4.7">4,7</span>
+      <div><span class="eyebrow" data-r style="color:var(--navy)"><i></i> Wat Grobbendonk ervan vindt</span><h2 data-r="80" style="margin-top:14px">Een beenhouwer die zijn vak verstaat</h2><small>4,7 op Google en 4,7 op Handelsgids, uit samen meer dan 340 reviews.</small><div class="kw"><span>charcuterie</span><span>ambachtelijk</span><span>prijs</span></div></div>
+    </div>
+    <div class="rg">
+      <article class="tick" data-r><span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span><q>Een beenhouwer die zijn vak verstaat. Bijna een kilo varkenswangen gekocht en alles prachtig gekuist, zonder de smaakmakers te versnijden.</q><div class="who"><b>Marieke</b> · op Google</div></article>
+      <article class="tick" data-r="100"><span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span><q>Keurslager met kwaliteitsvlees. Altijd welkom, en als je vragen hebt geven ze nog kook- of baksuggesties mee.</q><div class="who"><b>Eric</b> · op Google</div></article>
+      <article class="tick" data-r="200"><span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span><q>Deze slagerij heeft zoveel, kiezen is er altijd moeilijk. Altijd vriendelijke bediening.</q><div class="who"><b>Alice</b> · op Google</div></article>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="uren">
+  <div class="wrap vg">
+    <div class="vph" data-r><img src="img/gevel-zij.webp" alt="De gevel van Slagerij Raf Boen" loading="lazy" width="1200" height="541"><div class="adr"><svg class="ic" aria-hidden="true"><use href="#i-map-pin"/></svg><div><b>Boudewijnstraat 13</b><span>2280 Grobbendonk</span></div></div></div>
+    <div class="vi" data-r="100" data-today data-open>
+      <span class="eyebrow"><i></i> Openingsuren</span>
+      <h3>Kom binnen</h3>
+      <span class="op"><i></i><span><b data-open-t></b> <span data-open-s></span></span></span>
+      <ul class="hours">
+        <li data-day="1" class="closed"><span>maandag</span><span>gesloten</span></li>
+        <li data-day="2"><span>dinsdag</span><span>8:00–12:30 · 13:30–18:00</span></li>
+        <li data-day="3"><span>woensdag</span><span>8:00–12:30 · 13:30–18:00</span></li>
+        <li data-day="4"><span>donderdag</span><span>8:00–12:30 · 13:30–18:00</span></li>
+        <li data-day="5"><span>vrijdag</span><span>8:00–12:30 · 13:30–18:00</span></li>
+        <li data-day="6"><span>zaterdag</span><span>8:00–17:00</span></li>
+        <li data-day="0" class="closed"><span>zondag</span><span>gesloten</span></li>
+      </ul>
+      <div class="row"><a class="btn" href="tel:+3214517803"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Bel 014 51 78 03</a><a class="btn white" href="https://www.google.com/maps/dir/?api=1&destination=Boudewijnstraat+13+2280+Grobbendonk" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-navigation"/></svg> Route</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="paper-edge" style="margin-top:-80px;margin-bottom:66px"></div>
+  <div class="wrap">
+    <div class="fg">
+      <div><a class="logo" href="#top"><img src="img/c-kn.webp" alt="" width="311" height="400"><span><b>Slagerij Raf Boen</b><small>Kempisch Natuurvlees</small></span></a><p>De slager van Grobbendonk sinds 1996. Vers vlees, charcuterie, frikadellen en traiteur.</p></div>
+      <div><h4>Winkel</h4><ul><li>Boudewijnstraat 13</li><li>2280 Grobbendonk</li><li><a href="tel:+3214517803">014 51 78 03</a></li><li><a href="https://www.facebook.com/search/top?q=Slagerij%20Raf%20Boen" target="_blank" rel="noopener">Facebook</a></li></ul></div>
+      <div><h4>Uren</h4><ul><li>Di tot vr: 8–12u30, 13u30–18u</li><li>Za: 8–17u</li><li>Zo en ma: gesloten</li></ul></div>
+    </div>
+    <div class="legal"><span>© Slagerij Raf Boen, Grobbendonk · BE 0701.468.168</span><span>Voorbeeldsite door <a href="https://digital-impression.be" target="_blank" rel="noopener">Digital Impression</a></span></div>
+  </div>
+</footer>
+
+<div class="mbar"><a class="btn" href="tel:+3214517803"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Bellen</a><a class="btn white" href="https://www.google.com/maps/dir/?api=1&destination=Boudewijnstraat+13+2280+Grobbendonk" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-navigation"/></svg> Route</a></div>
+
+<script>window.HOURS={0:[],1:[],2:[[480,750],[810,1080]],3:[[480,750],[810,1080]],4:[[480,750],[810,1080]],5:[[480,750],[810,1080]],6:[[480,1020]]};</script>
+<script>(()=>{
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+/* Brussels time, so a visitor abroad sees the shop's real state */
+const now=(off=0)=>{const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Brussels',weekday:'short',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date(Date.now()+off*864e5));const g=t=>p.find(x=>x.type===t).value;return{d:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(g('weekday')),m:(+g('hour')%24)*60+(+g('minute')),ymd:g('year')+'-'+g('month')+'-'+g('day')}};
+window.DI={now,$,$$};
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px',threshold:.08});
+$$('[data-r]').forEach((el,i)=>{if(RM){el.classList.add('in');return}const st=el.dataset.r;if(st)el.style.setProperty('--d',st+'ms');io.observe(el)});
+/* counters */
+const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;co.unobserve(e.target);const el=e.target,to=parseFloat(el.dataset.count),dec=(el.dataset.count.split(/[.,]/)[1]||'').length,dur=1400,t0=performance.now();const fmt=v=>v.toFixed(dec).replace('.',',');if(RM){el.textContent=fmt(to);return}const step=t=>{const k=Math.min(1,(t-t0)/dur),e2=1-Math.pow(1-k,3);el.textContent=fmt(to*e2);if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}),{threshold:.6});
+$$('[data-count]').forEach(el=>co.observe(el));
+/* header state */
+const hd=$('[data-head]');if(hd){const f=()=>hd.classList.toggle('scrolled',scrollY>30);f();addEventListener('scroll',f,{passive:true})}
+/* opening hours: window.HOURS = {1:[[420,1110]],...} minutes, 0=sunday */
+const H=window.HOURS;
+const hm=m=>{const h=Math.floor(m/60),mm=m%60;return h+'u'+(mm?String(mm).padStart(2,'0'):'')};
+const days=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+const SP=window.SPECIAL||{};const hrs=(off)=>{const n=now(off);return SP[n.ymd]||H[n.d]||[]};
+window.DI.hrs=hrs;
+window.DI.status=()=>{if(!H)return null;const{d,m}=now();const t=hrs(0);for(const[a,b]of t){if(m>=a&&m<b)return{open:true,txt:'Nu open',sub:'tot '+hm(b),close:b,m}}
+ const later=t.find(([a])=>a>m);if(later)return{open:false,txt:'Nu gesloten',sub:'open om '+hm(later[0])};
+ for(let i=1;i<8;i++){const dd=(d+i)%7,tt=hrs(i);if(tt.length)return{open:false,txt:'Nu gesloten',sub:'open '+(i===1?'morgen':days[dd])+' om '+hm(tt[0][0])}}return null};
+const st=window.DI.status();
+if(st)$$('[data-open]').forEach(el=>{el.classList.toggle('is-open',st.open);el.classList.toggle('is-closed',!st.open);const a=$('[data-open-t]',el),b=$('[data-open-s]',el);if(a)a.textContent=st.txt;if(b)b.textContent=st.sub});
+$$('[data-today]').forEach(tb=>{const{d}=now();const r=tb.querySelector(`[data-day="${d}"]`);if(r)r.classList.add('today')});
+/* tabs */
+$$('[data-tabs]').forEach(w=>{const bs=$$('[data-tab]',w),ps=$$('[data-panel]',w);const set=k=>{bs.forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===k));ps.forEach(p=>p.hidden=p.dataset.panel!==k);w.dispatchEvent(new CustomEvent('tab',{detail:k}))};bs.forEach(b=>b.addEventListener('click',()=>set(b.dataset.tab)));w._set=set});
+$$('[data-goto-tab]').forEach(a=>a.addEventListener('click',()=>{const [sel,k]=a.dataset.gotoTab.split('|');const w=$(sel);if(w&&w._set)w._set(k)}));
+/* accordion */
+$$('[data-acc] > button').forEach(b=>b.addEventListener('click',()=>{const it=b.parentElement,o=it.classList.toggle('open');b.setAttribute('aria-expanded',o)}));
+/* marquee: duplicate content for a seamless loop */
+$$('[data-marquee]').forEach(m=>{const t=m.firstElementChild;if(!t)return;m.appendChild(t.cloneNode(true)).setAttribute('aria-hidden','true')});
+/* gentle parallax for decorative layers */
+if(!RM&&innerWidth>900){const px=$$('[data-px]');if(px.length){let tk=false;const run=()=>{const vh=innerHeight;px.forEach(el=>{const r=el.getBoundingClientRect();const c=(r.top+r.height/2-vh/2)/vh;el.style.translate=`0 ${(c*parseFloat(el.dataset.px)).toFixed(1)}px`});tk=false};addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(run)}},{passive:true});run()}}
+/* mobile menu */
+const mb=$('[data-menu-btn]'),mn=$('[data-menu]');if(mb&&mn){mb.addEventListener('click',()=>{const o=document.body.classList.toggle('menu-open');mb.setAttribute('aria-expanded',o)});$$('a',mn).forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-open')))}
+})();
+</script>
+<script>
+(()=>{const{$,now}=DI;const{d}=now();const diff=(4-d+7)%7;
+$('#cdt').textContent=diff===0?'Vandaag is het frikadellendag!':diff===1?'Morgen is het frikadellendag':'Nog '+diff+' dagen tot frikadellendag';
+if(diff===0)$('#cd').style.borderColor='#F6D27A';
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>NY Beauty Lounge · Eén salon, meerdere specialisten · Maasmechelen</title>
+<meta name="description" content="Wimpers, brows, PMU, nagels, huid, laser, haar en visagie bij NY Beauty Lounge in Maasmechelen. Eén salon, meerdere specialisten, elke dag open.">
+<link rel="preload" href="img/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:Bricolage;src:url(img/bricolage.woff2) format('woff2');font-weight:300 800;font-display:swap}
+@font-face{font-family:ISerif;src:url(img/iserif-i.woff2) format('woff2');font-style:italic;font-display:swap}
+@font-face{font-family:ISerif;src:url(img/iserif.woff2) format('woff2');font-display:swap}
+:root{
+  --bg:#F4EEE8;--paper:#FFFBF7;--nude:#EAD8CC;--blush:#F2CFC8;--blush-2:#E8AFA6;--cherry:#B82843;--cherry-d:#8E1A31;--lilac:#DCD3F0;--sage:#D8E3D3;--butter:#F5E3A8;
+  --ink:#1B1717;--ink-2:#3A3232;--muted:#7D706B;--line:rgba(27,23,23,.12);
+  --f-d:Bricolage,'Helvetica Neue',Arial,sans-serif;--f-s:ISerif,'Times New Roman',serif;
+  --sh:0 2px 6px rgba(27,23,23,.05),0 18px 40px -18px rgba(27,23,23,.3);--sh-l:0 40px 80px -30px rgba(27,23,23,.45);
+  --w:1260px;--ease:cubic-bezier(.2,.7,.2,1)
+}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{font:400 17px/1.6 var(--f-d);font-variation-settings:"opsz" 14;color:var(--ink);background:var(--bg);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.ic{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.wrap{width:min(100% - 48px,var(--w));margin-inline:auto}
+h1,h2,h3{font-family:var(--f-d);font-weight:700;line-height:.98;letter-spacing:-.035em;color:var(--ink);font-variation-settings:"opsz" 96}
+h2{font-size:clamp(2.4rem,5vw,4.4rem)}
+h3{font-size:1.6rem;letter-spacing:-.02em}
+em.s,.s{font-family:var(--f-s);font-style:italic;font-weight:400;letter-spacing:-.01em}
+.eyebrow{display:inline-flex;align-items:center;gap:.6em;font:600 .8rem/1 var(--f-d);letter-spacing:.06em;text-transform:uppercase;color:var(--cherry)}
+.eyebrow b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--bg);font-size:.72rem;letter-spacing:0}
+.lead{font-size:1.12rem;color:var(--muted);max-width:52ch}
+.btn{--bg:var(--ink);--fg:#F4EEE8;display:inline-flex;align-items:center;gap:.6em;padding:1em 1.55em;border-radius:999px;background:var(--bg);color:var(--fg);font-weight:600;font-size:.98rem;text-decoration:none;transition:transform .35s var(--ease),background .3s,color .3s,box-shadow .3s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 30px -14px rgba(27,23,23,.6)}
+.btn .ic:last-child{transition:transform .35s var(--ease)}.btn:hover .ic:last-child{transform:translate(2px,-2px)}
+.btn.cherry{--bg:var(--cherry);--fg:#fff}
+.btn.line{--bg:transparent;--fg:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn.line:hover{--bg:var(--ink);--fg:#F4EEE8}
+.btn.light{--bg:var(--paper);--fg:var(--ink)}
+[data-r]{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease) var(--d,0ms),transform .9s var(--ease) var(--d,0ms)}
+[data-r].in{opacity:1;transform:none}
+.sticker{position:absolute;z-index:4;display:grid;place-items:center;text-align:center;border-radius:50%;font-weight:700;line-height:1.05;box-shadow:var(--sh)}
+
+.demo{position:relative;z-index:60;background:var(--ink);color:#E9DFD9;font-size:.83rem;text-align:center;padding:.55em 1em}
+.demo a{color:#fff;font-weight:700;text-underline-offset:3px}
+
+.head{position:sticky;top:0;z-index:50;transition:background .4s,box-shadow .4s}
+.head.scrolled{background:rgba(244,238,232,.86);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);box-shadow:0 1px 0 var(--line)}
+.head .wrap{display:flex;align-items:center;gap:28px;height:84px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo .m{width:46px;height:46px;border-radius:50%;background:var(--ink);color:var(--bg);display:flex;align-items:center;justify-content:center;gap:1px;font:800 1.02rem/1 var(--f-d);letter-spacing:-.04em}
+.logo .m i{font:italic 400 1.15rem/1 var(--f-s);color:var(--blush)}
+.logo b{display:block;font:700 1.18rem/1 var(--f-d);letter-spacing:-.02em}
+.logo small{display:block;font-size:.72rem;color:var(--muted);margin-top:3px}
+.nav{display:flex;gap:2px;margin-left:auto}
+.nav a{padding:.55em .9em;border-radius:999px;text-decoration:none;font-weight:500;font-size:.95rem;transition:background .25s}
+.nav a:hover{background:rgba(27,23,23,.06)}
+.op{display:inline-flex;align-items:center;gap:.55em;font-size:.86rem;color:var(--muted);white-space:nowrap}
+.op i{width:9px;height:9px;border-radius:50%;background:#bbb;position:relative}
+.is-open .op i,.op.is-open i{background:#2BA36B}
+.is-open .op i::after,.op.is-open i::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid #2BA36B;animation:ping 2s infinite}
+.is-closed .op i,.op.is-closed i{background:var(--cherry)}
+.op b{color:var(--ink);font-weight:600}
+@keyframes ping{0%{transform:scale(.4);opacity:.9}80%,100%{transform:scale(1.4);opacity:0}}
+.head .btn{padding:.8em 1.2em;font-size:.92rem}
+.menu-btn{display:none;width:46px;height:46px;border-radius:50%;background:var(--ink);color:var(--bg);align-items:center;justify-content:center;margin-left:auto}
+
+/* hero */
+.hero{position:relative;padding:40px 0 120px;overflow:hidden}
+.hero h1{font-size:clamp(3.4rem,9vw,8.6rem);line-height:.88;letter-spacing:-.055em}
+.hero h1 .s{font-weight:400;color:var(--cherry);letter-spacing:-.03em}
+.hero .top{display:grid;grid-template-columns:1.4fr .6fr;gap:40px;align-items:end}
+.hero .top .side{padding-bottom:16px}
+.hero .lead{margin-bottom:26px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:10px}
+.collage{position:relative;display:grid;grid-template-columns:1.1fr .8fr 1fr .9fr;gap:18px;margin-top:56px;align-items:end}
+.collage figure{position:relative;border-radius:28px;overflow:hidden;box-shadow:var(--sh);background:var(--nude)}
+.collage figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.collage figure:hover img{transform:scale(1.05)}
+.collage .c1{height:420px}.collage .c2{height:300px}.collage .c3{height:480px}.collage .c4{height:340px}
+.collage figcaption{position:absolute;left:12px;bottom:12px;padding:.45em .85em;border-radius:999px;background:rgba(255,251,247,.92);font-size:.8rem;font-weight:600}
+.st1{width:130px;height:130px;background:var(--cherry);color:#fff;left:-20px;top:-40px;rotate:-12deg;font-size:.95rem}
+.st1 b{display:block;font-size:2.2rem;letter-spacing:-.04em}
+.st2{width:120px;height:120px;background:var(--butter);color:var(--ink);right:24%;top:-50px;rotate:10deg;font-size:.9rem;animation:wob 6s ease-in-out infinite}
+@keyframes wob{0%,100%{rotate:10deg}50%{rotate:2deg}}
+.st3{right:-10px;bottom:30px;width:140px;height:140px;background:var(--ink);color:var(--bg)}
+.st3 svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 20s linear infinite}
+.st3 span{font:italic 400 1.6rem/1 var(--f-s);color:var(--blush)}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* marquee */
+.mq{background:var(--ink);color:var(--bg);overflow:hidden;padding:22px 0}
+.mq [data-marquee]{display:flex;width:max-content;animation:mq 40s linear infinite}
+.mq ul{display:flex;list-style:none;padding:0}
+.mq li{display:flex;align-items:center;gap:28px;padding-right:28px;font:700 2rem/1 var(--f-d);letter-spacing:-.03em;white-space:nowrap;font-variation-settings:"opsz" 96}
+.mq li:nth-child(even){font:italic 400 2.1rem/1 var(--f-s);color:var(--blush);letter-spacing:0}
+.mq li svg{width:22px;height:22px;color:var(--cherry)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{position:relative}
+.sec{padding:140px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:60px}
+.sec-head h2{max-width:14ch;margin-top:18px}
+.sec-head .lead{max-width:40ch}
+
+/* concept */
+.concept .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+.concept .pic{position:relative}
+.concept .pic figure{border-radius:34px;overflow:hidden;box-shadow:var(--sh-l)}
+.concept .pic img{width:100%;aspect-ratio:1.25;object-fit:cover}
+.concept .pic .hi{position:absolute;left:24px;bottom:-30px;display:flex;align-items:center;gap:14px;background:var(--paper);border-radius:22px;padding:14px 20px 14px 14px;box-shadow:var(--sh-l)}
+.concept .pic .hi .av{display:flex}
+.concept .pic .hi .av span{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:.85rem;border:3px solid var(--paper);margin-left:-10px}
+.concept .pic .hi .av span:first-child{margin-left:0;background:var(--blush)}.concept .pic .hi .av span:nth-child(2){background:var(--lilac)}.concept .pic .hi .av span:nth-child(3){background:var(--sage)}
+.concept .pic .hi b{display:block;font-size:.98rem}.concept .pic .hi small{font-size:.82rem;color:var(--muted)}
+.concept h2{margin:18px 0 22px}
+.concept p{color:var(--muted);max-width:52ch;margin-bottom:16px}
+.people{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}
+.pp{padding:20px;border-radius:24px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--line);transition:transform .4s var(--ease),box-shadow .4s}
+.pp:hover{transform:translateY(-3px);box-shadow:var(--sh)}
+.pp .nm{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.pp .nm span{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font:italic 400 1.4rem/1 var(--f-s)}
+.pp:nth-child(1) .nm span{background:var(--blush)}.pp:nth-child(2) .nm span{background:var(--lilac)}
+.pp b{font-size:1.15rem;letter-spacing:-.02em}
+.pp p{font-size:.9rem;margin:0}
+.pp a{font-size:.86rem;color:var(--cherry);text-decoration:none;font-weight:600}
+.pp.more{grid-column:1/-1;display:flex;align-items:center;gap:14px;background:var(--ink);color:#D6CBC4}
+.pp.more .ic{width:42px;height:42px;padding:10px;border-radius:50%;background:rgba(255,255,255,.1);color:var(--blush)}
+.pp.more b{color:#fff}
+
+/* disciplines */
+.disc{background:var(--paper)}
+.dgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.dc{position:relative;border-radius:28px;overflow:hidden;min-height:330px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;background:var(--b,var(--nude));text-decoration:none;transition:transform .5s var(--ease),box-shadow .5s;isolation:isolate}
+.dc:hover{transform:translateY(-6px);box-shadow:var(--sh-l)}
+.dc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s var(--ease),opacity .5s}
+.dc:hover img{transform:scale(1.06)}
+.dc.ph::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(27,23,23,.0) 30%,rgba(27,23,23,.78))}
+.dc.ph{color:#fff}.dc.ph h3{color:#fff}
+.dc .no{font:italic 400 1.3rem/1 var(--f-s);opacity:.8}
+.dc h3{font-size:1.9rem;margin-bottom:6px}
+.dc p{font-size:.9rem;opacity:.85;line-height:1.45}
+.dc .from{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:.85rem}
+.dc .from b{font-size:1.25rem;letter-spacing:-.02em}
+.dc .go{width:42px;height:42px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;transition:transform .4s var(--ease)}
+.dc.ph .go{background:var(--paper);color:var(--ink)}
+.dc:hover .go{transform:rotate(45deg)}
+
+/* finder */
+.finder{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;margin-top:100px;align-items:start}
+.finder .side{position:sticky;top:110px;border-radius:30px;background:var(--ink);color:#D6CBC4;padding:34px}
+.finder .side h3{color:#fff;font-size:2.2rem;margin:14px 0 12px}
+.finder .side .eyebrow{color:var(--blush)}.finder .side .eyebrow b{background:var(--blush);color:var(--ink)}
+.finder .side p{font-size:.95rem}
+.finder .side .free{display:flex;gap:12px;align-items:center;margin-top:22px;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.07)}
+.finder .side .free .ic{color:var(--butter);width:24px;height:24px}
+.finder .side .free b{color:#fff;display:block}
+.finder .side .btn{margin-top:22px}
+.sbar{display:flex;align-items:center;gap:12px;padding:14px 20px;border-radius:999px;background:var(--bg);box-shadow:inset 0 0 0 1px var(--line);color:var(--muted)}
+.sbar input{border:0;outline:0;background:none;font:inherit;font-size:1.05rem;width:100%;color:var(--ink)}
+.sbar .n{white-space:nowrap;font-size:.86rem}
+.cats{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 10px}
+.cats button{padding:.55em 1em;border-radius:999px;font-weight:600;font-size:.9rem;box-shadow:inset 0 0 0 1px var(--line);transition:background .25s,color .25s}
+.cats button[aria-pressed=true]{background:var(--cherry);color:#fff;box-shadow:none}
+.res{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:16px 6px;border-bottom:1px solid var(--line);animation:fi .4s var(--ease) both}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}}
+.res span{font-weight:500}
+.res small{display:block;font-size:.8rem;color:var(--muted);font-weight:400;margin-top:2px}
+.res b{font-size:1.25rem;letter-spacing:-.02em;white-space:nowrap}
+.res b s{font-size:.85rem;color:var(--muted);font-weight:400;margin-right:6px}
+.empty{padding:30px 6px;color:var(--muted)}
+.more-btn{margin-top:18px}
+
+/* lips */
+.lips{padding:140px 0}
+.lips .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.ba{position:relative;border-radius:34px;overflow:hidden;aspect-ratio:589/885;max-height:640px;width:100%;box-shadow:var(--sh-l);user-select:none;touch-action:pan-y;cursor:ew-resize;margin-inline:auto;max-width:430px}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba .after{clip-path:inset(0 0 0 var(--x,50%))}
+.ba .bar{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;background:#fff;transform:translateX(-1px)}
+.ba .knob{position:absolute;top:50%;left:var(--x,50%);transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--ink);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.ba .lb{position:absolute;top:18px;padding:.45em .85em;border-radius:999px;background:rgba(27,23,23,.7);color:#fff;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.ba .lb.l{left:18px}.ba .lb.r{right:18px;background:var(--cherry)}
+.lips h2{margin:18px 0 20px}
+.lips p{color:var(--muted);max-width:50ch;margin-bottom:16px}
+.pmu{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0}
+.pmu div{padding:16px 18px;border-radius:20px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--line)}
+.pmu b{display:block;font-size:1.05rem}
+.pmu span{font-size:.88rem;color:var(--muted)}
+
+/* deals */
+.deals{background:var(--blush);padding:140px 0}
+.dl{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.deal{position:relative;border-radius:30px;padding:32px;background:var(--paper);min-height:320px;display:flex;flex-direction:column;overflow:hidden;box-shadow:var(--sh)}
+.deal .tag{align-self:flex-start;padding:.45em .9em;border-radius:999px;background:var(--cherry);color:#fff;font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.deal h3{font-size:2rem;margin:20px 0 10px;max-width:11ch}
+.deal p{color:var(--muted);font-size:.95rem;flex:1}
+.deal .pr{display:flex;align-items:baseline;gap:12px;margin-top:20px}
+.deal .pr b{font-size:3.4rem;letter-spacing:-.05em;line-height:1}
+.deal .pr s{font-size:1.2rem;color:var(--muted)}
+.deal img{position:absolute;right:-36px;top:-36px;width:130px;height:130px;border-radius:50%;object-fit:cover;border:8px solid var(--blush);opacity:.95}
+.deal.dark{background:var(--ink);color:#D6CBC4}.deal.dark h3{color:#fff}.deal.dark .pr b{color:#fff}.deal.dark p{color:#B6A9A2}.deal.dark .tag{background:var(--butter);color:var(--ink)}
+.deal.dark img{border-color:var(--ink)}
+
+/* reviews */
+.rv{padding:140px 0}
+.rvg{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start}
+.score .num{display:block;font-size:9rem;letter-spacing:-.07em;line-height:.8;font-weight:800}
+.score .stars{display:flex;gap:3px;color:var(--cherry);margin:14px 0 8px}
+.score .stars .ic{width:22px;height:22px;fill:currentColor;stroke:none}
+.score small{color:var(--muted)}
+.rcs{display:grid;gap:16px}
+.rc{position:relative;padding:28px 30px;border-radius:28px;background:var(--paper);box-shadow:var(--sh);display:grid;grid-template-columns:auto 1fr;gap:18px}
+.rc:nth-child(2){margin-left:60px;background:var(--lilac)}
+.rc:nth-child(3){margin-left:20px}
+.rc .av{width:50px;height:50px;border-radius:50%;background:var(--blush);display:grid;place-items:center;font-weight:700}
+.rc:nth-child(2) .av{background:var(--paper)}
+.rc q{display:block;quotes:none;font:italic 400 1.45rem/1.3 var(--f-s);color:var(--ink)}
+.rc .who{margin-top:12px;font-size:.86rem;color:var(--muted)}
+.rc .who b{color:var(--ink);font-weight:600}
+
+/* room */
+.room{padding:0 0 140px}
+.rm{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;border-radius:40px;background:var(--lilac);padding:60px;overflow:hidden}
+.rm h2{margin:16px 0 16px;max-width:15ch}
+.rm p{max-width:48ch;color:var(--ink-2)}
+.rm .key{position:relative;height:260px}
+.rm .key .door{position:absolute;inset:0 20% 0 20%;border-radius:120px 120px 16px 16px;background:var(--paper);box-shadow:var(--sh-l);display:grid;place-items:center;text-align:center}
+.rm .key .door b{display:block;font-size:4.6rem;letter-spacing:-.06em;line-height:1}
+.rm .key .door span{font-size:.9rem;color:var(--muted)}
+.rm .key .door i{position:absolute;right:22px;top:52%;width:12px;height:12px;border-radius:50%;background:var(--cherry)}
+
+/* visit */
+.visit{padding:0 0 150px}
+.vg{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.vi{border-radius:34px;background:var(--paper);padding:46px;box-shadow:var(--sh)}
+.vi h2{margin:16px 0 8px}
+.vi .op{margin:12px 0 10px}
+.hours{list-style:none;padding:0;margin:10px 0 24px}
+.hours li{display:flex;justify-content:space-between;padding:10px 14px;border-radius:12px;font-size:.96rem}
+.hours li.today{background:var(--ink);color:var(--bg);font-weight:600}
+.hours li.today span:first-child::after{content:" · vandaag";font-weight:400;color:var(--blush)}
+.vrow{display:flex;gap:10px;flex-wrap:wrap}
+.vl{display:flex;flex-wrap:wrap;gap:20px;margin-top:24px;font-size:.94rem}
+.vl a{display:inline-flex;align-items:center;gap:.5em;text-decoration:none}
+.vl .ic{color:var(--cherry)}
+.vmap{position:relative;border-radius:34px;overflow:hidden;background:var(--ink);color:#fff;min-height:520px;padding:40px;display:flex;flex-direction:column;justify-content:flex-end}
+.vmap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.vmap>*{position:relative}
+.vmap b{font-size:2.6rem;letter-spacing:-.04em;line-height:1}
+.vmap span{opacity:.8}
+.vmap .seven{position:absolute;right:30px;top:30px;width:120px;height:120px;border-radius:50%;background:var(--butter);color:var(--ink);display:grid;place-items:center;text-align:center;font-weight:700;rotate:8deg;line-height:1.1}
+.vmap .seven b{font-size:2.4rem}
+
+.foot{background:var(--ink);color:#B6A9A2;padding:90px 0 40px;overflow:hidden;position:relative}
+.foot .big{font:800 clamp(4rem,14vw,13rem)/.85 var(--f-d);letter-spacing:-.07em;color:rgba(255,255,255,.05);white-space:nowrap;margin-bottom:-.12em}
+.fg{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:60px}
+.foot .logo b{color:#fff}.foot .logo small{color:#8C7F79}.foot .logo .m{background:var(--blush);color:var(--ink)}.foot .logo .m i{color:var(--cherry)}
+.foot p{max-width:32ch;margin-top:16px;font-size:.92rem}
+.foot h4{font:600 .8rem/1 var(--f-d);letter-spacing:.06em;text-transform:uppercase;color:var(--blush);margin-bottom:16px}
+.foot ul{list-style:none;padding:0;display:grid;gap:9px;font-size:.94rem}
+.foot a{text-decoration:none}.foot a:hover{color:#fff}
+.legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);font-size:.8rem;color:#8C7F79}
+.legal a{color:#E9DFD9}
+.mbar{display:none}
+
+@media (max-width:1080px){
+  .nav,.head .op,.head .btn{display:none}
+  .menu-btn{display:inline-flex}
+  body.menu-open .nav{display:flex;position:fixed;inset:118px 16px auto;flex-direction:column;background:var(--paper);padding:14px;border-radius:24px;box-shadow:var(--sh-l)}
+  .hero .top,.concept .wrap,.finder,.lips .wrap,.rvg,.rm,.vg{grid-template-columns:1fr}
+  .collage{grid-template-columns:1fr 1fr}.collage .c1,.collage .c3{height:380px}.collage .c2,.collage .c4{height:300px}
+  .dgrid{grid-template-columns:1fr 1fr}
+  .finder .side{position:relative;top:0}
+  .dl{grid-template-columns:1fr}
+  .rc:nth-child(2),.rc:nth-child(3){margin-left:0}
+  .fg{grid-template-columns:1fr 1fr}
+  .sec-head{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 32px)}
+  .head .wrap{height:70px}
+  .hero{padding:20px 0 90px}
+  .collage{gap:10px;margin-top:40px}.collage .c1,.collage .c3{height:260px}.collage .c2,.collage .c4{height:210px}
+  .st1{width:96px;height:96px;font-size:.74rem;left:-6px;top:-30px}.st1 b{font-size:1.6rem}
+  .st2{width:92px;height:92px;font-size:.72rem;right:6px;top:-36px}
+  .st3{display:none}
+  .sec,.lips,.deals,.rv{padding:96px 0}
+  .people{grid-template-columns:1fr}
+  .dgrid{grid-template-columns:1fr 1fr;gap:10px}.dc{min-height:230px;padding:16px;border-radius:22px}.dc h3{font-size:1.35rem}.dc p{display:none}.dc .go{width:34px;height:34px}
+  .finder{margin-top:70px}
+  .res b{font-size:1.1rem}
+  .pmu{grid-template-columns:1fr}
+  .score .num{font-size:6.4rem}
+  .rc{grid-template-columns:1fr;padding:24px}
+  .rm{padding:40px 24px}.rm .key{height:220px}
+  .vi{padding:32px 22px}.vmap{min-height:380px;padding:28px}
+  .fg{grid-template-columns:1fr}
+  .mq li{font-size:1.5rem}.mq li:nth-child(even){font-size:1.6rem}
+  .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:70;gap:8px;padding:8px;border-radius:999px;background:rgba(27,23,23,.95);backdrop-filter:blur(10px);box-shadow:0 20px 40px -12px rgba(0,0,0,.5)}
+  .mbar a{flex:1;justify-content:center;padding:.85em 1em;font-size:.92rem}
+  .foot{padding-bottom:120px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-calendar-heart" viewBox="0 0 24 24"><path d="M12.127 21H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v5.125" /> <path d="M14.62 17.8A2.25 2.25 0 1118 14.836a2.25 2.25 0 113.38 2.966l-2.626 2.856a.998.998 0 01-1.507 0z" /> <path d="M16 2v3" /> <path d="M3 9h18" /> <path d="M8 2v3" /></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 5h16" /> <path d="M4 12h16" /> <path d="M4 19h16" /></symbol><symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10" /> <path d="M7 17 17 7" /></symbol><symbol id="i-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34" /> <circle cx="11" cy="11" r="8" /></symbol><symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <path d="M16 3.128a4 4 0 0 1 0 7.744" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <circle cx="9" cy="7" r="4" /></symbol><symbol id="i-messages-square" viewBox="0 0 24 24"><path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" /> <path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1" /></symbol><symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol><symbol id="i-move-horizontal" viewBox="0 0 24 24"><path d="m18 8 4 4-4 4" /> <path d="M2 12h20" /> <path d="m6 8-4 4 4 4" /></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></symbol><symbol id="i-mail" viewBox="0 0 24 24"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /> <rect x="2" y="4" width="20" height="16" rx="2" /></symbol><symbol id="i-phone" viewBox="0 0 24 24"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></symbol><symbol id="i-navigation" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11" /></symbol><symbol id="i-camera" viewBox="0 0 24 24"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" /> <circle cx="12" cy="13" r="3" /></symbol></defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="star4" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.6 5.6 3.4 9.4 12 12-8.6 2.6-11.4 6.4-12 12-.6-5.6-3.4-9.4-12-12C8.6 9.4 11.4 5.6 12 0z"/></symbol>
+</defs></svg>
+
+<div class="demo">Voorbeeldsite van Digital Impression voor NY Beauty Lounge. Benieuwd wat zoiets kost? <a href="https://wa.me/32496251445?text=Hallo%20Stijn%2C%20ik%20zag%20de%20voorbeeldsite%20voor%20NY%20Beauty%20Lounge." target="_blank" rel="noopener">Stuur Stijn een bericht</a></div>
+
+<header class="head" data-head>
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="m">N<i>y</i></span><span><b>NY Beauty Lounge</b><small>Pauwengraaf · Maasmechelen</small></span></a>
+    <nav class="nav" data-menu><a href="#concept">Het concept</a><a href="#behandelingen">Behandelingen</a><a href="#prijzen">Prijzen</a><a href="#acties">Acties</a><a href="#bezoek">Bezoek</a></nav>
+    <span class="op" data-open><i></i><span><b data-open-t></b> <span data-open-s></span></span></span>
+    <a class="btn" href="https://ny-beauty-lounge.salonized.com" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-calendar-heart"/></svg> Boek online</a>
+    <button class="menu-btn" data-menu-btn aria-label="Menu" aria-expanded="false"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div class="top">
+      <h1 data-r>Eén salon. <span class="s">Meerdere</span> specialisten.</h1>
+      <div class="side" data-r="120">
+        <p class="lead">Wimpers, brows, PMU, nagels, huid, laser, haar en visagie. Bij NY Beauty Lounge werkt elke specialist aan waar ze het best in is, onder één dak in Maasmechelen.</p>
+        <div class="cta"><a class="btn cherry" href="https://ny-beauty-lounge.salonized.com" target="_blank" rel="noopener">Boek je afspraak <svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a><a class="btn line" href="#prijzen"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg> Zoek een prijs</a></div>
+      </div>
+    </div>
+    <div class="collage" data-r="200">
+      <span class="sticker st1"><span><b>5,0</b>op Google</span></span>
+      <span class="sticker st2"><span>elke dag<br>open</span></span>
+      <figure class="c1" data-px="-14"><img src="img/blond.webp" alt="Lang blond haar met zachte golven" width="900" height="1200" fetchpriority="high"><figcaption>Haar</figcaption></figure>
+      <figure class="c2" data-px="10"><img src="img/volume.webp" alt="Volume wimperextensions" width="1000" height="851"><figcaption>Wimpers</figcaption></figure>
+      <figure class="c3" data-px="-22"><img src="img/nagels.webp" alt="Roze amandelnagels met glitter" width="900" height="1000"><figcaption>Nagels</figcaption></figure>
+      <figure class="c4" data-px="16"><img src="img/brows.webp" alt="Strakke wenkbrauwen na een behandeling" width="729" height="876"><figcaption>Brows</figcaption></figure>
+      <span class="sticker st3"><svg viewBox="0 0 120 120"><defs><path id="cir" d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0"/></defs><text font-size="10" font-weight="700" letter-spacing="2.4" fill="#F4EEE8" font-family="Bricolage,sans-serif"><textPath href="#cir">GRATIS INTAKEGESPREK · GRATIS INTAKEGESPREK ·</textPath></text></svg><span>free</span></span>
+    </div>
+  </div>
+</section>
+
+<div class="mq"><div data-marquee><ul>
+  <li>Russian volume<svg><use href="#star4"/></svg></li><li>powderbrows<svg><use href="#star4"/></svg></li><li>Biab<svg><use href="#star4"/></svg></li><li>lipblush<svg><use href="#star4"/></svg></li><li>Browlamination<svg><use href="#star4"/></svg></li><li>balayage<svg><use href="#star4"/></svg></li><li>Laserontharing<svg><use href="#star4"/></svg></li><li>soft glam<svg><use href="#star4"/></svg></li>
+</ul></div></div>
+
+<section class="sec concept" id="concept">
+  <div class="wrap">
+    <div class="pic" data-r>
+      <figure><img src="img/team.webp" alt="Drie specialisten van NY Beauty Lounge" loading="lazy" width="1300" height="851"></figure>
+      <div class="hi"><span class="av"><span>N</span><span>Y</span><span>+</span></span><div><b>Het team</b><small>elk met een eigen specialiteit</small></div></div>
+    </div>
+    <div>
+      <span class="eyebrow" data-r><b>01</b> Het concept</span>
+      <h2 data-r="80">Geen duizendpoot. Wel een specialist voor elk onderdeel.</h2>
+      <p data-r="120">Bij NY Beauty Lounge werken verschillende zelfstandige beautyprofessionals samen. De ene doet je wimpers, de andere je wenkbrauwen of je nagels. Elk in haar eigen ruimte, met haar eigen ervaring.</p>
+      <p data-r="140">Voor jou betekent dat: één adres, één boekingssite, en voor elke behandeling iemand die er elke dag mee bezig is.</p>
+      <div class="people" data-r="180">
+        <div class="pp"><div class="nm"><span>N</span><b>Nikky</b></div><p>Lashes, brows, PMU en nagels.</p><a href="https://www.instagram.com/ny.beautylounge" target="_blank" rel="noopener">@ny.beautylounge</a></div>
+        <div class="pp"><div class="nm"><span>Y</span><b>Yeliz</b></div><p>Permanente make-up, met powderbrows als specialiteit.</p><a href="https://www.instagram.com/nybeautyloungeyeliz" target="_blank" rel="noopener">@nybeautyloungeyeliz</a></div>
+        <div class="pp more"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg><div><b>En meer specialisten</b><span>Voor haar, huid, laser en visagie.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec disc" id="behandelingen">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow" data-r><b>02</b> Behandelingen</span><h2 data-r="80">Waar kom je voor?</h2></div>
+      <p class="lead" data-r="160">Acht specialiteiten onder één dak. Tik op een categorie en je ziet meteen alle prijzen.</p>
+    </div>
+    <div class="dgrid">
+      <a class="dc ph" href="#prijzen" data-cat="Wimpers" data-r><img src="img/wimpers.webp" alt="" loading="lazy" width="748" height="1037"><span class="no">01</span><div><h3>Wimpers</h3><p>Russian volume, one by one, hybrid en lashlift.</p><div class="from"><span>vanaf <b>€15</b></span><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span></div></div></a>
+      <a class="dc" href="#prijzen" data-cat="Wenkbrauwen" data-r="60" style="--b:var(--blush)"><span class="no">02</span><div><h3>Brows</h3><p>Lamination, henna, hybrid en shapen.</p><div class="from"><span>vanaf <b>€20</b></span><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span></div></div></a>
+      <a class="dc ph" href="#prijzen" data-cat="PMU" data-r="120"><img src="img/eyeliner.webp" alt="" loading="lazy" width="900" height="1000"><span class="no">03</span><div><h3>PMU</h3><p>Powderbrows, eyeliner, lipblush.</p><div class="from"><span>vanaf <b>€60</b></span><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span></div></div></a>
+      <a class="dc" href="#prijzen" data-cat="Nagels" data-r="180" style="--b:var(--lilac)"><span class="no">04</span><div><h3>Nagels</h3><p>Manicure, gellak, Biab, gel en pedicure.</p><div class="from"><span>vanaf <b>€20</b></span><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span></div></div></a>
+      <a class="dc" href="#prijzen" data-cat="Huid" data-r style="--b:var(--sage)"><span class="no">05</span><div><h3>Huid</h3><p>Clean facial, peelings, dermapen, dermaplaning.</p><div class="from"><span>vanaf <b>€80</b></span><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span></div></div></a>
+      <a class="dc" href="#prijzen" data-cat="Laser" data-r="60" style="--b:var(--butter)"><span class="no">06</span><div><h3>Laser</h3><p>Ontharing, tattoo of PMU verwijderen, tanden bleken.</p><div class="from"><span>vanaf <b>€25</b></span><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span></div></div></a>
+      <a class="dc ph" href="#prijzen" data-cat="Haar" data-r="120"><img src="img/blond.webp" alt="" loading="lazy" width="900" height="1200"><span class="no">07</span><div><h3>Haar</h3><p>Knippen, balayage, kleuren en extensions.</p><div class="from"><span>vanaf <b>€48</b></span><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span></div></div></a>
+      <a class="dc" href="#prijzen" data-cat="Visagie" data-r="180" style="--b:var(--nude)"><span class="no">08</span><div><h3>Visagie</h3><p>Soft glam, full glam en bruidsmake-up, ook op locatie.</p><div class="from"><span>vanaf <b>€60</b></span><span class="go"><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></span></div></div></a>
+    </div>
+
+    <div class="finder" id="prijzen">
+      <aside class="side" data-r>
+        <span class="eyebrow"><b>03</b> Prijzen</span>
+        <h3>Zoek je behandeling</h3>
+        <p>Alle prijzen van de Salonized-pagina, op één plek. Typ wat je zoekt, of kies een categorie.</p>
+        <div class="free"><svg class="ic" aria-hidden="true"><use href="#i-messages-square"/></svg><div><b>Gratis intakegesprek</b>voor PMU, brows, extensions en gelaat</div></div>
+        <a class="btn cherry" href="https://ny-beauty-lounge.salonized.com" target="_blank" rel="noopener">Boek via Salonized <svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+      </aside>
+      <div data-r="100">
+        <label class="sbar"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><input id="q" type="search" placeholder="Bijvoorbeeld lashlift, Biab of balayage" autocomplete="off"><span class="n" id="count"></span></label>
+        <div class="cats" id="cats"></div>
+        <div id="res"></div>
+        <button class="btn line more-btn" id="more" type="button">Toon alles <svg class="ic" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lips">
+  <div class="wrap">
+    <div class="ba" id="ba" data-r aria-label="Sleep om voor en na te vergelijken">
+      <img src="img/lip-voor.webp" alt="Lippen voor de lipblush" loading="lazy" width="589" height="885">
+      <img class="after" src="img/lip-na.webp" alt="Lippen na de lipblush" loading="lazy" width="590" height="885">
+      <span class="bar"></span><span class="knob"><svg class="ic" aria-hidden="true"><use href="#i-move-horizontal"/></svg></span>
+      <span class="lb l">Voor</span><span class="lb r">Na</span>
+    </div>
+    <div>
+      <span class="eyebrow" data-r><b>04</b> Permanente make-up</span>
+      <h2 data-r="80">Wakker worden met je make-up al op</h2>
+      <p data-r="120">Lipblush, powderbrows of een eyeliner die blijft zitten. Sleep over de foto en zie het verschil van een lipblush uit de salon.</p>
+      <div class="pmu" data-r="160"><div><b>Lipblush</b><span>75 minuten · €250</span></div><div><b>Powderbrows</b><span>90 minuten · nu €200</span></div><div><b>Eyeliner boven</b><span>60 minuten · €175</span></div><div><b>Nabehandeling brows</b><span>na 6 weken · €75</span></div></div>
+      <a class="btn" href="https://ny-beauty-lounge.salonized.com" target="_blank" rel="noopener" data-r="200">Plan een gratis intake <svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="deals" id="acties">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow" data-r><b>05</b> Acties</span><h2 data-r="80">Nu voordeliger</h2></div>
+      <p class="lead" data-r="160" style="color:var(--ink-2)">De acties die nu op de boekingspagina staan.</p>
+    </div>
+    <div class="dl">
+      <article class="deal" data-r><img src="img/brows.webp" alt="" loading="lazy" width="729" height="876"><span class="tag">promo</span><h3>Powderbrows</h3><p>Zachte, gepoederde wenkbrauwen die je niet elke ochtend moet tekenen.</p><div class="pr"><b>€200</b><s>€295</s></div></article>
+      <article class="deal dark" data-r="100"><span class="tag">actie</span><h3>Laser, volledig lichaam</h3><p>Laserontharing van top tot teen, in één sessie van ongeveer een uur.</p><div class="pr"><b>€200</b><s>€350</s></div></article>
+      <article class="deal" data-r="200"><img src="img/lashlift.webp" alt="" loading="lazy" width="800" height="1100"><span class="tag">combi</span><h3>Lashlift + browlamination</h3><p>Wimpers en wenkbrauwen in één afspraak. Handig, en je bent maar één keer onderweg.</p><div class="pr"><b>€99</b></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="rv">
+  <div class="wrap rvg">
+    <div class="score" data-r>
+      <span class="eyebrow"><b>06</b> Reviews</span>
+      <b class="num" data-count="5.0" style="margin-top:24px">5,0</b>
+      <span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span>
+      <small>67 reviews op Google</small>
+    </div>
+    <div class="rcs">
+      <article class="rc" data-r><span class="av">N</span><div><q>Zeer fijn geholpen en supertevreden met mijn brow lamination! De dames waren ontzettend vriendelijk en het resultaat is heel mooi geworden.</q><div class="who"><b>Naima Ouzahim</b> · op Google</div></div></article>
+      <article class="rc" data-r="100"><span class="av">M</span><div><q>Ik kom inmiddels al een jaar bij haar en ben nog steeds supertevreden! Ze werkt altijd ontzettend netjes en nauwkeurig.</q><div class="who"><b>Melissa van der Laan</b> · over haar wimpers</div></div></article>
+      <article class="rc" data-r="200"><span class="av">Y</span><div><q>Superfijn en gezellige beautysalon.</q><div class="who"><b>Yanaïka Jakubowski</b> · op Google</div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="room">
+  <div class="wrap">
+    <div class="rm" data-r>
+      <div>
+        <span class="eyebrow"><b>07</b> Voor specialisten</span>
+        <h2>Jouw eigen plek bij NY Beauty Lounge</h2>
+        <p>Ben je zelfstandig en zoek je een mooie ruimte, met collega's rond je? Er is nog één ruimte vrij. Bel of stuur een mail, dan kom je eens kijken.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:26px"><a class="btn" href="mailto:Nybeautylounge@hotmail.com?subject=Ruimte%20bij%20NY%20Beauty%20Lounge"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> Mail ons</a><a class="btn light" href="tel:+32469407528"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> 0469 40 75 28</a></div>
+      </div>
+      <div class="key"><div class="door"><div><b>1</b><span>ruimte nog vrij</span></div><i></i></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="bezoek">
+  <div class="wrap vg">
+    <div class="vi" data-r data-today data-open>
+      <span class="eyebrow"><b>08</b> Bezoek</span>
+      <h2>Pauwengraaf 96</h2>
+      <span class="op"><i></i><span><b data-open-t></b> <span data-open-s></span></span></span>
+      <ul class="hours">
+        <li data-day="1"><span>maandag</span><span>9:00 – 18:00</span></li>
+        <li data-day="2"><span>dinsdag</span><span>9:15 – 18:00</span></li>
+        <li data-day="3"><span>woensdag</span><span>9:00 – 18:00</span></li>
+        <li data-day="4"><span>donderdag</span><span>9:00 – 18:00</span></li>
+        <li data-day="5"><span>vrijdag</span><span>9:00 – 18:00</span></li>
+        <li data-day="6"><span>zaterdag</span><span>9:00 – 18:00</span></li>
+        <li data-day="0"><span>zondag</span><span>9:00 – 18:00</span></li>
+      </ul>
+      <div class="vrow"><a class="btn cherry" href="https://ny-beauty-lounge.salonized.com" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-calendar-heart"/></svg> Boek online</a><a class="btn line" href="https://www.google.com/maps/dir/?api=1&destination=Pauwengraaf+96+3630+Maasmechelen" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-navigation"/></svg> Route</a></div>
+      <div class="vl"><a href="tel:+32469407528"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> 0469 40 75 28</a><a href="mailto:Nybeautylounge@hotmail.com"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> Mail</a><a href="https://www.instagram.com/ny.beautylounge" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg> Instagram</a></div>
+    </div>
+    <div class="vmap" data-r="100"><img src="img/team.webp" alt="" loading="lazy" width="1300" height="851"><span class="seven"><span><b>7/7</b><br>open</span></span><b>NY Beauty Lounge</b><span>Pauwengraaf 96, 3630 Maasmechelen</span></div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="fg">
+      <div><a class="logo" href="#top"><span class="m">N<i>y</i></span><span><b>NY Beauty Lounge</b><small>Pauwengraaf · Maasmechelen</small></span></a><p>Eén salon, meerdere specialisten. Elke dag open, ook op zondag.</p></div>
+      <div><h4>Salon</h4><ul><li>Pauwengraaf 96</li><li>3630 Maasmechelen</li><li><a href="tel:+32469407528">0469 40 75 28</a></li></ul></div>
+      <div><h4>Specialiteiten</h4><ul><li>Wimpers en brows</li><li>PMU</li><li>Nagels en huid</li><li>Laser, haar, visagie</li></ul></div>
+      <div><h4>Volg</h4><ul><li><a href="https://www.instagram.com/ny.beautylounge" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.instagram.com/nybeautyloungeyeliz" target="_blank" rel="noopener">Instagram Yeliz</a></li><li><a href="https://ny-beauty-lounge.salonized.com" target="_blank" rel="noopener">Salonized</a></li></ul></div>
+    </div>
+    <div class="big">NY Beauty Lounge</div>
+    <div class="legal"><span>© NY Beauty Lounge, Maasmechelen</span><span>Voorbeeldsite door <a href="https://digital-impression.be" target="_blank" rel="noopener">Digital Impression</a></span></div>
+  </div>
+</footer>
+
+<div class="mbar"><a class="btn cherry" href="https://ny-beauty-lounge.salonized.com" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-calendar-heart"/></svg> Boek</a><a class="btn light" href="tel:+32469407528"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Bellen</a></div>
+
+<script>window.HOURS={0:[[540,1080]],1:[[540,1080]],2:[[555,1080]],3:[[540,1080]],4:[[540,1080]],5:[[540,1080]],6:[[540,1080]]};</script>
+<script>(()=>{
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+/* Brussels time, so a visitor abroad sees the shop's real state */
+const now=(off=0)=>{const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Brussels',weekday:'short',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date(Date.now()+off*864e5));const g=t=>p.find(x=>x.type===t).value;return{d:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(g('weekday')),m:(+g('hour')%24)*60+(+g('minute')),ymd:g('year')+'-'+g('month')+'-'+g('day')}};
+window.DI={now,$,$$};
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px',threshold:.08});
+$$('[data-r]').forEach((el,i)=>{if(RM){el.classList.add('in');return}const st=el.dataset.r;if(st)el.style.setProperty('--d',st+'ms');io.observe(el)});
+/* counters */
+const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;co.unobserve(e.target);const el=e.target,to=parseFloat(el.dataset.count),dec=(el.dataset.count.split(/[.,]/)[1]||'').length,dur=1400,t0=performance.now();const fmt=v=>v.toFixed(dec).replace('.',',');if(RM){el.textContent=fmt(to);return}const step=t=>{const k=Math.min(1,(t-t0)/dur),e2=1-Math.pow(1-k,3);el.textContent=fmt(to*e2);if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}),{threshold:.6});
+$$('[data-count]').forEach(el=>co.observe(el));
+/* header state */
+const hd=$('[data-head]');if(hd){const f=()=>hd.classList.toggle('scrolled',scrollY>30);f();addEventListener('scroll',f,{passive:true})}
+/* opening hours: window.HOURS = {1:[[420,1110]],...} minutes, 0=sunday */
+const H=window.HOURS;
+const hm=m=>{const h=Math.floor(m/60),mm=m%60;return h+'u'+(mm?String(mm).padStart(2,'0'):'')};
+const days=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+const SP=window.SPECIAL||{};const hrs=(off)=>{const n=now(off);return SP[n.ymd]||H[n.d]||[]};
+window.DI.hrs=hrs;
+window.DI.status=()=>{if(!H)return null;const{d,m}=now();const t=hrs(0);for(const[a,b]of t){if(m>=a&&m<b)return{open:true,txt:'Nu open',sub:'tot '+hm(b),close:b,m}}
+ const later=t.find(([a])=>a>m);if(later)return{open:false,txt:'Nu gesloten',sub:'open om '+hm(later[0])};
+ for(let i=1;i<8;i++){const dd=(d+i)%7,tt=hrs(i);if(tt.length)return{open:false,txt:'Nu gesloten',sub:'open '+(i===1?'morgen':days[dd])+' om '+hm(tt[0][0])}}return null};
+const st=window.DI.status();
+if(st)$$('[data-open]').forEach(el=>{el.classList.toggle('is-open',st.open);el.classList.toggle('is-closed',!st.open);const a=$('[data-open-t]',el),b=$('[data-open-s]',el);if(a)a.textContent=st.txt;if(b)b.textContent=st.sub});
+$$('[data-today]').forEach(tb=>{const{d}=now();const r=tb.querySelector(`[data-day="${d}"]`);if(r)r.classList.add('today')});
+/* tabs */
+$$('[data-tabs]').forEach(w=>{const bs=$$('[data-tab]',w),ps=$$('[data-panel]',w);const set=k=>{bs.forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===k));ps.forEach(p=>p.hidden=p.dataset.panel!==k);w.dispatchEvent(new CustomEvent('tab',{detail:k}))};bs.forEach(b=>b.addEventListener('click',()=>set(b.dataset.tab)));w._set=set});
+$$('[data-goto-tab]').forEach(a=>a.addEventListener('click',()=>{const [sel,k]=a.dataset.gotoTab.split('|');const w=$(sel);if(w&&w._set)w._set(k)}));
+/* accordion */
+$$('[data-acc] > button').forEach(b=>b.addEventListener('click',()=>{const it=b.parentElement,o=it.classList.toggle('open');b.setAttribute('aria-expanded',o)}));
+/* marquee: duplicate content for a seamless loop */
+$$('[data-marquee]').forEach(m=>{const t=m.firstElementChild;if(!t)return;m.appendChild(t.cloneNode(true)).setAttribute('aria-hidden','true')});
+/* gentle parallax for decorative layers */
+if(!RM&&innerWidth>900){const px=$$('[data-px]');if(px.length){let tk=false;const run=()=>{const vh=innerHeight;px.forEach(el=>{const r=el.getBoundingClientRect();const c=(r.top+r.height/2-vh/2)/vh;el.style.translate=`0 ${(c*parseFloat(el.dataset.px)).toFixed(1)}px`});tk=false};addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(run)}},{passive:true});run()}}
+/* mobile menu */
+const mb=$('[data-menu-btn]'),mn=$('[data-menu]');if(mb&&mn){mb.addEventListener('click',()=>{const o=document.body.classList.toggle('menu-open');mb.setAttribute('aria-expanded',o)});$$('a',mn).forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-open')))}
+})();
+</script>
+<script>
+(()=>{const{$,$$}=DI;
+const D=[
+['Wimpers','Russian Volume, nieuwe set','120 min',80],['Wimpers','Russian Volume, bijwerken na 2 weken','60 min',45],['Wimpers','Russian Volume, bijwerken na 3 weken','75 min',50],['Wimpers','Russian Volume, bijwerken na 4 weken','75 min',60],['Wimpers','One by one, nieuwe set','120 min',75],['Wimpers','One by one, bijwerken na 2 weken','60 min',40],['Wimpers','Hybrid, nieuwe set','120 min',80],['Wimpers','Touch-up binnen de week','30 min',25],['Wimpers','Wimpers bijwerken van een andere salon','75 min',60],['Wimpers','Lashlift','60 min',50],['Wimpers','Lashlift met tint','60 min',60],['Wimpers','Wimpers verven','15 min',15],
+['Wenkbrauwen','Browlamination met shapen','60 min',50],['Wenkbrauwen','Browlamination met shapen en hybrid tint','60 min',60],['Wenkbrauwen','Hybrid brows met shapen','45 min',50],['Wenkbrauwen','Henna brows met shapen','60 min',50],['Wenkbrauwen','Browshaping','20 min',20],['Wenkbrauwen','Browshaping met tint','25 min',30],['Wenkbrauwen','Lashlift en browlamination (combi)','90 min',99],
+['PMU','Powderbrows (promo)','90 min',200,295],['PMU','Nanobrows','90 min',305],['PMU','Combobrows','90 min',305],['PMU','Nabehandeling brows na 6 weken','45 min',75],['PMU','Eyeliner boven','60 min',175],['PMU','Eyeliner onder','45 min',100],['PMU','Eyeliner boven en onder','90 min',250],['PMU','Eyeliner boven met wing','60 min',225],['PMU','Smudge eyeliner','90 min',300],['PMU','Liplijn','60 min',180],['PMU','Liplijn met schaduw','60 min',200],['PMU','Lipblush','75 min',250],['PMU','Beautymark','15 min',60],
+['Huid','Clean facial','45 min',80],['Huid','Deep peel facial','50 min',90],['Huid','Dermaplaning','60 min',90],['Huid','Dermapen','75 min',100],['Huid','Biopeel','60 min',90],['Huid','Carbonpeeling (Hollywoodpeeling)','60 min',100],
+['Nagels','Manicure','60 min',25],['Nagels','Gellak op eigen nagels','60 min',35],['Nagels','Biab naturel','75 min',45],['Nagels','Biab met kleur of French','90 min',50],['Nagels','Gelnagels, nieuwe set met verlenging','140 min',60],['Nagels','Gelnagels bijwerken','100 min',40],['Nagels','Gelnagels verwijderen','20 min',20],['Nagels','Pedicure classic','60 min',25],['Nagels','Pedicure gellak','60 min',38],['Nagels','Pedicure Biab','60 min',40],
+['Haar','Wassen en brushen, kort','35 min',48],['Haar','Knippen kort haar met brushen','45 min',65],['Haar','Knippen halflang haar met brushen','60 min',80],['Haar','Knippen lang haar met brushen','75 min',95],['Haar','Balayage kort haar','75 min',70],['Haar','Balayage halflang haar','90 min',90],['Haar','Balayage lang haar','120 min',120],['Haar','Toner halflang haar','40 min',60],['Haar','Meches of highlights, vanaf','120 min',160],['Haar','Kleuring, knippen en brushen, lang haar','150 min',145],['Haar','Festief kapsel of opsteken','60 min',90],['Haar','Genius Weft extensions, 50 gram','30 min',250],['Haar','Genius Weft extensions, 100 gram','120 min',450],['Haar','Microring extensions, 50 stuks','30 min',200],
+['Laser','Laserontharing bovenlip','10 min',30],['Laser','Laserontharing oksels','10 min',45],['Laser','Laserontharing bikinilijn','15 min',50],['Laser','Laserontharing onderbenen','20 min',90],['Laser','Laserontharing benen volledig','30 min',170],['Laser','Laserontharing volledig lichaam (actie)','60 min',200,350],['Laser','Tattoo verwijderen met picolaser, tot 5 cm²','15 min',70],['Laser','PMU verwijderen, wenkbrauwen','15 min',90],['Laser','Tanden bleken, 1 × 20 min','30 min',25],['Laser','Tanden bleken, 3 × 20 min','70 min',75],
+['Visagie','Dag make-up of soft glam','60 min',60],['Visagie','Avond make-up of full glam','75 min',75],['Visagie','Festival make-up','75 min',80],['Visagie','Bruidsmake-up met proef','90 min',195],['Visagie','Bruidsmake-up en kapsel met proef','160 min',320]];
+const cats=['Alles',...new Set(D.map(x=>x[0]))];let cat='Alles',all=false;
+const C=$('#cats'),R=$('#res'),Q=$('#q'),N=$('#count'),M=$('#more');
+const norm=s=>s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+const setCat=c=>{cat=c;$$('button',C).forEach(x=>x.setAttribute('aria-pressed',x.textContent===c));all=false;draw()};
+cats.forEach(c=>{const b=document.createElement('button');b.type='button';b.textContent=c;b.setAttribute('aria-pressed',c===cat);b.onclick=()=>setCat(c);C.appendChild(b)});
+function draw(){const q=norm(Q.value.trim());const L=D.filter(x=>(cat==='Alles'||x[0]===cat)&&(!q||norm(x[1]+' '+x[0]).includes(q)));
+ const lim=(all||q||cat!=='Alles')?L.length:10;
+ R.innerHTML=L.length?L.slice(0,lim).map((x,i)=>`<div class="res" style="animation-delay:${Math.min(i,12)*25}ms"><span>${x[1]}<small>${x[0]} · ${x[2]}</small></span><b>${x[4]?'<s>€'+x[4]+'</s>':''}€${x[3]}</b></div>`).join(''):'<p class="empty">Niets gevonden. Probeer een ander woord, of bel 0469 40 75 28.</p>';
+ N.textContent=L.length+' behandelingen';M.hidden=lim>=L.length}
+Q.addEventListener('input',draw);M.addEventListener('click',()=>{all=true;draw()});draw();
+$$('[data-cat]').forEach(a=>a.addEventListener('click',()=>setCat(a.dataset.cat)));
+/* before / after */
+const ba=$('#ba');let drag=false;const mv=e=>{const r=ba.getBoundingClientRect();const x=((e.touches?e.touches[0].clientX:e.clientX)-r.left)/r.width;ba.style.setProperty('--x',Math.max(4,Math.min(96,x*100))+'%')};
+ba.addEventListener('pointerdown',e=>{drag=true;mv(e);ba.setPointerCapture(e.pointerId)});ba.addEventListener('pointermove',e=>{if(drag)mv(e)});ba.addEventListener('pointerup',()=>drag=false);
+let t0=null;const io=new IntersectionObserver(es=>{if(es[0].isIntersecting&&!t0){t0=1;let k=0;const a=()=>{k+=.02;ba.style.setProperty('--x',(50+Math.sin(k*3)*22*(1-Math.min(1,k)))+'%');if(k<1&&!drag)requestAnimationFrame(a)};a()}},{threshold:.5});io.observe(ba);
+})();
+</script>
+</body>
+</html>

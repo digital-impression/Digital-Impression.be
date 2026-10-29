@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Manege De Rietbeemden · Paardrijlessen, stalling en ponykampen in Geel</title>
+<meta name="description" content="Paardrijlessen voor €15, stalling met 34 hectare weide en ponykampen in Geel. Een familiebedrijf van Joris, Maria en Jolien.">
+<link rel="preload" href="img/dmserif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/rubik.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:DMSerif;src:url(img/dmserif.woff2) format('woff2');font-display:swap}
+@font-face{font-family:DMSerif;src:url(img/dmserif-i.woff2) format('woff2');font-style:italic;font-display:swap}
+@font-face{font-family:Rubik;src:url(img/rubik.woff2) format('woff2');font-weight:400 700;font-display:swap}
+@font-face{font-family:Kalam;src:url(img/kalam.woff2) format('woff2');font-weight:700;font-display:swap}
+:root{
+  --meadow:#2D5A38;--meadow-2:#3E7449;--forest:#1A3622;--sage:#DDE8D6;--hay:#E2B458;--hay-l:#F6E6C2;--barn:#9C3D2C;--sky:#E1ECEF;
+  --cream:#F7F2E7;--paper:#FFFCF5;--ink:#1F2A21;--muted:#6C7066;--line:rgba(31,42,33,.12);
+  --f-d:DMSerif,Georgia,'Times New Roman',serif;--f-b:Rubik,system-ui,-apple-system,'Segoe UI',sans-serif;--f-s:Kalam,'Segoe Print',cursive;
+  --sh:0 2px 6px rgba(26,54,34,.06),0 18px 40px -18px rgba(26,54,34,.32);--sh-l:0 40px 80px -30px rgba(26,54,34,.5);
+  --w:1240px;--ease:cubic-bezier(.2,.7,.2,1)
+}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{font:400 17px/1.62 var(--f-b);color:var(--ink);background:var(--cream);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.ic{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.wrap{width:min(100% - 48px,var(--w));margin-inline:auto}
+h1,h2,h3{font-family:var(--f-d);font-weight:400;line-height:1.02;letter-spacing:-.01em;color:var(--forest)}
+h2{font-size:clamp(2.4rem,4.8vw,4.1rem)}
+h2 em{color:var(--meadow-2)}
+h3{font-size:1.6rem}
+.hand{font-family:var(--f-s);font-weight:700;line-height:1.1}
+.eyebrow{display:inline-flex;align-items:center;gap:.6em;font:600 .78rem/1 var(--f-b);letter-spacing:.16em;text-transform:uppercase;color:var(--meadow-2)}
+.eyebrow svg{width:22px;height:22px;color:var(--hay)}
+.lead{font-size:1.12rem;color:var(--muted);max-width:52ch}
+.btn{--bg:var(--meadow);--fg:#fff;display:inline-flex;align-items:center;gap:.6em;padding:1em 1.5em;border-radius:999px;background:var(--bg);color:var(--fg);font-weight:600;font-size:.98rem;text-decoration:none;box-shadow:0 12px 26px -12px rgba(26,54,34,.7);transition:transform .35s var(--ease),box-shadow .35s,background .3s,color .3s}
+.btn:hover{transform:translateY(-2px)}
+.btn .ic:last-child{transition:transform .35s var(--ease)}.btn:hover .ic:last-child{transform:translateX(3px)}
+.btn.hay{--bg:var(--hay);--fg:var(--forest);box-shadow:0 12px 26px -12px rgba(180,130,40,.8)}
+.btn.line{--bg:transparent;--fg:var(--forest);box-shadow:inset 0 0 0 1.6px var(--forest)}
+.btn.line:hover{--bg:var(--forest);--fg:#fff}
+.btn.white{--bg:#fff;--fg:var(--forest)}
+.btn.wline{--bg:transparent;--fg:#fff;box-shadow:inset 0 0 0 1.6px rgba(255,255,255,.7)}
+.btn.wline:hover{--bg:#fff;--fg:var(--forest)}
+[data-r]{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease) var(--d,0ms),transform .9s var(--ease) var(--d,0ms)}
+[data-r].in{opacity:1;transform:none}
+.wave{position:absolute;left:0;width:100%;height:60px;display:block;pointer-events:none;z-index:3}
+.wave.flip{top:-1px;transform:scaleY(-1)}.wave:not(.flip){bottom:-1px}
+
+.demo{position:relative;z-index:60;background:var(--forest);color:#D3E2D2;font-size:.83rem;text-align:center;padding:.55em 1em}
+.demo a{color:#fff;font-weight:700;text-underline-offset:3px}
+.head{position:absolute;left:0;right:0;z-index:50;color:#fff}
+.head.fixed{position:fixed;top:0;background:rgba(247,242,231,.92);color:var(--ink);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);animation:down .5s var(--ease)}
+@keyframes down{from{transform:translateY(-100%)}}
+.head .wrap{display:flex;align-items:center;gap:26px;height:84px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo svg{width:46px;height:46px}
+.logo b{display:block;font:400 1.5rem/1 var(--f-d)}
+.logo small{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.8;margin-top:3px}
+.nav{display:flex;gap:2px;margin-left:auto}
+.nav a{padding:.55em .95em;border-radius:999px;text-decoration:none;font-weight:500;font-size:.95rem;transition:background .25s}
+.nav a:hover{background:rgba(255,255,255,.14)}
+.head.fixed .nav a:hover{background:var(--sage)}
+.head .btn{padding:.75em 1.15em;font-size:.92rem}
+.menu-btn{display:none;width:46px;height:46px;border-radius:50%;background:var(--hay);color:var(--forest);align-items:center;justify-content:center;margin-left:auto}
+
+/* hero */
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;padding:160px 0 150px;color:#fff;overflow:hidden;background:var(--forest)}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%;animation:kb 26s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1.04)}to{transform:scale(1.12) translate(-1%,1%)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,30,18,.55) 0%,rgba(15,30,18,.15) 40%,rgba(15,30,18,.75) 100%)}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:end}
+.hero .hand{font-size:1.8rem;color:var(--hay);display:inline-block;rotate:-3deg;margin-bottom:12px}
+.hero h1{font-size:clamp(3.2rem,7vw,6.6rem);color:#fff;line-height:.95;text-shadow:0 10px 40px rgba(0,0,0,.3)}
+.hero h1 em{color:var(--hay-l)}
+.hero .lead{color:#E3EBDD;margin:24px 0 32px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px}
+.hcards{display:grid;gap:12px;justify-items:end}
+.hc{display:flex;align-items:center;gap:14px;padding:14px 20px 14px 14px;border-radius:20px;background:rgba(255,252,245,.14);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);min-width:260px}
+.hc .ic{width:44px;height:44px;padding:11px;border-radius:14px;background:var(--hay);color:var(--forest)}
+.hc b{display:block;font:400 1.5rem/1 var(--f-d)}
+.hc span{font-size:.84rem;color:#E3EBDD}
+.stars{display:inline-flex;gap:1px;color:var(--hay)}.stars .ic{width:13px;height:13px;fill:currentColor;stroke:none;padding:0;background:none}
+
+/* marquee */
+.mq{background:var(--hay);color:var(--forest);overflow:hidden;padding:18px 0}
+.mq [data-marquee]{display:flex;width:max-content;animation:mq 46s linear infinite}
+.mq ul{display:flex;list-style:none;padding:0}
+.mq li{display:flex;align-items:center;gap:24px;padding-right:24px;font:italic 400 1.75rem/1 var(--f-d);white-space:nowrap}
+.mq li svg{width:22px;height:22px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{position:relative}
+.sec{padding:130px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:56px}
+.sec-head h2{max-width:14ch;margin-top:16px}
+.sec-head .lead{max-width:40ch}
+
+/* story */
+.story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.story h2{margin:16px 0 22px}
+.story p{color:var(--muted);max-width:52ch;margin-bottom:16px}
+.story .sign{font-family:var(--f-s);font-size:1.8rem;color:var(--barn);margin-top:10px}
+.tl{display:grid;gap:14px}
+.tl .st{position:relative;display:grid;grid-template-columns:110px 1fr;gap:20px;align-items:center;padding:22px;border-radius:22px;background:var(--paper);box-shadow:var(--sh)}
+.tl .st:nth-child(2){margin-left:40px}.tl .st:nth-child(3){margin-left:80px}.tl .st:nth-child(4){margin-left:40px;background:var(--meadow);color:#D7E6D4}
+.tl .st:nth-child(4) b{color:#fff}
+.tl .yr{font:400 2rem/1 var(--f-d);color:var(--barn)}
+.tl .st:nth-child(4) .yr{color:var(--hay)}
+.tl b{display:block;font:400 1.3rem/1.15 var(--f-d);color:var(--forest);margin-bottom:3px}
+.tl span{font-size:.92rem;color:var(--muted);line-height:1.45}
+.tl .st:nth-child(4) span{color:#C9DBC5}
+.tl .ico{position:absolute;right:16px;top:16px;width:34px;height:34px;color:var(--hay);opacity:.9}
+
+/* lessons */
+.les{background:var(--paper)}
+.lgrid{display:grid;grid-template-columns:.95fr 1.05fr;gap:50px;align-items:start}
+.price{position:relative;border-radius:30px;background:var(--meadow);color:#D7E6D4;padding:40px;overflow:hidden}
+.price::before{content:"";position:absolute;right:-60px;bottom:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(226,180,88,.4),transparent 70%)}
+.price b{display:block;font:400 7rem/.85 var(--f-d);color:#fff}
+.price b small{font-size:1.6rem;color:var(--hay)}
+.price p{max-width:30ch;margin-top:10px}
+.price .horse{position:absolute;right:20px;bottom:10px;width:160px;color:rgba(255,255,255,.12)}
+.rules{display:grid;gap:10px;margin-top:20px}
+.rule{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:18px;background:var(--cream)}
+.rule .ic{width:36px;height:36px;padding:8px;border-radius:12px;background:var(--hay-l);color:var(--barn)}
+.rule span{font-size:.95rem}
+.week{border-radius:30px;background:var(--cream);padding:30px;box-shadow:inset 0 0 0 1px var(--line)}
+.week .nowl{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:18px;background:var(--forest);color:#fff;margin-bottom:22px}
+.week .nowl .ic{width:40px;height:40px;padding:9px;border-radius:12px;background:var(--hay);color:var(--forest)}
+.week .nowl b{display:block;font:400 1.3rem/1.1 var(--f-d)}
+.week .nowl span{font-size:.88rem;color:#C9DBC5}
+.days{display:grid;gap:8px}
+.dy{display:grid;grid-template-columns:110px 1fr;align-items:center;gap:14px}
+.dy b{font-weight:600;font-size:.95rem}
+.dy .bar{position:relative;height:40px;border-radius:12px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--line);overflow:hidden}
+.dy .bar i{position:absolute;top:5px;bottom:5px;border-radius:9px;background:var(--sage);display:flex;align-items:center;padding:0 12px;font-style:normal;font-size:.82rem;font-weight:600;color:var(--forest);white-space:nowrap}
+.dy.today b{color:var(--barn)}
+.dy.today .bar i{background:var(--hay)}
+.dy .bar .now{position:absolute;top:0;bottom:0;width:2px;background:var(--barn)}
+.dy .bar .now::after{content:"nu";position:absolute;top:-1px;left:4px;font-size:.66rem;font-weight:700;color:var(--barn)}
+.week .scale{display:flex;justify-content:space-between;margin:8px 0 0 124px;font-size:.72rem;color:var(--muted)}
+.week .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+
+/* plan */
+.plan{background:var(--sage);padding:140px 0}
+.pgrid{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center}
+.map{position:relative;border-radius:30px;background:#CFE0C6;box-shadow:inset 0 0 0 1px rgba(26,54,34,.12);overflow:hidden}
+.map svg{display:block;width:100%;height:auto}
+.map .z{cursor:pointer;transition:filter .3s}
+.map .z:hover,.map .z.on{filter:brightness(1.06) drop-shadow(0 8px 10px rgba(26,54,34,.35))}
+.map .z.on .ol{stroke:var(--barn);stroke-width:4}
+.map text{font:600 13px var(--f-b);fill:var(--forest);pointer-events:none}
+.map .note{position:absolute;left:16px;bottom:14px;font-size:.78rem;color:var(--forest);background:rgba(255,255,255,.7);padding:.35em .8em;border-radius:999px}
+.zinfo{border-radius:26px;background:var(--paper);padding:30px;box-shadow:var(--sh-l)}
+.zinfo .ic{width:52px;height:52px;padding:13px;border-radius:16px;background:var(--meadow);color:#fff;margin-bottom:16px}
+.zinfo h3{font-size:2rem;margin-bottom:6px}
+.zinfo .dim{font:400 1.2rem/1 var(--f-d);color:var(--barn)}
+.zinfo p{color:var(--muted);margin-top:12px}
+.zlist{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.zlist button{padding:.5em .9em;border-radius:999px;background:var(--cream);font-size:.86rem;font-weight:600;transition:background .25s,color .25s}
+.zlist button.on{background:var(--forest);color:#fff}
+
+/* stalling */
+.stal .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.stal .vis{position:relative;height:620px}
+.stal .vis .disc{position:absolute;left:4%;bottom:0;width:88%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 35%,#F6E6C2,#E2B458 80%)}
+.stal .vis .disc::before{content:"";position:absolute;inset:-18px;border-radius:50%;border:2px dashed rgba(156,61,44,.35)}
+.stal .vis img.p{position:absolute;left:12%;bottom:0;width:74%;filter:drop-shadow(0 30px 30px rgba(0,0,0,.3));z-index:2}
+.stal .vis .tag{position:absolute;right:0;top:12%;z-index:3;background:var(--paper);border-radius:18px;padding:14px 18px;box-shadow:var(--sh-l);font-size:.84rem;color:var(--muted)}
+.stal .vis .tag b{display:block;font:400 1.2rem/1.1 var(--f-d);color:var(--forest)}
+.stal .vis .hand{position:absolute;left:0;top:8%;font-size:1.6rem;color:var(--barn);rotate:-6deg;z-index:3}
+.stal h2{margin:16px 0 20px}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0 30px}
+.feat div{padding:18px;border-radius:20px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--line)}
+.feat .ic{width:40px;height:40px;padding:9px;border-radius:12px;background:var(--sage);color:var(--meadow);margin-bottom:10px}
+.feat b{display:block;font:400 1.2rem/1.15 var(--f-d);color:var(--forest)}
+.feat span{font-size:.88rem;color:var(--muted);line-height:1.45;display:block;margin-top:4px}
+
+/* camps */
+.camps{background:var(--forest);color:#C9DBC5;padding:150px 0;overflow:hidden}
+.camps h2{color:#fff}
+.camps .eyebrow{color:var(--hay)}
+.camps .lead{color:#AFC7AB}
+.year{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:50px}
+.year::before{content:"";position:absolute;left:0;right:0;top:34px;height:3px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.25) 0 10px,transparent 10px 18px)}
+.ev{position:relative;padding-top:70px}
+.ev .dot{position:absolute;left:0;top:22px;width:26px;height:26px;border-radius:50%;background:var(--forest);border:4px solid var(--hay)}
+.ev.done .dot{border-color:#6E8B70;background:#6E8B70}
+.ev .card{border-radius:22px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);padding:22px}
+.ev .k{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--hay)}
+.ev b{display:block;font:400 1.5rem/1.1 var(--f-d);color:#fff;margin:8px 0 6px}
+.ev span{font-size:.9rem}
+.ev .bd{display:inline-block;margin-top:12px;padding:.3em .7em;border-radius:999px;background:rgba(255,255,255,.1);font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.next{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;margin-top:40px;padding:34px;border-radius:26px;background:var(--hay);color:var(--forest)}
+.next h3{font-size:2rem}
+.next p{color:#4A3E22;margin-top:8px}
+.next ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.next li{padding:.4em .8em;border-radius:999px;background:rgba(255,255,255,.55);font-size:.84rem;font-weight:600}
+.next .r{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.camps .kudde{position:absolute;right:-40px;bottom:-10px;width:420px;opacity:.12;filter:grayscale(1) brightness(3)}
+
+/* cafe */
+.cafe .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.cafe figure{position:relative;border-radius:200px 200px 26px 26px;overflow:hidden;aspect-ratio:.85;box-shadow:var(--sh-l)}
+.cafe figure img{width:100%;height:100%;object-fit:cover}
+.cafe .tags{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 28px}
+.cafe .tags span{display:inline-flex;align-items:center;gap:.5em;padding:.55em 1em;border-radius:999px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--line);font-weight:600;font-size:.92rem}
+.cafe .tags .ic{color:var(--barn)}
+.cafe h2{margin:16px 0 18px}
+
+/* reviews */
+.rev{background:var(--paper);padding:130px 0}
+.rtop{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:50px}
+.rtop .sc{display:flex;align-items:center;gap:16px}
+.rtop .sc b{font:400 6rem/.8 var(--f-d);color:var(--forest)}
+.rtop .sc .stars{color:var(--hay)}.rtop .sc .stars .ic{width:20px;height:20px}
+.rtop .sc small{display:block;color:var(--muted);margin-top:6px}
+.rg{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:20px}
+.rc{position:relative;border-radius:26px;padding:32px;background:var(--cream);display:flex;flex-direction:column}
+.rc:first-child{background:var(--meadow);color:#D7E6D4}
+.rc q{display:block;quotes:none;font:400 1.35rem/1.38 var(--f-d);color:var(--forest);flex:1;margin:14px 0 20px}
+.rc:first-child q{color:#fff;font-size:1.55rem}
+.rc .who{font-size:.86rem;color:var(--muted)}
+.rc:first-child .who{color:#C9DBC5}
+.rc .who b{color:inherit;font-weight:600}
+.rc .shoe{position:absolute;right:22px;top:22px;width:40px;height:40px;color:var(--hay);opacity:.8}
+
+/* contact */
+.contact{padding:130px 0 140px}
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:10px}
+.pc{border-radius:26px;background:var(--paper);padding:30px;box-shadow:var(--sh);display:flex;flex-direction:column}
+.pc .av{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font:400 1.8rem/1 var(--f-d);color:var(--forest);margin-bottom:16px}
+.pc:nth-child(1) .av{background:var(--sage)}.pc:nth-child(2) .av{background:var(--hay-l)}.pc:nth-child(3) .av{background:var(--sky)}
+.pc h3{font-size:1.8rem}
+.pc>span:not(.av){color:var(--muted);font-size:.94rem;flex:1;margin:6px 0 20px}
+.pc a.btn{align-self:flex-start}
+.addr{display:flex;align-items:center;gap:16px;justify-content:space-between;margin-top:20px;padding:24px 28px;border-radius:26px;background:var(--forest);color:#fff;flex-wrap:wrap}
+.addr .l{display:flex;align-items:center;gap:14px}
+.addr .l>.ic{width:44px;height:44px;padding:11px;border-radius:14px;background:var(--hay);color:var(--forest)}
+.addr b{display:block;font:400 1.4rem/1.1 var(--f-d)}
+.addr span{font-size:.88rem;color:#C9DBC5}
+
+.foot{position:relative;background:var(--forest);color:#AFC7AB;padding:100px 0 40px}
+.foot .wave{top:-59px;bottom:auto;transform:none}
+.fg{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.foot .logo{color:#fff}
+.foot p{max-width:36ch;margin-top:16px;font-size:.94rem}
+.foot h4{font:600 .78rem/1 var(--f-b);letter-spacing:.16em;text-transform:uppercase;color:var(--hay);margin-bottom:16px}
+.foot ul{list-style:none;padding:0;display:grid;gap:9px;font-size:.95rem}
+.foot a{text-decoration:none}.foot a:hover{color:#fff}
+.legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:60px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);font-size:.82rem;color:#86A083}
+.legal a{color:#D3E2D2}
+.mbar{display:none}
+
+@media (max-width:1080px){
+  .nav,.head .btn{display:none}
+  .menu-btn{display:inline-flex}
+  body.menu-open .nav{display:flex;position:fixed;inset:110px 16px auto;flex-direction:column;background:var(--paper);color:var(--ink);padding:14px;border-radius:22px;box-shadow:var(--sh-l)}
+  .hero .wrap,.story .wrap,.lgrid,.pgrid,.stal .wrap,.next,.cafe .wrap{grid-template-columns:1fr}
+  .hcards{justify-items:start;grid-template-columns:1fr 1fr}
+  .year{grid-template-columns:1fr 1fr;row-gap:10px}
+  .rg,.cg{grid-template-columns:1fr}
+  .sec-head,.rtop{flex-direction:column;align-items:flex-start}
+  .fg{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 32px)}
+  .head .wrap{height:72px}.logo b{font-size:1.25rem}
+  .hero{min-height:0;padding:130px 0 110px}
+  .hcards{grid-template-columns:1fr}.hc{min-width:0}
+  .sec,.plan,.camps,.rev,.contact{padding:96px 0}
+  .tl .st{grid-template-columns:1fr;gap:6px}.tl .st:nth-child(n){margin-left:0}
+  .price{padding:30px}.price b{font-size:5.4rem}
+  .week{padding:20px}.dy{grid-template-columns:70px 1fr}.week .scale{margin-left:84px}
+  .stal .vis{height:420px}
+  .feat{grid-template-columns:1fr}
+  .year{grid-template-columns:1fr}.year::before{display:none}
+  .next{padding:26px}
+  .rtop .sc b{font-size:4.6rem}
+  .fg{grid-template-columns:1fr}
+  .mq li{font-size:1.35rem}
+  .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:70;gap:8px;padding:8px;border-radius:999px;background:rgba(26,54,34,.95);backdrop-filter:blur(10px);box-shadow:0 20px 40px -12px rgba(0,0,0,.5)}
+  .mbar a{flex:1;justify-content:center;padding:.85em 1em;font-size:.9rem}
+  .foot{padding-bottom:120px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-phone" viewBox="0 0 24 24"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 5h16" /> <path d="M4 12h16" /> <path d="M4 19h16" /></symbol><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /></symbol><symbol id="i-house" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /> <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></symbol><symbol id="i-ticket" viewBox="0 0 24 24"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" /> <path d="M13 5v2" /> <path d="M13 17v2" /> <path d="M13 11v2" /></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></symbol><symbol id="i-star-half" viewBox="0 0 24 24"><path d="M12 18.338a2.1 2.1 0 0 0-.987.244L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16l2.309-4.679A.53.53 0 0 1 12 2" /></symbol><symbol id="i-trees" viewBox="0 0 24 24"><path d="M10 10v.2A3 3 0 0 1 8.9 16H5a3 3 0 0 1-1-5.8V10a3 3 0 0 1 6 0Z" /> <path d="M7 16v6" /> <path d="M13 19v3" /> <path d="M12 19h8.3a1 1 0 0 0 .7-1.7L18 14h.3a1 1 0 0 0 .7-1.7L16 9h.2a1 1 0 0 0 .8-1.7L13 3l-1.4 1.5" /></symbol><symbol id="i-hard-hat" viewBox="0 0 24 24"><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5" /> <path d="M14 6a6 6 0 0 1 6 6v3" /> <path d="M4 15v-3a6 6 0 0 1 6-6" /> <rect x="2" y="15" width="20" height="4" rx="1" /></symbol><symbol id="i-coffee" viewBox="0 0 24 24"><path d="M10 2v2" /> <path d="M14 2v2" /> <path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1" /> <path d="M6 2v2" /></symbol><symbol id="i-carrot" viewBox="0 0 24 24"><path d="M15 16a1 1 0 0 0-7-7q-4 4-5.987 12.385a.5.5 0 0 0 .602.602Q11 20 15 16l-3-3" /> <path d="M15 9q4 4 7 0-3-4-7 0 4-4 0-7-4 3 0 7" /> <path d="m8 15-2.58-2.58" /></symbol><symbol id="i-message-circle" viewBox="0 0 24 24"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></symbol><symbol id="i-calendar-check" viewBox="0 0 24 24"><path d="M8 2v3" /> <path d="M16 2v3" /> <rect x="3" y="3" width="18" height="18" rx="2" /> <path d="M3 9h18" /> <path d="m9 15 2 2 4-4" /></symbol><symbol id="i-fence" viewBox="0 0 24 24"><path d="M4 3 2 5v15c0 .6.4 1 1 1h2c.6 0 1-.4 1-1V5Z" /> <path d="M6 8h4" /> <path d="M6 18h4" /> <path d="m12 3-2 2v15c0 .6.4 1 1 1h2c.6 0 1-.4 1-1V5Z" /> <path d="M14 8h4" /> <path d="M14 18h4" /> <path d="m20 3-2 2v15c0 .6.4 1 1 1h2c.6 0 1-.4 1-1V5Z" /></symbol><symbol id="i-flag" viewBox="0 0 24 24"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528" /></symbol><symbol id="i-car" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" /> <circle cx="7" cy="17" r="2" /> <path d="M9 17h6" /> <circle cx="17" cy="17" r="2" /></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /> <circle cx="12" cy="12" r="3" /></symbol><symbol id="i-wheat" viewBox="0 0 24 24"><path d="M2 22 16 8" /> <path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /> <path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /> <path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z" /> <path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z" /> <path d="M11.47 17.47 13 19l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L5 19l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /> <path d="M15.47 13.47 17 15l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L9 15l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /> <path d="M19.47 9.47 21 11l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L13 11l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z" /></symbol><symbol id="i-droplets" viewBox="0 0 24 24"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z" /> <path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97" /></symbol><symbol id="i-snowflake" viewBox="0 0 24 24"><path d="m10 20-1.25-2.5L6 18" /> <path d="M10 4 8.75 6.5 6 6" /> <path d="m14 20 1.25-2.5L18 18" /> <path d="m14 4 1.25 2.5L18 6" /> <path d="m17 21-3-6h-4" /> <path d="m17 3-3 6 1.5 3" /> <path d="M2 12h6.5L10 9" /> <path d="m20 10-1.5 2 1.5 2" /> <path d="M22 12h-6.5L14 15" /> <path d="m4 10 1.5 2L4 14" /> <path d="m7 21 3-6-1.5-3" /> <path d="m7 3 3 6h4" /></symbol><symbol id="i-mail" viewBox="0 0 24 24"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /> <rect x="2" y="4" width="20" height="16" rx="2" /></symbol><symbol id="i-party-popper" viewBox="0 0 24 24"><path d="M5.8 11.3 2 22l10.7-3.79" /> <path d="M4 3h.01" /> <path d="M22 8h.01" /> <path d="M15 2h.01" /> <path d="M22 20h.01" /> <path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10" /> <path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11c-.11.7-.72 1.22-1.43 1.22H17" /> <path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7" /> <path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z" /></symbol><symbol id="i-presentation" viewBox="0 0 24 24"><path d="M2 3h20" /> <path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" /> <path d="m7 21 5-5 5 5" /></symbol><symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z" /> <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /> <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /> <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /> <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /></symbol><symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <path d="M16 3.128a4 4 0 0 1 0 7.744" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <circle cx="9" cy="7" r="4" /></symbol><symbol id="i-briefcase" viewBox="0 0 24 24"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /> <rect width="20" height="14" x="2" y="6" rx="2" /></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></symbol><symbol id="i-navigation" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11" /></symbol></defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="shoe" viewBox="0 0 40 40"><path d="M20 4C11 4 5 11 5 20c0 7 3 12 6 16h5l-2-5c-2-3-3-7-3-11 0-6 4-10 9-10s9 4 9 10c0 4-1 8-3 11l-2 5h5c3-4 6-9 6-16 0-9-6-16-15-16z" fill="currentColor"/><g fill="var(--paper,#fff)" opacity=".7"><circle cx="9" cy="17" r="1.4"/><circle cx="10" cy="24" r="1.4"/><circle cx="31" cy="17" r="1.4"/><circle cx="30" cy="24" r="1.4"/></g></symbol>
+<symbol id="horse" viewBox="0 0 64 64"><path fill="currentColor" d="M44 6c-3 0-5 2-6 4l-2-3-1 5c-6 2-11 7-14 13l-8 11c-2 3-1 6 2 7l2-2 6-6c1 6 0 12-3 18h6c2-5 3-10 3-15 3 2 7 3 11 3l-1 12h6l1-13c3-3 5-8 5-13 0-6-2-11-5-14 2-2 2-5-2-7z"/></symbol>
+</defs></svg>
+
+<div class="demo">Voorbeeldsite van Digital Impression voor Manege De Rietbeemden. Benieuwd wat zoiets kost? <a href="https://wa.me/32496251445?text=Hallo%20Stijn%2C%20ik%20zag%20de%20voorbeeldsite%20voor%20De%20Rietbeemden." target="_blank" rel="noopener">Stuur Stijn een bericht</a></div>
+
+<header class="head" data-head2>
+  <div class="wrap">
+    <a class="logo" href="#top"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#E2B458"/><use href="#shoe" x="11" y="10" width="26" height="26" color="#1A3622"/></svg><span><b>De Rietbeemden</b><small>Manege in Geel</small></span></a>
+    <nav class="nav" data-menu><a href="#verhaal">Ons verhaal</a><a href="#lessen">Lessen</a><a href="#erf">Het erf</a><a href="#stalling">Stalling</a><a href="#kampen">Ponykampen</a><a href="#contact">Contact</a></nav>
+    <a class="btn hay" href="tel:+32498813088"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Les boeken</a>
+    <button class="menu-btn" data-menu-btn aria-label="Menu" aria-expanded="false"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <img src="img/ochtend.webp" alt="Paarden in de wei bij zonsopgang" width="1280" height="960" fetchpriority="high">
+  <div class="wrap">
+    <div>
+      <span class="hand" data-r>sinds 2006 paarden op het erf</span>
+      <h1 data-r="80">Een manege met een <em>warm gevoel</em>.</h1>
+      <p class="lead" data-r="160">Aan de Roerdompstraat in Geel rijden kinderen hun eerste rondje en kijken paarden uit hun box naar wat er in de gang gebeurt. Al twintig jaar, sinds de koeien plaats maakten voor paarden.</p>
+      <div class="cta" data-r="220"><a class="btn hay" href="#lessen">Leer paardrijden <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a><a class="btn wline" href="#stalling"><svg class="ic" aria-hidden="true"><use href="#i-house"/></svg> Je paard bij ons</a></div>
+    </div>
+    <div class="hcards" data-r="260">
+      <div class="hc"><svg class="ic" aria-hidden="true"><use href="#i-ticket"/></svg><div><b>€15</b><span>per les, op een manegepaard</span></div></div>
+      <div class="hc"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><div><b>4,5 <span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star-half"/></svg></span></b><span>66 reviews op Google</span></div></div>
+      <div class="hc"><svg class="ic" aria-hidden="true"><use href="#i-trees"/></svg><div><b>34 ha</b><span>weide en eigen hooi</span></div></div>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 25 C 300 -6, 520 45, 760 18 S 1200 4, 1440 28 L1440 60 L0 60 Z" fill="#F7F2E7"/></svg>
+</section>
+
+<div class="mq"><div data-marquee><ul>
+  <li>Paardrijlessen<svg><use href="#shoe"/></svg></li><li>Stalling<svg><use href="#shoe"/></svg></li><li>Ponykampen<svg><use href="#shoe"/></svg></li><li>Springparcours<svg><use href="#shoe"/></svg></li><li>Twee binnenpistes<svg><use href="#shoe"/></svg></li><li>Cafetaria<svg><use href="#shoe"/></svg></li><li>Eigen hooi<svg><use href="#shoe"/></svg></li>
+</ul></div></div>
+
+<section class="sec story" id="verhaal">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow" data-r><svg><use href="#shoe"/></svg> Ons verhaal</span>
+      <h2 data-r="80">Er was eens een <em>melkveebedrijf</em> in Geel</h2>
+      <p data-r="120">Vijfentwintig jaar lang runden Joris en Maria een moderne boerderij met tientallen koeien. Hard werken, lange dagen, en elke dag opnieuw met plezier.</p>
+      <p data-r="140">In 2006 namen ze samen een grote beslissing. De koeien gingen weg, de stallen werden omgebouwd tot een paardenstalling met alle comfort. Vandaag is het een manege waar paarden het naar hun zin hebben en ruiters graag komen.</p>
+      <p data-r="160">Wat nooit veranderde: vriendelijkheid en respect, voor de paarden en voor de mensen.</p>
+      <div class="sign" data-r="180">Joris, Maria en Jolien</div>
+    </div>
+    <div class="tl" data-r="120">
+      <div class="st"><span class="yr">25 jaar</span><div><b>Melkvee</b><span>Een gemoderniseerde boerderij, dagelijks gerund door Joris en Maria.</span></div></div>
+      <div class="st"><span class="yr">2006</span><div><b>Afscheid van de koeien</b><span>De eerste paarden komen op stal.</span></div></div>
+      <div class="st"><span class="yr">Daarna</span><div><b>Een stalling met comfort</b><span>Ruime boxen, wasplaatsen, pistes en weides.</span></div></div>
+      <div class="st"><svg class="ico"><use href="#horse"/></svg><span class="yr">Nu</span><div><b>Een echte manege</b><span>Lessen, stalling, ponykampen en oefenjumpings.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec les" id="lessen">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow" data-r><svg><use href="#shoe"/></svg> Paardrijlessen</span><h2 data-r="80">Van een eerste proefles tot springen</h2></div>
+      <p class="lead" data-r="160">De lesgevers laten jonge ruiters stap voor stap groeien, in vertrouwen en in techniek. Kom eens kijken op een lesdag.</p>
+    </div>
+    <div class="lgrid">
+      <div data-r>
+        <div class="price"><svg class="horse"><use href="#horse"/></svg><b>€15<small> / les</small></b><p>Op een manegepaard of -pony. Je zadelt zelf op en af in de box, daar hoort het bij.</p></div>
+        <div class="rules">
+          <div class="rule"><svg class="ic" aria-hidden="true"><use href="#i-hard-hat"/></svg><span>Een tok is verplicht tijdens de les.</span></div>
+          <div class="rule"><svg class="ic" aria-hidden="true"><use href="#i-coffee"/></svg><span>De cafetaria is 20 minuten voor de eerste les open. Vroeger komen hoeft niet.</span></div>
+          <div class="rule"><svg class="ic" aria-hidden="true"><use href="#i-carrot"/></svg><span>Snoepjes enkel voor het paard waar je zelf op gereden hebt.</span></div>
+          <div class="rule"><svg class="ic" aria-hidden="true"><use href="#i-message-circle"/></svg><span>Kan je niet komen? Laat het Jolien even weten.</span></div>
+        </div>
+      </div>
+      <div class="week" data-r="100">
+        <div class="nowl"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><div><b id="lnow">Vandaag les van 17 tot 20 uur</b><span id="lsub">De cafetaria opent 20 minuten vroeger</span></div></div>
+        <div class="days" id="days"></div>
+        <div class="scale"><span>12u</span><span>14u</span><span>16u</span><span>18u</span><span>20u</span></div>
+        <div class="row"><a class="btn" href="tel:+32498813088"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Bel Jolien</a><a class="btn line" href="https://www.derietbeemden.be" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-calendar-check"/></svg> Les online reserveren</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="plan" id="erf">
+  <svg class="wave flip" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 C 300 11, 520 62, 760 35 S 1200 10, 1440 34 L1440 60 L0 60 Z" fill="#FFFCF5"/></svg>
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow" data-r><svg><use href="#shoe"/></svg> Het erf</span><h2 data-r="80">Wandel even rond</h2></div>
+      <p class="lead" data-r="160">Tik op een plek op de schets en zie wat er is. Van de binnenpistes tot de weides waar de paarden in kuddes lopen.</p>
+    </div>
+    <div class="pgrid">
+      <div class="map" data-r>
+        <svg viewBox="0 0 800 520" id="plan" aria-label="Schets van de manege">
+          <defs><pattern id="gr" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M3 12l2-5 2 5M10 6l2-4 2 4" stroke="#8BB07C" stroke-width="1.2" fill="none"/></pattern><pattern id="sand" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="2" cy="3" r="1" fill="#C9A86A"/><circle cx="7" cy="8" r=".8" fill="#C9A86A"/></pattern></defs>
+          <rect width="800" height="520" fill="#CFE0C6"/>
+          <g class="z" data-z="weide"><path class="ol" d="M540 20 H780 V500 H600 Q560 420 560 300 Q560 140 540 20Z" fill="url(#gr)" stroke="#6E9A62" stroke-width="2"/><path d="M540 20 H780 V500 H600 Q560 420 560 300 Q560 140 540 20Z" fill="#B7D3A8" opacity=".55"/><text x="640" y="250">weides</text><use href="#horse" x="610" y="120" width="40" height="40" color="#4E7A47"/><use href="#horse" x="690" y="330" width="34" height="34" color="#4E7A47"/></g>
+          <g class="z" data-z="bp1"><rect class="ol" x="40" y="40" width="300" height="110" rx="10" fill="url(#sand)" stroke="#9C7A3E" stroke-width="2"/><rect x="40" y="40" width="300" height="110" rx="10" fill="#E9D3A2" opacity=".6"/><text x="150" y="100">binnenpiste</text></g>
+          <g class="z" data-z="bp2"><rect class="ol" x="40" y="166" width="250" height="110" rx="10" fill="url(#sand)" stroke="#9C7A3E" stroke-width="2"/><rect x="40" y="166" width="250" height="110" rx="10" fill="#E9D3A2" opacity=".6"/><text x="118" y="226">binnenpiste</text></g>
+          <g class="z" data-z="stal"><rect class="ol" x="356" y="40" width="160" height="236" rx="10" fill="#E8E1D2" stroke="#9C3D2C" stroke-width="2"/><g stroke="#C7BBA6" stroke-width="1.4">
+            <path d="M376 60h40v40h-40zM424 60h40v40h-40zM472 60h30v40h-30zM376 108h40v40h-40zM424 108h40v40h-40z" fill="none"/></g><text x="398" y="200">stallen</text></g>
+          <g class="z" data-z="uitloop"><rect class="ol" x="306" y="166" width="40" height="110" rx="6" fill="#DCC9A1" stroke="#9C7A3E" stroke-width="2"/></g>
+          <g class="z" data-z="buiten"><rect class="ol" x="40" y="300" width="250" height="190" rx="10" fill="url(#sand)" stroke="#9C7A3E" stroke-width="2"/><rect x="40" y="300" width="250" height="190" rx="10" fill="#EBD8AC" opacity=".55"/><g stroke="#9C3D2C" stroke-width="4" stroke-linecap="round"><path d="M80 350h30M160 420h30M210 340h30M100 460h30"/></g><text x="104" y="400">buitenpiste</text></g>
+          <g class="z" data-z="cafe"><rect class="ol" x="306" y="300" width="120" height="80" rx="10" fill="#F6E6C2" stroke="#B58A35" stroke-width="2"/><text x="330" y="346">cafetaria</text></g>
+          <g class="z" data-z="was"><rect class="ol" x="440" y="300" width="80" height="80" rx="10" fill="#DDEBF0" stroke="#5E8AA0" stroke-width="2"/><text x="452" y="346">wassen</text></g>
+          <g class="z" data-z="parking"><rect class="ol" x="306" y="396" width="214" height="94" rx="10" fill="#E3E3DE" stroke="#8C8C84" stroke-width="2"/><g fill="#B4B4AC"><rect x="324" y="412" width="30" height="16" rx="3"/><rect x="364" y="412" width="30" height="16" rx="3"/><rect x="404" y="412" width="54" height="18" rx="3"/></g><text x="380" y="470">parking</text></g>
+        </svg>
+        <span class="note">schets, niet op schaal</span>
+      </div>
+      <div class="zinfo" data-r="100" id="zinfo">
+        <span id="zic"><svg class="ic" aria-hidden="true"><use href="#i-fence"/></svg></span><span hidden><svg class="ic" aria-hidden="true"><use href="#i-flag"/></svg><svg class="ic" aria-hidden="true"><use href="#i-car"/></svg></span>
+        <h3 id="zt">Binnenpiste</h3>
+        <span class="dim" id="zd">21 × 60 meter</span>
+        <p id="zp">Overdekt en geopad, dus je rijdt ook als het regent.</p>
+        <div class="zlist" id="zlist"></div>
+      </div>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 38 C 300 -9, 520 42, 760 15 S 1200 12, 1440 36 L1440 60 L0 60 Z" fill="#F7F2E7"/></svg>
+</section>
+
+<section class="sec stal" id="stalling">
+  <div class="wrap">
+    <div class="vis" data-r>
+      <span class="disc"></span>
+      <img class="p" src="img/c-paard.webp" alt="Een bruin paard met groen halster in zijn box" loading="lazy" width="700" height="901">
+      <span class="hand">uitzicht op de gang</span>
+      <div class="tag"><b>3 maten stallen</b>met automatische drinkbak</div>
+    </div>
+    <div>
+      <span class="eyebrow" data-r><svg><use href="#shoe"/></svg> Stalling</span>
+      <h2 data-r="80">Je paard bij ons op stal</h2>
+      <p class="lead" data-r="120">Dierenwelzijn staat bij ons op de eerste plaats. Paarden lopen in kuddes in aparte weides, zodat ze kunnen doen wat een paard hoort te doen: lopen, spelen en eten.</p>
+      <div class="feat" data-r="160">
+        <div><svg class="ic" aria-hidden="true"><use href="#i-eye"/></svg><b>Uitzicht op de gang</b><span>Paarden kijken uit hun box en zien wat er gebeurt. Dat houdt verveling weg.</span></div>
+        <div><svg class="ic" aria-hidden="true"><use href="#i-wheat"/></svg><b>Eigen hooi</b><span>Van ons eigen land, dus we weten wat erin zit.</span></div>
+        <div><svg class="ic" aria-hidden="true"><use href="#i-droplets"/></svg><b>Wasplaatsen</b><span>Twee binnen en twee buiten.</span></div>
+        <div><svg class="ic" aria-hidden="true"><use href="#i-snowflake"/></svg><b>Uitloop in de winter</b><span>Even de benen strekken als de weides te nat zijn.</span></div>
+      </div>
+      <a class="btn" href="tel:+32494131760" data-r="200"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Vraag naar een vrije box bij Joris</a>
+    </div>
+  </div>
+</section>
+
+<section class="camps" id="kampen">
+  <img class="kudde" src="img/c-kudde.webp" alt="" loading="lazy" width="900" height="527">
+  <div class="wrap">
+    <span class="eyebrow" data-r><svg><use href="#shoe"/></svg> Ponykampen en events</span>
+    <h2 data-r="80" style="margin-top:16px;max-width:16ch">Een week tussen de paarden en pony's</h2>
+    <p class="lead" data-r="120" style="margin-top:16px">Dagkampen van 9 tot 17 uur, tijdens de schoolvakanties. Zo zag 2026 eruit.</p>
+    <div class="year" data-r="160">
+      <div class="ev done"><span class="dot"></span><div class="card"><span class="k">Paasvakantie</span><b>6 – 10 april</b><span>Ponykamp, 9 tot 17 uur</span><span class="bd">voorbij</span></div></div>
+      <div class="ev done"><span class="dot"></span><div class="card"><span class="k">Zomer</span><b>6 – 10 juli</b><span>Ponykamp, 9 tot 17 uur</span><span class="bd">voorbij</span></div></div>
+      <div class="ev done"><span class="dot"></span><div class="card"><span class="k">Zomer</span><b>17 – 21 augustus</b><span>Ponykamp, 9 tot 17 uur</span><span class="bd">voorbij</span></div></div>
+      <div class="ev done"><span class="dot"></span><div class="card"><span class="k">Event</span><b>29 augustus</b><span>Jumping Back to School en cocktaildag, met frietjes</span><span class="bd">voorbij</span></div></div>
+    </div>
+    <div class="next" data-r>
+      <div><h3>De kampen van 2027 komen eraan</h3><p>Wil je als eerste de data? Stuur een mailtje, dan laten we het weten zodra ze vastliggen. Om in te schrijven hebben we dit nodig:</p><ul><li>naam en geboortedatum</li><li>telefoon en adres</li><li>mailadres</li><li>welke periode</li><li>foto's ja of nee</li><li>allergieën</li></ul></div>
+      <div class="r"><a class="btn" href="mailto:derietbeemden@gmail.com?subject=Ponykampen%202027"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> Hou me op de hoogte</a><a class="btn line" href="https://www.facebook.com/search/top?q=Manege%20De%20Rietbeemden" target="_blank" rel="noopener">Volg op Facebook</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec cafe">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow" data-r><svg><use href="#shoe"/></svg> Cafetaria te huur</span>
+      <h2 data-r="80">Een feest op de manege?</h2>
+      <p class="lead" data-r="120">De cafetaria kan je huren voor een verjaardag, een vergadering of een teambuilding. Met uitzicht op de piste, en als je wil ook samen met de piste. Alle ideeën zijn bespreekbaar.</p>
+      <div class="tags" data-r="160"><span><svg class="ic" aria-hidden="true"><use href="#i-party-popper"/></svg> Feestjes</span><span><svg class="ic" aria-hidden="true"><use href="#i-presentation"/></svg> Seminaries</span><span><svg class="ic" aria-hidden="true"><use href="#i-palette"/></svg> Workshops</span><span><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg> Teambuildings</span><span><svg class="ic" aria-hidden="true"><use href="#i-briefcase"/></svg> Vergaderingen</span></div>
+      <a class="btn hay" href="mailto:derietbeemden@gmail.com?subject=Cafetaria%20huren" data-r="200"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> Vraag het aan Maria</a>
+    </div>
+    <figure data-r="100"><img src="img/cafetaria.webp" alt="Zicht vanuit de cafetaria op de binnenpiste" loading="lazy" width="800" height="1000"></figure>
+  </div>
+</section>
+
+<section class="rev">
+  <div class="wrap">
+    <div class="rtop">
+      <div><span class="eyebrow" data-r><svg><use href="#shoe"/></svg> Reviews</span><h2 data-r="80" style="margin-top:16px">Wat ruiters en ouders zeggen</h2></div>
+      <div class="sc" data-r="120"><b data-count="4.5">4,5</b><div><span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star-half"/></svg></span><small>66 reviews op Google</small></div></div>
+    </div>
+    <div class="rg">
+      <article class="rc" data-r><svg class="shoe"><use href="#shoe"/></svg><span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span><q>Wat begon als een proefles, is uitgegroeid tot een vaste waarde in het weekritme van onze dochter. De lesgevers weten perfect hoe ze jonge ruiters stap voor stap kunnen laten groeien, zowel in vertrouwen als in techniek.</q><div class="who"><b>Els</b> · op Google</div></article>
+      <article class="rc" data-r="100"><span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span><q>Fantastische manege! Zeer vriendelijke, behulpzame mensen met kennis van zaken.</q><div class="who"><b>Birgit</b> · op Google</div></article>
+      <article class="rc" data-r="200"><span class="stars"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span><q>Super, een manege met een warm gevoel.</q><div class="who"><b>Pamela</b> · op Google</div></article>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="eyebrow" data-r><svg><use href="#shoe"/></svg> Contact</span>
+    <h2 data-r="80" style="margin:16px 0 36px">Wie bel je voor wat?</h2>
+    <div class="cg">
+      <div class="pc" data-r><span class="av">J</span><h3>Joris</h3><span>Stalling en algemene vragen</span><a class="btn" href="tel:+32494131760"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> 0494 13 17 60</a></div>
+      <div class="pc" data-r="100"><span class="av">J</span><h3>Jolien</h3><span>Lessen, ponykampen en de oefenjumping</span><a class="btn hay" href="tel:+32498813088"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> 0498 81 30 88</a></div>
+      <div class="pc" data-r="200"><span class="av">M</span><h3>Maria</h3><span>De cafetaria huren, en inschrijven voor kampen per mail</span><a class="btn line" href="mailto:derietbeemden@gmail.com"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> derietbeemden@gmail.com</a></div>
+    </div>
+    <div class="addr" data-r><div class="l"><svg class="ic" aria-hidden="true"><use href="#i-map-pin"/></svg><div><b>Roerdompstraat 25, 2440 Geel</b><span>Ruime parking voor wagens, trailers en paardenwagens</span></div></div><a class="btn white" href="https://www.google.com/maps/dir/?api=1&destination=Roerdompstraat+25+2440+Geel" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-navigation"/></svg> Route plannen</a></div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 21 C 300 -6, 520 45, 760 18 S 1200 3, 1440 27 L1440 60 L0 60 Z" fill="#1A3622"/></svg>
+  <div class="wrap">
+    <div class="fg">
+      <div><a class="logo" href="#top"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#E2B458"/><use href="#shoe" x="11" y="10" width="26" height="26" color="#1A3622"/></svg><span><b>De Rietbeemden</b><small>Manege in Geel</small></span></a><p>Paardrijlessen, stalling en ponykampen. Een familiebedrijf, met vriendelijkheid en respect voor paard en mens.</p></div>
+      <div><h4>Manege</h4><ul><li>Roerdompstraat 25</li><li>2440 Geel</li><li><a href="mailto:derietbeemden@gmail.com">derietbeemden@gmail.com</a></li></ul></div>
+      <div><h4>Lessen</h4><ul><li>Di en do: 17–20u</li><li>Wo: 13–18u · Vr: 16–19u</li><li>Za: 12–18u</li></ul></div>
+    </div>
+    <div class="legal"><span>© Manege De Rietbeemden, familie Eykens-Van Laer, Geel</span><span>Voorbeeldsite door <a href="https://digital-impression.be" target="_blank" rel="noopener">Digital Impression</a></span></div>
+  </div>
+</footer>
+
+<div class="mbar"><a class="btn hay" href="tel:+32498813088"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Les boeken</a><a class="btn white" href="tel:+32494131760"><svg class="ic" aria-hidden="true"><use href="#i-house"/></svg> Stalling</a></div>
+
+<script>(()=>{
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+/* Brussels time, so a visitor abroad sees the shop's real state */
+const now=(off=0)=>{const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Brussels',weekday:'short',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date(Date.now()+off*864e5));const g=t=>p.find(x=>x.type===t).value;return{d:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(g('weekday')),m:(+g('hour')%24)*60+(+g('minute')),ymd:g('year')+'-'+g('month')+'-'+g('day')}};
+window.DI={now,$,$$};
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px',threshold:.08});
+$$('[data-r]').forEach((el,i)=>{if(RM){el.classList.add('in');return}const st=el.dataset.r;if(st)el.style.setProperty('--d',st+'ms');io.observe(el)});
+/* counters */
+const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;co.unobserve(e.target);const el=e.target,to=parseFloat(el.dataset.count),dec=(el.dataset.count.split(/[.,]/)[1]||'').length,dur=1400,t0=performance.now();const fmt=v=>v.toFixed(dec).replace('.',',');if(RM){el.textContent=fmt(to);return}const step=t=>{const k=Math.min(1,(t-t0)/dur),e2=1-Math.pow(1-k,3);el.textContent=fmt(to*e2);if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}),{threshold:.6});
+$$('[data-count]').forEach(el=>co.observe(el));
+/* header state */
+const hd=$('[data-head]');if(hd){const f=()=>hd.classList.toggle('scrolled',scrollY>30);f();addEventListener('scroll',f,{passive:true})}
+/* opening hours: window.HOURS = {1:[[420,1110]],...} minutes, 0=sunday */
+const H=window.HOURS;
+const hm=m=>{const h=Math.floor(m/60),mm=m%60;return h+'u'+(mm?String(mm).padStart(2,'0'):'')};
+const days=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+const SP=window.SPECIAL||{};const hrs=(off)=>{const n=now(off);return SP[n.ymd]||H[n.d]||[]};
+window.DI.hrs=hrs;
+window.DI.status=()=>{if(!H)return null;const{d,m}=now();const t=hrs(0);for(const[a,b]of t){if(m>=a&&m<b)return{open:true,txt:'Nu open',sub:'tot '+hm(b),close:b,m}}
+ const later=t.find(([a])=>a>m);if(later)return{open:false,txt:'Nu gesloten',sub:'open om '+hm(later[0])};
+ for(let i=1;i<8;i++){const dd=(d+i)%7,tt=hrs(i);if(tt.length)return{open:false,txt:'Nu gesloten',sub:'open '+(i===1?'morgen':days[dd])+' om '+hm(tt[0][0])}}return null};
+const st=window.DI.status();
+if(st)$$('[data-open]').forEach(el=>{el.classList.toggle('is-open',st.open);el.classList.toggle('is-closed',!st.open);const a=$('[data-open-t]',el),b=$('[data-open-s]',el);if(a)a.textContent=st.txt;if(b)b.textContent=st.sub});
+$$('[data-today]').forEach(tb=>{const{d}=now();const r=tb.querySelector(`[data-day="${d}"]`);if(r)r.classList.add('today')});
+/* tabs */
+$$('[data-tabs]').forEach(w=>{const bs=$$('[data-tab]',w),ps=$$('[data-panel]',w);const set=k=>{bs.forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===k));ps.forEach(p=>p.hidden=p.dataset.panel!==k);w.dispatchEvent(new CustomEvent('tab',{detail:k}))};bs.forEach(b=>b.addEventListener('click',()=>set(b.dataset.tab)));w._set=set});
+$$('[data-goto-tab]').forEach(a=>a.addEventListener('click',()=>{const [sel,k]=a.dataset.gotoTab.split('|');const w=$(sel);if(w&&w._set)w._set(k)}));
+/* accordion */
+$$('[data-acc] > button').forEach(b=>b.addEventListener('click',()=>{const it=b.parentElement,o=it.classList.toggle('open');b.setAttribute('aria-expanded',o)}));
+/* marquee: duplicate content for a seamless loop */
+$$('[data-marquee]').forEach(m=>{const t=m.firstElementChild;if(!t)return;m.appendChild(t.cloneNode(true)).setAttribute('aria-hidden','true')});
+/* gentle parallax for decorative layers */
+if(!RM&&innerWidth>900){const px=$$('[data-px]');if(px.length){let tk=false;const run=()=>{const vh=innerHeight;px.forEach(el=>{const r=el.getBoundingClientRect();const c=(r.top+r.height/2-vh/2)/vh;el.style.translate=`0 ${(c*parseFloat(el.dataset.px)).toFixed(1)}px`});tk=false};addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(run)}},{passive:true});run()}}
+/* mobile menu */
+const mb=$('[data-menu-btn]'),mn=$('[data-menu]');if(mb&&mn){mb.addEventListener('click',()=>{const o=document.body.classList.toggle('menu-open');mb.setAttribute('aria-expanded',o)});$$('a',mn).forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-open')))}
+})();
+</script>
+<script>
+(()=>{const{$,$$,now}=DI;
+const hd=$('[data-head2]'),hero=$('.hero');const f=()=>hd.classList.toggle('fixed',scrollY>hero.offsetHeight-100);addEventListener('scroll',f,{passive:true});f();
+/* lesson week */
+const L={0:null,1:null,2:[1020,1200],3:[780,1080],4:[1020,1200],5:[960,1140],6:[720,1080]};
+const names=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+const S=720,E=1200,pct=m=>((m-S)/(E-S)*100);
+const hm=m=>Math.floor(m/60)+(m%60?'u'+String(m%60).padStart(2,'0'):'u');
+const t=now();const D=$('#days');
+[2,3,4,5,6].forEach(d=>{const r=L[d];const row=document.createElement('div');row.className='dy'+(d===t.d?' today':'');
+ row.innerHTML=`<b>${names[d]}</b><span class="bar"><i style="left:${pct(r[0])}%;width:${pct(r[1])-pct(r[0])}%">${hm(r[0])} – ${hm(r[1])}</i>${d===t.d&&t.m>=S&&t.m<=E?`<span class="now" style="left:${pct(t.m)}%"></span>`:''}</span>`;D.appendChild(row)});
+const today=L[t.d];let msg,sub;
+if(today){if(t.m<today[0]){msg=`Vandaag les van ${hm(today[0])} tot ${hm(today[1])}`;sub=`De cafetaria opent om ${hm(today[0]-20)}`}else if(t.m<today[1]){msg='Er wordt nu les gegeven';sub=`Tot ${hm(today[1])} vandaag`}else{msg='De lessen van vandaag zitten erop';sub=''}}
+else{msg=t.d===1?'Op maandag is er geen les':'Vandaag geen les';sub=''}
+if(!sub){for(let i=1;i<8;i++){const dd=(t.d+i)%7;if(L[dd]){sub=`Volgende les: ${i===1?'morgen':names[dd]} om ${hm(L[dd][0])}`;break}}}
+$('#lnow').textContent=msg;$('#lsub').textContent=sub;
+/* plan zones */
+const Z={bp1:['Binnenpiste','21 × 60 meter','Overdekt en geopad, dus je rijdt ook als het regent.','fence'],
+bp2:['Tweede binnenpiste','21 × 50 meter','Nog een overdekte piste, zodat er altijd plaats is om te rijden.','fence'],
+buiten:['Buitenpiste','44 × 40 meter','Hier staat altijd een springparcours, dat je zelf kan aanpassen.','flag'],
+uitloop:['Uitlooppiste','12 × 20 meter','In het stalgebouw. Voor de winter, als de weides te nat zijn.','snowflake'],
+stal:['Stallen','3 maten','Met automatische drinkbak, en paarden die uitkijken op de gang.','house'],
+was:['Wasplaatsen','2 binnen, 2 buiten','Je paard wassen na het rijden, ook in de winter.','droplets'],
+cafe:['Cafetaria','met zicht op de piste','Open 20 minuten voor de eerste les, en te huur voor feestjes en vergaderingen.','coffee'],
+parking:['Parking','ruim','Voor wagens, trailers en paardenwagens.','car'],
+weide:['Weides','34 hectare','De helft voor de paarden, in kuddes. De rest voor eigen hooi.','trees']};
+const zl=$('#zlist');
+const set=k=>{const z=Z[k];$$('#plan .z').forEach(g=>g.classList.toggle('on',g.dataset.z===k));$('#zt').textContent=z[0];$('#zd').textContent=z[1];$('#zp').textContent=z[2];$('#zic').innerHTML=`<svg class="ic"><use href="#i-${z[3]}"/></svg>`;$$('button',zl).forEach(b=>b.classList.toggle('on',b.dataset.k===k))};
+Object.keys(Z).forEach(k=>{const b=document.createElement('button');b.type='button';b.dataset.k=k;b.textContent=Z[k][0];b.onclick=()=>set(k);zl.appendChild(b)});
+$$('#plan .z').forEach(g=>g.addEventListener('click',()=>set(g.dataset.z)));set('bp1');
+})();
+</script>
+</body>
+</html>
