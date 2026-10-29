@@ -83,11 +83,16 @@ h3{font-size:1.9rem;font-stretch:75%}
 .stars{display:inline-flex;gap:1px;color:var(--y)}
 .stars .ic{width:14px;height:14px;fill:currentColor;stroke:none}
 .stage{position:relative;height:600px}
-.tyre{position:absolute;left:4%;top:4%;width:88%;aspect-ratio:1;filter:drop-shadow(0 40px 40px rgba(0,0,0,.7))}
+.stage::before{content:"";position:absolute;left:12%;right:-2%;top:9%;bottom:-3%;background:var(--y);border-radius:30px;transform:rotate(3deg)}
+.stage .shot{position:absolute;left:8%;right:2%;top:5%;bottom:1%;border-radius:30px;overflow:hidden;box-shadow:0 50px 90px -30px rgba(0,0,0,.9)}
+.stage .shot img{width:100%;height:100%;object-fit:cover;object-position:40% 50%;transform:scale(1.04)}
+.stage .shot::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.55))}
+.chipb{position:absolute;right:-2%;bottom:8%;z-index:4;display:flex;align-items:center;gap:12px;background:#fff;color:var(--asph);border-radius:18px;padding:12px 18px;box-shadow:var(--sh-l);font-size:.8rem;line-height:1.2}
+.chipb b{font:900 2rem/1 var(--f);font-stretch:75%}
 .tyre .spin{transform-origin:250px 250px;animation:spin 18s linear infinite}
 .tyre.fast .spin{animation-duration:1.4s}
 @keyframes spin{to{transform:rotate(360deg)}}
-.stage .wissel{position:absolute;right:-6%;bottom:-2%;width:46%;z-index:3;filter:drop-shadow(0 30px 30px rgba(0,0,0,.7))}
+
 .tag{position:absolute;left:0;top:6%;z-index:4;transform-origin:50% 0;animation:swing 4s ease-in-out infinite}
 .tag .t{position:relative;display:block;background:var(--y);color:var(--asph);padding:20px 22px 18px 34px;clip-path:polygon(18px 0,100% 0,100% 100%,18px 100%,0 50%);font:900 1.5rem/.95 var(--f);font-stretch:70%;text-transform:uppercase;box-shadow:var(--sh-l)}
 .tag .t::before{content:"";position:absolute;left:14px;top:50%;width:10px;height:10px;border-radius:50%;background:var(--asph);transform:translateY(-50%)}
@@ -259,6 +264,7 @@ section{position:relative}
   .foot{padding-bottom:120px}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+@media (max-width:900px){.chipb{display:none}}
 </style>
 </head>
 <body>
@@ -311,8 +317,8 @@ section{position:relative}
       </div>
     </div>
     <div class="stage" data-r="120">
-      <svg class="tyre" id="htyre" viewBox="0 0 500 500" aria-hidden="true"><g class="spin"><use href="#wheel"/><text font-family="Archivo,sans-serif" font-weight="900" font-size="22" letter-spacing="5" fill="#5A5A5A"><textPath href="#sw">BREDENS BANDENCENTER · BREDENE · 205/55 R16 91V ·</textPath></text></g></svg>
-      <img class="wissel" src="img/c-banden.webp" alt="Banden klaar om te monteren" width="640" height="624">
+      <div class="shot"><img src="img/hero-band.webp" alt="Een band, klaar om gemonteerd te worden" width="1300" height="1154" fetchpriority="high"></div>
+      <div class="chipb"><b>4,8</b><span>235 reviews<br>op Google</span></div>
       <div class="tag"><span class="t">Eerlijke prijs<small>vooraf gezegd</small></span></div>
     </div>
   </div>
@@ -482,7 +488,7 @@ $$('.chips').forEach(g=>{$$('button',g).forEach(b=>{if(!b.hasAttribute('aria-pre
 $('#copy').addEventListener('click',async()=>{const t=$('#say').textContent;try{await navigator.clipboard.writeText(t);$('#ok').textContent='Gekopieerd. Plak het in een bericht, of lees het voor aan de telefoon.'}catch(e){$('#ok').textContent=t}});
 upd();
 /* hero tyre spins faster while scrolling */
-const ht=$('#htyre');let to;addEventListener('scroll',()=>{ht.classList.add('fast');clearTimeout(to);to=setTimeout(()=>ht.classList.remove('fast'),220)},{passive:true});
+
 /* live temperature in Bredene (Open-Meteo, no key) */
 const setT=t=>{$('#temp').textContent=Math.round(t)+'°';$('#tme').style.setProperty('--t',Math.max(2,Math.min(98,(t+5)/25*100))+'%');
  $('#verdict').textContent=t<7?'Het is nu kouder dan 7 graden. Winterbanden grijpen nu beter dan zomerbanden.':'Nog boven de 7 graden. Plan je wissel op tijd, voor de eerste koude ochtend.'};
