@@ -553,7 +553,7 @@ const mb=$('[data-menu-btn]'),mn=$('[data-menu]');if(mb&&mn){mb.addEventListener
 (()=>{const{$,$$,now}=DI;
 /* Allerheiligen countdown */
 const t=now();const [y,mo,da]=t.ymd.split('-').map(Number);const diff=Math.round((Date.UTC(2026,10,1)-Date.UTC(y,mo-1,da))/864e5);
-if(diff<0){$('#ahbar').remove();$('#sp').remove();$('#cd').remove()}
+if(diff<0){$('#ahbar').remove();$('#sp').remove();$('#cd').remove();const sec=$('#allerheiligen');if(sec)sec.remove();document.querySelectorAll('a[href="#allerheiligen"]').forEach(x=>{if(x.closest('.nav,[data-menu]'))x.remove();else{x.setAttribute('href','#bezoek');const n=x.querySelector('.n');if(n)n.textContent='elk jaar rond 1 november'}})}
 else{const txt=diff===0?'vandaag':diff===1?'morgen':'nog '+diff+' dagen';$('#ahcount').textContent=txt;$('#cdn').textContent=diff===0?'nu':diff;$('#cdl').textContent=diff===0?'open tot 17u':diff===1?'dag nog':'dagen nog'}
 /* bouquet builder */
 const B=[20,30,45,60,80],N=[5,8,11,15,19];
