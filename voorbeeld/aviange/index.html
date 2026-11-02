@@ -354,15 +354,93 @@ section{position:relative}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
+<style>
+/* Digital Impression: woordje voor de klant, onder de voorbeeldsite */
+.di{position:relative;background:var(--pearl);color:var(--ink);padding:0 0 110px;overflow:hidden}
+.di-cut{position:relative;display:flex;justify-content:center;padding:34px 0 0}
+.di-cut::before{content:"";position:absolute;left:0;right:0;top:34px;border-top:1.5px dashed rgba(59,29,43,.22)}
+.di-cut span{position:relative;top:-15px;display:inline-flex;align-items:center;gap:.6em;background:var(--pearl);padding:0 18px;font:500 .72rem/30px var(--f-b);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.di-cut em{font-style:normal}
+.di-card .lbl{display:block}
+.di-cut .ic{width:18px;height:18px;color:var(--gold);transform:rotate(-90deg)}
+.di-top{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center;padding-top:70px}
+.di h2{margin:22px 0 28px}
+.di h2 em{display:block;font-style:italic;font-weight:500;color:var(--wine)}
+.di-note p{max-width:50ch;color:var(--ink);opacity:.86}
+.di-note p+p{margin-top:1em}
+.di-sign{display:flex;align-items:center;gap:16px;margin-top:34px}
+.di-sign .av{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:var(--rose);color:var(--plum);font:600 1.05rem/1 var(--f-d);letter-spacing:.04em;box-shadow:inset 0 0 0 1px rgba(59,29,43,.08)}
+.di-sign .script{font-size:2.5rem;display:block;margin-bottom:2px}
+.di-sign small{display:block;font-size:.82rem;color:var(--muted);letter-spacing:.02em}
+.di-card{position:relative;background:var(--plum-3);color:#D9C6CD;border-radius:34px;padding:46px 44px 40px;box-shadow:var(--sh-l);overflow:hidden}
+.di-card::after{content:"";position:absolute;width:340px;height:340px;right:-140px;top:-160px;border-radius:50%;background:radial-gradient(closest-side,rgba(230,205,170,.16),transparent);pointer-events:none}
+.di-tag{position:absolute;top:28px;right:28px;padding:.55em 1em;border-radius:999px;background:rgba(230,205,170,.12);color:var(--gold-l);font:500 .72rem/1 var(--f-b);letter-spacing:.14em;text-transform:uppercase}
+.di-card .lbl{font:500 .76rem/1 var(--f-b);letter-spacing:.22em;text-transform:uppercase;color:#A78C97}
+.di-price{display:flex;align-items:baseline;gap:14px;margin:14px 0 26px;flex-wrap:wrap}
+.di-price b{font:600 clamp(4.2rem,7vw,5.6rem)/.9 var(--f-d);color:var(--gold-l);letter-spacing:-.02em}
+.di-price span{font-size:.95rem;color:#B9A2AB}
+.di-list{list-style:none;padding:0;display:grid;gap:12px}
+.di-list li{display:flex;gap:12px;align-items:flex-start;color:#EBDDE2;font-size:.98rem;line-height:1.45}
+.di-list .ic{width:20px;height:20px;margin-top:1px;color:var(--gold);stroke-width:2}
+.di-fine{margin-top:22px;font-size:.88rem;color:#A78C97;line-height:1.55}
+.di-after{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px;padding-top:26px;border-top:1px solid rgba(255,255,255,.08)}
+.di-after div{padding:16px 18px;border-radius:18px;background:rgba(255,255,255,.04)}
+.di-after b{display:block;font:600 1.6rem/1 var(--f-d);color:#F4E8EC;margin:8px 0 6px}
+.di-after b small{font:400 .8rem var(--f-b);color:#A78C97}
+.di-after span{font-size:.8rem;color:#A78C97;line-height:1.45;display:block}
+.di-after em{font-style:normal;font:500 .7rem/1 var(--f-b);letter-spacing:.18em;text-transform:uppercase;color:var(--gold-l)}
+.di-steps{margin-top:110px}
+.di-steps ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:34px;border-top:1px solid var(--line)}
+.di-steps li{position:relative;padding:30px 28px 0 0}
+.di-steps li::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--pearl);box-shadow:inset 0 0 0 1.5px var(--rose-2)}
+.di-steps li.now::before{background:var(--gold);box-shadow:0 0 0 6px rgba(191,147,99,.18)}
+.di-steps .n{font:italic 500 1.05rem/1 var(--f-d);color:var(--gold)}
+.di-steps .n i{font:500 .66rem/1 var(--f-b);font-style:normal;letter-spacing:.16em;text-transform:uppercase;color:var(--wine);margin-left:10px;vertical-align:2px}
+.di-steps h3{font-size:1.65rem;margin:12px 0 10px}
+.di-steps p{font-size:.95rem;color:var(--muted);line-height:1.6;max-width:30ch}
+.di-cta{display:flex;align-items:center;justify-content:space-between;gap:30px;margin-top:100px;padding:38px 44px;border-radius:30px;background:var(--blush);box-shadow:inset 0 0 0 1px var(--line)}
+.di-cta h3{font-size:2.1rem}
+.di-cta p{margin-top:10px;color:var(--muted);font-size:.97rem;max-width:48ch}
+.di-cta .row{display:flex;gap:10px;flex-wrap:wrap;flex:none}
+.di-mail{display:inline-flex;align-items:center;gap:.5em;margin-top:14px;font-size:.88rem;color:var(--plum-2);text-underline-offset:3px}
+.di-foot{margin-top:46px;text-align:center;font-size:.8rem;letter-spacing:.04em;color:var(--muted)}
+.di-foot a{color:var(--plum-2);text-underline-offset:3px}
+.mbar{transition:opacity .4s var(--ease),transform .4s var(--ease)}
+body.di-in .mbar{opacity:0;transform:translateY(24px);pointer-events:none}
+@media (max-width:1080px){
+  .di-top{grid-template-columns:1fr;gap:50px}
+  .di-card{max-width:560px}
+  .di-steps ol{grid-template-columns:1fr 1fr;row-gap:34px}
+  .di-cta{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:640px){
+  .foot{padding-bottom:40px}
+  .di{padding-bottom:70px}
+  .di-cut span{font-size:.64rem;letter-spacing:.16em;padding:0 12px}
+  .di-top{padding-top:56px}
+  .di-card{padding:38px 24px 26px;border-radius:28px}
+  .di-tag{position:static;display:inline-block;margin-bottom:22px}
+  .di-cut .x{display:none}
+  .di-after{grid-template-columns:1fr}
+  .di-steps{margin-top:80px}
+  .di-steps ol{grid-template-columns:1fr;border-top:0;border-left:1px solid var(--line);row-gap:30px;margin-left:4px}
+  .di-steps li{padding:0 0 0 26px}
+  .di-steps li::before{top:4px;left:-5px}
+  .di-steps p{max-width:none}
+  .di-cta{margin-top:70px;padding:30px 24px}
+  .di-cta h3{font-size:1.8rem}
+  .di-cta .row,.di-cta .row .btn{width:100%;justify-content:center}
+}
+</style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-calendar-heart" viewBox="0 0 24 24"><path d="M12.127 21H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v5.125" /> <path d="M14.62 17.8A2.25 2.25 0 1118 14.836a2.25 2.25 0 113.38 2.966l-2.626 2.856a.998.998 0 01-1.507 0z" /> <path d="M16 2v3" /> <path d="M3 9h18" /> <path d="M8 2v3" /></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 5h16" /> <path d="M4 12h16" /> <path d="M4 19h16" /></symbol><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /></symbol><symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z" /> <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /> <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /> <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /> <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /> <path d="M20 2v4" /> <path d="M22 4h-4" /> <circle cx="4" cy="20" r="2" /></symbol><symbol id="i-award" viewBox="0 0 24 24"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526" /> <circle cx="12" cy="8" r="6" /></symbol><symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3" /> <path d="M8.12 8.12 12 12" /> <path d="M20 4 8.12 15.88" /> <circle cx="6" cy="18" r="3" /> <path d="M14.8 14.8 20 20" /></symbol><symbol id="i-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34" /> <circle cx="11" cy="11" r="8" /></symbol><symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20a10 10 0 0010-10 25.9 25.9 0 00-1.04-7.281 1 1 0 00-1.755-.325C15.833 5.5 13 5.5 9.8 6.1A7 7 0 0011 20" /> <path d="M2 21a5 5 0 012.911-4.544C7.613 15.212 8.351 15.24 11 13" /></symbol><symbol id="i-flower-2" viewBox="0 0 24 24"><path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1" /> <circle cx="12" cy="8" r="2" /> <path d="M12 10v12" /> <path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z" /> <path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z" /></symbol><symbol id="i-lightbulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /> <path d="M9 18h6" /> <path d="M10 22h4" /></symbol><symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10" /> <path d="M7 17 17 7" /></symbol><symbol id="i-flower" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /> <path d="M12 16.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 1 1 12 7.5a4.5 4.5 0 1 1 4.5 4.5 4.5 4.5 0 1 1-4.5 4.5" /> <path d="M12 7.5V9" /> <path d="M7.5 12H9" /> <path d="M16.5 12H15" /> <path d="M12 16.5V15" /> <path d="m8 8 1.88 1.88" /> <path d="M14.12 9.88 16 8" /> <path d="m8 16 1.88-1.88" /> <path d="M14.12 14.12 16 16" /></symbol><symbol id="i-feather" viewBox="0 0 24 24"><path d="M14.086 18.412A2 2 0 0112.67 19H5v-7.672a2 2 0 01.586-1.414L11.75 3.75a6 6 0 118.49 8.49z" /> <path d="M16 8 2 22" /> <path d="M17.488 15H9" /></symbol><symbol id="i-hand" viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2" /> <path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2" /> <path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8" /> <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" /></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></symbol><symbol id="i-navigation" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11" /></symbol><symbol id="i-phone" viewBox="0 0 24 24"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></symbol><symbol id="i-camera" viewBox="0 0 24 24"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" /> <circle cx="12" cy="13" r="3" /></symbol><symbol id="i-message-circle" viewBox="0 0 24 24"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></symbol></defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-calendar-heart" viewBox="0 0 24 24"><path d="M12.127 21H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v5.125" /> <path d="M14.62 17.8A2.25 2.25 0 1118 14.836a2.25 2.25 0 113.38 2.966l-2.626 2.856a.998.998 0 01-1.507 0z" /> <path d="M16 2v3" /> <path d="M3 9h18" /> <path d="M8 2v3" /></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 5h16" /> <path d="M4 12h16" /> <path d="M4 19h16" /></symbol><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /></symbol><symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z" /> <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /> <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /> <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /> <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /> <path d="M20 2v4" /> <path d="M22 4h-4" /> <circle cx="4" cy="20" r="2" /></symbol><symbol id="i-award" viewBox="0 0 24 24"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526" /> <circle cx="12" cy="8" r="6" /></symbol><symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3" /> <path d="M8.12 8.12 12 12" /> <path d="M20 4 8.12 15.88" /> <circle cx="6" cy="18" r="3" /> <path d="M14.8 14.8 20 20" /></symbol><symbol id="i-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34" /> <circle cx="11" cy="11" r="8" /></symbol><symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20a10 10 0 0010-10 25.9 25.9 0 00-1.04-7.281 1 1 0 00-1.755-.325C15.833 5.5 13 5.5 9.8 6.1A7 7 0 0011 20" /> <path d="M2 21a5 5 0 012.911-4.544C7.613 15.212 8.351 15.24 11 13" /></symbol><symbol id="i-flower-2" viewBox="0 0 24 24"><path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1" /> <circle cx="12" cy="8" r="2" /> <path d="M12 10v12" /> <path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z" /> <path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z" /></symbol><symbol id="i-lightbulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /> <path d="M9 18h6" /> <path d="M10 22h4" /></symbol><symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10" /> <path d="M7 17 17 7" /></symbol><symbol id="i-flower" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /> <path d="M12 16.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 1 1 12 7.5a4.5 4.5 0 1 1 4.5 4.5 4.5 4.5 0 1 1-4.5 4.5" /> <path d="M12 7.5V9" /> <path d="M7.5 12H9" /> <path d="M16.5 12H15" /> <path d="M12 16.5V15" /> <path d="m8 8 1.88 1.88" /> <path d="M14.12 9.88 16 8" /> <path d="m8 16 1.88-1.88" /> <path d="M14.12 14.12 16 16" /></symbol><symbol id="i-feather" viewBox="0 0 24 24"><path d="M14.086 18.412A2 2 0 0112.67 19H5v-7.672a2 2 0 01.586-1.414L11.75 3.75a6 6 0 118.49 8.49z" /> <path d="M16 8 2 22" /> <path d="M17.488 15H9" /></symbol><symbol id="i-hand" viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2" /> <path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2" /> <path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8" /> <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" /></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></symbol><symbol id="i-navigation" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11" /></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol><symbol id="i-phone" viewBox="0 0 24 24"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></symbol><symbol id="i-camera" viewBox="0 0 24 24"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" /> <circle cx="12" cy="13" r="3" /></symbol><symbol id="i-message-circle" viewBox="0 0 24 24"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></symbol></defs></svg>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <symbol id="sp" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.6 5.6 3.4 9.4 12 12-8.6 2.6-11.4 6.4-12 12-.6-5.6-3.4-9.4-12-12C8.6 9.4 11.4 5.6 12 0z"/></symbol>
 <symbol id="leaf" viewBox="0 0 40 40"><path fill="currentColor" d="M20 2c7 6 14 14 12 24-2 8-10 12-12 12S10 34 8 26C6 16 13 8 20 2zm0 6v28"/><path d="M20 8v28M20 18l6-5M20 25l-6-5M20 31l6-4" stroke="rgba(0,0,0,.15)" stroke-width="1.4" fill="none"/></symbol>
 </defs></svg>
 
-<div class="demo">Voorbeeldsite van Digital Impression voor Avi&amp;Ange. Benieuwd wat zoiets kost? <a href="https://wa.me/32496251445?text=Hallo%20Stijn%2C%20ik%20zag%20de%20voorbeeldsite%20voor%20Avi%26Ange." target="_blank" rel="noopener">Stuur Stijn een bericht</a></div>
+<div class="demo">Voorbeeldsite van Digital Impression voor Avi&amp;Ange. Benieuwd wat zoiets kost? <a href="#voor-avina">Lees het onderaan</a> of <a href="https://wa.me/32496251445?text=Hallo%20Stijn%2C%20ik%20zag%20de%20voorbeeldsite%20voor%20Avi%26Ange." target="_blank" rel="noopener">stuur Stijn een bericht</a></div>
 
 <header class="head" data-head>
   <div class="wrap">
@@ -661,6 +739,62 @@ section{position:relative}
   </div>
 </footer>
 
+<section class="di" id="voor-avina" aria-label="Over deze voorbeeldsite, van Digital Impression">
+  <div class="di-cut"><span><svg class="ic" aria-hidden="true"><use href="#i-scissors"/></svg> Hier stopt het voorbeeld<em class="x"> · een woordje voor Avina</em></span></div>
+  <div class="wrap">
+    <div class="di-top">
+      <div class="di-note" data-r>
+        <span class="eyebrow">Digital Impression</span>
+        <h2>Gemaakt voor Avi&amp;Ange. <em>En nu?</em></h2>
+        <p>Dag Avina, ik ben Stijn. Ik maak websites voor zelfstandigen en heb deze site voor jullie salon gebouwd, gewoon als voorbeeld. Wat je ziet komt van jullie zelf: de foto's, de prijzen op Salonkee en wat klanten over jullie schrijven.</p>
+        <p>Zie het als een eerste versie. Teksten, foto's, kleuren, de volgorde: alles kan nog anders. Afspraken maken blijft via Salonkee, daar verandert niets aan.</p>
+        <div class="di-sign"><span class="av" aria-hidden="true">SV</span><div><span class="script">Stijn</span><small>Stijn Vranken · Digital Impression, Leuven</small></div></div>
+      </div>
+      <div class="di-card" data-r="120">
+        <span class="di-tag">Geen voorschot</span>
+        <span class="lbl">Jullie website</span>
+        <div class="di-price"><b>€ 499</b><span>eenmalig, alles inbegrepen</span></div>
+        <ul class="di-list">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Deze site, afgewerkt zoals jullie hem willen</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Op jullie eigen domeinnaam</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Even mooi op gsm, tablet en laptop</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Boekknop rechtstreeks naar Salonkee</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Vindbaar op jullie naam en op Ninove</li>
+        </ul>
+        <p class="di-fine">Jullie betalen pas als de site online staat en je er tevreden over bent. Vind je het voorbeeld niks, dan kost het niets.</p>
+        <div class="di-after">
+          <div><em>Zelf beheren</em><b>€ 0</b><span>Hosting en domein op jullie naam, aanpassen doe je zelf.</span></div>
+          <div><em>Zorgeloos</em><b>€ 19,99 <small>/ maand</small></b><span>Hosting, domein en kleine aanpassingen, zoals nieuwe prijzen of feestdaguren.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="di-steps" data-r>
+      <span class="eyebrow">Zo gaat het verder</span>
+      <ol>
+        <li class="now"><span class="n">01<i>je bent hier</i></span><h3>Rustig bekijken</h3><p>Neem je tijd. Kijk ook eens op je gsm, daar komen de meeste klanten binnen.</p></li>
+        <li><span class="n">02</span><h3>Even bellen</h3><p>Tien minuten aan de telefoon of een paar berichtjes. Wat moet anders, wat mag erbij?</p></li>
+        <li><span class="n">03</span><h3>Afwerken</h3><p>Ik pas aan tot het klopt. Jij hoeft niets in te vullen of zelf te schrijven.</p></li>
+        <li><span class="n">04</span><h3>Online</h3><p>Binnen twee weken staat de site live, op jullie eigen adres.</p></li>
+      </ol>
+    </div>
+
+    <div class="di-cta" data-r>
+      <div>
+        <h3>Iets dat anders moet, of een vraag?</h3>
+        <p>Stuur me gerust een berichtje. Vind je het niks? Ook goed, dan hoor je niets meer van mij.</p>
+        <a class="di-mail" href="mailto:info@digital-impression.be?subject=Voorbeeldsite%20Avi%26Ange"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>info@digital-impression.be</a>
+      </div>
+      <div class="row">
+        <a class="btn gold" href="https://wa.me/32496251445?text=Hallo%20Stijn%2C%20ik%20zag%20de%20voorbeeldsite%20voor%20Avi%26Ange." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-message-circle"/></svg> WhatsApp Stijn</a>
+        <a class="btn line" href="tel:+32496251445"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> 0496 25 14 45</a>
+      </div>
+    </div>
+
+    <p class="di-foot"><a href="https://digital-impression.be" target="_blank" rel="noopener">Digital Impression</a> · websites op maat voor zelfstandigen, vanuit Leuven</p>
+  </div>
+</section>
+
 <div class="mbar"><a class="btn gold" href="https://salonkee.be/salon/aviange?lang=nl" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-calendar-heart"/></svg> Afspraak</a><a class="btn pearl" href="tel:+3254253268"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Bellen</a></div>
 
 <script>window.HOURS={0:[],1:[[540,1080]],2:[],3:[[540,1080]],4:[[540,1080]],5:[[540,1140]],6:[[540,1080]]};</script>
@@ -717,5 +851,6 @@ T.forEach(t=>{const i=new Image();i.src=t.img});
 $$('[data-lane]').forEach(l=>{const g=l.firstElementChild;l.appendChild(g.cloneNode(true)).setAttribute('aria-hidden','true')});
 })();
 </script>
+<script>(()=>{const d=document.getElementById('voor-avina');if(!d||!('IntersectionObserver' in window))return;new IntersectionObserver(e=>document.body.classList.toggle('di-in',e[0].isIntersecting),{threshold:0}).observe(d)})();</script>
 </body>
 </html>
