@@ -78,12 +78,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .hero h1 span{display:block;color:var(--red)}
 .hero .lead{margin-bottom:34px;animation:up .9s var(--ease) .1s both}
 .hero .cta{display:flex;flex-wrap:wrap;gap:12px;animation:up .9s var(--ease) .18s both}
-.facts{display:flex;gap:30px;margin-top:46px;padding-top:28px;border-top:1px solid var(--line);animation:up .9s var(--ease) .26s both}
-.facts>div{display:flex;align-items:center;gap:12px}
-.facts i{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:var(--sage);color:var(--green);flex:none}
-.facts i .ic{width:21px;height:21px}
-.facts b{display:block;font:400 1.15rem/1.15 var(--f-d);color:var(--green-d)}
-.facts small{font-size:.84rem;color:var(--muted)}
+.hrv{display:flex;align-items:center;gap:18px;margin-top:46px;padding-top:28px;border-top:1px solid var(--line);animation:up .9s var(--ease) .26s both;color:inherit}
+.hrv .av{display:flex;padding-left:12px;flex:none}
+.hrv .av i{width:46px;height:46px;margin-left:-12px;border-radius:50%;display:grid;place-items:center;font:400 1.15rem/1 var(--f-d);font-style:normal;color:var(--green-d);border:3px solid var(--cream);box-shadow:var(--sh)}
+.hrv .av i:nth-child(1){background:var(--hay-l)}.hrv .av i:nth-child(2){background:var(--sage)}.hrv .av i:nth-child(3){background:#F3D7D3}.hrv .av i:nth-child(4){background:var(--paper)}
+.hrv .gs{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hrv .gs b{font:400 1.6rem/1 var(--f-d);color:var(--green-d)}
+.hrv .gs .stars{font-size:1rem;letter-spacing:1px}
+.hrv .gs small{font-size:.86rem;color:var(--muted);transition:color .2s}
+.hrv q{display:block;quotes:none;margin-top:4px;font:400 1.02rem/1.4 var(--f-d);color:var(--ink-2)}
+.hrv q::before{content:"\201C"}.hrv q::after{content:"\201D"}
+.hrv:hover .gs small{color:var(--green)}
 .arena{position:relative;height:660px;animation:in 1.1s var(--ease) .1s both}
 .arena .sun{position:absolute;right:-4%;top:6%;width:62%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 35%,#F7DE9C,var(--hay) 60%,#DDB052)}
 .arena .shoe{position:absolute;left:10%;right:6%;bottom:0;height:84%;border-radius:999px 999px 30px 30px;background:linear-gradient(170deg,var(--green-2),var(--green) 55%,var(--green-d))}
@@ -134,41 +139,30 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 .stop .n{position:absolute;left:50%;top:166px;transform:translateX(-50%);width:44px;height:44px;border-radius:50%;background:var(--hay);color:var(--green-d);display:grid;place-items:center;font:400 1.3rem/1 var(--f-d);box-shadow:0 0 0 6px var(--green)}
 .stop h3{color:#fff;font-size:1.45rem;margin:30px 0 8px}
 .stop p{font-size:.94rem;color:#B3C6B9;max-width:26ch;margin:0 auto}
-.who{position:relative;display:grid;grid-template-columns:.9fr 1.1fr;gap:0;background:var(--paper);color:var(--ink);border-radius:34px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.45)}
-.who .vis{position:relative;background:var(--hay-l);min-height:480px;overflow:hidden}
-.who .vis::before{content:"";position:absolute;left:50%;bottom:-30%;width:120%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:var(--hay)}
-.who .vis img{position:absolute;left:50%;bottom:0;height:96%;width:auto;max-width:none;transform:translateX(-50%)}
-.who .bd{padding:44px 46px}
-.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
-.tabs button{padding:11px 18px;border-radius:999px;background:var(--cream);font-weight:500;font-size:.95rem;color:var(--ink-2);transition:background .2s}
-.tabs button:hover{background:var(--sage)}
-.tabs button[aria-pressed="true"]{background:var(--green);color:#fff}
-.who h3{font-size:2.1rem;margin-bottom:12px}
-.who .d{color:var(--ink-2);margin-bottom:22px}
-.who dl{display:grid;grid-template-columns:130px 1fr;gap:12px 18px;margin:0 0 24px;padding-top:20px;border-top:1px solid var(--line)}
-.who dt{font-weight:600;font-size:.92rem;color:var(--red)}
-.who dd{margin:0;font-size:.97rem;color:var(--ink-2)}
-.say{display:flex;gap:14px;align-items:flex-start;background:var(--sage);border-radius:20px;padding:16px 18px;margin-bottom:22px}
-.say i{flex:none;width:38px;height:38px;border-radius:50%;background:var(--green);color:var(--hay);display:grid;place-items:center}
-.say i .ic{width:18px;height:18px}
-.say small{display:block;font-size:.8rem;color:var(--muted)}
-.say q{quotes:none;font:400 1.08rem/1.4 var(--f-d);color:var(--green-d)}
+.know{position:relative;display:grid;grid-template-columns:.8fr 1.2fr;background:var(--paper);color:var(--ink);border-radius:34px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.45)}
+.know .vis{position:relative;background:var(--hay-l);min-height:440px;overflow:hidden}
+.know .vis::before{content:"";position:absolute;left:50%;bottom:-30%;width:120%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:var(--hay)}
+.know .vis img{position:absolute;left:50%;bottom:0;height:96%;width:auto;max-width:none;transform:translateX(-50%)}
+.know .bd{padding:46px 48px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.know h3{font-size:clamp(1.8rem,2.6vw,2.3rem);margin-bottom:28px}
+.kn{list-style:none;padding:0;margin:0 0 32px;display:grid;grid-template-columns:1fr 1fr;gap:24px 30px;width:100%}
+.kn li{display:flex;gap:14px;align-items:flex-start}
+.kn i{flex:none;width:44px;height:44px;border-radius:14px;background:var(--sage);color:var(--green);display:grid;place-items:center}
+.kn i svg{width:20px;height:20px}
+.kn b{display:block;font:400 1.15rem/1.2 var(--f-d);color:var(--green-d);margin-bottom:4px}
+.kn span{display:block;font-size:.93rem;color:var(--ink-2);line-height:1.5}
 
 /* club */
-.club .wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.cv{position:relative;height:640px}
-.cv .a{position:absolute;left:0;top:0;width:64%;height:84%;border-radius:30px;overflow:hidden;box-shadow:var(--sh-l)}
-.cv .b{position:absolute;right:0;bottom:0;width:50%;height:56%;border-radius:200px 200px 30px 30px;overflow:hidden;border:8px solid var(--cream);box-shadow:var(--sh-l)}
-.cv img{width:100%;height:100%;object-fit:cover}
-.cv .yr{position:absolute;right:8%;top:6%;width:140px;height:140px;border-radius:50%;background:var(--red);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:var(--sh-l)}
-.cv .yr b{font:400 2.6rem/1 var(--f-d);font-weight:400}
-.cv .yr span{font-size:.8rem;line-height:1.25}
-.club h2{margin:18px 0 20px}
-.club p{color:var(--ink-2);margin-bottom:14px}
-.tl{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
-.tl>div{background:var(--paper);border-radius:22px;padding:20px;box-shadow:var(--sh)}
-.tl b{display:block;font:400 1.7rem/1 var(--f-d);color:var(--red);margin-bottom:8px}
-.tl span{font-size:.9rem;color:var(--ink-2);display:block;line-height:1.45}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:232px;gap:16px}
+.bento .ph{border-radius:28px;overflow:hidden;box-shadow:var(--sh)}
+.bento .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.bento .ph:hover img{transform:scale(1.04)}
+.bento .ph.big{grid-column:span 2;grid-row:span 2}
+.bento .st{display:flex;flex-direction:column;justify-content:space-between;background:var(--paper);border-radius:28px;padding:26px 26px 24px;box-shadow:var(--sh)}
+.bento .st b{font:400 clamp(2.5rem,3.6vw,3.3rem)/1 var(--f-d);color:var(--green-d);letter-spacing:-.02em}
+.bento .st span{font-size:.95rem;color:var(--ink-2);line-height:1.45;max-width:22ch}
+.bento .st.gn{background:var(--green)}.bento .st.gn b{color:var(--hay)}.bento .st.gn span{color:#CBD9CF}
+.bento .st.rd{background:var(--red)}.bento .st.rd b{color:#fff}.bento .st.rd span{color:#F6D9D5}
 
 /* reviews */
 .rv{padding:40px 0 120px}
@@ -226,14 +220,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
   .head .btn{display:none}
   body.menu-open .nav{display:flex;position:fixed;inset:86px 0 auto 0;flex-direction:column;gap:0;background:var(--cream);padding:8px 24px 24px;box-shadow:0 24px 40px -24px rgba(0,0,0,.3)}
   body.menu-open .nav a{padding:14px 0;border-bottom:1px solid var(--line);font-size:1.05rem}
-  .hero .wrap,.sh,.who,.club .wrap,.ct .wrap{grid-template-columns:1fr}
+  .hero .wrap,.sh,.know,.ct .wrap{grid-template-columns:1fr}
   .arena{height:560px;max-width:580px;width:100%;margin:0 auto}
   .sh{gap:18px}
   .fac{grid-template-columns:1fr 1fr}
   .road{grid-template-columns:1fr 1fr;row-gap:50px}
   .road::before{display:none}
-  .who .vis{min-height:380px}
-  .cv{max-width:580px;width:100%}
+  .know .vis{min-height:340px}
+  .bento{grid-template-columns:1fr 1fr;grid-auto-rows:200px}
   .wall{columns:2}
   .rv-head{flex-direction:column;align-items:flex-start}
   .foot .fg{grid-template-columns:1fr 1fr}
@@ -248,7 +242,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
   .hero{padding:16px 0 70px}
   .hero h1{font-size:clamp(2.7rem,12.4vw,3.5rem)}
   .hero .cta .btn{flex:1}
-  .facts{flex-direction:column;gap:14px}
+  .hrv{gap:14px;align-items:flex-start}.hrv .av i{width:40px;height:40px}
   .arena{height:430px}
   .ros{width:96px}
   .chip{padding:9px 12px 9px 9px;border-radius:14px}
@@ -259,11 +253,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
   .fac{grid-template-columns:1fr}
   .first{border-radius:32px;margin:0 8px}
   .road{grid-template-columns:1fr;row-gap:40px;margin-bottom:56px}
-  .who .bd{padding:28px 22px}
-  .who dl{grid-template-columns:1fr;gap:4px}
-  .who dd{margin-bottom:10px}
-  .cv{height:470px}
-  .tl{grid-template-columns:1fr}
+  .know .bd{padding:30px 22px}
+  .kn{grid-template-columns:1fr;gap:20px}
+  .know .btn{width:100%}
+  .bento{grid-auto-rows:168px;gap:12px}.bento .st{padding:20px 18px;border-radius:22px}.bento .ph{border-radius:22px}.bento .st span{font-size:.86rem}
   .wall{columns:1}
   .call{min-height:500px;border-radius:28px}
   .call .txt{padding:30px 22px}
@@ -301,10 +294,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
       <h1>Rijden in den bak, <span>nakaarten in het café.</span></h1>
       <p class="lead">De Boomse Rij- en Jumpingclub op de Kleine Steylen. Veel paarden, een binnen- en buitenpiste en lesgeefsters die het graag uitleggen. Voor kinderen, jongeren en volwassenen.</p>
       <div class="cta"><a class="btn rd" href="tel:+3238883614"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Bel voor een eerste les</a><a class="btn ln" href="#starten">Hoe begin je eraan?</a></div>
-      <div class="facts">
-        <div><i><svg class="ic" aria-hidden="true"><use href="#i-warehouse"/></svg></i><div><b>Binnen en buiten</b><small>Rijden bij elk weer</small></div></div>
-        <div><i><svg class="ic" aria-hidden="true"><use href="#i-coffee"/></svg></i><div><b>Café en terras</b><small>Ook voor de ouders</small></div></div>
-      </div>
+      <a class="hrv" href="#reviews" aria-label="4,6 op Google uit 57 reviews. Lees de reviews">
+        <span class="av" aria-hidden="true"><i>N</i><i>C</i><i>A</i><i>M</i></span>
+        <span class="gt"><span class="gs"><b>4,6</b><span class="stars" aria-hidden="true">★★★★★</span><small>57 reviews op Google</small></span><q>Een vriendschappelijke sfeer en veel paarden.</q></span>
+      </a>
     </div>
     <div class="arena">
       <div class="sun"></div>
@@ -320,7 +313,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
           <text y="22" text-anchor="middle" style="font:400 30px Gilda,Georgia,serif;fill:#1F3D2D">1969</text>
         </g>
       </svg>
-      <div class="chip c1"><i><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></i><div><b>4,6 op Google</b><small><span class="stars">★★★★★</span> 57 reviews</small></div></div>
+      <div class="chip c1"><i><svg class="ic" aria-hidden="true"><use href="#i-warehouse"/></svg></i><div><b>Binnen en buiten</b><small>Rijden bij elk weer</small></div></div>
       <div class="chip c2"><i><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></i><div><b>Een groot hart</b><small>voor paarden en kinderen</small></div></div>
     </div>
   </div>
@@ -340,21 +333,23 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 
 <section class="sec first" id="starten">
   <div class="wrap">
-    <div class="sh"><div><span class="pill"><i><svg><use href="#shoe"/></svg></i>Je eerste les</span><h2>Van telefoontje tot drankje in het café</h2></div><p class="lead">Zo verloopt het als je bij ons begint. Kies hieronder wie je bent, dan zie je wat je de eerste keer doet en wat je meebrengt.</p></div>
+    <div class="sh"><div><span class="pill"><i><svg><use href="#shoe"/></svg></i>Je eerste les</span><h2>Van telefoontje tot drankje in het café</h2></div><p class="lead">Zo verloopt het als je bij ons begint, of je nu acht bent of achtenveertig.</p></div>
     <div class="road">
       <div class="stop"><div class="ph"><img src="img/grey.webp" alt="" loading="lazy" width="1200" height="800" style="object-position:60% 40%"></div><span class="n">1</span><h3>Bel Marina</h3><p>Vertel wie wil rijden en hoeveel ervaring er al is. Dan krijg je de lesuren die passen.</p></div>
       <div class="stop"><div class="ph"><img src="img/pet.webp" alt="" loading="lazy" width="1300" height="934"></div><span class="n">2</span><h3>Kennismaken</h3><p>Leren hoe je een paard benadert en verzorgt. Dat hoort er hier gewoon bij.</p></div>
       <div class="stop"><div class="ph"><img src="img/hall.webp" alt="" loading="lazy" width="1000" height="666"></div><span class="n">3</span><h3>In den bak</h3><p>Met een lesgeefster die het rustig uitlegt, binnen of buiten.</p></div>
       <div class="stop"><div class="ph"><img src="img/fence.webp" alt="" loading="lazy" width="1000" height="666"></div><span class="n">4</span><h3>Nakaarten</h3><p>In het café of op het terras, met de andere ruiters en hun ouders.</p></div>
     </div>
-    <div class="who" aria-live="polite">
+    <div class="know">
       <div class="vis"><img src="img/c-kid.webp" alt="Jonge ruiter met rijhelm naast zijn paard" loading="lazy" width="900" height="1647"></div>
       <div class="bd">
-        <div class="tabs" id="tabs"></div>
-        <h3 id="wt">Je kind laten starten</h3>
-        <p class="d" id="wd"></p>
-        <dl><dt>De eerste keer</dt><dd id="w1"></dd><dt>Meebrengen</dt><dd id="w2"></dd></dl>
-        <div class="say"><i><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg></i><div><small>Zo kan je het vragen aan de telefoon</small><q id="w3"></q></div></div>
+        <h3>Goed om te weten voor je eerste les</h3>
+        <ul class="kn">
+          <li><i><svg class="ic" aria-hidden="true"><use href="#i-user-round"/></svg></i><div><b>Voor jong en oud</b><span>Kinderen, jongeren en volwassenen rijden hier, elk op hun eigen niveau.</span></div></li>
+          <li><i><svg class="ic" aria-hidden="true"><use href="#i-warehouse"/></svg></i><div><b>Binnen en buiten</b><span>Dankzij de binnenpiste gaat je les door, ook als het regent.</span></div></li>
+          <li><i><svg aria-hidden="true"><use href="#shoe"/></svg></i><div><b>Wat trek je aan?</b><span>Een lange broek en stevige schoenen met een klein hakje. Vraag even naar een rijhelm.</span></div></li>
+          <li><i><svg class="ic" aria-hidden="true"><use href="#i-coffee"/></svg></i><div><b>Ouders wachten in het café</b><span>Of op het terras. Kom gerust eerst samen kijken.</span></div></li>
+        </ul>
         <a class="btn gr" href="tel:+3238883614"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Bel 03 888 36 14</a>
       </div>
     </div>
@@ -363,21 +358,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset
 
 <section class="sec club" id="club">
   <div class="wrap">
-    <div class="cv">
-      <div class="a"><img src="img/stal.webp" alt="Stalgang met paarden" loading="lazy" width="1000" height="471"></div>
-      <div class="b"><img src="img/ros.webp" alt="Rozetten van wedstrijden aan de stal" loading="lazy" width="1067" height="1600" style="object-position:50% 35%"></div>
-      <div class="yr"><b>57</b><span>jaar<br>club</span></div>
-    </div>
-    <div>
-      <span class="pill"><i><svg><use href="#shoe"/></svg></i>De club</span>
-      <h2>Een vereniging met een groot hart</h2>
-      <p>De Boomse Rij- en Jumpingclub Kleine Steile is al sinds 1969 een vzw. Een club waar paarden goed verzorgd worden, waar de jeugd mee mag helpen in de stal, en waar ouders hun kinderen met een gerust hart afzetten.</p>
-      <p>Na de les blijf je nog even hangen, in het café of op het terras. Zo ontstaan vriendschappen die verder gaan dan de piste.</p>
-      <div class="tl">
-        <div><b>1969</b><span>De club wordt opgericht op de Kleine Steylen</span></div>
-        <div><b>VLP</b><span>Aangesloten bij de Vlaamse Liga Paardensport</span></div>
-        <div><b>Vandaag</b><span>Lessen voor jong en oud, binnen en buiten</span></div>
-      </div>
+    <div class="sh"><div><span class="pill"><i><svg><use href="#shoe"/></svg></i>De club</span><h2>Een vereniging met een groot hart</h2></div><p class="lead">Paarden die goed verzorgd worden, jeugd die mee mag helpen in de stal, en ouders die hun kinderen met een gerust hart afzetten.</p></div>
+    <div class="bento">
+      <div class="ph big"><img src="img/stal.webp" alt="Stalgang met paarden" loading="lazy" width="1000" height="471"></div>
+      <div class="st"><b>1969</b><span>Opgericht als vzw op de Kleine Steylen</span></div>
+      <div class="st gn"><b>VLP</b><span>Aangesloten bij de Vlaamse Liga Paardensport</span></div>
+      <div class="ph"><img src="img/ros.webp" alt="Rozetten van wedstrijden aan de stal" loading="lazy" width="1067" height="1600" style="object-position:50% 35%"></div>
+      <div class="st rd"><b>2 pistes</b><span>Een binnen- en een buitenpiste</span></div>
     </div>
   </div>
 </section>
@@ -479,22 +466,7 @@ if(!RM&&innerWidth>900){const px=$$('[data-px]');if(px.length){let tk=false;cons
 const mb=$('[data-menu-btn]'),mn=$('[data-menu]');if(mb&&mn){mb.addEventListener('click',()=>{const o=document.body.classList.toggle('menu-open');mb.setAttribute('aria-expanded',o)});$$('a',mn).forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-open')))}
 })();
 </script>
-<script>
-(()=>{const{$,$$}=DI;
-const W=[
- ['kind','Mijn kind','Je kind laten starten','Kinderen zijn hier meer dan welkom. Een groot hart voor de vele kinderen die hier les komen nemen, schreef Christel in haar review.','Kennismaken met de paarden: hoe je ze benadert, poetst en leidt. Daarna voorzichtig in het zadel.','Een lange broek, stevige schoenen met een hakje en een warme jas. Vraag even naar een rijhelm.','Goeiedag, ik zou mijn kind graag laten starten met paardrijlessen. Wanneer kan dat?'],
- ['tiener','Tiener','Starten als tiener','De jeugd krijgt hier veel vrijheid om voor de paarden te zorgen. En je maakt er vrienden met dezelfde passie.','Meehelpen in de stal, en leren rijden in groep.','Een rijbroek of nauwe lange broek, stevige schoenen of rijlaarzen en een rijhelm.','Goeiedag, ik wil graag leren paardrijden. Kan ik starten met lessen?'],
- ['volw','Volwassene','Starten als volwassene','Altijd al willen leren paardrijden? Ook als volwassene ben je welkom, op je eigen tempo.','De basis, met uitleg van de lesgeefster bij elke stap.','Een comfortabele lange broek en stevige schoenen met een hakje. Vraag even naar een rijhelm.','Goeiedag, ik ben een volwassen beginner en wil graag leren paardrijden. Is daar plaats voor?'],
- ['ervaren','Ik rijd al','Verder rijden','Rijd je al? Dan werk je hier verder aan je techniek. Springen hoort erbij, het is tenslotte een jumpingclub.','Je laat zien wat je al kan, zodat de les bij je niveau past.','Je eigen uitrusting.','Goeiedag, ik rijd al een tijdje en zoek een club om verder te rijden en te springen.'],
- ['ouder','Ouder','Je kind afzetten','Tijdens de les wacht je in het café of op het terras. Kom gerust eerst samen kijken.','Kennismaken met de club en de lesgeefsters.','Niets, behalve zin in een drankje.','Goeiedag, ik zou graag eens langskomen met mijn kind om de club te leren kennen.']
-];
-let k='kind';
-$('#tabs').innerHTML=W.map(w=>`<button data-k="${w[0]}" aria-pressed="${w[0]===k}">${w[1]}</button>`).join('');
-$('#tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;k=b.dataset.k;$$('#tabs button').forEach(x=>x.setAttribute('aria-pressed',x===b));draw()});
-function draw(){const w=W.find(x=>x[0]===k);$('#wt').textContent=w[2];$('#wd').textContent=w[3];$('#w1').textContent=w[4];$('#w2').textContent=w[5];$('#w3').textContent=w[6]}
-draw();
-})();
-</script>
+
 <!-- VOORSTELBLOK Digital Impression: letterlijk overnemen, onderaan de pagina, vóór </body>. -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Onest:wght@400;600;700&display=swap">
 <style>
