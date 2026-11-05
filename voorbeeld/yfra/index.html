@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Yfra · Boekhouder in Lommel</title>
+<meta name="description" content="Yfra in Lommel: belastingadvies, aangiftes en boekhouding sinds 1974. Koning Boudewijnstraat 77. Bel 011 54 07 22.">
+<meta name="theme-color" content="#23402F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2323402F'/%3E%3Cpath d='M20 17l12 16 12-16M32 33v15' fill='none' stroke='%23E9DFC9' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M12 52c10-4 30-4 40 0' fill='none' stroke='%23BFD7DE' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+:root{--de:#23402F;--de2:#1A3123;--de3:#33593F;--za:#E9DFC9;--za2:#F4EEE1;--za3:#DCCFB2;--gl:#BFD7DE;--gl2:#E3EEF1;--br:#3E2C1F;--mu:#6E6253;
+  --ser:'Gelasio',Georgia,serif;--sans:'Manrope',system-ui,-apple-system,sans-serif;--ease:cubic-bezier(.25,.7,.25,1);--r:18px}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--za2);color:var(--br);font:400 17.5px/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+:where(h1,h2,h3,p,figure,ul,ol){margin:0}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--de3);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(16px,4.5vw,44px)}
+.ser{font-family:var(--ser);font-weight:400;letter-spacing:-.012em;line-height:1.12;text-wrap:balance}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:12px;font:600 16px/1 var(--sans);text-decoration:none;border:0;cursor:pointer;transition:background .2s,color .2s,box-shadow .2s}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-de{background:var(--de);color:var(--za2)}
+.btn-de:hover{background:var(--de3)}
+.btn-za{background:transparent;color:var(--de);box-shadow:inset 0 0 0 1.5px rgba(35,64,47,.4)}
+.btn-za:hover{box-shadow:inset 0 0 0 1.5px var(--de)}
+
+/* header */
+.hd{position:sticky;top:0;z-index:40;background:var(--za2);transition:box-shadow .3s}
+.hd .in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:86px;transition:height .3s var(--ease)}
+.hd.s{box-shadow:0 1px 0 rgba(62,44,31,.1),0 10px 30px -20px rgba(62,44,31,.3)}
+.hd.s .in{height:64px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand svg{width:36px;height:36px;flex:none}
+.brand b{font:600 23px/1 var(--ser);letter-spacing:.01em;color:var(--de)}
+.brand span{white-space:nowrap;display:block;font-size:12.5px;color:var(--mu);margin-top:3px;font-weight:500}
+.nav{display:flex;gap:28px;font-size:15.5px;font-weight:500}
+.nav a{white-space:nowrap;text-decoration:none;color:var(--br);position:relative;padding:6px 0}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--de);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+.nav a:hover::after{transform:scaleX(1)}
+.hd .btn{min-height:44px;padding:0 18px;font-size:15px}
+.hd-r{display:flex;align-items:center;gap:8px}
+.hd .in{position:relative}
+.menubtn{display:none;width:44px;height:44px;border-radius:12px;border:0;background:var(--za);cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.menubtn span{display:block;width:18px;height:2px;border-radius:2px;background:var(--de);transition:transform .25s var(--ease)}
+.menubtn[aria-expanded=true] span:first-child{transform:translateY(3.5px) rotate(45deg)}
+.menubtn[aria-expanded=true] span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+
+/* hero */
+.hero{position:relative;padding:clamp(40px,6vw,80px) 0 0;overflow:hidden}
+.hero .top{position:relative;text-align:center;padding-top:clamp(40px,7vw,96px);padding-bottom:clamp(48px,6vw,80px)}
+.fifty{position:absolute;left:50%;top:50%;transform:translate(-50%,-54%);width:min(820px,96vw);height:auto;pointer-events:none;z-index:0}
+.fifty text{font:400 520px/1 var(--ser);fill:none;stroke:var(--de3);stroke-width:1.6;opacity:.3}
+.hero h1,.hero .sub,.hero .acts,.hero .since{position:relative;z-index:1}
+.since{display:inline-flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600;color:var(--de);margin-bottom:26px}
+.since::before,.since::after{content:"";width:28px;height:1px;background:currentColor;opacity:.5}
+.hero h1{font-size:clamp(42px,6.2vw,86px);color:var(--de);max-width:11em;margin:0 auto}
+.hero .sub{max-width:31em;margin:24px auto 0;font-size:clamp(17px,1.5vw,19.5px);color:var(--mu);text-wrap:pretty}
+.hero .acts{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:34px}
+.band{position:relative;height:clamp(300px,42vw,560px);overflow:hidden;background:var(--za3)}
+.band .cut{position:absolute;left:0;right:0;top:-1px;width:100%;height:clamp(28px,4vw,56px);z-index:1}
+.band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%;background:var(--za3)}
+.dune{display:block;width:100%;height:clamp(28px,4vw,56px)}
+.dune.up{margin-bottom:-1px}
+.dune.dn{margin-top:-1px}
+
+/* sections */
+.sec{padding:clamp(80px,10vw,140px) 0}
+.green{background:var(--de);color:var(--za2)}
+.sand{background:var(--za)}
+h2.ser{font-size:clamp(34px,4.2vw,56px)}
+.kick{font-size:15px;font-weight:600;color:var(--de3);margin-bottom:16px;display:block}
+.green .kick{color:var(--gl)}
+
+/* intro */
+.intro{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(36px,7vw,110px);align-items:start}
+.intro .lead p{font-size:clamp(18px,1.55vw,20px);line-height:1.7;color:var(--br)}
+.intro .lead p+p{margin-top:18px}
+.duo{display:flex;gap:28px;margin-top:36px;flex-wrap:wrap}
+.duo div{padding-left:16px;border-left:2px solid var(--gl)}
+.duo b{display:block;font:500 20px/1.25 var(--ser);color:var(--de)}
+.duo span{font-size:14.5px;color:var(--mu)}
+
+/* toen en nu */
+.tn-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(32px,4vw,52px)}
+.tn-head p{color:rgba(244,238,225,.75);max-width:30em}
+.cmp{position:relative;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;user-select:none;-webkit-user-select:none;touch-action:pan-y;background:var(--de2);--x:50%}
+.cmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.cmp .now{background:var(--de3)}
+.cmp .then{background:#6b5a44;clip-path:inset(0 calc(100% - var(--x)) 0 0);filter:sepia(.35) saturate(.85)}
+.cmp .line{position:absolute;top:0;bottom:0;left:var(--x);width:2px;margin-left:-1px;background:var(--za2);pointer-events:none}
+.cmp .handle{position:absolute;top:50%;left:var(--x);width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:var(--za2);color:var(--de);border:0;display:grid;place-items:center;cursor:ew-resize;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform .2s}
+.cmp .handle:hover,.cmp.drag .handle{transform:scale(1.08)}
+.cmp .handle:focus-visible{outline:3px solid var(--gl);outline-offset:4px;border-radius:50%}
+.cmp .handle svg{width:26px;height:26px}
+.cmp .lbl{position:absolute;bottom:20px;max-width:min(44%,340px);padding:14px 18px;border-radius:14px;background:rgba(26,49,35,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--za2);font-size:15px;line-height:1.4;transition:opacity .25s}
+.cmp .lbl b{display:block;font:500 22px/1.15 var(--ser);margin-bottom:3px}
+.cmp .l-then{left:20px}
+.cmp .l-now{right:20px;text-align:right;background:rgba(244,238,225,.9);color:var(--br)}
+.cmp .l-now b{color:var(--de)}
+.cmp .hint{position:absolute;top:18px;left:50%;transform:translateX(-50%);font-size:13px;font-weight:600;background:rgba(244,238,225,.9);color:var(--de);padding:6px 12px;border-radius:999px;transition:opacity .4s;white-space:nowrap}
+.cmp.used .hint{opacity:0}
+.years{display:flex;justify-content:space-between;margin-top:18px;font:500 15px/1 var(--ser);color:rgba(244,238,225,.6)}
+
+/* diensten */
+.svc-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(36px,7vw,110px)}
+.svc-side{position:sticky;top:110px;align-self:start}
+.svc-side p{margin-top:20px;color:var(--mu);max-width:24em}
+.svc-side figure{margin-top:36px;aspect-ratio:4/5;max-width:340px;border-radius:var(--r);overflow:hidden;background:var(--gl2)}
+.svc-side img{width:100%;height:100%;object-fit:cover;background:var(--gl2)}
+.svc{list-style:none;padding:0}
+.svc li{padding:30px 0;border-top:1px solid var(--za3);display:grid;grid-template-columns:52px 1fr;gap:18px}
+.svc li:last-child{border-bottom:1px solid var(--za3)}
+.svc .ic{width:52px;height:52px;border-radius:50%;background:var(--za);display:grid;place-items:center;color:var(--de)}
+.svc .ic svg{width:24px;height:24px}
+.svc h3{font:500 23px/1.25 var(--ser);color:var(--de)}
+.svc p{margin-top:6px;color:var(--mu);font-size:16.5px}
+
+/* ligging */
+.loc{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(20px,3vw,32px);align-items:stretch}
+.loc-card{background:var(--za2);border-radius:var(--r);padding:clamp(28px,4vw,52px);display:flex;flex-direction:column;gap:24px}
+.loc-card address{font-style:normal;font:400 clamp(24px,2.4vw,30px)/1.3 var(--ser);color:var(--de)}
+.loc-card .note{color:var(--mu);font-size:16.5px}
+.loc-card dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:12px 24px;padding-top:22px;border-top:1px solid var(--za3);font-size:16px}
+.loc-card dt{color:var(--mu)}
+.loc-card dd{margin:0;font-weight:600}
+.loc-card .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:auto}
+.loc-map{border-radius:var(--r);overflow:hidden;position:relative;min-height:420px;background:var(--de)}
+.loc-map svg{position:absolute;inset:0;width:100%;height:100%}
+.loc-map .pin{position:absolute;left:52%;top:47%;transform:translate(-50%,-100%);background:var(--za2);color:var(--de);border-radius:12px;padding:10px 14px;font-size:14px;line-height:1.3;box-shadow:0 10px 24px rgba(0,0,0,.25);white-space:nowrap}
+.loc-map .pin b{display:block;font-weight:700}
+.loc-map .pin::after{content:"";position:absolute;left:50%;top:100%;transform:translateX(-50%);border:8px solid transparent;border-top-color:var(--za2)}
+.loc-map .m{position:absolute;font-size:12.5px;font-weight:600;color:rgba(233,223,201,.6)}
+
+/* glas */
+.glass{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,32px);align-items:center}
+.glass figure{aspect-ratio:3/2;border-radius:var(--r);overflow:hidden;background:var(--gl2)}
+.glass img{width:100%;height:100%;object-fit:cover;background:var(--gl2)}
+.glass blockquote{margin:0;font:400 clamp(24px,2.6vw,34px)/1.35 var(--ser);color:var(--de);text-wrap:balance;max-width:17em}
+
+/* contact */
+.ct{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(36px,6vw,90px);align-items:start}
+.ct .tel{display:block;margin-top:28px;font:500 clamp(30px,3.4vw,44px)/1 var(--ser);color:var(--za);text-decoration:none}
+.ct .tel:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
+.ct p.l{color:rgba(244,238,225,.75);margin-top:18px;max-width:26em}
+.form{background:var(--za2);color:var(--br);border-radius:var(--r);padding:clamp(24px,3.5vw,44px);position:relative;overflow:hidden}
+.f{display:flex;flex-direction:column;gap:7px;margin-bottom:18px}
+.f label{font-size:14.5px;font-weight:600}
+.f input,.f select,.f textarea{font:inherit;font-size:16.5px;color:var(--br);background:#fff;border:1.5px solid var(--za3);border-radius:12px;padding:13px 15px;width:100%;transition:border-color .2s,box-shadow .2s}
+.f select{appearance:none;-webkit-appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 8l5 5 5-5' fill='none' stroke='%2323402F' stroke-width='1.8'/%3E%3C/svg%3E") right 14px center/18px no-repeat;padding-right:40px}
+.f textarea{min-height:120px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:0;border-color:var(--de);box-shadow:0 0 0 4px rgba(191,215,222,.6)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.err{color:#8b3a22;font-size:14.5px;min-height:1.3em;margin-top:10px}
+.done{position:absolute;inset:0;background:var(--za2);display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,4vw,52px);gap:14px;opacity:0;visibility:hidden;transition:opacity .4s}
+.done.on{opacity:1;visibility:visible}
+.done .ok{width:56px;height:56px;border-radius:50%;background:var(--gl);color:var(--de);display:grid;place-items:center}
+.done h3{font-size:clamp(28px,3vw,38px);color:var(--de)}
+.done p{color:var(--mu);max-width:28em}
+
+/* footer */
+.ft{background:var(--de2);color:rgba(244,238,225,.8);padding:64px 0 40px;font-size:15.5px}
+.ft .row{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.ft h4{font-size:13px;font-weight:600;color:var(--gl);margin:0 0 10px}
+.ft p{line-height:1.7}
+.ft a{text-decoration:none}
+.ft a:hover{text-decoration:underline}
+.ft .nm{font:500 26px/1.15 var(--ser);color:var(--za)}
+.ft .low{margin-top:48px;padding-top:22px;border-top:1px solid rgba(244,238,225,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:14px;color:rgba(244,238,225,.55)}
+
+.mbar{display:none}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.fifty text{stroke-dasharray:2400;stroke-dashoffset:2400;animation:draw 2.6s .2s var(--ease) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+@media (max-width:920px){
+  .nav{display:none}
+  .menubtn{display:flex}
+  .nav.open{display:flex;flex-direction:column;gap:0;position:absolute;top:calc(100% + 4px);left:clamp(16px,4.5vw,44px);right:clamp(16px,4.5vw,44px);background:var(--za2);border-radius:16px;padding:8px;box-shadow:0 24px 48px -16px rgba(62,44,31,.35),0 0 0 1px var(--za3)}
+  .nav.open a{padding:14px 14px;font-size:17px}
+  .nav.open a::after{display:none}
+}
+@media (max-width:980px){
+  .loc-map{min-height:360px}
+  .intro,.svc-wrap,.loc,.glass,.ct,.tn-head{grid-template-columns:1fr}
+  .svc-side{position:static}
+  .svc-side figure{display:none}
+  .ft .row{grid-template-columns:1fr 1fr}
+  .tn-head{gap:16px}
+}
+@media (max-width:720px){
+  body{padding-bottom:78px}
+  .nav,.hd .btn span{display:none}
+  .hd .in{height:70px}
+  .hd .btn{width:44px;padding:0}
+  .brand span{display:none}
+  .fifty{width:120vw;transform:translate(-50%,-56%)}
+  .cmp{aspect-ratio:4/5}
+  .cmp .lbl{bottom:14px;padding:10px 12px;font-size:13px;max-width:46%}
+  .cmp .lbl b{font-size:17px}
+  .cmp .l-then{left:12px}.cmp .l-now{right:12px}
+  .two{grid-template-columns:1fr}
+  .loc-map{min-height:340px}
+  .ft .row{grid-template-columns:1fr}
+  .mbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--de);padding:10px 12px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px rgba(0,0,0,.15)}
+  .mbar a{min-height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:15.5px;text-decoration:none}
+  .mbar a svg{width:18px;height:18px}
+  .mbar .a1{background:var(--za);color:var(--de)}
+  .mbar .a2{background:rgba(244,238,225,.1);color:var(--za2)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .fifty text{stroke-dashoffset:0}
+  .rv{opacity:1;transform:none}
+}
+</style>
+<style>/*rev2*/
+.sec{padding-top:clamp(84px,10vw,140px);padding-bottom:clamp(84px,10vw,140px)}
+.tn{display:grid;grid-template-columns:1.25fr .9fr;grid-template-rows:auto auto;gap:22px 28px}
+.tn figure{position:relative;border-radius:var(--r);overflow:hidden;margin:0}
+.tn img{width:100%;height:100%;object-fit:cover;display:block}
+.tn-a{grid-row:1/3;aspect-ratio:4/3.4}
+.tn-b{aspect-ratio:4/3}
+.tn figcaption{position:absolute;left:16px;bottom:16px;right:16px;max-width:300px;background:rgba(26,49,35,.82);backdrop-filter:blur(6px);color:var(--za2);border-radius:12px;padding:12px 16px;font-size:14px;line-height:1.45}
+.tn figcaption b{display:block;font-family:var(--ser);font-size:20px;font-weight:500;margin-bottom:2px}
+.tl{list-style:none;padding:0;margin:0;display:grid;gap:0;align-content:start;border-left:1px solid rgba(244,238,225,.25);padding-left:22px}
+.tl li{position:relative;padding:12px 0}
+.tl li::before{content:"";position:absolute;left:-27px;top:20px;width:9px;height:9px;border-radius:50%;background:var(--gl)}
+.tl span{font-family:var(--ser);font-size:22px;color:var(--za2)}
+.tl p{color:rgba(244,238,225,.75);font-size:15.5px;margin-top:2px}
+.sv-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(36px,5vw,60px)}
+.sv-head p{color:var(--mu);max-width:28em}
+.sv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.sv{background:#fff;border:1px solid var(--za3);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.sv:hover{transform:translateY(-4px);box-shadow:0 24px 44px -28px rgba(35,64,47,.45)}
+.sv figure{margin:0;aspect-ratio:16/10;overflow:hidden;background:var(--za)}
+.sv figure img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.sv:hover figure img{transform:scale(1.04)}
+.sv-b{padding:24px 24px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.sv-k{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--de3);font-weight:700}
+.sv h3{font-family:var(--ser);font-weight:500;font-size:23px;line-height:1.2;color:var(--de)}
+.sv p{color:var(--mu);font-size:15.5px;line-height:1.6}
+.sv-l{margin-top:auto;padding-top:8px;display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;color:var(--de);text-decoration:none}
+.sv-l svg{width:16px;height:16px;transition:transform .2s}
+.sv-l:hover svg{transform:translateX(3px)}
+.sv-cta{background:var(--de);border-color:var(--de);color:var(--za2)}
+.sv-cta h3{color:var(--za2);font-size:26px}.sv-cta p{color:rgba(244,238,225,.75)}.sv-cta .sv-k{color:var(--gl)}
+.sv-cta .sv-b{justify-content:center;padding:34px 30px}
+.sv-cta .btn{align-self:flex-start;margin-top:10px;background:var(--za2);color:var(--de);border-color:var(--za2)}
+.mee{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(36px,7vw,110px);align-items:center}
+.mee-img{margin:0;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;background:var(--gl2)}
+.mee-img img{width:100%;height:100%;object-fit:cover}
+.mee-txt>p{color:var(--mu);margin-top:16px}
+.chk{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:0;border-top:1px solid var(--za3)}
+.chk li{display:flex;gap:14px;align-items:flex-start;padding:15px 0;border-bottom:1px solid var(--za3);font-size:16.5px}
+.chk li::before{content:"";flex:none;width:22px;height:22px;margin-top:2px;border-radius:6px;background:var(--de) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%23F4EEE1' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.mee-note{margin-top:26px;display:flex;gap:14px;align-items:center;background:var(--za);border-radius:14px;padding:16px 20px;font-size:15.5px}
+.mee-note svg{width:22px;height:22px;flex:none;color:var(--de)}
+@media (max-width:1000px){.sv-grid{grid-template-columns:1fr 1fr}.tn{grid-template-columns:1fr}.tn-a{grid-row:auto}.sv-head,.mee{grid-template-columns:1fr}.mee-img{aspect-ratio:16/10}}
+@media (max-width:640px){.sv-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-ph" viewBox="0 0 24 24"><path d="M6.6 3.5h2.6l1.5 4.2-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4.2 1.5v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 3v4M16 3v4M3.5 10h17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6.5 3.5h7.5l4 4v13h-11.5v-17Z M14 3.5v4h4M9.5 12h5M9.5 15.5h5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 4v16M7 20h10M5 7h14M5 7l-2.5 6a2.5 2.5 0 0 0 5 0L5 7Zm14 0-2.5 6a2.5 2.5 0 0 0 5 0L19 7Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5c3-1.5 5.5-1.5 8 0v14c-2.5-1.5-5-1.5-8 0v-14Zm8 0c2.5-1.5 5-1.5 8 0v14c-3-1.5-5.5-1.5-8 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-house" viewBox="0 0 24 24"><path d="M4 11 12 4.5 20 11M6.5 9v10.5h11V9M10 19.5v-5h4v5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4.5 5.5h15v10h-9l-4.5 3.5v-3.5h-1.5v-10Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-y" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#23402F"/><path d="M12.5 10.5l7.5 10 7.5-10M20 20.5v9" fill="none" stroke="#E9DFC9" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 33c7-2.6 17-2.6 24 0" fill="none" stroke="#BFD7DE" stroke-width="2" stroke-linecap="round"/></symbol>
+</svg>
+
+<header class="hd" id="hd">
+  <div class="wrap in">
+    <a class="brand" href="#top" aria-label="Yfra, naar boven"><svg aria-hidden="true"><use href="#i-y"/></svg><div><b>Yfra</b><span>Lommel, sinds 1974</span></div></a>
+    <nav class="nav" id="mainnav" aria-label="Hoofdmenu">
+      <a href="#toen-en-nu">Toen en nu</a>
+      <a href="#diensten">Diensten</a>
+      <a href="#ligging">Ligging</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hd-r"><button class="menubtn" id="menubtn" type="button" aria-expanded="false" aria-controls="mainnav" aria-label="Menu"><span></span><span></span></button><a class="btn btn-de" href="tel:+3211540722" aria-label="Bel 011 54 07 22"><svg aria-hidden="true"><use href="#i-ph"/></svg><span>011 54 07 22</span></a></div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap top">
+    <svg class="fifty" viewBox="0 0 820 440" aria-hidden="true"><text x="50%" y="400" text-anchor="middle">50</text></svg>
+    <span class="since">Lommel, sinds 1974</span>
+    <h1 id="h1" class="ser">Al vijftig jaar uw adres voor belastingen in Lommel.</h1>
+    <p class="sub">Aangiftes, fiscaal advies en boekhouding vanuit de Koning Boudewijnstraat. Voor gezinnen, zelfstandigen en kleine bedrijven uit de Noord-Limburgse Kempen.</p>
+    <div class="acts">
+      <a class="btn btn-de" href="#contact"><svg aria-hidden="true"><use href="#i-cal"/></svg>Maak een afspraak</a>
+      <a class="btn btn-za" href="tel:+3211540722"><svg aria-hidden="true"><use href="#i-ph"/></svg>011 54 07 22</a>
+    </div>
+  </div>
+  <figure class="band">
+    <svg class="cut" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0h1440v10C1340 4 1200 14 1040 34S700 50 520 22 180 10 0 34Z" fill="#F4EEE1"/></svg>
+    <img src="img/x-e6ef341913.webp" width="1920" height="1080" fetchpriority="high" decoding="async" alt="Wit Kempens stuifzand omzoomd door grove dennen">
+  </figure>
+</section>
+
+<section class="sec" aria-labelledby="h-intro">
+  <div class="wrap intro">
+    <div>
+      <h2 id="h-intro" class="ser" style="color:var(--de)">Een vast adres voor uw papieren, al sinds 1974.</h2>
+    </div>
+    <div class="lead rv">
+      <p>Yfra werd opgericht in mei 1974. Sindsdien kwamen er nieuwe wetten, nieuwe programma's en zelfs een nieuwe munt bij. Wat bleef: u komt binnen, u legt uw vraag op tafel, en u krijgt een duidelijk antwoord.</p>
+      <p>Vandaag zijn Frank Swinnen en Karin Delanoo de bestuurders. Ze kennen Lommel, en veel van hun klanten kennen ze al jaren.</p>
+      <div class="duo">
+        <div><b>Frank Swinnen</b><span>Bestuurder</span></div>
+        <div><b>Karin Delanoo</b><span>Bestuurder</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="dune up" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0 56V28C200 4 420 2 640 20s420 32 600 14 160-14 200-12v34Z" fill="#23402F"/></svg>
+<section class="sec green" id="toen-en-nu" aria-labelledby="h-tn">
+  <div class="wrap">
+    <div class="tn-head">
+      <div><h2 id="h-tn" class="ser">Van kasboek naar laptop.</h2></div>
+      <p>Het rekenwerk is in vijftig jaar digitaal geworden. Het gesprek aan tafel is gebleven.</p>
+    </div>
+    <div class="tn">
+      <figure class="tn-a rv"><img src="img/x-f522880998.webp" width="1800" height="1200" loading="lazy" decoding="async" alt="Een oude rekenmachine met slinger naast een laptop op een teakhouten bureau"><figcaption><b>1974</b>Papieren kasboek en een rekenmachine met slinger.</figcaption></figure>
+      <figure class="tn-b rv d1"><img src="img/x-96e7e3b152.webp" width="1200" height="1500" loading="lazy" decoding="async" alt="Een rustig kantoor met een teakhouten bureau, zandkleurige muren en een oude foto aan de wand"><figcaption><b>Vandaag</b>Digitaal, maar nog altijd een vast gezicht.</figcaption></figure>
+      <ol class="tl rv d2">
+        <li><span>1974</span><p>Yfra wordt opgericht in Lommel, in mei.</p></li>
+        <li><span>2002</span><p>De frank wordt de euro. Alle boeken gaan om.</p></li>
+        <li><span>Nu</span><p>Frank Swinnen en Karin Delanoo leiden het kantoor in de Koning Boudewijnstraat.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+<svg class="dune dn" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0v22c240 26 460 30 700 14s460-32 740-10V0Z" fill="#23402F"/></svg>
+
+<section class="sec" id="diensten" aria-labelledby="h-dienst">
+  <div class="wrap">
+    <div class="sv-head">
+      <h2 id="h-dienst" class="ser" style="color:var(--de)">Waar u bij ons voor binnenkomt</h2>
+      <p>Belastingen zijn ons vak. Van de jaarlijkse aangifte tot een vraag over uw huis of uw zaak.</p>
+    </div>
+    <div class="sv-grid">
+      <article class="sv rv"><figure><img src="img/aangifte.webp" loading="lazy" decoding="async" alt="Rekenmachine en pen op een wit blad papier"></figure><div class="sv-b"><span class="sv-k">elk voorjaar</span><h3>Aangifte personenbelasting</h3><p>U brengt uw fiches en attesten mee, wij vullen de aangifte in en kijken het aanslagbiljet na als het binnenkomt.</p><a class="sv-l" href="#contact" data-onderwerp="Aangifte personenbelasting">Vraag een afspraak <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></article>
+      <article class="sv rv d1"><figure><img src="img/advies.webp" loading="lazy" decoding="async" alt="Twee mannen in gesprek aan een bureau"></figure><div class="sv-b"><span class="sv-k">op afspraak</span><h3>Fiscaal advies</h3><p>Een schenking, een verkoop, een nieuwe situatie in het gezin. We bekijken wat het fiscaal betekent, voor u tekent.</p><a class="sv-l" href="#contact" data-onderwerp="Fiscaal advies">Vraag een afspraak <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></article>
+      <article class="sv rv d2"><figure><img src="img/boekhouding.webp" loading="lazy" decoding="async" alt="Rekenmachine en potlood op een kasboek vol cijfers"></figure><div class="sv-b"><span class="sv-k">per kwartaal of maand</span><h3>Boekhouding voor zelfstandigen</h3><p>Uw boekhouding en btw-aangiftes, per kwartaal of per maand, en de aangifte die erbij hoort.</p><a class="sv-l" href="#contact" data-onderwerp="Boekhouding voor zelfstandigen">Vraag een afspraak <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></article>
+      <article class="sv rv"><figure><img src="img/vennootschap.webp" loading="lazy" decoding="async" alt="Twee mensen aan tafel, een van hen tekent een document"></figure><div class="sv-b"><span class="sv-k">elk boekjaar</span><h3>Vennootschappen</h3><p>Vennootschapsbelasting, jaarrekening en de neerlegging bij de Nationale Bank.</p><a class="sv-l" href="#contact" data-onderwerp="Vennootschappen">Vraag een afspraak <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></article>
+      <article class="sv rv d1"><figure><img src="img/brief.webp" loading="lazy" decoding="async" alt="Bruine enveloppe en een wit kaartje op tafel"></figure><div class="sv-b"><span class="sv-k">als het nodig is</span><h3>Brieven van de belastingdienst</h3><p>Een vraag om inlichtingen of een bericht van wijziging? Breng hem mee, dan lezen we hem samen.</p><a class="sv-l" href="#contact" data-onderwerp="Brieven van de belastingdienst">Vraag een afspraak <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></article>
+      <article class="sv sv-cta rv d2"><div class="sv-b"><span class="sv-k">iets anders</span><h3>Twijfelt u waar uw vraag thuishoort?</h3><p>Bel even. Na een kort gesprek weet u of we u kunnen helpen en wat het kost.</p><a class="btn btn-za" href="tel:+3211540722"><svg aria-hidden="true"><use href="#i-ph"/></svg>011 54 07 22</a></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="meebrengen" aria-labelledby="h-mee">
+  <div class="wrap mee">
+    <figure class="mee-img rv"><img src="img/x-ffe1330f8b.webp" width="1200" height="1500" loading="lazy" decoding="async" alt="Een glazen karaf en glazen op een zonnige vensterbank, met een dennentak"></figure>
+    <div class="mee-txt">
+      <h2 id="h-mee" class="ser rv" style="color:var(--de)">Komt u voor uw aangifte? Dit brengt u mee.</h2>
+      <p class="rv d1">Hebt u niet alles, kom dan toch. Wat ontbreekt, vragen we samen op.</p>
+      <ul class="chk rv d1">
+        <li>Uw identiteitskaart, en die van uw partner</li>
+        <li>De fiscale fiches van uw werkgever, uitkering of pensioen</li>
+        <li>Attesten van pensioensparen, levensverzekering en uw woonlening</li>
+        <li>Facturen van kinderopvang, dienstencheques of giften</li>
+        <li>Het aanslagbiljet van vorig jaar</li>
+      </ul>
+      <div class="mee-note rv d2"><svg aria-hidden="true"><use href="#i-cal"/></svg><span><b>Op afspraak.</b> Zo ligt uw dossier klaar en nemen we rustig de tijd.</span></div>
+    </div>
+  </div>
+</section>
+
+<svg class="dune up" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0 56V30C260 6 520 0 760 18s440 30 680 8v30Z" fill="#E9DFC9"/></svg>
+<section class="sec sand" id="ligging" aria-labelledby="h-loc">
+  <div class="wrap">
+    <h2 id="h-loc" class="ser" style="color:var(--de);margin-bottom:clamp(28px,4vw,48px)">In het centrum van Lommel</h2>
+    <div class="loc">
+      <div class="loc-card">
+        <address>Koning Boudewijnstraat 77<br>3920 Lommel</address>
+        <p class="note">Kom liefst op afspraak, dan nemen we rustig de tijd voor u.</p>
+        <dl>
+          <dt>Openingsuren</dt><dd>Op afspraak</dd>
+          <dt>Telefoon</dt><dd><a href="tel:+3211540722">011 54 07 22</a></dd>
+          <dt>Ondernemingsnr.</dt><dd>0414.315.110</dd>
+        </dl>
+        <div class="acts">
+          <a class="btn btn-de" href="https://www.google.com/maps/search/?api=1&amp;query=Koning%20Boudewijnstraat%2077%2C%203920%20Lommel" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Route plannen</a>
+          <a class="btn btn-za" href="tel:+3211540722">Bel voor een afspraak</a>
+        </div>
+      </div>
+      <div class="loc-map" role="img" aria-label="Gestileerde kaart van Lommel-centrum met de Koning Boudewijnstraat">
+        <svg viewBox="0 0 520 460" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <g fill="#2B4A37">
+            <circle cx="60" cy="70" r="40"/><circle cx="110" cy="40" r="30"/><circle cx="460" cy="400" r="54"/><circle cx="410" cy="430" r="36"/><circle cx="480" cy="80" r="30"/><circle cx="40" cy="400" r="34"/>
+          </g>
+          <path d="M-10 250C120 240 200 260 300 240S460 200 540 210" fill="none" stroke="#33593F" stroke-width="14" stroke-linecap="round"/>
+          <path d="M210 -10C230 120 250 200 270 240S300 380 290 470" fill="none" stroke="#E9DFC9" stroke-width="7" stroke-linecap="round" opacity=".85"/>
+          <path d="M80 140C160 170 220 200 270 240" fill="none" stroke="#33593F" stroke-width="8" stroke-linecap="round"/>
+          <path d="M270 240C330 280 380 300 470 330" fill="none" stroke="#33593F" stroke-width="8" stroke-linecap="round"/>
+          <rect x="300" y="140" width="64" height="44" rx="8" fill="#33593F"/>
+          <circle cx="272" cy="214" r="8" fill="#BFD7DE" stroke="#E9DFC9" stroke-width="3"/>
+        </svg>
+        
+        <span class="m" style="left:42%;top:92%;transform:rotate(-2deg)">Koning Boudewijnstraat</span>
+        <span class="pin"><b>Yfra</b>Koning Boudewijnstraat 77</span>
+      </div>
+    </div>
+  </div>
+</section>
+<svg class="dune dn" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0v26c300 24 560 26 820 10s420-28 620-12V0Z" fill="#E9DFC9"/></svg>
+
+<section class="sec" aria-label="Lommel">
+  <div class="wrap glass">
+    <figure class="rv"><img src="img/x-0e3a1bb1de.webp" width="1800" height="1200" loading="lazy" decoding="async" alt="Bloeiende heide met dennen op de achtergrond, in de Kempen"></figure>
+    <blockquote>Vijftig jaar in dezelfde gemeente. Dan kent u uw klanten, en zij u.</blockquote>
+  </div>
+</section>
+
+<svg class="dune up" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0 56V24C220 2 480 0 720 18s460 34 720 12v26Z" fill="#23402F"/></svg>
+<section class="sec green" id="contact" aria-labelledby="h-ct">
+  <div class="wrap ct">
+    <div>
+      <h2 id="h-ct" class="ser">Bel gerust even.</h2>
+      <p class="l">Dat kan altijd. Of laat uw gegevens achter in het formulier, dan nemen wij contact met u op.</p>
+      <a class="tel" href="tel:+3211540722">011 54 07 22</a>
+    </div>
+    <form class="form" id="form" novalidate>
+      <div class="two">
+        <div class="f"><label for="f-n">Naam</label><input id="f-n" name="naam" autocomplete="name" required></div>
+        <div class="f"><label for="f-c">Telefoon of e-mail</label><input id="f-c" name="contact" autocomplete="tel" required></div>
+      </div>
+      <div class="f"><label for="f-o">Onderwerp</label>
+        <select id="f-o" name="onderwerp">
+          <option>Afspraak voor mijn aangifte</option>
+          <option>Fiscaal advies</option>
+          <option>Boekhouding voor mijn zaak</option>
+          <option>Een brief van de belastingdienst</option>
+          <option>Iets anders</option>
+        </select>
+      </div>
+      <div class="f"><label for="f-m">Bericht</label><textarea id="f-m" name="bericht"></textarea></div>
+      <button class="btn btn-de" type="submit">Verstuur</button>
+      <p class="err" id="err" role="alert"></p>
+      <div class="done" id="done" tabindex="-1">
+        <span class="ok" aria-hidden="true"><svg width="26" height="26"><use href="#i-check"/></svg></span>
+        <h3 class="ser">Dank u, we bellen u terug.</h3>
+        <p>Uw bericht is goed aangekomen. Wie liever meteen iemand spreekt, belt 011 54 07 22.</p>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="row">
+      <div><p class="nm">Yfra</p><p style="margin-top:8px">Belastingadvies in Lommel, sinds 1974.</p></div>
+      <div><h4>Adres</h4><p>Koning Boudewijnstraat 77<br>3920 Lommel</p></div>
+      <div><h4>Telefoon</h4><p><a href="tel:+3211540722">011 54 07 22</a><br>Op afspraak</p></div>
+      <div><h4>Onderneming</h4><p>Yfra BV<br>BE 0414.315.110</p></div>
+    </div>
+    <div class="low"><span>Yfra BV, Lommel</span><span>Voorbeeldsite gemaakt door Digital Impression</span></div>
+  </div>
+</footer>
+
+<nav class="mbar" aria-label="Snel contact">
+  <a class="a1" href="tel:+3211540722"><svg aria-hidden="true"><use href="#i-ph"/></svg>Bellen</a>
+  <a class="a2" href="#contact"><svg aria-hidden="true"><use href="#i-cal"/></svg>Afspraak</a>
+</nav>
+
+<script>
+(function(){
+  var hd=document.getElementById('hd');
+  var mb=document.getElementById('menubtn'),nv=document.getElementById('mainnav');
+  function closeM(){mb.setAttribute('aria-expanded','false');nv.classList.remove('open');document.querySelector('header').classList.remove('menu-open')}
+  mb.addEventListener('click',function(){var o=mb.getAttribute('aria-expanded')!=='true';mb.setAttribute('aria-expanded',String(o));nv.classList.toggle('open',o);document.querySelector('header').classList.toggle('menu-open',o);if(o){var f=nv.querySelector('a');f&&f.focus()}});
+  nv.addEventListener('click',function(e){if(e.target.closest('a'))closeM()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nv.classList.contains('open')){closeM();mb.focus()}});
+  document.addEventListener('click',function(e){if(nv.classList.contains('open')&&!e.target.closest('header'))closeM()});
+
+  function sc(){hd.classList.toggle('s',window.scrollY>30)}
+  sc();window.addEventListener('scroll',sc,{passive:true});
+
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -10% 0px'});
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  }else document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
+
+  document.querySelectorAll('[data-onderwerp]').forEach(function(l){l.addEventListener('click',function(){var o=document.getElementById('f-o'),t=l.getAttribute('data-onderwerp');for(var i=0;i<o.options.length;i++){var x=o.options[i].text.toLowerCase();if((t.indexOf('aangifte')>-1&&x.indexOf('aangifte')>-1)||(t.indexOf('advies')>-1&&x.indexOf('advies')>-1)||(t.indexOf('Boekhouding')>-1&&x.indexOf('boekhouding')>-1)||(t.indexOf('Brieven')>-1&&x.indexOf('brief')>-1)){o.selectedIndex=i;break}}})});
+
+  var form=document.getElementById('form'),err=document.getElementById('err'),done=document.getElementById('done');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=form.naam.value.trim(),c=form.contact.value.trim();
+    if(!n||!c){err.textContent='Vul uw naam en een telefoonnummer of e-mailadres in, dan kunnen we u bereiken.';(n?form.contact:form.naam).focus();return}
+    err.textContent='';done.classList.add('on');done.focus();
+  });
+})();
+</script>
+<!-- VOORSTELBLOK Digital Impression: letterlijk overnemen, onderaan de pagina, vóór </body>. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Onest:wght@400;600;700&display=swap">
+<style>
+.di,.di *{box-sizing:border-box}.di .wrap{margin:0 auto;padding-left:clamp(20px,5vw,40px);padding-right:clamp(20px,5vw,40px)}
+.di{--n:#0E1C3A;--n2:#162a52;--n3:#21386a;--cr:#F5EEE2;--pa:#FBF7F0;--te:#D7603A;--ted:#B04722;--ap:#F2AE84;--bu:#F1CB78;--od2:#c9cfdf;
+  background:var(--n);color:var(--cr);padding:100px 0 100px;position:relative;overflow:clip;font:19px/1.6 'Onest',system-ui,sans-serif}
+.di::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 85% 0%,rgba(215,96,58,.18),transparent 70%);pointer-events:none}
+.di .wrap{max-width:1080px;position:relative}
+.di .naad{position:absolute;left:0;right:0;top:0;height:6px;background:repeating-linear-gradient(90deg,var(--te) 0 22px,var(--bu) 22px 44px,var(--ap) 44px 66px)}
+.di .merk{display:inline-flex;align-items:center;gap:12px;margin-bottom:26px;font-size:16px;font-weight:600;color:var(--od2)}
+.di .merk i{width:40px;height:40px;border-radius:12px;background:var(--ted);display:grid;place-items:center;font:400 22px/1 'DM Serif Display',serif;font-style:normal;color:#fff}
+.di h2{font:400 clamp(40px,5vw,64px)/1.04 'DM Serif Display',serif;letter-spacing:-.5px;color:var(--pa);max-width:16em}
+.di h2 em{font-style:italic;color:var(--ap)}
+.di .intro{color:var(--od2);font-size:20px;margin:20px 0 54px;max-width:34em}
+.di .kop3{font:400 34px/1.1 'DM Serif Display',serif;color:var(--pa);margin:0 0 24px}
+.di .prijzen{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.di .pk{border-radius:26px;padding:36px}
+.di .pk.wit{background:var(--pa);color:var(--n)}
+.di .pk.donker{background:var(--n2);border:1.5px solid rgba(245,238,226,.16)}
+.di .pk .label{display:block;font-size:16px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.di .pk.wit .label{color:var(--ted)}
+.di .pk.donker .label{color:var(--ap)}
+.di .bedrag{font:400 88px/.9 'DM Serif Display',serif;letter-spacing:-2px;display:flex;align-items:flex-start;gap:6px}
+.di .bedrag small{font-size:36px;margin-top:8px}
+.di .wanneer{font-size:20px;font-weight:700;margin:12px 0 26px}
+.di .pk ul{list-style:none;margin:0;padding:0;display:grid;gap:14px;font-size:18.5px;line-height:1.45}
+.di .pk li{display:flex;gap:14px;align-items:flex-start}
+.di .pk li::before{content:"";flex:none;width:24px;height:24px;margin-top:2px;border-radius:50%;background:var(--ted) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/15px no-repeat}
+.di .geruststelling{margin-top:26px;padding-top:22px;border-top:2px dashed rgba(14,28,58,.18);font-size:18px;font-weight:600}
+.di .keuze{border-radius:18px;padding:22px 24px;background:rgba(245,238,226,.05);border:1.5px solid rgba(245,238,226,.14)}
+.di .keuze+.keuze{margin-top:16px}
+.di .keuze.aan{border-color:var(--ap);background:rgba(242,174,132,.08)}
+.di .keuze .rij{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap}
+.di .keuze h4{margin:0;font:400 28px/1.1 'DM Serif Display',serif;color:var(--pa)}
+.di .keuze .p{font-size:22px;font-weight:700;color:var(--ap);white-space:nowrap}
+.di .keuze p{color:var(--od2);font-size:18px;margin-top:8px}
+.di .keuze .raad{display:inline-block;margin-top:12px;font:700 15px/1.4 'Onest',sans-serif;background:var(--ap);color:var(--n);border-radius:999px;padding:4px 12px}
+.di .di-stappen{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.di .di-stap{display:flex;gap:18px;align-items:flex-start}
+.di .di-stap i{flex:none;width:52px;height:52px;border-radius:50%;background:var(--ted);color:#fff;display:grid;place-items:center;font:400 26px/1 'DM Serif Display',serif;font-style:normal}
+.di .di-stap b{display:block;font-size:20px;color:var(--pa);line-height:1.3;margin-bottom:6px}
+.di .di-stap span{color:var(--od2);font-size:18px}
+.di .contact{margin-top:64px;background:var(--pa);color:var(--n);border-radius:26px;padding:32px 36px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+.di .contact .vraag{font:400 34px/1.1 'DM Serif Display',serif}
+.di .contact p{font-size:19px;color:#3d4660;margin-top:8px}
+.di .contact p b{color:var(--n)}
+.di .knoppen{display:flex;flex-direction:column;gap:12px;min-width:280px}
+.di .knoppen a{display:flex;justify-content:center;align-items:center;gap:10px;border-radius:999px;padding:18px 26px;font-weight:700;font-size:19px;text-decoration:none;transition:transform .15s,background .15s}
+.di .knoppen a:hover{transform:translateY(-2px)}
+.di .knoppen a svg{width:22px;height:22px}
+.di .knoppen .wa{background:var(--ted);color:#fff}
+.di .knoppen .wa:hover{background:#963a1a}
+.di .knoppen .lijn{border:2px solid var(--n);color:var(--n)}
+.di :focus-visible{outline:3px solid var(--ap);outline-offset:3px}
+.di h2,.di h3,.di h4{text-transform:none;font-style:normal;letter-spacing:normal}
+@media (max-width:960px){.di{padding:80px 0;font-size:18px}.di .prijzen{grid-template-columns:1fr}.di .di-stappen{grid-template-columns:1fr;gap:22px;margin-top:52px}.di .contact{grid-template-columns:1fr;padding:28px}.di .knoppen{min-width:0}}
+@media (max-width:640px){.di .pk{padding:26px 22px}.di .bedrag{font-size:76px}.di .intro{font-size:18.5px;margin-bottom:44px}.di .kop3,.di .contact .vraag{font-size:30px}}
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ico-wa" viewbox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z" fill="currentColor"></path></symbol></svg>
+<style>.di .knoppen .cal{background:var(--n);color:var(--pa)}.di .knoppen .cal:hover{background:var(--n3)}.di .knoppen .cal svg{width:20px;height:20px}</style>
+<style>/*di-center*/.di .merk{display:flex;width:max-content;max-width:100%;margin-left:auto;margin-right:auto}.di #di-titel{text-align:center;margin-left:auto;margin-right:auto;text-wrap:balance}.di .intro{text-align:center;margin-left:auto;margin-right:auto;text-wrap:pretty}</style>
+<section aria-labelledby="di-titel" class="di">
+<span aria-hidden="true" class="naad"></span>
+<div class="wrap">
+<span class="merk"><i aria-hidden="true">D</i>Voorstel van Digital Impression</span>
+<h2 id="di-titel">Zo zou jullie website <em>eruit kunnen zien</em>.</h2>
+<p class="intro">Een eerste schets, op maat van Yfra. Jullie kiezen de stijl, ik zorg dat alles klopt.</p>
+<h3 class="kop3">Wat het kost</h3>
+<div class="prijzen">
+<div class="pk wit">
+<span class="label">Je website</span>
+<div class="bedrag"><small>€</small>499</div>
+<p class="wanneer">één keer, alles inbegrepen</p>
+<ul>
+<li>Jullie website, in de stijl die jullie kiezen</li>
+<li>Werkt op gsm, tablet en computer</li>
+<li>Uren, adres en route altijd juist</li>
+<li>Afspraken komen rechtstreeks in je mailbox</li>
+</ul>
+<p class="geruststelling">Geen voorschot. Je betaalt pas als de site klaar is.</p>
+</div>
+<div class="pk donker">
+<span class="label">Daarna kies je</span>
+<div class="keuze">
+<div class="rij"><h4>Zelf beheren</h4><span class="p">€ 0 / maand</span></div>
+<p>Hosting en domein op jouw naam. Een aanpassing vraag je per keer aan.</p>
+</div>
+<div class="keuze aan">
+<div class="rij"><h4>Zorgeloos</h4><span class="p">€ 19,99 / maand</span></div>
+<p>Hosting en domein inbegrepen. Nieuwe acties, verlofdagen en wijzigingen zet ik er voor je op.</p>
+<span class="raad">mijn aanrader</span>
+</div>
+</div>
+</div>
+<div class="di-stappen">
+<div class="di-stap"><i aria-hidden="true">1</i><div><b>Je laat iets weten</b><span>Een berichtje of telefoontje is genoeg.</span></div></div>
+<div class="di-stap"><i aria-hidden="true">2</i><div><b>We maken hem af</b><span>Jij zegt wat anders moet, ik pas het aan.</span></div></div>
+<div class="di-stap"><i aria-hidden="true">3</i><div><b>Online</b><span>Op je eigen domein, binnen 10 tot 14 dagen.</span></div></div>
+</div>
+<div class="contact">
+<div>
+<div class="vraag">Vragen? Plan een gesprek of stuur me een berichtje.</div>
+<p><b>Stijn Vranken</b> · 0496 25 14 45 · info@digital-impression.be</p>
+</div>
+<div class="knoppen">
+<a class="wa" href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20Yfra" rel="noopener" target="_blank"><svg><use href="#ico-wa"></use></svg>WhatsApp Stijn</a>
+<a class="cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Yfra" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Plan een gesprek van 30 min</a>
+<a class="lijn" href="tel:+32496251445">Bel 0496 25 14 45</a>
+</div>
+</div>
+</div>
+</section>
+
+</body>
+</html>

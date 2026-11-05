@@ -1,0 +1,1043 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tuinen De Vos · Tuinontwerp en tuinaanleg in Geraardsbergen</title>
+<meta name="description" content="Tuinen De Vos ontwerpt je tuin in 3D en legt hem aan met een eigen machinepark. Tuinaanleg, onderhoud, zwembaden en poolhouses vanuit Geraardsbergen, Herzele en Zottegem.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1E3328">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --den:#1E3328;--den2:#27423A;--den3:#33544A;
+  --mos:#6B7F4E;--salie:#A9B596;--salie2:#C9D1BB;
+  --zand:#EFE9DC;--kalk:#F8F5EE;--steen:#DCD4C4;--steen2:#CFC5B2;
+  --oker:#B07A3E;--okerd:#8C5D2A;--okerl:#E2B987;
+  --inkt:#18221D;--grijs:#59615B;--lijn:rgba(24,34,29,.12);
+  --r-lg:28px;--r-md:20px;--r-sm:12px;
+  --schaduw:0 22px 44px -26px rgba(20,36,28,.55);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--kalk)}
+.wrap{margin:0 auto;padding:0 24px}
+
+.tv{font:400 17px/1.65 'Hanken Grotesk',system-ui,sans-serif;color:var(--inkt);background:var(--kalk);overflow-x:clip}
+.tv *,.tv *::before,.tv *::after{box-sizing:border-box}
+.tv h1,.tv h2,.tv h3,.tv h4,.tv p,.tv ul,.tv ol,.tv figure,.tv blockquote,.tv dl,.tv dd{margin:0;padding:0}
+.tv ul,.tv ol{list-style:none}
+.tv img{display:block;max-width:100%;background:var(--steen);color:transparent}
+.tv a{color:inherit;text-decoration:none}
+.tv button,.tv input,.tv textarea,.tv select{font:inherit;color:inherit}
+.tv :focus-visible{outline:3px solid var(--oker);outline-offset:3px;border-radius:6px}
+.tv .w{max-width:1260px;margin:0 auto;padding:0 32px}
+.tv .serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400}
+.tv .oog{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mos)}
+.tv .oog::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.tv .h2{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(38px,4.6vw,64px);line-height:1.02;letter-spacing:-.015em;margin-top:14px;text-wrap:balance}
+.tv .h2 em{font-style:italic;color:var(--mos)}
+.tv .lead{font-size:18px;color:var(--grijs);max-width:34em;margin-top:18px}
+.tv .sec{padding:120px 0;position:relative}
+
+/* knoppen */
+.tv .knop{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:54px;padding:0 26px;border-radius:999px;font-weight:700;font-size:16px;border:0;cursor:pointer;transition:transform .2s,background .2s,color .2s,box-shadow .2s;white-space:nowrap}
+.tv .knop svg{width:18px;height:18px;transition:transform .25s}
+.tv .knop:hover{transform:translateY(-2px)}
+.tv .knop:hover svg{transform:translateX(3px)}
+.tv .k-oker{background:var(--oker);color:#fff;box-shadow:0 14px 26px -16px rgba(140,93,42,.9)}
+.tv .k-oker:hover{background:var(--okerd)}
+.tv .k-den{background:var(--den);color:var(--kalk)}
+.tv .k-den:hover{background:var(--den3)}
+.tv .k-glas{background:rgba(248,245,238,.12);color:#fff;box-shadow:inset 0 0 0 1.5px rgba(248,245,238,.45);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.tv .k-glas:hover{background:var(--kalk);color:var(--den)}
+.tv .k-lijn{background:transparent;color:var(--den);box-shadow:inset 0 0 0 1.5px var(--den)}
+.tv .k-lijn:hover{background:var(--den);color:var(--kalk)}
+
+/* woordmerk */
+.tv .merk{display:flex;align-items:center;gap:12px}
+.tv .blad{width:46px;height:46px;border-radius:14px 4px 14px 4px;background:var(--den);display:grid;place-items:center;flex:none;transition:background .3s}
+.tv .blad svg{width:24px;height:24px;color:var(--salie2)}
+.tv .merk b{display:block;font-family:'Instrument Serif',serif;font-weight:400;font-size:25px;line-height:1;letter-spacing:-.01em}
+.tv .merk small{display:block;font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;opacity:.7;margin-top:4px}
+
+/* header */
+.tv .hdr{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 0;color:#fff;transition:background .35s,padding .35s,box-shadow .35s,color .35s}
+.tv .hdr .w{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.tv .hdr .blad{background:rgba(248,245,238,.16);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.tv .hdr.vast{background:rgba(248,245,238,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--inkt);padding:10px 0;box-shadow:0 1px 0 var(--lijn)}
+.tv .hdr.vast .blad{background:var(--den)}
+.tv .nav{display:flex;gap:2px}
+.tv .nav a{padding:10px 15px;border-radius:999px;font-size:15px;font-weight:600;opacity:.92;transition:background .2s,opacity .2s}
+.tv .nav a:hover{background:rgba(255,255,255,.14);opacity:1}
+.tv .hdr.vast .nav a:hover{background:var(--zand)}
+.tv .hdr-r{display:flex;align-items:center;gap:10px}
+.tv .hdr .bel{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:15px;padding:12px 20px;border-radius:999px;background:var(--kalk);color:var(--den);transition:background .2s,color .2s}
+.tv .hdr .bel svg{width:16px;height:16px}
+.tv .hdr .bel:hover{background:var(--oker);color:#fff}
+.tv .hdr.vast .bel{background:var(--den);color:var(--kalk)}
+.tv .hdr.vast .bel:hover{background:var(--oker)}
+.tv .burger{display:none;width:48px;height:48px;border-radius:50%;border:0;background:rgba(248,245,238,.16);color:inherit;place-items:center;cursor:pointer}
+.tv .hdr.vast .burger{background:var(--den);color:#fff}
+.tv .burger svg{width:20px;height:20px}
+.tv .menu{position:fixed;inset:0;z-index:60;background:var(--den);color:var(--kalk);padding:20px 24px 30px;display:flex;flex-direction:column;opacity:0;visibility:hidden;transform:scale(1.02);transition:opacity .35s,transform .35s,visibility .35s}
+.tv .menu.open{opacity:1;visibility:visible;transform:none}
+.tv .menu .top{display:flex;justify-content:space-between;align-items:center}
+.tv .menu .blad{background:var(--den3)}
+.tv .menu nav{margin-top:42px;display:flex;flex-direction:column}
+.tv .menu nav a{font-family:'Instrument Serif',serif;font-size:38px;line-height:1.1;padding:11px 0;border-bottom:1px solid rgba(248,245,238,.12);display:flex;justify-content:space-between;align-items:center}
+.tv .menu nav a span{font:700 13px 'Hanken Grotesk';color:var(--salie)}
+.tv .menu .onder{margin-top:auto;display:grid;gap:10px}
+.tv .menu .x{width:48px;height:48px;border-radius:50%;border:0;background:rgba(255,255,255,.1);color:#fff;display:grid;place-items:center;cursor:pointer}
+
+/* hero */
+.tv .hero{position:relative;min-height:max(680px,96svh);display:flex;align-items:flex-end;color:#fff;isolation:isolate;overflow:hidden;background:var(--den)}
+.tv .hero > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transform:scale(1.06);transition:transform 2.2s cubic-bezier(.2,.7,.2,1);background:var(--den2)}
+.tv .hero.in > img{transform:scale(1)}
+.tv .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,30,24,.55) 0%,rgba(18,30,24,.05) 30%,rgba(18,30,24,.25) 55%,rgba(18,30,24,.88) 100%)}
+.tv .hero .w{width:100%;padding-bottom:64px;display:grid;grid-template-columns:1.35fr .65fr;gap:40px;align-items:end}
+.tv .hero .plek{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:600;padding:8px 16px 8px 10px;border-radius:999px;background:rgba(248,245,238,.14);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.tv .hero .plek i{width:24px;height:24px;border-radius:50%;background:var(--oker);display:grid;place-items:center}
+.tv .hero .plek svg{width:13px;height:13px}
+.tv .hero h1{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(50px,7vw,104px);line-height:.96;letter-spacing:-.025em;margin-top:22px;text-wrap:balance}
+.tv .hero h1 em{font-style:italic;color:var(--okerl)}
+.tv .hero p.lead{color:rgba(255,255,255,.86);font-size:19px;max-width:31em}
+.tv .hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.tv .nominatie{justify-self:end;background:var(--kalk);color:var(--inkt);border-radius:var(--r-md);padding:20px 22px;max-width:300px;box-shadow:var(--schaduw);display:flex;gap:16px;align-items:flex-start}
+.tv .nominatie .medaille{width:52px;height:52px;flex:none;border-radius:50%;background:radial-gradient(circle at 35% 30%,#F3D49A,#C59446 60%,#9C6E2A);display:grid;place-items:center;color:#fff;box-shadow:inset 0 0 0 3px rgba(255,255,255,.35)}
+.tv .nominatie .medaille svg{width:24px;height:24px}
+.tv .nominatie b{display:block;font-family:'Instrument Serif',serif;font-weight:400;font-size:23px;line-height:1.1}
+.tv .nominatie small{display:block;font-size:14px;color:var(--grijs);margin-top:4px;line-height:1.45}
+.tv .scrollhint{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);width:26px;height:42px;border-radius:14px;border:1.5px solid rgba(255,255,255,.5)}
+.tv .scrollhint::after{content:"";position:absolute;left:50%;top:8px;width:4px;height:8px;border-radius:2px;background:#fff;transform:translateX(-50%);animation:zak 1.8s infinite}
+@keyframes zak{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+
+/* feiten */
+.tv .feiten{background:var(--den);color:var(--kalk)}
+.tv .feiten .w{display:grid;grid-template-columns:repeat(4,1fr)}
+.tv .feiten .f{padding:30px 26px;display:flex;gap:14px;align-items:center}
+.tv .feiten .f + .f{border-left:1px solid rgba(248,245,238,.12)}
+.tv .feiten i{width:46px;height:46px;border-radius:14px 4px 14px 4px;background:var(--den3);display:grid;place-items:center;color:var(--salie2);flex:none}
+.tv .feiten i svg{width:21px;height:21px}
+.tv .feiten b{display:block;font-size:16px;line-height:1.3}
+.tv .feiten span{font-size:14.5px;color:rgba(248,245,238,.65)}
+.tv .feiten a.f:hover b{color:var(--okerl)}
+
+/* intro */
+.tv .intro2 .w{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.tv .duo{position:relative;height:620px}
+.tv .duo .a{position:absolute;left:0;top:0;width:72%;height:86%;border-radius:var(--r-lg) 160px var(--r-lg) var(--r-lg);overflow:hidden}
+.tv .duo .b{position:absolute;right:0;bottom:0;width:50%;height:52%;border-radius:var(--r-lg);overflow:hidden;border:8px solid var(--kalk)}
+.tv .duo img{width:100%;height:100%;object-fit:cover}
+.tv .duo .label{position:absolute;left:24px;bottom:34px;background:var(--kalk);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;display:flex;gap:8px;align-items:center;box-shadow:var(--schaduw)}
+.tv .duo .label::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--mos)}
+.tv .intro2 .punten{margin-top:34px;display:grid;gap:2px}
+.tv .intro2 .punten li{display:grid;grid-template-columns:40px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--lijn)}
+.tv .intro2 .punten li:last-child{border-bottom:1px solid var(--lijn)}
+.tv .intro2 .punten i{width:40px;height:40px;border-radius:50%;background:var(--zand);color:var(--mos);display:grid;place-items:center}
+.tv .intro2 .punten i svg{width:18px;height:18px}
+.tv .intro2 .punten b{display:block;font-size:17px}
+.tv .intro2 .punten span{font-size:15.5px;color:var(--grijs)}
+.tv .notitie{font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:var(--oker);margin-top:28px;display:flex;gap:10px;align-items:center}
+.tv .notitie svg{width:38px;height:24px;flex:none}
+
+/* diensten */
+.tv .diensten{background:var(--zand);border-radius:var(--r-lg);margin:0 20px}
+.tv .kop{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:52px}
+.tv .kaarten{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tv .kaart{position:relative;border-radius:var(--r-md);overflow:hidden;background:var(--kalk);display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+.tv .kaart:hover{transform:translateY(-4px);box-shadow:var(--schaduw)}
+.tv .kaart .foto{height:250px;overflow:hidden;position:relative}
+.tv .kaart .foto img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.tv .kaart:hover .foto img{transform:scale(1.06)}
+.tv .kaart .nr{position:absolute;top:14px;left:14px;font:700 12.5px 'Hanken Grotesk';background:rgba(248,245,238,.92);padding:6px 11px;border-radius:999px}
+.tv .kaart .tekst{padding:24px 26px 26px;display:flex;flex-direction:column;gap:8px;flex:1}
+.tv .kaart h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:30px;line-height:1.05}
+.tv .kaart p{font-size:15.5px;color:var(--grijs)}
+.tv .kaart .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:12px}
+.tv .kaart .tags span{font-size:12.5px;font-weight:700;padding:5px 10px;border-radius:999px;background:var(--zand);color:var(--den2)}
+.tv .veeg{display:none}
+
+/* realisaties */
+.tv .tabs{display:inline-flex;gap:4px;padding:5px;border-radius:999px;background:var(--zand);border:1px solid var(--lijn)}
+.tv .tabs button{border:0;background:transparent;padding:11px 20px;border-radius:999px;font-weight:700;font-size:15px;cursor:pointer;color:var(--grijs);transition:background .25s,color .25s}
+.tv .tabs button[aria-selected="true"]{background:var(--den);color:var(--kalk)}
+.tv .tabs button:hover:not([aria-selected="true"]){color:var(--inkt);background:rgba(255,255,255,.6)}
+.tv .paneel{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:210px;gap:14px;margin-top:34px}
+.tv .paneel[hidden]{display:none}
+.tv .paneel.fade{animation:fade .6s ease}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}}
+.tv .tegel{display:block;width:100%;height:100%;position:relative;border-radius:var(--r-md);overflow:hidden;cursor:zoom-in;border:0;padding:0;background:var(--steen)}
+.tv .tegel img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.tv .tegel:hover img{transform:scale(1.05)}
+.tv .tegel .cap{position:absolute;left:12px;bottom:12px;background:rgba(248,245,238,.94);color:var(--inkt);font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;transform:translateY(6px);opacity:0;transition:opacity .3s,transform .3s}
+.tv .tegel:hover .cap,.tv .tegel:focus-visible .cap{opacity:1;transform:none}
+.tv .t1{grid-column:span 7;grid-row:span 2}.tv .t2{grid-column:span 5}.tv .t3{grid-column:span 5}.tv .t4{grid-column:span 4}.tv .t5{grid-column:span 4}.tv .t6{grid-column:span 4}
+.tv .paneel .info{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:15px;color:var(--grijs);padding-top:6px}
+.tv .paneel .info b{color:var(--inkt)}
+.tv .lb{border:0;padding:0;background:transparent;max-width:min(1100px,94vw);max-height:92vh;overflow:visible}
+.tv .lb::backdrop{background:rgba(14,22,18,.86);backdrop-filter:blur(4px)}
+.tv .lb img{max-width:100%;max-height:84vh;border-radius:16px;margin:0 auto;background:var(--den2)}
+.tv .lb p{color:#fff;text-align:center;margin-top:12px;font-weight:600}
+.tv .lb button{position:absolute;top:-18px;right:-18px;width:46px;height:46px;border-radius:50%;border:0;background:var(--kalk);color:var(--den);display:grid;place-items:center;cursor:pointer}
+
+/* werkwijze */
+.tv .werk{background:var(--den);color:var(--kalk);border-radius:var(--r-lg);margin:0 20px}
+.tv .werk .oog{color:var(--salie)}
+.tv .werk .h2 em{color:var(--okerl)}
+.tv .werk .lead{color:rgba(248,245,238,.7)}
+.tv .stappen{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:60px;counter-reset:s}
+.tv .stap{position:relative;padding:30px 26px 28px;border-radius:var(--r-md);background:var(--den2);border:1px solid rgba(248,245,238,.08);transition:background .3s,transform .3s}
+.tv .stap:hover{background:var(--den3);transform:translateY(-4px)}
+.tv .stap .n{font-family:'Instrument Serif',serif;font-style:italic;font-size:56px;line-height:1;color:var(--okerl)}
+.tv .stap h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:27px;line-height:1.1;margin-top:18px}
+.tv .stap p{font-size:15.5px;color:rgba(248,245,238,.72);margin-top:10px}
+.tv .stap .pijl{position:absolute;top:44px;right:-15px;width:30px;height:30px;border-radius:50%;background:var(--oker);display:grid;place-items:center;z-index:2}
+.tv .stap .pijl svg{width:14px;height:14px;color:#fff}
+.tv .stap:last-child .pijl{display:none}
+
+/* water */
+.tv .water .w{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
+.tv .water .beeld{position:relative;height:560px;border-radius:var(--r-lg);overflow:hidden}
+.tv .water .beeld img{width:100%;height:100%;object-fit:cover}
+.tv .water .beeld .klein{position:absolute;right:22px;bottom:22px;width:38%;height:42%;border-radius:var(--r-md);overflow:hidden;border:6px solid var(--kalk);box-shadow:var(--schaduw)}
+.tv .water .lijst{margin-top:28px;display:flex;flex-wrap:wrap;gap:8px}
+.tv .water .lijst span{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:var(--zand);font-weight:600;font-size:15px}
+.tv .water .lijst svg{width:16px;height:16px;color:var(--mos)}
+.tv .water .cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+
+/* werkgebied */
+.tv .gebied{padding-top:20px}
+.tv .gebied .vak{background:var(--zand);border-radius:var(--r-lg);padding:56px;display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.tv .chips{display:flex;flex-wrap:wrap;gap:8px}
+.tv .chips span{padding:9px 15px;border-radius:999px;background:var(--kalk);font-weight:600;font-size:15px;border:1px solid var(--lijn);transition:background .2s,color .2s}
+.tv .chips span:hover{background:var(--den);color:var(--kalk)}
+.tv .chips span.thuis{background:var(--den);color:var(--kalk);border-color:var(--den)}
+
+/* reviews */
+.tv .rev-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:18px;align-items:stretch}
+.tv .rev{background:var(--kalk);border:1px solid var(--lijn);border-radius:var(--r-md);padding:36px;display:flex;flex-direction:column;gap:22px}
+.tv .rev.groot{background:var(--den);color:var(--kalk);border-color:var(--den)}
+.tv .rev blockquote{font-size:17px;line-height:1.7;color:var(--grijs)}
+.tv .rev.groot blockquote{font-family:'Instrument Serif',serif;font-size:27px;line-height:1.35;color:var(--kalk)}
+.tv .rev .q{width:34px;height:34px;color:var(--oker)}
+.tv .rev .wie{margin-top:auto;display:flex;align-items:center;gap:12px}
+.tv .rev .av{width:46px;height:46px;border-radius:50%;background:var(--zand);color:var(--den);display:grid;place-items:center;font-weight:800;font-size:15px}
+.tv .rev.groot .av{background:var(--oker);color:#fff}
+.tv .rev .wie b{display:block;font-size:15.5px}
+.tv .rev .wie small{font-size:13.5px;color:var(--grijs)}
+.tv .rev.groot .wie small{color:rgba(248,245,238,.6)}
+.tv .rev-stack{display:grid;gap:18px}
+.tv .vacature{background:var(--oker);color:#fff;border-radius:var(--r-md);padding:32px 34px;display:flex;flex-direction:column;gap:14px}
+.tv .vacature .oog{color:#FBE3C4}
+.tv .vacature h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:32px;line-height:1.08}
+.tv .vacature p{color:rgba(255,255,255,.88);font-size:16px}
+.tv .vacature a{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;font-weight:700;border-bottom:2px solid rgba(255,255,255,.5);padding-bottom:2px;transition:border-color .2s}
+.tv .vacature a:hover{border-color:#fff}
+.tv .vacature a svg{width:16px;height:16px}
+
+/* faq */
+.tv .faq .w{display:grid;grid-template-columns:.8fr 1.2fr;gap:72px}
+.tv details{border-bottom:1px solid var(--lijn)}
+.tv details:first-child{border-top:1px solid var(--lijn)}
+.tv summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 0;font-family:'Instrument Serif',serif;font-size:26px;line-height:1.2}
+.tv summary::-webkit-details-marker{display:none}
+.tv summary .plus{width:40px;height:40px;border-radius:50%;background:var(--zand);display:grid;place-items:center;flex:none;transition:transform .3s,background .2s,color .2s}
+.tv summary .plus svg{width:14px;height:14px}
+.tv summary:hover .plus{background:var(--steen)}
+.tv details[open] summary .plus{transform:rotate(45deg);background:var(--den);color:#fff}
+.tv details p{padding:0 64px 24px 0;color:var(--grijs);font-size:16.5px}
+.tv .faq .lead a{color:var(--oker);font-weight:700;white-space:nowrap}
+
+/* contact */
+.tv .contactsec .w{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:stretch}
+.tv .formvak{background:#fff;border:1px solid var(--lijn);border-radius:var(--r-lg);padding:48px}
+.tv form{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tv .veld{display:flex;flex-direction:column;gap:7px}
+.tv .veld.vol{grid-column:1/-1}
+.tv .veld label,.tv .veld .lbl{font-size:14px;font-weight:700;color:var(--den2)}
+.tv .veld label small{font-weight:500;color:var(--grijs)}
+.tv .veld input,.tv .veld textarea,.tv .veld select{width:100%;border:1.5px solid var(--steen);background:var(--kalk);border-radius:14px;padding:14px 16px;font-size:16px;outline:none;transition:border-color .2s,box-shadow .2s,background .2s}
+.tv .veld select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6' fill='none' stroke='%231E3328' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:18px;padding-right:44px}
+.tv .veld textarea{min-height:120px;resize:vertical}
+.tv .veld input:focus,.tv .veld textarea:focus,.tv .veld select:focus{border-color:var(--mos);background:#fff;box-shadow:0 0 0 4px rgba(107,127,78,.16)}
+.tv .veld.fout input,.tv .veld.fout textarea{border-color:#B4452F}
+.tv .keuzes{display:flex;flex-wrap:wrap;gap:8px}
+.tv .keuzes label{cursor:pointer}
+.tv .keuzes input{position:absolute;opacity:0;pointer-events:none}
+.tv .keuzes span{display:inline-block;padding:10px 15px;border-radius:999px;border:1.5px solid var(--steen);font-size:15px;font-weight:600;color:var(--inkt);transition:background .2s,border-color .2s,color .2s}
+.tv .keuzes input:checked + span{background:var(--den);border-color:var(--den);color:var(--kalk)}
+.tv .keuzes input:focus-visible + span{outline:3px solid var(--oker);outline-offset:2px}
+.tv .upload{display:flex;align-items:center;gap:14px;border:1.5px dashed var(--steen2);border-radius:14px;padding:16px;cursor:pointer;transition:border-color .2s,background .2s}
+.tv .upload:hover{border-color:var(--mos);background:var(--kalk)}
+.tv .upload i{width:42px;height:42px;border-radius:12px;background:var(--zand);display:grid;place-items:center;color:var(--mos);flex:none}
+.tv .upload i svg{width:20px;height:20px}
+.tv .upload b{display:block;font-size:15px}
+.tv .upload small{font-size:13.5px;color:var(--grijs)}
+.tv .upload input{position:absolute;opacity:0;width:1px;height:1px}
+.tv form .verstuur{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:6px}
+.tv form .verstuur small{color:var(--grijs);font-size:14px;max-width:26em}
+.tv .bedankt{display:none;margin-top:30px;background:var(--zand);border-radius:var(--r-md);padding:34px}
+.tv .bedankt.toon{display:block;animation:fade .5s ease}
+.tv .bedankt i{width:52px;height:52px;border-radius:50%;background:var(--mos);color:#fff;display:grid;place-items:center;margin-bottom:16px}
+.tv .bedankt i svg{width:24px;height:24px}
+.tv .bedankt h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:32px}
+.tv .bedankt p{color:var(--grijs);margin-top:6px}
+.tv .adressen{background:var(--den);color:var(--kalk);border-radius:var(--r-lg);padding:44px;display:flex;flex-direction:column}
+.tv .adressen .oog{color:var(--salie)}
+.tv .adressen .h2{font-size:clamp(34px,3.2vw,46px)}
+.tv .loodsen{margin-top:26px;display:grid;gap:10px}
+.tv .loods{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;padding:16px;border-radius:16px;background:var(--den2);transition:background .2s}
+.tv .loods:hover{background:var(--den3)}
+.tv .loods i{width:44px;height:44px;border-radius:12px;background:var(--den3);display:grid;place-items:center;color:var(--okerl)}
+.tv .loods i svg{width:19px;height:19px}
+.tv .loods b{display:block;font-size:16px}
+.tv .loods span{display:block;font-size:14.5px;color:rgba(248,245,238,.68)}
+.tv .loods em{font-style:normal;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--salie)}
+.tv .lijntjes{margin-top:24px;display:grid;gap:4px}
+.tv .lijntjes a{display:flex;align-items:center;gap:12px;padding:10px 0;font-weight:700;border-bottom:1px solid rgba(248,245,238,.1)}
+.tv .lijntjes a:hover{color:var(--okerl)}
+.tv .lijntjes svg{width:18px;height:18px;color:var(--salie)}
+.tv .adressen .soc{display:flex;gap:10px;margin-top:auto;padding-top:26px}
+.tv .soc a{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:rgba(248,245,238,.08);font-weight:700;font-size:14.5px;transition:background .2s}
+.tv .soc a:hover{background:var(--oker)}
+.tv .soc svg{width:16px;height:16px}
+
+/* footer */
+.tv .voet{background:var(--inkt);color:var(--kalk);padding:84px 0 30px;margin-top:20px}
+.tv .voet .grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.tv .voet .blad{background:var(--den3)}
+.tv .voet p.over{margin-top:22px;color:rgba(248,245,238,.65);max-width:24em;font-size:15.5px}
+.tv .voet h4{font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--salie);margin-bottom:16px}
+.tv .voet li{font-size:15.5px;color:rgba(248,245,238,.8);line-height:1.95}
+.tv .voet a:hover{color:var(--okerl)}
+.tv .voet .groot{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(46px,12vw,190px);line-height:.9;letter-spacing:-.03em;color:rgba(248,245,238,.06);margin-top:60px;white-space:nowrap;text-align:center;user-select:none}
+.tv .voet .onder{margin-top:28px;padding-top:24px;border-top:1px solid rgba(248,245,238,.1);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:14px;color:rgba(248,245,238,.5)}
+
+.tv .actiebalk{display:none}
+
+/* verschijnen */
+.tv .op{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.tv .op.zien{opacity:1;transform:none}
+.tv .d1{transition-delay:.08s}.tv .d2{transition-delay:.16s}.tv .d3{transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){
+  .tv .op{opacity:1;transform:none;transition:none}
+  .tv .hero > img{transform:none;transition:none}
+  .tv .scrollhint::after{animation:none}
+  html{scroll-behavior:auto}
+}
+
+/* responsief */
+@media (max-width:1100px){
+  .tv .nav{display:none}
+  .tv .burger{display:grid}
+  .tv .hero .w{grid-template-columns:1fr;gap:28px}
+  .tv .nominatie{justify-self:start}
+  .tv .feiten .w{grid-template-columns:1fr 1fr}
+  .tv .feiten .f:nth-child(3){border-left:0}
+  .tv .feiten .f:nth-child(n+3){border-top:1px solid rgba(248,245,238,.12)}
+  .tv .intro2 .w,.tv .water .w,.tv .faq .w,.tv .contactsec .w{grid-template-columns:1fr;gap:52px}
+  .tv .gebied .vak{grid-template-columns:1fr;gap:28px}
+  .tv .kaarten{grid-template-columns:1fr 1fr}
+  .tv .stappen{grid-template-columns:1fr 1fr}
+  .tv .stap .pijl{display:none}
+  .tv .rev-grid{grid-template-columns:1fr}
+  .tv .voet .grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .tv .paneel{grid-auto-rows:170px;gap:10px}
+  .tv .t1{grid-column:1/-1;grid-row:span 2}
+  .tv .t2,.tv .t3{grid-column:span 6}
+  .tv .t4,.tv .t5,.tv .t6{grid-column:span 6}
+  .tv .t6{grid-column:1/-1}
+  .tv .kop{flex-direction:column;align-items:flex-start;gap:20px}
+  .tv .tegel .cap{opacity:1;transform:none}
+}
+@media (max-width:640px){
+  .tv{font-size:16px}
+  .tv .w{padding:0 16px}
+  .wrap{padding:0 16px}
+  .tv .sec{padding:84px 0}
+  .tv .merk small{display:none}
+  .tv .merk b{font-size:22px}
+  .tv .blad{width:42px;height:42px}
+  .tv .hdr .bel{display:none}
+  .tv .hdr{padding:12px 0}
+  .tv .hero{min-height:max(620px,92svh)}
+  .tv .hero .w{padding-bottom:40px}
+  .tv .hero h1{font-size:48px}
+  .tv .hero p.lead{font-size:17px}
+  .tv .hero .cta .knop{flex:1 1 100%}
+  .tv .nominatie{max-width:none;padding:16px 18px}
+  .tv .scrollhint{display:none}
+  .tv .feiten .w{grid-template-columns:1fr;padding:0}
+  .tv .feiten .f{padding:18px 16px}
+  .tv .feiten .f + .f{border-left:0;border-top:1px solid rgba(248,245,238,.12)}
+  .tv .h2{font-size:40px}
+  .tv .lead{font-size:16.5px}
+  .tv .duo{height:440px}
+  .tv .duo .a{border-radius:20px 100px 20px 20px}
+  .tv .diensten,.tv .werk{margin:0 8px;border-radius:22px}
+  .tv .kaarten{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 16px 4px;scroll-padding:0 16px;scrollbar-width:none}
+  .tv .kaarten::-webkit-scrollbar{display:none}
+  .tv .kaart{flex:0 0 84%;scroll-snap-align:start}
+  .tv .kaarten .op{opacity:1;transform:none}
+  .tv .veeg{display:flex;align-items:center;gap:14px;margin-top:20px;font-size:13px;font-weight:700;color:var(--grijs);letter-spacing:.04em}
+  .tv .veeg .balk{flex:1;height:3px;border-radius:3px;background:rgba(24,34,29,.12);overflow:hidden;position:relative}
+  .tv .veeg .balk i{position:absolute;left:0;top:0;bottom:0;width:30%;border-radius:3px;background:var(--den);transition:transform .15s}
+  .tv .tabs{display:flex;width:100%}
+  .tv .tabs button{flex:1;padding:11px 8px;font-size:14.5px}
+  .tv .stappen{grid-template-columns:1fr;gap:12px;margin-top:40px}
+  .tv .stap{padding:24px 22px;display:grid;grid-template-columns:54px 1fr;gap:4px 14px}
+  .tv .stap .n{font-size:44px;grid-row:span 2}
+  .tv .stap h3{margin-top:2px;font-size:24px}
+  .tv .stap p{margin-top:2px}
+  .tv .water .beeld{height:400px}
+  .tv .water .cta .knop{flex:1 1 100%}
+  .tv .gebied .vak{padding:30px 20px;border-radius:22px}
+  .tv .chips span{font-size:14px;padding:8px 13px}
+  .tv .rev{padding:26px}
+  .tv .rev.groot blockquote{font-size:22px}
+  .tv .vacature{padding:26px}
+  .tv summary{font-size:21px;padding:20px 0}
+  .tv details p{padding-right:0}
+  .tv .formvak,.tv .adressen{padding:28px 20px;border-radius:22px}
+  .tv form{grid-template-columns:1fr}
+  .tv form .verstuur .knop{width:100%}
+  .tv .voet .grid{grid-template-columns:1fr;gap:32px}
+  .tv .voet{padding-bottom:100px}
+  .tv .lb button{top:8px;right:8px}
+  .tv .actiebalk{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:10px;right:10px;bottom:10px;z-index:40;background:rgba(24,34,29,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:8px;border-radius:999px;box-shadow:0 14px 30px -10px rgba(0,0,0,.5);transition:transform .35s,opacity .35s}
+  .tv .actiebalk.weg{transform:translateY(130%);opacity:0;pointer-events:none}
+  .tv .actiebalk a{display:flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:13px 10px;font-weight:700;font-size:15px;color:var(--kalk)}
+  .tv .actiebalk a.k{background:var(--oker);color:#fff}
+  .tv .actiebalk svg{width:17px;height:17px}
+}
+.tv .hero::before{background:linear-gradient(180deg,rgba(18,30,24,.62) 0%,rgba(18,30,24,.42) 40%,rgba(18,30,24,.6) 65%,rgba(18,30,24,.92) 100%)}@media (max-width:760px){.tv .hero::before{background:linear-gradient(180deg,rgba(18,30,24,.72) 0%,rgba(18,30,24,.62) 45%,rgba(18,30,24,.8) 75%,rgba(18,30,24,.95) 100%)}}.tv .hero h1{text-shadow:0 2px 24px rgba(0,0,0,.25)}</style>
+<style>/*rev2 hero*/
+.tv section.hero2{min-height:auto;display:block;padding:150px 0 110px;background:radial-gradient(70% 60% at 85% 20%,rgba(107,127,78,.35),transparent 70%),var(--den)}
+.tv section.hero2::before{display:none}
+.tv section.hero2 .w{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,96px);align-items:center;padding-bottom:0}
+.tv section.hero2 h1{font-size:clamp(46px,5vw,76px);line-height:1;margin-top:24px}
+.tv section.hero2 h1 em{display:block}
+.tv section.hero2 p.lead{margin-top:24px!important;font-size:18.5px;color:rgba(248,245,238,.82)}
+.tv .h2-chips{list-style:none;padding:0;margin:26px 0 0!important;display:flex;flex-wrap:wrap;gap:8px}
+.tv .h2-chips li{font-size:14px;font-weight:600;color:var(--salie2);border:1px solid rgba(201,209,187,.3);border-radius:999px;padding:7px 14px}
+.tv .h2-tel{margin-top:22px;font-size:15px;color:rgba(248,245,238,.65)}
+.tv .h2-tel a{color:var(--okerl);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(226,185,135,.4)}
+.tv .h2-col{position:relative;height:clamp(520px,46vw,640px)}
+.tv .h2-col figure{position:absolute;margin:0;overflow:hidden;border-radius:26px;background:var(--den2);box-shadow:0 40px 80px -40px rgba(0,0,0,.6)}
+.tv .h2-col img{width:100%;height:100%;object-fit:cover;display:block}
+.tv .h2-col .f1{right:0;top:0;width:80%;height:86%}
+.tv .h2-col .f2{left:0;bottom:0;width:44%;height:42%;border:6px solid var(--den)}
+.tv .h2-col .nominatie{position:absolute;right:-14px;bottom:2%;max-width:280px;padding:16px 18px;justify-self:auto}
+.tv .h2-col .nominatie .medaille{width:44px;height:44px}
+.tv .h2-col .nominatie b{font-size:20px}
+.tv .h2-tag{position:absolute;left:30%;top:22px;display:inline-flex;gap:8px;align-items:center;font-size:13px;font-weight:600;color:var(--inkt);background:rgba(248,245,238,.92);border-radius:999px;padding:7px 13px}
+.tv .h2-tag svg{width:13px;height:13px;color:var(--oker)}
+@media (max-width:960px){.tv section.hero2{padding:120px 0 72px}.tv section.hero2 .w{grid-template-columns:1fr}.tv .h2-col{height:520px}.tv .h2-col .nominatie{right:0}}
+@media (max-width:560px){.tv section.hero2 h1{font-size:44px}.tv .h2-col{height:400px}.tv .h2-col .f1{width:82%;height:80%}.tv .h2-col .f2{width:54%;height:36%}.tv .h2-col .nominatie{left:0;right:auto;bottom:auto;top:calc(80% - 30px);max-width:240px;display:none}.tv .h2-tag{left:22%}.tv section.hero2 .cta .knop{flex:1 1 100%}.tv section.hero2{padding-bottom:40px}}
+</style>
+</head>
+<body>
+<div class="tv">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-blad" viewBox="0 0 24 24"><path d="M5 19c0-8 5-13.5 14-14-.3 9-5.8 14-14 14Zm0 0 7-7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-pijl" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M6.6 3.5h2.6l1.6 4-2 1.3a11 11 0 0 0 6.4 6.4l1.3-2 4 1.6v2.6A2.1 2.1 0 0 1 18.4 19.5 15.4 15.4 0 0 1 4.5 5.6 2.1 2.1 0 0 1 6.6 3.5Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.1 7-11.5a7 7 0 0 0-14 0C5 14.9 12 21 12 21Z" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="9.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.9"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="m4.5 7 7.5 6 7.5-6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="i-kubus" viewBox="0 0 24 24"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3Zm0 0v9m0 0 8-4.5M12 12 4 7.5M12 12v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-graaf" viewBox="0 0 24 24"><path d="M3 18h11M5 18v-4h7l2 4M8 14V10h3M11 10l5-5 3 3-2 2m-1 0-2 2-3-1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="19.5" r="1.5" fill="currentColor"/><circle cx="12" cy="19.5" r="1.5" fill="currentColor"/></symbol>
+  <symbol id="i-huis" viewBox="0 0 24 24"><path d="M4 11 12 4l8 7v9H4v-9Zm6 9v-5h4v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-golf" viewBox="0 0 24 24"><path d="M3 9c2 0 2-1.5 4.5-1.5S10 9 12 9s2-1.5 4.5-1.5S19 9 21 9M3 15c2 0 2-1.5 4.5-1.5S10 15 12 15s2-1.5 4.5-1.5S19 15 21 15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-vink" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-ster" viewBox="0 0 24 24"><path d="m12 3 2.4 5.6 6.1.5-4.6 4 1.4 5.9L12 16l-5.3 3 1.4-5.9-4.6-4 6.1-.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-foto" viewBox="0 0 24 24"><rect x="3.5" y="6" width="17" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 6 10 4h4l1.5 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="12.5" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-quote" viewBox="0 0 32 32"><path d="M6 24c0-6 2-10.5 7-14l1.6 2.2C11.7 14.6 11 16.6 11 19h3.5v5H6Zm12 0c0-6 2-10.5 7-14l1.6 2.2c-2.9 2.4-3.6 4.4-3.6 6.8h3.5v5H18Z" fill="currentColor"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M14 8.5V6.8c0-.8.5-1.3 1.3-1.3H17V2.5h-2.5C11.9 2.5 11 4.2 11 6.5v2H8.5v3H11v10h3v-10h2.6l.4-3Z" fill="currentColor"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+</svg>
+
+<header class="hdr" id="top">
+  <div class="w">
+    <a href="#top" class="merk" aria-label="Tuinen De Vos, naar boven">
+      <span class="blad" aria-hidden="true"><svg><use href="#i-blad"/></svg></span>
+      <span><b>Tuinen De Vos</b><small>Ontwerp · aanleg · onderhoud</small></span>
+    </a>
+    <nav class="nav" aria-label="Hoofdmenu">
+      <a href="#diensten">Diensten</a>
+      <a href="#tuinen">Onze tuinen</a>
+      <a href="#werkwijze">Werkwijze</a>
+      <a href="#zwembaden">Zwembaden</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hdr-r">
+      <a class="bel" href="tel:+32475936002"><svg><use href="#i-tel"/></svg>0475 93 60 02</a>
+      <button class="burger" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24"><path d="M4 8h16M4 16h11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <div class="top">
+    <span class="merk"><span class="blad" aria-hidden="true"><svg><use href="#i-blad"/></svg></span><span><b>Tuinen De Vos</b></span></span>
+    <button class="x" type="button" aria-label="Menu sluiten"><svg width="18" height="18"><use href="#i-x"/></svg></button>
+  </div>
+  <nav aria-label="Mobiel menu">
+    <a href="#diensten">Diensten <span>01</span></a>
+    <a href="#tuinen">Onze tuinen <span>02</span></a>
+    <a href="#werkwijze">Werkwijze <span>03</span></a>
+    <a href="#zwembaden">Zwembaden <span>04</span></a>
+    <a href="#vragen">Vragen <span>05</span></a>
+    <a href="#contact">Contact <span>06</span></a>
+  </nav>
+  <div class="onder">
+    <a class="knop k-oker" href="tel:+32475936002"><svg><use href="#i-tel"/></svg>Bel 0475 93 60 02</a>
+    <a class="knop k-glas" href="#contact">Offerte vragen</a>
+  </div>
+</div>
+
+<main>
+
+<!-- HERO -->
+<section class="hero hero2" aria-labelledby="h1">
+  <div class="w">
+    <div class="h2-txt">
+      <span class="plek op"><i><svg><use href="#i-pin"/></svg></i>Geraardsbergen · Herzele · Zottegem</span>
+      <h1 id="h1" class="op d1">Eerst zie je je tuin in 3D. <em>Dan leggen we hem aan.</em></h1>
+      <p class="lead op d2">We tekenen, bouwen en onderhouden tuinen in de streek, met onze eigen ploegen en machines. Ook zwembaden, vijvers en terrassen. Eén nummer, van het eerste bezoek tot het onderhoud nadien.</p>
+      <ul class="h2-chips op d2"><li>Ontwerp in 3D</li><li>Aanleg</li><li>Onderhoud</li><li>Zwembaden</li></ul>
+      <div class="cta op d3">
+        <a class="knop k-oker" href="#contact">Vraag een offerte <svg><use href="#i-pijl"/></svg></a>
+        <a class="knop k-glas" href="#tuinen">Bekijk onze tuinen</a>
+      </div>
+      <p class="h2-tel op d3">Liever eerst even praten? Bel <a href="tel:+32475936002">0475 93 60 02</a></p>
+    </div>
+    <div class="h2-col op d1">
+      <figure class="f1"><img src="img/x-67079fd83a.webp" alt="Zwembad met een border vol sierlook, aangelegd door Tuinen De Vos" decoding="async" fetchpriority="high"></figure>
+      <figure class="f2"><img src="img/x-03639a6f1c.webp" alt="Houten vlonderpad langs een spiegelvijver in een groene tuin" decoding="async"></figure>
+      <div class="nominatie">
+        <span class="medaille" aria-hidden="true"><svg><use href="#i-ster"/></svg></span>
+        <span><b>Nominatie Goud, jong talent</b><small>Voor onze tuin “Verrassend veelzijdig”.</small></span>
+      </div>
+      <span class="h2-tag"><svg><use href="#i-pin"/></svg>Een van onze zwembadtuinen</span>
+    </div>
+  </div>
+</section>
+
+<!-- FEITEN -->
+<div class="feiten">
+  <div class="w">
+    <div class="f"><i><svg><use href="#i-kubus"/></svg></i><span><b>Ontwerp in 3D</b><span>Je ziet je tuin voor we beginnen</span></span></div>
+    <div class="f"><i><svg><use href="#i-graaf"/></svg></i><span><b>Eigen machinepark</b><span>Sneller en properder op de werf</span></span></div>
+    <div class="f"><i><svg><use href="#i-huis"/></svg></i><span><b>Drie loodsen</b><span>Geraardsbergen, Herzele, Zottegem</span></span></div>
+    <a class="f" href="tel:+32475936002"><i><svg><use href="#i-tel"/></svg></i><span><b>0475 93 60 02</b><span>Bel of stuur een berichtje</span></span></a>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="sec intro2" aria-labelledby="t-intro">
+  <div class="w">
+    <div class="duo op">
+      <div class="a"><img src="img/x-1566bcfc7d.webp" alt="Landelijke tuin in Borsbeke, aangelegd door Tuinen De Vos" referrerpolicy="no-referrer" loading="lazy" decoding="async" width="1200" height="900"></div>
+      <div class="b"><img src="img/x-03639a6f1c.webp" alt="Detail uit de tuin Verrassend veelzijdig" referrerpolicy="no-referrer" loading="lazy" decoding="async" width="900" height="700"></div>
+      <span class="label">Tuin in Borsbeke</span>
+    </div>
+    <div>
+      <span class="oog op">Over ons</span>
+      <h2 class="h2 op d1" id="t-intro">Jong bedrijf, <em>grote goesting</em></h2>
+      <p class="lead op d2">Tuinen De Vos is een jonge tuinaannemer uit Zuid-Oost-Vlaanderen. We doen het ontwerp én de volledige aanleg zelf, met een eigen machinepark. Zo hoef je niet te schipperen tussen een tuinarchitect, een grondwerker en een hovenier.</p>
+      <ul class="punten">
+        <li class="op"><i><svg><use href="#i-kubus"/></svg></i><span><b>We tekenen je tuin in 3D</b><span>Met de verlichting erbij, zodat je ook ’s avonds weet wat je krijgt.</span></span></li>
+        <li class="op d1"><i><svg><use href="#i-graaf"/></svg></i><span><b>We leggen hem zelf aan</b><span>Elke ploeg heeft zijn eigen specialiteit, en we werken met onze eigen machines.</span></span></li>
+        <li class="op d2"><i><svg><use href="#i-blad"/></svg></i><span><b>En we houden hem mooi</b><span>Gazon, hagen, bomen en vijvers, zo vaak als jij wil.</span></span></li>
+      </ul>
+      <p class="notitie op"><svg viewBox="0 0 40 24" aria-hidden="true"><path d="M2 12c8-8 18 8 34 0M30 5l6 7-7 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Van schets tot snoeischaar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DIENSTEN -->
+<section class="sec diensten" id="diensten" aria-labelledby="t-diensten">
+  <div class="w">
+    <div class="kop">
+      <div>
+        <span class="oog op">Diensten</span>
+        <h2 class="h2 op d1" id="t-diensten">Wat we <em>voor je doen</em></h2>
+      </div>
+      <p class="lead op d2">Een volledig nieuwe tuin, een terras en oprit, of enkel iemand die het onderhoud overneemt. Kies wat je nodig hebt.</p>
+    </div>
+    <div class="kaarten" data-scroller>
+      <article class="kaart op">
+        <div class="foto"><img src="img/x-e249cd4539.webp" alt="Hedendaagse tuin ontworpen door Tuinen De Vos" referrerpolicy="no-referrer" loading="lazy" decoding="async" width="900" height="600"><span class="nr">01</span></div>
+        <div class="tekst"><h3>Tuinontwerp in 3D</h3><p>We komen bij je thuis kijken, maken een schets en werken die uit tot een 3D-ontwerp met beplantingsplan.</p><div class="tags"><span>Hedendaags</span><span>Landelijk</span><span>Modern</span></div></div>
+      </article>
+      <article class="kaart op d1">
+        <div class="foto"><img src="img/x-82fabb9639.webp" alt="Moderne tuin in Erpe-Mere" referrerpolicy="no-referrer" loading="lazy" decoding="async" width="900" height="600"><span class="nr">02</span></div>
+        <div class="tekst"><h3>Tuinaanleg</h3><p>Grondwerk, terras en oprit, keerwanden, gazon, beplanting en tuinverlichting. Alles door onze eigen ploegen.</p><div class="tags"><span>Opritten</span><span>Terrassen</span><span>Afsluitingen</span></div></div>
+      </article>
+      <article class="kaart op d2">
+        <div class="foto"><img src="img/x-a98467f8a8.webp" alt="Landelijke tuin in Borsbeke" referrerpolicy="no-referrer" loading="lazy" decoding="async" width="900" height="600"><span class="nr">03</span></div>
+        <div class="tekst"><h3>Tuinonderhoud</h3><p>Gazon, hagen scheren, snoeien, bemestingsadvies en bomen vellen. In de winter ruimen we ook sneeuw.</p><div class="tags"><span>Gazon</span><span>Hagen</span><span>Bomen</span></div></div>
+      </article>
+      <article class="kaart op">
+        <div class="foto"><img src="img/x-67079fd83a.webp" alt="Zwembad aangelegd door Tuinen De Vos" referrerpolicy="no-referrer" loading="lazy" decoding="async" width="900" height="600"><span class="nr">04</span></div>
+        <div class="tekst"><h3>Zwembaden en zwemvijvers</h3><p>Een zwembad, zwemvijver of gewone vijver, mee ontworpen met de rest van je tuin.</p><div class="tags"><span>Zwembad</span><span>Zwemvijver</span><span>Vijver</span></div></div>
+      </article>
+      <article class="kaart op d1">
+        <div class="foto"><img src="img/x-034f554d6b.webp" alt="Zwembad en terras, aangelegd door Tuinen De Vos" referrerpolicy="no-referrer" loading="lazy" decoding="async" width="900" height="600"><span class="nr">05</span></div>
+        <div class="tekst"><h3>Poolhouses</h3><p>Een plek om om te kleden, de techniek te verstoppen of gewoon in de schaduw te zitten.</p><div class="tags"><span>Poolhouse</span><span>Tuinhuis</span><span>Carport</span></div></div>
+      </article>
+      <article class="kaart op d2">
+        <div class="foto"><img src="img/x-e879164dc1.webp" alt="Hedendaagse tuin in Aalst" referrerpolicy="no-referrer" loading="lazy" decoding="async" width="900" height="600"><span class="nr">06</span></div>
+        <div class="tekst"><h3>Omgevingswerk</h3><p>De hele omgeving rond je woning of bedrijf: van grondwerk en keerwanden tot schanskorven en palissades.</p><div class="tags"><span>Grondwerk</span><span>Keerwanden</span><span>Schanskorven</span></div></div>
+      </article>
+    </div>
+    <div class="veeg" aria-hidden="true"><span class="balk"><i data-voortgang></i></span>Schuif opzij</div>
+  </div>
+</section>
+
+<!-- REALISATIES -->
+<section class="sec" id="tuinen" aria-labelledby="t-tuinen">
+  <div class="w">
+    <div class="kop">
+      <div>
+        <span class="oog op">Onze tuinen</span>
+        <h2 class="h2 op d1" id="t-tuinen">Tuinen die <em>we aanlegden</em></h2>
+      </div>
+      <div class="tabs op d2" role="tablist" aria-label="Stijl van tuin">
+        <button type="button" role="tab" id="tab-h" aria-controls="p-h" aria-selected="true">Hedendaags</button>
+        <button type="button" role="tab" id="tab-l" aria-controls="p-l" aria-selected="false" tabindex="-1">Landelijk</button>
+        <button type="button" role="tab" id="tab-m" aria-controls="p-m" aria-selected="false" tabindex="-1">Modern</button>
+      </div>
+    </div>
+
+    <div class="paneel" id="p-h" role="tabpanel" aria-labelledby="tab-h">
+      <button class="tegel t1" type="button"><img src="img/x-4fa4bf74f1.webp" alt="Tuin Verrassend veelzijdig, genomineerd voor Goud jong talent" referrerpolicy="no-referrer" loading="lazy" decoding="async"><span class="cap">Verrassend veelzijdig</span></button>
+      <button class="tegel t2" type="button"><img src="img/x-499df65957.webp" alt="Hedendaagse tuin in Aalst" referrerpolicy="no-referrer" loading="lazy" decoding="async"><span class="cap">Tuin in Aalst</span></button>
+      <button class="tegel t3" type="button"><img src="img/x-53f55281ae.webp" alt="Tuin Verrassend veelzijdig, ander zicht" referrerpolicy="no-referrer" loading="lazy" decoding="async"><span class="cap">Verrassend veelzijdig</span></button>
+      <button class="tegel t4" type="button"><img src="img/x-ea74b80f4c.webp" alt="Hedendaagse tuin in Aalst, detail" referrerpolicy="no-referrer" loading="lazy" decoding="async"><span class="cap">Tuin in Aalst</span></button>
+      <button class="tegel t5" type="button"><img src="img/x-b4c935cfb6.webp" alt="Tuin Verrassend veelzijdig" referrerpolicy="no-referrer" loading="lazy" decoding="async"><span class="cap">Verrassend veelzijdig</span></button>
+      <button class="tegel t6" type="button"><img src="img/x-7340a0fdd3.webp" alt="Tuin Verrassend veelzijdig" referrerpolicy="no-referrer" loading="lazy" decoding="async"><span class="cap">Verrassend veelzijdig</span></button>
+      <p class="info"><span><b>Hedendaags:</b> strakke lijnen, maar met veel groen ertussen.</span><span>Ook in Asse, Gavere, Gooik, Ninove en Zottegem</span></p>
+    </div>
+
+    <div class="paneel" id="p-l" role="tabpanel" aria-labelledby="tab-l" hidden>
+      <button class="tegel t1" type="button"><img src="img/x-23c76fce5f.webp" alt="Landelijke tuin in Borsbeke" referrerpolicy="no-referrer" loading="lazy" decoding="async"><span class="cap">Tuin in Borsbeke</span></button>
+      <button class="tegel t2" type="button"><img src="img/x-c14e262e63.webp" alt="Landelijke tuin in Borsbeke, ander zicht" referrerpolicy="no-referrer" loading="lazy" decoding="async"><span class="cap">Tuin in Borsbeke</span></button>
+      <button class="tegel t3" type="button"><img src="img/x-326e626c2b.webp" alt="Landelijke tuin in Borsbeke" referrerpolicy="no-referrer" loading="lazy" decoding="async"><span class="cap">Tuin in Borsbeke</span></button>
+      <button class="tegel t4" type="button"><img src="img/x-f3ac76fefb.webp" alt="Landelijke tuin in Borsbeke" referrerpolicy="no-referrer" loading="lazy" decoding="async"><span class="cap">Tuin in Borsbeke</span></button>
+      <button class="tegel t5" type="button"><img src="img/x-17a9c85027.webp" alt="Landelijke tuin in Borsbeke" referrerpolicy="no-referrer" loading="lazy" decoding="async"><span class="cap">Tuin in Borsbeke</span></button>
+      <button class="tegel t6" type="button"><img src="img/x-55257cefd6.webp" alt="Landelijke tuin in Borsbeke" referrerpolicy="no-referrer" loading="lazy" decoding="async"><span class="cap">Tuin in Borsbeke</span></button>
+      <p class="info"><span><b>Landelijk:</b> zachte vormen, natuurlijke materialen en royale borders.</span><span>Ook in Goeferdinge, Herzele, Melle, Oudegem en Zwalm</span></p>
+    </div>
+
+    <div class="paneel" id="p-m" role="tabpanel" aria-labelledby="tab-m" hidden>
+      <button class="tegel t1" type="button"><img src="img/x-ce797c526f.webp" alt="Moderne tuin in Erpe-Mere" referrerpolicy="no-referrer" loading="lazy" decoding="async"><span class="cap">Tuin in Erpe-Mere</span></button>
+      <button class="tegel t2" type="button"><img src="img/x-1a4974061e.webp" alt="Moderne tuin in Erpe-Mere" referrerpolicy="no-referrer" loading="lazy" decoding="async"><span class="cap">Tuin in Erpe-Mere</span></button>
+      <button class="tegel t3" type="button"><img src="img/x-4a4d32965c.webp" alt="Moderne tuin in Erpe-Mere, detail" referrerpolicy="no-referrer" loading="lazy" decoding="async"><span class="cap">Tuin in Erpe-Mere</span></button>
+      <button class="tegel t4" type="button"><img src="img/x-8ba5fe708e.webp" alt="Moderne tuin in Erpe-Mere" referrerpolicy="no-referrer" loading="lazy" decoding="async"><span class="cap">Tuin in Erpe-Mere</span></button>
+      <button class="tegel t5" type="button"><img src="img/x-471b37025a.webp" alt="Moderne tuin in Erpe-Mere" referrerpolicy="no-referrer" loading="lazy" decoding="async"><span class="cap">Tuin in Erpe-Mere</span></button>
+      <button class="tegel t6" type="button"><img src="img/x-e43c9b4a0d.webp" alt="Moderne tuin in Erpe-Mere" referrerpolicy="no-referrer" loading="lazy" decoding="async"><span class="cap">Tuin in Erpe-Mere</span></button>
+      <p class="info"><span><b>Modern:</b> grote vlakken, sterke materialen en weinig onderhoud.</span><span>Ook in Kalken, Lierde, Maarkedal, Merelbeke en Opdorp</span></p>
+    </div>
+  </div>
+  <dialog class="lb" id="lb" aria-label="Foto vergroot">
+    <img alt="" referrerpolicy="no-referrer" decoding="async">
+    <p data-lb-cap></p>
+    <button type="button" aria-label="Sluiten" data-lb-x><svg width="18" height="18"><use href="#i-x"/></svg></button>
+  </dialog>
+</section>
+
+<!-- WERKWIJZE -->
+<section class="sec werk" id="werkwijze" aria-labelledby="t-werk">
+  <div class="w">
+    <span class="oog op">Werkwijze</span>
+    <h2 class="h2 op d1" id="t-werk">Zo komt je tuin <em>tot leven</em></h2>
+    <p class="lead op d2">We beginnen niet met graven, maar met kijken: naar je huis, je grond, de zon en de buren.</p>
+    <ol class="stappen">
+      <li class="stap op"><span class="n">1</span><h3>Bij jou thuis</h3><p>We bekijken de bodem, de bestaande planten, de zon en de stijl van je woning. En we luisteren naar wat jij wil.</p><span class="pijl" aria-hidden="true"><svg><use href="#i-pijl"/></svg></span></li>
+      <li class="stap op d1"><span class="n">2</span><h3>Schets en showroom</h3><p>Je krijgt een eerste schets. In onze showroom bekijk je de planten en materialen in het echt.</p><span class="pijl" aria-hidden="true"><svg><use href="#i-pijl"/></svg></span></li>
+      <li class="stap op d2"><span class="n">3</span><h3>Ontwerp en offerte</h3><p>Een uitgewerkt plan in 3D, met beplantingsplan, plantenlijst en een duidelijke prijsofferte.</p><span class="pijl" aria-hidden="true"><svg><use href="#i-pijl"/></svg></span></li>
+      <li class="stap op d3"><span class="n">4</span><h3>Aanleg</h3><p>Onze ploegen gaan aan de slag met eigen machines. Wil je, dan nemen we daarna ook het onderhoud over.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ZWEMBADEN -->
+<section class="sec water" id="zwembaden" aria-labelledby="t-water">
+  <div class="w">
+    <div class="beeld op">
+      <img src="img/x-64a9d53a4b.webp" alt="Zwembad in een tuin aangelegd door Tuinen De Vos" referrerpolicy="no-referrer" loading="lazy" decoding="async" width="1200" height="900">
+      <div class="klein"><img src="img/x-35c38a4edd.webp" alt="Zwembad aangelegd door Tuinen De Vos, ander zicht" referrerpolicy="no-referrer" loading="lazy" decoding="async" width="600" height="500"></div>
+    </div>
+    <div>
+      <span class="oog op">Water in de tuin</span>
+      <h2 class="h2 op d1" id="t-water">Zwembad, zwemvijver <em>of poolhouse</em></h2>
+      <p class="lead op d2">Water werkt pas als het in de tuin past. Daarom tekenen we het zwembad of de vijver mee in het ontwerp, met het terras, de beplanting en het poolhouse erbij. Het onderhoud nadien kunnen we ook voor je doen.</p>
+      <div class="lijst op d2">
+        <span><svg><use href="#i-golf"/></svg>Zwembaden</span>
+        <span><svg><use href="#i-golf"/></svg>Zwemvijvers</span>
+        <span><svg><use href="#i-golf"/></svg>Vijvers en watertafels</span>
+        <span><svg><use href="#i-huis"/></svg>Poolhouses</span>
+      </div>
+      <div class="cta op d3">
+        <a class="knop k-den" href="#contact">Plan een gesprek <svg><use href="#i-pijl"/></svg></a>
+        <a class="knop k-lijn" href="tel:+32475936002">0475 93 60 02</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WERKGEBIED -->
+<section class="sec gebied" aria-labelledby="t-gebied">
+  <div class="w">
+    <div class="vak op">
+      <div>
+        <span class="oog">Werkgebied</span>
+        <h2 class="h2" id="t-gebied" style="font-size:clamp(34px,3.6vw,50px)">Overal in <em>Oost-Vlaanderen</em></h2>
+        <p class="lead">Vanuit Geraardsbergen, Herzele en Zottegem. Hiernaast een paar gemeenten waar al een tuin van ons ligt.</p>
+      </div>
+      <div class="chips">
+        <span class="thuis">Geraardsbergen</span><span class="thuis">Herzele</span><span class="thuis">Zottegem</span>
+        <span>Aalst</span><span>Asse</span><span>Borsbeke</span><span>Erpe-Mere</span><span>Gavere</span><span>Goeferdinge</span><span>Gooik</span><span>Grembergen</span><span>Grotenberge</span><span>Kalken</span><span>Lierde</span><span>Maarkedal</span><span>Melle</span><span>Merelbeke</span><span>Ninove</span><span>Opdorp</span><span>Oudegem</span><span>Overmere</span><span>Vlierzele</span><span>Wondelgem</span><span>Zwalm</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec" aria-labelledby="t-rev" style="padding-top:40px">
+  <div class="w">
+    <div class="kop">
+      <div>
+        <span class="oog op">Klanten aan het woord</span>
+        <h2 class="h2 op d1" id="t-rev">Wat ze <em>ons schreven</em></h2>
+      </div>
+    </div>
+    <div class="rev-grid">
+      <figure class="rev groot op">
+        <svg class="q" aria-hidden="true"><use href="#i-quote"/></svg>
+        <blockquote>Hier is ongelofelijk veel werk verzet in de laatste 7 maand. De tuinarchitect heeft zijn uiterste best gedaan om al de verschillende planten te vinden. Sommige waren niet evident, toch gaf hij niet op. Ons geduld is beloond geweest met een prachtige tuin, vol met planten van onze keuze.</blockquote>
+        <figcaption class="wie"><span class="av">MD</span><span><b>Marieke D.</b><small>Referentie op tuinen-devos.be</small></span></figcaption>
+      </figure>
+      <div class="rev-stack">
+        <figure class="rev op d1">
+          <svg class="q" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>Ik moet jullie meedelen dat jullie werklieden hun werk van harte nemen. Daarom van onzentwege een grote merci. Uw mensen zijn een waar uithangbord.</blockquote>
+          <figcaption class="wie"><span class="av">JS</span><span><b>Familie Jennifer S.</b><small>Referentie op tuinen-devos.be</small></span></figcaption>
+        </figure>
+        <div class="vacature op d2">
+          <span class="oog">We zoeken versterking</span>
+          <h3>Zin om mee te bouwen aan mooie tuinen?</h3>
+          <p>We zoeken een collega voor tuinonderhoud en een gemotiveerde ploegverantwoordelijke.</p>
+          <a href="mailto:tuinen_de-vos@hotmail.com?subject=Sollicitatie">Stuur ons een mailtje <svg><use href="#i-pijl"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec contactsec" id="contact" aria-labelledby="t-contact" style="padding-top:20px">
+  <div class="w">
+    <div class="formvak op">
+      <span class="oog">Offerte</span>
+      <h2 class="h2" id="t-contact">Vertel ons over <em>je tuin</em></h2>
+      <p class="lead" style="font-size:17px">Een paar woorden zijn genoeg. We bellen je terug en spreken af om bij jou thuis te komen kijken.</p>
+      <form id="offerte" novalidate>
+        <div class="veld vol">
+          <span class="lbl" id="lbl-type">Waarvoor mogen we komen?</span>
+          <div class="keuzes" role="group" aria-labelledby="lbl-type">
+            <label><input type="checkbox" name="type" value="ontwerp"><span>Tuinontwerp</span></label>
+            <label><input type="checkbox" name="type" value="aanleg"><span>Tuinaanleg</span></label>
+            <label><input type="checkbox" name="type" value="onderhoud"><span>Onderhoud</span></label>
+            <label><input type="checkbox" name="type" value="zwembad"><span>Zwembad of vijver</span></label>
+            <label><input type="checkbox" name="type" value="poolhouse"><span>Poolhouse</span></label>
+            <label><input type="checkbox" name="type" value="omgeving"><span>Omgevingswerk</span></label>
+          </div>
+        </div>
+        <div class="veld"><label for="f-naam">Naam</label><input id="f-naam" name="naam" autocomplete="name" required></div>
+        <div class="veld"><label for="f-tel">Telefoon of e-mail</label><input id="f-tel" name="contact" autocomplete="tel" required></div>
+        <div class="veld"><label for="f-gem">Gemeente</label><input id="f-gem" name="gemeente" autocomplete="address-level2" placeholder="Bv. Zottegem"></div>
+        <div class="veld"><label for="f-opp">Oppervlakte tuin <small>(ongeveer)</small></label><select id="f-opp" name="oppervlakte"><option value="">Weet ik niet</option><option>Kleiner dan 200 m²</option><option>200 tot 500 m²</option><option>500 tot 1000 m²</option><option>Groter dan 1000 m²</option></select></div>
+        <div class="veld vol"><label for="f-wat">Korte omschrijving</label><textarea id="f-wat" name="omschrijving" placeholder="Bv. nieuwbouw, kale grond, we willen een terras op het zuiden en een landelijke sfeer" required></textarea></div>
+        <div class="veld vol">
+          <label class="upload" for="f-foto"><i><svg><use href="#i-foto"/></svg></i><span><b data-upload>Foto’s van je tuin toevoegen</b><small>Optioneel. Helpt ons om al een idee te krijgen.</small></span><input id="f-foto" type="file" accept="image/*" multiple></label>
+        </div>
+        <div class="verstuur">
+          <small>We gebruiken je gegevens enkel om je terug te contacteren.</small>
+          <button class="knop k-oker" type="submit">Verstuur aanvraag <svg><use href="#i-pijl"/></svg></button>
+        </div>
+      </form>
+      <div class="bedankt" role="status" aria-live="polite">
+        <i><svg><use href="#i-vink"/></svg></i>
+        <h3>Bedankt, <span data-naam></span>.</h3>
+        <p>We hebben je aanvraag goed ontvangen en nemen snel contact met je op om een afspraak te maken.</p>
+      </div>
+    </div>
+
+    <aside class="adressen op d1" aria-labelledby="t-adres">
+      <span class="oog">Langskomen</span>
+      <h2 class="h2" id="t-adres">Drie loodsen in de streek</h2>
+      <div class="loodsen">
+        <a class="loods" href="https://www.google.com/maps/search/?api=1&amp;query=Kampstraat+60+9500+Geraardsbergen" target="_blank" rel="noopener"><i><svg><use href="#i-pin"/></svg></i><span><em>Bezoekadres · kantoor</em><b>Kampstraat 60</b><span>9500 Geraardsbergen</span></span></a>
+        <a class="loods" href="https://www.google.com/maps/search/?api=1&amp;query=Assestraat+35+9550+Herzele" target="_blank" rel="noopener"><i><svg><use href="#i-pin"/></svg></i><span><em>Loods</em><b>Assestraat 35</b><span>9550 Herzele</span></span></a>
+        <a class="loods" href="https://www.google.com/maps/search/?api=1&amp;query=Lippenhovestraat+46+9620+Zottegem" target="_blank" rel="noopener"><i><svg><use href="#i-pin"/></svg></i><span><em>Loods</em><b>Lippenhovestraat 46</b><span>9620 Zottegem</span></span></a>
+      </div>
+      <div class="lijntjes">
+        <a href="tel:+32475936002"><svg><use href="#i-tel"/></svg>0475 93 60 02</a>
+        <a href="mailto:tuinen_de-vos@hotmail.com"><svg><use href="#i-mail"/></svg>tuinen_de-vos@hotmail.com</a>
+      </div>
+      <div class="soc">
+        <a href="https://instagram.com/tuinaanlegdevos" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>Instagram</a>
+        <a href="https://www.facebook.com/TuinaanlegDeVos/" target="_blank" rel="noopener"><svg><use href="#i-fb"/></svg>Facebook</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- VRAGEN -->
+<section class="sec faq" id="vragen" aria-labelledby="t-faq" style="padding-top:40px">
+  <div class="w">
+    <div>
+      <span class="oog op">Vragen</span>
+      <h2 class="h2 op d1" id="t-faq">Goed om <em>te weten</em></h2>
+      <p class="lead op d2">Staat je vraag er niet bij? Bel <a href="tel:+32475936002">0475 93 60 02</a>, dan leggen we het je uit.</p>
+    </div>
+    <div class="op d1">
+      <details open><summary>Kan ik mijn tuin zien voor hij er ligt?<span class="plus"><svg><use href="#i-plus"/></svg></span></summary><p>Ja. We maken een realistisch 3D-ontwerp van je tuin. We kunnen er ook de tuinverlichting in zetten, zodat je ziet hoe het ’s avonds oogt.</p></details>
+      <details><summary>Hoe verloopt de eerste afspraak?<span class="plus"><svg><use href="#i-plus"/></svg></span></summary><p>We komen het liefst bij je thuis. Dan zien we meteen de grond, de bestaande beplanting, hoe de zon valt en welke stijl je woning heeft.</p></details>
+      <details><summary>Kan ik planten en materialen vooraf bekijken?<span class="plus"><svg><use href="#i-plus"/></svg></span></summary><p>Ja. Na de eerste schets nodigen we je uit in onze showroom. Daar bekijk je de voorgestelde planten en materialen in het echt.</p></details>
+      <details><summary>Doen jullie ook enkel onderhoud?<span class="plus"><svg><use href="#i-plus"/></svg></span></summary><p>Zeker. Gazononderhoud, hagen scheren, snoeien, onkruid- en ziektebestrijding, zwembaden en vijvers onderhouden, bomen vellen en verhakselen. In de winter ruimen we ook sneeuw en strooien we zout.</p></details>
+      <details><summary>Werken jullie ook buiten Geraardsbergen?<span class="plus"><svg><use href="#i-plus"/></svg></span></summary><p>Ja, in heel de streek. We legden al tuinen aan in onder meer Aalst, Ninove, Erpe-Mere, Merelbeke, Melle en Zwalm.</p></details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="voet">
+  <div class="w">
+    <div class="grid">
+      <div>
+        <span class="merk"><span class="blad" aria-hidden="true"><svg><use href="#i-blad"/></svg></span><span><b>Tuinen De Vos</b><small>Ontwerp · aanleg · onderhoud</small></span></span>
+        <p class="over">Tuinaannemer voor het ontwerp, de aanleg en het onderhoud van je tuin. Vanuit Geraardsbergen, Herzele en Zottegem.</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="tel:+32475936002">0475 93 60 02</a></li><li><a href="mailto:tuinen_de-vos@hotmail.com">tuinen_de-vos@hotmail.com</a></li><li>Kampstraat 60, Geraardsbergen</li></ul>
+      </div>
+      <div>
+        <h4>Diensten</h4>
+        <ul><li>Tuinontwerp in 3D</li><li>Tuinaanleg</li><li>Tuinonderhoud</li><li>Zwembaden en poolhouses</li></ul>
+      </div>
+      <div>
+        <h4>Op deze site</h4>
+        <ul><li><a href="#diensten">Diensten</a></li><li><a href="#tuinen">Onze tuinen</a></li><li><a href="#werkwijze">Werkwijze</a></li><li><a href="#vragen">Vragen</a></li><li><a href="#contact">Contact</a></li></ul>
+      </div>
+    </div>
+    <div class="groot" aria-hidden="true">Tuinen De Vos</div>
+    <div class="onder">
+      <span>© 2026 Tuinen De Vos</span>
+      <span>Voorbeeldsite door Digital Impression</span>
+    </div>
+  </div>
+</footer>
+
+<div class="actiebalk" data-actiebalk>
+  <a href="tel:+32475936002"><svg><use href="#i-tel"/></svg>Bellen</a>
+  <a class="k" href="#contact">Offerte</a>
+</div>
+
+</div>
+
+<script>
+(function(){
+  var root=document.querySelector('.tv');
+  var hdr=root.querySelector('.hdr');
+  function sc(){hdr.classList.toggle('vast',window.scrollY>40)}
+  sc();window.addEventListener('scroll',sc,{passive:true});
+
+  // menu
+  var menu=root.querySelector('#menu'),burger=root.querySelector('.burger');
+  function zet(o){menu.classList.toggle('open',o);menu.setAttribute('aria-hidden',!o);burger.setAttribute('aria-expanded',o);document.documentElement.style.overflow=o?'hidden':'';if(o){menu.querySelector('.x').focus()}}
+  burger.addEventListener('click',function(){zet(true)});
+  menu.querySelector('.x').addEventListener('click',function(){zet(false);burger.focus()});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){zet(false)})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('open'))zet(false)});
+
+  // tabs
+  var tabs=root.querySelectorAll('[role="tab"]');
+  function kies(t){
+    tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;var p=root.querySelector('#'+x.getAttribute('aria-controls'));p.hidden=!on;if(on){p.classList.remove('fade');void p.offsetWidth;p.classList.add('fade')}});
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){kies(t)});
+    t.addEventListener('keydown',function(e){var n=null;if(e.key==='ArrowRight')n=tabs[(i+1)%tabs.length];if(e.key==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];if(n){e.preventDefault();n.focus();kies(n)}});
+  });
+
+  // lightbox
+  var lb=root.querySelector('#lb');
+  if(lb&&typeof lb.showModal==='function'){
+    var lbImg=lb.querySelector('img'),lbCap=lb.querySelector('[data-lb-cap]');
+    root.querySelectorAll('.tegel').forEach(function(b){b.addEventListener('click',function(){var im=b.querySelector('img');lbImg.src=im.currentSrc||im.src;lbImg.alt=im.alt;lbCap.textContent=b.querySelector('.cap').textContent;lb.showModal()})});
+    lb.querySelector('[data-lb-x]').addEventListener('click',function(){lb.close()});
+    lb.addEventListener('click',function(e){if(e.target===lb)lb.close()});
+  }
+
+  // formulier
+  var f=root.querySelector('#offerte'),up=root.querySelector('#f-foto'),upl=root.querySelector('[data-upload]');
+  up.addEventListener('change',function(){var n=up.files.length;upl.textContent=n?(n===1?'1 foto gekozen':n+' foto’s gekozen'):'Foto’s van je tuin toevoegen'});
+  f.addEventListener('submit',function(e){
+    e.preventDefault();var eerste=null;
+    ['f-naam','f-tel','f-wat'].forEach(function(id){var el=root.querySelector('#'+id),v=el.closest('.veld');var leeg=!el.value.trim();v.classList.toggle('fout',leeg);if(leeg&&!eerste)eerste=el;if(leeg)el.addEventListener('input',function(){v.classList.remove('fout')},{once:true})});
+    if(eerste){eerste.focus();return}
+    root.querySelector('[data-naam]').textContent=root.querySelector('#f-naam').value.trim().split(' ')[0];
+    f.style.display='none';var b=root.querySelector('.bedankt');b.classList.add('toon');b.setAttribute('tabindex','-1');b.focus();
+  });
+
+  // verschijnen
+  var els=root.querySelectorAll('.op');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('zien');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('zien')})}
+  requestAnimationFrame(function(){root.querySelector('.hero').classList.add('in')});
+
+  // voortgang horizontaal schuiven
+  root.querySelectorAll('[data-scroller]').forEach(function(s){
+    var v=s.nextElementSibling,bar=v&&v.querySelector('[data-voortgang]');if(!bar)return;
+    function upd(){var max=s.scrollWidth-s.clientWidth;if(max<=0)return;var r=s.clientWidth/s.scrollWidth;bar.style.width=(r*100)+'%';bar.style.transform='translateX('+((s.scrollLeft/max)*((1-r)/r)*100)+'%)'}
+    s.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+  });
+
+  // mobiele actiebalk
+  var ab=root.querySelector('[data-actiebalk]');
+  if(ab&&'IntersectionObserver' in window){
+    var zicht=new Set();
+    function zetAb(){ab.classList.toggle('weg',zicht.size>0||window.scrollY<400)}
+    var io2=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?zicht.add(e.target):zicht.delete(e.target)});zetAb()});
+    [root.querySelector('#contact'),root.querySelector('.voet'),document.querySelector('.di')].forEach(function(el){if(el)io2.observe(el)});
+    window.addEventListener('scroll',zetAb,{passive:true});zetAb();
+  }
+})();
+</script>
+
+<!-- VOORSTELBLOK Digital Impression: letterlijk overnemen, onderaan de pagina, vóór </body>. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Onest:wght@400;600;700&display=swap">
+<style>
+.di{--n:#0E1C3A;--n2:#162a52;--n3:#21386a;--cr:#F5EEE2;--pa:#FBF7F0;--te:#D7603A;--ted:#B04722;--ap:#F2AE84;--bu:#F1CB78;--od2:#c9cfdf;
+  background:var(--n);color:var(--cr);padding:100px 0 100px;position:relative;overflow:clip;font:19px/1.6 'Onest',system-ui,sans-serif}
+.di::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 85% 0%,rgba(215,96,58,.18),transparent 70%);pointer-events:none}
+.di .wrap{max-width:1080px;position:relative}
+.di .naad{position:absolute;left:0;right:0;top:0;height:6px;background:repeating-linear-gradient(90deg,var(--te) 0 22px,var(--bu) 22px 44px,var(--ap) 44px 66px)}
+.di .merk{display:inline-flex;align-items:center;gap:12px;margin-bottom:26px;font-size:16px;font-weight:600;color:var(--od2)}
+.di .merk i{width:40px;height:40px;border-radius:12px;background:var(--ted);display:grid;place-items:center;font:400 22px/1 'DM Serif Display',serif;font-style:normal;color:#fff}
+.di h2{font:400 clamp(40px,5vw,64px)/1.04 'DM Serif Display',serif;letter-spacing:-.5px;color:var(--pa);max-width:16em}
+.di h2 em{font-style:italic;color:var(--ap)}
+.di .intro{color:var(--od2);font-size:20px;margin:20px 0 54px;max-width:34em}
+.di .kop3{font:400 34px/1.1 'DM Serif Display',serif;color:var(--pa);margin:0 0 24px}
+.di .prijzen{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.di .pk{border-radius:26px;padding:36px}
+.di .pk.wit{background:var(--pa);color:var(--n)}
+.di .pk.donker{background:var(--n2);border:1.5px solid rgba(245,238,226,.16)}
+.di .pk .label{display:block;font-size:16px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.di .pk.wit .label{color:var(--ted)}
+.di .pk.donker .label{color:var(--ap)}
+.di .bedrag{font:400 88px/.9 'DM Serif Display',serif;letter-spacing:-2px;display:flex;align-items:flex-start;gap:6px}
+.di .bedrag small{font-size:36px;margin-top:8px}
+.di .wanneer{font-size:20px;font-weight:700;margin:12px 0 26px}
+.di .pk ul{list-style:none;margin:0;padding:0;display:grid;gap:14px;font-size:18.5px;line-height:1.45}
+.di .pk li{display:flex;gap:14px;align-items:flex-start}
+.di .pk li::before{content:"";flex:none;width:24px;height:24px;margin-top:2px;border-radius:50%;background:var(--ted) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/15px no-repeat}
+.di .geruststelling{margin-top:26px;padding-top:22px;border-top:2px dashed rgba(14,28,58,.18);font-size:18px;font-weight:600}
+.di .keuze{border-radius:18px;padding:22px 24px;background:rgba(245,238,226,.05);border:1.5px solid rgba(245,238,226,.14)}
+.di .keuze+.keuze{margin-top:16px}
+.di .keuze.aan{border-color:var(--ap);background:rgba(242,174,132,.08)}
+.di .keuze .rij{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap}
+.di .keuze h4{margin:0;font:400 28px/1.1 'DM Serif Display',serif;color:var(--pa)}
+.di .keuze .p{font-size:22px;font-weight:700;color:var(--ap);white-space:nowrap}
+.di .keuze p{color:var(--od2);font-size:18px;margin-top:8px}
+.di .keuze .raad{display:inline-block;margin-top:12px;font:700 15px/1.4 'Onest',sans-serif;background:var(--ap);color:var(--n);border-radius:999px;padding:4px 12px}
+.di .di-stappen{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.di .di-stap{display:flex;gap:18px;align-items:flex-start}
+.di .di-stap i{flex:none;width:52px;height:52px;border-radius:50%;background:var(--ted);color:#fff;display:grid;place-items:center;font:400 26px/1 'DM Serif Display',serif;font-style:normal}
+.di .di-stap b{display:block;font-size:20px;color:var(--pa);line-height:1.3;margin-bottom:6px}
+.di .di-stap span{color:var(--od2);font-size:18px}
+.di .contact{margin-top:64px;background:var(--pa);color:var(--n);border-radius:26px;padding:32px 36px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+.di .contact .vraag{font:400 34px/1.1 'DM Serif Display',serif}
+.di .contact p{font-size:19px;color:#3d4660;margin-top:8px}
+.di .contact p b{color:var(--n)}
+.di .knoppen{display:flex;flex-direction:column;gap:12px;min-width:280px}
+.di .knoppen a{display:flex;justify-content:center;align-items:center;gap:10px;border-radius:999px;padding:18px 26px;font-weight:700;font-size:19px;text-decoration:none;transition:transform .15s,background .15s}
+.di .knoppen a:hover{transform:translateY(-2px)}
+.di .knoppen a svg{width:22px;height:22px}
+.di .knoppen .wa{background:var(--ted);color:#fff}
+.di .knoppen .wa:hover{background:#963a1a}
+.di .knoppen .lijn{border:2px solid var(--n);color:var(--n)}
+.di :focus-visible{outline:3px solid var(--ap);outline-offset:3px}
+@media (max-width:960px){.di{padding:80px 0;font-size:18px}.di .prijzen{grid-template-columns:1fr}.di .di-stappen{grid-template-columns:1fr;gap:22px;margin-top:52px}.di .contact{grid-template-columns:1fr;padding:28px}.di .knoppen{min-width:0}}
+@media (max-width:640px){.di .pk{padding:26px 22px}.di .bedrag{font-size:76px}.di .intro{font-size:18.5px;margin-bottom:44px}.di .kop3,.di .contact .vraag{font-size:30px}}
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ico-wa" viewbox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z" fill="currentColor"></path></symbol></svg>
+<style>.di .knoppen .cal{background:var(--n);color:var(--pa)}.di .knoppen .cal:hover{background:var(--n3)}.di .knoppen .cal svg{width:20px;height:20px}</style>
+<style>/*di-center*/.di .merk{display:flex;width:max-content;max-width:100%;margin-left:auto;margin-right:auto}.di #di-titel{text-align:center;margin-left:auto;margin-right:auto;text-wrap:balance}.di .intro{text-align:center;margin-left:auto;margin-right:auto;text-wrap:pretty}</style>
+<section aria-labelledby="di-titel" class="di">
+<span aria-hidden="true" class="naad"></span>
+<div class="wrap">
+<span class="merk"><i aria-hidden="true">D</i>Voorstel van Digital Impression</span>
+<h2 id="di-titel">Zo zou jullie website <em>eruit kunnen zien</em>.</h2>
+<p class="intro">Een eerste schets, op maat van Tuinen De Vos. Jullie kiezen de stijl, ik zorg dat alles klopt.</p>
+<h3 class="kop3">Wat het kost</h3>
+<div class="prijzen">
+<div class="pk wit">
+<span class="label">Je website</span>
+<div class="bedrag"><small>€</small>499</div>
+<p class="wanneer">één keer, alles inbegrepen</p>
+<ul>
+<li>Jullie website, in de stijl die jullie kiezen</li>
+<li>Werkt op gsm, tablet en computer</li>
+<li>Uren, adres en route altijd juist</li>
+<li>Bestellingen komen rechtstreeks in je mailbox</li>
+</ul>
+<p class="geruststelling">Geen voorschot. Je betaalt pas als de site klaar is.</p>
+</div>
+<div class="pk donker">
+<span class="label">Daarna kies je</span>
+<div class="keuze">
+<div class="rij"><h4>Zelf beheren</h4><span class="p">€ 0 / maand</span></div>
+<p>Hosting en domein op jouw naam. Een aanpassing vraag je per keer aan.</p>
+</div>
+<div class="keuze aan">
+<div class="rij"><h4>Zorgeloos</h4><span class="p">€ 19,99 / maand</span></div>
+<p>Hosting en domein inbegrepen. Nieuwe suggesties en wijzigingen zet ik er voor je op.</p>
+<span class="raad">mijn aanrader</span>
+</div>
+</div>
+</div>
+<div class="di-stappen">
+<div class="di-stap"><i aria-hidden="true">1</i><div><b>Je laat iets weten</b><span>Een berichtje of telefoontje is genoeg.</span></div></div>
+<div class="di-stap"><i aria-hidden="true">2</i><div><b>We maken hem af</b><span>Jij zegt wat anders moet, ik pas het aan.</span></div></div>
+<div class="di-stap"><i aria-hidden="true">3</i><div><b>Online</b><span>Op je eigen domein, binnen 10 tot 14 dagen.</span></div></div>
+</div>
+<div class="contact">
+<div>
+<div class="vraag">Vragen? Plan een gesprek of stuur me een berichtje.</div>
+<p><b>Stijn Vranken</b> · 0496 25 14 45 · info@digital-impression.be</p>
+</div>
+<div class="knoppen">
+<a class="wa" href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20Tuinen%20De%20Vos" rel="noopener" target="_blank"><svg><use href="#ico-wa"></use></svg>WhatsApp Stijn</a>
+<a class="cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Tuinen%20De%20Vos" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Plan een gesprek van 30 min</a>
+<a class="lijn" href="tel:+32496251445">Bel 0496 25 14 45</a>
+</div>
+</div>
+</div>
+</section>
+</body>
+</html>
