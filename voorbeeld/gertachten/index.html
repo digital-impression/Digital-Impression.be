@@ -284,7 +284,26 @@ textarea.invoer{min-height:118px;resize:vertical}
 }
 .balk{display:none;height:3px;background:var(--lijn);border-radius:2px;margin-top:16px;overflow:hidden}
 .balk i{display:block;height:100%;width:20%;background:var(--zwart);border-radius:2px}
-@media (max-width:760px){.hero .bg::after{background:linear-gradient(180deg,rgba(21,24,22,.7) 0%,rgba(21,24,22,.58) 45%,rgba(21,24,22,.9) 100%)}}</style>
+@media (max-width:760px){.hero .bg::after{background:linear-gradient(180deg,rgba(21,24,22,.7) 0%,rgba(21,24,22,.58) 45%,rgba(21,24,22,.9) 100%)}}
+/* hero v2 */
+.hero{min-height:auto;display:block;background:var(--zwart);padding:clamp(120px,12vw,150px) 0 clamp(64px,7vw,96px)}
+.hero .wrap{padding-top:0;padding-bottom:0}
+.hero-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(36px,5vw,80px);align-items:center}
+.hero h1{font-size:clamp(38px,4.1vw,62px);max-width:none;line-height:1.04}
+.hero h1 span{display:block}
+.hero .onderrand{margin-top:clamp(30px,4vw,44px)}
+.hero-c{position:relative;display:grid;grid-template-columns:1.25fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:clamp(460px,44vw,620px)}
+.hero-c figure{margin:0;position:relative;border-radius:22px;overflow:hidden;background:#2a2e2b}
+.hero-c img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-c .hc1{grid-row:1/3}
+.hero-c figcaption{position:absolute;left:12px;top:12px;background:rgba(21,24,22,.78);color:var(--kalk);font:600 13px/1 var(--sans);padding:8px 12px;border-radius:999px;backdrop-filter:blur(6px)}
+.hc-kaart{position:absolute;left:-28px;bottom:28px;background:var(--kalk);color:var(--zwart);border-radius:18px;padding:16px 18px;display:flex;gap:14px;align-items:center;max-width:290px;box-shadow:0 28px 50px -24px rgba(0,0,0,.6)}
+.hc-kaart .ico{flex:none;width:40px;height:40px;padding:9px;border-radius:12px;background:var(--mos);color:var(--zwart)}
+.hc-kaart b{display:block;font-size:17px;line-height:1.2}
+.hc-kaart span{display:block;font-size:14px;color:#55605a;line-height:1.35;margin-top:3px}
+@media (max-width:1000px){.hero-g{grid-template-columns:1fr}.hero-c{height:auto;grid-template-rows:200px 200px}.hc-kaart{left:12px;bottom:-22px}}
+@media (max-width:560px){.hero-c{grid-template-rows:160px 160px;gap:10px}.hc-kaart{position:relative;left:0;bottom:0;grid-column:1/-1;max-width:none;margin-top:4px}}
+</style>
 <style>/*di-safe*/.rv{animation:disafe .01s 1.6s forwards}@keyframes disafe{to{opacity:1;visibility:visible}}</style>
 </head>
 <body>
@@ -340,19 +359,26 @@ textarea.invoer{min-height:118px;resize:vertical}
 
 <main id="top">
   <section class="hero" id="hero" aria-labelledby="h-hero">
-    <div class="bg"><img src="img/x-ec09f208c063.jpg" width="2000" height="1330" alt="Gerenoveerde leefruimte met open keuken, afgewerkt door Gert Achten" referrerpolicy="no-referrer" decoding="async" fetchpriority="high"></div>
-    <div class="wrap">
-      <span class="label"><i></i>Totaalrenovatie in Lommel</span>
-      <h1 id="h-hero">Eén aanspreekpunt. <span>Van afbraak tot afwerking.</span></h1>
-      <p class="lead">Badkamers, totaalrenovaties en projecten sleutel op de deur. Gert regelt de werken zelf, met de materialen en de afwerking erbij, zodat je niet tussen vijf aannemers zit.</p>
-      <div class="acties">
-        <a class="knop knop-mos" href="#contact">Plan een eerste afspraak<svg class="ico" aria-hidden="true"><use href="#i-pijl"/></svg></a>
-        <a class="knop knop-glas" href="#realisaties">Bekijk realisaties</a>
+    <div class="wrap hero-g">
+      <div class="hero-t">
+        <span class="label"><i></i>Renovatie en badkamers in Lommel</span>
+        <h1 id="h-hero">Je verbouwing in <span>één paar handen.</span></h1>
+        <p class="lead">Van de eerste afbraak tot de laatste kitvoeg. Gert regelt de werken zelf, met de materialen en de afwerking erbij. Jij hebt één nummer en één planning, niet vijf aannemers.</p>
+        <div class="acties">
+          <a class="knop knop-mos" href="#contact">Plan een eerste afspraak<svg class="ico" aria-hidden="true"><use href="#i-pijl"/></svg></a>
+          <a class="knop knop-glas" href="#realisaties">Bekijk realisaties</a>
+        </div>
+        <div class="onderrand">
+          <span><svg class="ico" aria-hidden="true"><use href="#i-hand"/></svg>Eén aanspreekpunt</span>
+          <span><svg class="ico" aria-hidden="true"><use href="#i-kubus"/></svg>3D-schets vooraf</span>
+          <span><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Vanuit Lommel</span>
+        </div>
       </div>
-      <div class="onderrand">
-        <span><svg class="ico" aria-hidden="true"><use href="#i-hand"/></svg>Eén aanspreekpunt</span>
-        <span><svg class="ico" aria-hidden="true"><use href="#i-kubus"/></svg>3D-schets vooraf</span>
-        <span><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Vanuit Lommel</span>
+      <div class="hero-c" aria-label="Werk van Gert Achten">
+        <figure class="hc1"><img src="img/x-b649e9e39ff4.jpg" width="1200" height="1305" alt="Badkamer met vrijstaand bad, gerenoveerd door Gert Achten" decoding="async" fetchpriority="high"></figure>
+        <figure class="hc2"><img src="img/x-5182c280fa8d.jpg" width="900" height="900" alt="Afgewerkte keuken met kookeiland" decoding="async"><figcaption>Na</figcaption></figure>
+        <figure class="hc3"><img src="img/x-7c38b109e435.jpg" width="1400" height="1400" alt="Ruwbouwfase van een renovatie, met vloerverwarming op de grond" decoding="async"><figcaption>Tijdens</figcaption></figure>
+        <div class="hc-kaart"><svg class="ico" aria-hidden="true"><use href="#i-kubus"/></svg><div><b>Eerst een 3D-schets</b><span>zo zie je het resultaat voor de werken starten</span></div></div>
       </div>
     </div>
   </section>
