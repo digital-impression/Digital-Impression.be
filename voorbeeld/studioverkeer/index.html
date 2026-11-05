@@ -1,0 +1,834 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Studio Verkeer · Verkeersadvocaten in Antwerpen en Brussel</title>
+<meta name="description" content="STUDIO | VERKEER, de verkeersrechtpraktijk van STUDIO | LEGALE. Bijstand bij verkeersboetes, rijverbod, alcohol of drugs, ongevallen en zaken voor de politierechtbank. Kantoren in Antwerpen en Brussel.">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23173A33'/%3E%3Cpath d='M20 18v28M44 18v28' stroke='%23FFFFFF' stroke-width='3'/%3E%3Cpath d='M32 22v6M32 34v6' stroke='%23FFFFFF' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+:where(*,*::before,*::after){box-sizing:border-box}
+:where(html,body,h1,h2,h3,h4,p,ul,ol,li,figure,blockquote,dl,dd,fieldset){margin:0}
+:where(ul,ol,fieldset){padding:0}
+:where(img){display:block;max-width:100%}
+
+:root{
+  --white:#FFFFFF;
+  --paper:#F6F7F5;
+  --mist:#E4ECE8;
+  --deep:#173A33;
+  --deep-2:#0F2924;
+  --deep-l:#9DB8AF;
+  --ink:#161D1B;
+  --ink-2:#36403D;
+  --muted:#5E6966;
+  --line:rgba(22,29,27,.13);
+  --line-2:rgba(22,29,27,.07);
+  --serif:'Newsreader',Georgia,'Times New Roman',serif;
+  --sans:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--white);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.7;overflow-x:hidden}
+img{background:var(--mist);color:transparent}
+.wrap{width:100%;max-width:1200px;margin-inline:auto;padding-inline:clamp(16px,4vw,48px)}
+:where(a,button,input,select,textarea,summary,label):focus-visible{outline:2px solid var(--deep);outline-offset:3px}
+
+.v-eye{display:flex;align-items:center;gap:14px;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--deep)}
+.v-eye::before{content:"";width:32px;height:1px;background:currentColor}
+.v-h2{font-family:var(--serif);font-weight:400;font-size:clamp(36px,4.4vw,56px);line-height:1.08;letter-spacing:-.015em}
+.v-h2 em{font-style:italic;color:var(--deep)}
+.v-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:54px;padding:0 26px;border-radius:2px;font:500 16px/1 var(--sans);text-decoration:none;border:0;cursor:pointer;transition:background .25s,color .25s,box-shadow .25s;white-space:nowrap}
+.v-btn svg{width:17px;height:17px;flex:none;transition:transform .3s}
+.v-btn:hover svg{transform:translateX(3px)}
+.v-btn--deep{background:var(--deep);color:var(--white)}
+.v-btn--deep:hover{background:var(--deep-2)}
+.v-btn--line{color:var(--ink);box-shadow:inset 0 0 0 1px var(--line);background:transparent}
+.v-btn--line:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+.v-btn--white{background:var(--white);color:var(--deep)}
+.v-btn--white:hover{background:var(--mist)}
+
+/* logo */
+.v-logo{display:inline-flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink)}
+.v-logo-txt{font:600 17px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.v-logo-txt i{width:1.5px;height:22px;background:var(--deep);display:block}
+.v-logo small{display:block;font:400 12.5px/1 var(--sans);letter-spacing:.06em;color:var(--muted);margin-top:6px;text-transform:none}
+
+/* topbalk */
+.v-top{border-bottom:1px solid var(--line-2);font-size:14px;color:var(--muted)}
+.v-top .wrap{display:flex;justify-content:space-between;align-items:center;min-height:42px;gap:20px}
+.v-top a{color:inherit;text-decoration:none}
+.v-top a:hover{color:var(--deep)}
+.v-top span{display:inline-flex;align-items:center;gap:8px}
+.v-top svg{width:14px;height:14px;color:var(--deep)}
+.v-top-r{display:flex;gap:26px}
+
+/* nav */
+.v-nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);transition:box-shadow .3s}
+.v-nav.is-stuck{box-shadow:0 1px 0 var(--line);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.v-nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:80px;transition:height .3s}
+.v-nav.is-stuck .wrap{height:66px}
+.v-links{display:flex;gap:30px}
+.v-links a{font-size:15.5px;color:var(--ink-2);text-decoration:none;padding:6px 0;border-bottom:1px solid transparent;transition:border-color .2s,color .2s}
+.v-links a:hover{color:var(--deep);border-bottom-color:var(--deep)}
+.v-nav .v-btn{min-height:46px;padding:0 20px;font-size:15px}
+.v-burger{display:none;width:48px;height:48px;border:1px solid var(--line);background:transparent;place-items:center;cursor:pointer;border-radius:2px}
+.v-burger span,.v-burger span::before,.v-burger span::after{display:block;width:20px;height:1.5px;background:var(--ink);transition:transform .3s,background .3s}
+.v-burger span{position:relative}
+.v-burger span::before,.v-burger span::after{content:"";position:absolute;left:0}
+.v-burger span::before{top:-6px}.v-burger span::after{top:6px}
+.v-open .v-burger span{background:transparent}
+.v-open .v-burger span::before{transform:translateY(6px) rotate(45deg)}
+.v-open .v-burger span::after{transform:translateY(-6px) rotate(-45deg)}
+.v-sheet{position:fixed;inset:0;z-index:45;background:var(--white);padding:100px 20px 28px;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;overflow-y:auto}
+.v-open .v-sheet{opacity:1;visibility:visible}
+.v-sheet a.v-sl{font:400 32px/1.2 var(--serif);color:var(--ink);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--line-2);display:flex;justify-content:space-between;align-items:baseline}
+.v-sheet a.v-sl span{font:500 12.5px var(--sans);letter-spacing:.12em;color:var(--deep)}
+.v-sheet-b{margin-top:auto;padding-top:26px;display:grid;gap:10px}
+
+/* hero */
+.v-hero{padding:56px 0 0}
+.v-hero .v-hgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(36px,6vw,90px);align-items:end}
+.v-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(44px,5.8vw,80px);line-height:1.02;letter-spacing:-.02em;margin:26px 0 28px;max-width:13em;text-wrap:balance}
+.v-hero h1 em{font-style:italic;color:var(--deep)}
+.v-hero .v-lead{font-size:19px;color:var(--ink-2);max-width:31em}
+.v-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.v-hero-fig{position:relative;aspect-ratio:3/4;background:var(--deep);overflow:hidden}
+.v-hero-fig img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);mix-blend-mode:luminosity;opacity:.82;background:var(--deep)}
+.v-hero-fig::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,58,51,.05),rgba(23,58,51,.55))}
+.v-hero-fig figcaption{position:absolute;left:24px;right:24px;bottom:22px;z-index:1;color:var(--white);font-size:14.5px;line-height:1.5;display:flex;justify-content:space-between;gap:12px;border-top:1px solid rgba(255,255,255,.35);padding-top:14px}
+.v-hero-fig figcaption b{font:italic 400 20px/1.2 var(--serif)}
+
+/* index */
+.v-index{margin-top:72px;border-top:1px solid var(--ink)}
+.v-index ul{list-style:none;display:grid;grid-template-columns:repeat(4,1fr)}
+.v-index li{padding:22px 22px 24px 0}
+.v-index li+li{padding-left:22px;border-left:1px solid var(--line)}
+.v-index b{display:block;font:400 22px/1.2 var(--serif)}
+.v-index span{display:block;color:var(--muted);font-size:15px;margin-top:4px}
+
+/* secties */
+.v-sec{padding:120px 0}
+.v-sec--paper{background:var(--paper)}
+.v-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:52px}
+.v-head .v-h2{margin-top:18px}
+.v-head p{justify-self:end;max-width:29em;color:var(--muted);font-size:18px}
+
+/* situaties */
+.v-sit{display:grid;grid-template-columns:320px 1fr;gap:0;border:1px solid var(--line);background:var(--white)}
+.v-tabs{display:flex;flex-direction:column;border-right:1px solid var(--line)}
+.v-tabs button{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;border:0;border-bottom:1px solid var(--line-2);background:transparent;padding:19px 22px;font:500 16.5px/1.35 var(--sans);color:var(--ink-2);cursor:pointer;transition:background .2s,color .2s}
+.v-tabs button:last-child{border-bottom:0}
+.v-tabs button svg{width:16px;height:16px;opacity:0;transform:translateX(-4px);transition:opacity .2s,transform .2s;flex:none}
+.v-tabs button:hover{background:var(--paper)}
+.v-tabs button[aria-selected="true"]{background:var(--deep);color:var(--white)}
+.v-tabs button[aria-selected="true"] svg{opacity:1;transform:none}
+.v-pan{padding:44px 48px}
+.v-pan[hidden]{display:none}
+.v-pan h3{font:400 34px/1.15 var(--serif)}
+.v-pan>p{color:var(--ink-2);font-size:17.5px;margin-top:16px;max-width:36em}
+.v-pan .v-two{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:32px;padding-top:28px;border-top:1px solid var(--line)}
+.v-pan h4{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--deep);margin-bottom:12px}
+.v-pan ul{list-style:none;display:grid;gap:8px}
+.v-pan li{display:flex;gap:12px;font-size:16px;color:var(--ink-2);line-height:1.5}
+.v-pan li::before{content:"";flex:none;width:6px;height:6px;margin-top:9px;background:var(--deep)}
+.v-pan .v-btn{margin-top:32px}
+
+/* graden */
+.v-deg{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}
+.v-deg article{padding:28px 24px 30px 0}
+.v-deg article+article{padding-left:24px;border-left:1px solid var(--line)}
+.v-deg .v-num{font:400 64px/1 var(--serif);color:var(--deep)}
+.v-deg .v-num sup{font-size:22px;vertical-align:28px;margin-left:2px}
+.v-deg h3{font:500 16px/1.3 var(--sans);letter-spacing:.06em;text-transform:uppercase;margin:16px 0 14px;color:var(--ink)}
+.v-deg ul{list-style:none;display:grid;gap:6px}
+.v-deg li{font-size:15.5px;color:var(--muted);line-height:1.45;padding-left:14px;position:relative}
+.v-deg li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:1px;background:var(--muted)}
+.v-deg-note{margin-top:30px;padding:22px 24px;background:var(--white);border-left:2px solid var(--deep);font-size:16px;color:var(--ink-2)}
+
+/* werkwijze */
+.v-how{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(36px,6vw,90px);align-items:start}
+.v-how-l{position:sticky;top:110px}
+.v-how-l p{color:var(--muted);font-size:18px;margin-top:22px;max-width:28em}
+.v-how-l figure{margin-top:36px;aspect-ratio:4/3;overflow:hidden;background:var(--mist)}
+.v-how-l figure img{width:100%;height:100%;object-fit:cover;filter:grayscale(.85) contrast(1.02)}
+.v-steps{list-style:none;counter-reset:s}
+.v-steps li{counter-increment:s;display:grid;grid-template-columns:72px 1fr;gap:20px;padding:30px 0;border-top:1px solid var(--line)}
+.v-steps li:last-child{border-bottom:1px solid var(--line)}
+.v-steps li::before{content:counter(s,decimal-leading-zero);font:400 40px/1 var(--serif);color:var(--deep)}
+.v-steps b{display:block;font:500 20px/1.3 var(--sans);margin-bottom:6px}
+.v-steps span{color:var(--muted);font-size:16.5px}
+
+/* rechtsbijstand */
+.v-band{background:var(--deep);color:var(--white)}
+.v-band .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(36px,6vw,90px);align-items:center;padding-block:96px}
+.v-band .v-eye{color:var(--deep-l)}
+.v-band .v-h2{color:var(--white)}
+.v-band .v-h2 em{color:var(--deep-l)}
+.v-band p{color:rgba(255,255,255,.78);font-size:18px;margin-top:22px;max-width:32em}
+.v-band ul{list-style:none;border-top:1px solid rgba(255,255,255,.18)}
+.v-band li{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.18);font-size:16.5px;color:rgba(255,255,255,.88)}
+.v-band li svg{width:20px;height:20px;color:var(--deep-l);flex:none;margin-top:3px}
+.v-band li b{color:var(--white);font-weight:600}
+
+/* kantoren */
+.v-off{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.v-o{border:1px solid var(--line);display:flex;flex-direction:column}
+.v-o-map{position:relative;height:260px;background:var(--mist);border-bottom:1px solid var(--line)}
+.v-o-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) contrast(.95) brightness(1.04)}
+.v-o-b{padding:30px 30px 32px}
+.v-o-b h3{font:400 30px/1.15 var(--serif)}
+.v-o-b address{font-style:normal;font-size:17px;color:var(--ink-2);margin-top:10px}
+.v-o-b .v-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.v-o-b .v-btn{min-height:48px;font-size:15px;padding:0 20px}
+.v-off-note{margin-top:22px;color:var(--muted);font-size:16px}
+
+/* faq */
+.v-qa{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,6vw,96px);align-items:start}
+.v-qa-l{position:sticky;top:110px}
+.v-qa-l p{color:var(--muted);font-size:18px;margin-top:20px}
+.v-qa-l a{color:var(--deep);font-weight:500;text-underline-offset:3px}
+.v-acc details{border-bottom:1px solid var(--line)}
+.v-acc details:first-child{border-top:1px solid var(--ink)}
+.v-acc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font:400 23px/1.3 var(--serif)}
+.v-acc summary::-webkit-details-marker{display:none}
+.v-acc summary i{flex:none;width:30px;height:30px;position:relative}
+.v-acc summary i::before,.v-acc summary i::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:1.5px;background:var(--deep);transform:translate(-50%,-50%);transition:transform .3s}
+.v-acc summary i::after{transform:translate(-50%,-50%) rotate(90deg)}
+.v-acc details[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+.v-acc summary:hover{color:var(--deep)}
+.v-acc .v-ans{color:var(--ink-2);padding:0 46px 26px 0;font-size:16.5px}
+
+/* contact */
+.v-ct{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,80px);align-items:start}
+.v-ct-l p{color:var(--muted);font-size:18px;margin-top:22px;max-width:28em}
+.v-lines{margin-top:34px;border-top:1px solid var(--line)}
+.v-lines a,.v-lines div{display:flex;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.v-lines svg{width:20px;height:20px;color:var(--deep);flex:none}
+.v-lines b{display:block;font:400 22px/1.25 var(--serif)}
+.v-lines span{display:block;color:var(--muted);font-size:14.5px}
+.v-lines a:hover b{color:var(--deep)}
+.v-form{border:1px solid var(--line);padding:40px;background:var(--white)}
+.v-form h3{font:400 30px/1.15 var(--serif)}
+.v-form>p{color:var(--muted);font-size:16px;margin:8px 0 26px}
+.v-g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.v-f{display:grid;gap:7px;margin-bottom:16px}
+.v-f label,.v-f legend{font-size:14.5px;font-weight:500;color:var(--ink-2)}
+.v-f label small,.v-f legend small{color:var(--muted);font-weight:400}
+.v-f input,.v-f select,.v-f textarea{width:100%;min-height:52px;border-radius:2px;border:1px solid var(--line);background:var(--paper);padding:0 15px;font:400 16px var(--sans);color:var(--ink);transition:border-color .2s,background .2s}
+.v-f textarea{padding:14px 15px;min-height:120px;resize:vertical;line-height:1.55}
+.v-f select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5 8 5 5 5-5' fill='none' stroke='%23173A33' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:18px;padding-right:44px}
+.v-f input:focus,.v-f select:focus,.v-f textarea:focus{outline:0;border-color:var(--deep);background:#fff}
+.v-f .is-bad{border-color:#A3352B}
+.v-radio{display:flex;flex-wrap:wrap;gap:8px}
+.v-radio label{position:relative;cursor:pointer}
+.v-radio input{position:absolute;opacity:0;width:1px;height:1px}
+.v-radio span{display:inline-block;padding:10px 16px;border:1px solid var(--line);font-size:15px;color:var(--ink-2);transition:background .2s,border-color .2s,color .2s}
+.v-radio input:checked+span{background:var(--deep);border-color:var(--deep);color:var(--white)}
+.v-radio input:focus-visible+span{outline:2px solid var(--deep);outline-offset:2px}
+.v-consent{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:var(--muted);margin:6px 0 20px;line-height:1.5}
+.v-consent input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--deep);flex:none}
+.v-form .v-btn{width:100%}
+.v-thanks{display:none;padding:30px 0}
+.v-thanks i{width:56px;height:56px;background:var(--deep);color:var(--white);display:grid;place-items:center;margin-bottom:22px}
+.v-thanks i svg{width:24px;height:24px}
+.v-thanks p{color:var(--muted);margin-top:10px;max-width:30em}
+.v-form.is-sent form,.v-form.is-sent>p,.v-form.is-sent>h3{display:none}
+.v-form.is-sent .v-thanks{display:block}
+
+/* footer */
+.v-foot{border-top:1px solid var(--ink);padding:70px 0 34px;font-size:15.5px;color:var(--muted)}
+.v-foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:46px;border-bottom:1px solid var(--line)}
+.v-foot-brand p{margin-top:18px;max-width:22em}
+.v-foot h3{font:600 12.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--deep);margin-bottom:16px}
+.v-foot ul{list-style:none;display:grid;gap:5px}
+.v-foot a{color:inherit;text-decoration:none}
+.v-foot a:hover{color:var(--deep)}
+.v-disc{padding:24px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.6;max-width:62em}
+.v-foot-bot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-top:24px;font-size:14px}
+
+/* mobiele balk */
+.v-bar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:none;gap:1px;background:var(--line);border-top:1px solid var(--line);transition:transform .35s}
+.v-bar a{flex:1;min-height:58px;display:flex;align-items:center;justify-content:center;gap:9px;font:500 15.5px var(--sans);text-decoration:none;color:var(--ink);background:var(--white)}
+.v-bar a svg{width:17px;height:17px;color:var(--deep)}
+.v-bar a+a{background:var(--deep);color:var(--white)}
+.v-bar a+a svg{color:var(--white)}
+.v-bar.is-hidden{transform:translateY(110%)}
+
+/* verschijnen */
+.v-js .v-in{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.v-js .v-in.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.v-js .v-in{opacity:1;transform:none;transition:none}.v-btn svg,.v-tabs button svg{transition:none}}
+
+/* responsief */
+@media (max-width:1060px){
+  .v-deg{grid-template-columns:1fr 1fr}
+  .v-deg article:nth-child(3){padding-left:0;border-left:0}
+  .v-deg article:nth-child(n+3){border-top:1px solid var(--line)}
+}
+@media (max-width:960px){
+  .v-links,.v-nav .v-btn{display:none}
+  .v-burger{display:grid}
+  .v-top-r span:first-child{display:none}
+  .v-hero{padding-top:36px}
+  .v-hero .v-hgrid{grid-template-columns:1fr;gap:40px}
+  .v-hero-fig{aspect-ratio:16/11}
+  .v-index ul{grid-template-columns:1fr 1fr}
+  .v-index li:nth-child(3){padding-left:0;border-left:0}
+  .v-index li:nth-child(n+3){border-top:1px solid var(--line)}
+  .v-head{grid-template-columns:1fr;gap:16px;margin-bottom:36px}
+  .v-head p{justify-self:start}
+  .v-sit{grid-template-columns:1fr}
+  .v-tabs{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line);scrollbar-width:none;scroll-snap-type:x proximity}
+  .v-tabs::-webkit-scrollbar{display:none}
+  .v-tabs button{flex:none;border-bottom:0;border-right:1px solid var(--line-2);padding:16px 18px;white-space:nowrap;scroll-snap-align:start}
+  .v-tabs button svg{display:none}
+  .v-how,.v-band .wrap,.v-qa,.v-ct{grid-template-columns:1fr}
+  .v-how-l,.v-qa-l{position:static}
+  .v-off{grid-template-columns:1fr}
+  .v-foot-top{grid-template-columns:1fr 1fr}
+  .v-foot-brand{grid-column:1/-1}
+  .v-bar{display:flex}
+  .v-foot{padding-bottom:96px}
+}
+@media (max-width:640px){
+  body{font-size:16.5px}
+  .v-sec{padding:84px 0}
+  .v-top{font-size:13px}
+  .v-top-r{gap:14px}
+  .v-nav .wrap{height:70px}
+  .v-logo-txt{font-size:15px;letter-spacing:.16em;gap:9px}
+  .v-hero{padding-top:26px}
+  .v-hero h1{font-size:clamp(40px,11.4vw,54px);margin:20px 0 20px}
+  .v-hero .v-lead{font-size:17.5px}
+  .v-cta .v-btn{flex:1 1 100%}
+  .v-hero-fig{aspect-ratio:4/3}
+  .v-hero-fig figcaption{left:16px;right:16px;bottom:14px;flex-direction:column;gap:2px}
+  .v-index{margin-top:48px}
+  .v-index ul{grid-template-columns:1fr}
+  .v-index li,.v-index li+li{padding:18px 0;border-left:0}
+  .v-index li+li{border-top:1px solid var(--line)}
+  .v-pan{padding:28px 20px}
+  .v-pan h3{font-size:28px}
+  .v-pan .v-two{grid-template-columns:1fr;gap:24px}
+  .v-pan .v-btn{width:100%}
+  .v-deg{grid-template-columns:1fr}
+  .v-deg article,.v-deg article+article{padding:24px 0;border-left:0}
+  .v-deg article+article{border-top:1px solid var(--line)}
+  .v-deg .v-num{font-size:52px}
+  .v-steps li{grid-template-columns:52px 1fr;gap:14px;padding:24px 0}
+  .v-steps li::before{font-size:32px}
+  .v-band .wrap{padding-block:76px}
+  .v-o-map{height:220px}
+  .v-o-b{padding:24px 20px}
+  .v-o-b .v-btn{flex:1 1 100%}
+  .v-acc summary{font-size:20.5px}
+  .v-acc .v-ans{padding-right:8px}
+  .v-form{padding:26px 18px}
+  .v-g2{grid-template-columns:1fr;gap:0}
+  .v-foot-top{grid-template-columns:1fr;gap:30px}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="v-arrow" viewBox="0 0 20 20"><path d="M4 10h12m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="v-phone" viewBox="0 0 24 24"><path d="M6.6 3.5h2.6l1.5 4-2 1.3a11 11 0 0 0 6.5 6.5l1.3-2 4 1.5v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  <symbol id="v-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="v-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="v-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6V3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="v-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.6 3 8.4 7 10 4-1.6 7-5.4 7-10V6l-7-3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="m9 12 2.2 2.2L15.5 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="v-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="v-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4.5 20c1-3.7 4-5.5 7.5-5.5s6.5 1.8 7.5 5.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="v-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="v-upload" viewBox="0 0 24 24"><path d="M12 15V4m-4 4 4-4 4 4M5 15v4h14v-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<div class="v-top">
+  <div class="wrap">
+    <span><svg><use href="#v-pin"/></svg>Antwerpen · Brussel · zaken in heel België</span>
+    <div class="v-top-r">
+      <a href="mailto:info@studio-legale.be"><span><svg><use href="#v-mail"/></svg>info@studio-legale.be</span></a>
+      <a href="tel:+3232167070"><span><svg><use href="#v-phone"/></svg>03 216 70 70</span></a>
+    </div>
+  </div>
+</div>
+
+<nav class="v-nav" aria-label="Hoofdmenu">
+  <div class="wrap">
+    <a class="v-logo" href="#top" aria-label="Studio Verkeer, naar boven">
+      <span><span class="v-logo-txt">Studio<i></i>Verkeer</span><small>verkeersrecht · deel van Studio Legale</small></span>
+    </a>
+    <div class="v-links">
+      <a href="#situaties">Situaties</a>
+      <a href="#graden">Overtredingen</a>
+      <a href="#werkwijze">Werkwijze</a>
+      <a href="#kantoren">Kantoren</a>
+      <a href="#vragen">Vragen</a>
+    </div>
+    <a class="v-btn v-btn--deep" href="#contact">Leg je situatie voor<svg><use href="#v-arrow"/></svg></a>
+    <button class="v-burger" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="v-sheet"><span></span></button>
+  </div>
+</nav>
+
+<div class="v-sheet" id="v-sheet">
+  <a class="v-sl" href="#situaties">Situaties <span>01</span></a>
+  <a class="v-sl" href="#graden">Overtredingen <span>02</span></a>
+  <a class="v-sl" href="#werkwijze">Werkwijze <span>03</span></a>
+  <a class="v-sl" href="#rechtsbijstand">Rechtsbijstand <span>04</span></a>
+  <a class="v-sl" href="#kantoren">Kantoren <span>05</span></a>
+  <a class="v-sl" href="#vragen">Vragen <span>06</span></a>
+  <a class="v-sl" href="#contact">Contact <span>07</span></a>
+  <div class="v-sheet-b">
+    <a class="v-btn v-btn--deep" href="#contact">Leg je situatie voor<svg><use href="#v-arrow"/></svg></a>
+    <a class="v-btn v-btn--line" href="tel:+3232167070"><svg><use href="#v-phone"/></svg>03 216 70 70</a>
+  </div>
+</div>
+
+<main id="top">
+  <header class="v-hero">
+    <div class="wrap v-hgrid">
+      <div class="v-in">
+        <span class="v-eye">Verkeersrecht</span>
+        <h1>Een boete of een dagvaarding voor de <em>politierechtbank?</em></h1>
+        <p class="v-lead">STUDIO | VERKEER is de verkeersrechtpraktijk van advocatenkantoor STUDIO | LEGALE. Vanuit Antwerpen en Brussel staan we bestuurders en verkeersslachtoffers bij, voor politierechtbanken in heel België.</p>
+        <div class="v-cta">
+          <a class="v-btn v-btn--deep" href="#contact">Vraag een eerste advies<svg><use href="#v-arrow"/></svg></a>
+          <a class="v-btn v-btn--line" href="#situaties">Waarvoor je bij ons terechtkan</a>
+        </div>
+      </div>
+      <figure class="v-hero-fig v-in">
+        <img src="img/x-53185864bcf4.jpg" alt="Een weg door het bos in de mist" referrerpolicy="no-referrer" decoding="async" fetchpriority="high">
+        <figcaption><b>Eerste advies</b><span>vraag je gratis en vrijblijvend aan</span></figcaption>
+      </figure>
+    </div>
+    <div class="wrap">
+      <div class="v-index v-in">
+        <ul>
+          <li><b>Gespecialiseerd</b><span>advocaten die dagelijks verkeerszaken behandelen</span></li>
+          <li><b>Heel België</b><span>bijstand voor elke politierechtbank</span></li>
+          <li><b>Vaste contactpersoon</b><span>je weet altijd bij wie je terechtkan</span></li>
+          <li><b>Rechtsbijstand</b><span>we kijken na of je verzekering tussenkomt</span></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <section class="v-sec" id="situaties" aria-labelledby="h-sit">
+    <div class="wrap">
+      <div class="v-head v-in">
+        <div><span class="v-eye">01 · Situaties</span><h2 class="v-h2" id="h-sit">Waarvoor je bij ons <em>terechtkan</em></h2></div>
+        <p>Kies wat op jou van toepassing is. Je leest wat we voor je kunnen doen en welke documenten je best al bij de hand hebt.</p>
+      </div>
+      <div class="v-sit v-in">
+        <div class="v-tabs" role="tablist" aria-label="Kies je situatie">
+          <button type="button" role="tab" id="t1" aria-controls="s1" aria-selected="true">Verkeersboete of snelheid<svg><use href="#v-arrow"/></svg></button>
+          <button type="button" role="tab" id="t2" aria-controls="s2" aria-selected="false" tabindex="-1">Dagvaarding politierechtbank<svg><use href="#v-arrow"/></svg></button>
+          <button type="button" role="tab" id="t3" aria-controls="s3" aria-selected="false" tabindex="-1">Rijbewijs ingetrokken of rijverbod<svg><use href="#v-arrow"/></svg></button>
+          <button type="button" role="tab" id="t4" aria-controls="s4" aria-selected="false" tabindex="-1">Alcohol of drugs<svg><use href="#v-arrow"/></svg></button>
+          <button type="button" role="tab" id="t5" aria-controls="s5" aria-selected="false" tabindex="-1">Verkeersongeval<svg><use href="#v-arrow"/></svg></button>
+          <button type="button" role="tab" id="t6" aria-controls="s6" aria-selected="false" tabindex="-1">Zonder rijbewijs of verzekering<svg><use href="#v-arrow"/></svg></button>
+        </div>
+        <div>
+          <div class="v-pan" id="s1" role="tabpanel" aria-labelledby="t1">
+            <h3>Een verkeersboete gekregen</h3>
+            <p>Een onmiddellijke inning, een voorstel tot minnelijke schikking, een GAS-boete van de gemeente of een reeks boetes na een trajectcontrole. Wat je precies kreeg, bepaalt welke mogelijkheden je nog hebt. Kijk dat na voor je betaalt of een termijn laat verlopen.</p>
+            <div class="v-two">
+              <div><h4>Wat we doen</h4><ul><li>We lezen je brief of proces-verbaal na</li><li>We leggen uit wat de keuzes zijn en wat ze betekenen</li><li>Komt er een zitting, dan staan we je bij</li></ul></div>
+              <div><h4>Hou bij de hand</h4><ul><li>De brief of het voorstel dat je ontving</li><li>De datum en de betaaltermijn</li><li>Je nummerplaat en de plaats van de vaststelling</li></ul></div>
+            </div>
+            <a class="v-btn v-btn--deep" href="#contact" data-sit="Verkeersboete of snelheid">Leg je boete voor<svg><use href="#v-arrow"/></svg></a>
+          </div>
+          <div class="v-pan" id="s2" role="tabpanel" aria-labelledby="t2" hidden>
+            <h3>Een dagvaarding voor de politierechtbank</h3>
+            <p>Op een dagvaarding staat de datum van je zitting. Neem tijdig contact op, zodat er genoeg tijd is om het strafdossier in te kijken en je verweer voor te bereiden. Of je zelf moet verschijnen, bespreken we vooraf met je.</p>
+            <div class="v-two">
+              <div><h4>Wat we doen</h4><ul><li>We vragen het dossier op en lezen het grondig</li><li>We bespreken met jou wat je kan verwachten</li><li>We staan je bij of vertegenwoordigen je op de zitting</li></ul></div>
+              <div><h4>Hou bij de hand</h4><ul><li>De dagvaarding zelf</li><li>Eerdere brieven van politie of parket</li><li>Je rijbewijs en eventuele eerdere veroordelingen</li></ul></div>
+            </div>
+            <a class="v-btn v-btn--deep" href="#contact" data-sit="Dagvaarding politierechtbank">Leg je dagvaarding voor<svg><use href="#v-arrow"/></svg></a>
+          </div>
+          <div class="v-pan" id="s3" role="tabpanel" aria-labelledby="t3" hidden>
+            <h3>Rijbewijs ingetrokken of een rijverbod</h3>
+            <p>Na een onmiddellijke intrekking van je rijbewijs of een rijverbod door de rechter heb je meteen vragen. Hoelang duurt het? Wat betekent het voor je werk? Soms kan je vragen om je rijbewijs vroeger terug te krijgen. Of dat in jouw geval kan, bekijken we samen.</p>
+            <div class="v-two">
+              <div><h4>Wat we doen</h4><ul><li>We kijken op welke basis je rijbewijs werd ingetrokken</li><li>We bekijken of een verzoek tot teruggave zin heeft</li><li>We bereiden de zaak voor de rechtbank voor</li></ul></div>
+              <div><h4>Hou bij de hand</h4><ul><li>Het bewijs van intrekking of het vonnis</li><li>Een kopie van je rijbewijs</li><li>Of je je wagen nodig hebt voor je werk</li></ul></div>
+            </div>
+            <a class="v-btn v-btn--deep" href="#contact" data-sit="Rijbewijs ingetrokken of rijverbod">Leg je situatie voor<svg><use href="#v-arrow"/></svg></a>
+          </div>
+          <div class="v-pan" id="s4" role="tabpanel" aria-labelledby="t4" hidden>
+            <h3>Rijden onder invloed van alcohol of drugs</h3>
+            <p>Na een positieve test volgt vaak een intrekking van je rijbewijs en een zaak voor de politierechtbank. We bekijken hoe de controle en de vaststelling verlopen zijn, en bereiden je zaak zorgvuldig voor.</p>
+            <div class="v-two">
+              <div><h4>Wat we doen</h4><ul><li>We lezen het proces-verbaal van de controle na</li><li>We leggen uit wat de rechter kan opleggen</li><li>We staan je bij op de zitting</li></ul></div>
+              <div><h4>Hou bij de hand</h4><ul><li>Alles wat je kreeg bij de controle</li><li>Het bewijs van intrekking, als je dat hebt</li><li>Eventuele dagvaarding of brief van het parket</li></ul></div>
+            </div>
+            <a class="v-btn v-btn--deep" href="#contact" data-sit="Alcohol of drugs">Leg je situatie voor<svg><use href="#v-arrow"/></svg></a>
+          </div>
+          <div class="v-pan" id="s5" role="tabpanel" aria-labelledby="t5" hidden>
+            <h3>Betrokken bij een verkeersongeval</h3>
+            <p>Als bestuurder of als slachtoffer. Na een ongeval met gewonden, na vluchtmisdrijf of wanneer iemand de plaats van het ongeval verliet. We helpen bij de strafzaak en bij het vorderen van je schade.</p>
+            <div class="v-two">
+              <div><h4>Wat we doen</h4><ul><li>We volgen het strafdossier op</li><li>We helpen je schade in kaart te brengen</li><li>We staan je bij tegenover verzekeraars en voor de rechter</li></ul></div>
+              <div><h4>Hou bij de hand</h4><ul><li>Het aanrijdingsformulier, als dat er is</li><li>Foto's, getuigen en medische attesten</li><li>Je polis van auto- en rechtsbijstandsverzekering</li></ul></div>
+            </div>
+            <a class="v-btn v-btn--deep" href="#contact" data-sit="Verkeersongeval">Leg je situatie voor<svg><use href="#v-arrow"/></svg></a>
+          </div>
+          <div class="v-pan" id="s6" role="tabpanel" aria-labelledby="t6" hidden>
+            <h3>Zonder geldig rijbewijs of verzekering</h3>
+            <p>Rijden zonder geldig rijbewijs, zonder verzekering of tijdens een rijverbod wordt als zwaar beschouwd. Laat je bijstaan voor je zaak voorkomt, zodat je weet waar je staat.</p>
+            <div class="v-two">
+              <div><h4>Wat we doen</h4><ul><li>We bekijken de feiten en het dossier</li><li>We leggen uit wat je kan verwachten</li><li>We bereiden je verdediging voor</li></ul></div>
+              <div><h4>Hou bij de hand</h4><ul><li>De dagvaarding of brief die je kreeg</li><li>Je rijbewijs en verzekeringsattest</li><li>Een vorig vonnis, als het om een rijverbod ging</li></ul></div>
+            </div>
+            <a class="v-btn v-btn--deep" href="#contact" data-sit="Zonder rijbewijs of verzekering">Leg je situatie voor<svg><use href="#v-arrow"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="v-sec v-sec--paper" id="graden" aria-labelledby="h-graden">
+    <div class="wrap">
+      <div class="v-head v-in">
+        <div><span class="v-eye">02 · Overtredingen</span><h2 class="v-h2" id="h-graden">Vier graden, <em>van licht tot zwaar</em></h2></div>
+        <p>Verkeersovertredingen zijn ingedeeld in vier graden. Hoe hoger de graad, hoe zwaarder de mogelijke straf. Enkele voorbeelden.</p>
+      </div>
+      <div class="v-deg v-in">
+        <article><div class="v-num">1<sup>e</sup></div><h3>Eerste graad</h3><ul><li>Richtingaanwijzer niet gebruiken</li><li>Fout parkeren zonder gevaar</li><li>Onnodig links rijden</li><li>Zone 30 negeren</li></ul></article>
+        <article><div class="v-num">2<sup>e</sup></div><h3>Tweede graad</h3><ul><li>Geen gordel dragen</li><li>Gsm zonder handenvrije set</li><li>Een volle witte lijn overschrijden</li><li>Lichte snelheidsovertreding</li></ul></article>
+        <article><div class="v-num">3<sup>e</sup></div><h3>Derde graad</h3><ul><li>Door het rood rijden</li><li>Geen voorrang aan voetgangers</li><li>Bumperkleven</li><li>Kort tegen de rijrichting in</li></ul></article>
+        <article><div class="v-num">4<sup>e</sup></div><h3>Vierde graad</h3><ul><li>Spookrijden op de snelweg</li><li>Snelheidswedstrijden</li><li>Vluchtmisdrijf met gewonden</li><li>Meer dan 40 km/u te snel</li></ul></article>
+      </div>
+      <p class="v-deg-note v-in">Daarnaast zijn er overtredingen die apart behandeld worden: rijden onder invloed, rijden zonder rijbewijs of verzekering, rijden tijdens een rijverbod, een radardetector gebruiken, ongevallen met letsel en agressie in het verkeer.</p>
+    </div>
+  </section>
+
+  <section class="v-sec" id="werkwijze" aria-labelledby="h-how">
+    <div class="wrap v-how">
+      <div class="v-how-l v-in">
+        <span class="v-eye">03 · Werkwijze</span>
+        <h2 class="v-h2" id="h-how" style="margin-top:18px">Zo gaat het <em>in de praktijk</em></h2>
+        <p>Een zaak voor de politierechtbank is voor de meeste mensen een eerste keer. We leggen elke stap uit, in gewone woorden.</p>
+        <figure><img src="img/x-75ac5d9b3cf7.jpg" alt="Iemand vult een document in met een pen" referrerpolicy="no-referrer" loading="lazy" decoding="async"></figure>
+      </div>
+      <ol class="v-steps v-in">
+        <li><div><b>Je legt je situatie voor</b><span>Via het formulier, per mail of telefonisch. Een eerste advies vraag je gratis aan.</span></div></li>
+        <li><div><b>We bekijken je documenten</b><span>Je bezorgt ons wat je kreeg: een brief, een proces-verbaal of een dagvaarding. Je kan ze veilig online uploaden.</span></div></li>
+        <li><div><b>Je hoort wat de mogelijkheden zijn</b><span>Eerlijk en duidelijk, ook over de kosten en of je rechtsbijstandsverzekering tussenkomt.</span></div></li>
+        <li><div><b>We staan je bij</b><span>We bereiden je zaak voor en zijn er op de zitting. Je hebt één vaste contactpersoon die je dossier kent.</span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="v-band" id="rechtsbijstand" aria-labelledby="h-rb">
+    <div class="wrap">
+      <div class="v-in">
+        <span class="v-eye">04 · Kosten</span>
+        <h2 class="v-h2" id="h-rb" style="margin-top:18px">Heb je een <em>rechtsbijstands­verzekering?</em></h2>
+        <p>Veel mensen hebben er een zonder het te weten, bijvoorbeeld bij hun autoverzekering of hun familiale. In veel gevallen komt die tussen in de kosten van je advocaat. Je kiest daarbij zelf je advocaat.</p>
+      </div>
+      <ul class="v-in">
+        <li><svg><use href="#v-doc"/></svg><span><b>Zoek je polis op.</b> Of bezorg ons de naam van je verzekeraar.</span></li>
+        <li><svg><use href="#v-shield"/></svg><span><b>Wij kijken het na.</b> We zeggen je of en hoe je verzekering tussenkomt.</span></li>
+        <li><svg><use href="#v-user"/></svg><span><b>Geen verzekering?</b> Dan bespreken we de kosten vooraf met je.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="v-sec" id="kantoren" aria-labelledby="h-off">
+    <div class="wrap">
+      <div class="v-head v-in">
+        <div><span class="v-eye">05 · Kantoren</span><h2 class="v-h2" id="h-off">Antwerpen <em>en Brussel</em></h2></div>
+        <p>Op kantoor ontvangen we je op afspraak. Voor de zitting komen we naar de politierechtbank waar je zaak behandeld wordt.</p>
+      </div>
+      <div class="v-off">
+        <article class="v-o v-in">
+          <div class="v-o-map"><iframe title="Kaart: Haantjeslei 69A, Antwerpen" src="https://maps.google.com/maps?q=Haantjeslei%2069%2C%202018%20Antwerpen&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+          <div class="v-o-b">
+            <h3>Antwerpen</h3>
+            <address>Haantjeslei 69/A<br>2018 Antwerpen</address>
+            <div class="v-row">
+              <a class="v-btn v-btn--deep" href="tel:+3232167070"><svg><use href="#v-phone"/></svg>03 216 70 70</a>
+              <a class="v-btn v-btn--line" href="https://www.google.com/maps/dir/?api=1&amp;destination=Haantjeslei+69+2018+Antwerpen" target="_blank" rel="noopener">Route<svg><use href="#v-arrow"/></svg></a>
+            </div>
+          </div>
+        </article>
+        <article class="v-o v-in">
+          <div class="v-o-map"><iframe title="Kaart: Arianelaan 33, Brussel" src="https://maps.google.com/maps?q=Arianelaan%2033%2C%201200%20Brussel&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+          <div class="v-o-b">
+            <h3>Brussel</h3>
+            <address>Arianelaan 33, The Field Lab<br>1200 Brussel</address>
+            <div class="v-row">
+              <a class="v-btn v-btn--deep" href="tel:+3232167070"><svg><use href="#v-phone"/></svg>03 216 70 70</a>
+              <a class="v-btn v-btn--line" href="https://www.google.com/maps/dir/?api=1&amp;destination=Arianelaan+33+1200+Brussel" target="_blank" rel="noopener">Route<svg><use href="#v-arrow"/></svg></a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <p class="v-off-note v-in">Woon je verder weg? Ook dan kan je bij ons terecht. Veel kan per mail en telefoon.</p>
+    </div>
+  </section>
+
+  <section class="v-sec v-sec--paper" id="vragen" aria-labelledby="h-vragen">
+    <div class="wrap v-qa">
+      <div class="v-qa-l v-in">
+        <span class="v-eye">06 · Vragen</span>
+        <h2 class="v-h2" id="h-vragen" style="margin-top:18px">Wat mensen <em>ons vaak vragen</em></h2>
+        <p>Staat je vraag er niet bij? Bel <a href="tel:+3232167070">03 216 70 70</a> of mail naar <a href="mailto:info@studio-legale.be">info@studio-legale.be</a>.</p>
+      </div>
+      <div class="v-acc v-in">
+        <details open><summary>Hoe snel moet ik reageren?<i></i></summary><p class="v-ans">Zo snel mogelijk, zeker als er een datum of een termijn op je brief staat. Hoe vroeger we je dossier kennen, hoe meer tijd er is om je zaak goed voor te bereiden.</p></details>
+        <details><summary>Ik kreeg een voorstel tot minnelijke schikking. Moet ik betalen?<i></i></summary><p class="v-ans">Dat kies je zelf. Wie betaalt, vermijdt meestal een zaak voor de rechtbank. Wie niet betaalt, kan gedagvaard worden. Twijfel je, vraag dan advies voor de betaaltermijn verloopt.</p></details>
+        <details><summary>Moet ik zelf naar de zitting gaan?<i></i></summary><p class="v-ans">Dat hangt af van je zaak. In veel gevallen kan je advocaat je vertegenwoordigen. Of je zelf aanwezig moet of beter aanwezig bent, bespreken we vooraf met je.</p></details>
+        <details><summary>Wat kost een verkeersadvocaat?<i></i></summary><p class="v-ans">Een eerste advies vraag je gratis aan. Daarna hangt het af van je dossier. Heb je een rechtsbijstandsverzekering, dan komt die in veel gevallen tussen. In elk geval bespreken we de kosten vooraf.</p></details>
+        <details><summary>Werken jullie ook buiten Antwerpen en Brussel?<i></i></summary><p class="v-ans">Ja. Onze kantoren zijn in Antwerpen en Brussel, maar we staan mensen bij voor politierechtbanken in heel België.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="v-sec" id="contact" aria-labelledby="h-ct">
+    <div class="wrap v-ct">
+      <div class="v-ct-l v-in">
+        <span class="v-eye">07 · Contact</span>
+        <h2 class="v-h2" id="h-ct" style="margin-top:18px">Kort <em>je situatie</em></h2>
+        <p>Een paar zinnen volstaan. We nemen contact met je op om te bekijken wat we voor je kunnen doen. Alles wat je ons vertelt, blijft vertrouwelijk.</p>
+        <div class="v-lines">
+          <a href="tel:+3232167070"><svg><use href="#v-phone"/></svg><div><b>03 216 70 70</b><span>Antwerpen en Brussel</span></div></a>
+          <a href="mailto:info@studio-legale.be"><svg><use href="#v-mail"/></svg><div><b>info@studio-legale.be</b><span>ook om documenten door te sturen</span></div></a>
+          <a href="https://studio-legale.com/upload/" target="_blank" rel="noopener"><svg><use href="#v-upload"/></svg><div><b>Documenten uploaden</b><span>brief, proces-verbaal of dagvaarding</span></div></a>
+        </div>
+      </div>
+      <div class="v-form v-in" id="v-form">
+        <h3>Vraag een eerste advies</h3>
+        <p>Velden zonder vermelding zijn nodig om je te kunnen contacteren.</p>
+        <form id="v-req" novalidate>
+          <div class="v-g2">
+            <div class="v-f"><label for="f-naam">Naam</label><input id="f-naam" name="naam" autocomplete="name" required></div>
+            <div class="v-f"><label for="f-tel">Telefoon</label><input id="f-tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" required></div>
+          </div>
+          <div class="v-f"><label for="f-mail">E-mail <small>(mag leeg)</small></label><input id="f-mail" name="mail" type="email" autocomplete="email"></div>
+          <div class="v-g2">
+            <div class="v-f"><label for="f-sit">Waarover gaat het?</label><select id="f-sit" name="sit"><option>Verkeersboete of snelheid</option><option>Dagvaarding politierechtbank</option><option>Rijbewijs ingetrokken of rijverbod</option><option>Alcohol of drugs</option><option>Verkeersongeval</option><option>Zonder rijbewijs of verzekering</option><option>Iets anders</option></select></div>
+            <div class="v-f"><label for="f-dat">Datum zitting <small>(als je die hebt)</small></label><input id="f-dat" name="dat" type="date"></div>
+          </div>
+          <fieldset class="v-f"><legend>Rechtsbijstandsverzekering?</legend>
+            <div class="v-radio">
+              <label><input type="radio" name="rb" value="ja"><span>Ja</span></label>
+              <label><input type="radio" name="rb" value="nee"><span>Nee</span></label>
+              <label><input type="radio" name="rb" value="weet niet" checked><span>Weet ik niet</span></label>
+            </div>
+          </fieldset>
+          <div class="v-f"><label for="f-msg">Wat is er gebeurd?</label><textarea id="f-msg" name="msg" rows="4" placeholder="Bv. flitsboete op de E19, 38 km/u te snel, brief van het parket ontvangen op 28 oktober" required></textarea></div>
+          <label class="v-consent"><input type="checkbox" name="ok" required><span>Ik ga akkoord dat STUDIO | LEGALE mijn gegevens gebruikt om mij te contacteren over deze vraag.</span></label>
+          <button class="v-btn v-btn--deep" type="submit">Verstuur je vraag<svg><use href="#v-arrow"/></svg></button>
+        </form>
+        <div class="v-thanks" role="status">
+          <i><svg><use href="#v-check"/></svg></i>
+          <h3 style="font:400 30px/1.15 var(--serif)">Dank je, <span id="v-naam"></span>.</h3>
+          <p>We hebben je vraag goed ontvangen en nemen zo snel mogelijk contact met je op. Heb je een brief of dagvaarding, hou die dan bij de hand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="v-foot">
+  <div class="wrap">
+    <div class="v-foot-top">
+      <div class="v-foot-brand">
+        <a class="v-logo" href="#top" aria-label="Studio Verkeer, naar boven"><span><span class="v-logo-txt">Studio<i></i>Verkeer</span><small>verkeersrecht · deel van Studio Legale</small></span></a>
+        <p>De verkeersrechtpraktijk van advocatenkantoor STUDIO | LEGALE.</p>
+      </div>
+      <div><h3>Antwerpen</h3><ul><li>Haantjeslei 69/A</li><li>2018 Antwerpen</li></ul></div>
+      <div><h3>Brussel</h3><ul><li>Arianelaan 33</li><li>1200 Brussel</li></ul></div>
+      <div><h3>Contact</h3><ul><li><a href="tel:+3232167070">03 216 70 70</a></li><li><a href="mailto:info@studio-legale.be">info@studio-legale.be</a></li><li><a href="https://studio-legale.com" target="_blank" rel="noopener">studio-legale.com</a></li></ul></div>
+    </div>
+    <p class="v-disc">De informatie op deze website is algemeen. Ze is geen juridisch advies voor jouw situatie en geeft geen garantie op een bepaalde uitkomst. Elke zaak is anders en wordt afzonderlijk bekeken.</p>
+    <div class="v-foot-bot">
+      <span>© 2026 STUDIO | LEGALE</span>
+      <span>Voorbeeldsite door Digital Impression</span>
+    </div>
+  </div>
+</footer>
+
+<div class="v-bar" id="v-bar">
+  <a href="tel:+3232167070"><svg><use href="#v-phone"/></svg>Bellen</a>
+  <a href="#contact"><svg><use href="#v-doc"/></svg>Advies vragen</a>
+</div>
+
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('v-js');
+
+  var nav=d.querySelector('.v-nav');
+  function onScroll(){nav.classList.toggle('is-stuck',window.scrollY>44)}
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  var burger=d.querySelector('.v-burger');
+  function setMenu(open){root.classList.toggle('v-open',open);burger.setAttribute('aria-expanded',open);burger.setAttribute('aria-label',open?'Menu sluiten':'Menu openen');d.body.style.overflow=open?'hidden':''}
+  burger.addEventListener('click',function(){setMenu(!root.classList.contains('v-open'))});
+  d.querySelectorAll('.v-sheet a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false)});
+
+  // situaties
+  var tabs=[].slice.call(d.querySelectorAll('.v-tabs [role=tab]'));
+  function sel(t,focus){tabs.forEach(function(b){var on=b===t;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;d.getElementById(b.getAttribute('aria-controls')).hidden=!on});if(focus)t.focus();if(t.scrollIntoView&&window.matchMedia('(max-width:960px)').matches){t.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'})}}
+  tabs.forEach(function(b,i){
+    b.addEventListener('click',function(){sel(b)});
+    b.addEventListener('keydown',function(e){
+      var k=e.key,n=null;
+      if(k==='ArrowDown'||k==='ArrowRight')n=tabs[(i+1)%tabs.length];
+      if(k==='ArrowUp'||k==='ArrowLeft')n=tabs[(i-1+tabs.length)%tabs.length];
+      if(n){e.preventDefault();sel(n,true)}
+    });
+  });
+  // knop in paneel vult het formulier voor
+  var fs=d.getElementById('f-sit');
+  d.querySelectorAll('[data-sit]').forEach(function(a){a.addEventListener('click',function(){fs.value=a.getAttribute('data-sit')})});
+
+  // formulier (demo)
+  var form=d.getElementById('v-req');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();var ok=true;
+    [form.naam,form.tel,form.msg].forEach(function(f){var bad=!f.value.trim();f.classList.toggle('is-bad',bad);if(bad&&ok){f.focus();ok=false}});
+    if(ok&&!form.ok.checked){form.ok.focus();ok=false}
+    if(!ok)return;
+    d.getElementById('v-naam').textContent=form.naam.value.trim().split(' ')[0];
+    d.getElementById('v-form').classList.add('is-sent');
+  });
+
+  // verschijnen
+  var els=d.querySelectorAll('.v-in');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('is-in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('is-in')})}
+
+  // mobiele balk
+  var bar=d.getElementById('v-bar');
+  if('IntersectionObserver' in window){
+    var vis=new Set();
+    var bo=new IntersectionObserver(function(en){en.forEach(function(x){x.isIntersecting?vis.add(x.target):vis.delete(x.target)});bar.classList.toggle('is-hidden',vis.size>0)});
+    [d.querySelector('.v-cta'),d.getElementById('v-form'),d.querySelector('.v-foot'),d.querySelector('section.di')].forEach(function(el){if(el)bo.observe(el)});
+  }
+})();
+</script>
+<!-- VOORSTELBLOK Digital Impression: letterlijk overnemen, onderaan de pagina, vóór </body>. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Onest:wght@400;600;700&display=swap">
+<style>
+.di{--n:#0E1C3A;--n2:#162a52;--n3:#21386a;--cr:#F5EEE2;--pa:#FBF7F0;--te:#D7603A;--ted:#B04722;--ap:#F2AE84;--bu:#F1CB78;--od2:#c9cfdf;
+  background:var(--n);color:var(--cr);padding:100px 0 100px;position:relative;overflow:clip;font:19px/1.6 'Onest',system-ui,sans-serif}
+.di::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 85% 0%,rgba(215,96,58,.18),transparent 70%);pointer-events:none}
+.di .wrap{max-width:1080px;position:relative}
+.di .naad{position:absolute;left:0;right:0;top:0;height:6px;background:repeating-linear-gradient(90deg,var(--te) 0 22px,var(--bu) 22px 44px,var(--ap) 44px 66px)}
+.di .merk{display:inline-flex;align-items:center;gap:12px;margin-bottom:26px;font-size:16px;font-weight:600;color:var(--od2)}
+.di .merk i{width:40px;height:40px;border-radius:12px;background:var(--ted);display:grid;place-items:center;font:400 22px/1 'DM Serif Display',serif;font-style:normal;color:#fff}
+.di h2{font:400 clamp(40px,5vw,64px)/1.04 'DM Serif Display',serif;letter-spacing:-.5px;color:var(--pa);max-width:16em}
+.di h2 em{font-style:italic;color:var(--ap)}
+.di .intro{color:var(--od2);font-size:20px;margin:20px 0 54px;max-width:34em}
+.di .kop3{font:400 34px/1.1 'DM Serif Display',serif;color:var(--pa);margin:0 0 24px}
+.di .prijzen{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.di .pk{border-radius:26px;padding:36px}
+.di .pk.wit{background:var(--pa);color:var(--n)}
+.di .pk.donker{background:var(--n2);border:1.5px solid rgba(245,238,226,.16)}
+.di .pk .label{display:block;font-size:16px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.di .pk.wit .label{color:var(--ted)}
+.di .pk.donker .label{color:var(--ap)}
+.di .bedrag{font:400 88px/.9 'DM Serif Display',serif;letter-spacing:-2px;display:flex;align-items:flex-start;gap:6px}
+.di .bedrag small{font-size:36px;margin-top:8px}
+.di .wanneer{font-size:20px;font-weight:700;margin:12px 0 26px}
+.di .pk ul{list-style:none;margin:0;padding:0;display:grid;gap:14px;font-size:18.5px;line-height:1.45}
+.di .pk li{display:flex;gap:14px;align-items:flex-start}
+.di .pk li::before{content:"";flex:none;width:24px;height:24px;margin-top:2px;border-radius:50%;background:var(--ted) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/15px no-repeat}
+.di .geruststelling{margin-top:26px;padding-top:22px;border-top:2px dashed rgba(14,28,58,.18);font-size:18px;font-weight:600}
+.di .keuze{border-radius:18px;padding:22px 24px;background:rgba(245,238,226,.05);border:1.5px solid rgba(245,238,226,.14)}
+.di .keuze+.keuze{margin-top:16px}
+.di .keuze.aan{border-color:var(--ap);background:rgba(242,174,132,.08)}
+.di .keuze .rij{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap}
+.di .keuze h4{margin:0;font:400 28px/1.1 'DM Serif Display',serif;color:var(--pa)}
+.di .keuze .p{font-size:22px;font-weight:700;color:var(--ap);white-space:nowrap}
+.di .keuze p{color:var(--od2);font-size:18px;margin-top:8px}
+.di .keuze .raad{display:inline-block;margin-top:12px;font:700 15px/1.4 'Onest',sans-serif;background:var(--ap);color:var(--n);border-radius:999px;padding:4px 12px}
+.di .di-stappen{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.di .di-stap{display:flex;gap:18px;align-items:flex-start}
+.di .di-stap i{flex:none;width:52px;height:52px;border-radius:50%;background:var(--ted);color:#fff;display:grid;place-items:center;font:400 26px/1 'DM Serif Display',serif;font-style:normal}
+.di .di-stap b{display:block;font-size:20px;color:var(--pa);line-height:1.3;margin-bottom:6px}
+.di .di-stap span{color:var(--od2);font-size:18px}
+.di .contact{margin-top:64px;background:var(--pa);color:var(--n);border-radius:26px;padding:32px 36px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+.di .contact .vraag{font:400 34px/1.1 'DM Serif Display',serif}
+.di .contact p{font-size:19px;color:#3d4660;margin-top:8px}
+.di .contact p b{color:var(--n)}
+.di .knoppen{display:flex;flex-direction:column;gap:12px;min-width:280px}
+.di .knoppen a{display:flex;justify-content:center;align-items:center;gap:10px;border-radius:999px;padding:18px 26px;font-weight:700;font-size:19px;text-decoration:none;transition:transform .15s,background .15s}
+.di .knoppen a:hover{transform:translateY(-2px)}
+.di .knoppen a svg{width:22px;height:22px}
+.di .knoppen .wa{background:var(--ted);color:#fff}
+.di .knoppen .wa:hover{background:#963a1a}
+.di .knoppen .lijn{border:2px solid var(--n);color:var(--n)}
+.di :focus-visible{outline:3px solid var(--ap);outline-offset:3px}
+@media (max-width:960px){.di{padding:80px 0;font-size:18px}.di .prijzen{grid-template-columns:1fr}.di .di-stappen{grid-template-columns:1fr;gap:22px;margin-top:52px}.di .contact{grid-template-columns:1fr;padding:28px}.di .knoppen{min-width:0}}
+@media (max-width:640px){.di .pk{padding:26px 22px}.di .bedrag{font-size:76px}.di .intro{font-size:18.5px;margin-bottom:44px}.di .kop3,.di .contact .vraag{font-size:30px}}
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ico-wa" viewbox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z" fill="currentColor"></path></symbol></svg>
+<style>.di .knoppen .cal{background:var(--n);color:var(--pa)}.di .knoppen .cal:hover{background:var(--n3)}.di .knoppen .cal svg{width:20px;height:20px}</style>
+<style>/*di-center*/.di .merk{display:flex;width:max-content;max-width:100%;margin-left:auto;margin-right:auto}.di #di-titel{text-align:center;margin-left:auto;margin-right:auto;text-wrap:balance}.di .intro{text-align:center;margin-left:auto;margin-right:auto;text-wrap:pretty}</style>
+<section aria-labelledby="di-titel" class="di">
+<span aria-hidden="true" class="naad"></span>
+<div class="wrap">
+<span class="merk"><i aria-hidden="true">D</i>Voorstel van Digital Impression</span>
+<h2 id="di-titel">Zo zou jullie website <em>eruit kunnen zien</em>.</h2>
+<p class="intro">Een eerste schets, op maat van Studio Verkeer. Jullie kiezen de stijl, ik zorg dat alles klopt.</p>
+<h3 class="kop3">Wat het kost</h3>
+<div class="prijzen">
+<div class="pk wit">
+<span class="label">Je website</span>
+<div class="bedrag"><small>€</small>499</div>
+<p class="wanneer">één keer, alles inbegrepen</p>
+<ul>
+<li>Jullie website, in de stijl die jullie kiezen</li>
+<li>Werkt op gsm, tablet en computer</li>
+<li>Uren, adres en route altijd juist</li>
+<li>Bestellingen komen rechtstreeks in je mailbox</li>
+</ul>
+<p class="geruststelling">Geen voorschot. Je betaalt pas als de site klaar is.</p>
+</div>
+<div class="pk donker">
+<span class="label">Daarna kies je</span>
+<div class="keuze">
+<div class="rij"><h4>Zelf beheren</h4><span class="p">€ 0 / maand</span></div>
+<p>Hosting en domein op jouw naam. Een aanpassing vraag je per keer aan.</p>
+</div>
+<div class="keuze aan">
+<div class="rij"><h4>Zorgeloos</h4><span class="p">€ 19,99 / maand</span></div>
+<p>Hosting en domein inbegrepen. Nieuwe suggesties en wijzigingen zet ik er voor je op.</p>
+<span class="raad">mijn aanrader</span>
+</div>
+</div>
+</div>
+<div class="di-stappen">
+<div class="di-stap"><i aria-hidden="true">1</i><div><b>Je laat iets weten</b><span>Een berichtje of telefoontje is genoeg.</span></div></div>
+<div class="di-stap"><i aria-hidden="true">2</i><div><b>We maken hem af</b><span>Jij zegt wat anders moet, ik pas het aan.</span></div></div>
+<div class="di-stap"><i aria-hidden="true">3</i><div><b>Online</b><span>Op je eigen domein, binnen 10 tot 14 dagen.</span></div></div>
+</div>
+<div class="contact">
+<div>
+<div class="vraag">Vragen? Plan een gesprek of stuur me een berichtje.</div>
+<p><b>Stijn Vranken</b> · 0496 25 14 45 · info@digital-impression.be</p>
+</div>
+<div class="knoppen">
+<a class="wa" href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20Studio%20Verkeer" rel="noopener" target="_blank"><svg><use href="#ico-wa"></use></svg>WhatsApp Stijn</a>
+<a class="cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Studio%20Verkeer" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Plan een gesprek van 30 min</a>
+<a class="lijn" href="tel:+32496251445">Bel 0496 25 14 45</a>
+</div>
+</div>
+</div>
+</section>
+</body>
+</html>

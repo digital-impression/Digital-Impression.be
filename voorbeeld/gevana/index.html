@@ -1,0 +1,937 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Gevana · Dakwerken en gevelbekleding in Linter</title>
+<meta name="description" content="Gevana uit Melkwezer (Linter) legt en vernieuwt hellende en platte daken en bekleedt dakoversteken in zink, Rockpanel, Trespa of hout. Sinds 2004.">
+<meta name="theme-color" content="#1E2529">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<style>
+:root{
+  --lei:#1E2529;--lei2:#283137;--lei3:#3A454C;--zink:#9AA3A8;--zinkl:#C9CFD2;
+  --kalk:#F1EFEA;--papier:#FAF9F6;--steen:#E3DFD7;
+  --terra:#B4532A;--terrad:#8F3F1E;--terral:#E7A57F;
+  --muted:#5D666B;--lijn:rgba(30,37,41,.13);
+  --r:18px;--r-lg:28px;
+  --schaduw:0 22px 44px -26px rgba(20,26,30,.55);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--kalk)}
+.wrap{margin:0 auto;padding:0 24px}
+
+.gv{font:400 17px/1.65 'Public Sans',system-ui,sans-serif;color:var(--lei);background:var(--kalk);overflow-x:clip}
+.gv *,.gv *::before,.gv *::after{box-sizing:border-box}
+.gv h1,.gv h2,.gv h3,.gv h4,.gv p,.gv ul,.gv ol,.gv figure,.gv blockquote,.gv dl,.gv dd{margin:0;padding:0}
+.gv ul,.gv ol{list-style:none}
+.gv img{display:block;max-width:100%;background:var(--lei3);color:transparent}
+.gv a{color:inherit;text-decoration:none}
+.gv button,.gv input,.gv textarea,.gv select{font:inherit;color:inherit}
+.gv :focus-visible{outline:3px solid var(--terra);outline-offset:3px;border-radius:6px}
+.gv .g-wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.gv .kop-f{font-family:'Archivo',system-ui,sans-serif;font-stretch:112%;letter-spacing:-.01em}
+.gv .eyebrow{display:inline-flex;align-items:center;gap:10px;font:700 13px/1 'Archivo',sans-serif;font-stretch:118%;letter-spacing:.16em;text-transform:uppercase;color:var(--terra)}
+.gv .eyebrow::before{content:"";width:14px;height:8px;background:currentColor;clip-path:polygon(0 100%,50% 0,100% 100%,82% 100%,50% 36%,18% 100%)}
+.gv .h2{font-family:'Archivo',sans-serif;font-stretch:110%;font-weight:700;font-size:clamp(34px,4.3vw,56px);line-height:1.02;letter-spacing:-.025em;margin-top:16px;text-wrap:balance}
+.gv .h2 em{font-style:normal;color:var(--terra)}
+.gv .lead{font-size:18px;color:var(--muted);max-width:34em;margin-top:18px}
+.gv .sec{padding:120px 0}
+.gv section{position:relative}
+
+/* knoppen */
+.gv .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;border-radius:12px;padding:0 24px;font:700 16px/1 'Public Sans',sans-serif;border:0;cursor:pointer;transition:background .2s,color .2s,transform .2s,box-shadow .2s}
+.gv .btn svg{width:18px;height:18px;transition:transform .25s}
+.gv .btn:hover svg{transform:translateX(3px)}
+.gv .btn:active{transform:translateY(1px)}
+.gv .btn-t{background:var(--terra);color:#fff;box-shadow:0 14px 26px -16px rgba(143,63,30,.9)}
+.gv .btn-t:hover{background:var(--terrad)}
+.gv .btn-d{background:var(--lei);color:var(--papier)}
+.gv .btn-d:hover{background:var(--lei3)}
+.gv .btn-o{background:transparent;color:var(--lei);box-shadow:inset 0 0 0 1.5px var(--lei)}
+.gv .btn-o:hover{background:var(--lei);color:var(--papier)}
+.gv .btn-g{background:rgba(255,255,255,.1);color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35);backdrop-filter:blur(6px)}
+.gv .btn-g:hover{background:#fff;color:var(--lei)}
+
+/* logo */
+.gv .logo{display:flex;align-items:center;gap:12px}
+.gv .tegel{width:46px;height:46px;border-radius:11px;background:var(--lei);display:grid;place-items:center;flex:none;box-shadow:inset 0 -4px 0 var(--terra)}
+.gv .tegel svg{width:28px;height:28px;margin-top:-4px}
+.gv .logo b{display:block;font:800 21px/1 'Archivo',sans-serif;font-stretch:125%;letter-spacing:.06em}
+.gv .logo small{display:block;font-size:12.5px;font-weight:600;color:var(--muted);margin-top:4px;letter-spacing:.02em}
+
+/* header */
+.gv .hdr{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 0;color:#fff;transition:background .3s,padding .3s,box-shadow .3s,color .3s}
+.gv .hdr .logo small{color:rgba(255,255,255,.72)}
+.gv .hdr .tegel{background:rgba(255,255,255,.12);backdrop-filter:blur(8px)}
+.gv .hdr.vast{background:rgba(250,249,246,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--lijn);padding:10px 0;color:var(--lei)}
+.gv .hdr.vast .logo small{color:var(--muted)}
+.gv .hdr.vast .tegel{background:var(--lei)}
+.gv .hdr .g-wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.gv .nav{display:flex;gap:2px}
+.gv .nav a{position:relative;padding:10px 14px;font-weight:600;font-size:15px;border-radius:8px;transition:background .2s}
+.gv .nav a::after{content:"";position:absolute;left:14px;right:14px;bottom:5px;height:2px;background:var(--terra);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.gv .nav a:hover::after{transform:scaleX(1)}
+.gv .hdr-r{display:flex;align-items:center;gap:10px}
+.gv .tel{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15px;padding:12px 18px;border-radius:10px;background:var(--terra);color:#fff;transition:background .2s}
+.gv .tel:hover{background:var(--terrad)}
+.gv .tel svg{width:16px;height:16px}
+.gv .burger{display:none;width:48px;height:48px;border-radius:12px;border:0;background:rgba(255,255,255,.14);color:inherit;place-items:center;cursor:pointer}
+.gv .hdr.vast .burger{background:var(--lei);color:#fff}
+.gv .burger svg{width:22px;height:22px}
+.gv .menu{position:fixed;inset:0;z-index:60;background:var(--lei);color:var(--papier);padding:20px 24px 28px;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .45s cubic-bezier(.7,0,.2,1);visibility:hidden}
+.gv .menu.open{transform:none;visibility:visible}
+.gv .menu .top{display:flex;justify-content:space-between;align-items:center}
+.gv .menu .top .tegel{background:var(--lei2)}
+.gv .menu nav{display:flex;flex-direction:column;margin-top:36px}
+.gv .menu nav a{font:700 32px/1.1 'Archivo',sans-serif;font-stretch:110%;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.09);display:flex;justify-content:space-between;align-items:center}
+.gv .menu nav a span{font:700 13px 'Public Sans';color:var(--terral)}
+.gv .menu .onder{margin-top:auto;display:grid;gap:10px}
+.gv .menu .x{width:48px;height:48px;border-radius:12px;border:0;background:rgba(255,255,255,.08);color:#fff;display:grid;place-items:center;cursor:pointer}
+
+/* hero */
+.gv .hero{position:relative;min-height:min(900px,100svh);display:flex;align-items:flex-end;color:#fff;isolation:isolate;padding:150px 0 150px}
+.gv .hero .bg{position:absolute;inset:0;z-index:-2;overflow:hidden;background:var(--lei2)}
+.gv .hero .bg img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;transform:scale(1.06);transition:transform 2s cubic-bezier(.2,.7,.2,1)}
+.gv .hero.in .bg img{transform:scale(1)}
+.gv .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,25,28,.55) 0%,rgba(20,25,28,.15) 32%,rgba(20,25,28,.55) 62%,rgba(20,25,28,.92) 100%)}
+.gv .hero .g-wrap{width:100%;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:end}
+.gv .hero h1{font-family:'Archivo',sans-serif;font-stretch:115%;font-weight:750;font-size:clamp(46px,6.4vw,94px);line-height:.96;letter-spacing:-.035em;margin-top:22px;text-wrap:balance}
+.gv .hero h1 em{font-style:normal;color:var(--terral)}
+.gv .hero .lead{color:rgba(255,255,255,.84);font-size:19px;margin-top:24px;max-width:31em}
+.gv .hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.gv .plaats{display:inline-flex;align-items:center;gap:10px;padding:8px 14px 8px 10px;border-radius:999px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);font-size:14px;font-weight:600}
+.gv .plaats svg{width:16px;height:16px;color:var(--terral)}
+.gv .score{justify-self:end;background:var(--papier);color:var(--lei);border-radius:var(--r);padding:20px 22px;display:flex;gap:16px;align-items:center;box-shadow:var(--schaduw);transition:transform .25s}
+.gv .score:hover{transform:translateY(-3px)}
+.gv .score .g{width:48px;height:48px;border-radius:12px;background:var(--kalk);display:grid;place-items:center;flex:none}
+.gv .score .g svg{width:24px;height:24px}
+.gv .score b{font:800 32px/1 'Archivo',sans-serif}
+.gv .sterren{display:flex;gap:2px;color:#E0A23B}
+.gv .sterren svg{width:15px;height:15px}
+.gv .sterren .half{opacity:.35}
+.gv .score small{display:block;font-size:13.5px;color:var(--muted);font-weight:600;margin-top:4px}
+
+/* feiten */
+.gv .feiten{position:relative;z-index:3;margin-top:-64px}
+.gv .feiten ul{display:grid;grid-template-columns:repeat(4,1fr);background:var(--papier);border-radius:var(--r);box-shadow:var(--schaduw);overflow:hidden}
+.gv .feiten li{padding:26px 26px;display:flex;flex-direction:column;gap:4px}
+.gv .feiten li+li{border-left:1px solid var(--lijn)}
+.gv .feiten b{font:750 22px/1.15 'Archivo',sans-serif;font-stretch:110%}
+.gv .feiten span{font-size:15px;color:var(--muted)}
+.gv .feiten a:hover b{color:var(--terra)}
+
+/* diensten */
+.gv .kop{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:52px}
+.gv .kop .lead{margin-top:0}
+.gv .dienst-rij{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.gv .dienst{position:relative;border-radius:var(--r-lg);overflow:hidden;background:var(--lei);color:#fff;min-height:540px;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate}
+.gv .dienst img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.gv .dienst::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,25,28,0) 30%,rgba(20,25,28,.65) 60%,rgba(20,25,28,.95) 100%)}
+.gv .dienst:hover img{transform:scale(1.05)}
+.gv .dienst .in{padding:30px}
+.gv .dienst .nr{position:absolute;top:22px;left:22px;font:800 14px/1 'Archivo',sans-serif;letter-spacing:.08em;background:rgba(250,249,246,.94);color:var(--lei);padding:8px 12px;border-radius:8px}
+.gv .dienst h3{font:750 30px/1.05 'Archivo',sans-serif;font-stretch:112%;letter-spacing:-.02em}
+.gv .dienst p{color:rgba(255,255,255,.82);font-size:16px;margin-top:10px}
+.gv .dienst ul{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.gv .dienst li{font-size:13px;font-weight:700;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.12);backdrop-filter:blur(6px)}
+.gv .dienst .meer{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-weight:700;font-size:15px;color:var(--terral)}
+.gv .dienst .meer svg{width:16px;height:16px;transition:transform .25s}
+.gv .dienst:hover .meer svg{transform:translateX(4px)}
+.gv .veeg{display:none}
+
+/* oversteken */
+.gv .over-st{background:var(--papier);border-radius:var(--r-lg);margin:0 20px;padding:110px 0}
+.gv .over-st .g-wrap{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.gv .duo{position:relative;height:600px}
+.gv .duo figure{position:absolute;border-radius:var(--r-lg);overflow:hidden;background:var(--steen)}
+.gv .duo figure img{width:100%;height:100%;object-fit:cover}
+.gv .duo .a{left:0;top:0;width:72%;height:78%}
+.gv .duo .b{right:0;bottom:0;width:52%;height:52%;box-shadow:0 0 0 10px var(--papier),var(--schaduw)}
+.gv .duo figcaption{position:absolute;left:14px;bottom:14px;background:rgba(30,37,41,.82);color:#fff;font-size:13px;font-weight:700;padding:6px 11px;border-radius:8px;backdrop-filter:blur(4px)}
+.gv .stalen{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:34px}
+.gv .staal{display:flex;gap:14px;align-items:center;padding:14px;border:1px solid var(--lijn);border-radius:14px;background:var(--kalk);transition:border-color .2s,transform .2s}
+.gv .staal:hover{border-color:var(--terra);transform:translateY(-2px)}
+.gv .staal i{width:44px;height:44px;border-radius:10px;flex:none}
+.gv .staal b{display:block;font-size:16px;line-height:1.2}
+.gv .staal span{font-size:14px;color:var(--muted)}
+.gv .s-zink{background:linear-gradient(135deg,#B9C0C4,#7F888D 60%,#A3ABB0)}
+.gv .s-rock{background:repeating-linear-gradient(90deg,#3F4A50 0 22px,#36403F 22px 23px)}
+.gv .s-tres{background:linear-gradient(160deg,#2C2F31,#4A4E50)}
+.gv .s-hout{background:repeating-linear-gradient(90deg,#9A6B43 0 6px,#8A5D38 6px 8px,#A57650 8px 15px)}
+.gv .tip{display:flex;gap:14px;align-items:flex-start;margin-top:24px;padding:18px 20px;border-radius:14px;background:rgba(180,83,42,.08);border:1px solid rgba(180,83,42,.22);font-size:16px;color:var(--lei2)}
+.gv .tip svg{width:22px;height:22px;flex:none;color:var(--terra);margin-top:2px}
+
+/* realisaties */
+.gv .filters{display:flex;flex-wrap:wrap;gap:8px}
+.gv .filters button{border:1.5px solid var(--lijn);background:var(--papier);padding:10px 16px;border-radius:999px;font-weight:700;font-size:14.5px;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.gv .filters button:hover{border-color:var(--lei)}
+.gv .filters button[aria-pressed="true"]{background:var(--lei);color:#fff;border-color:var(--lei)}
+.gv .filters button span{opacity:.6;font-weight:600;margin-left:4px}
+.gv .galerij{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:230px;gap:14px;margin-top:30px}
+.gv .foto{position:relative;border-radius:16px;overflow:hidden;background:var(--steen);cursor:zoom-in;border:0;padding:0;display:block;width:100%;height:100%}
+.gv .foto img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1),opacity .4s}
+.gv .foto:hover img{transform:scale(1.05)}
+.gv .foto .lbl{position:absolute;left:12px;bottom:12px;background:rgba(250,249,246,.94);color:var(--lei);font-size:12.5px;font-weight:700;padding:6px 10px;border-radius:8px;display:flex;gap:6px;align-items:center}
+.gv .foto .lbl::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--terra)}
+.gv .foto.groot{grid-column:span 2;grid-row:span 2}
+.gv .foto.breed{grid-column:span 2}
+.gv .foto[hidden]{display:none}
+.gv .lb{position:fixed;inset:0;z-index:80;background:rgba(14,18,20,.94);display:none;align-items:center;justify-content:center;padding:70px 20px}
+.gv .lb.open{display:flex}
+.gv .lb img{max-width:min(1100px,100%);max-height:100%;border-radius:12px;object-fit:contain;background:transparent}
+.gv .lb button{position:absolute;width:52px;height:52px;border-radius:50%;border:0;background:rgba(255,255,255,.1);color:#fff;display:grid;place-items:center;cursor:pointer;transition:background .2s}
+.gv .lb button:hover{background:var(--terra)}
+.gv .lb button svg{width:20px;height:20px}
+.gv .lb .x{top:16px;right:16px}
+.gv .lb .vo{left:16px;top:50%;transform:translateY(-50%)}
+.gv .lb .na{right:16px;top:50%;transform:translateY(-50%)}
+.gv .lb p{position:absolute;bottom:20px;left:0;right:0;text-align:center;color:rgba(255,255,255,.75);font-size:15px}
+
+/* werkwijze */
+.gv .werk{background:var(--lei);color:var(--papier);border-radius:var(--r-lg);margin:0 20px;padding:120px 0}
+.gv .werk .eyebrow{color:var(--terral)}
+.gv .werk .lead{color:rgba(250,249,246,.7)}
+.gv .stappen{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:56px;counter-reset:s}
+.gv .stap{position:relative}
+.gv .stap .f{height:220px;border-radius:16px;overflow:hidden;background:var(--lei2)}
+.gv .stap .f img{width:100%;height:100%;object-fit:cover;filter:saturate(.9);transition:transform .8s}
+.gv .stap:hover .f img{transform:scale(1.05)}
+.gv .stap .n{display:flex;align-items:center;gap:12px;margin-top:22px}
+.gv .stap .n i{width:40px;height:40px;border-radius:10px;background:var(--terra);display:grid;place-items:center;font:800 17px/1 'Archivo',sans-serif;font-style:normal;color:#fff;flex:none}
+.gv .stap .n span{flex:1;height:1px;background:rgba(250,249,246,.16)}
+.gv .stap h3{font:700 22px/1.15 'Archivo',sans-serif;font-stretch:110%;margin-top:18px}
+.gv .stap p{font-size:16px;color:rgba(250,249,246,.7);margin-top:8px}
+
+/* over */
+.gv .over .g-wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:80px;align-items:center}
+.gv .over .tekst p+p{margin-top:16px}
+.gv .over .tekst p{font-size:17.5px;color:var(--lei2)}
+.gv .citaat{font:600 26px/1.3 'Archivo',sans-serif;font-stretch:105%;letter-spacing:-.01em;margin:30px 0;padding-left:22px;border-left:4px solid var(--terra);color:var(--lei)}
+.gv .gebied{margin-top:30px}
+.gv .gebied h3{font:700 14px/1 'Archivo',sans-serif;font-stretch:118%;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.gv .gebied ul{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.gv .gebied li{padding:8px 14px;border-radius:999px;background:var(--papier);border:1px solid var(--lijn);font-weight:600;font-size:15px}
+.gv .gebied li.thuis{background:var(--lei);color:#fff;border-color:var(--lei)}
+.gv .over .beeld{position:relative;height:620px;border-radius:var(--r-lg);overflow:hidden;background:var(--steen)}
+.gv .over .beeld img{width:100%;height:100%;object-fit:cover}
+.gv .over .beeld .kaart{position:absolute;left:20px;right:20px;bottom:20px;background:rgba(250,249,246,.95);backdrop-filter:blur(8px);border-radius:16px;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.gv .over .beeld .kaart b{display:block;font:750 18px/1.2 'Archivo',sans-serif}
+.gv .over .beeld .kaart span{font-size:14px;color:var(--muted)}
+.gv .over .beeld .kaart a{flex:none;width:46px;height:46px;border-radius:12px;background:var(--terra);color:#fff;display:grid;place-items:center;transition:background .2s}
+.gv .over .beeld .kaart a:hover{background:var(--terrad)}
+.gv .over .beeld .kaart svg{width:18px;height:18px}
+
+/* reviews */
+.gv .rev .g-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.gv .rev-score{background:var(--papier);border:1px solid var(--lijn);border-radius:var(--r-lg);padding:34px}
+.gv .rev-score .getal{font:800 96px/.9 'Archivo',sans-serif;letter-spacing:-.04em}
+.gv .rev-score .sterren{margin-top:14px}
+.gv .rev-score .sterren svg{width:20px;height:20px}
+.gv .rev-score p{color:var(--muted);margin-top:10px;font-weight:600}
+.gv .rev-score .btn{margin-top:26px}
+.gv .quotes{display:grid;gap:16px}
+.gv .q{background:var(--papier);border:1px solid var(--lijn);border-radius:var(--r-lg);padding:32px;display:grid;gap:20px}
+.gv .q.donker{background:var(--lei);color:var(--papier);border-color:var(--lei)}
+.gv .q blockquote{font:600 24px/1.35 'Archivo',sans-serif;font-stretch:104%;letter-spacing:-.01em}
+.gv .q .wie{display:flex;align-items:center;gap:12px}
+.gv .q .av{width:44px;height:44px;border-radius:12px;background:var(--steen);color:var(--terrad);display:grid;place-items:center;font-weight:800}
+.gv .q.donker .av{background:var(--terra);color:#fff}
+.gv .q .wie b{display:block;font-size:15.5px}
+.gv .q .wie small{color:var(--muted);font-size:13.5px}
+.gv .q.donker .wie small{color:rgba(250,249,246,.6)}
+.gv .q .wie .sterren{margin-left:auto}
+
+/* faq */
+.gv .faq .g-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:72px}
+.gv .faq .lead a{color:var(--terra);font-weight:700;white-space:nowrap}
+.gv details{border-bottom:1px solid var(--lijn)}
+.gv details:first-child{border-top:1px solid var(--lijn)}
+.gv summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 0;font:700 21px/1.25 'Archivo',sans-serif;font-stretch:106%}
+.gv summary::-webkit-details-marker{display:none}
+.gv summary .plus{width:40px;height:40px;border-radius:10px;background:var(--papier);border:1px solid var(--lijn);display:grid;place-items:center;flex:none;transition:transform .3s,background .2s}
+.gv summary .plus svg{width:14px;height:14px}
+.gv summary:hover .plus{border-color:var(--lei)}
+.gv details[open] summary .plus{transform:rotate(45deg);background:var(--terra);color:#fff;border-color:var(--terra)}
+.gv details p{padding:0 64px 24px 0;color:var(--muted);font-size:16.5px}
+
+/* offerte */
+.gv .off{padding-top:0}
+.gv .off .g-wrap{display:grid;grid-template-columns:1.3fr .7fr;gap:20px;align-items:stretch}
+.gv .formkaart{background:var(--papier);border:1px solid var(--lijn);border-radius:var(--r-lg);padding:48px}
+.gv form{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.gv .veld{display:flex;flex-direction:column;gap:7px}
+.gv .veld.vol{grid-column:1/-1}
+.gv .veld label,.gv .veld legend{font-size:14px;font-weight:700;color:var(--lei2)}
+.gv .veld small{font-weight:500;color:var(--muted)}
+.gv fieldset{border:0;margin:0;padding:0}
+.gv .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.gv .chips label{cursor:pointer}
+.gv .chips input{position:absolute;opacity:0;pointer-events:none}
+.gv .chips span{display:inline-block;padding:10px 15px;border-radius:10px;border:1.5px solid var(--lijn);background:#fff;font-weight:600;font-size:15px;transition:all .2s}
+.gv .chips label:hover span{border-color:var(--lei)}
+.gv .chips input:checked+span{background:var(--lei);color:#fff;border-color:var(--lei)}
+.gv .chips input:focus-visible+span{outline:3px solid var(--terra);outline-offset:2px}
+.gv .veld input,.gv .veld textarea{width:100%;border:1.5px solid var(--lijn);background:#fff;border-radius:12px;padding:14px 16px;font-size:16px;outline:none;transition:border-color .2s,box-shadow .2s}
+.gv .veld textarea{min-height:120px;resize:vertical}
+.gv .veld input:focus,.gv .veld textarea:focus{border-color:var(--terra);box-shadow:0 0 0 4px rgba(180,83,42,.14)}
+.gv .veld input.fout,.gv .veld textarea.fout{border-color:#C0392B}
+.gv .upload{display:flex;align-items:center;gap:14px;padding:16px;border:1.5px dashed rgba(30,37,41,.25);border-radius:12px;background:#fff;cursor:pointer;transition:border-color .2s}
+.gv .upload:hover{border-color:var(--terra)}
+.gv .upload svg{width:24px;height:24px;color:var(--terra);flex:none}
+.gv .upload span{font-size:15px;color:var(--muted)}
+.gv .upload b{color:var(--lei)}
+.gv .upload input{position:absolute;opacity:0;width:1px;height:1px}
+.gv form .verstuur{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:6px}
+.gv form .verstuur small{color:var(--muted);font-size:14px;max-width:26em}
+.gv .bedankt{display:none;margin-top:30px;background:var(--kalk);border-radius:var(--r);padding:34px}
+.gv .bedankt.toon{display:block;animation:op .5s ease}
+.gv .bedankt i{width:52px;height:52px;border-radius:12px;background:var(--terra);color:#fff;display:grid;place-items:center;margin-bottom:16px}
+.gv .bedankt i svg{width:24px;height:24px}
+.gv .bedankt h3{font:750 28px/1.15 'Archivo',sans-serif}
+.gv .bedankt p{color:var(--muted);margin-top:8px}
+@keyframes op{from{opacity:0;transform:translateY(8px)}}
+.gv .gegevens{background:var(--lei);color:var(--papier);border-radius:var(--r-lg);padding:44px 36px;display:flex;flex-direction:column}
+.gv .gegevens .eyebrow{color:var(--terral)}
+.gv .gegevens h2{font:750 32px/1.08 'Archivo',sans-serif;font-stretch:110%;margin-top:14px}
+.gv .gegevens ul{margin-top:28px;display:grid;gap:4px}
+.gv .gegevens li a,.gv .gegevens li > span{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid rgba(250,249,246,.1);font-weight:600}
+.gv .gegevens li a:hover{color:var(--terral)}
+.gv .gegevens li i{width:40px;height:40px;border-radius:10px;background:var(--lei2);display:grid;place-items:center;flex:none;color:var(--terral)}
+.gv .gegevens li i svg{width:18px;height:18px}
+.gv .gegevens .noot{margin-top:auto;padding-top:30px;font-size:14.5px;color:rgba(250,249,246,.6)}
+
+/* footer */
+.gv .voet{background:var(--lei);color:var(--papier);margin-top:120px;padding:80px 0 30px;position:relative;overflow:hidden}
+.gv .voet::before{content:"";position:absolute;left:0;right:0;top:0;height:46px;background:var(--kalk);clip-path:polygon(0 0,100% 0,100% 0,50% 100%,0 0)}
+.gv .voet .grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-top:20px}
+.gv .voet .tegel{background:var(--lei2)}
+.gv .voet .logo small{color:rgba(250,249,246,.55)}
+.gv .voet p.over-t{margin-top:20px;color:rgba(250,249,246,.68);max-width:22em;font-size:15.5px}
+.gv .voet h4{font:700 13px/1 'Archivo',sans-serif;font-stretch:118%;letter-spacing:.14em;text-transform:uppercase;color:var(--terral);margin-bottom:16px}
+.gv .voet li{font-size:15.5px;color:rgba(250,249,246,.8);line-height:1.95}
+.gv .voet a:hover{color:var(--terral)}
+.gv .voet .onder{margin-top:60px;padding-top:24px;border-top:1px solid rgba(250,249,246,.1);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:14px;color:rgba(250,249,246,.5)}
+
+.gv .actiebalk{display:none}
+
+/* verschijnen */
+.gv .op{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.gv .op.zien{opacity:1;transform:none}
+.gv .op.d1{transition-delay:.08s}.gv .op.d2{transition-delay:.16s}.gv .op.d3{transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){.gv .op{opacity:1;transform:none;transition:none}.gv .hero .bg img{transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* responsief */
+@media (max-width:1100px){
+  .gv .nav{display:none}
+  .gv .burger{display:grid}
+  .gv .hero .g-wrap{grid-template-columns:1fr}
+  .gv .score{justify-self:start}
+  .gv .feiten ul{grid-template-columns:1fr 1fr}
+  .gv .feiten li:nth-child(3){border-left:0}
+  .gv .feiten li:nth-child(n+3){border-top:1px solid var(--lijn)}
+  .gv .over-st .g-wrap,.gv .over .g-wrap,.gv .rev .g-wrap,.gv .faq .g-wrap,.gv .off .g-wrap{grid-template-columns:1fr;gap:48px}
+  .gv .stappen{grid-template-columns:1fr 1fr;gap:36px 20px}
+  .gv .galerij{grid-template-columns:repeat(3,1fr)}
+  .gv .voet .grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .gv .kop{flex-direction:column;align-items:flex-start;gap:18px}
+  .gv .dienst-rij{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -18px;padding:0 18px 4px;scroll-padding:0 18px;scrollbar-width:none}
+  .gv .dienst-rij::-webkit-scrollbar{display:none}
+  .gv .dienst{flex:0 0 84%;min-height:500px;scroll-snap-align:start}
+  .gv .dienst-rij .op{opacity:1;transform:none}
+  .gv .veeg{display:flex;align-items:center;gap:14px;margin-top:20px;font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.04em}
+  .gv .veeg .balk{flex:1;height:3px;border-radius:3px;background:var(--lijn);overflow:hidden;position:relative}
+  .gv .veeg .balk i{position:absolute;left:0;top:0;bottom:0;width:30%;border-radius:3px;background:var(--terra)}
+  .gv .galerij{grid-template-columns:1fr 1fr;grid-auto-rows:180px}
+}
+@media (max-width:640px){
+  .gv{font-size:16px}
+  .gv .g-wrap{padding:0 18px}
+  .wrap{padding:0 18px}
+  .gv .sec{padding:84px 0}
+  .gv .logo small{display:none}
+  .gv .logo b{font-size:19px}
+  .gv .tel{display:none}
+  .gv .hero{padding:120px 0 120px;min-height:680px}
+  .gv .hero h1{font-size:44px}
+  .gv .hero .lead{font-size:17px}
+  .gv .hero .cta .btn{flex:1 1 100%}
+  .gv .score{padding:14px 16px}
+  .gv .score b{font-size:26px}
+  .gv .feiten{margin-top:-60px}
+  .gv .feiten li{padding:18px}
+  .gv .feiten b{font-size:18px}
+  .gv .feiten span{font-size:14px}
+  .gv .feiten li:last-child{grid-column:1/-1;border-left:0}
+  .gv .h2{font-size:34px}
+  .gv .lead{font-size:16.5px}
+  .gv .over-st,.gv .werk{margin:0 10px;border-radius:22px;padding:80px 0}
+  .gv .duo{height:420px}
+  .gv .stalen{grid-template-columns:1fr}
+  .gv .galerij{grid-auto-rows:150px;gap:10px}
+  .gv .foto.groot{grid-row:span 2}
+  .gv .stappen{grid-template-columns:1fr}
+  .gv .stap .f{height:200px}
+  .gv .over .beeld{height:440px}
+  .gv .citaat{font-size:21px}
+  .gv .rev-score .getal{font-size:80px}
+  .gv .q{padding:24px}
+  .gv .q blockquote{font-size:20px}
+  .gv summary{font-size:18px;padding:20px 0}
+  .gv details p{padding-right:0}
+  .gv .off .g-wrap{padding:0 10px}
+  .gv .formkaart,.gv .gegevens{padding:30px 20px;border-radius:22px}
+  .gv form{grid-template-columns:1fr}
+  .gv form .verstuur .btn{width:100%}
+  .gv .voet .grid{grid-template-columns:1fr;gap:32px}
+  .gv .actiebalk{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:10px;right:10px;bottom:10px;z-index:40;background:rgba(30,37,41,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:8px;border-radius:16px;box-shadow:0 14px 30px -10px rgba(0,0,0,.5);transition:transform .35s,opacity .35s}
+  .gv .actiebalk.weg{transform:translateY(130%);opacity:0;pointer-events:none}
+  .gv .actiebalk a{display:flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;padding:14px 10px;font-weight:700;font-size:15px;color:#fff}
+  .gv .actiebalk a.k{background:var(--terra)}
+  .gv .actiebalk svg{width:17px;height:17px}
+}
+@media (max-width:760px){.gv .hero::before{background:linear-gradient(180deg,rgba(20,25,28,.72) 0%,rgba(20,25,28,.62) 45%,rgba(20,25,28,.8) 72%,rgba(20,25,28,.95) 100%)}}.gv .hero h1{text-shadow:0 2px 24px rgba(0,0,0,.25)}</style>
+</head>
+<body>
+<div class="gv">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="g-dak" viewBox="0 0 32 32"><path d="M3 18 16 7l13 11" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 18v8h16v-8" fill="none" stroke="#E7A57F" stroke-width="3" stroke-linejoin="round"/></symbol>
+  <symbol id="g-pijl" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="g-pijl-l" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="g-tel" viewBox="0 0 24 24"><path d="M6.6 3.5h2.6l1.6 4-2 1.3a11 11 0 0 0 6.4 6.4l1.3-2 4 1.6v2.6A2.1 2.1 0 0 1 18.4 19.5 15.4 15.4 0 0 1 4.5 5.6 2.1 2.1 0 0 1 6.6 3.5Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></symbol>
+  <symbol id="g-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.1 7-11.5a7 7 0 0 0-14 0C5 14.9 12 21 12 21Z" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="9.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.9"/></symbol>
+  <symbol id="g-mail" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="m4.5 7 7.5 6 7.5-6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="g-ster" viewBox="0 0 20 20"><path d="m10 1.8 2.5 5.3 5.8.7-4.3 4 1.1 5.7L10 14.7l-5.1 2.8L6 11.8l-4.3-4 5.8-.7Z" fill="currentColor"/></symbol>
+  <symbol id="g-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="g-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="g-vink" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="g-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M12 11v5M12 7.6v.2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="g-foto" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="3" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12.5" r="3.3" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M8.5 6 10 4h4l1.5 2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></symbol>
+  <symbol id="g-g" viewBox="0 0 24 24"><path d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.3Z" fill="#4285F4"/><path d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22Z" fill="#34A853"/><path d="M6.4 14c-.2-.6-.3-1.3-.3-2s.1-1.4.3-2V7.4H3.1a10 10 0 0 0 0 9.2Z" fill="#FBBC05"/><path d="M12 5.9c1.5 0 2.8.5 3.8 1.5l2.9-2.9A10 10 0 0 0 3.1 7.4L6.4 10c.8-2.3 3-4.1 5.6-4.1Z" fill="#EA4335"/></symbol>
+</svg>
+
+<header class="hdr" id="top">
+  <div class="g-wrap">
+    <a href="#top" class="logo" aria-label="Gevana, naar boven">
+      <span class="tegel" aria-hidden="true"><svg><use href="#g-dak"/></svg></span>
+      <span><b>GEVANA</b><small>Dakwerken · Linter</small></span>
+    </a>
+    <nav class="nav" aria-label="Hoofdmenu">
+      <a href="#daken">Daken</a>
+      <a href="#oversteken">Gevelbekleding</a>
+      <a href="#realisaties">Realisaties</a>
+      <a href="#werkwijze">Werkwijze</a>
+      <a href="#over">Over ons</a>
+      <a href="#offerte">Offerte</a>
+    </nav>
+    <div class="hdr-r">
+      <a class="tel" href="tel:+32479460592"><svg><use href="#g-tel"/></svg>0479 46 05 92</a>
+      <button class="burger" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <div class="top">
+    <span class="logo"><span class="tegel" aria-hidden="true"><svg><use href="#g-dak"/></svg></span><span><b>GEVANA</b></span></span>
+    <button class="x" type="button" aria-label="Menu sluiten"><svg width="18" height="18"><use href="#g-x"/></svg></button>
+  </div>
+  <nav aria-label="Mobiel menu">
+    <a href="#daken">Daken <span>01</span></a>
+    <a href="#oversteken">Gevelbekleding <span>02</span></a>
+    <a href="#realisaties">Realisaties <span>03</span></a>
+    <a href="#werkwijze">Werkwijze <span>04</span></a>
+    <a href="#over">Over ons <span>05</span></a>
+    <a href="#offerte">Offerte <span>06</span></a>
+  </nav>
+  <div class="onder">
+    <a class="btn btn-t" href="tel:+32479460592"><svg><use href="#g-tel"/></svg>Bel 0479 46 05 92</a>
+    <a class="btn btn-g" href="mailto:info@gevana.be">info@gevana.be</a>
+  </div>
+</div>
+
+<main>
+
+<section class="hero" aria-labelledby="h1">
+  <div class="bg"><img src="img/x-1a9afc1f8f74.jpg" width="2560" height="1920" alt="Een hellend dak, gelegd door Gevana" referrerpolicy="no-referrer" decoding="async" fetchpriority="high"></div>
+  <div class="g-wrap">
+    <div>
+      <span class="plaats op"><svg><use href="#g-pin"/></svg>Melkwezer, Linter · sinds 2004</span>
+      <h1 id="h1" class="op d1">Een dak dat <em>goed ligt.</em> En blijft liggen.</h1>
+      <p class="lead op d2">We leggen en vernieuwen hellende en platte daken, voor nieuwbouw en renovatie. En die verweerde dakoversteek? Die bekleden we in zink, Rockpanel, Trespa of hout.</p>
+      <div class="cta op d3">
+        <a class="btn btn-t" href="#offerte">Offerte aanvragen <svg><use href="#g-pijl"/></svg></a>
+        <a class="btn btn-g" href="#realisaties">Bekijk ons werk</a>
+      </div>
+    </div>
+    <a class="score op d2" href="https://www.google.com/maps/search/?api=1&amp;query=Gevana+Dorpsstraat+108+3350+Linter" target="_blank" rel="noopener">
+      <span class="g"><svg><use href="#g-g"/></svg></span>
+      <span><span style="display:flex;align-items:center;gap:10px"><b>4,2</b><span class="sterren" aria-label="4,2 op 5 sterren"><svg><use href="#g-ster"/></svg><svg><use href="#g-ster"/></svg><svg><use href="#g-ster"/></svg><svg><use href="#g-ster"/></svg><svg class="half"><use href="#g-ster"/></svg></span></span><small>op Google</small></span>
+    </a>
+  </div>
+</section>
+
+<div class="feiten">
+  <div class="g-wrap">
+    <ul class="op">
+      <li><b>Sinds 2004</b><span>Meer dan 20 jaar op de daken</span></li>
+      <li><b>Hellend en plat</b><span>Nieuwbouw en renovatie</span></li>
+      <li><b>Woning of bedrijf</b><span>Ook voor bedrijfspanden</span></li>
+      <li><a href="tel:+32479460592"><b>0479 46 05 92</b><span>Bel gerust even</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<section class="sec" id="daken" aria-labelledby="t-daken">
+  <div class="g-wrap">
+    <div class="kop">
+      <div>
+        <span class="eyebrow op">Wat we doen</span>
+        <h2 class="h2 op d1" id="t-daken">Drie dingen, en die <em>goed</em></h2>
+      </div>
+      <p class="lead op d2">Geen snelle oplossingen of halfwerk. We kijken eerst, meten alles op en zeggen eerlijk wat je dak nodig heeft.</p>
+    </div>
+    <div class="dienst-rij" data-scroller>
+      <a class="dienst op" href="#offerte">
+        <img src="img/x-3465613d0f8c.jpg" width="1024" height="768" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Vernieuwd hellend dak in Tielt-Winge">
+        <span class="nr">01</span>
+        <div class="in">
+          <h3>Hellende daken</h3>
+          <p>Nieuw leggen of volledig renoveren. Een hellend dak moet jaren tegen wind en regen kunnen, dus we werken het af tot in de details.</p>
+          <ul><li>Nieuwbouw</li><li>Renovatie</li></ul>
+          <span class="meer">Offerte vragen <svg><use href="#g-pijl"/></svg></span>
+        </div>
+      </a>
+      <a class="dienst op d1" href="#offerte">
+        <img src="img/x-ae6c8bf8f7a8.jpg" width="1024" height="576" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Afgewerkt plat dak door Gevana" style="object-position:50% 50%">
+        <span class="nr">02</span>
+        <div class="in">
+          <h3>Platte daken</h3>
+          <p>Plaatsen, renoveren of herstellen. Een plat dak vraagt precisie en de juiste materialen, anders staat het water er na één winter.</p>
+          <ul><li>Plaatsen</li><li>Renoveren</li><li>Herstellen</li></ul>
+          <span class="meer">Offerte vragen <svg><use href="#g-pijl"/></svg></span>
+        </div>
+      </a>
+      <a class="dienst op d2" href="#oversteken">
+        <img src="img/x-f450f54acb3b.jpg" width="1024" height="768" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Dakoversteek bekleed met Trespa-panelen">
+        <span class="nr">03</span>
+        <div class="in">
+          <h3>Gevelbekleding</h3>
+          <p>Verouderde dakoversteken krijgen een nieuwe bekleding. Nog in goede staat? Dan frissen we ze op in een andere kleur.</p>
+          <ul><li>Zink</li><li>Rockpanel</li><li>Trespa</li><li>Hout</li></ul>
+          <span class="meer">Meer over bekleding <svg><use href="#g-pijl"/></svg></span>
+        </div>
+      </a>
+    </div>
+    <div class="veeg" aria-hidden="true"><span class="balk"><i data-voortgang></i></span>Schuif opzij</div>
+  </div>
+</section>
+
+<section class="over-st" id="oversteken" aria-labelledby="t-over-st">
+  <div class="g-wrap">
+    <div class="duo op">
+      <figure class="a"><img src="img/x-aab8f39b6bc8.jpg" width="1024" height="768" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Zijkant van een dak, afgewerkt met Trespa-panelen"><figcaption>Trespa</figcaption></figure>
+      <figure class="b"><img src="img/x-5868b9afe72e.jpg" width="1024" height="768" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Dakoversteek bekleed met hout"><figcaption>Hout</figcaption></figure>
+    </div>
+    <div>
+      <span class="eyebrow op">Dakoversteken</span>
+      <h2 class="h2 op d1" id="t-over-st">De rand van je dak doet <em>meer</em> dan je denkt</h2>
+      <p class="lead op d2">Een verweerde oversteek valt op van ver. We bekleden hem opnieuw, of schilderen hem op in een kleur die beter past bij je huis.</p>
+      <div class="stalen op d2">
+        <div class="staal"><i class="s-zink" aria-hidden="true"></i><span><b>Zink</b><span>Sober, gaat lang mee</span></span></div>
+        <div class="staal"><i class="s-rock" aria-hidden="true"></i><span><b>Rockpanel</b><span>Strak, in veel kleuren</span></span></div>
+        <div class="staal"><i class="s-tres" aria-hidden="true"></i><span><b>Trespa</b><span>Onderhoudsvrije panelen</span></span></div>
+        <div class="staal"><i class="s-hout" aria-hidden="true"></i><span><b>Hout</b><span>Warm en natuurlijk</span></span></div>
+      </div>
+      <p class="tip op d3"><svg><use href="#g-info"/></svg><span>Niet zeker of je oversteek nog gezond is? Stuur een foto mee met je aanvraag, dan zeggen we wat er kan.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="realisaties" aria-labelledby="t-real">
+  <div class="g-wrap">
+    <div class="kop">
+      <div>
+        <span class="eyebrow op">Realisaties</span>
+        <h2 class="h2 op d1" id="t-real">Daken die we <em>legden</em></h2>
+      </div>
+      <div class="filters op d2" role="group" aria-label="Filter realisaties">
+        <button type="button" data-f="alles" aria-pressed="true">Alles</button>
+        <button type="button" data-f="hellend" aria-pressed="false">Hellend dak</button>
+        <button type="button" data-f="plat" aria-pressed="false">Plat dak</button>
+        <button type="button" data-f="gevel" aria-pressed="false">Gevelbekleding</button>
+      </div>
+    </div>
+    <div class="galerij" data-galerij>
+      <button type="button" class="foto groot op" data-cat="hellend" data-cap="Hellend dak in Tielt-Winge"><img src="img/x-3465613d0f8c.jpg" width="1024" height="768" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Hellend dak in Tielt-Winge"><span class="lbl">Tielt-Winge</span></button>
+      <button type="button" class="foto op" data-cat="hellend" data-cap="Hellend dak in Ottignies"><img src="img/x-cf458cbb8419.jpg" width="1024" height="768" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Hellend dak in Ottignies"><span class="lbl">Ottignies</span></button>
+      <button type="button" class="foto op d1" data-cat="plat" data-cap="Plat dak"><img src="img/x-7bdef17b1219.jpg" width="1024" height="576" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Plat dak, afgewerkt door Gevana"><span class="lbl">Plat dak</span></button>
+      <button type="button" class="foto op" data-cat="hellend" data-cap="Hellend dak in Bierbeek"><img src="img/x-813ffd9424ad.jpg" width="1024" height="768" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Hellend dak in Bierbeek"><span class="lbl">Bierbeek</span></button>
+      <button type="button" class="foto op d1" data-cat="gevel" data-cap="Dakoversteek in hout"><img src="img/x-0a5d1132236c.jpg" width="1024" height="768" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Dakoversteek bekleed met hout"><span class="lbl">Hout</span></button>
+      <button type="button" class="foto breed op" data-cat="plat" data-cap="Plat dak"><img src="img/x-3a5765d1c77e.jpg" width="1024" height="576" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Plat dak met nette randafwerking"><span class="lbl">Plat dak</span></button>
+      <button type="button" class="foto op" data-cat="hellend" data-cap="Hellend dak in Hasselt"><img src="img/x-a1862175a8a5.jpg" width="1024" height="768" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Hellend dak in Hasselt"><span class="lbl">Hasselt</span></button>
+      <button type="button" class="foto op d1" data-cat="hellend" data-cap="Hellend dak"><img src="img/x-25c494e5fcb6.jpg" width="1024" height="768" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Hellend dak, gelegd door Gevana"><span class="lbl">Hellend dak</span></button>
+      <button type="button" class="foto op" data-cat="gevel" data-cap="Hellend dak en gevelbekleding"><img src="img/x-465375d957bf.jpg" width="1024" height="768" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Hellend dak met nieuwe gevelbekleding"><span class="lbl">Dak en gevel</span></button>
+      <button type="button" class="foto op d1" data-cat="plat" data-cap="Plat dak"><img src="img/x-509a88ee56b7.jpg" width="1024" height="576" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Plat dak na de werken"><span class="lbl">Plat dak</span></button>
+      <button type="button" class="foto op" data-cat="hellend" data-cap="Hellend dak"><img src="img/x-630899892de5.jpg" width="1024" height="768" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Hellend dak met nieuwe pannen"><span class="lbl">Hellend dak</span></button>
+      <button type="button" class="foto op d1" data-cat="gevel" data-cap="Dakoversteek in Trespa"><img src="img/x-aab8f39b6bc8.jpg" width="1024" height="768" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Dakoversteek in Trespa, zijkant"><span class="lbl">Trespa</span></button>
+    </div>
+  </div>
+  <div class="lb" role="dialog" aria-modal="true" aria-label="Foto vergroot" data-lb>
+    <img alt="" referrerpolicy="no-referrer" decoding="async">
+    <button type="button" class="x" aria-label="Sluiten"><svg><use href="#g-x"/></svg></button>
+    <button type="button" class="vo" aria-label="Vorige foto"><svg><use href="#g-pijl-l"/></svg></button>
+    <button type="button" class="na" aria-label="Volgende foto"><svg><use href="#g-pijl"/></svg></button>
+    <p data-lb-cap></p>
+  </div>
+</section>
+
+<section class="werk" id="werkwijze" aria-labelledby="t-werk">
+  <div class="g-wrap">
+    <span class="eyebrow op">Werkwijze</span>
+    <h2 class="h2 op d1" id="t-werk">Zo pakken we <em style="color:var(--terral)">het aan</em></h2>
+    <p class="lead op d2">Van het eerste gesprek tot de laatste pan. Je weet op voorhand wat er gebeurt, met welke materialen en wanneer.</p>
+    <ol class="stappen">
+      <li class="stap op"><div class="f"><img src="img/x-df4eba9558ee.jpg" width="1200" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="De bestelwagen van Gevana"></div><div class="n"><i aria-hidden="true">1</i><span></span></div><h3>Kennismaking</h3><p>Je vertelt wat je wil. Wij zeggen wat kan en geven advies op maat.</p></li>
+      <li class="stap op d1"><div class="f"><img src="img/x-f0c646114cc6.jpg" width="1024" height="768" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Hellend dak, afgewerkt door Gevana"></div><div class="n"><i aria-hidden="true">2</i><span></span></div><h3>We komen kijken</h3><p>Ter plaatse bekijken we de toestand, meten alles op en bespreken de technische punten.</p></li>
+      <li class="stap op d2"><div class="f"><img src="img/x-47510de69c38.jpg" width="1200" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Realisatie van Gevana"></div><div class="n"><i aria-hidden="true">3</i><span></span></div><h3>Offerte op maat</h3><p>Een duidelijke offerte: materialen, werken en planning, met een eerlijke prijs.</p></li>
+      <li class="stap op d3"><div class="f"><img src="img/x-0c3b27c7ee1f.jpg" width="1200" height="900" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Een dak van Gevana, uit een eerdere werf"></div><div class="n"><i aria-hidden="true">4</i><span></span></div><h3>Plaatsing en afwerking</h3><p>Na je akkoord legt onze ploeg het dak, met oog voor elk detail.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec over" id="over" aria-labelledby="t-over">
+  <div class="g-wrap">
+    <div class="tekst">
+      <span class="eyebrow op">Over Gevana</span>
+      <h2 class="h2 op d1" id="t-over">Een kleine ploeg uit <em>Melkwezer</em></h2>
+      <p class="op d2" style="margin-top:22px">Gevana zit sinds 2004 in de Dorpsstraat in Melkwezer, een deelgemeente van Linter. Van daaruit rijden we naar daken in heel de streek, en soms een stuk verder.</p>
+      <p class="op d2">We zijn een kleine ploeg, en dat bevalt ons. Heb je tijdens de werken een vraag, dan komen we gewoon langs om ze samen te bekijken.</p>
+      <p class="citaat op">"Perfectie tot in de kleinste details. Snelle oplossingen en halfwerk doen we niet."</p>
+      <div class="gebied op">
+        <h3>Hier lagen we al</h3>
+        <ul>
+          <li class="thuis">Linter</li><li>Tielt-Winge</li><li>Bierbeek</li><li>Hasselt</li><li>Ottignies</li>
+        </ul>
+      </div>
+    </div>
+    <div class="beeld op d1">
+      <img src="img/x-ea0317e226a3.jpg" width="2560" height="1920" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Een afgewerkt dak van Gevana">
+      <div class="kaart">
+        <span><b>Dorpsstraat 108, Linter</b><span>Melkwezer · 3350</span></span>
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Dorpsstraat+108+3350+Linter" target="_blank" rel="noopener" aria-label="Route naar Gevana"><svg><use href="#g-pin"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec rev" id="reviews" aria-labelledby="t-rev" style="padding-top:0">
+  <div class="g-wrap">
+    <div>
+      <span class="eyebrow op">Reviews</span>
+      <h2 class="h2 op d1" id="t-rev">Wat klanten <em>schrijven</em></h2>
+      <div class="rev-score op d2" style="margin-top:34px">
+        <span class="getal">4,2</span>
+        <span class="sterren" aria-label="4,2 op 5 sterren" style="display:flex"><svg><use href="#g-ster"/></svg><svg><use href="#g-ster"/></svg><svg><use href="#g-ster"/></svg><svg><use href="#g-ster"/></svg><svg class="half"><use href="#g-ster"/></svg></span>
+        <p>Gemiddelde op Google</p>
+        <a class="btn btn-o" href="https://www.google.com/maps/search/?api=1&amp;query=Gevana+Dorpsstraat+108+3350+Linter" target="_blank" rel="noopener">Lees ze op Google <svg><use href="#g-pijl"/></svg></a>
+      </div>
+    </div>
+    <div class="quotes">
+      <figure class="q donker op">
+        <blockquote>"Degelijke firma die ons dak volledig renoveerde. Vlotte communicatie. Goede materiaalkeuze. Professionele dakwerkers."</blockquote>
+        <figcaption class="wie"><span class="av">JS</span><span><b>J. S.</b><small>Volledige dakrenovatie · Google</small></span><span class="sterren" aria-label="5 sterren"><svg><use href="#g-ster"/></svg><svg><use href="#g-ster"/></svg><svg><use href="#g-ster"/></svg><svg><use href="#g-ster"/></svg><svg><use href="#g-ster"/></svg></span></figcaption>
+      </figure>
+      <figure class="q op d1">
+        <blockquote>"Heel duidelijk en transparant."</blockquote>
+        <figcaption class="wie"><span class="av">SL</span><span><b>Shana L.</b><small>Google</small></span><span class="sterren" aria-label="5 sterren"><svg><use href="#g-ster"/></svg><svg><use href="#g-ster"/></svg><svg><use href="#g-ster"/></svg><svg><use href="#g-ster"/></svg><svg><use href="#g-ster"/></svg></span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec faq" id="vragen" aria-labelledby="t-faq" style="padding-top:0">
+  <div class="g-wrap">
+    <div>
+      <span class="eyebrow op">Vragen</span>
+      <h2 class="h2 op d1" id="t-faq">Wat mensen ons <em>vaak vragen</em></h2>
+      <p class="lead op d2">Staat je vraag er niet bij? Bel <a href="tel:+32479460592">0479 46 05 92</a> of mail naar <a href="mailto:info@gevana.be">info@gevana.be</a>.</p>
+    </div>
+    <div class="op d1">
+      <details open><summary>Komen jullie eerst kijken voor je een prijs geeft?<span class="plus"><svg><use href="#g-plus"/></svg></span></summary><p>Ja. We bekijken je dak ter plaatse, meten alles op en bespreken wat er moet gebeuren. Pas daarna maken we de offerte.</p></details>
+      <details><summary>Herstellen jullie ook een lek in een plat dak?<span class="plus"><svg><use href="#g-plus"/></svg></span></summary><p>Ja, we plaatsen nieuwe platte daken, maar renoveren en herstellen ook bestaande. Beschrijf het probleem in het formulier en voeg gerust een foto toe.</p></details>
+      <details><summary>Mijn dakoversteek ziet er versleten uit. Moet die eraf?<span class="plus"><svg><use href="#g-plus"/></svg></span></summary><p>Niet altijd. Is hij nog in goede staat, dan frissen we hem op en zetten we hem in een andere kleur. Anders bekleden we hem met zink, Rockpanel, Trespa of hout.</p></details>
+      <details><summary>Werken jullie ook voor bedrijven?<span class="plus"><svg><use href="#g-plus"/></svg></span></summary><p>Ja, voor woningen en bedrijfspanden, bij nieuwbouw en bij renovatie.</p></details>
+      <details><summary>Kost een offerte iets?<span class="plus"><svg><use href="#g-plus"/></svg></span></summary><p>Nee. Advies en offerte zijn vrijblijvend.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec off" id="offerte" aria-labelledby="t-off">
+  <div class="g-wrap">
+    <div class="formkaart op">
+      <span class="eyebrow">Offerte</span>
+      <h2 class="h2" id="t-off">Vertel ons over <em>je dak</em></h2>
+      <p class="lead">Een paar zinnen volstaan. We nemen contact op om langs te komen.</p>
+      <form id="offerteform" novalidate>
+        <fieldset class="veld vol">
+          <legend>Waarover gaat het?</legend>
+          <div class="chips">
+            <label><input type="radio" name="type" value="Hellend dak" checked><span>Hellend dak</span></label>
+            <label><input type="radio" name="type" value="Plat dak"><span>Plat dak</span></label>
+            <label><input type="radio" name="type" value="Gevelbekleding"><span>Gevelbekleding</span></label>
+            <label><input type="radio" name="type" value="Herstelling"><span>Herstelling</span></label>
+            <label><input type="radio" name="type" value="Iets anders"><span>Iets anders</span></label>
+          </div>
+        </fieldset>
+        <div class="veld"><label for="f-naam">Naam</label><input id="f-naam" name="naam" autocomplete="name" required></div>
+        <div class="veld"><label for="f-gem">Gemeente van de werf</label><input id="f-gem" name="gemeente" autocomplete="address-level2" placeholder="Bv. Linter" required></div>
+        <div class="veld"><label for="f-tel">Telefoon</label><input id="f-tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" required></div>
+        <div class="veld"><label for="f-mail">E-mail <small>(optioneel)</small></label><input id="f-mail" name="mail" type="email" autocomplete="email"></div>
+        <div class="veld vol"><label for="f-wat">Korte omschrijving</label><textarea id="f-wat" name="wat" placeholder="Bv. oude pannen vervangen en het dak isoleren, ongeveer 90 m²" required></textarea></div>
+        <div class="veld vol">
+          <label class="upload" for="f-foto"><svg><use href="#g-foto"/></svg><span><b>Foto's toevoegen</b> (optioneel)<br><span data-bestanden>Een foto van je dak helpt ons al veel</span></span><input id="f-foto" name="fotos" type="file" accept="image/*" multiple></label>
+        </div>
+        <div class="verstuur">
+          <small>We gebruiken je gegevens enkel om je aanvraag te beantwoorden.</small>
+          <button class="btn btn-t" type="submit">Aanvraag versturen <svg><use href="#g-pijl"/></svg></button>
+        </div>
+      </form>
+      <div class="bedankt" role="status" aria-live="polite">
+        <i><svg><use href="#g-vink"/></svg></i>
+        <h3>Bedankt, <span data-naam></span>.</h3>
+        <p>We hebben je aanvraag goed ontvangen en nemen snel contact op om een moment af te spreken.</p>
+      </div>
+    </div>
+    <aside class="gegevens op d1" aria-labelledby="t-geg">
+      <span class="eyebrow">Contact</span>
+      <h2 id="t-geg">Liever even bellen?</h2>
+      <ul>
+        <li><a href="tel:+32479460592"><i><svg><use href="#g-tel"/></svg></i>0479 46 05 92</a></li>
+        <li><a href="mailto:info@gevana.be"><i><svg><use href="#g-mail"/></svg></i>info@gevana.be</a></li>
+        <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Dorpsstraat+108+3350+Linter" target="_blank" rel="noopener"><i><svg><use href="#g-pin"/></svg></i>Dorpsstraat 108, 3350 Linter</a></li>
+      </ul>
+      <p class="noot">Een mail met een foto van je dak erbij is ook altijd goed.</p>
+    </aside>
+  </div>
+</section>
+
+</main>
+
+<footer class="voet">
+  <div class="g-wrap">
+    <div class="grid">
+      <div>
+        <span class="logo"><span class="tegel" aria-hidden="true"><svg><use href="#g-dak"/></svg></span><span><b>GEVANA</b><small>Dakwerken en gevelbekleding</small></span></span>
+        <p class="over-t">Hellende en platte daken en gevelbekleding, vanuit Melkwezer. Sinds 2004.</p>
+      </div>
+      <div><h4>Contact</h4><ul><li>Dorpsstraat 108</li><li>3350 Linter</li><li><a href="tel:+32479460592">0479 46 05 92</a></li><li><a href="mailto:info@gevana.be">info@gevana.be</a></li></ul></div>
+      <div><h4>Wat we doen</h4><ul><li><a href="#daken">Hellende daken</a></li><li><a href="#daken">Platte daken</a></li><li><a href="#oversteken">Gevelbekleding</a></li><li><a href="#realisaties">Realisaties</a></li></ul></div>
+      <div><h4>Snel naar</h4><ul><li><a href="#werkwijze">Werkwijze</a></li><li><a href="#over">Over ons</a></li><li><a href="#vragen">Vragen</a></li><li><a href="#offerte">Offerte</a></li></ul></div>
+    </div>
+    <div class="onder">
+      <span>© 2026 Gevana BV · BE 0869.474.148</span>
+      <span>Voorbeeldsite door Digital Impression</span>
+    </div>
+  </div>
+</footer>
+
+<div class="actiebalk" data-actiebalk>
+  <a href="tel:+32479460592"><svg><use href="#g-tel"/></svg>Bellen</a>
+  <a class="k" href="#offerte">Offerte</a>
+</div>
+
+</div>
+
+<script>
+(function(){
+  var gv=document.querySelector('.gv');
+  var hdr=gv.querySelector('.hdr');
+  function sc(){hdr.classList.toggle('vast',window.scrollY>40)}
+  sc();window.addEventListener('scroll',sc,{passive:true});
+
+  var menu=gv.querySelector('#menu'),burger=gv.querySelector('.burger');
+  function zet(o){menu.classList.toggle('open',o);menu.setAttribute('aria-hidden',!o);burger.setAttribute('aria-expanded',o);document.documentElement.style.overflow=o?'hidden':''}
+  burger.addEventListener('click',function(){zet(true)});
+  menu.querySelector('.x').addEventListener('click',function(){zet(false)});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){zet(false)})});
+
+  // filter realisaties
+  var knoppen=gv.querySelectorAll('[data-f]'),fotos=[].slice.call(gv.querySelectorAll('[data-galerij] .foto'));
+  knoppen.forEach(function(k){k.addEventListener('click',function(){
+    var f=k.getAttribute('data-f');
+    knoppen.forEach(function(x){x.setAttribute('aria-pressed',x===k)});
+    fotos.forEach(function(el){el.hidden=!(f==='alles'||el.getAttribute('data-cat')===f)});
+  })});
+
+  // lightbox
+  var lb=gv.querySelector('[data-lb]'),lbImg=lb.querySelector('img'),lbCap=lb.querySelector('[data-lb-cap]'),idx=0,laatste=null;
+  function zichtbaar(){return fotos.filter(function(el){return !el.hidden})}
+  function toon(i){var z=zichtbaar();if(!z.length)return;idx=(i+z.length)%z.length;var im=z[idx].querySelector('img');lbImg.src=im.currentSrc||im.src;lbImg.alt=im.alt;lbCap.textContent=z[idx].getAttribute('data-cap')+'  ·  '+(idx+1)+' / '+z.length}
+  function open(el){laatste=el;toon(zichtbaar().indexOf(el));lb.classList.add('open');document.documentElement.style.overflow='hidden';lb.querySelector('.x').focus()}
+  function dicht(){lb.classList.remove('open');document.documentElement.style.overflow='';if(laatste)laatste.focus()}
+  fotos.forEach(function(el){el.addEventListener('click',function(){open(el)})});
+  lb.querySelector('.x').addEventListener('click',dicht);
+  lb.querySelector('.vo').addEventListener('click',function(){toon(idx-1)});
+  lb.querySelector('.na').addEventListener('click',function(){toon(idx+1)});
+  lb.addEventListener('click',function(e){if(e.target===lb)dicht()});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){zet(false);if(lb.classList.contains('open'))dicht()}
+    if(lb.classList.contains('open')){if(e.key==='ArrowLeft')toon(idx-1);if(e.key==='ArrowRight')toon(idx+1)}
+  });
+
+  // formulier
+  var f=gv.querySelector('#offerteform'),foto=gv.querySelector('#f-foto'),best=gv.querySelector('[data-bestanden]');
+  foto.addEventListener('change',function(){var n=foto.files.length;best.textContent=n?(n===1?'1 foto gekozen':n+" foto's gekozen"):"Een foto van je dak helpt ons al veel"});
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var eerste=null;
+    ['f-naam','f-gem','f-tel','f-wat'].forEach(function(id){var el=gv.querySelector('#'+id);if(!el.value.trim()){el.classList.add('fout');if(!eerste)eerste=el;el.addEventListener('input',function(){el.classList.remove('fout')},{once:true})}});
+    if(eerste){eerste.focus();return}
+    gv.querySelector('[data-naam]').textContent=gv.querySelector('#f-naam').value.trim().split(' ')[0];
+    f.style.display='none';var b=gv.querySelector('.bedankt');b.classList.add('toon');
+  });
+
+  // verschijnen
+  var els=gv.querySelectorAll('.op');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('zien');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('zien')})}
+  requestAnimationFrame(function(){gv.querySelector('.hero').classList.add('in')});
+
+  // voortgang schuifkaarten
+  gv.querySelectorAll('[data-scroller]').forEach(function(s){
+    var v=s.nextElementSibling,bar=v&&v.querySelector('[data-voortgang]');if(!bar)return;
+    function upd(){var max=s.scrollWidth-s.clientWidth;if(max<=0)return;var r=s.clientWidth/s.scrollWidth;bar.style.width=(r*100)+'%';bar.style.transform='translateX('+((s.scrollLeft/max)*((1-r)/r)*100)+'%)'}
+    s.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+  });
+
+  // actiebalk
+  var ab=gv.querySelector('[data-actiebalk]');
+  if(ab&&'IntersectionObserver' in window){
+    var zicht=new Set();
+    function ze(){ab.classList.toggle('weg',zicht.size>0||window.scrollY<400)}
+    var io2=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?zicht.add(e.target):zicht.delete(e.target)});ze()},{threshold:0});
+    [gv.querySelector('#offerte'),gv.querySelector('.voet'),document.querySelector('.di')].forEach(function(el){if(el)io2.observe(el)});
+    window.addEventListener('scroll',ze,{passive:true});ab.classList.add('weg');
+  }
+})();
+</script>
+<!-- VOORSTELBLOK Digital Impression: letterlijk overnemen, onderaan de pagina, vóór </body>. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Onest:wght@400;600;700&display=swap">
+<style>
+.di{--n:#0E1C3A;--n2:#162a52;--n3:#21386a;--cr:#F5EEE2;--pa:#FBF7F0;--te:#D7603A;--ted:#B04722;--ap:#F2AE84;--bu:#F1CB78;--od2:#c9cfdf;
+  background:var(--n);color:var(--cr);padding:100px 0 100px;position:relative;overflow:clip;font:19px/1.6 'Onest',system-ui,sans-serif}
+.di::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 85% 0%,rgba(215,96,58,.18),transparent 70%);pointer-events:none}
+.di .wrap{max-width:1080px;position:relative}
+.di .naad{position:absolute;left:0;right:0;top:0;height:6px;background:repeating-linear-gradient(90deg,var(--te) 0 22px,var(--bu) 22px 44px,var(--ap) 44px 66px)}
+.di .merk{display:inline-flex;align-items:center;gap:12px;margin-bottom:26px;font-size:16px;font-weight:600;color:var(--od2)}
+.di .merk i{width:40px;height:40px;border-radius:12px;background:var(--ted);display:grid;place-items:center;font:400 22px/1 'DM Serif Display',serif;font-style:normal;color:#fff}
+.di h2{font:400 clamp(40px,5vw,64px)/1.04 'DM Serif Display',serif;letter-spacing:-.5px;color:var(--pa);max-width:16em}
+.di h2 em{font-style:italic;color:var(--ap)}
+.di .intro{color:var(--od2);font-size:20px;margin:20px 0 54px;max-width:34em}
+.di .kop3{font:400 34px/1.1 'DM Serif Display',serif;color:var(--pa);margin:0 0 24px}
+.di .prijzen{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.di .pk{border-radius:26px;padding:36px}
+.di .pk.wit{background:var(--pa);color:var(--n)}
+.di .pk.donker{background:var(--n2);border:1.5px solid rgba(245,238,226,.16)}
+.di .pk .label{display:block;font-size:16px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.di .pk.wit .label{color:var(--ted)}
+.di .pk.donker .label{color:var(--ap)}
+.di .bedrag{font:400 88px/.9 'DM Serif Display',serif;letter-spacing:-2px;display:flex;align-items:flex-start;gap:6px}
+.di .bedrag small{font-size:36px;margin-top:8px}
+.di .wanneer{font-size:20px;font-weight:700;margin:12px 0 26px}
+.di .pk ul{list-style:none;margin:0;padding:0;display:grid;gap:14px;font-size:18.5px;line-height:1.45}
+.di .pk li{display:flex;gap:14px;align-items:flex-start}
+.di .pk li::before{content:"";flex:none;width:24px;height:24px;margin-top:2px;border-radius:50%;background:var(--ted) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/15px no-repeat}
+.di .geruststelling{margin-top:26px;padding-top:22px;border-top:2px dashed rgba(14,28,58,.18);font-size:18px;font-weight:600}
+.di .keuze{border-radius:18px;padding:22px 24px;background:rgba(245,238,226,.05);border:1.5px solid rgba(245,238,226,.14)}
+.di .keuze+.keuze{margin-top:16px}
+.di .keuze.aan{border-color:var(--ap);background:rgba(242,174,132,.08)}
+.di .keuze .rij{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap}
+.di .keuze h4{margin:0;font:400 28px/1.1 'DM Serif Display',serif;color:var(--pa)}
+.di .keuze .p{font-size:22px;font-weight:700;color:var(--ap);white-space:nowrap}
+.di .keuze p{color:var(--od2);font-size:18px;margin-top:8px}
+.di .keuze .raad{display:inline-block;margin-top:12px;font:700 15px/1.4 'Onest',sans-serif;background:var(--ap);color:var(--n);border-radius:999px;padding:4px 12px}
+.di .di-stappen{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.di .di-stap{display:flex;gap:18px;align-items:flex-start}
+.di .di-stap i{flex:none;width:52px;height:52px;border-radius:50%;background:var(--ted);color:#fff;display:grid;place-items:center;font:400 26px/1 'DM Serif Display',serif;font-style:normal}
+.di .di-stap b{display:block;font-size:20px;color:var(--pa);line-height:1.3;margin-bottom:6px}
+.di .di-stap span{color:var(--od2);font-size:18px}
+.di .contact{margin-top:64px;background:var(--pa);color:var(--n);border-radius:26px;padding:32px 36px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+.di .contact .vraag{font:400 34px/1.1 'DM Serif Display',serif}
+.di .contact p{font-size:19px;color:#3d4660;margin-top:8px}
+.di .contact p b{color:var(--n)}
+.di .knoppen{display:flex;flex-direction:column;gap:12px;min-width:280px}
+.di .knoppen a{display:flex;justify-content:center;align-items:center;gap:10px;border-radius:999px;padding:18px 26px;font-weight:700;font-size:19px;text-decoration:none;transition:transform .15s,background .15s}
+.di .knoppen a:hover{transform:translateY(-2px)}
+.di .knoppen a svg{width:22px;height:22px}
+.di .knoppen .wa{background:var(--ted);color:#fff}
+.di .knoppen .wa:hover{background:#963a1a}
+.di .knoppen .lijn{border:2px solid var(--n);color:var(--n)}
+.di :focus-visible{outline:3px solid var(--ap);outline-offset:3px}
+@media (max-width:960px){.di{padding:80px 0;font-size:18px}.di .prijzen{grid-template-columns:1fr}.di .di-stappen{grid-template-columns:1fr;gap:22px;margin-top:52px}.di .contact{grid-template-columns:1fr;padding:28px}.di .knoppen{min-width:0}}
+@media (max-width:640px){.di .pk{padding:26px 22px}.di .bedrag{font-size:76px}.di .intro{font-size:18.5px;margin-bottom:44px}.di .kop3,.di .contact .vraag{font-size:30px}}
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ico-wa" viewbox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z" fill="currentColor"></path></symbol></svg>
+<style>.di .knoppen .cal{background:var(--n);color:var(--pa)}.di .knoppen .cal:hover{background:var(--n3)}.di .knoppen .cal svg{width:20px;height:20px}</style>
+<style>/*di-center*/.di .merk{display:flex;width:max-content;max-width:100%;margin-left:auto;margin-right:auto}.di #di-titel{text-align:center;margin-left:auto;margin-right:auto;text-wrap:balance}.di .intro{text-align:center;margin-left:auto;margin-right:auto;text-wrap:pretty}</style>
+<section aria-labelledby="di-titel" class="di">
+<span aria-hidden="true" class="naad"></span>
+<div class="wrap">
+<span class="merk"><i aria-hidden="true">D</i>Voorstel van Digital Impression</span>
+<h2 id="di-titel">Zo zou jullie website <em>eruit kunnen zien</em>.</h2>
+<p class="intro">Een eerste schets, op maat van Gevana. Jullie kiezen de stijl, ik zorg dat alles klopt.</p>
+<h3 class="kop3">Wat het kost</h3>
+<div class="prijzen">
+<div class="pk wit">
+<span class="label">Je website</span>
+<div class="bedrag"><small>€</small>499</div>
+<p class="wanneer">één keer, alles inbegrepen</p>
+<ul>
+<li>Jullie website, in de stijl die jullie kiezen</li>
+<li>Werkt op gsm, tablet en computer</li>
+<li>Uren, adres en route altijd juist</li>
+<li>Bestellingen komen rechtstreeks in je mailbox</li>
+</ul>
+<p class="geruststelling">Geen voorschot. Je betaalt pas als de site klaar is.</p>
+</div>
+<div class="pk donker">
+<span class="label">Daarna kies je</span>
+<div class="keuze">
+<div class="rij"><h4>Zelf beheren</h4><span class="p">€ 0 / maand</span></div>
+<p>Hosting en domein op jouw naam. Een aanpassing vraag je per keer aan.</p>
+</div>
+<div class="keuze aan">
+<div class="rij"><h4>Zorgeloos</h4><span class="p">€ 19,99 / maand</span></div>
+<p>Hosting en domein inbegrepen. Nieuwe suggesties en wijzigingen zet ik er voor je op.</p>
+<span class="raad">mijn aanrader</span>
+</div>
+</div>
+</div>
+<div class="di-stappen">
+<div class="di-stap"><i aria-hidden="true">1</i><div><b>Je laat iets weten</b><span>Een berichtje of telefoontje is genoeg.</span></div></div>
+<div class="di-stap"><i aria-hidden="true">2</i><div><b>We maken hem af</b><span>Jij zegt wat anders moet, ik pas het aan.</span></div></div>
+<div class="di-stap"><i aria-hidden="true">3</i><div><b>Online</b><span>Op je eigen domein, binnen 10 tot 14 dagen.</span></div></div>
+</div>
+<div class="contact">
+<div>
+<div class="vraag">Vragen? Plan een gesprek of stuur me een berichtje.</div>
+<p><b>Stijn Vranken</b> · 0496 25 14 45 · info@digital-impression.be</p>
+</div>
+<div class="knoppen">
+<a class="wa" href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20Gevana" rel="noopener" target="_blank"><svg><use href="#ico-wa"></use></svg>WhatsApp Stijn</a>
+<a class="cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Gevana" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Plan een gesprek van 30 min</a>
+<a class="lijn" href="tel:+32496251445">Bel 0496 25 14 45</a>
+</div>
+</div>
+</div>
+</section>
+</body>
+</html>

@@ -1,0 +1,891 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jovastyle · Kapsalon, barbier en nagelstudio in Oudenaarde</title>
+<meta name="description" content="Jovastyle in Ename, Oudenaarde: kapsalon voor dames, heren en kinderen, barbier, nagelstudio en haarwerken. Sinds 1996 in de Martijn Van Torhoutstraat. Online boeken of bel 055 30 32 29.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#F5EFE7">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%236B2233'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='34' fill='%23F5EFE7'%3Ej%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+:where(*,*::before,*::after){box-sizing:border-box}
+:where(html,body,h1,h2,h3,h4,p,ul,ol,li,figure,blockquote,dl,dd,fieldset){margin:0}
+:where(ul,ol,fieldset){padding:0}
+:where(img){display:block;max-width:100%}
+
+:root{
+  --ivory:#F5EFE7;
+  --paper:#FBF8F3;
+  --blush:#EBDCD3;
+  --blush-2:#E2CDC1;
+  --ink:#231A1C;
+  --ink-2:#43373A;
+  --muted:#74676A;
+  --wine:#6B2233;
+  --wine-d:#521827;
+  --rose:#C48E7D;
+  --rose-l:#E7C3B6;
+  --line:rgba(35,26,28,.12);
+  --line-2:rgba(35,26,28,.07);
+  --shadow:0 1px 2px rgba(35,26,28,.05),0 22px 44px -26px rgba(35,26,28,.35);
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'Figtree',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{background:var(--ivory);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;overflow-x:hidden}
+.wrap{width:100%;max-width:1220px;margin-inline:auto;padding-inline:clamp(16px,4vw,44px)}
+img{background:var(--blush)}
+:where(a,button,input,textarea,select,summary):focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+
+/* bouwstenen */
+.j-kick{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--wine)}
+.j-kick::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--rose)}
+.j-h2{font-family:var(--serif);font-weight:350;font-size:clamp(38px,4.8vw,62px);line-height:1.04;letter-spacing:-.02em;font-variation-settings:"opsz" 120}
+.j-h2 em{font-style:italic;font-weight:300;color:var(--wine)}
+.j-lead{font-size:18px;color:var(--muted);max-width:33em}
+.j-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;border-radius:14px;font:600 16px/1 var(--sans);text-decoration:none;border:0;cursor:pointer;transition:background .25s,color .25s,box-shadow .25s,transform .25s;white-space:nowrap}
+.j-btn svg{width:18px;height:18px;flex:none}
+.j-btn--wine{background:var(--wine);color:var(--paper)}
+.j-btn--wine:hover{background:var(--wine-d);transform:translateY(-2px);box-shadow:0 14px 28px -14px rgba(107,34,51,.6)}
+.j-btn--line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.j-btn--line:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.j-btn--light{background:var(--paper);color:var(--ink)}
+.j-btn--light:hover{background:#fff;transform:translateY(-2px)}
+.j-sec{padding:112px 0}
+.j-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 48px;flex-wrap:wrap;margin-bottom:48px}
+.j-head .j-h2{margin-top:16px}
+.j-head p{max-width:26em;color:var(--muted);font-size:17.5px}
+
+/* logo */
+.j-logo{display:inline-flex;align-items:baseline;gap:8px;text-decoration:none;color:var(--ink)}
+.j-logo b{font:italic 400 32px/1 var(--serif);letter-spacing:-.02em;font-variation-settings:"opsz" 144}
+.j-logo b span{color:var(--wine)}
+.j-logo small{font:600 10.5px/1.25 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border-left:1px solid var(--line);padding-left:8px}
+
+/* navigatie */
+.j-nav{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s}
+.j-nav.is-stuck{background:rgba(245,239,231,.88);backdrop-filter:saturate(1.3) blur(14px);-webkit-backdrop-filter:saturate(1.3) blur(14px);box-shadow:0 1px 0 var(--line-2)}
+.j-nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:80px;transition:height .3s}
+.j-nav.is-stuck .wrap{height:68px}
+.j-links{display:flex;gap:30px}
+.j-links a{position:relative;font-size:15.5px;font-weight:500;color:var(--ink-2);text-decoration:none;padding:6px 0}
+.j-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--wine);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.j-links a:hover{color:var(--ink)}
+.j-links a:hover::after{transform:scaleX(1)}
+.j-nav .j-btn{min-height:46px;padding:0 20px;font-size:15px}
+.j-burger{display:none;width:46px;height:46px;border-radius:12px;border:0;background:var(--ink);color:var(--paper);cursor:pointer;place-items:center}
+.j-burger span{display:block;width:18px;height:1.5px;background:currentColor;position:relative;transition:background .3s}
+.j-burger span::before,.j-burger span::after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:var(--paper);transition:transform .3s}
+.j-burger span::before{top:-6px}.j-burger span::after{top:6px}
+.j-open .j-burger span{background:transparent}
+.j-open .j-burger span::before{transform:translateY(6px) rotate(45deg)}
+.j-open .j-burger span::after{transform:translateY(-6px) rotate(-45deg)}
+.j-sheet{position:fixed;inset:0;z-index:45;background:var(--ivory);padding:110px 20px 28px;display:flex;flex-direction:column;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .3s,transform .3s,visibility .3s}
+.j-open .j-sheet{opacity:1;visibility:visible;transform:none}
+.j-sheet a.j-sl{font:400 36px/1.1 var(--serif);color:var(--ink);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--line-2);display:flex;justify-content:space-between;align-items:baseline}
+.j-sheet a.j-sl i{font:italic 300 18px var(--serif);color:var(--rose)}
+.j-sheet .j-sb{margin-top:auto;display:grid;gap:10px}
+
+/* hero */
+.j-hero{padding:28px 0 0}
+.j-hero-top{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:end}
+.j-status{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--line-2);font-size:14px;font-weight:600;color:var(--ink-2)}
+.j-dot{width:8px;height:8px;border-radius:50%;background:var(--rose);position:relative}
+.j-status.is-open .j-dot{background:#5E8A5B}
+.j-status.is-open .j-dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid #5E8A5B;animation:j-ping 2.2s infinite;opacity:0}
+@keyframes j-ping{0%{transform:scale(.6);opacity:.8}100%{transform:scale(1.6);opacity:0}}
+.j-hero h1{font-family:var(--serif);font-weight:320;font-size:clamp(50px,7.4vw,108px);line-height:.96;letter-spacing:-.03em;margin-top:24px;font-variation-settings:"opsz" 144}
+.j-hero h1 em{font-style:italic;font-weight:300;color:var(--wine)}
+.j-hero-side p{font-size:18.5px;color:var(--muted);margin-bottom:26px;max-width:24em}
+.j-hero-side .j-row{display:flex;flex-wrap:wrap;gap:10px}
+.j-band{position:relative;margin-top:48px;border-radius:28px;overflow:hidden;aspect-ratio:16/7;background:var(--blush)}
+.j-band>img{width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.j-band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(35,26,28,.38));pointer-events:none}
+.j-score{position:absolute;left:22px;bottom:22px;z-index:2;display:flex;align-items:center;gap:14px;padding:12px 18px 12px 12px;border-radius:18px;background:rgba(251,248,243,.94);backdrop-filter:blur(8px);color:var(--ink);text-decoration:none;box-shadow:var(--shadow);transition:transform .25s}
+.j-score:hover{transform:translateY(-2px)}
+.j-score b{font:400 34px/1 var(--serif);background:var(--wine);color:var(--paper);border-radius:12px;padding:9px 11px 7px}
+.j-score span{display:block;font-size:13.5px;line-height:1.35;color:var(--muted)}
+.j-stars{display:inline-flex;gap:2px;color:var(--rose);margin-bottom:2px}
+.j-stars svg{width:15px;height:15px}
+.j-since{position:absolute;right:22px;bottom:22px;z-index:2;width:118px;height:118px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;text-align:center;align-content:center;gap:2px;box-shadow:var(--shadow)}
+.j-since small{font:600 10px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--rose-l)}
+.j-since b{font:italic 400 34px/1 var(--serif)}
+.j-facts{display:grid;grid-template-columns:repeat(4,1fr);margin-top:28px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.j-facts div{padding:22px 24px 22px 0}
+.j-facts div+div{padding-left:24px;border-left:1px solid var(--line)}
+.j-facts b{display:block;font:400 26px/1.15 var(--serif);color:var(--ink)}
+.j-facts span{font-size:14.5px;color:var(--muted)}
+
+/* diensten */
+.j-scroll{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.j-card{position:relative;border-radius:22px;overflow:hidden;background:var(--paper);box-shadow:inset 0 0 0 1px var(--line-2);display:flex;flex-direction:column;transition:transform .4s,box-shadow .4s}
+.j-card:hover{transform:translateY(-4px);box-shadow:inset 0 0 0 1px var(--line-2),var(--shadow)}
+.j-card figure{aspect-ratio:4/4.6;overflow:hidden;background:var(--blush)}
+.j-card img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.j-card:hover img{transform:scale(1.05)}
+.j-card div{padding:22px 22px 26px;display:flex;flex-direction:column;gap:8px;flex:1}
+.j-card i{font:italic 300 15px/1 var(--serif);color:var(--rose)}
+.j-card h3{font:400 29px/1.08 var(--serif);letter-spacing:-.01em}
+.j-card p{font-size:16px;color:var(--muted)}
+.j-card a{margin-top:auto;padding-top:10px;font-weight:600;font-size:15px;color:var(--wine);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.j-card a svg{width:15px;height:15px;transition:transform .25s}
+.j-card a:hover svg{transform:translateX(4px)}
+.j-prog{display:none;height:3px;border-radius:3px;background:var(--line);margin-top:18px;overflow:hidden}
+.j-prog span{display:block;height:100%;width:25%;background:var(--wine);border-radius:3px;transition:width .15s}
+.j-brands{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:36px;align-items:center}
+.j-brands b{font-size:14px;font-weight:600;color:var(--muted);margin-right:6px}
+.j-brands span{font-size:14px;font-weight:600;padding:7px 14px;border-radius:999px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--line-2);color:var(--ink-2)}
+
+/* prijzen */
+.j-price{background:var(--paper);border-radius:30px;padding:clamp(24px,5vw,64px);display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,72px);box-shadow:inset 0 0 0 1px var(--line-2)}
+.j-price-l p{color:var(--muted);margin-top:18px}
+.j-price-l .j-note{margin-top:24px;padding:16px 18px;border-radius:14px;background:var(--ivory);font-size:15px;color:var(--ink-2);display:flex;gap:12px}
+.j-price-l .j-note svg{width:20px;height:20px;flex:none;color:var(--wine);margin-top:2px}
+.j-price-l .j-btn{margin-top:26px}
+.j-tabs{display:flex;gap:6px;padding:5px;border-radius:14px;background:var(--ivory);overflow-x:auto;scrollbar-width:none}
+.j-tabs::-webkit-scrollbar{display:none}
+.j-tabs button{flex:1 0 auto;border:0;background:transparent;border-radius:10px;padding:11px 16px;font:600 15px var(--sans);color:var(--muted);cursor:pointer;transition:background .2s,color .2s}
+.j-tabs button[aria-selected="true"]{background:var(--wine);color:var(--paper)}
+.j-tabs button:hover:not([aria-selected="true"]){color:var(--ink)}
+.j-panel{margin-top:18px}
+.j-panel[hidden]{display:none}
+.j-pr{display:grid;grid-template-columns:1fr auto;gap:4px 20px;align-items:baseline;padding:15px 2px;border-bottom:1px solid var(--line-2)}
+.j-pr dt{font-weight:500;color:var(--ink)}
+.j-pr dt small{display:block;font-size:13.5px;color:var(--muted);font-weight:400}
+.j-pr dd{font:400 21px/1.2 var(--serif);white-space:nowrap;text-align:right}
+.j-pr dd small{font:500 13px var(--sans);color:var(--muted);margin-right:4px}
+
+/* team */
+.j-team{background:var(--ink);color:var(--paper);padding:104px 0;position:relative;overflow:hidden}
+.j-team .j-kick{color:var(--rose-l)}
+.j-team .j-kick::before{background:var(--rose)}
+.j-team .j-h2 em{color:var(--rose-l)}
+.j-team .j-head p{color:rgba(251,248,243,.7)}
+.j-owner{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;padding:28px;border-radius:24px;background:rgba(251,248,243,.05);box-shadow:inset 0 0 0 1px rgba(251,248,243,.1);margin-bottom:34px}
+.j-owner img{width:150px;height:180px;object-fit:cover;border-radius:16px;background:#3a2e31}
+.j-owner blockquote{font:italic 300 clamp(22px,2.4vw,30px)/1.3 var(--serif);color:var(--paper)}
+.j-owner p{margin-top:14px;color:rgba(251,248,243,.66);font-size:15.5px}
+.j-owner p b{color:var(--paper);font-weight:600}
+.j-people{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px;scrollbar-width:none}
+.j-people::-webkit-scrollbar{display:none}
+.j-person{flex:0 0 200px;scroll-snap-align:start}
+.j-person figure{aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:#3a2e31}
+.j-person img{width:100%;height:100%;object-fit:cover;background:#3a2e31;filter:saturate(.92);transition:transform .7s,filter .4s}
+.j-person:hover img{transform:scale(1.04);filter:none}
+.j-person b{display:block;margin-top:14px;font:400 22px/1.15 var(--serif)}
+.j-person span{font-size:14.5px;color:rgba(251,248,243,.62)}
+.j-team .j-prog{display:block;background:rgba(251,248,243,.14);margin-top:26px}
+.j-team .j-prog span{background:var(--rose)}
+.j-team-ctrl{display:flex;gap:10px}
+.j-team-ctrl button{width:48px;height:48px;border-radius:50%;border:1px solid rgba(251,248,243,.24);background:transparent;color:var(--paper);display:grid;place-items:center;cursor:pointer;transition:background .2s,color .2s}
+.j-team-ctrl button:hover{background:var(--paper);color:var(--ink)}
+.j-team-ctrl svg{width:17px;height:17px}
+
+/* haarwerken */
+.j-hw{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center}
+.j-hw-img{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:5/5.4;background:var(--blush)}
+.j-hw-img img{width:100%;height:100%;object-fit:cover}
+.j-hw-txt>p{color:var(--muted);font-size:17.5px;margin:20px 0 26px;max-width:30em}
+.j-ticks{list-style:none;display:grid;gap:0;border-top:1px solid var(--line)}
+.j-ticks li{display:flex;gap:14px;align-items:flex-start;padding:15px 0;border-bottom:1px solid var(--line)}
+.j-ticks svg{width:22px;height:22px;flex:none;color:var(--wine);margin-top:2px}
+.j-ticks b{font-weight:600}
+.j-hw-txt .j-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+
+/* galerij */
+.j-gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:14px}
+.j-gal figure{border-radius:18px;overflow:hidden;background:var(--blush)}
+.j-gal figure:nth-child(1){grid-row:span 2}
+.j-gal figure:nth-child(4){grid-column:span 2}
+.j-gal img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.j-gal figure:hover img{transform:scale(1.05)}
+
+/* reviews */
+.j-rv{display:grid;grid-template-columns:340px 1fr;gap:24px;align-items:stretch}
+.j-big{background:var(--wine);color:var(--paper);border-radius:24px;padding:36px 32px;display:flex;flex-direction:column}
+.j-big .j-num{font:300 128px/.85 var(--serif);letter-spacing:-.04em;margin:18px 0 14px}
+.j-big .j-stars{color:var(--rose-l)}
+.j-big .j-stars svg{width:20px;height:20px}
+.j-big p{color:rgba(251,248,243,.76);margin-top:8px}
+.j-big .j-btn{margin-top:auto;align-self:flex-start}
+.j-big small{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rose-l)}
+.j-quotes{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.j-q{background:var(--paper);border-radius:22px;padding:28px;box-shadow:inset 0 0 0 1px var(--line-2);display:flex;flex-direction:column;gap:18px}
+.j-q blockquote{font:400 21px/1.35 var(--serif);flex:1}
+.j-q footer{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:600}
+.j-q footer i{width:38px;height:38px;border-radius:50%;background:var(--blush);color:var(--wine);display:grid;place-items:center;font:italic 400 18px/1 var(--serif)}
+.j-q footer span{display:block;font-size:13px;font-weight:500;color:var(--muted)}
+
+/* afspraak & bezoek */
+.j-visit{display:grid;grid-template-columns:1.05fr 1fr;gap:24px;align-items:stretch}
+.j-book{background:var(--paper);border-radius:26px;padding:clamp(26px,4vw,48px);box-shadow:inset 0 0 0 1px var(--line-2)}
+.j-book>p{color:var(--muted);margin:16px 0 26px}
+.j-ways{display:grid;gap:12px}
+.j-way{display:grid;grid-template-columns:52px 1fr 36px;gap:16px;align-items:center;padding:16px 18px 16px 16px;border-radius:18px;background:var(--ivory);color:var(--ink);text-decoration:none;transition:transform .25s,box-shadow .25s}
+.j-way:hover{transform:translateX(4px);box-shadow:inset 0 0 0 1.5px var(--rose)}
+.j-way>i{width:52px;height:52px;border-radius:14px;background:var(--paper);display:grid;place-items:center;color:var(--wine)}
+.j-way>i svg{width:22px;height:22px}
+.j-way b{display:block;font:400 22px/1.15 var(--serif)}
+.j-way span{font-size:14.5px;color:var(--muted)}
+.j-way .j-go{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 1px var(--line)}
+.j-way .j-go svg{width:14px;height:14px}
+.j-way--main{background:var(--wine);color:var(--paper)}
+.j-way--main>i{background:rgba(251,248,243,.12);color:var(--paper)}
+.j-way--main span{color:rgba(251,248,243,.72)}
+.j-way--main .j-go{box-shadow:inset 0 0 0 1px rgba(251,248,243,.3)}
+.j-way--main:hover{box-shadow:none}
+.j-hint{margin-top:18px;font-size:15px;color:var(--muted);display:flex;gap:10px}
+.j-hint svg{width:18px;height:18px;flex:none;color:var(--wine);margin-top:3px}
+.j-hours{background:var(--blush);border-radius:26px;padding:clamp(26px,4vw,48px);display:flex;flex-direction:column}
+.j-hours address{font:400 30px/1.15 var(--serif);font-style:normal;margin:16px 0 6px}
+.j-hours>p{color:var(--ink-2);font-size:15.5px}
+.j-table{margin:22px 0 0}
+.j-table div{display:flex;justify-content:space-between;padding:11px 2px;border-bottom:1px solid rgba(35,26,28,.1);font-size:16px}
+.j-table dt{color:var(--ink-2)}
+.j-table dd{font-weight:600}
+.j-table .is-closed dd{font-weight:500;color:var(--muted)}
+.j-table .is-today{background:var(--paper);margin:0 -12px;padding:11px 14px;border-radius:10px;border-bottom-color:transparent}
+.j-table .is-today dt{font-weight:700;color:var(--wine)}
+.j-map{margin-top:22px;border-radius:18px;overflow:hidden;min-height:220px;flex:1;position:relative;background:var(--blush-2)}
+.j-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.9) sepia(.15) contrast(.95)}
+
+/* vragen */
+.j-faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,6vw,90px);align-items:start}
+.j-faq-l{position:sticky;top:110px}
+.j-faq-l p{color:var(--muted);margin-top:18px}
+.j-faq-l a{color:var(--wine);font-weight:600}
+.j-acc details{border-bottom:1px solid var(--line)}
+.j-acc details:first-child{border-top:1px solid var(--line)}
+.j-acc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:22px 0;font:400 23px/1.25 var(--serif)}
+.j-acc summary::-webkit-details-marker{display:none}
+.j-acc summary i{flex:none;width:34px;height:34px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--line);position:relative;transition:background .25s,transform .3s}
+.j-acc summary i::before,.j-acc summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;background:var(--ink);transform:translate(-50%,-50%);transition:transform .3s,background .25s}
+.j-acc summary i::after{transform:translate(-50%,-50%) rotate(90deg)}
+.j-acc details[open] summary i{background:var(--wine)}
+.j-acc details[open] summary i::before,.j-acc details[open] summary i::after{background:var(--paper)}
+.j-acc details[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+.j-acc .j-ans{color:var(--muted);padding:0 54px 24px 0}
+
+/* footer */
+.j-foot{background:var(--ink);color:rgba(251,248,243,.7);padding:84px 0 32px;font-size:15.5px}
+.j-foot-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:44px;padding-bottom:52px;border-bottom:1px solid rgba(251,248,243,.12)}
+.j-foot .j-logo{color:var(--paper)}
+.j-foot .j-logo b span{color:var(--rose-l)}
+.j-foot .j-logo small{color:rgba(251,248,243,.55);border-color:rgba(251,248,243,.2)}
+.j-foot-top>div>p{margin-top:18px;max-width:22em}
+.j-foot h3{font:700 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--rose-l);margin-bottom:18px}
+.j-foot ul{list-style:none;display:grid;gap:6px}
+.j-foot a{color:inherit;text-decoration:none}
+.j-foot a:hover{color:var(--paper)}
+.j-foot .j-strong{display:block;font:400 24px/1.2 var(--serif);color:var(--paper);margin:10px 0 2px}
+.j-foot-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:26px;font-size:13.5px;color:rgba(251,248,243,.5)}
+
+/* mobiele balk */
+.j-bar{position:fixed;left:12px;right:12px;bottom:12px;z-index:40;display:none;gap:8px;padding:7px;border-radius:18px;background:rgba(35,26,28,.94);backdrop-filter:blur(10px);box-shadow:0 14px 34px -10px rgba(0,0,0,.45);transition:transform .35s,opacity .35s}
+.j-bar a{flex:1;min-height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:9px;font:600 16px var(--sans);color:var(--paper);text-decoration:none}
+.j-bar a svg{width:18px;height:18px}
+.j-bar a+a{background:var(--wine)}
+.j-bar.is-hidden{transform:translateY(130%);opacity:0}
+
+/* verschijnen */
+.j-js .j-in{opacity:0;transform:translateY(20px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.j-js .j-in.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.j-js .j-in{opacity:1;transform:none;transition:none}.j-status.is-open .j-dot::after{animation:none}*{transition-duration:.01ms!important}}
+
+/* responsief */
+@media (max-width:1080px){
+  .j-links{gap:20px}
+  .j-scroll{grid-template-columns:repeat(2,1fr)}
+  .j-rv{grid-template-columns:1fr}
+  .j-big{display:grid;grid-template-columns:auto 1fr;gap:4px 26px;align-items:center}
+  .j-big small{grid-column:1/-1}
+  .j-big .j-num{grid-row:2/4;margin:10px 0 0;font-size:104px}
+  .j-big .j-btn{grid-column:1/-1;margin-top:22px}
+}
+@media (max-width:960px){
+  .j-links,.j-nav .j-btn{display:none}
+  .j-burger{display:grid}
+  .j-hero-top{grid-template-columns:1fr;gap:20px}
+  .j-band{aspect-ratio:4/3.4;margin-top:34px}
+  .j-facts{grid-template-columns:1fr 1fr}
+  .j-facts div:nth-child(3){padding-left:0;border-left:0}
+  .j-facts div:nth-child(n+3){border-top:1px solid var(--line)}
+  .j-price,.j-hw,.j-visit,.j-faq{grid-template-columns:1fr}
+  .j-faq-l{position:static}
+  .j-gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}
+  .j-gal figure:nth-child(4){grid-column:auto}
+  .j-gal figure:nth-child(6){grid-column:span 2}
+  .j-foot-top{grid-template-columns:1fr 1fr}
+  .j-foot-top>div:first-child{grid-column:1/-1}
+  .j-bar{display:flex}
+}
+@media (max-width:640px){
+  body{font-size:16.5px}
+  .j-sec{padding:80px 0}
+  .j-nav .wrap{height:70px}
+  .j-logo b{font-size:28px}
+  .j-logo small{font-size:9.5px}
+  .j-hero h1{font-size:clamp(46px,13vw,62px)}
+  .j-hero-side p{font-size:17px}
+  .j-hero-side .j-btn{flex:1 1 100%}
+  .j-band{border-radius:22px;aspect-ratio:4/4.4;margin-inline:-4px}
+  .j-score{left:12px;bottom:12px;padding:9px 12px 9px 9px;gap:10px;border-radius:14px}
+  .j-score b{font-size:27px;border-radius:10px}
+  .j-score span{font-size:12.5px}
+  .j-since{right:12px;top:12px;bottom:auto;width:92px;height:92px}
+  .j-since b{font-size:26px}
+  .j-facts div{padding:18px 14px 18px 0}
+  .j-facts div+div{padding-left:14px}
+  .j-facts div:nth-child(3){padding-left:0}
+  .j-facts b{font-size:21px}
+  .j-facts span{font-size:13.5px}
+  .j-scroll{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin-inline:-16px;padding-inline:16px;scrollbar-width:none}
+  .j-scroll::-webkit-scrollbar{display:none}
+  .j-card{flex:0 0 80%;scroll-snap-align:start}
+  .j-prog{display:block}
+  .j-price{border-radius:24px;padding:26px 18px}
+  .j-pr dd{font-size:19px}
+  .j-tabs button{padding:10px 13px;font-size:14.5px}
+  .j-team{padding:80px 0}
+  .j-owner{grid-template-columns:1fr;gap:20px;padding:20px}
+  .j-owner img{width:100%;height:auto;aspect-ratio:4/3.4}
+  .j-person{flex-basis:62%}
+  .j-team-ctrl{display:none}
+  .j-hw-txt .j-btn{flex:1 1 100%}
+  .j-gal{grid-auto-rows:150px;gap:10px}
+  .j-gal figure{border-radius:14px}
+  .j-quotes{grid-template-columns:1fr;gap:14px}
+  .j-q{padding:24px 22px}
+  .j-q blockquote{font-size:20px}
+  .j-big{padding:28px 22px;column-gap:18px}
+  .j-big .j-num{font-size:88px}
+  .j-big .j-btn{width:100%}
+  .j-way{grid-template-columns:46px 1fr 32px;gap:12px;padding:14px}
+  .j-way>i{width:46px;height:46px}
+  .j-way b{font-size:20px}
+  .j-hours address{font-size:26px}
+  .j-acc summary{font-size:20px;padding:19px 0}
+  .j-acc .j-ans{padding-right:12px}
+  .j-foot{padding-top:64px}
+  .j-foot-top{grid-template-columns:1fr;gap:34px}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="j-arrow" viewBox="0 0 20 20"><path d="M4 10h12m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="j-ne" viewBox="0 0 20 20"><path d="M6 14 14 6M7.5 6H14v6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="j-phone" viewBox="0 0 24 24"><path d="M6.6 3.5h2.6l1.5 4-2 1.3a11 11 0 0 0 6.5 6.5l1.3-2 4 1.5v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="j-mobile" viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="j-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 10h17M8 3v4m8-4v4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="15" r="1.4" fill="currentColor"/></symbol>
+  <symbol id="j-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="j-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="j-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 11v5.5M12 7.6v.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="j-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="m8 12.3 2.8 2.8L16.2 9.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="j-star" viewBox="0 0 20 20"><path d="m10 1.8 2.5 5.3 5.8.7-4.3 4 1.1 5.7L10 14.7l-5.1 2.8L6 11.8l-4.3-4 5.8-.7L10 1.8Z" fill="currentColor"/></symbol>
+  <symbol id="j-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12.5H6L5 8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 10V6.5a3 3 0 0 1 6 0V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="j-fb" viewBox="0 0 24 24"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3Z" fill="currentColor"/></symbol>
+</svg>
+
+<nav class="j-nav" aria-label="Hoofdmenu">
+  <div class="wrap">
+    <a class="j-logo" href="#top" aria-label="Jovastyle, naar boven"><b>jova<span>style</span></b><small>Ename<br>sinds 1996</small></a>
+    <div class="j-links">
+      <a href="#diensten">Wat we doen</a>
+      <a href="#prijzen">Prijzen</a>
+      <a href="#team">Het team</a>
+      <a href="#haarwerken">Haarwerken</a>
+      <a href="#bezoek">Uren en adres</a>
+    </div>
+    <a class="j-btn j-btn--wine" href="https://salonkee.be/salon/jovastyle?lang=nl" target="_blank" rel="noopener"><svg><use href="#j-cal"/></svg>Online boeken</a>
+    <button class="j-burger" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="j-sheet"><span></span></button>
+  </div>
+</nav>
+
+<div class="j-sheet" id="j-sheet">
+  <a class="j-sl" href="#diensten">Wat we doen <i>01</i></a>
+  <a class="j-sl" href="#prijzen">Prijzen <i>02</i></a>
+  <a class="j-sl" href="#team">Het team <i>03</i></a>
+  <a class="j-sl" href="#haarwerken">Haarwerken <i>04</i></a>
+  <a class="j-sl" href="#bezoek">Uren en adres <i>05</i></a>
+  <a class="j-sl" href="#vragen">Vragen <i>06</i></a>
+  <div class="j-sb">
+    <a class="j-btn j-btn--wine" href="https://salonkee.be/salon/jovastyle?lang=nl" target="_blank" rel="noopener"><svg><use href="#j-cal"/></svg>Online boeken</a>
+    <a class="j-btn j-btn--line" href="tel:+3255303229"><svg><use href="#j-phone"/></svg>055 30 32 29</a>
+  </div>
+</div>
+
+<main id="top">
+  <header class="j-hero">
+    <div class="wrap">
+      <div class="j-hero-top">
+        <div>
+          <span class="j-status" id="j-status"><span class="j-dot"></span><span id="j-status-txt">Dinsdag tot zaterdag open</span></span>
+          <h1>Al dertig jaar <em>de kapper</em> van Ename</h1>
+        </div>
+        <div class="j-hero-side">
+          <p>Dames, heren en kinderen, een barbier, een nagelstudio en haarwerken. Alles in één zaak, in de Martijn Van Torhoutstraat.</p>
+          <div class="j-row">
+            <a class="j-btn j-btn--wine" href="https://salonkee.be/salon/jovastyle?lang=nl" target="_blank" rel="noopener"><svg><use href="#j-cal"/></svg>Online boeken</a>
+            <a class="j-btn j-btn--line" href="tel:+3255303229"><svg><use href="#j-phone"/></svg>055 30 32 29</a>
+          </div>
+        </div>
+      </div>
+      <div class="j-band j-in">
+        <img src="img/x-1d137071d0e7.jpg" width="1800" height="1100" alt="Kapsalon met zwarte stoelen, ronde spiegels en een bakstenen muur" referrerpolicy="no-referrer" decoding="async" fetchpriority="high">
+        <a class="j-score" href="https://salonkee.be/salon/jovastyle?lang=nl" target="_blank" rel="noopener">
+          <b>4,9</b>
+          <div><span class="j-stars" aria-label="4,9 op 5 sterren"><svg><use href="#j-star"/></svg><svg><use href="#j-star"/></svg><svg><use href="#j-star"/></svg><svg><use href="#j-star"/></svg><svg><use href="#j-star"/></svg></span><span>437 reviews op Salonkee</span></div>
+        </a>
+        <div class="j-since" aria-hidden="true"><small>sinds</small><b>1996</b><small>Ename</small></div>
+      </div>
+      <dl class="j-facts j-in">
+        <div><dt><b>2 juli 1996</b></dt><dd><span>Jochen opent zijn eigen zaak</span></dd></div>
+        <div><dt><b>Eigen barbier</b></dt><dd><span>en een nagelstudio in huis</span></dd></div>
+        <div><dt><b>Redken-salon</b></dt><dd><span>Hair Expert Certified</span></dd></div>
+        <div><dt><b>Rolstoelvriendelijk</b></dt><dd><span>met airco en gratis wifi</span></dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <section class="j-sec" id="diensten" aria-labelledby="h-diensten">
+    <div class="wrap">
+      <div class="j-head j-in">
+        <div><span class="j-kick">Wat we doen</span><h2 class="j-h2" id="h-diensten">Vier vakken <em>onder één dak</em></h2></div>
+        <p>Je knipt, je baard wordt bijgewerkt en je nagels worden gedaan. Bij ons hoeft dat niet op drie verschillende adressen.</p>
+      </div>
+      <div class="j-scroll" id="j-svc">
+        <article class="j-card j-in">
+          <figure><img src="img/x-ebfb1f1fe94a.jpg" width="600" height="690" alt="Haarkleuring in het salon van Jovastyle" referrerpolicy="no-referrer" loading="lazy" decoding="async"></figure>
+          <div><i>01</i><h3>Knippen en kleuren</h3><p>Voor dames, heren en kinderen. We kleuren met Redken en met ZENZ en GOLD, zonder ammoniak, PPD of resorcinol.</p><a href="#prijzen">Bekijk de prijzen<svg><use href="#j-arrow"/></svg></a></div>
+        </article>
+        <article class="j-card j-in">
+          <figure><img src="img/x-eb75b5c24baa.jpg" width="600" height="690" alt="Barbier bij Jovastyle werkt een baard bij" referrerpolicy="no-referrer" loading="lazy" decoding="async"></figure>
+          <div><i>02</i><h3>Barbier</h3><p>Een strakke herensnit, een fade, de baard of snor in model of een ouderwetse scheerbeurt met het mes.</p><a href="#prijzen">Herenprijzen<svg><use href="#j-arrow"/></svg></a></div>
+        </article>
+        <article class="j-card j-in">
+          <figure><img src="img/x-32ca43f5d668.jpg" width="600" height="690" alt="Gelnagels in de nagelstudio van Jovastyle" referrerpolicy="no-referrer" loading="lazy" decoding="async"></figure>
+          <div><i>03</i><h3>Nagelstudio</h3><p>Manicure, gel op je eigen nagels of gelnagels met verlenging. Kelly zorgt ervoor dat ze er na drie weken nog fris uitzien.</p><a href="https://salonkee.be/salon/jovastyle?lang=nl" target="_blank" rel="noopener">Boek bij Kelly<svg><use href="#j-arrow"/></svg></a></div>
+        </article>
+        <article class="j-card j-in">
+          <figure><img src="img/x-3060deff9b4c.jpg" width="600" height="690" alt="Lang haar met tape-extensions" referrerpolicy="no-referrer" loading="lazy" decoding="async"></figure>
+          <div><i>04</i><h3>Extensions en keratine</h3><p>Meer lengte of volume met tape-extensions van hairtalk, in een uur geplaatst. Of je haar glad en zonder frizz met keratine.</p><a href="tel:+3255303229">Bel voor een gesprek<svg><use href="#j-arrow"/></svg></a></div>
+        </article>
+      </div>
+      <div class="j-prog" aria-hidden="true"><span id="j-svc-bar"></span></div>
+      <div class="j-brands j-in"><b>Waar we mee werken:</b><span>Redken</span><span>Moroccanoil</span><span>Olaplex</span><span>Mediceuticals</span><span>American Crew</span><span>GHD</span><span>hairtalk</span></div>
+    </div>
+  </section>
+
+  <section class="j-sec" id="prijzen" aria-labelledby="h-prijzen" style="padding-top:0">
+    <div class="wrap">
+      <div class="j-price j-in">
+        <div class="j-price-l">
+          <span class="j-kick">Prijslijst</span>
+          <h2 class="j-h2" id="h-prijzen" style="margin-top:16px">Wat het <em>kost</em></h2>
+          <p>De prijs hangt af van de lengte van je haar en de techniek. Daarom staat er vaak een prijs van en tot.</p>
+          <div class="j-note"><svg><use href="#j-info"/></svg><span>Bij een <b>(+)</b>-menu krijg je een shampoo, verzorging en styling op maat van je haar.</span></div>
+          <a class="j-btn j-btn--wine" href="https://salonkee.be/salon/jovastyle?lang=nl" target="_blank" rel="noopener">Volledige lijst bij het boeken<svg><use href="#j-ne"/></svg></a>
+        </div>
+        <div>
+          <div class="j-tabs" role="tablist" aria-label="Prijscategorieën">
+            <button type="button" role="tab" id="t-dames" aria-controls="p-dames" aria-selected="true">Dames</button>
+            <button type="button" role="tab" id="t-kleur" aria-controls="p-kleur" aria-selected="false" tabindex="-1">Kleur</button>
+            <button type="button" role="tab" id="t-heren" aria-controls="p-heren" aria-selected="false" tabindex="-1">Heren</button>
+            <button type="button" role="tab" id="t-kids" aria-controls="p-kids" aria-selected="false" tabindex="-1">Kinderen</button>
+          </div>
+          <div class="j-panel" id="p-dames" role="tabpanel" aria-labelledby="t-dames">
+            <dl>
+              <div class="j-pr"><dt>(+) Brushing</dt><dd><small>van</small>€ 32 <small>tot</small>€ 42</dd></div>
+              <div class="j-pr"><dt>(+) Snit en handdrogen</dt><dd>€ 46,80</dd></div>
+              <div class="j-pr"><dt>(+) Snit en brushing</dt><dd><small>van</small>€ 60 <small>tot</small>€ 70</dd></div>
+            </dl>
+          </div>
+          <div class="j-panel" id="p-kleur" role="tabpanel" aria-labelledby="t-kleur" hidden>
+            <dl>
+              <div class="j-pr"><dt>Uitgroei<small>maximum 3 cm</small></dt><dd>€ 63</dd></div>
+              <div class="j-pr"><dt>Uitgroei en lengtes</dt><dd>€ 83</dd></div>
+              <div class="j-pr"><dt>Kleur en lokken in één behandeling</dt><dd><small>van</small>€ 80 <small>tot</small>€ 85</dd></div>
+              <div class="j-pr"><dt>Highlights of lowlights<small>kleurschakeringen</small></dt><dd><small>van</small>€ 60 <small>tot</small>€ 120</dd></div>
+              <div class="j-pr"><dt>Toner<small>kleur opfrissen</small></dt><dd><small>van</small>€ 34 <small>tot</small>€ 63</dd></div>
+            </dl>
+          </div>
+          <div class="j-panel" id="p-heren" role="tabpanel" aria-labelledby="t-heren" hidden>
+            <dl>
+              <div class="j-pr"><dt>Snit</dt><dd><small>van</small>€ 21 <small>tot</small>€ 30</dd></div>
+              <div class="j-pr"><dt>(+) Snit</dt><dd><small>van</small>€ 26,90 <small>tot</small>€ 35,90</dd></div>
+              <div class="j-pr"><dt>Baard of scheren</dt><dd><small>van</small>€ 12,50 <small>tot</small>€ 28</dd></div>
+            </dl>
+          </div>
+          <div class="j-panel" id="p-kids" role="tabpanel" aria-labelledby="t-kids" hidden>
+            <dl>
+              <div class="j-pr"><dt>Snit<small>tot 12 jaar</small></dt><dd><small>van</small>€ 21 <small>tot</small>€ 30</dd></div>
+              <div class="j-pr"><dt>(+) Snit jongens en meisjes</dt><dd><small>van</small>€ 26,90 <small>tot</small>€ 35,90</dd></div>
+              <div class="j-pr"><dt>(+) Snit en handdrogen<small>meisjes</small></dt><dd><small>van</small>€ 40,90 <small>tot</small>€ 42,40</dd></div>
+              <div class="j-pr"><dt>(+) Snit en brushing<small>meisjes</small></dt><dd><small>van</small>€ 50,90 <small>tot</small>€ 57,40</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="j-team" id="team" aria-labelledby="h-team">
+    <div class="wrap">
+      <div class="j-head j-in">
+        <div><span class="j-kick">Het team</span><h2 class="j-h2" id="h-team">Een groot team, <em>elk met een eigen vak</em></h2></div>
+        <div class="j-team-ctrl">
+          <button type="button" id="j-prev" aria-label="Vorige collega's"><svg style="transform:scaleX(-1)"><use href="#j-arrow"/></svg></button>
+          <button type="button" id="j-next" aria-label="Volgende collega's"><svg><use href="#j-arrow"/></svg></button>
+        </div>
+      </div>
+      <div class="j-owner j-in">
+        <img src="img/x-7933c9903ba1.jpg" width="300" height="360" alt="Jochen Vander Stuyft, zaakvoerder van Jovastyle" referrerpolicy="no-referrer" loading="lazy" decoding="async">
+        <div>
+          <blockquote>In juni 1992 studeerde ik af aan het PTI in Oudenaarde. Vier jaar later, op 2 juli 1996, opende ik mijn eigen zaak hier in Ename.</blockquote>
+          <p><b>Jochen Vander Stuyft</b> · zaakvoerder, samen met zijn vrouw <b>Stefanie Samoy</b></p>
+        </div>
+      </div>
+      <div class="j-people" id="j-people">
+        <div class="j-person"><figure><img src="img/x-ec0f00f49750.jpg" width="400" height="500" alt="Kelly Vilyn" referrerpolicy="no-referrer" loading="lazy" decoding="async"></figure><b>Kelly</b><span>Nagelstudio en extensions</span></div>
+        <div class="j-person"><figure><img src="img/x-a343897a3a3b.jpg" width="400" height="500" alt="Elisabeth Varzaru" referrerpolicy="no-referrer" loading="lazy" decoding="async"></figure><b>Elisabeth</b><span>Kapster</span></div>
+        <div class="j-person"><figure><img src="img/x-0b81f0f24dea.jpg" width="400" height="500" alt="Necmi Demiragac" referrerpolicy="no-referrer" loading="lazy" decoding="async"></figure><b>Necmi</b><span>Barbier, fades</span></div>
+        <div class="j-person"><figure><img src="img/x-28c16229dd3d.jpg" width="400" height="500" alt="Barbara Bonte" referrerpolicy="no-referrer" loading="lazy" decoding="async"></figure><b>Barbara</b><span>Wellness stylist</span></div>
+        <div class="j-person"><figure><img src="img/x-bae95919aae6.jpg" width="400" height="500" alt="Amanda Eeman" referrerpolicy="no-referrer" loading="lazy" decoding="async"></figure><b>Amanda</b><span>Kapster</span></div>
+        <div class="j-person"><figure><img src="img/x-39821773bea2.jpg" width="400" height="500" alt="Shana Cicero" referrerpolicy="no-referrer" loading="lazy" decoding="async"></figure><b>Shana</b><span>Allround kapster</span></div>
+        <div class="j-person"><figure><img src="img/x-d2745c07a000.jpg" width="400" height="500" alt="Luna Van Bost" referrerpolicy="no-referrer" loading="lazy" decoding="async"></figure><b>Luna</b><span>Kapster</span></div>
+        <div class="j-person"><figure><img src="img/x-01a93cce2815.jpg" width="400" height="500" alt="Julie Helderweirt" referrerpolicy="no-referrer" loading="lazy" decoding="async"></figure><b>Julie</b><span>Kapster</span></div>
+        <div class="j-person"><figure><img src="img/x-e7ded445a2a7.jpg" width="400" height="500" alt="Ona Desmet" referrerpolicy="no-referrer" loading="lazy" decoding="async"></figure><b>Ona</b><span>Leert het vak, duaal leren</span></div>
+      </div>
+      <div class="j-prog" aria-hidden="true"><span id="j-people-bar"></span></div>
+    </div>
+  </section>
+
+  <section class="j-sec" id="haarwerken" aria-labelledby="h-hw">
+    <div class="wrap j-hw">
+      <div class="j-hw-img j-in"><img src="img/x-9ef014a928fa.jpg" width="800" height="860" alt="Haarwerk op maat bij Jovastyle" referrerpolicy="no-referrer" loading="lazy" decoding="async"></div>
+      <div class="j-hw-txt j-in">
+        <span class="j-kick">Haarwerken en pruiken</span>
+        <h2 class="j-h2" id="h-hw" style="margin-top:16px">Als je haar uitvalt, <em>gaan we rustig samen zitten</em></h2>
+        <p>Door een behandeling, een probleem met je hoofdhuid of gewoon met de jaren. We zoeken een haarwerk dat bij je past en knippen het op maat.</p>
+        <ul class="j-ticks">
+          <li><svg><use href="#j-check"/></svg><span><b>Gratis gesprek, zonder verplichting.</b> In het salon, bij je thuis of in het ziekenhuis.</span></li>
+          <li><svg><use href="#j-check"/></svg><span><b>Echt Europees haar of kunsthaar,</b> standaard of op maat. Ook tulbanden en sjaals.</span></li>
+          <li><svg><use href="#j-check"/></svg><span><b>Tussenkomst van je mutualiteit</b> en hospitalisatieverzekering is mogelijk.</span></li>
+          <li><svg><use href="#j-check"/></svg><span><b>Voor vrouwen, mannen en kinderen,</b> met nazorg nadat je haarwerk klaar is.</span></li>
+        </ul>
+        <div class="j-row">
+          <a class="j-btn j-btn--wine" href="tel:+32497370711"><svg><use href="#j-mobile"/></svg>0497 37 07 11</a>
+          <a class="j-btn j-btn--line" href="mailto:info@jovastyle.be"><svg><use href="#j-mail"/></svg>Stuur een mail</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="j-sec" aria-labelledby="h-salon" style="padding-top:0">
+    <div class="wrap">
+      <div class="j-head j-in">
+        <div><span class="j-kick">Binnen bij ons</span><h2 class="j-h2" id="h-salon">Uit het <em>salon</em></h2></div>
+        <p>Een paar foto's uit de zaak in de Martijn Van Torhoutstraat.</p>
+      </div>
+      <div class="j-gal j-in">
+        <figure><img src="img/x-30405ef66746.jpg" width="900" height="1200" alt="Foto uit het salon van Jovastyle in Ename" referrerpolicy="no-referrer" loading="lazy" decoding="async"></figure>
+        <figure><img src="img/x-6ee5c7097b6f.jpg" width="900" height="900" alt="Foto uit het salon van Jovastyle" referrerpolicy="no-referrer" loading="lazy" decoding="async"></figure>
+        <figure><img src="img/x-98f2251f35a3.jpg" width="900" height="900" alt="Foto uit het salon van Jovastyle" referrerpolicy="no-referrer" loading="lazy" decoding="async"></figure>
+        <figure><img src="img/x-295a91673b6d.jpg" width="1200" height="900" alt="Foto uit het salon van Jovastyle" referrerpolicy="no-referrer" loading="lazy" decoding="async"></figure>
+        <figure><img src="img/x-8edc77ccbb56.jpg" width="900" height="900" alt="Foto uit het salon van Jovastyle" referrerpolicy="no-referrer" loading="lazy" decoding="async"></figure>
+        <figure><img src="img/x-85a49e560efe.jpg" width="900" height="900" alt="Foto uit het salon van Jovastyle" referrerpolicy="no-referrer" loading="lazy" decoding="async"></figure>
+        <figure><img src="img/x-a738be80079b.jpg" width="900" height="900" alt="Foto uit het salon van Jovastyle" referrerpolicy="no-referrer" loading="lazy" decoding="async"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="j-sec" id="reviews" aria-labelledby="h-reviews" style="padding-top:0">
+    <div class="wrap">
+      <div class="j-head j-in">
+        <div><span class="j-kick">Wat klanten zeggen</span><h2 class="j-h2" id="h-reviews">In hun <em>eigen woorden</em></h2></div>
+      </div>
+      <div class="j-rv">
+        <div class="j-big j-in">
+          <small>Salonkee</small>
+          <div class="j-num">4,9</div>
+          <span class="j-stars" aria-label="4,9 op 5 sterren"><svg><use href="#j-star"/></svg><svg><use href="#j-star"/></svg><svg><use href="#j-star"/></svg><svg><use href="#j-star"/></svg><svg><use href="#j-star"/></svg></span>
+          <p>uit 437 reviews van klanten die online boekten. Op Google: 4,9 uit 52 reviews.</p>
+          <a class="j-btn j-btn--light" href="https://salonkee.be/salon/jovastyle?lang=nl" target="_blank" rel="noopener">Alle reviews lezen<svg><use href="#j-ne"/></svg></a>
+        </div>
+        <div class="j-quotes">
+          <figure class="j-q j-in"><blockquote>Elisabeth is alvast een toppertje! Naast het feit dat ze een heel goede kapster is, heeft ze ook een hart van goud. Ze nemen hun tijd voor je, niets is hun teveel.</blockquote><footer><i>B</i><div>Barbara<span>Salonkee, mei 2026</span></div></footer></figure>
+          <figure class="j-q j-in"><blockquote>Heel aangenaam verrast voor het eerste bezoek. De haarsnit van mijn dochter is heel leuk. Luisteren vooral naar wat je wil, heeel belangrijk.</blockquote><footer><i>S</i><div>Simmy<span>Salonkee, oktober 2026</span></div></footer></figure>
+          <figure class="j-q j-in"><blockquote>Gezellig kapsalon, zeer vriendelijk, leuke sfeer. En tevreden over mijn kapsel. Een echte aanrader.</blockquote><footer><i>S</i><div>Sophie<span>Salonkee, april 2026</span></div></footer></figure>
+          <figure class="j-q j-in"><blockquote>Niets op aan te merken, alles verloopt heel vlot en aangenaam.</blockquote><footer><i>C</i><div>Chris<span>Salonkee, mei 2026</span></div></footer></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="j-sec" id="bezoek" aria-labelledby="h-bezoek" style="padding-top:0">
+    <div class="wrap j-visit">
+      <div class="j-book j-in" id="afspraak">
+        <span class="j-kick">Afspraak maken</span>
+        <h2 class="j-h2" id="h-bezoek" style="margin-top:16px">Kies zelf <em>je uur</em></h2>
+        <p>Online zie je meteen welke uren nog vrij zijn. Liever bellen of een sms sturen kan ook.</p>
+        <div class="j-ways">
+          <a class="j-way j-way--main" href="https://salonkee.be/salon/jovastyle?lang=nl" target="_blank" rel="noopener"><i><svg><use href="#j-cal"/></svg></i><div><b>Online boeken</b><span>Via Salonkee, ook 's avonds</span></div><span class="j-go"><svg><use href="#j-ne"/></svg></span></a>
+          <a class="j-way" href="tel:+3255303229"><i><svg><use href="#j-phone"/></svg></i><div><b>Bellen</b><span>055 30 32 29</span></div><span class="j-go"><svg><use href="#j-arrow"/></svg></span></a>
+          <a class="j-way" href="sms:+32497370711"><i><svg><use href="#j-mobile"/></svg></i><div><b>Sms sturen</b><span>0497 37 07 11</span></div><span class="j-go"><svg><use href="#j-arrow"/></svg></span></a>
+          <a class="j-way" href="https://jovastyle.shop" target="_blank" rel="noopener"><i><svg><use href="#j-bag"/></svg></i><div><b>Webshop</b><span>Producten en haaraccessoires</span></div><span class="j-go"><svg><use href="#j-ne"/></svg></span></a>
+        </div>
+        <p class="j-hint"><svg><use href="#j-info"/></svg><span>Voor balayage en extensions bel je ons best even op 055 30 32 29. Dan plannen we genoeg tijd in.</span></p>
+      </div>
+      <div class="j-hours j-in">
+        <span class="j-kick">Uren en adres</span>
+        <address>Martijn Van Torhoutstraat 197<br>9700 Oudenaarde</address>
+        <p>In Ename, rolstoeltoegankelijk.</p>
+        <dl class="j-table" id="j-table">
+          <div data-d="1"><dt>Maandag</dt><dd>10u - 17u</dd></div>
+          <div data-d="2"><dt>Dinsdag</dt><dd>8u - 18u</dd></div>
+          <div data-d="3"><dt>Woensdag</dt><dd>8u - 19u</dd></div>
+          <div data-d="4"><dt>Donderdag</dt><dd>8u30 - 20u</dd></div>
+          <div data-d="5"><dt>Vrijdag</dt><dd>8u - 18u</dd></div>
+          <div data-d="6"><dt>Zaterdag</dt><dd>8u - 17u</dd></div>
+          <div data-d="0" class="is-closed"><dt>Zondag</dt><dd>gesloten</dd></div>
+        </dl>
+        <div class="j-map"><iframe title="Kaart: Martijn Van Torhoutstraat 197, Oudenaarde" src="https://maps.google.com/maps?q=Martijn%20Van%20Torhoutstraat%20197%2C%209700%20Oudenaarde&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="j-sec" id="vragen" aria-labelledby="h-vragen" style="padding-top:0">
+    <div class="wrap j-faq">
+      <div class="j-faq-l j-in">
+        <span class="j-kick">Goed om te weten</span>
+        <h2 class="j-h2" id="h-vragen" style="margin-top:16px">Vragen</h2>
+        <p>Staat je vraag er niet bij? Bel ons op <a href="tel:+3255303229">055 30 32 29</a> of mail naar <a href="mailto:info@jovastyle.be">info@jovastyle.be</a>.</p>
+      </div>
+      <div class="j-acc j-in">
+        <details open><summary>Kan ik zelf kiezen bij wie ik zit?<i></i></summary><p class="j-ans">Ja. Zeg het gewoon als je belt, of zet het bij je afspraak als je online boekt.</p></details>
+        <details><summary>Moet ik voor balayage of extensions bellen?<i></i></summary><p class="j-ans">Liefst wel. Dan weten we hoe lang je haar is en wat je wil, en plannen we genoeg tijd in. Ook kleursets bestel je telefonisch.</p></details>
+        <details><summary>Knippen jullie ook kinderen?<i></i></summary><p class="j-ans">Zeker. Tot 12 jaar betaal je een kinderprijs. Ook meisjes die een brushing willen, zijn welkom.</p></details>
+        <details><summary>Wat als mijn haar uitvalt door een behandeling?<i></i></summary><p class="j-ans">Bel of mail ons voor een gratis gesprek. Dat kan in het salon, bij je thuis of in het ziekenhuis. Begin je best al voor de behandeling met verzorging van Mediceuticals.</p></details>
+        <details><summary>Is het salon toegankelijk met een rolstoel?<i></i></summary><p class="j-ans">Ja, je rolt zo binnen. Er is ook airco en gratis wifi.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="j-foot">
+  <div class="wrap">
+    <div class="j-foot-top">
+      <div>
+        <a class="j-logo" href="#top" aria-label="Jovastyle, naar boven"><b>jova<span>style</span></b><small>Ename<br>sinds 1996</small></a>
+        <p>Kapsalon voor dames, heren en kinderen, barbier, nagelstudio en haarwerken in Ename.</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul><li>Martijn Van Torhoutstraat 197</li><li>9700 Oudenaarde</li></ul>
+        <a class="j-strong" href="tel:+3255303229">055 30 32 29</a>
+        <ul><li><a href="tel:+32497370711">gsm 0497 37 07 11</a></li><li><a href="mailto:info@jovastyle.be">info@jovastyle.be</a></li></ul>
+      </div>
+      <div>
+        <h3>Open</h3>
+        <ul><li>ma: 10u - 17u</li><li>di, vr: 8u - 18u</li><li>wo: 8u - 19u</li><li>do: 8u30 - 20u</li><li>za: 8u - 17u</li><li>zo: gesloten</li></ul>
+      </div>
+    </div>
+    <div class="j-foot-bot">
+      <span>© 2026 Jovastyle · ondernemingsnummer 1031.104.258</span>
+      <span>Voorbeeldsite door Digital Impression</span>
+    </div>
+  </div>
+</footer>
+
+<div class="j-bar" id="j-bar">
+  <a href="tel:+3255303229"><svg><use href="#j-phone"/></svg>Bellen</a>
+  <a href="https://salonkee.be/salon/jovastyle?lang=nl" target="_blank" rel="noopener"><svg><use href="#j-cal"/></svg>Online boeken</a>
+</div>
+
+<script>
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('j-js');
+
+  var nav=d.querySelector('.j-nav');
+  function onScroll(){nav.classList.toggle('is-stuck',window.scrollY>30)}
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  var burger=d.querySelector('.j-burger');
+  function setMenu(open){root.classList.toggle('j-open',open);burger.setAttribute('aria-expanded',open);burger.setAttribute('aria-label',open?'Menu sluiten':'Menu openen');d.body.style.overflow=open?'hidden':''}
+  burger.addEventListener('click',function(){setMenu(!root.classList.contains('j-open'))});
+  d.querySelectorAll('.j-sheet a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+  d.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false)});
+
+  // open of gesloten, tijd in Oudenaarde
+  var uren={1:[10,17],2:[8,18],3:[8,19],4:[8.5,20],5:[8,18],6:[8,17]};
+  var dagen=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+  function fmt(h){var m=Math.round((h%1)*60);return Math.floor(h)+'u'+(m?m:'')}
+  try{
+    var p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Brussels',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+    var m={};p.forEach(function(x){m[x.type]=x.value});
+    var wd={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[m.weekday];
+    var h=parseInt(m.hour,10)%24+parseInt(m.minute,10)/60;
+    if(wd!==undefined){
+      var st=d.getElementById('j-status'),tx=d.getElementById('j-status-txt'),u=uren[wd],msg;
+      if(u&&h>=u[0]&&h<u[1]){msg='Nu open tot '+fmt(u[1]);st.classList.add('is-open')}
+      else if(u&&h<u[0]){msg='Vandaag open vanaf '+fmt(u[0])}
+      else{for(var i=1;i<=7;i++){var n=(wd+i)%7;if(uren[n]){msg='Nu gesloten · '+(i===1?'morgen':dagen[n])+' open vanaf '+fmt(uren[n][0]);break}}}
+      tx.textContent=msg;
+      var row=d.querySelector('#j-table [data-d="'+wd+'"]');if(row)row.classList.add('is-today');
+    }
+  }catch(e){}
+
+  // prijstabs
+  var tabs=[].slice.call(d.querySelectorAll('.j-tabs [role="tab"]'));
+  function sel(t){tabs.forEach(function(b){var on=b===t;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;d.getElementById(b.getAttribute('aria-controls')).hidden=!on})}
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){sel(t)});
+    t.addEventListener('keydown',function(e){var k=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(k){var n=tabs[(i+k+tabs.length)%tabs.length];sel(n);n.focus()}});
+  });
+
+  // schuifbalkjes
+  function track(el,bar){
+    if(!el||!bar)return;
+    function up(){var max=el.scrollWidth-el.clientWidth;var r=max>0?el.clientWidth/el.scrollWidth:1;var pos=max>0?el.scrollLeft/max:0;bar.style.width=Math.max(r,.12)*100+'%';bar.style.marginLeft=(pos*(1-Math.max(r,.12)))*100+'%'}
+    el.addEventListener('scroll',up,{passive:true});window.addEventListener('resize',up);up();
+  }
+  track(d.getElementById('j-svc'),d.getElementById('j-svc-bar'));
+  var people=d.getElementById('j-people');
+  track(people,d.getElementById('j-people-bar'));
+  d.getElementById('j-next').addEventListener('click',function(){people.scrollBy({left:people.clientWidth*.8,behavior:'smooth'})});
+  d.getElementById('j-prev').addEventListener('click',function(){people.scrollBy({left:-people.clientWidth*.8,behavior:'smooth'})});
+
+  // verschijnen
+  var els=d.querySelectorAll('.j-in');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('is-in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('is-in')})}
+
+  // mobiele balk weg bij hero-knoppen, footer en voorstel
+  var bar=d.getElementById('j-bar');
+  if('IntersectionObserver' in window){
+    var vis=new Set();
+    var bo=new IntersectionObserver(function(en){en.forEach(function(x){x.isIntersecting?vis.add(x.target):vis.delete(x.target)});bar.classList.toggle('is-hidden',vis.size>0)});
+    [d.querySelector('.j-hero-side .j-row'),d.querySelector('.j-foot'),d.querySelector('section.di')].forEach(function(el){if(el)bo.observe(el)});
+  }
+})();
+</script>
+<!-- VOORSTELBLOK Digital Impression: letterlijk overnemen, onderaan de pagina, vóór </body>. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Onest:wght@400;600;700&display=swap">
+<style>
+.di{--n:#0E1C3A;--n2:#162a52;--n3:#21386a;--cr:#F5EEE2;--pa:#FBF7F0;--te:#D7603A;--ted:#B04722;--ap:#F2AE84;--bu:#F1CB78;--od2:#c9cfdf;
+  background:var(--n);color:var(--cr);padding:100px 0 100px;position:relative;overflow:clip;font:19px/1.6 'Onest',system-ui,sans-serif}
+.di::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 85% 0%,rgba(215,96,58,.18),transparent 70%);pointer-events:none}
+.di .wrap{max-width:1080px;position:relative}
+.di .naad{position:absolute;left:0;right:0;top:0;height:6px;background:repeating-linear-gradient(90deg,var(--te) 0 22px,var(--bu) 22px 44px,var(--ap) 44px 66px)}
+.di .merk{display:inline-flex;align-items:center;gap:12px;margin-bottom:26px;font-size:16px;font-weight:600;color:var(--od2)}
+.di .merk i{width:40px;height:40px;border-radius:12px;background:var(--ted);display:grid;place-items:center;font:400 22px/1 'DM Serif Display',serif;font-style:normal;color:#fff}
+.di h2{font:400 clamp(40px,5vw,64px)/1.04 'DM Serif Display',serif;letter-spacing:-.5px;color:var(--pa);max-width:16em}
+.di h2 em{font-style:italic;color:var(--ap)}
+.di .intro{color:var(--od2);font-size:20px;margin:20px 0 54px;max-width:34em}
+.di .kop3{font:400 34px/1.1 'DM Serif Display',serif;color:var(--pa);margin:0 0 24px}
+.di .prijzen{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.di .pk{border-radius:26px;padding:36px}
+.di .pk.wit{background:var(--pa);color:var(--n)}
+.di .pk.donker{background:var(--n2);border:1.5px solid rgba(245,238,226,.16)}
+.di .pk .label{display:block;font-size:16px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.di .pk.wit .label{color:var(--ted)}
+.di .pk.donker .label{color:var(--ap)}
+.di .bedrag{font:400 88px/.9 'DM Serif Display',serif;letter-spacing:-2px;display:flex;align-items:flex-start;gap:6px}
+.di .bedrag small{font-size:36px;margin-top:8px}
+.di .wanneer{font-size:20px;font-weight:700;margin:12px 0 26px}
+.di .pk ul{list-style:none;margin:0;padding:0;display:grid;gap:14px;font-size:18.5px;line-height:1.45}
+.di .pk li{display:flex;gap:14px;align-items:flex-start}
+.di .pk li::before{content:"";flex:none;width:24px;height:24px;margin-top:2px;border-radius:50%;background:var(--ted) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/15px no-repeat}
+.di .geruststelling{margin-top:26px;padding-top:22px;border-top:2px dashed rgba(14,28,58,.18);font-size:18px;font-weight:600}
+.di .keuze{border-radius:18px;padding:22px 24px;background:rgba(245,238,226,.05);border:1.5px solid rgba(245,238,226,.14)}
+.di .keuze+.keuze{margin-top:16px}
+.di .keuze.aan{border-color:var(--ap);background:rgba(242,174,132,.08)}
+.di .keuze .rij{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap}
+.di .keuze h4{margin:0;font:400 28px/1.1 'DM Serif Display',serif;color:var(--pa)}
+.di .keuze .p{font-size:22px;font-weight:700;color:var(--ap);white-space:nowrap}
+.di .keuze p{color:var(--od2);font-size:18px;margin-top:8px}
+.di .keuze .raad{display:inline-block;margin-top:12px;font:700 15px/1.4 'Onest',sans-serif;background:var(--ap);color:var(--n);border-radius:999px;padding:4px 12px}
+.di .di-stappen{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.di .di-stap{display:flex;gap:18px;align-items:flex-start}
+.di .di-stap i{flex:none;width:52px;height:52px;border-radius:50%;background:var(--ted);color:#fff;display:grid;place-items:center;font:400 26px/1 'DM Serif Display',serif;font-style:normal}
+.di .di-stap b{display:block;font-size:20px;color:var(--pa);line-height:1.3;margin-bottom:6px}
+.di .di-stap span{color:var(--od2);font-size:18px}
+.di .contact{margin-top:64px;background:var(--pa);color:var(--n);border-radius:26px;padding:32px 36px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+.di .contact .vraag{font:400 34px/1.1 'DM Serif Display',serif}
+.di .contact p{font-size:19px;color:#3d4660;margin-top:8px}
+.di .contact p b{color:var(--n)}
+.di .knoppen{display:flex;flex-direction:column;gap:12px;min-width:280px}
+.di .knoppen a{display:flex;justify-content:center;align-items:center;gap:10px;border-radius:999px;padding:18px 26px;font-weight:700;font-size:19px;text-decoration:none;transition:transform .15s,background .15s}
+.di .knoppen a:hover{transform:translateY(-2px)}
+.di .knoppen a svg{width:22px;height:22px}
+.di .knoppen .wa{background:var(--ted);color:#fff}
+.di .knoppen .wa:hover{background:#963a1a}
+.di .knoppen .lijn{border:2px solid var(--n);color:var(--n)}
+.di :focus-visible{outline:3px solid var(--ap);outline-offset:3px}
+@media (max-width:960px){.di{padding:80px 0;font-size:18px}.di .prijzen{grid-template-columns:1fr}.di .di-stappen{grid-template-columns:1fr;gap:22px;margin-top:52px}.di .contact{grid-template-columns:1fr;padding:28px}.di .knoppen{min-width:0}}
+@media (max-width:640px){.di .pk{padding:26px 22px}.di .bedrag{font-size:76px}.di .intro{font-size:18.5px;margin-bottom:44px}.di .kop3,.di .contact .vraag{font-size:30px}}
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ico-wa" viewbox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z" fill="currentColor"></path></symbol></svg>
+<style>.di .knoppen .cal{background:var(--n);color:var(--pa)}.di .knoppen .cal:hover{background:var(--n3)}.di .knoppen .cal svg{width:20px;height:20px}</style>
+<style>/*di-center*/.di .merk{display:flex;width:max-content;max-width:100%;margin-left:auto;margin-right:auto}.di #di-titel{text-align:center;margin-left:auto;margin-right:auto;text-wrap:balance}.di .intro{text-align:center;margin-left:auto;margin-right:auto;text-wrap:pretty}</style>
+<section aria-labelledby="di-titel" class="di">
+<span aria-hidden="true" class="naad"></span>
+<div class="wrap">
+<span class="merk"><i aria-hidden="true">D</i>Voorstel van Digital Impression</span>
+<h2 id="di-titel">Zo zou jullie website <em>eruit kunnen zien</em>.</h2>
+<p class="intro">Een eerste schets, op maat van Jovastyle. Jullie kiezen de stijl, ik zorg dat alles klopt.</p>
+<h3 class="kop3">Wat het kost</h3>
+<div class="prijzen">
+<div class="pk wit">
+<span class="label">Je website</span>
+<div class="bedrag"><small>€</small>499</div>
+<p class="wanneer">één keer, alles inbegrepen</p>
+<ul>
+<li>Jullie website, in de stijl die jullie kiezen</li>
+<li>Werkt op gsm, tablet en computer</li>
+<li>Uren, adres en route altijd juist</li>
+<li>Bestellingen komen rechtstreeks in je mailbox</li>
+</ul>
+<p class="geruststelling">Geen voorschot. Je betaalt pas als de site klaar is.</p>
+</div>
+<div class="pk donker">
+<span class="label">Daarna kies je</span>
+<div class="keuze">
+<div class="rij"><h4>Zelf beheren</h4><span class="p">€ 0 / maand</span></div>
+<p>Hosting en domein op jouw naam. Een aanpassing vraag je per keer aan.</p>
+</div>
+<div class="keuze aan">
+<div class="rij"><h4>Zorgeloos</h4><span class="p">€ 19,99 / maand</span></div>
+<p>Hosting en domein inbegrepen. Nieuwe suggesties en wijzigingen zet ik er voor je op.</p>
+<span class="raad">mijn aanrader</span>
+</div>
+</div>
+</div>
+<div class="di-stappen">
+<div class="di-stap"><i aria-hidden="true">1</i><div><b>Je laat iets weten</b><span>Een berichtje of telefoontje is genoeg.</span></div></div>
+<div class="di-stap"><i aria-hidden="true">2</i><div><b>We maken hem af</b><span>Jij zegt wat anders moet, ik pas het aan.</span></div></div>
+<div class="di-stap"><i aria-hidden="true">3</i><div><b>Online</b><span>Op je eigen domein, binnen 10 tot 14 dagen.</span></div></div>
+</div>
+<div class="contact">
+<div>
+<div class="vraag">Vragen? Plan een gesprek of stuur me een berichtje.</div>
+<p><b>Stijn Vranken</b> · 0496 25 14 45 · info@digital-impression.be</p>
+</div>
+<div class="knoppen">
+<a class="wa" href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20Jovastyle" rel="noopener" target="_blank"><svg><use href="#ico-wa"></use></svg>WhatsApp Stijn</a>
+<a class="cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Jovastyle" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Plan een gesprek van 30 min</a>
+<a class="lijn" href="tel:+32496251445">Bel 0496 25 14 45</a>
+</div>
+</div>
+</div>
+</section>
+</body>
+</html>
