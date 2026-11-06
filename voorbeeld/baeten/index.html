@@ -1,0 +1,736 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Baeten Architect · Elke Baeten, architecte in Lokeren</title>
+<meta name="description" content="Elke Baeten, Baeten Architect in Lokeren. Nieuwbouw, verbouwingen, interieur en omgeving voor gezinnen uit Lokeren en het Waasland. Erkend door de Orde van Architecten.">
+<link rel="preload" href="img/hero.webp" as="image">
+<style>
+@font-face{font-family:ISerif;src:url(img/iserif.woff2) format('woff2');font-display:swap}
+@font-face{font-family:ISerif;src:url(img/iserif-i.woff2) format('woff2');font-style:italic;font-display:swap}
+@font-face{font-family:ISans;src:url(img/isans.woff2) format('woff2');font-weight:400 700;font-display:swap}
+@font-face{font-family:Reenie;src:url(img/reenie.woff2) format('woff2');font-display:swap}
+:root{
+  --sa:#7A9179;--sa-d:#5D745D;--sa-l:#E4EBE2;--sa-ll:#F1F4EF;
+  --an:#2A2E31;--an-2:#3A3F43;--an-l:#5F666B;
+  --bg:#F8F8F4;--paper:#fff;--ink:#22262A;--ink-2:#53595E;--muted:#868C8F;--line:rgba(42,46,49,.12);
+  --f-d:ISerif,Georgia,serif;--f-b:ISans,system-ui,-apple-system,'Segoe UI',sans-serif;--f-h:Reenie,'Comic Sans MS',cursive;
+  --sh:0 2px 4px rgba(42,46,49,.04),0 22px 44px -24px rgba(42,46,49,.3);--sh-l:0 36px 72px -34px rgba(42,46,49,.48);
+  --ease:cubic-bezier(.2,.7,.2,1)
+}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{font:400 16.5px/1.7 var(--f-b);color:var(--ink);background:var(--bg);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button,select,input,textarea{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+.ic{width:1.1em;height:1.1em;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.wrap{width:min(100% - 40px,1240px);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-d);font-weight:400;line-height:1.02;letter-spacing:-.015em;color:var(--an)}
+h2{font-size:clamp(2.4rem,4.8vw,4rem)}
+h3{font-size:1.6rem;line-height:1.1}
+main h1 em,main h2 em{font-style:italic;color:var(--sa-d)}
+.kick{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sa-d)}
+.kick b{display:inline-grid;place-items:center;min-width:28px;height:22px;padding:0 6px;border-radius:6px;background:var(--sa-l);color:var(--an);font-size:.74rem;letter-spacing:.04em}
+.lead{font-size:1.08rem;color:var(--ink-2);max-width:54ch}
+.sec{padding:110px 0}
+.hd2{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:46px}
+.hd2 h2{margin-top:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;border-radius:999px;font:600 .98rem/1 var(--f-b);white-space:nowrap;transition:transform .3s var(--ease),background .3s,box-shadow .3s,color .3s}
+.btn .ic{width:19px;height:19px}
+.btn.pr{background:var(--an);color:#fff;box-shadow:0 14px 28px -14px rgba(42,46,49,.8)}
+.btn.pr:hover{background:#15181a;transform:translateY(-2px)}
+.btn.sa{background:var(--sa);color:#fff}
+.btn.sa:hover{background:var(--sa-d);transform:translateY(-2px)}
+.btn.ln{background:var(--paper);color:var(--an);box-shadow:inset 0 0 0 1.5px var(--line),var(--sh)}
+.btn.ln:hover{box-shadow:inset 0 0 0 1.5px var(--an);transform:translateY(-2px)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--sa);outline-offset:3px}
+
+.demo{background:var(--an);color:#D3D8D3;font-size:.83rem;text-align:center;padding:9px 16px;line-height:1.5}
+.demo a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+
+.hd{position:sticky;top:0;z-index:50;background:rgba(248,248,244,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:box-shadow .3s}
+.hd.sc{box-shadow:0 1px 0 var(--line)}
+.hd .wrap{display:flex;align-items:center;gap:30px;height:82px}
+.logo{display:flex;align-items:center;gap:13px;white-space:nowrap}
+.logo .m{width:46px;height:46px;display:grid;place-items:center;background:var(--sa);border-radius:4px 22px 4px 22px;color:#fff;font:italic 400 1.5rem/1 var(--f-d)}
+.logo b{display:block;font:400 1.4rem/1 var(--f-d);color:var(--an)}
+.logo small{display:block;font-size:.76rem;color:var(--muted);margin-top:4px;letter-spacing:.06em;text-transform:uppercase}
+.nav{display:flex;gap:28px;margin-left:auto;font-weight:500;font-size:.95rem}
+.nav a{color:var(--ink-2);transition:color .2s}
+.nav a:hover{color:var(--an)}
+.hd .btn{min-height:46px;padding:0 20px}
+.mb{display:none;width:46px;height:46px;border-radius:50%;background:var(--paper);box-shadow:var(--sh);place-items:center;color:var(--an)}
+.mb .ic{width:20px;height:20px}
+
+/* hero */
+.hero{padding:30px 0 90px}
+.hero .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
+.hero h1{font-size:clamp(3rem,6vw,5.6rem);margin:20px 0 22px}
+.hero .lead{font-size:1.14rem}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 30px}
+.facts{display:flex;flex-wrap:wrap;gap:10px}
+.facts span{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;background:var(--paper);box-shadow:var(--sh);font-size:.88rem;color:var(--ink-2)}
+.facts .ic{width:16px;height:16px;color:var(--sa-d)}
+.facts b{color:var(--an);font-weight:600}
+.shot{position:relative;padding-bottom:76px}
+.shot .img{position:relative;border-radius:30px;overflow:hidden;aspect-ratio:16/12;box-shadow:var(--sh-l)}
+.shot .img img{width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.shot .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.14) 1px,transparent 1px);background-size:48px 48px;mix-blend-mode:overlay;pointer-events:none}
+.card-e{position:absolute;left:-40px;bottom:0;background:var(--paper);border-radius:22px;padding:20px 22px;box-shadow:var(--sh-l);display:flex;gap:16px;align-items:center;max-width:330px;animation:fl 8s ease-in-out infinite}
+.card-e .av{width:58px;height:58px;border-radius:50%;background:var(--sa-l);display:grid;place-items:center;font:italic 400 1.6rem/1 var(--f-d);color:var(--sa-d);flex:none;box-shadow:inset 0 0 0 2px var(--paper),0 0 0 2px var(--sa)}
+.card-e b{display:block;font:400 1.3rem/1.1 var(--f-d);color:var(--an)}
+.card-e small{display:block;font-size:.84rem;color:var(--muted);line-height:1.4}
+.chip{position:absolute;right:18px;top:18px;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.95);border-radius:14px;padding:10px 14px;box-shadow:var(--sh);font-size:.86rem}
+.chip b{font:400 1.4rem/1 var(--f-d);color:var(--an)}
+.chip .stars{color:#C59B3E;letter-spacing:1px;font-size:.78rem}
+.note{position:absolute;right:6px;bottom:0;transform:rotate(-4deg);font-family:var(--f-h);font-size:1.6rem;line-height:1.05;color:var(--an);max-width:240px;text-align:right}
+.note svg{width:60px;height:36px;color:var(--sa-d);display:block;margin:0 0 2px auto}
+@keyframes fl{0%,100%{translate:0 0}50%{translate:0 -8px}}
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.hero .tx>*{animation:up .8s var(--ease) both}
+.hero .tx>*:nth-child(2){animation-delay:.06s}.hero .tx>*:nth-child(3){animation-delay:.12s}.hero .tx>*:nth-child(4){animation-delay:.18s}.hero .tx>*:nth-child(5){animation-delay:.24s}
+
+/* what */
+.what{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.wc{background:var(--paper);border-radius:22px;padding:24px;box-shadow:var(--sh);display:flex;flex-direction:column;gap:10px;transition:transform .3s var(--ease),box-shadow .3s}
+.wc:hover{transform:translateY(-5px);box-shadow:var(--sh-l)}
+.wc i{width:46px;height:46px;border-radius:14px;background:var(--sa-l);display:grid;place-items:center;color:var(--sa-d)}
+.wc i .ic{width:22px;height:22px}
+.wc h3{font-size:1.5rem}
+.wc p{font-size:.94rem;color:var(--ink-2);flex:1}
+.wc a{font-weight:600;font-size:.9rem;color:var(--sa-d);display:inline-flex;align-items:center;gap:6px}
+.wc a .ic{width:16px;height:16px;transition:transform .3s}
+.wc a:hover .ic{transform:translateX(4px)}
+
+/* moodboard */
+.mood{background:var(--paper)}
+.fil{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.fil button{border-radius:999px;padding:10px 18px;font-weight:600;font-size:.92rem;background:var(--sa-ll);color:var(--ink-2);transition:background .25s,color .25s}
+.fil button:hover{background:var(--sa-l)}
+.fil button[aria-pressed=true]{background:var(--an);color:#fff}
+.mg{columns:3;column-gap:16px}
+.mi{break-inside:avoid;margin-bottom:16px;position:relative;border-radius:20px;overflow:hidden;box-shadow:var(--sh);transition:opacity .35s,transform .35s var(--ease)}
+.mi img{width:100%;height:auto;transition:transform .8s var(--ease)}
+.mi:hover img{transform:scale(1.04)}
+.mi .lb{position:absolute;left:12px;bottom:12px;background:rgba(255,255,255,.94);border-radius:999px;padding:5px 12px;font-size:.78rem;font-weight:600;color:var(--an)}
+.mi .hrt{position:absolute;right:12px;top:12px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.94);display:grid;place-items:center;color:var(--an);box-shadow:var(--sh);transition:transform .25s,background .25s,color .25s}
+.mi .hrt:hover{transform:scale(1.08)}
+.mi .hrt .ic{width:20px;height:20px}
+.mi .hrt[aria-pressed=true]{background:var(--sa);color:#fff}
+.mi .hrt[aria-pressed=true] .ic{fill:currentColor}
+.mi.off{display:none}
+.mbox{position:sticky;bottom:18px;z-index:5;margin:10px auto 0;width:max-content;max-width:100%;display:flex;align-items:center;gap:14px;background:var(--an);color:#fff;border-radius:999px;padding:8px 8px 8px 20px;box-shadow:var(--sh-l);font-size:.92rem}
+.mbox b{font-weight:700}
+.mbox a{background:var(--sa);border-radius:999px;padding:10px 16px;font-weight:600;white-space:nowrap}
+.mood .disc{font-size:.84rem;color:var(--muted);margin-top:18px}
+
+/* about */
+.ab .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.ab h2{margin:14px 0 20px}
+.ab p{color:var(--ink-2);margin-bottom:14px;max-width:54ch}
+.ab p.big{font:italic 400 1.55rem/1.4 var(--f-d);color:var(--an)}
+.creds{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0}
+.creds>div{background:var(--paper);border-radius:18px;padding:16px 18px;box-shadow:var(--sh)}
+.creds b{display:block;font:400 1.25rem/1.15 var(--f-d);color:var(--an)}
+.creds span{font-size:.84rem;color:var(--muted)}
+.sig{display:flex;align-items:center;gap:16px;padding-top:18px;border-top:1px solid var(--line)}
+.sig .h{font-family:var(--f-h);font-size:2.6rem;line-height:1;color:var(--sa-d)}
+.sig small{font-size:.86rem;color:var(--muted);line-height:1.4}
+.board{position:relative;height:600px}
+.board figure{position:absolute;overflow:hidden;box-shadow:var(--sh-l);background:#fff}
+.board img{width:100%;height:100%;object-fit:cover}
+.board .a{left:0;top:0;width:58%;height:70%;border-radius:24px}
+.board .b{right:0;top:8%;width:40%;height:40%;border-radius:24px}
+.board .c{right:4%;bottom:0;width:52%;height:42%;border-radius:24px;border:6px solid var(--bg)}
+.board .pin{position:absolute;left:8%;bottom:6%;background:var(--sa);color:#fff;border-radius:16px;padding:14px 18px;box-shadow:var(--sh-l);transform:rotate(-3deg)}
+.board .pin b{display:block;font:italic 400 1.3rem/1.1 var(--f-d)}
+.board .pin small{font-size:.78rem;opacity:.85}
+
+/* steps */
+.pl{background:var(--sa-ll)}
+.ptab{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.ptab button{display:inline-flex;align-items:center;gap:10px;border-radius:16px;padding:14px 18px;background:var(--paper);box-shadow:var(--sh);font-weight:600;font-size:.95rem;color:var(--an);transition:background .25s,color .25s,transform .25s var(--ease)}
+.ptab button:hover{transform:translateY(-2px)}
+.ptab button .ic{width:19px;height:19px;color:var(--sa-d)}
+.ptab button[aria-pressed=true]{background:var(--an);color:#fff}
+.ptab button[aria-pressed=true] .ic{color:#B7CBB6}
+.track{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;position:relative}
+.track::before{content:"";position:absolute;left:3%;right:3%;top:31px;height:2px;background:repeating-linear-gradient(90deg,var(--sa) 0 10px,transparent 10px 18px)}
+.stp{position:relative;background:var(--paper);border-radius:22px;padding:70px 22px 24px;box-shadow:var(--sh)}
+.stp .n{position:absolute;left:22px;top:12px;width:40px;height:40px;border-radius:50%;background:var(--sa);color:#fff;display:grid;place-items:center;font:italic 400 1.3rem/1 var(--f-d);box-shadow:0 0 0 6px var(--sa-ll)}
+.stp small{display:block;font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sa-d);margin-bottom:6px}
+.stp h3{font-size:1.4rem;margin-bottom:8px}
+.stp p{font-size:.93rem;color:var(--ink-2)}
+.stp .you{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-size:.86rem;color:var(--muted)}
+.stp .you b{color:var(--an);font-weight:600}
+.track.fade .stp{animation:up .5s var(--ease) both}
+.track.fade .stp:nth-child(2){animation-delay:.05s}.track.fade .stp:nth-child(3){animation-delay:.1s}.track.fade .stp:nth-child(4){animation-delay:.15s}
+
+/* epc */
+.epc .box{display:grid;grid-template-columns:1fr 1fr;background:var(--paper);border-radius:32px;overflow:hidden;box-shadow:var(--sh-l)}
+.epc figure{position:relative;min-height:460px}
+.epc figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.epc .tx{padding:46px 44px}
+.epc h2{font-size:clamp(2.1rem,3.6vw,3rem);margin:14px 0 14px}
+.labels{display:flex;gap:6px;margin:22px 0 18px;flex-wrap:wrap}
+.labels button{width:52px;height:46px;border-radius:12px;font:700 1rem/1 var(--f-b);color:#fff;transition:transform .2s,box-shadow .2s;position:relative}
+.labels button:hover{transform:translateY(-3px)}
+.labels button[aria-pressed=true]{box-shadow:0 0 0 3px var(--paper),0 0 0 5px var(--an);transform:translateY(-3px)}
+.out{border-radius:18px;padding:18px 20px;background:var(--sa-ll);min-height:110px}
+.out b{display:block;font:400 1.35rem/1.2 var(--f-d);color:var(--an);margin-bottom:6px}
+.out p{font-size:.95rem;color:var(--ink-2)}
+.out.warn{background:#FBEFE2}
+.epc .src{font-size:.8rem;color:var(--muted);margin-top:14px}
+
+/* local */
+.lo{position:relative;color:#fff}
+.lo .bgi{position:absolute;inset:0;overflow:hidden}
+.lo .bgi img{width:100%;height:100%;object-fit:cover}
+.lo .bgi::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(42,46,49,.85),rgba(42,46,49,.45) 60%,rgba(42,46,49,.15))}
+.lo .wrap{position:relative;padding:110px 0;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.lo h2{color:#fff;margin:14px 0 16px}
+.lo h2 em{color:#BFD3BE}
+.lo .kick{color:#BFD3BE}
+.lo .kick b{background:rgba(255,255,255,.14);color:#fff}
+.lo p{color:#E2E7E2;max-width:46ch}
+.near{list-style:none;padding:0;margin:24px 0 28px;display:grid;gap:8px;max-width:440px}
+.near li{display:flex;justify-content:space-between;gap:16px;padding:12px 16px;border-radius:14px;background:rgba(255,255,255,.12);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-size:.95rem}
+.near li span:last-child{font-weight:600;color:#CFE0CE;white-space:nowrap}
+.lo .rv{justify-self:end;background:rgba(255,255,255,.96);color:var(--ink);border-radius:26px;padding:30px;box-shadow:var(--sh-l);min-width:270px}
+.lo .rv b{display:block;font:400 4.6rem/1 var(--f-d);color:var(--an)}
+.lo .rv .stars{color:#C59B3E;font-size:1.15rem;letter-spacing:2px}
+.lo .rv p{color:var(--ink-2);font-size:.92rem;margin-top:8px}
+.lo .rv a{display:inline-flex;gap:8px;align-items:center;margin-top:14px;font-weight:600;color:var(--sa-d);font-size:.92rem}
+
+/* faq */
+.fq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px}
+.fq h2{margin:14px 0 16px}
+.fq .intro p{color:var(--ink-2);margin-bottom:24px}
+.fq figure{border-radius:24px;overflow:hidden;aspect-ratio:3/3.4;box-shadow:var(--sh)}
+.fq figure img{width:100%;height:100%;object-fit:cover}
+.acc{display:grid;gap:10px;align-content:start}
+.acc>div{background:var(--paper);border-radius:18px;box-shadow:var(--sh)}
+.acc button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 22px;text-align:left;font:400 1.3rem/1.25 var(--f-d);color:var(--an)}
+.acc button i{width:34px;height:34px;border-radius:50%;background:var(--sa-l);display:grid;place-items:center;flex:none;transition:transform .3s,background .3s}
+.acc button i .ic{width:16px;height:16px;color:var(--sa-d)}
+.acc .open button i{transform:rotate(45deg);background:var(--sa);}
+.acc .open button i .ic{color:#fff}
+.acc .an{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease)}
+.acc .open .an{grid-template-rows:1fr}
+.acc .an>div{overflow:hidden}
+.acc .an p{color:var(--ink-2);padding:0 22px 22px;max-width:64ch}
+
+/* contact */
+.ct .box{display:grid;grid-template-columns:.9fr 1.1fr;gap:26px;align-items:start}
+.ct .info h2{margin:14px 0 14px}
+.ct .info p{color:var(--ink-2);max-width:44ch}
+.ways{display:grid;gap:10px;margin:26px 0}
+.ways a{display:flex;align-items:center;gap:14px;background:var(--paper);border-radius:18px;padding:14px 16px;box-shadow:var(--sh);transition:transform .3s var(--ease)}
+.ways a:hover{transform:translateX(4px)}
+.ways i{width:42px;height:42px;border-radius:13px;background:var(--sa);color:#fff;display:grid;place-items:center;flex:none}
+.ways i .ic{width:19px;height:19px}
+.ways b{display:block;font-size:.98rem}
+.ways span{font-size:.84rem;color:var(--muted)}
+.ct .addr{font-size:.94rem;color:var(--ink-2);padding:18px 20px;border-radius:18px;background:var(--sa-ll)}
+.frm{background:var(--paper);border-radius:30px;padding:40px;box-shadow:var(--sh-l)}
+.frm h3{font-size:2rem}
+.frm .sub{color:var(--muted);font-size:.92rem;margin:6px 0 22px}
+.frm .r2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.frm label{display:block;font-weight:600;font-size:.86rem;color:var(--an);margin-bottom:14px}
+.frm input,.frm select,.frm textarea{display:block;width:100%;margin-top:6px;border:0;border-radius:14px;background:var(--sa-ll);padding:14px 16px;font-size:1rem;box-shadow:inset 0 0 0 1.5px transparent;transition:box-shadow .2s,background .2s}
+.frm input:focus,.frm select:focus,.frm textarea:focus{outline:0;background:#fff;box-shadow:inset 0 0 0 1.5px var(--sa-d)}
+.frm [aria-invalid=true]{box-shadow:inset 0 0 0 1.5px #B4462A}
+.frm .err{display:none;color:#B4462A;font-size:.88rem;margin:-4px 0 12px}
+.frm.bad .err{display:block}
+.frm .mood-l{margin:-2px 0 16px;padding:12px 14px;border-radius:14px;background:var(--sa-ll);font-size:.88rem;color:var(--ink-2)}
+.frm .mood-l b{color:var(--an)}
+.frm .btn{width:100%;margin-top:4px}
+.frm small.n{display:block;text-align:center;color:var(--muted);font-size:.84rem;margin-top:12px}
+
+.ft{background:var(--an);color:#C4C9C5;padding:70px 0 30px;font-size:.94rem}
+.ft .g{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.ft .logo b{color:#fff}.ft .logo small{color:#959C98}
+.ft p{margin-top:16px;max-width:42ch}
+.ft h4{color:#fff;font:400 1.3rem var(--f-d);margin-bottom:10px}
+.ft ul{list-style:none;padding:0;display:grid;gap:6px}
+.ft a:hover{color:#BFD3BE}
+.ft .lg{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:50px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);font-size:.84rem;color:#8E9590}
+.ft .lg a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.mbar{display:none}
+
+[data-r]{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0ms)}
+[data-r].in{opacity:1;transform:none}
+.no-js [data-r]{opacity:1;transform:none}
+
+@media (max-width:1060px){
+  .nav{display:none}.mb{display:grid}.hd .btn{margin-left:auto}
+  body.mo-open .nav{display:flex;position:absolute;top:82px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);padding:10px 20px 20px;box-shadow:0 20px 30px -20px rgba(0,0,0,.2)}
+  body.mo-open .nav a{padding:12px 0;border-bottom:1px solid var(--line)}
+  .what{grid-template-columns:1fr 1fr}
+  .track{grid-template-columns:1fr 1fr}
+  .track::before{display:none}
+  .mg{columns:2}
+}
+@media (max-width:860px){
+  .sec{padding:80px 0}
+  .hero{padding:16px 0 70px}
+  .hero .wrap,.hd2,.ab .wrap,.epc .box,.lo .wrap,.fq .wrap,.ct .box{grid-template-columns:1fr}
+  .hero .wrap{gap:40px}
+  .card-e{left:-6px}
+  .hd2{gap:14px;margin-bottom:32px}
+  .ab .wrap{gap:44px}
+  .board{height:460px}
+  .epc figure{min-height:260px;order:2}
+  .epc .tx{padding:32px 24px}
+  .lo .wrap{padding:80px 0}
+  .lo .rv{justify-self:start}
+  .lo .bgi::after{background:linear-gradient(180deg,rgba(42,46,49,.85),rgba(42,46,49,.65))}
+  .fq .wrap{gap:30px}
+  .fq figure{display:none}
+  .frm{padding:30px 24px}
+  .hd .btn span{display:none}.hd .btn{padding:0 14px}
+  .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;gap:10px;padding:10px;border-radius:999px;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:var(--sh-l)}
+  .mbar .btn{flex:1;min-height:48px;padding:0 14px}
+  body{padding-bottom:84px}
+  .mbox{bottom:92px}
+  .ft .g{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .wrap{width:calc(100% - 32px)}
+  .what,.track,.creds,.frm .r2{grid-template-columns:1fr}
+  .mg{columns:1}
+  .hero h1{font-size:3rem}
+  .shot .img{aspect-ratio:4/4.2}
+  .card-e{max-width:270px;padding:14px 16px}
+  .card-e .av{width:46px;height:46px}
+  .note{display:none}
+  .board{height:380px}
+  .labels button{width:42px;height:42px}
+  .logo small{display:none}
+  .mbox{font-size:.84rem;padding-left:14px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}[data-r]{opacity:1;transform:none}}
+</style>
+</head>
+<body class="no-js">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M13.8 16.6a1 1 0 0 0 1.2-.3l.4-.5A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.5.4a1 1 0 0 0-.3 1.2 14 14 0 0 0 6.4 6.4"/></symbol>
+<symbol id="i-wa" viewBox="0 0 24 24"><path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 7.8 19.6z"/><path d="M9 9.5c.3 2.2 2.3 4.3 4.5 4.6l1-1 1.8.8c-.2 1-1 1.6-2 1.6A6 6 0 0 1 8.4 9.6c0-1 .6-1.8 1.6-2l.8 1.8z"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-9 5.7a2 2 0 0 1-2 0L2 7"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7z"/><path d="M9 12l2 2 4-4"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8L3.5 9.7l5.9-.9z"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+<symbol id="i-route" viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8z"/></symbol>
+<symbol id="i-ext" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M2 9.5a5.5 5.5 0 0 1 9.6-3.7.6.6 0 0 0 .8 0A5.5 5.5 0 0 1 22 9.5c0 2.3-1.5 4-3 5.5l-5.5 5.3a2 2 0 0 1-3 0L5 15c-1.5-1.5-3-3.2-3-5.5"/></symbol>
+<symbol id="i-house" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-6h6v6"/></symbol>
+<symbol id="i-hammer" viewBox="0 0 24 24"><path d="m15 12-8.4 8.4a2.1 2.1 0 0 1-3-3L12 9"/><path d="M17.6 15 22 10.6M20.9 11.7l-6.6-6.6a5 5 0 0 0-7.1 0l-.1.1 7 7"/></symbol>
+<symbol id="i-sofa" viewBox="0 0 24 24"><path d="M20 9V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2"/><path d="M2 11a2 2 0 0 1 4 0v3h12v-3a2 2 0 0 1 4 0v5a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/><path d="M5 18v2M19 18v2"/></symbol>
+<symbol id="i-tree" viewBox="0 0 24 24"><path d="M12 22v-6M8 16h8l-2.5-4H16l-4-8-4 8h2.5z"/></symbol>
+<symbol id="i-expand" viewBox="0 0 24 24"><path d="M3 21V9l9-6 9 6v12"/><path d="M14 21v-7h7"/></symbol>
+</defs></svg>
+
+<div class="demo">Voorbeeldsite van Digital Impression voor Baeten Architect. Benieuwd wat zoiets kost? <a href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20Baeten%20Architect" target="_blank" rel="noopener">Stuur Stijn een bericht</a></div>
+
+<header class="hd" data-hd>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Baeten Architect, naar boven"><span class="m">eb</span><span><b>Baeten Architect</b><small>Elke Baeten · Lokeren</small></span></a>
+    <nav class="nav" data-menu><a href="#wat">Wat ik teken</a><a href="#stijl">Uw stijl</a><a href="#over">Over Elke</a><a href="#stappen">Stappenplan</a><a href="#contact">Contact</a></nav>
+    <a class="btn pr" href="tel:+32497214729"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg><span>0497 21 47 29</span></a>
+    <button class="mb" data-mb aria-label="Menu openen" aria-expanded="false"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div class="tx">
+      <span class="kick"><b>01</b>Architecte in Lokeren</span>
+      <h1>Een huis dat past bij <em>hoe u wil wonen</em>.</h1>
+      <p class="lead">Ik ben Elke Baeten. Met Baeten Architect teken ik nieuwbouw, verbouwingen en interieurs voor gezinnen uit Lokeren en het Waasland. Van de eerste schets aan de keukentafel tot de dag dat u de sleutel krijgt.</p>
+      <div class="cta">
+        <a class="btn pr" href="#contact"><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg>Bespreek uw plan</a>
+        <a class="btn ln" href="#stijl"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg>Kies uw stijl</a>
+      </div>
+      <div class="facts">
+        <span><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><b>Orde van Architecten</b></span>
+        <span><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><b>5,0</b> op Google</span>
+        <span><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Lokeren</span>
+      </div>
+    </div>
+    <div class="shot">
+      <div class="img"><img src="img/hero.webp" alt="Moderne woning met een hoge puntgevel en grote ramen" width="1600" height="900" fetchpriority="high"><span class="grid" aria-hidden="true"></span></div>
+      <div class="chip"><b>5,0</b><span><span class="stars">★★★★★</span><br>op Google</span></div>
+      <div class="card-e"><span class="av">E</span><div><b>Elke Baeten</b><small>Architecte, zaakvoerder van Baeten Architect BV</small></div></div>
+      <div class="note"><svg viewBox="0 0 60 36" aria-hidden="true"><path d="M4 30c12-2 26-10 34-22m0 0-9 1m9-1 1 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>eerst luisteren, dan tekenen</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="wat" style="padding-top:20px">
+  <div class="wrap">
+    <div class="hd2">
+      <div><span class="kick"><b>02</b>Wat ik teken</span><h2>Van een nieuw huis tot <em>een nieuwe keuken</em>.</h2></div>
+      <p class="lead">Baeten Architect is erkend voor bouwarchitectuur en werkt ook rond interieur en de omgeving van uw woning. Klik door, dan staat uw vraag al klaar.</p>
+    </div>
+    <div class="what">
+      <div class="wc" data-r><i><svg class="ic" aria-hidden="true"><use href="#i-house"/></svg></i><h3>Nieuwbouw</h3><p>Een lege bouwgrond en een gezin met plannen. We vertrekken van het perceel, het licht en hoe u leeft.</p><a href="#contact" data-pre="Nieuwbouw">Vraag hierover <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+      <div class="wc" data-r="60"><i><svg class="ic" aria-hidden="true"><use href="#i-hammer"/></svg></i><h3>Verbouwing</h3><p>Een ouder huis dat warmer, lichter of groter moet. We kijken wat blijft en wat beter kan.</p><a href="#contact" data-pre="Verbouwing">Vraag hierover <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+      <div class="wc" data-r="120"><i><svg class="ic" aria-hidden="true"><use href="#i-sofa"/></svg></i><h3>Interieur</h3><p>Een keuken, een leefruimte, een slimmere indeling. Binnen moet het even goed kloppen als buiten.</p><a href="#contact" data-pre="Interieur">Vraag hierover <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+      <div class="wc" data-r="180"><i><svg class="ic" aria-hidden="true"><use href="#i-tree"/></svg></i><h3>Tuin en omgeving</h3><p>Hoe het huis op het perceel ligt, de oprit, het terras en de tuin. Alles hoort bij hetzelfde plan.</p><a href="#contact" data-pre="Tuin en omgeving">Vraag hierover <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec mood" id="stijl">
+  <div class="wrap">
+    <div class="hd2">
+      <div><span class="kick"><b>03</b>Uw stijl</span><h2>Maak uw <em>moodboard</em>.</h2></div>
+      <p class="lead">Landelijk, strak of ergens ertussen? Tik op het hartje bij wat u aanspreekt. Uw keuze komt mee in uw aanvraag, dan hebben we meteen iets om over te praten.</p>
+    </div>
+    <div class="fil" role="group" aria-label="Filter">
+      <button type="button" data-f="alles" aria-pressed="true">Alles</button>
+      <button type="button" data-f="nieuwbouw" aria-pressed="false">Nieuwbouw</button>
+      <button type="button" data-f="verbouwing" aria-pressed="false">Verbouwing</button>
+      <button type="button" data-f="interieur" aria-pressed="false">Interieur</button>
+    </div>
+    <div class="mg" data-mg>
+      <figure class="mi" data-c="nieuwbouw"><img src="img/k-nb3.webp" alt="Woning met rode baksteen, witte volumes en een bakstenen tuinmuur" loading="lazy" width="796" height="1200"><span class="lb">Baksteen en wit</span><button type="button" class="hrt" aria-pressed="false" aria-label="Bewaar Baksteen en wit" data-n="Baksteen en wit"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></button></figure>
+      <figure class="mi" data-c="interieur"><img src="img/k-in1.webp" alt="Lichte leefruimte met houtkachel en grote ramen naar het bos" loading="lazy" width="1100" height="734"><span class="lb">Licht en hout</span><button type="button" class="hrt" aria-pressed="false" aria-label="Bewaar Licht en hout" data-n="Licht en hout"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></button></figure>
+      <figure class="mi" data-c="verbouwing"><img src="img/k-vb2.webp" alt="Uitbouw met vouwdeuren die opengaan naar een houten terras" loading="lazy" width="1100" height="1100"><span class="lb">Uitbouw naar de tuin</span><button type="button" class="hrt" aria-pressed="false" aria-label="Bewaar Uitbouw naar de tuin" data-n="Uitbouw naar de tuin"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></button></figure>
+      <figure class="mi" data-c="nieuwbouw"><img src="img/k-nb1.webp" alt="Strakke woning met witte volumes en een pergola" loading="lazy" width="1100" height="866"><span class="lb">Strak met pergola</span><button type="button" class="hrt" aria-pressed="false" aria-label="Bewaar Strak met pergola" data-n="Strak met pergola"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></button></figure>
+      <figure class="mi" data-c="interieur"><img src="img/k-in2.webp" alt="Open keuken in beton en hout met zicht op het terras" loading="lazy" width="1100" height="682"><span class="lb">Beton en hout</span><button type="button" class="hrt" aria-pressed="false" aria-label="Bewaar Beton en hout" data-n="Beton en hout"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></button></figure>
+      <figure class="mi" data-c="verbouwing"><img src="img/k-vb1.webp" alt="Woning in verbouwing met stellingen en een nieuwe verdieping" loading="lazy" width="1100" height="825"><span class="lb">Een verdieping erbij</span><button type="button" class="hrt" aria-pressed="false" aria-label="Bewaar Een verdieping erbij" data-n="Een verdieping erbij"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></button></figure>
+      <figure class="mi" data-c="nieuwbouw"><img src="img/k-nb2.webp" alt="Donkere woning met warm verlichte ramen in de avond" loading="lazy" width="800" height="1200"><span class="lb">Donker en warm</span><button type="button" class="hrt" aria-pressed="false" aria-label="Bewaar Donker en warm" data-n="Donker en warm"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></button></figure>
+      <figure class="mi" data-c="verbouwing"><img src="img/k-vb3.webp" alt="Woning met houten gevelbekleding en een zwarte poort" loading="lazy" width="1100" height="734"><span class="lb">Hout en zwart</span><button type="button" class="hrt" aria-pressed="false" aria-label="Bewaar Hout en zwart" data-n="Hout en zwart"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></button></figure>
+      <figure class="mi" data-c="interieur"><img src="img/k-in3.webp" alt="Ruime leefruimte met lage zetels en een lang raam" loading="lazy" width="1100" height="580"><span class="lb">Rust in de living</span><button type="button" class="hrt" aria-pressed="false" aria-label="Bewaar Rust in de living" data-n="Rust in de living"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></button></figure>
+    </div>
+    <div class="mbox" data-mbox hidden><span><b data-mcount>0</b> beelden in uw moodboard</span><a href="#contact">Stuur mee</a></div>
+    <p class="disc">Beelden ter inspiratie. Hier komen later de eigen projecten van Baeten Architect.</p>
+  </div>
+</section>
+
+<section class="sec ab" id="over">
+  <div class="wrap">
+    <div class="tx" data-r>
+      <span class="kick"><b>04</b>Over Elke</span>
+      <h2>Een architecte <em>uit Lokeren</em>, voor Lokeren.</h2>
+      <p class="big">Een goed huis begint niet bij een tekening, maar bij een gesprek. Over hoe u nu woont, wat u mist, en wat u later wil.</p>
+      <p>Sinds 2020 werk ik onder mijn eigen naam, als Baeten Architect. Mijn kantoor ligt aan de Leonie Van Moerstraat in Lokeren. U praat van het eerste gesprek tot de oplevering met dezelfde persoon: met mij.</p>
+      <p>Omdat het kantoor in Lokeren zelf ligt, ben ik snel ter plaatse. Bij u thuis, op uw perceel en later op de werf.</p>
+      <div class="creds">
+        <div><b>Orde van Architecten</b><span>Erkend sinds augustus 2020</span></div>
+        <div><b>Baeten Architect BV</b><span>Opgericht in 2020</span></div>
+        <div><b>Bouw en interieur</b><span>Ook omgeving en tuin</span></div>
+        <div><b>Lokeren</b><span>Leonie Van Moerstraat 9</span></div>
+      </div>
+      <div class="sig"><span class="h">Elke</span><small>Elke Baeten<br>Architecte, Baeten Architect</small></div>
+    </div>
+    <div class="board" data-r="80">
+      <figure class="a"><img src="img/c-schets.webp" alt="Iemand schetst een gevel aan een bureau" loading="lazy" width="800" height="1200"></figure>
+      <figure class="b"><img src="img/c-maquette.webp" alt="Houten maquette van een rij woningen" loading="lazy" width="1100" height="734"></figure>
+      <figure class="c"><img src="img/c-plan.webp" alt="Bouwplannen met potloden en een rolmeter" loading="lazy" width="1100" height="740"></figure>
+      <div class="pin"><b>Leonie Van Moerstraat</b><small>Lokeren</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec pl" id="stappen">
+  <div class="wrap">
+    <div class="hd2">
+      <div><span class="kick"><b>05</b>Stappenplan</span><h2>Wat staat u <em>te wachten</em>?</h2></div>
+      <p class="lead">Kies wat u van plan bent. U ziet in vier stappen wat ik doe, en wat u zelf al kan voorbereiden.</p>
+    </div>
+    <div class="ptab" role="group" aria-label="Soort project">
+      <button type="button" data-p="nieuw" aria-pressed="true"><svg class="ic" aria-hidden="true"><use href="#i-house"/></svg>Ik bouw nieuw</button>
+      <button type="button" data-p="verb" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-hammer"/></svg>Ik verbouw</button>
+      <button type="button" data-p="uit" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-expand"/></svg>Ik breid uit</button>
+      <button type="button" data-p="int" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-sofa"/></svg>Enkel interieur</button>
+    </div>
+    <div class="track" data-track></div>
+  </div>
+</section>
+
+<section class="sec epc" id="epc">
+  <div class="wrap">
+    <div class="box" data-r>
+      <figure><img src="img/e-werf.webp" alt="Een kamer in renovatie met nieuwe houten wanden in het zonlicht" loading="lazy" width="1600" height="1063"></figure>
+      <div class="tx">
+        <span class="kick"><b>06</b>Een huis gekocht?</span>
+        <h2>Welk <em>EPC-label</em> heeft uw woning?</h2>
+        <p class="lead">Tik het label aan dat op uw energieprestatiecertificaat staat.</p>
+        <div class="labels" role="group" aria-label="EPC-label" data-labels>
+          <button type="button" data-l="A+" style="background:#1E8A4C" aria-pressed="false">A+</button>
+          <button type="button" data-l="A" style="background:#3FA34D" aria-pressed="false">A</button>
+          <button type="button" data-l="B" style="background:#8DBB3C" aria-pressed="false">B</button>
+          <button type="button" data-l="C" style="background:#C9C62E" aria-pressed="false">C</button>
+          <button type="button" data-l="D" style="background:#E5A72A" aria-pressed="false">D</button>
+          <button type="button" data-l="E" style="background:#E06F25" aria-pressed="true">E</button>
+          <button type="button" data-l="F" style="background:#C83A22" aria-pressed="false">F</button>
+        </div>
+        <div class="out warn" data-out><b>Renoveren is verplicht</b><p>Kocht u sinds 1 januari 2023 een woning met label E of F, dan moet u ze binnen een aantal jaar renoveren naar label D of beter. Met een goed plan wordt dat meteen de verbouwing die u toch wou.</p></div>
+        <p class="src">Bron: vlaanderen.be, renovatieverplichting voor woongebouwen.</p>
+        <div style="margin-top:20px"><a class="btn sa" href="#contact" data-pre="Verbouwing"><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg>Bespreek uw renovatie</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lo" id="lokeren">
+  <div class="bgi"><img src="img/l-veld.webp" alt="Weiland met bomen onder een avondlucht" loading="lazy" width="1600" height="1199"></div>
+  <div class="wrap">
+    <div data-r>
+      <span class="kick"><b>07</b>In de streek</span>
+      <h2>Thuis in Lokeren <em>en het Waasland</em>.</h2>
+      <p>Het kantoor ligt aan de zuidkant van Lokeren, op een kwartiertje wandelen van de Markt. Voor een eerste gesprek kom ik ook graag naar uw perceel of uw huis, in Lokeren, Zele, Waasmunster of Moerbeke.</p>
+      <ul class="near">
+        <li><span>Markt en Sint-Laurentiuskerk</span><span>ca. 1,2 km</span></li>
+        <li><span>Station Lokeren</span><span>ca. 1,3 km</span></li>
+        <li><span>Natuurgebied Molsbroek</span><span>ca. 2,4 km</span></li>
+      </ul>
+      <a class="btn sa" href="https://www.google.com/maps/dir/?api=1&destination=Leonie+Van+Moerstraat+9%2C+9160+Lokeren" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-route"/></svg>Route naar het kantoor</a>
+    </div>
+    <div class="rv" data-r="80" id="reviews">
+      <b>5,0</b>
+      <span class="stars" aria-label="5 op 5 sterren">★★★★★</span>
+      <p>De score van Baeten Architect op Google.</p>
+      <a href="https://www.google.com/maps/place/?q=place_id:ChIJAV2Jdzmbw0cRK3WdlmIo2tU" target="_blank" rel="noopener">Bekijk op Google <svg class="ic" aria-hidden="true"><use href="#i-ext"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec fq" id="vragen">
+  <div class="wrap">
+    <div class="intro" data-r>
+      <span class="kick"><b>08</b>Vragen</span>
+      <h2>Wat bouwers mij <em>vaak vragen</em>.</h2>
+      <p>Staat uw vraag er niet bij? Bel of stuur een berichtje naar 0497 21 47 29.</p>
+      <figure><img src="img/f-grondplan.webp" alt="Een grondplan in potlood op papier" loading="lazy" width="900" height="1200"></figure>
+    </div>
+    <div class="acc" data-r="80">
+      <div class="open"><button type="button" aria-expanded="true">Heb ik voor mijn werken een architect nodig?<i><svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></i></button><div class="an"><div><p>Voor de meeste werken waarvoor u een omgevingsvergunning nodig hebt, wel. Voor kleinere werken soms niet. Bel gerust met een korte uitleg, dan zeg ik u wat in uw geval geldt.</p></div></div></div>
+      <div><button type="button" aria-expanded="false">Komt u eerst kijken?<i><svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></i></button><div class="an"><div><p>Ja. Een perceel of een huis moet je gezien hebben. Licht, zicht, buren en de staat van een oud huis lees je niet af van een plan.</p></div></div></div>
+      <div><button type="button" aria-expanded="false">Wat kost een architect?<i><svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></i></button><div class="an"><div><p>Dat hangt af van de grootte en de aard van het project. Na het eerste gesprek krijgt u een duidelijk voorstel op papier, zodat u weet waar u aan toe bent voor u iets beslist.</p></div></div></div>
+      <div><button type="button" aria-expanded="false">Ik kocht een huis met EPC-label F. Wat nu?<i><svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></i></button><div class="an"><div><p>Dan geldt de renovatieverplichting: binnen een aantal jaar moet de woning naar label D of beter. Samen bekijken we welke werken het meest opleveren, en hoe u dat combineert met de verbouwing die u zelf wil.</p></div></div></div>
+      <div><button type="button" aria-expanded="false">Hebt u ook een EPB-verslaggever nodig?<i><svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></i></button><div class="an"><div><p>Bij nieuwbouw en grotere verbouwingen gelden energie-eisen, en die moeten opgevolgd worden door een EPB-verslaggever. Ik zeg u in het begin of dat voor uw project nodig is.</p></div></div></div>
+      <div><button type="button" aria-expanded="false">Tekent u ook enkel een interieur?<i><svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></i></button><div class="an"><div><p>Ja, ook een nieuwe keuken, een andere indeling of een leefruimte die beter moet werken. Kies hierboven bij het stappenplan voor enkel interieur.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec ct" id="contact" style="padding-top:20px">
+  <div class="wrap">
+    <div class="box">
+      <div class="info" data-r>
+        <span class="kick"><b>09</b>Contact</span>
+        <h2>Vertel over <em>uw plan</em>.</h2>
+        <p>Een paar zinnen is genoeg. Hebt u al een adres of een perceel, zet het erbij. Dan bel ik u om een eerste afspraak te maken.</p>
+        <div class="ways">
+          <a href="tel:+32497214729"><i><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg></i><div><b>0497 21 47 29</b><span>Bel Elke</span></div></a>
+          <a href="https://wa.me/32497214729?text=Dag%20Elke%2C%20ik%20heb%20een%20bouwplan%20en%20wil%20graag%20eens%20praten." target="_blank" rel="noopener"><i><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg></i><div><b>WhatsApp</b><span>Stuur gerust een foto van uw huis of perceel</span></div></a>
+          <a href="mailto:baetenelke@hotmail.com"><i><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg></i><div><b>baetenelke@hotmail.com</b><span>Mail</span></div></a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Leonie+Van+Moerstraat+9%2C+9160+Lokeren" target="_blank" rel="noopener"><i><svg class="ic" aria-hidden="true"><use href="#i-route"/></svg></i><div><b>Route</b><span>Leonie Van Moerstraat 9, Lokeren</span></div></a>
+        </div>
+        <p class="addr"><b>Baeten Architect BV</b><br>Leonie Van Moerstraat 9, 9160 Lokeren<br>Ondernemingsnummer 0752.838.477</p>
+      </div>
+      <form class="frm" id="frm" novalidate data-r="80">
+        <h3>Bespreek uw plan</h3>
+        <p class="sub">Uw aanvraag opent als mail, klaar om te versturen naar Elke.</p>
+        <div class="r2">
+          <label for="f-naam">Naam<input id="f-naam" autocomplete="name" required></label>
+          <label for="f-tel">Telefoon<input id="f-tel" type="tel" inputmode="tel" autocomplete="tel" required></label>
+        </div>
+        <div class="r2">
+          <label for="f-wat">Mijn plan<select id="f-wat"><option>Nieuwbouw</option><option>Verbouwing</option><option>Uitbreiding</option><option>Interieur</option><option>Tuin en omgeving</option></select></label>
+          <label for="f-adr">Adres of gemeente<input id="f-adr" placeholder="Bijvoorbeeld: Lokeren, Daknam"></label>
+        </div>
+        <div class="mood-l" data-ml>Nog niets in uw moodboard. <a href="#stijl"><b>Kies een paar beelden</b></a> die u aanspreken.</div>
+        <label for="f-msg">Vertel kort over uw plan<textarea id="f-msg" rows="4" placeholder="Bijvoorbeeld: we kochten een rijwoning uit de jaren 60 en willen achteraan uitbreiden."></textarea></label>
+        <p class="err">Vul uw naam en telefoonnummer in, dan kan Elke u terugbellen.</p>
+        <button class="btn pr" type="submit"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>Verstuur uw aanvraag</button>
+        <small class="n">Of bel meteen naar <a href="tel:+32497214729"><b>0497 21 47 29</b></a></small>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="g">
+      <div><span class="logo"><span class="m">eb</span><span><b>Baeten Architect</b><small>Elke Baeten · Lokeren</small></span></span><p>Architecte in Lokeren. Nieuwbouw, verbouwingen, interieur en omgeving voor gezinnen uit Lokeren en het Waasland.</p></div>
+      <div><h4>Kantoor</h4><ul><li>Leonie Van Moerstraat 9</li><li>9160 Lokeren</li><li><a href="tel:+32497214729">0497 21 47 29</a></li><li><a href="mailto:baetenelke@hotmail.com">Mail Elke</a></li></ul></div>
+      <div><h4>Snel naar</h4><ul><li><a href="#wat">Wat ik teken</a></li><li><a href="#stijl">Maak uw moodboard</a></li><li><a href="#stappen">Stappenplan</a></li><li><a href="#contact">Contact</a></li></ul></div>
+    </div>
+    <div class="lg"><span>© Baeten Architect BV, Lokeren</span><span>Voorbeeldsite door <a href="https://digital-impression.be" target="_blank" rel="noopener">Digital Impression</a></span></div>
+  </div>
+</footer>
+
+<div class="mbar"><a class="btn pr" href="tel:+32497214729"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Bellen</a><a class="btn ln" href="#contact">Uw plan</a></div>
+
+<script>
+(()=>{document.body.classList.remove('no-js');
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px',threshold:.06});
+$$('[data-r]').forEach(el=>{if(RM){el.classList.add('in');return}if(el.dataset.r)el.style.setProperty('--d',el.dataset.r+'ms');io.observe(el)});
+const hd=$('[data-hd]');const f=()=>hd.classList.toggle('sc',scrollY>20);f();addEventListener('scroll',f,{passive:true});
+const mb=$('[data-mb]');mb.addEventListener('click',()=>{const o=document.body.classList.toggle('mo-open');mb.setAttribute('aria-expanded',o)});
+$$('[data-menu] a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('mo-open')));
+$$('.acc button').forEach(b=>b.addEventListener('click',()=>{const it=b.parentElement,o=it.classList.toggle('open');b.setAttribute('aria-expanded',o)}));
+const wat=$('#f-wat');
+$$('[data-pre]').forEach(a=>a.addEventListener('click',()=>{wat.value=a.dataset.pre}));
+/* moodboard */
+const picks=new Set(),box=$('[data-mbox]'),cnt=$('[data-mcount]'),ml=$('[data-ml]');
+const upd=()=>{cnt.textContent=picks.size;box.hidden=!picks.size;
+ if(picks.size){ml.innerHTML='';const b=document.createElement('b');b.textContent='Uw moodboard: ';ml.appendChild(b);ml.appendChild(document.createTextNode([...picks].join(', ')))}
+ else{ml.innerHTML='Nog niets in uw moodboard. <a href="#stijl"><b>Kies een paar beelden</b></a> die u aanspreken.'}};
+$$('.hrt').forEach(h=>h.addEventListener('click',()=>{const on=h.getAttribute('aria-pressed')!=='true';h.setAttribute('aria-pressed',on);on?picks.add(h.dataset.n):picks.delete(h.dataset.n);upd()}));
+$$('[data-f]').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.f;$$('[data-f]').forEach(x=>x.setAttribute('aria-pressed',x===b));$$('.mi').forEach(m=>m.classList.toggle('off',k!=='alles'&&m.dataset.c!==k))}));
+/* stappenplan */
+const P={
+ nieuw:{v:'Nieuwbouw',s:[['Kennismaken','Op uw perceel','We bekijken samen de grond, de oriëntatie en de buren. U vertelt hoe u wil wonen.','Zoek de gegevens van uw perceel op en zet uw wensen op papier.'],['Ontwerp','Schetsen tot plan','Eerst schetsen, dan een uitgewerkt ontwerp, tot het klopt voor u en voor uw budget.','Denk na over uw budget, ook voor afwerking en tuin.'],['Vergunning','Omgevingsloket','Ik maak het dossier voor de omgevingsvergunning op en dien het in.','Bespreek uw plannen gerust al met de buren.'],['Werf','Tot de sleutel','Ik vraag offertes op, vergelijk ze met u en volg de werf op tot de oplevering.','Kies samen met mij de aannemers.']]},
+ verb:{v:'Verbouwing',s:[['Kennismaken','In uw huis','Ik kom kijken hoe het huis gebouwd is en wat de staat is van dak, muren en ramen.','Zoek oude plannen en uw EPC op als u die hebt.'],['Ontwerp','Wat blijft, wat beter kan','We kiezen wat het meest oplevert: meer licht, meer ruimte, een lager energieverbruik.','Maak een lijstje van wat u nu stoort.'],['Vergunning','Als het nodig is','Niet elke verbouwing vraagt een vergunning. Ik zeg u wat voor uw werken geldt.','Hou rekening met de tijd die een vergunning kan vragen.'],['Werf','Stap voor stap','Ik volg de werken op, zodat de aannemers op elkaar afgestemd blijven.','Plan waar u woont tijdens de grote werken.']]},
+ uit:{v:'Uitbreiding',s:[['Kennismaken','Achter het huis','We kijken naar de tuin, de perceelgrenzen en hoe de uitbouw aansluit op het bestaande huis.','Neem foto\'s van de achtergevel en de tuin.'],['Ontwerp','Een uitbouw die klopt','Licht, zicht naar de tuin en een goede aansluiting op keuken of leefruimte.','Kijk welke beelden u aanspreken in het moodboard.'],['Vergunning','Buren en regels','Een uitbouw vraagt vaak een vergunning. Ik zoek het uit en maak het dossier op.','Vertel uw buren wat u van plan bent.'],['Werf','Aansluiten op het oude','Ik volg op dat nieuw en oud netjes op elkaar aansluiten.','Denk al na over de inrichting van de nieuwe ruimte.']]},
+ int:{v:'Interieur',s:[['Kennismaken','Bij u thuis','We bekijken de ruimte, het licht en hoe u ze vandaag gebruikt.','Kies in het moodboard wat u mooi vindt.'],['Indeling','Op plan','Een betere indeling, de juiste plaats voor keuken of trap, en wat dat vraagt van de muren.','Meet gerust al eens de ruimtes op.'],['Materialen','Kiezen en voelen','Vloer, kasten, kleuren en licht. We kiezen samen materialen die bij het huis passen.','Ga eens kijken bij een toonzaal in de buurt.'],['Uitvoering','Met de vakmensen','Ik stem de plannen af met schrijnwerker en aannemer.','Plan de werken in een periode die u past.']]}};
+const tr=$('[data-track]');
+const show=k=>{tr.innerHTML='';P[k].s.forEach((x,i)=>{const d=document.createElement('div');d.className='stp';d.innerHTML='<span class="n"></span><small></small><h3></h3><p></p><div class="you"><b>U zelf: </b><span></span></div>';d.querySelector('.n').textContent=i+1;d.querySelector('small').textContent=x[1];d.querySelector('h3').textContent=x[0];d.querySelector('p').textContent=x[2];d.querySelector('.you span').textContent=x[3];tr.appendChild(d)});
+ $$('[data-p]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.p===k));tr.classList.remove('fade');void tr.offsetWidth;tr.classList.add('fade');wat.value=P[k].v};
+$$('[data-p]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.p)));
+show('nieuw');wat.value='Nieuwbouw';
+/* epc */
+const out=$('[data-out]');
+$$('[data-l]').forEach(b=>b.addEventListener('click',()=>{const l=b.dataset.l;$$('[data-l]').forEach(x=>x.setAttribute('aria-pressed',x===b));
+ if(l==='E'||l==='F'){out.className='out warn';out.innerHTML='<b>Renoveren is verplicht</b><p>Kocht u sinds 1 januari 2023 een woning met label '+l+', dan moet u ze binnen een aantal jaar renoveren naar label D of beter. Met een goed plan wordt dat meteen de verbouwing die u toch wou.</p>'}
+ else{out.className='out';out.innerHTML='<b>Geen renovatieplicht</b><p>Met label '+l+' valt uw woning niet onder de renovatieverplichting. Wil u toch verbouwen, dan kijken we samen wat het meeste comfort oplevert.</p>'}}));
+/* form */
+const fm=$('#frm');fm.addEventListener('submit',e=>{e.preventDefault();const n=$('#f-naam'),t=$('#f-tel');
+ [n,t].forEach(x=>x.setAttribute('aria-invalid',x.value.trim()?'false':'true'));const ok=n.value.trim()&&t.value.trim();fm.classList.toggle('bad',!ok);if(!ok){(n.value.trim()?t:n).focus();return}
+ const v=id=>$(id).value.trim();
+ const body=`Dag Elke,\n\nIk wil graag eens praten over mijn plan.\n\nMijn plan: ${v('#f-wat')}\n${v('#f-adr')?'Adres of gemeente: '+v('#f-adr')+'\n':''}${picks.size?'Mijn moodboard: '+[...picks].join(', ')+'\n':''}${v('#f-msg')?'\n'+v('#f-msg')+'\n':''}\nNaam: ${v('#f-naam')}\nTelefoon: ${v('#f-tel')}\n\nAlvast bedankt.`;
+ location.href='mailto:baetenelke@hotmail.com?subject='+encodeURIComponent('Bouwplan: '+v('#f-wat'))+'&body='+encodeURIComponent(body)});
+})();
+</script>
+<!-- VOORSTELBLOK Digital Impression: letterlijk overnemen, onderaan de pagina, vóór </body>. Vervang {NAAM} door de naam van de zaak en {NAAM_URL} door dezelfde naam, url-encoded. Pas 'jullie/je/u' aan de zaak aan en de regel 'Bestellingen komen rechtstreeks in je mailbox' aan wat er op de demo binnenkomt (afspraakaanvragen, offerteaanvragen, berichten). Verder niets wijzigen. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Onest:wght@400;600;700&display=swap">
+<style>
+.di,.di *{box-sizing:border-box}.di .wrap{margin:0 auto;padding-left:clamp(20px,5vw,40px);padding-right:clamp(20px,5vw,40px)}
+.di{--n:#0E1C3A;--n2:#162a52;--n3:#21386a;--cr:#F5EEE2;--pa:#FBF7F0;--te:#D7603A;--ted:#B04722;--ap:#F2AE84;--bu:#F1CB78;--od2:#c9cfdf;
+  background:var(--n);color:var(--cr);padding:100px 0 100px;position:relative;overflow:clip;font:19px/1.6 'Onest',system-ui,sans-serif}
+.di::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 85% 0%,rgba(215,96,58,.18),transparent 70%);pointer-events:none}
+.di .wrap{max-width:1080px;position:relative}
+.di .naad{position:absolute;left:0;right:0;top:0;height:6px;background:repeating-linear-gradient(90deg,var(--te) 0 22px,var(--bu) 22px 44px,var(--ap) 44px 66px)}
+.di .merk{display:inline-flex;align-items:center;gap:12px;margin-bottom:26px;font-size:16px;font-weight:600;color:var(--od2)}
+.di .merk i{width:40px;height:40px;border-radius:12px;background:var(--ted);display:grid;place-items:center;font:400 22px/1 'DM Serif Display',serif;font-style:normal;color:#fff}
+.di h2{font:400 clamp(40px,5vw,64px)/1.04 'DM Serif Display',serif;letter-spacing:-.5px;color:var(--pa);max-width:16em}
+.di h2 em{font-style:italic;color:var(--ap)}
+.di .intro{color:var(--od2);font-size:20px;margin:20px 0 54px;max-width:34em}
+.di .kop3{font:400 34px/1.1 'DM Serif Display',serif;color:var(--pa);margin:0 0 24px}
+.di .prijzen{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.di .pk{border-radius:26px;padding:36px}
+.di .pk.wit{background:var(--pa);color:var(--n)}
+.di .pk.donker{background:var(--n2);border:1.5px solid rgba(245,238,226,.16)}
+.di .pk .label{display:block;font-size:16px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.di .pk.wit .label{color:var(--ted)}
+.di .pk.donker .label{color:var(--ap)}
+.di .bedrag{font:400 88px/.9 'DM Serif Display',serif;letter-spacing:-2px;display:flex;align-items:flex-start;gap:6px}
+.di .bedrag small{font-size:36px;margin-top:8px}
+.di .wanneer{font-size:20px;font-weight:700;margin:12px 0 26px}
+.di .pk ul{list-style:none;margin:0;padding:0;display:grid;gap:14px;font-size:18.5px;line-height:1.45}
+.di .pk li{display:flex;gap:14px;align-items:flex-start}
+.di .pk li::before{content:"";flex:none;width:24px;height:24px;margin-top:2px;border-radius:50%;background:var(--ted) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/15px no-repeat}
+.di .geruststelling{margin-top:26px;padding-top:22px;border-top:2px dashed rgba(14,28,58,.18);font-size:18px;font-weight:600}
+.di .keuze{border-radius:18px;padding:22px 24px;background:rgba(245,238,226,.05);border:1.5px solid rgba(245,238,226,.14)}
+.di .keuze+.keuze{margin-top:16px}
+.di .keuze.aan{border-color:var(--ap);background:rgba(242,174,132,.08)}
+.di .keuze .rij{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap}
+.di .keuze h4{margin:0;font:400 28px/1.1 'DM Serif Display',serif;color:var(--pa)}
+.di .keuze .p{font-size:22px;font-weight:700;color:var(--ap);white-space:nowrap}
+.di .keuze p{color:var(--od2);font-size:18px;margin-top:8px}
+.di .keuze .raad{display:inline-block;margin-top:12px;font:700 15px/1.4 'Onest',sans-serif;background:var(--ap);color:var(--n);border-radius:999px;padding:4px 12px}
+.di .di-stappen{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.di .di-stap{display:flex;gap:18px;align-items:flex-start}
+.di .di-stap i{flex:none;width:52px;height:52px;border-radius:50%;background:var(--ted);color:#fff;display:grid;place-items:center;font:400 26px/1 'DM Serif Display',serif;font-style:normal}
+.di .di-stap b{display:block;font-size:20px;color:var(--pa);line-height:1.3;margin-bottom:6px}
+.di .di-stap span{color:var(--od2);font-size:18px}
+.di .contact{margin-top:64px;background:var(--pa);color:var(--n);border-radius:26px;padding:32px 36px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+.di .contact .vraag{font:400 34px/1.1 'DM Serif Display',serif}
+.di .contact p{font-size:19px;color:#3d4660;margin-top:8px}
+.di .contact p b{color:var(--n)}
+.di .knoppen{display:flex;flex-direction:column;gap:12px;min-width:280px}
+.di .knoppen a{display:flex;justify-content:center;align-items:center;gap:10px;border-radius:999px;padding:18px 26px;font-weight:700;font-size:19px;text-decoration:none;transition:transform .15s,background .15s}
+.di .knoppen a:hover{transform:translateY(-2px)}
+.di .knoppen a svg{width:22px;height:22px}
+.di .knoppen .wa{background:var(--ted);color:#fff}
+.di .knoppen .wa:hover{background:#963a1a}
+.di .knoppen .lijn{border:2px solid var(--n);color:var(--n)}
+.di :focus-visible{outline:3px solid var(--ap);outline-offset:3px}
+.di h2,.di h3,.di h4{text-transform:none;font-style:normal;letter-spacing:normal}
+@media (max-width:960px){.di{padding:80px 0;font-size:18px}.di .prijzen{grid-template-columns:1fr}.di .di-stappen{grid-template-columns:1fr;gap:22px;margin-top:52px}.di .contact{grid-template-columns:1fr;padding:28px}.di .knoppen{min-width:0}}
+@media (max-width:640px){.di .pk{padding:26px 22px}.di .bedrag{font-size:76px}.di .intro{font-size:18.5px;margin-bottom:44px}.di .kop3,.di .contact .vraag{font-size:30px}}
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ico-wa" viewbox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z" fill="currentColor"></path></symbol></svg>
+<style>.di .knoppen .cal{background:var(--n);color:var(--pa)}.di .knoppen .cal:hover{background:var(--n3)}.di .knoppen .cal svg{width:20px;height:20px}</style>
+<style>/*di-center*/.di .merk{display:flex;width:max-content;max-width:100%;margin-left:auto;margin-right:auto}.di #di-titel{text-align:center;margin-left:auto;margin-right:auto;text-wrap:balance}.di .intro{text-align:center;margin-left:auto;margin-right:auto;text-wrap:pretty}</style>
+<section aria-labelledby="di-titel" class="di">
+<span aria-hidden="true" class="naad"></span>
+<div class="wrap">
+<span class="merk"><i aria-hidden="true">D</i>Voorstel van Digital Impression</span>
+<h2 id="di-titel">Zo zou uw website <em>eruit kunnen zien</em>.</h2>
+<p class="intro">Een eerste schets, op maat van Baeten Architect. U kiest de stijl, ik zorg dat alles klopt.</p>
+<h3 class="kop3">Wat het kost</h3>
+<div class="prijzen">
+<div class="pk wit">
+<span class="label">Uw website</span>
+<div class="bedrag"><small>€</small>499</div>
+<p class="wanneer">één keer, alles inbegrepen</p>
+<ul>
+<li>Uw website, in de stijl die u kiest</li>
+<li>Werkt op gsm, tablet en computer</li>
+<li>Uren, adres en route altijd juist</li>
+<li>Aanvragen voor een eerste gesprek komen rechtstreeks in uw mailbox</li>
+</ul>
+<p class="geruststelling">Geen voorschot. U betaalt pas als de site klaar is.</p>
+</div>
+<div class="pk donker">
+<span class="label">Daarna kiest u</span>
+<div class="keuze">
+<div class="rij"><h4>Zelf beheren</h4><span class="p">€ 0 / maand</span></div>
+<p>Hosting en domein op uw naam. Een aanpassing vraagt u per keer aan.</p>
+</div>
+<div class="keuze aan">
+<div class="rij"><h4>Zorgeloos</h4><span class="p">€ 19,99 / maand</span></div>
+<p>Hosting en domein inbegrepen. Nieuwe acties, verlofdagen en wijzigingen zet ik er voor u op.</p>
+<span class="raad">mijn aanrader</span>
+</div>
+</div>
+</div>
+<div class="di-stappen">
+<div class="di-stap"><i aria-hidden="true">1</i><div><b>U laat iets weten</b><span>Een berichtje of telefoontje is genoeg.</span></div></div>
+<div class="di-stap"><i aria-hidden="true">2</i><div><b>We maken hem af</b><span>U zegt wat anders moet, ik pas het aan.</span></div></div>
+<div class="di-stap"><i aria-hidden="true">3</i><div><b>Online</b><span>Op uw eigen domein, binnen 10 tot 14 dagen.</span></div></div>
+</div>
+<div class="contact">
+<div>
+<div class="vraag">Vragen? Plan een gesprek of stuur me een berichtje.</div>
+<p><b>Stijn Vranken</b> · 0496 25 14 45 · info@digital-impression.be</p>
+</div>
+<div class="knoppen">
+<a class="wa" href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20Baeten%20Architect" rel="noopener" target="_blank"><svg><use href="#ico-wa"></use></svg>WhatsApp Stijn</a>
+<a class="cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Baeten%20Architect" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Plan een gesprek van 30 min</a>
+<a class="lijn" href="tel:+32496251445">Bel 0496 25 14 45</a>
+</div>
+</div>
+</div>
+</section>
+
+</body>
+</html>
