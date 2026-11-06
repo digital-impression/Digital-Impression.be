@@ -99,6 +99,7 @@ h2{font-size:clamp(32px,4vw,48px)}h1 em,h2 em{font-style:italic;font-weight:400;
 .form .full{grid-column:1/-1}.form textarea{min-height:120px;resize:vertical}
 .chk{display:flex;gap:10px;align-items:flex-start;font-size:15px;color:var(--ink2);grid-column:1/-1}
 .chk input{width:18px;height:18px;margin-top:4px;flex:none;accent-color:var(--teal)}
+label.chk{display:flex!important;gap:12px;font-weight:500;font-size:15px;letter-spacing:0;text-transform:none;cursor:pointer}
 .form button{margin-top:20px;border:0;cursor:pointer}
 .box{background:var(--wit);border-radius:24px;padding:34px 32px;box-shadow:var(--sh)}
 .box h3{font-size:27px;margin-bottom:10px}
@@ -108,8 +109,31 @@ h2{font-size:clamp(32px,4vw,48px)}h1 em,h2 em{font-style:italic;font-weight:400;
 .uren td{padding:8px 0;border-top:1px solid var(--line);color:var(--ink2)}.uren td+td{text-align:right}
 .uren tr.nu td{color:var(--teal);font-weight:700}.uren tr.nu td:first-child::after{content:" · vandaag";font-weight:500;color:var(--koraal);font-size:13px}
 .box .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.foot{background:var(--teal);color:#b9d0cc;padding:46px 0;font-size:15px}
-.foot .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between}
+.foot{position:relative;overflow:hidden;background:var(--teal);color:#bcd2ce;font-size:15.5px;line-height:1.6}
+.foot::after{content:"Lex";position:absolute;right:-.06em;bottom:-.3em;font:italic 600 clamp(180px,26vw,380px)/1 var(--f-d);color:rgba(255,255,255,.035);pointer-events:none;letter-spacing:-.02em}
+.foot .wrap{position:relative;z-index:1}
+.foot a{transition:color .2s}.foot a:hover{color:#fff}
+.ft-top{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;padding:64px 0 52px;border-bottom:1px solid rgba(255,255,255,.12)}
+.ft-kop{font:400 clamp(30px,3.4vw,44px)/1.12 var(--f-d);color:#fff;letter-spacing:-.01em}
+.ft-kop em{color:var(--koraal2)}
+.ft-cta{display:flex;gap:12px;flex-wrap:wrap}
+.ft-cta .btn.ft-l{border:1.5px solid rgba(255,255,255,.28);color:#fff}.ft-cta .btn.ft-l:hover{border-color:#fff}
+.ft-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.15fr;gap:40px;padding:54px 0 50px}
+.ft-merk .logo .m{border-color:rgba(255,255,255,.7);color:#fff}.ft-merk .logo b{color:#fff}.ft-merk .logo small{color:#9fbcb7}
+.ft-merk p{margin-top:20px;max-width:30ch}
+.foot h4{font:600 12.5px/1 var(--f-b);letter-spacing:.14em;text-transform:uppercase;color:var(--koraal2);margin-bottom:18px}
+.foot ul{list-style:none;padding:0;display:grid;gap:10px}
+.ft-c li{display:flex;gap:11px;align-items:flex-start}.ft-c .ic{margin-top:4px;color:var(--koraal2)}
+.ft-c b{display:block;color:#fff;font-weight:600}
+.ft-uren li{display:flex;justify-content:space-between;gap:14px;border-bottom:1px dashed rgba(255,255,255,.14);padding-bottom:9px}
+.ft-uren li span:last-child{color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ft-uren li.nu span{color:#fff;font-weight:700}
+.ft-n{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:14px;color:#fff;background:rgba(255,255,255,.08);border-radius:999px;padding:6px 13px}
+.ft-n::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--koraal2)}
+.ft-bot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 28px;padding:22px 0 26px;border-top:1px solid rgba(255,255,255,.12);font-size:14px;color:#94b3ae}
+.ft-bot nav{display:flex;gap:22px;flex-wrap:wrap}
+@media (max-width:1060px){.ft-grid{grid-template-columns:1fr 1fr}.ft-merk{grid-column:1/-1}}
+@media (max-width:640px){.ft-top{padding:50px 0 40px}.ft-cta,.ft-cta .btn{width:100%}.ft-cta .btn{justify-content:center}.ft-grid{grid-template-columns:1fr;gap:34px;padding:42px 0}.ft-bot{flex-direction:column;align-items:flex-start}}
 .js [data-r]{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
 .js [data-r].in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.js [data-r]{opacity:1;transform:none}}
@@ -246,10 +270,54 @@ h2{font-size:clamp(32px,4vw,48px)}h1 em,h2 em{font-style:italic;font-weight:400;
 
 <footer class="foot">
   <div class="wrap">
-    <span><b style="color:#fff">BV Lex Advocaten</b> · Ruddervoordestraat 1, 8820 Torhout · BTW BE 0634.936.363</span>
-    <span>Voorbeeldsite door Digital Impression</span>
+    <div class="ft-top">
+      <p class="ft-kop">Liever eerst even bellen?<br><em>Dat mag altijd.</em></p>
+      <div class="ft-cta">
+        <a class="btn k" href="tel:+3250212125"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>050 21 21 25</a>
+        <a class="btn ft-l" href="#afspraak"><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg>Afspraak aanvragen</a>
+      </div>
+    </div>
+    <div class="ft-grid">
+      <div class="ft-merk">
+        <a class="logo" href="#top" aria-label="Lex Advocaten, naar boven"><span class="m">Lx</span><span><b>Lex Advocaten</b><small>Justine Dekempe · Torhout</small></span></a>
+        <p>Advocatenkantoor in Torhout, voor cliënten uit West- en Oost-Vlaanderen. U wordt altijd op afspraak ontvangen.</p>
+      </div>
+      <div>
+        <h4>Kantoor</h4>
+        <ul class="ft-c">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><div><b>Ruddervoordestraat 1</b>8820 Torhout · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Ruddervoordestraat+1+8820+Torhout" target="_blank" rel="noopener"><u>route</u></a></div></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg><a href="tel:+3250212125">050 21 21 25</a></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:info@lexadvocaten.be">info@lexadvocaten.be</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Materies</h4>
+        <ul>
+          <li><a href="#afspraak" data-onderwerp="Familierecht">Familierecht</a></li>
+          <li><a href="#afspraak" data-onderwerp="Strafrecht">Strafrecht</a></li>
+          <li><a href="#afspraak" data-onderwerp="Verkeersrecht">Verkeersrecht</a></li>
+          <li><a href="#afspraak" data-onderwerp="Burgerlijk recht">Burgerlijk recht</a></li>
+          <li><a href="#afspraak" data-onderwerp="Vreemdelingenrecht">Vreemdelingenrecht</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Bereikbaar</h4>
+        <ul class="ft-uren">
+          <li data-w="1245"><span>Ma, di, do, vr</span><span>09:00 tot 17:00</span></li>
+          <li data-w="3"><span>Woensdag</span><span>09:00 tot 12:30</span></li>
+          <li data-w="06"><span>Weekend</span><span>Gesloten</span></li>
+        </ul>
+        <span class="ft-n">Altijd op afspraak</span>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <span>© 2026 BV Lex Advocaten · BTW BE 0634.936.363</span>
+      <nav aria-label="Voettekst"><a href="#kosten">Kosten</a><a href="#justine">Justine Dekempe</a><a href="#reviews">Reviews</a><a href="#top">Naar boven ↑</a></nav>
+      <span>Voorbeeldsite door Digital Impression</span>
+    </div>
   </div>
 </footer>
+<script>(function(){var d=String(new Date().getDay());document.querySelectorAll('.ft-uren [data-w]').forEach(function(li){if(li.getAttribute('data-w').indexOf(d)>-1)li.classList.add('nu')})})();</script>
 <script>
 document.documentElement.classList.add('js');
 (function(){var b=document.querySelector('[data-mb]'),n=document.querySelector('[data-nav]');if(b){b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open')})})}
