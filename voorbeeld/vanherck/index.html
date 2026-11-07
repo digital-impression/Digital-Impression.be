@@ -1,0 +1,780 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Accountantskantoor Vanherck · Boekhouding en fiscaliteit in Peer</title>
+<meta name="description" content="Accountantskantoor Vanherck aan het Stilleveld in Peer: boekhouding, btw, personen- en vennootschapsbelasting, opstart en jaarafsluiting voor eenmanszaken en vennootschappen. Met een vaste vertrouwenspersoon.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,500..800&family=Inter:wght@400;500;600&display=swap">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  --blue:#0A6FB8;--blue-2:#0A5D9C;--cyan:#1AAEE6;--sky:#E7F3FB;--ice:#F3F8FC;--line:#D9E7F2;
+  --ink:#13212D;--ink-2:#3E5263;--muted:#6A7E8E;--apri:#FF8F4C;--apri-l:#FFE3D1;--white:#fff;
+  --f-d:'Archivo',system-ui,sans-serif;--f-b:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --r:22px;--sh:0 1px 2px rgba(19,33,45,.06),0 16px 40px -22px rgba(10,77,140,.35);--sh-l:0 30px 70px -30px rgba(10,77,140,.45);
+  --ease:cubic-bezier(.2,.7,.2,1)
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{font:400 17px/1.65 var(--f-b);color:var(--ink);background:var(--white);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+.ic{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.wrap{width:min(100% - 40px,1200px);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-d);font-stretch:92%;font-weight:750;line-height:1.02;letter-spacing:-.025em;color:var(--ink)}
+h2{font-size:clamp(2.1rem,4.2vw,3.4rem)}
+h3{font-size:1.3rem;line-height:1.15;letter-spacing:-.01em}
+h2 em,h1 em{font-style:normal;color:var(--blue)}
+.kicker{display:inline-flex;align-items:center;gap:.6em;font:600 .78rem/1 var(--f-b);letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.kicker::before{content:"";width:14px;height:14px;background:linear-gradient(135deg,var(--cyan) 50%,var(--blue) 50%);clip-path:polygon(0 0,100% 0,0 100%)}
+.lead{font-size:1.1rem;color:var(--ink-2);max-width:54ch}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;gap:.6em;padding:.95em 1.5em;border-radius:14px;background:var(--blue);color:#fff;font:600 .98rem/1 var(--f-b);text-decoration:none;transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .2s;box-shadow:0 12px 26px -14px rgba(10,111,184,.9)}
+.btn:hover{transform:translateY(-2px);background:var(--blue-2)}
+.btn .ic{transition:transform .3s var(--ease)}.btn:hover .ic.ar{transform:translateX(3px)}
+.btn.ghost{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1.5px var(--blue);color:var(--blue)}
+.btn.warm{background:var(--apri);color:#2A1508;box-shadow:0 12px 26px -14px rgba(255,143,76,.9)}
+.btn.warm:hover{background:#F57B33}
+.js [data-r]{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease) var(--d,0ms),transform .9s var(--ease) var(--d,0ms)}
+.js [data-r].in{opacity:1;transform:none}
+section{position:relative}
+
+/* demo bar + header */
+.demo{background:var(--ink);color:#C9D9E6;font-size:.83rem;text-align:center;padding:.55em 1em;line-height:1.45}
+.demo a{color:#fff;font-weight:600;text-underline-offset:3px}
+.head{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:box-shadow .3s}
+.head.sc{box-shadow:0 1px 0 var(--line),0 10px 30px -24px rgba(10,77,140,.4)}
+.head .wrap{display:flex;align-items:center;gap:26px;height:78px}
+.logo{flex:none}.logo img{height:44px;width:auto}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{white-space:nowrap;padding:.5em .8em;border-radius:10px;text-decoration:none;font-weight:500;font-size:.95rem;color:var(--ink-2);transition:background .2s,color .2s}
+.nav a:hover{background:var(--ice);color:var(--blue)}
+.st{display:inline-flex;align-items:center;gap:.5em;font-size:.84rem;color:var(--muted);white-space:nowrap}
+.st i{width:8px;height:8px;border-radius:50%;background:#B9C6D0;position:relative}
+.st.open i{background:#25A267}.st.open i::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1.5px solid #25A267;animation:ping 2.2s infinite}
+.st.closed i{background:var(--apri)}
+.st b{color:var(--ink);font-weight:600}
+@keyframes ping{0%{transform:scale(.4);opacity:.9}80%,100%{transform:scale(1.5);opacity:0}}
+.head .btn{padding:.8em 1.15em;font-size:.92rem}
+.portal{font-size:.9rem;font-weight:600;color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;gap:.45em}
+.portal:hover{text-decoration:underline;text-underline-offset:4px}
+.mb{display:none;width:46px;height:46px;border-radius:14px;background:var(--sky);color:var(--blue);align-items:center;justify-content:center;margin-left:auto}
+.mnav{display:none}
+
+/* hero */
+.hero{padding:44px 0 90px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0 0 auto auto;width:58%;height:100%;background:linear-gradient(180deg,var(--sky),rgba(231,243,251,0));border-bottom-left-radius:160px;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero .wrap>*,.kantoor .wrap>*,.faq .wrap>*,.contact .grid>*,.peppol>*,.shead>*,.panel>*,.info>*{min-width:0}
+.chip{display:inline-flex;align-items:center;gap:.55em;background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:.45em .95em .45em .55em;font-size:.86rem;font-weight:500;color:var(--ink-2)}
+.chip b{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--sky);color:var(--blue)}
+.hero h1{font-size:clamp(2.7rem,5.6vw,4.7rem);margin:22px 0 22px;font-stretch:88%}
+.hero h1 span{display:block;color:var(--blue)}
+.hero h1 span u{text-decoration:none;background:linear-gradient(transparent 68%,var(--apri-l) 68%)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.trust{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:34px;padding-top:24px;border-top:1.5px dashed var(--line)}
+.trust div{display:flex;align-items:center;gap:.6em;font-size:.9rem;color:var(--ink-2)}
+.trust div b{color:var(--ink);font-weight:600;display:block;line-height:1.2}
+.trust .tb{width:38px;height:38px;border-radius:12px;background:var(--ice);display:grid;place-items:center;color:var(--blue);flex:none}
+.stars{color:var(--apri);letter-spacing:1px}
+.visual{position:relative;min-height:520px}
+.visual .ph{position:absolute;inset:20px 30px 40px 40px;border-radius:30px;overflow:hidden;box-shadow:var(--sh-l)}
+.visual .ph img{width:100%;height:100%;object-fit:cover}
+.mosaic{position:absolute;width:150px;height:150px}
+.mosaic.a{right:-6px;top:-8px}
+.mosaic.b{left:0;bottom:6px;width:110px;height:110px}
+.dossier{position:absolute;left:-14px;bottom:70px;width:290px;background:#fff;border-radius:18px;box-shadow:var(--sh-l);padding:16px 18px 16px;z-index:2}
+.dossier::before{content:"";position:absolute;left:18px;top:-14px;width:96px;height:16px;background:#fff;border-radius:10px 10px 0 0}
+.dossier small{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.dossier .dn{font:700 1.2rem/1.2 var(--f-d);font-stretch:95%;margin:4px 0 10px;color:var(--ink);min-height:1.45em;overflow-wrap:anywhere}
+.dossier .dn span{color:var(--blue)}
+.dossier label{display:block;font-size:.78rem;color:var(--muted);margin-bottom:4px}
+.dossier input{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:.5em .7em;font-size:.92rem;background:var(--ice);outline:none;transition:border-color .2s}
+.dossier input:focus{border-color:var(--blue);background:#fff}
+.dossier .ab{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:.82rem;color:var(--ink-2)}
+.dossier .ab i{width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font:700 .7rem/1 var(--f-d);font-style:normal}
+.pin{position:absolute;right:0;top:56px;background:#fff;border-radius:16px;box-shadow:var(--sh);padding:12px 16px;display:flex;gap:10px;align-items:center;font-size:.86rem;z-index:2;max-width:230px}
+.pin .tb{width:36px;height:36px;border-radius:11px;background:var(--apri-l);color:#C25416;display:grid;place-items:center;flex:none}
+.pin b{display:block;color:var(--ink);font-weight:600;line-height:1.25}
+.pin span{color:var(--muted);font-size:.8rem}
+.stamp{position:absolute;right:26px;bottom:6px;width:118px;height:118px;z-index:2;animation:spin 26s linear infinite}
+.stamp text{font:700 10.6px var(--f-b);letter-spacing:2.6px;fill:var(--blue)}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* waarden */
+.waarden{padding:0 0 100px}
+.waarden .box{background:var(--ice);border-radius:28px;padding:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.waarden .w{display:flex;flex-direction:column;gap:8px}
+.waarden .w .n{display:flex;align-items:center;gap:10px;font:700 1.15rem/1 var(--f-d);color:var(--ink)}
+.waarden .w .n svg{width:30px;height:30px}
+.waarden .w p{font-size:.95rem;color:var(--ink-2)}
+.waarden .lbl{grid-column:1/-1;display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:6px}
+.waarden .lbl p{font-size:.95rem;color:var(--muted);max-width:44ch}
+.waarden .lbl h2{font-size:clamp(1.6rem,2.6vw,2.1rem)}
+
+/* diensten */
+.sec{padding:100px 0}
+.shead{display:grid;grid-template-columns:1fr 1fr;gap:30px 60px;align-items:end;margin-bottom:46px}
+.shead h2{margin-top:14px}
+.shead p{color:var(--ink-2)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fff;border:1.5px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .3s}
+.card:hover{transform:translateY(-5px);box-shadow:var(--sh-l);border-color:transparent}
+.card .im{aspect-ratio:16/10;overflow:hidden;position:relative}
+.card .im img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.card:hover .im img{transform:scale(1.05)}
+.card .im span{position:absolute;left:14px;top:14px;background:rgba(255,255,255,.94);border-radius:999px;padding:.3em .8em;font-size:.76rem;font-weight:600;color:var(--blue)}
+.card .bd{padding:22px 22px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card p{font-size:.95rem;color:var(--ink-2)}
+.card ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.card li{font-size:.78rem;background:var(--ice);color:var(--ink-2);border-radius:8px;padding:.25em .6em}
+.card .more{margin-top:auto;padding-top:8px;display:inline-flex;align-items:center;gap:.5em;font-weight:600;font-size:.92rem;color:var(--blue);text-decoration:none}
+.card .more:hover .ic{transform:translateX(3px)}.card .more .ic{transition:transform .3s var(--ease)}
+
+/* kiezer */
+.kiezer{background:linear-gradient(180deg,var(--sky),#fff 85%);border-radius:40px 40px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.chips button{display:inline-flex;align-items:center;gap:.55em;padding:.75em 1.15em;border-radius:999px;background:#fff;border:1.5px solid var(--line);font-weight:600;font-size:.95rem;color:var(--ink-2);transition:all .25s var(--ease)}
+.chips button:hover{border-color:var(--blue);color:var(--blue)}
+.chips button[aria-selected=true]{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 12px 24px -14px rgba(10,111,184,.9)}
+.panel{display:grid;grid-template-columns:1.15fr .85fr;gap:0;background:#fff;border-radius:28px;box-shadow:var(--sh-l);overflow:hidden}
+.panel .l{padding:38px 40px;display:flex;flex-direction:column;align-items:flex-start}
+.panel .l .pimg{align-self:stretch;flex:1;min-height:170px;aspect-ratio:auto;margin:28px 0 0}
+.panel .l h3{font-size:clamp(1.6rem,2.6vw,2.1rem);line-height:1.05;margin-bottom:12px}
+.panel .l>p{color:var(--ink-2);max-width:50ch}
+.panel .doe{list-style:none;padding:0;margin:22px 0 26px;display:grid;gap:10px}
+.panel .doe li{display:flex;gap:12px;align-items:flex-start;font-size:.97rem}
+.panel .doe li::before{content:"";flex:none;width:20px;height:20px;margin-top:3px;border-radius:6px;background:var(--sky) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%230A6FB8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.panel .r{background:var(--ice);padding:38px 34px;display:flex;flex-direction:column;gap:14px;border-left:1.5px dashed var(--line)}
+.pimg{border-radius:16px;overflow:hidden}.pimg img{width:100%;height:100%;object-fit:cover}
+.panel .r h4{font:700 1.05rem/1.2 var(--f-d);color:var(--ink)}
+.panel .r .sub{font-size:.88rem;color:var(--muted);margin-top:-8px}
+.chk{display:grid;gap:8px}
+.chk label{display:flex;gap:12px;align-items:flex-start;background:#fff;border-radius:12px;padding:11px 13px;font-size:.92rem;cursor:pointer;border:1.5px solid transparent;transition:border-color .2s,opacity .2s}
+.chk label:hover{border-color:var(--line)}
+.chk input{appearance:none;-webkit-appearance:none;flex:none;width:20px;height:20px;border-radius:6px;border:1.8px solid #A9C2D6;margin-top:2px;display:grid;place-items:center;transition:all .2s}
+.chk input:checked{background:var(--apri);border-color:var(--apri)}
+.chk input:checked::after{content:"";width:6px;height:10px;border:solid #fff;border-width:0 2.2px 2.2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.chk label:has(input:checked) span{text-decoration:line-through;color:var(--muted)}
+.meter{height:6px;border-radius:9px;background:#fff;overflow:hidden;margin-top:4px}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--blue));transition:width .4s var(--ease)}
+.meter-t{font-size:.82rem;color:var(--muted)}
+.panel .fade{animation:pf .45s var(--ease)}
+@keyframes pf{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* kantoor */
+.kantoor .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.collage{position:relative;min-height:540px}
+.collage .c1{position:absolute;inset:0 70px 90px 0;border-radius:28px;overflow:hidden;box-shadow:var(--sh-l)}
+.collage .c2{position:absolute;right:0;bottom:0;width:52%;aspect-ratio:4/3;border-radius:22px;overflow:hidden;border:8px solid #fff;box-shadow:var(--sh-l)}
+.collage img{width:100%;height:100%;object-fit:cover}
+.collage .mosaic{left:-30px;top:-30px;width:120px;height:120px}
+@media (max-width:960px){.panel .l .pimg{flex:none;aspect-ratio:16/9;min-height:0}}
+@media (max-width:640px){.collage .mosaic{left:-8px;top:-24px;width:90px;height:90px}}
+.collage .kv{position:absolute;left:24px;bottom:118px;background:#fff;border-radius:18px;padding:14px 18px;display:flex;align-items:center;gap:12px;box-shadow:var(--sh);z-index:2}
+.collage .kv i{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#fff;display:grid;place-items:center;font:800 1rem/1 var(--f-d);font-style:normal}
+.collage .kv b{display:block;font-weight:600;line-height:1.25}
+.collage .kv span{font-size:.82rem;color:var(--muted)}
+.kantoor h2{margin:14px 0 20px}
+.kantoor p+p{margin-top:14px}
+.kantoor p{color:var(--ink-2)}
+.quote{margin:28px 0;padding:22px 26px;border-radius:20px;background:var(--sky);position:relative;font:700 1.35rem/1.25 var(--f-d);font-stretch:92%;color:var(--blue)}
+.quote small{display:block;margin-top:8px;font:500 .85rem/1.4 var(--f-b);color:var(--ink-2)}
+.net{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.net span{font-size:.84rem;font-weight:500;padding:.38em .8em;border-radius:999px;border:1.5px solid var(--line);color:var(--ink-2);background:#fff}
+.itaa{display:flex;gap:14px;align-items:flex-start;margin-top:26px;padding-top:22px;border-top:1.5px dashed var(--line);font-size:.93rem;color:var(--ink-2)}
+.itaa .tb{width:44px;height:44px;border-radius:13px;background:var(--apri-l);color:#C25416;display:grid;place-items:center;flex:none}
+
+/* werkwijze */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+.step{background:#fff;border:1.5px solid var(--line);border-radius:var(--r);padding:26px 24px;position:relative;transition:transform .3s var(--ease),box-shadow .3s}
+.step:hover{transform:translateY(-4px);box-shadow:var(--sh)}
+.step .no{width:52px;height:52px;position:relative;margin-bottom:18px}
+.step .no svg{position:absolute;inset:0;width:100%;height:100%}
+.step .no b{position:absolute;left:7px;top:5px;font:800 1.1rem/1 var(--f-d);color:#fff}
+.step h3{margin-bottom:8px}
+.step p{font-size:.94rem;color:var(--ink-2)}
+.step .tag{display:inline-block;margin-top:12px;font-size:.76rem;font-weight:600;color:var(--blue);background:var(--sky);border-radius:8px;padding:.25em .6em}
+.wwimg{margin-top:26px;display:grid;grid-template-columns:1.3fr 1fr;gap:20px}
+.wwimg .ph{border-radius:var(--r);overflow:hidden;height:280px}
+.wwimg .ph img{width:100%;height:100%;object-fit:cover}
+.portalbox{background:var(--ink);color:#D7E6F2;border-radius:var(--r);padding:30px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;position:relative;overflow:hidden}
+.portalbox::after{content:"";position:absolute;right:-40px;top:-40px;width:170px;height:170px;background:conic-gradient(from 45deg,var(--cyan),var(--blue),var(--cyan));clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);opacity:.35}
+.portalbox h3{color:#fff;font-size:1.5rem}
+.portalbox p{font-size:.95rem}
+.portalbox .btn{align-self:flex-start;position:relative;z-index:1}
+
+/* peppol + links */
+.peppol{display:grid;grid-template-columns:.9fr 1.1fr;gap:26px;align-items:stretch}
+.pep{border-radius:28px;background:linear-gradient(140deg,var(--blue),#0C86D0);color:#E8F4FC;padding:40px;position:relative;overflow:hidden}
+.pep h2{color:#fff;font-size:clamp(1.9rem,3.2vw,2.6rem);margin:14px 0 16px}
+.pep .kicker{color:#BFE6FA}.pep .kicker::before{background:linear-gradient(135deg,#fff 50%,var(--apri) 50%)}
+.pep p{max-width:44ch}
+.pep .btn{margin-top:24px}
+.pep .date{position:absolute;right:28px;top:28px;background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.3);border-radius:16px;padding:10px 14px;text-align:center;line-height:1.1}
+.pep .date b{display:block;font:800 1.9rem/1 var(--f-d);color:#fff}
+.pep .date span{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase}
+.links{background:var(--ice);border-radius:28px;padding:34px}
+.links h3{font-size:1.5rem;margin-bottom:6px}
+.links>p{font-size:.93rem;color:var(--muted);margin-bottom:20px}
+.lg{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.lg h4{font:700 .78rem/1 var(--f-b);letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+.lg a{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#fff;border-radius:11px;padding:.6em .8em;font-size:.9rem;font-weight:500;text-decoration:none;margin-bottom:6px;transition:color .2s,transform .2s}
+.lg a:hover{color:var(--blue);transform:translateX(3px)}
+.lg a .ic{width:.95em;height:.95em;color:var(--muted)}
+
+/* faq */
+.faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start}
+.faq .side{position:sticky;top:110px}
+.faq .side p{color:var(--ink-2);margin:16px 0 24px}
+.faq .side .ph{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;margin-top:26px}
+.faq .side .ph img{width:100%;height:100%;object-fit:cover}
+details{border-bottom:1.5px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font:650 1.12rem/1.3 var(--f-d);font-stretch:96%;color:var(--ink)}
+summary::-webkit-details-marker{display:none}
+summary i{flex:none;width:34px;height:34px;border-radius:50%;background:var(--ice);display:grid;place-items:center;transition:transform .3s var(--ease),background .2s;color:var(--blue)}
+details[open] summary i{transform:rotate(45deg);background:var(--apri-l)}
+details p{padding:0 50px 22px 0;color:var(--ink-2)}
+
+/* contact */
+.contact{background:var(--ice);border-radius:40px 40px 0 0}
+.contact .grid{display:grid;grid-template-columns:1fr 1.05fr;gap:30px;align-items:start}
+.info{display:grid;gap:18px}
+.place{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh)}
+.place .ph{height:210px;position:relative}
+.place .ph img{width:100%;height:100%;object-fit:cover}
+.place .ph span{position:absolute;left:16px;bottom:16px;background:#fff;border-radius:12px;padding:8px 12px;font-size:.84rem;font-weight:600;display:flex;gap:6px;align-items:center}
+.place .bd{padding:24px}
+.place h3{font-size:1.45rem;margin-bottom:6px}
+.place p{color:var(--ink-2);font-size:.95rem}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.acts a{display:flex;align-items:center;gap:.6em;justify-content:center;padding:.8em;border-radius:12px;background:var(--ice);font-weight:600;font-size:.9rem;text-decoration:none;color:var(--ink);transition:background .2s,color .2s}
+.acts a:hover{background:var(--sky);color:var(--blue)}
+.acts a.wa{background:#E6F6EE;color:#14774A}
+.uren{background:#fff;border-radius:var(--r);padding:24px;box-shadow:var(--sh)}
+.uren h3{font-size:1.2rem;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+.uren table{width:100%;border-collapse:collapse;font-size:.94rem}
+.uren td{padding:.55em .7em;border-top:1px solid var(--line)}
+.uren td:last-child{text-align:right;color:var(--ink-2)}
+.uren tr.today td{background:var(--sky);font-weight:600;color:var(--blue)}
+.uren tr.today td:first-child{border-radius:10px 0 0 10px}.uren tr.today td:last-child{border-radius:0 10px 10px 0}
+.uren .n{font-size:.83rem;color:var(--muted);margin-top:10px}
+.form{background:#fff;border-radius:28px;padding:36px;box-shadow:var(--sh-l)}
+.form h2{font-size:clamp(1.8rem,3vw,2.4rem);margin:12px 0 8px}
+.form>p{color:var(--ink-2);margin-bottom:22px}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fl{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.fl label{font-size:.85rem;font-weight:600;color:var(--ink-2)}
+.fl input,.fl select,.fl textarea{border:1.5px solid var(--line);border-radius:12px;padding:.8em .9em;background:var(--ice);outline:none;transition:border-color .2s,background .2s;width:100%}
+.fl input:focus,.fl select:focus,.fl textarea:focus{border-color:var(--blue);background:#fff}
+.fl textarea{min-height:120px;resize:vertical}
+.form .btn{width:100%;justify-content:center;margin-top:6px}
+.form .note{font-size:.82rem;color:var(--muted);margin-top:12px;text-align:center}
+
+/* footer */
+.foot{background:var(--ice);padding:30px 0 40px;border-top:1.5px solid var(--line)}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center;font-size:.88rem;color:var(--muted)}
+.foot img{height:40px;width:auto}
+.foot nav{display:flex;flex-wrap:wrap;gap:6px 20px}
+.foot a{text-decoration:none}.foot a:hover{color:var(--blue)}
+
+@media (max-width:1300px){.head .st{display:none}}
+@media (max-width:1080px){
+  .nav,.head .st{display:none}
+  .mb{display:flex}
+  .head .wrap{gap:14px}
+  .head .btn{display:none}
+  .mnav{display:none;position:fixed;inset:118px 14px auto 14px;background:#fff;border-radius:22px;box-shadow:var(--sh-l);padding:14px;z-index:45;flex-direction:column}
+  .menu-open .mnav{display:flex}
+  .mnav a{padding:.85em 1em;border-radius:12px;text-decoration:none;font-weight:600}
+  .mnav a:hover{background:var(--ice)}
+  .mnav .btn{margin-top:8px;justify-content:center}
+}
+@media (max-width:960px){
+  .hero .wrap,.kantoor .wrap,.faq .wrap,.contact .grid,.peppol,.shead{grid-template-columns:1fr}
+  .hero::before{width:100%;border-bottom-left-radius:80px;height:60%;top:auto;bottom:0}
+  .visual{min-height:460px;margin-top:10px}
+  .waarden .box{grid-template-columns:1fr 1fr;padding:30px}
+  .cards{grid-template-columns:1fr 1fr}
+  .panel{grid-template-columns:1fr}
+  .panel .r{border-left:0;border-top:1.5px dashed var(--line)}
+  .steps{grid-template-columns:1fr 1fr}
+  .collage{min-height:440px;order:2}
+  .faq .side{position:static}
+  .wwimg{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{width:min(100% - 32px,1200px)}
+  .portal span{display:none}
+  .logo img{height:38px}
+  .hero{padding:26px 0 70px}
+  .hero h1{font-size:2.55rem}
+  .hero .cta .btn{flex:1 1 100%;justify-content:center}
+  .visual{min-height:420px}
+  .visual .ph{inset:10px 0 60px 0}
+  .dossier{left:10px;right:10px;width:auto;bottom:0}
+  .pin{top:-6px;right:6px}
+  .stamp{display:none}
+  .mosaic.a{right:-18px;top:-26px;width:110px;height:110px}
+  .mosaic.b{display:none}
+  .waarden .box{grid-template-columns:1fr;padding:26px 22px}
+  .sec{padding:76px 0}
+  .cards,.steps,.lg,.fr,.acts{grid-template-columns:1fr}
+  .panel .l,.panel .r{padding:28px 22px}
+  .collage{min-height:380px}
+  .collage .c1{inset:0 30px 80px 0}
+  .pep,.links,.form{padding:28px 22px}
+  .pep .date{position:static;display:inline-block;margin-bottom:16px}
+  details p{padding-right:0}
+  .kiezer,.contact{border-radius:28px 28px 0 0}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js [data-r]{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="i-ar" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-ph" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></symbol>
+<symbol id="i-cl" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-st" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></symbol>
+<symbol id="i-sh" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+<symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+<symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .8a4.5 4.5 0 0 1-2.2-2.2l.8-1-1-2z"/></symbol>
+<symbol id="tri" viewBox="0 0 150 150"><path d="M0 0h50L0 50z" fill="#1AAEE6"/><path d="M50 0v50H0z" fill="#0A6FB8"/><path d="M50 0h50L50 50z" fill="#5CC6EE"/><path d="M100 0v50H50z" fill="#1AAEE6"/><path d="M100 0h50l-50 50z" fill="#0A6FB8" opacity=".85"/><path d="M50 50h50l-50 50z" fill="#0A5D9C"/><path d="M100 50v50H50z" fill="#FF8F4C"/><path d="M100 50h50l-50 50z" fill="#5CC6EE" opacity=".7"/><path d="M100 100h50l-50 50z" fill="#1AAEE6" opacity=".6"/></symbol>
+</svg>
+
+<div class="demo">Voorbeeldsite van Digital Impression voor Accountantskantoor Vanherck. Benieuwd wat zoiets kost? <a href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20Accountantskantoor%20Vanherck">Stuur Stijn een bericht</a></div>
+
+<header class="head" data-head>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Accountantskantoor Vanherck, naar boven"><img src="img/logo.webp" alt="Logo Accountantskantoor Vanherck" width="336" height="102"></a>
+    <nav class="nav" aria-label="Hoofdmenu">
+      <a href="#diensten">Diensten</a><a href="#kiezer">Waar staat u?</a><a href="#kantoor">Het kantoor</a><a href="#werkwijze">Werkwijze</a><a href="#contact">Contact</a>
+    </nav>
+    <span class="st" data-open><i></i><span><b data-open-t>Kantoor</b> <span data-open-s>ma tot vr 9u-17u</span></span></span>
+    <a class="portal" href="https://accvanherck.clearfacts.be/" target="_blank" rel="noopener"><svg class="ic"><use href="#i-lock"/></svg><span>Klantenportaal</span></a>
+    <a class="btn" href="#contact">Afspraak maken</a>
+    <button class="mb" data-menu-btn aria-label="Menu openen" aria-expanded="false"><svg class="ic"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+<nav class="mnav" data-menu aria-label="Menu gsm">
+  <a href="#diensten">Diensten</a><a href="#kiezer">Waar staat u?</a><a href="#kantoor">Het kantoor</a><a href="#werkwijze">Werkwijze</a><a href="#contact">Contact</a>
+  <a href="https://accvanherck.clearfacts.be/" target="_blank" rel="noopener">Klantenportaal</a>
+  <a class="btn" href="tel:+3211415339">Bel 011 41 53 39</a>
+</nav>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="chip" data-r><b><svg class="ic" style="width:14px;height:14px"><use href="#i-pin"/></svg></b>Accountant en fiscalist · Stilleveld 5, Peer</span>
+      <h1 data-r="80">Uw dossier heeft geen nummer. <span>Het heeft <u>een naam.</u></span></h1>
+      <p class="lead" data-r="160">Bij Accountantskantoor Vanherck kent u de mensen die uw boekhouding doen, en zij kennen uw zaak. Kristof Vanherck en zijn team werken voor eenmanszaken en vennootschappen uit Peer en omgeving.</p>
+      <div class="cta" data-r="240">
+        <a class="btn" href="#contact">Plan een kennismaking <svg class="ic ar"><use href="#i-ar"/></svg></a>
+        <a class="btn ghost" href="tel:+3211415339"><svg class="ic"><use href="#i-ph"/></svg>011 41 53 39</a>
+      </div>
+      <div class="trust" data-r="320">
+        <div><span class="tb"><svg class="ic"><use href="#i-sh"/></svg></span><span><b>Gecertificeerd fiscaal accountant</b>lid van het ITAA</span></div>
+        <div><span class="tb"><svg class="ic"><use href="#i-st"/></svg></span><span><b>5,0 <span class="stars">★★★★★</span></b>op Google</span></div>
+        <div><span class="tb"><svg class="ic"><use href="#i-cl"/></svg></span><span><b>Maandag tot vrijdag</b>van 9u tot 17u</span></div>
+      </div>
+    </div>
+    <div class="visual" data-r="120">
+      <svg class="mosaic a" aria-hidden="true"><use href="#tri"/></svg>
+      <div class="ph"><img src="img/hero.webp" alt="Twee mensen aan tafel met laptop en notities tijdens een gesprek over de boekhouding" width="1600" height="1068" fetchpriority="high"></div>
+      <svg class="mosaic b" aria-hidden="true" style="transform:rotate(180deg)"><use href="#tri"/></svg>
+      <div class="pin"><span class="tb"><svg class="ic"><use href="#i-pin"/></svg></span><span><b>Stilleveld 5, Peer</b><span>een paar minuten van de Markt</span></span></div>
+      <div class="dossier">
+        <small>Dossier</small>
+        <div class="dn" aria-live="polite">van <span data-dname>uw zaak</span></div>
+        <label for="dnaam">Typ uw naam of die van uw zaak</label>
+        <input id="dnaam" data-dinput maxlength="34" autocomplete="off" placeholder="bv. Bakkerij Peeters">
+        <div class="ab"><i>KV</i>Vaste vertrouwenspersoon op kantoor</div>
+      </div>
+      <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="cp" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><circle cx="60" cy="60" r="58" fill="#fff"/><circle cx="60" cy="60" r="34" fill="#E7F3FB"/><text><textPath href="#cp">GEEN NUMMER · MAAR EEN NAAM · PEER ·</textPath></text><path d="M48 50h12l-12 12zM60 50v12H48zM60 62h12L60 74z" fill="#0A6FB8"/><path d="M60 50h12L60 62z" fill="#FF8F4C"/></svg>
+    </div>
+  </div>
+</section>
+
+<section class="waarden" aria-labelledby="w-t">
+  <div class="wrap">
+    <div class="box" data-r>
+      <div class="lbl"><h2 id="w-t">Waar we voor staan, in vier woorden</h2><p>Dezelfde vier woorden als op onze vorige site. Ze kloppen nog altijd.</p></div>
+      <div class="w"><span class="n"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M0 0h30L0 30z" fill="#1AAEE6"/></svg>Vertrouwen</span><p>U hebt één vaste vertrouwenspersoon. Die kent uw dossier, en weet wat er in uw zaak speelt.</p></div>
+      <div class="w"><span class="n"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M30 0v30H0z" fill="#0A6FB8"/></svg>Bereikbaar</span><p>Bellen, mailen of even binnenspringen aan het Stilleveld. U weet altijd bij wie u terecht kunt.</p></div>
+      <div class="w"><span class="n"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M0 0h30L0 30z" fill="#FF8F4C"/></svg>Meedenkend</span><p>We willen weten wat er in uw bedrijf gebeurt. Dan kunnen we ook mee vooruit kijken.</p></div>
+      <div class="w"><span class="n"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M30 0v30H0z" fill="#5CC6EE"/></svg>Op maat</span><p>Een eenmanszaak vraagt iets anders dan een vennootschap. Daar stemmen we ons werk op af.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="diensten" style="padding-top:0" aria-labelledby="d-t">
+  <div class="wrap">
+    <div class="shead">
+      <div><span class="kicker">Diensten</span><h2 id="d-t">Van de eerste factuur <em>tot de jaarafsluiting</em></h2></div>
+      <p data-r>Volledige boekhouding en fiscaliteit voor eenmanszaken en vennootschappen. Klik op wat u nodig hebt, dan staat het al klaar in het contactformulier.</p>
+    </div>
+    <div class="cards">
+      <article class="card" data-r><div class="im"><img src="img/mappen.webp" alt="Bureau met blauwe mappen, rekenmachine en grafieken" width="1200" height="800" loading="lazy"><span>Boekhouding</span></div><div class="bd"><h3>Uw boekhouding, volledig verwerkt</h3><p>Vanaf het inboeken van uw facturen tot en met de jaarafsluiting. Voor eenmanszaken en vennootschappen.</p><ul><li>aankoop en verkoop</li><li>financiële stukken</li><li>jaarafsluiting</li></ul><a class="more" href="#contact" data-onderwerp="Boekhouding">Vraag hierover <svg class="ic"><use href="#i-ar"/></svg></a></div></article>
+      <article class="card" data-r="80"><div class="im"><img src="img/rekenen.webp" alt="Handen op een rekenmachine naast een gele koffietas" width="1200" height="800" loading="lazy"><span>Btw</span></div><div class="bd"><h3>Btw-aangiften en listings</h3><p>De periodieke btw-aangiften, de intracommunautaire opgaven, en hulp als er een btw-controle komt.</p><ul><li>maand of kwartaal</li><li>intracommunautair</li><li>btw-controle</li></ul><a class="more" href="#contact" data-onderwerp="Btw-aangiften">Vraag hierover <svg class="ic"><use href="#i-ar"/></svg></a></div></article>
+      <article class="card" data-r="160"><div class="im"><img src="img/notities.webp" alt="Iemand rekent met potlood en rekenmachine in een notitieboek" width="1200" height="801" loading="lazy"><span>Belastingen</span></div><div class="bd"><h3>Personen- en vennootschapsbelasting</h3><p>We maken de aangifte op en volgen ze verder op, ook als er een belastingcontrole volgt.</p><ul><li>personenbelasting</li><li>vennootschapsbelasting</li><li>belastingcontrole</li></ul><a class="more" href="#contact" data-onderwerp="Aangifte belastingen">Vraag hierover <svg class="ic"><use href="#i-ar"/></svg></a></div></article>
+      <article class="card" data-r><div class="im"><img src="img/plan.webp" alt="Bureau met smartphone, notitieboek en financiële grafieken" width="1200" height="801" loading="lazy"><span>Starten</span></div><div class="bd"><h3>Uw zaak opstarten</h3><p>De opstartformaliteiten voor een eenmanszaak of vennootschap, een financieel plan en de aansluiting bij een sociaal verzekeringsfonds.</p><ul><li>oprichting</li><li>financieel plan</li><li>sociaal statuut</li></ul><a class="more" href="#contact" data-onderwerp="Een zaak opstarten">Vraag hierover <svg class="ic"><use href="#i-ar"/></svg></a></div></article>
+      <article class="card" data-r="80"><div class="im"><img src="img/balans.webp" alt="Grafiek op papier met een liniaal en een pen" width="1200" height="800" loading="lazy"><span>Jaarrekening</span></div><div class="bd"><h3>Jaarrekening en balansanalyse</h3><p>We stellen de jaarrekening op en lezen samen met u de balans. Waar ging het goed, en waar kan het beter.</p><ul><li>jaarrekening</li><li>balansanalyse</li><li>advies</li></ul><a class="more" href="#contact" data-onderwerp="Jaarrekening en balans">Vraag hierover <svg class="ic"><use href="#i-ar"/></svg></a></div></article>
+      <article class="card" data-r="160"><div class="im"><img src="img/dossier.webp" alt="Iemand overloopt documenten met rekenmachine en laptop" width="1200" height="800" loading="lazy"><span>Bijzondere opdrachten</span></div><div class="bd"><h3>Stoppen, omvormen of samengaan</h3><p>Verslagen bij bijzondere mandaten, als uw vennootschap ontbonden, omgevormd, gefuseerd of gesplitst wordt.</p><ul><li>ontbinding</li><li>omvorming</li><li>fusie of splitsing</li></ul><a class="more" href="#contact" data-onderwerp="Bijzondere mandaten">Vraag hierover <svg class="ic"><use href="#i-ar"/></svg></a></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec kiezer" id="kiezer" aria-labelledby="k-t">
+  <div class="wrap">
+    <div class="shead">
+      <div><span class="kicker">Waar staat u nu?</span><h2 id="k-t">Kies uw situatie. <em>Wij zeggen wat er nodig is.</em></h2></div>
+      <p data-r>Iedere zaak begint ergens anders. Kies wat bij u past: u ziet wat we voor u doen, en wat u best meeneemt naar het eerste gesprek. Vink gerust af wat u al klaar hebt.</p>
+    </div>
+    <div class="chips" role="tablist" aria-label="Kies uw situatie" data-chips>
+      <button role="tab" aria-selected="true" data-k="start">Ik wil starten</button>
+      <button role="tab" aria-selected="false" data-k="eenmans">Ik heb een eenmanszaak</button>
+      <button role="tab" aria-selected="false" data-k="bv">Ik heb een vennootschap</button>
+      <button role="tab" aria-selected="false" data-k="bouw">Ik ben aannemer</button>
+      <button role="tab" aria-selected="false" data-k="stop">Ik wil stoppen of herstructureren</button>
+    </div>
+    <div class="panel" data-r>
+      <div class="l" data-pl>
+        <h3 data-p-t>U begint voor uzelf</h3>
+        <p data-p-x>Een goed begin scheelt later veel zorgen. We zetten de opstart samen op poten en rekenen uit wat haalbaar is.</p>
+        <ul class="doe" data-p-d></ul>
+        <a class="btn" href="#contact" data-p-c data-onderwerp="Een zaak opstarten">Plan een startgesprek <svg class="ic ar"><use href="#i-ar"/></svg></a>
+        <div class="pimg"><img data-p-i src="img/start.webp" alt="Jong plantje tussen muntstukken" width="1200" height="800" loading="lazy"></div>
+      </div>
+      <div class="r">
+        <h4>Neem dit mee naar het eerste gesprek</h4>
+        <p class="sub">Vink af wat u al hebt. Wat ontbreekt, zoeken we samen.</p>
+        <div class="chk" data-p-m></div>
+        <div class="meter"><i data-meter></i></div>
+        <span class="meter-t" data-meter-t>0 van 4 klaar</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec kantoor" id="kantoor" aria-labelledby="ka-t">
+  <div class="wrap">
+    <div data-r>
+      <span class="kicker">Het kantoor</span>
+      <h2 id="ka-t">Een klein kantoor, <em>met korte lijnen</em></h2>
+      <p>Accountantskantoor Vanherck wordt geleid door Kristof Vanherck, gecertificeerd fiscaal accountant. Met een klein team doet hij aan het Stilleveld in Peer de boekhouding en de fiscaliteit van zelfstandigen en bedrijven.</p>
+      <p>Wie belt, krijgt iemand aan de lijn die het dossier kent. Dat is de bedoeling: hoe beter we uw zaak kennen, hoe sneller we zien wat er beter kan.</p>
+      <div class="quote">“Uw dossier heeft geen nummer, maar een naam.”<small>Zo staat het op onze huidige site, en zo houden we het.</small></div>
+      <p>Is er een vraag die verder gaat dan de cijfers? Dan weten we wie u verder helpt. We hebben goede contacten met</p>
+      <div class="net"><span>advocaten</span><span>notarissen</span><span>revisoren</span><span>verzekeringsmakelaars</span><span>collega-accountants</span></div>
+      <div class="itaa"><span class="tb"><svg class="ic"><use href="#i-sh"/></svg></span><span>Als lid van het ITAA, het Institute for Tax Advisors &amp; Accountants, scholen we ons voortdurend bij. Zo blijven we mee met een wetgeving die elk jaar verandert.</span></div>
+    </div>
+    <div class="collage" data-r="120">
+      <svg class="mosaic" aria-hidden="true"><use href="#tri"/></svg>
+      <div class="c1"><img src="img/kantoor.webp" alt="Licht bureau met laptop en grafieken aan een raam" width="1400" height="788" loading="lazy"></div>
+      <div class="c2"><img src="img/handdruk.webp" alt="Twee mensen geven elkaar een hand" width="1200" height="801" loading="lazy"></div>
+      <div class="kv"><i>KV</i><span><b>Kristof Vanherck</b><span>gecertificeerd fiscaal accountant</span></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="werkwijze" style="padding-top:20px" aria-labelledby="ww-t">
+  <div class="wrap">
+    <div class="shead">
+      <div><span class="kicker">Werkwijze</span><h2 id="ww-t">Zo werken we <em>samen</em></h2></div>
+      <p data-r>Geen ingewikkelde procedures. U weet wat we van u nodig hebben, en wanneer.</p>
+    </div>
+    <div class="steps">
+      <div class="step" data-r><div class="no"><svg viewBox="0 0 52 52" aria-hidden="true"><path d="M0 0h52L0 52z" fill="#1AAEE6"/></svg><b>1</b></div><h3>Kennismaken</h3><p>Op kantoor aan het Stilleveld. U vertelt wat u doet en waar u naartoe wil. Wij zeggen eerlijk wat we voor u kunnen doen.</p><span class="tag">op kantoor in Peer</span></div>
+      <div class="step" data-r="80"><div class="no"><svg viewBox="0 0 52 52" aria-hidden="true"><path d="M0 0h52L0 52z" fill="#0A6FB8"/></svg><b>2</b></div><h3>Stukken bezorgen</h3><p>Facturen en bankafschriften laadt u op in uw klantenportaal. Zo staat alles op één plek en zien we meteen wat binnen is.</p><span class="tag">via Clearfacts</span></div>
+      <div class="step" data-r="160"><div class="no"><svg viewBox="0 0 52 52" aria-hidden="true"><path d="M0 0h52L0 52z" fill="#5CC6EE"/></svg><b>3</b></div><h3>Wij verwerken</h3><p>Boekhouding, btw en aangiftes, op tijd ingediend. Ontbreekt er iets, dan krijgt u een seintje van uw vaste aanspreekpunt.</p><span class="tag">één vaste persoon</span></div>
+      <div class="step" data-r="240"><div class="no"><svg viewBox="0 0 52 52" aria-hidden="true"><path d="M0 0h52L0 52z" fill="#FF8F4C"/></svg><b>4</b></div><h3>Jaarafsluiting</h3><p>We sluiten het boekjaar af, stellen de jaarrekening op en overlopen met u hoe het jaar liep.</p><span class="tag">met een gesprek</span></div>
+    </div>
+    <div class="wwimg">
+      <div class="ph" data-r><img src="img/stukken.webp" alt="Stapel facturen en documenten op een bureau" width="1200" height="798" loading="lazy"></div>
+      <div class="portalbox" data-r="100">
+        <div><span class="kicker" style="color:#8FD3F2">Al klant?</span><h3 style="margin-top:10px">Uw klantenportaal</h3><p style="margin-top:8px">Facturen opladen, stukken terugvinden en zien wat er nog openstaat. Alles in uw eigen omgeving bij Clearfacts.</p></div>
+        <a class="btn warm" href="https://accvanherck.clearfacts.be/" target="_blank" rel="noopener"><svg class="ic"><use href="#i-lock"/></svg>Naar het klantenportaal</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:30px" aria-labelledby="pp-t">
+  <div class="wrap peppol">
+    <div class="pep" data-r>
+      <div class="date"><b>1/1</b><span>2026</span></div>
+      <span class="kicker">E-facturatie</span>
+      <h2 id="pp-t">Facturen gaan nu via Peppol</h2>
+      <p>Sinds 1 januari 2026 sturen Belgische ondernemingen elkaar hun facturen elektronisch, via het Peppol-netwerk. Twijfelt u of uw zaak al bereikbaar is? Met de Peppolcheck ziet u het meteen. Blijft het onduidelijk, bel ons gerust even.</p>
+      <a class="btn warm" href="https://www.peppolcheck.be/nl" target="_blank" rel="noopener">Doe de Peppolcheck <svg class="ic"><use href="#i-ext"/></svg></a>
+    </div>
+    <div class="links" data-r="100">
+      <h3>Handige links</h3>
+      <p>Uit onze eigen bladwijzers. Officiële sites, zonder omwegen.</p>
+      <div class="lg">
+        <div><h4>Aangiften</h4>
+          <a href="https://eservices.minfin.fgov.be/myminfin-web/pages" target="_blank" rel="noopener">MyMinfin <svg class="ic"><use href="#i-ext"/></svg></a>
+          <a href="https://financien.belgium.be/nl/E-services/Intervat/" target="_blank" rel="noopener">Intervat, btw <svg class="ic"><use href="#i-ext"/></svg></a>
+          <a href="https://financien.belgium.be/nl/E-services/biztax/" target="_blank" rel="noopener">Biztax, vennootschappen <svg class="ic"><use href="#i-ext"/></svg></a>
+          <a href="https://financien.belgium.be/nl/E-services/FinProf" target="_blank" rel="noopener">Finprof, bedrijfsvoorheffing <svg class="ic"><use href="#i-ext"/></svg></a></div>
+        <div><h4>Opzoeken</h4>
+          <a href="http://kbopub.economie.fgov.be/kbopub/zoeknummerform.html" target="_blank" rel="noopener">Kruispuntbank (KBO) <svg class="ic"><use href="#i-ext"/></svg></a>
+          <a href="http://www.ejustice.just.fgov.be/tsv_pub/index_n.htm" target="_blank" rel="noopener">Belgisch Staatsblad <svg class="ic"><use href="#i-ext"/></svg></a>
+          <a href="http://ec.europa.eu/taxation_customs/vies/?locale=nl" target="_blank" rel="noopener">Geldigheid btw-nummer <svg class="ic"><use href="#i-ext"/></svg></a>
+          <a href="https://www.vlaio.be/nl/subsidies-financiering/kmo-portefeuille" target="_blank" rel="noopener">KMO-portefeuille <svg class="ic"><use href="#i-ext"/></svg></a></div>
+        <div><h4>Voor aannemers</h4>
+          <a href="https://www.socialsecurity.be/site_nl/employer/applics/30bis/index.htm" target="_blank" rel="noopener">Inhoudingsplicht (30bis) <svg class="ic"><use href="#i-ext"/></svg></a>
+          <a href="https://www.socialsecurity.be/site_nl/employer/applics/ddt/index.htm" target="_blank" rel="noopener">Aangifte van werken <svg class="ic"><use href="#i-ext"/></svg></a>
+          <a href="https://www.socialsecurity.be/site_nl/employer/applics/checkinatwork/index.htm" target="_blank" rel="noopener">Checkinatwork <svg class="ic"><use href="#i-ext"/></svg></a></div>
+        <div><h4>Nog handig</h4>
+          <a href="http://financien.belgium.be/nl/ondernemingen/btw/kalender/" target="_blank" rel="noopener">Btw-kalender <svg class="ic"><use href="#i-ext"/></svg></a>
+          <a href="https://www.premiezoeker.be/" target="_blank" rel="noopener">Premiezoeker <svg class="ic"><use href="#i-ext"/></svg></a>
+          <a href="https://www.itaa.be/nl/home/" target="_blank" rel="noopener">ITAA <svg class="ic"><use href="#i-ext"/></svg></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec faq" aria-labelledby="f-t">
+  <div class="wrap">
+    <div class="side" data-r>
+      <span class="kicker">Vragen</span>
+      <h2 id="f-t">Wat ons <em>vaak gevraagd</em> wordt</h2>
+      <p>Staat uw vraag er niet tussen? Bel naar het kantoor of stuur een mailtje naar info@accvanherck.be.</p>
+      <a class="btn ghost" href="tel:+3211415339"><svg class="ic"><use href="#i-ph"/></svg>Bel 011 41 53 39</a>
+      <div class="ph"><img src="img/laptop.webp" alt="Handen typen op een laptop met een boekhoudprogramma" width="1200" height="800" loading="lazy"></div>
+    </div>
+    <div data-r="100">
+      <details open><summary>Ik wil starten. Waar begin ik?<i><svg class="ic"><use href="#i-plus"/></svg></i></summary><p>Bij een gesprek op kantoor. We overlopen of een eenmanszaak of een vennootschap het best past, maken een financieel plan en regelen de opstartformaliteiten en uw sociaal statuut. Zo weet u van bij de start waar u staat.</p></details>
+      <details><summary>Hoe bezorg ik mijn facturen en bonnetjes?<i><svg class="ic"><use href="#i-plus"/></svg></i></summary><p>Via uw klantenportaal bij Clearfacts. U laadt er uw stukken op, en wij verwerken ze vanaf daar. Wie klant wordt, krijgt zijn eigen toegang.</p></details>
+      <details><summary>Ik kreeg een brief van de belastingen. Wat nu?<i><svg class="ic"><use href="#i-plus"/></svg></i></summary><p>Breng hem mee of stuur hem door. We volgen belastingcontroles mee op, zowel voor de directe belastingen als voor de btw. U staat er dus niet alleen voor.</p></details>
+      <details><summary>Wat verandert er met Peppol?<i><svg class="ic"><use href="#i-plus"/></svg></i></summary><p>Sinds 1 januari 2026 factureren Belgische ondernemingen onderling elektronisch via Peppol. Met de Peppolcheck ziet u of uw zaak al bereikbaar is. Twijfelt u over hoe dat in uw boekhouding past, vraag het ons.</p></details>
+      <details><summary>Ik ben aannemer. Waar moet ik extra op letten?<i><svg class="ic"><use href="#i-plus"/></svg></i></summary><p>In de bouw gelden extra regels, zoals de inhoudingsplicht (30bis) en de aangifte van werken. De officiële tools staan hierboven bij de handige links. Wat er voor uw werven geldt, bekijken we samen.</p></details>
+      <details><summary>Waar kan ik parkeren als ik langskom?<i><svg class="ic"><use href="#i-plus"/></svg></i></summary><p>Het kantoor ligt aan het Stilleveld 5, een paar minuten wandelen van de Markt en het Bruegelmuseum. Vlakbij ligt de parking aan de Kloosterstraat.</p></details>
+      <details><summary>Wanneer is het kantoor open?<i><svg class="ic"><use href="#i-plus"/></svg></i></summary><p>Van maandag tot vrijdag, van 9u tot 17u. Komt u voor een gesprek, maak dan best even een afspraak. Dan nemen we er ook de tijd voor.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec contact" id="contact" aria-labelledby="c-t">
+  <div class="wrap grid">
+    <div class="info">
+      <div class="place" data-r>
+        <div class="ph"><img src="img/bureau.webp" alt="Wit bureau met laptop, betaalterminal en een koffie" width="1600" height="1068" loading="lazy"><span><svg class="ic"><use href="#i-pin"/></svg>Stilleveld 5, 3990 Peer</span></div>
+        <div class="bd">
+          <h3>Langskomen in Peer</h3>
+          <p>Het kantoor ligt in het centrum van Peer, een paar minuten wandelen van de Markt. Parkeren kan aan de Kloosterstraat.</p>
+          <div class="acts">
+            <a href="tel:+3211415339"><svg class="ic"><use href="#i-ph"/></svg>011 41 53 39</a>
+            <a class="wa" href="https://wa.me/32472423993" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg>WhatsApp</a>
+            <a href="mailto:info@accvanherck.be"><svg class="ic"><use href="#i-mail"/></svg>Mail ons</a>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Stilleveld+5%2C+3990+Peer" target="_blank" rel="noopener"><svg class="ic"><use href="#i-pin"/></svg>Route</a>
+          </div>
+        </div>
+      </div>
+      <div class="uren" data-r="80">
+        <h3>Openingsuren <span class="st" data-open><i></i><span><b data-open-t></b> <span data-open-s></span></span></span></h3>
+        <table data-today>
+          <tr data-day="1"><td>Maandag</td><td>9.00 tot 17.00</td></tr>
+          <tr data-day="2"><td>Dinsdag</td><td>9.00 tot 17.00</td></tr>
+          <tr data-day="3"><td>Woensdag</td><td>9.00 tot 17.00</td></tr>
+          <tr data-day="4"><td>Donderdag</td><td>9.00 tot 17.00</td></tr>
+          <tr data-day="5"><td>Vrijdag</td><td>9.00 tot 17.00</td></tr>
+          <tr data-day="6"><td>Zaterdag</td><td>gesloten</td></tr>
+          <tr data-day="0"><td>Zondag</td><td>gesloten</td></tr>
+        </table>
+        <p class="n">Voor een gesprek maakt u best een afspraak. Gsm: 0472 42 39 93.</p>
+      </div>
+    </div>
+    <form class="form" data-form data-r="120" novalidate>
+      <span class="kicker">Contact</span>
+      <h2 id="c-t">Stel uw vraag of plan een kennismaking</h2>
+      <p>Uw bericht komt rechtstreeks bij het kantoor terecht. We nemen zo snel mogelijk contact met u op.</p>
+      <div class="fr">
+        <div class="fl"><label for="f-n">Naam</label><input id="f-n" name="naam" autocomplete="name" required></div>
+        <div class="fl"><label for="f-z">Zaak of vennootschap</label><input id="f-z" name="zaak" autocomplete="organization"></div>
+      </div>
+      <div class="fr">
+        <div class="fl"><label for="f-e">E-mail</label><input id="f-e" name="email" type="email" autocomplete="email" required></div>
+        <div class="fl"><label for="f-t">Telefoon</label><input id="f-t" name="tel" type="tel" autocomplete="tel"></div>
+      </div>
+      <div class="fl"><label for="f-o">Waarover gaat het?</label>
+        <select id="f-o" name="onderwerp" data-onderwerp-sel>
+          <option>Kennismaking</option><option>Een zaak opstarten</option><option>Boekhouding</option><option>Btw-aangiften</option><option>Aangifte belastingen</option><option>Jaarrekening en balans</option><option>Bijzondere mandaten</option><option>Aannemer: 30bis en aangifte van werken</option><option>Iets anders</option>
+        </select></div>
+      <div class="fl"><label for="f-b">Uw bericht</label><textarea id="f-b" name="bericht" placeholder="Vertel kort wat u doet en waarmee we u kunnen helpen."></textarea></div>
+      <button class="btn" type="submit">Verstuur bericht <svg class="ic ar"><use href="#i-ar"/></svg></button>
+      <p class="note">Uw mailprogramma opent met uw bericht klaar. Liever bellen? 011 41 53 39.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <img src="img/logo.webp" alt="Accountantskantoor Vanherck" width="336" height="102" loading="lazy">
+    <span>Accountantskantoor Vanherck BV · Stilleveld 5, 3990 Peer · 011 41 53 39 · info@accvanherck.be</span>
+    <nav><a href="https://accvanherck.clearfacts.be/" target="_blank" rel="noopener">Klantenportaal</a><a href="https://www.facebook.com/Accountantskantoor-Vanherck-BVBA-159175374136152/" target="_blank" rel="noopener">Facebook</a><span>Voorbeeldsite door Digital Impression</span></nav>
+  </div>
+</footer>
+
+<script>window.HOURS={0:[],1:[[540,1020]],2:[[540,1020]],3:[[540,1020]],4:[[540,1020]],5:[[540,1020]],6:[]};</script>
+<script>(()=>{
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px',threshold:.06}):null;
+$$('[data-r]').forEach(el=>{if(RM||!io){el.classList.add('in');return}if(el.dataset.r)el.style.setProperty('--d',el.dataset.r+'ms');io.observe(el)});
+const hd=$('[data-head]');const f=()=>hd.classList.toggle('sc',scrollY>20);f();addEventListener('scroll',f,{passive:true});
+/* uren, in Belgische tijd */
+const now=()=>{const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Brussels',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());const g=t=>p.find(x=>x.type===t).value;return{d:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(g('weekday')),m:(+g('hour')%24)*60+(+g('minute'))}};
+const H=window.HOURS,days=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'],hm=m=>Math.floor(m/60)+'u'+(m%60?String(m%60).padStart(2,'0'):'');
+const st=(()=>{const{d,m}=now();for(const[a,b]of H[d]||[])if(m>=a&&m<b)return{o:1,t:'Nu open',s:'tot '+hm(b)};const l=(H[d]||[]).find(([a])=>a>m);if(l)return{o:0,t:'Nu gesloten',s:'open om '+hm(l[0])};for(let i=1;i<8;i++){const dd=(d+i)%7;if((H[dd]||[]).length)return{o:0,t:'Nu gesloten',s:'open '+(i===1?'morgen':days[dd])+' om '+hm(H[dd][0][0])}}})();
+if(st)$$('[data-open]').forEach(el=>{el.classList.add(st.o?'open':'closed');$('[data-open-t]',el).textContent=st.t;$('[data-open-s]',el).textContent=st.s});
+$$('[data-today]').forEach(t=>{const r=t.querySelector(`[data-day="${now().d}"]`);if(r)r.classList.add('today')});
+/* dossier */
+const di=$('[data-dinput]'),dn=$('[data-dname]');if(di)di.addEventListener('input',()=>{const v=di.value.trim();dn.textContent=v||'uw zaak'});
+/* kiezer */
+const K={
+ start:{t:'U begint voor uzelf',x:'Een goed begin scheelt later veel zorgen. We zetten de opstart samen op poten en rekenen uit wat haalbaar is.',d:['Keuze tussen eenmanszaak of vennootschap, samen doorgerekend','Opstartformaliteiten en de oprichting van uw vennootschap','Een financieel plan dat klopt met uw cijfers','Aansluiting en uitleg over uw sociaal statuut als zelfstandige'],m:['Uw identiteitskaart','Een korte beschrijving van wat u wil doen','Een ruwe schatting van uw omzet en kosten in het eerste jaar','Uw vragen, hoe klein ook'],c:'Plan een startgesprek',o:'Een zaak opstarten',i:'start',a:'Jong plantje tussen muntstukken'},
+ eenmans:{t:'U hebt een eenmanszaak',x:'Uw zaak draait. Wij nemen de boekhouding en de aangiftes van u over, zodat u uw tijd aan uw klanten kan geven.',d:['Volledige boekhouding, van facturen tot jaarafsluiting','Periodieke btw-aangiften en intracommunautaire opgaven','Uw aangifte in de personenbelasting','Advies als u wil investeren of groeien'],m:['Uw laatste aanslagbiljet personenbelasting','De btw-aangiften van dit jaar','Uw verkoop- en aankoopfacturen of een export uit uw programma','Gegevens van uw sociaal verzekeringsfonds'],c:'Plan een kennismaking',o:'Boekhouding',i:'winkel',a:'Een klant betaalt met de kaart aan de toonbank van een kleine zaak'},
+ bv:{t:'U hebt een vennootschap',x:'Een vennootschap vraagt meer opvolging. We houden de boekhouding bij, sluiten het jaar af en lezen samen de cijfers.',d:['Boekhouding en btw voor uw vennootschap','Jaarrekening en aangifte vennootschapsbelasting','Balansanalyse, met een gesprek over wat de cijfers zeggen','Opvolging bij een belasting- of btw-controle'],m:['De statuten van uw vennootschap','De laatste neergelegde jaarrekening','De btw-aangiften van dit jaar','Toegang tot uw huidig boekhoudpakket'],c:'Bespreek uw vennootschap',o:'Jaarrekening en balans',i:'zaak',a:'Twee ondernemers overlopen cijfers op een tablet'},
+ bouw:{t:'U bent aannemer',x:'In de bouw komen er extra regels bij. Wij zorgen dat de boekhouding klopt, u zorgt voor uw werven.',d:['Boekhouding en btw-aangiften voor uw bouwbedrijf','Opvolging van de inhoudingsplicht (30bis)','Uitleg bij de aangifte van werken en Checkinatwork','Uw aangifte in de personen- of vennootschapsbelasting'],m:['Een overzicht van uw lopende werven','De gegevens van uw onderaannemers','Uw laatste btw-aangiften','Facturen van het voorbije kwartaal'],c:'Plan een gesprek',o:'Aannemer: 30bis en aangifte van werken',i:'werf',a:'Bouwvakkers aan het werk op een werf'},
+ stop:{t:'U wil stoppen of herstructureren',x:'Ontbinden, omvormen, fuseren of splitsen. Daar komen verslagen en formaliteiten bij kijken, en vaak ook een notaris.',d:['Verslagen bij bijzondere mandaten','Begeleiding bij ontbinding of omvorming','Fusie of splitsing van vennootschappen','Contact met de notaris en andere specialisten uit ons netwerk'],m:['De statuten van uw vennootschap','De laatste jaarrekening','Wat u wil bereiken, en tegen wanneer','Gegevens van de andere vennoten'],c:'Bespreek uw plannen',o:'Bijzondere mandaten',i:'tekenen',a:'Iemand tekent een document met een vulpen'}};
+const pl=$('[data-pl]'),pm=$('[data-p-m]'),mt=$('[data-meter]'),mtt=$('[data-meter-t]');
+const upd=()=>{const c=$$('input',pm),n=c.filter(x=>x.checked).length;mt.style.width=(c.length?n/c.length*100:0)+'%';mtt.textContent=n===c.length&&n?'Alles klaar. Tot binnenkort.':n+' van '+c.length+' klaar'};
+const setK=k=>{const o=K[k];$$('[data-chips] button').forEach(b=>b.setAttribute('aria-selected',b.dataset.k===k));$('[data-p-t]').textContent=o.t;$('[data-p-x]').textContent=o.x;$('[data-p-d]').innerHTML=o.d.map(x=>'<li>'+x+'</li>').join('');const c=$('[data-p-c]');c.firstChild.textContent=o.c+' ';c.dataset.onderwerp=o.o;const pi=$('[data-p-i]');pi.src='img/'+o.i+'.webp';pi.alt=o.a;pm.innerHTML=o.m.map((x,i)=>'<label><input type="checkbox"><span>'+x+'</span></label>').join('');$$('input',pm).forEach(i=>i.addEventListener('change',upd));upd();pl.classList.remove('fade');void pl.offsetWidth;pl.classList.add('fade')};
+$$('[data-chips] button').forEach(b=>b.addEventListener('click',()=>setK(b.dataset.k)));setK('start');
+/* onderwerp invullen */
+const sel=$('[data-onderwerp-sel]');document.addEventListener('click',e=>{const a=e.target.closest('[data-onderwerp]');if(!a||!sel)return;const v=a.dataset.onderwerp;[...sel.options].forEach(o=>{if(o.text===v)sel.value=o.text})});
+/* formulier: mailto */
+const fm=$('[data-form]');fm.addEventListener('submit',e=>{e.preventDefault();const d=new FormData(fm),g=k=>(d.get(k)||'').toString().trim();const body=['Naam: '+g('naam'),'Zaak: '+g('zaak'),'E-mail: '+g('email'),'Telefoon: '+g('tel'),'',g('bericht')].join('\n');location.href='mailto:info@accvanherck.be?subject='+encodeURIComponent(g('onderwerp')+' via de website')+'&body='+encodeURIComponent(body)});
+/* gsm-menu */
+const mb=$('[data-menu-btn]');mb.addEventListener('click',()=>{const o=document.body.classList.toggle('menu-open');mb.setAttribute('aria-expanded',o)});$$('[data-menu] a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-open')));
+})();</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Onest:wght@400;600;700&display=swap">
+<style>
+.di,.di *{box-sizing:border-box}.di .wrap{margin:0 auto;padding-left:clamp(20px,5vw,40px);padding-right:clamp(20px,5vw,40px)}
+.di{--n:#0E1C3A;--n2:#162a52;--n3:#21386a;--cr:#F5EEE2;--pa:#FBF7F0;--te:#D7603A;--ted:#B04722;--ap:#F2AE84;--bu:#F1CB78;--od2:#c9cfdf;
+  background:var(--n);color:var(--cr);padding:100px 0 100px;position:relative;overflow:clip;font:19px/1.6 'Onest',system-ui,sans-serif}
+.di::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 85% 0%,rgba(215,96,58,.18),transparent 70%);pointer-events:none}
+.di .wrap{max-width:1080px;position:relative}
+.di .naad{position:absolute;left:0;right:0;top:0;height:6px;background:repeating-linear-gradient(90deg,var(--te) 0 22px,var(--bu) 22px 44px,var(--ap) 44px 66px)}
+.di .merk{display:inline-flex;align-items:center;gap:12px;margin-bottom:26px;font-size:16px;font-weight:600;color:var(--od2)}
+.di .merk i{width:40px;height:40px;border-radius:12px;background:var(--ted);display:grid;place-items:center;font:400 22px/1 'DM Serif Display',serif;font-style:normal;color:#fff}
+.di h2{font:400 clamp(40px,5vw,64px)/1.04 'DM Serif Display',serif;letter-spacing:-.5px;color:var(--pa);max-width:16em}
+.di h2 em{font-style:italic;color:var(--ap)}
+.di .intro{color:var(--od2);font-size:20px;margin:20px 0 54px;max-width:34em}
+.di .kop3{font:400 34px/1.1 'DM Serif Display',serif;color:var(--pa);margin:0 0 24px}
+.di .prijzen{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.di .pk{border-radius:26px;padding:36px}
+.di .pk.wit{background:var(--pa);color:var(--n)}
+.di .pk.donker{background:var(--n2);border:1.5px solid rgba(245,238,226,.16)}
+.di .pk .label{display:block;font-size:16px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.di .pk.wit .label{color:var(--ted)}
+.di .pk.donker .label{color:var(--ap)}
+.di .bedrag{font:400 88px/.9 'DM Serif Display',serif;letter-spacing:-2px;display:flex;align-items:flex-start;gap:6px}
+.di .bedrag small{font-size:36px;margin-top:8px}
+.di .wanneer{font-size:20px;font-weight:700;margin:12px 0 26px}
+.di .pk ul{list-style:none;margin:0;padding:0;display:grid;gap:14px;font-size:18.5px;line-height:1.45}
+.di .pk li{display:flex;gap:14px;align-items:flex-start}
+.di .pk li::before{content:"";flex:none;width:24px;height:24px;margin-top:2px;border-radius:50%;background:var(--ted) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/15px no-repeat}
+.di .geruststelling{margin-top:26px;padding-top:22px;border-top:2px dashed rgba(14,28,58,.18);font-size:18px;font-weight:600}
+.di .keuze{border-radius:18px;padding:22px 24px;background:rgba(245,238,226,.05);border:1.5px solid rgba(245,238,226,.14)}
+.di .keuze+.keuze{margin-top:16px}
+.di .keuze.aan{border-color:var(--ap);background:rgba(242,174,132,.08)}
+.di .keuze .rij{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap}
+.di .keuze h4{margin:0;font:400 28px/1.1 'DM Serif Display',serif;color:var(--pa)}
+.di .keuze .p{font-size:22px;font-weight:700;color:var(--ap);white-space:nowrap}
+.di .keuze p{color:var(--od2);font-size:18px;margin-top:8px}
+.di .keuze .raad{display:inline-block;margin-top:12px;font:700 15px/1.4 'Onest',sans-serif;background:var(--ap);color:var(--n);border-radius:999px;padding:4px 12px}
+.di .di-stappen{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.di .di-stap{display:flex;gap:18px;align-items:flex-start}
+.di .di-stap i{flex:none;width:52px;height:52px;border-radius:50%;background:var(--ted);color:#fff;display:grid;place-items:center;font:400 26px/1 'DM Serif Display',serif;font-style:normal}
+.di .di-stap b{display:block;font-size:20px;color:var(--pa);line-height:1.3;margin-bottom:6px}
+.di .di-stap span{color:var(--od2);font-size:18px}
+.di .contact{margin-top:64px;background:var(--pa);color:var(--n);border-radius:26px;padding:32px 36px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+.di .contact .vraag{font:400 34px/1.1 'DM Serif Display',serif}
+.di .contact p{font-size:19px;color:#3d4660;margin-top:8px}
+.di .contact p b{color:var(--n)}
+.di .knoppen{display:flex;flex-direction:column;gap:12px;min-width:280px}
+.di .knoppen a{display:flex;justify-content:center;align-items:center;gap:10px;border-radius:999px;padding:18px 26px;font-weight:700;font-size:19px;text-decoration:none;transition:transform .15s,background .15s}
+.di .knoppen a:hover{transform:translateY(-2px)}
+.di .knoppen a svg{width:22px;height:22px}
+.di .knoppen .wa{background:var(--ted);color:#fff}
+.di .knoppen .wa:hover{background:#963a1a}
+.di .knoppen .lijn{border:2px solid var(--n);color:var(--n)}
+.di :focus-visible{outline:3px solid var(--ap);outline-offset:3px}
+.di h2,.di h3,.di h4{text-transform:none;font-style:normal;letter-spacing:normal}
+@media (max-width:960px){.di{padding:80px 0;font-size:18px}.di .prijzen{grid-template-columns:1fr}.di .di-stappen{grid-template-columns:1fr;gap:22px;margin-top:52px}.di .contact{grid-template-columns:1fr;padding:28px}.di .knoppen{min-width:0}}
+@media (max-width:640px){.di .pk{padding:26px 22px}.di .bedrag{font-size:76px}.di .intro{font-size:18.5px;margin-bottom:44px}.di .kop3,.di .contact .vraag{font-size:30px}}
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ico-wa" viewbox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z" fill="currentColor"></path></symbol></svg>
+<style>.di .knoppen .cal{background:var(--n);color:var(--pa)}.di .knoppen .cal:hover{background:var(--n3)}.di .knoppen .cal svg{width:20px;height:20px}</style>
+<style>/*di-center*/.di .merk{display:flex;width:max-content;max-width:100%;margin-left:auto;margin-right:auto}.di #di-titel{text-align:center;margin-left:auto;margin-right:auto;text-wrap:balance}.di .intro{text-align:center;margin-left:auto;margin-right:auto;text-wrap:pretty}</style>
+<section aria-labelledby="di-titel" class="di">
+<span aria-hidden="true" class="naad"></span>
+<div class="wrap">
+<span class="merk"><i aria-hidden="true">D</i>Voorstel van Digital Impression</span>
+<h2 id="di-titel">Zo zou uw website <em>eruit kunnen zien</em>.</h2>
+<p class="intro">Een eerste schets, op maat van Accountantskantoor Vanherck. U kiest de stijl, ik zorg dat alles klopt.</p>
+<h3 class="kop3">Wat het kost</h3>
+<div class="prijzen">
+<div class="pk wit">
+<span class="label">Uw website</span>
+<div class="bedrag"><small>€</small>499</div>
+<p class="wanneer">één keer, alles inbegrepen</p>
+<ul>
+<li>Uw website, in de stijl die u kiest</li>
+<li>Werkt op gsm, tablet en computer</li>
+<li>Uren, adres en route altijd juist</li>
+<li>Afspraakaanvragen komen rechtstreeks in uw mailbox</li>
+</ul>
+<p class="geruststelling">Geen voorschot. U betaalt pas als de site klaar is.</p>
+</div>
+<div class="pk donker">
+<span class="label">Daarna kiest u</span>
+<div class="keuze">
+<div class="rij"><h4>Zelf beheren</h4><span class="p">€ 0 / maand</span></div>
+<p>Hosting en domein op uw naam. Een aanpassing vraagt u per keer aan.</p>
+</div>
+<div class="keuze aan">
+<div class="rij"><h4>Zorgeloos</h4><span class="p">€ 19,99 / maand</span></div>
+<p>Hosting en domein inbegrepen. Nieuwe acties, verlofdagen en wijzigingen zet ik er voor u op.</p>
+<span class="raad">mijn aanrader</span>
+</div>
+</div>
+</div>
+<div class="di-stappen">
+<div class="di-stap"><i aria-hidden="true">1</i><div><b>U laat iets weten</b><span>Een berichtje of telefoontje is genoeg.</span></div></div>
+<div class="di-stap"><i aria-hidden="true">2</i><div><b>We maken hem af</b><span>U zegt wat anders moet, ik pas het aan.</span></div></div>
+<div class="di-stap"><i aria-hidden="true">3</i><div><b>Online</b><span>Op uw eigen domein, binnen 10 tot 14 dagen.</span></div></div>
+</div>
+<div class="contact">
+<div>
+<div class="vraag">Vragen? Plan een gesprek of stuur me een berichtje.</div>
+<p><b>Stijn Vranken</b> · 0496 25 14 45 · info@digital-impression.be</p>
+</div>
+<div class="knoppen">
+<a class="wa" href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20Accountantskantoor%20Vanherck" rel="noopener" target="_blank"><svg><use href="#ico-wa"></use></svg>WhatsApp Stijn</a>
+<a class="cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Accountantskantoor%20Vanherck" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Plan een gesprek van 30 min</a>
+<a class="lijn" href="tel:+32496251445">Bel 0496 25 14 45</a>
+</div>
+</div>
+</div>
+</section>
+</body>
+</html>
