@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Dirk Heveraet Architecture · Architect in Linden, Lubbeek</title>
+<meta name="description" content="Dirk Heveraet, architect en schilder uit Linden (Lubbeek). Sinds 1981 villa's en privéwoningen in België, Nederland, Duitsland, Spanje en Italië, eerst met de hand getekend.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap">
+<style>
+:root{--paper:#F4F1EB;--paper2:#EAE5DB;--ink:#1B1A18;--ink2:#4D4A44;--ink3:#8A857C;--terra:#AE5330;--terra2:#8F4024;--olive:#6E7250;--sea:#2F5A75;--line:#DAD3C6;--white:#FBF9F5;
+--serif:"Cormorant Garamond",Georgia,serif;--sans:"Jost",system-ui,sans-serif;--sh:0 30px 60px -34px rgba(27,26,24,.45)}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--paper);color:var(--ink);font:300 18px/1.7 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;line-height:1.02;letter-spacing:-.01em;text-wrap:balance}
+h1 em,h2 em,h3 em{font-style:italic;font-weight:400;color:var(--terra)}
+p{margin:0}
+b,strong{font-weight:500}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(18px,4vw,48px)}
+.demo{background:var(--ink);color:#D8D2C6;font-size:14px;font-weight:400;text-align:center;padding:9px 16px}
+.demo a{color:#fff;font-weight:500}
+.lbl{font-size:12.5px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--ink3);display:flex;gap:14px;align-items:center}
+.lbl::before{content:"";width:34px;height:1px;background:currentColor}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 26px;font:500 15px var(--sans);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:1px solid transparent;transition:background .25s,color .25s,gap .25s;cursor:pointer;border-radius:2px}
+.btn:hover{gap:18px}
+.btn.d{background:var(--ink);color:var(--paper)}
+.btn.d:hover{background:var(--terra)}
+.btn.l{border-color:var(--ink);color:var(--ink)}
+.btn.l:hover{background:var(--ink);color:var(--paper)}
+.btn svg{width:18px;height:18px}
+/* header */
+header{position:sticky;top:0;z-index:40;background:rgba(244,241,235,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:34px;height:76px}
+.logo{text-decoration:none;display:flex;flex-direction:column;line-height:1}
+.logo b{font:500 26px/1 var(--serif);letter-spacing:.01em}
+.logo small{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink3);margin-top:5px}
+.nav ul{display:flex;gap:30px;list-style:none;margin:0 0 0 auto;padding:0}
+.nav ul a{text-decoration:none;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.nav ul a:hover{color:var(--terra)}
+.nav .btn{padding:11px 18px;font-size:13px}
+@media(max-width:1000px){.nav ul{display:none}.nav .btn{margin-left:auto}}
+@media(max-width:480px){.nav .btn span{display:none}.nav .btn{padding:11px 12px}}
+/* hero */
+.hero{padding:48px 0 0}
+.hgrid{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;align-items:end}
+.hero h1{font-size:clamp(50px,6.6vw,104px);margin:26px 0 28px}
+.hero .lead{font-size:19px;color:var(--ink2);max-width:28em}
+.hero .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.hfig{margin:0;position:relative}
+.hfig .im{aspect-ratio:4/3.2;overflow:hidden}
+.hfig img{width:100%;height:100%;object-fit:cover}
+.hfig figcaption{display:flex;justify-content:space-between;gap:16px;padding:14px 0 0;font-size:14px;color:var(--ink3);letter-spacing:.04em}
+.hfig figcaption i{font-family:var(--serif);font-size:19px;color:var(--ink);font-style:italic}
+.hstamp{position:absolute;left:-46px;top:34px;width:132px;height:132px;border-radius:50%;background:var(--terra);color:#fff;display:grid;place-items:center;text-align:center;font:500 13px/1.25 var(--sans);letter-spacing:.14em;text-transform:uppercase;box-shadow:var(--sh)}
+.hstamp b{display:block;font:500 40px/1 var(--serif);letter-spacing:0;text-transform:none;margin-bottom:4px}
+.landen{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:70px;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font:400 26px/1 var(--serif);font-style:italic;color:var(--ink2)}
+.landen span:not(:last-child)::after{content:"·";margin-left:20px;color:var(--terra);font-style:normal}
+@media(max-width:960px){.hgrid{grid-template-columns:1fr;gap:40px}.hstamp{left:auto;right:14px;top:-40px;width:110px;height:110px}.hstamp b{font-size:32px}.landen{font-size:20px;justify-content:flex-start}}
+@media(max-width:520px){.landen span:not(:last-child)::after{margin-left:10px}.landen{gap:10px}}
+/* intro */
+.intro{padding:120px 0}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.intro h2{font-size:clamp(38px,4.6vw,64px);margin:22px 0 26px}
+.intro p{color:var(--ink2);margin-bottom:18px}
+.intro .sig{font:italic 400 30px/1 var(--serif);color:var(--terra);margin-top:12px}
+.paar{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.paar div{overflow:hidden}
+.paar img{width:100%;height:100%;object-fit:cover}
+.paar .a{aspect-ratio:3/4.3}
+.paar .b{aspect-ratio:3/3.6;margin-top:90px}
+@media(max-width:960px){.ig{grid-template-columns:1fr;gap:44px}.paar .b{margin-top:40px}}
+/* index */
+.idx{background:var(--white);padding:120px 0}
+.ih{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:46px}
+.ih h2{font-size:clamp(38px,4.6vw,64px);margin-top:20px}
+.filter{display:flex;gap:6px;flex-wrap:wrap}
+.filter button{border:1px solid var(--line);background:transparent;padding:10px 18px;font:400 14px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);cursor:pointer;border-radius:999px;transition:all .25s}
+.filter button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.pgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:28px 24px}
+.pj{grid-column:span 2;transition:opacity .4s,transform .4s}
+.pj.w{grid-column:span 4}
+.pj.h3c{grid-column:span 3}
+.pj .im{overflow:hidden;aspect-ratio:4/3;position:relative;background:var(--paper2)}
+.pj.w .im{aspect-ratio:16/9.6}
+.pj.t .im{aspect-ratio:5/6.05}
+.pj .im img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.pj:hover .im img{transform:scale(1.045)}
+.pj .meta{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-top:14px;border-top:1px solid var(--line);margin-top:14px}
+.pj h3{font-size:27px}
+.pj .meta span{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}
+.pj p{font-size:15.5px;color:var(--ink2);margin-top:6px}
+.pj.uit{display:none}
+@media(max-width:960px){.pgrid{grid-template-columns:1fr 1fr}.pj,.pj.w,.pj.h3c{grid-column:span 1}.pj.w{grid-column:span 2}.pj.t .im{aspect-ratio:4/3}}
+@media(max-width:600px){.pgrid{grid-template-columns:1fr}.pj.w{grid-column:span 1}.pj .meta{flex-direction:column;gap:2px}}
+/* rivier spotlight */
+.spot{padding:120px 0 0}
+.sg{display:grid;grid-template-columns:1.3fr .7fr;gap:0;background:var(--ink);color:#E3DDD1}
+.sg .im{min-height:560px;position:relative;overflow:hidden}
+.sg .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sg .tx{padding:60px 50px;display:flex;flex-direction:column;justify-content:center}
+.sg .lbl{color:#A29C90}
+.sg h2{font-size:clamp(36px,4vw,56px);color:#fff;margin:22px 0 22px}
+.sg h2 em{color:#E09373}
+.sg p{color:#BEB7AA}
+.sg .thumbs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:30px}
+.sg .thumbs div{aspect-ratio:1;overflow:hidden}
+.sg .thumbs img{width:100%;height:100%;object-fit:cover}
+@media(max-width:960px){.sg{grid-template-columns:1fr}.sg .im{min-height:340px;order:2}.sg .tx{padding:40px 26px}}
+/* aquarel */
+.aq{padding:130px 0;position:relative}
+.ag{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:center}
+.aq h2{font-size:clamp(38px,4.6vw,64px);margin:22px 0 24px}
+.aq p{color:var(--ink2);margin-bottom:16px}
+.aq .quote{margin-top:28px;font:italic 400 28px/1.3 var(--serif);color:var(--ink);border-left:2px solid var(--terra);padding-left:22px}
+.aq .quote small{display:block;font:400 13px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);margin-top:10px;font-style:normal}
+.vellen{position:relative;height:620px}
+.vel{position:absolute;background:#fff;padding:14px 14px 40px;box-shadow:var(--sh);transition:transform .5s cubic-bezier(.2,.7,.2,1),z-index 0s}
+.vel img{width:100%;height:auto}
+.vel small{position:absolute;left:16px;bottom:12px;font:italic 400 17px var(--serif);color:var(--ink3)}
+.vel:hover{transform:rotate(0) scale(1.03)!important;z-index:5}
+.vel.v1{width:56%;left:0;top:20px;transform:rotate(-4deg)}
+.vel.v2{width:52%;right:0;top:0;transform:rotate(3deg)}
+.vel.v3{width:50%;left:14%;bottom:0;transform:rotate(2deg)}
+.vel.v4{width:40%;right:4%;bottom:40px;transform:rotate(-2.5deg)}
+@media(max-width:960px){.ag{grid-template-columns:1fr;gap:50px}.vellen{height:520px}}
+@media(max-width:560px){.vellen{height:auto;display:grid;grid-template-columns:1fr 1fr;gap:14px}.vel{position:static;width:auto!important;transform:none!important;padding:8px 8px 30px}.vel small{font-size:14px;left:10px;bottom:7px}}
+/* bio */
+.bio{background:var(--paper2);padding:120px 0}
+.bg{display:grid;grid-template-columns:1fr 1.1fr;gap:80px}
+.bio h2{font-size:clamp(38px,4.6vw,62px);margin:22px 0 24px}
+.bio .lead{color:var(--ink2)}
+.bio .twee{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:34px}
+.bio .twee div{position:relative;aspect-ratio:4/3;overflow:hidden}
+.bio .twee img{width:100%;height:100%;object-fit:cover}
+.bio .twee span{position:absolute;left:12px;bottom:12px;background:rgba(251,249,245,.94);padding:6px 12px;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.tijd{list-style:none;margin:0;padding:0;border-left:1px solid var(--ink3)}
+.tijd li{position:relative;padding:0 0 30px 34px}
+.tijd li::before{content:"";position:absolute;left:-6px;top:10px;width:11px;height:11px;border-radius:50%;background:var(--paper2);border:1.5px solid var(--terra)}
+.tijd li:last-child{padding-bottom:0}
+.tijd b{display:block;font:500 30px/1 var(--serif);color:var(--terra);margin-bottom:6px}
+.tijd span{color:var(--ink2);font-size:16.5px}
+@media(max-width:960px){.bg{grid-template-columns:1fr;gap:50px}}
+/* werkwijze */
+.ww{padding:120px 0}
+.wwh{text-align:center;max-width:760px;margin:0 auto 60px}
+.wwh .lbl{justify-content:center}
+.wwh h2{font-size:clamp(38px,4.6vw,62px);margin-top:20px}
+.wgr{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+.wst{padding:34px 28px 0 0}
+.wst+.wst{padding-left:28px;border-left:1px solid var(--line)}
+.wst i{font:italic 400 54px/1 var(--serif);color:var(--terra)}
+.wst h3{font-size:28px;margin:12px 0 10px}
+.wst p{font-size:16px;color:var(--ink2)}
+@media(max-width:960px){.wgr{grid-template-columns:1fr 1fr}.wst{padding:30px 20px 0 0!important;border-left:0!important}}
+@media(max-width:560px){.wgr{grid-template-columns:1fr}}
+/* score + zee */
+.zee{position:relative;min-height:520px;display:flex;align-items:center;color:#fff;overflow:hidden}
+.zee img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.zee::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,32,42,.78),rgba(20,32,42,.2))}
+.zee .wrap{position:relative;z-index:1;width:100%}
+.zee .lbl{color:#C9D6DE}
+.zee h2{font-size:clamp(38px,4.6vw,62px);margin:20px 0 20px;max-width:13em}
+.zee h2 em{color:#F2C3A9}
+.zee p{max-width:32em;color:#DCE4E9}
+.zee .sc{display:inline-flex;gap:18px;align-items:center;margin-top:34px;background:rgba(255,255,255,.1);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.25);padding:16px 22px}
+.zee .sc b{font:500 56px/1 var(--serif)}
+.zee .sc span{font-size:14px;letter-spacing:.06em}
+.zee .sc a{color:#fff}
+.stars{color:#F2C46B;letter-spacing:3px}
+/* faq */
+.faq{padding:120px 0}
+.faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}
+.faq h2{font-size:clamp(36px,4vw,54px);margin-top:20px}
+details{border-top:1px solid var(--line)}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:24px 0;font:500 25px/1.25 var(--serif)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:300 30px/1 var(--sans);color:var(--terra);transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--ink2);padding:0 50px 24px 0}
+@media(max-width:960px){.faq .wrap{grid-template-columns:1fr;gap:24px}}
+/* contact */
+.contact{background:var(--ink);color:#DED7CA;padding:120px 0}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+.contact .lbl{color:#9C958A}
+.contact h2{font-size:clamp(40px,5vw,72px);color:#fff;margin:22px 0 24px}
+.contact h2 em{color:#E09373}
+.contact .lead{color:#B4AD9F;max-width:28em}
+.cl{margin-top:40px;display:grid;gap:0}
+.cl a,.cl>div{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:20px 0;border-top:1px solid rgba(255,255,255,.12);text-decoration:none}
+.cl a:hover b{color:#E09373}
+.cl span{font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:#8E877C;padding-top:4px}
+.cl b{font:500 23px/1.3 var(--serif);color:#fff;overflow-wrap:anywhere;transition:color .2s}
+form{background:var(--paper);color:var(--ink);padding:40px}
+form h3{font-size:34px}
+form>p{color:var(--ink3);font-size:15.5px;margin:6px 0 24px}
+.v{display:block;margin-bottom:16px}
+.v span{display:block;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);margin-bottom:6px}
+.v input,.v textarea,.v select{width:100%;border:0;border-bottom:1px solid var(--ink3);padding:10px 0;font:300 18px var(--sans);background:transparent;color:var(--ink);border-radius:0}
+.v input:focus,.v textarea:focus,.v select:focus{outline:none;border-color:var(--terra)}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+form .btn{width:100%;justify-content:center;margin-top:10px}
+.fine{font-size:13px;color:var(--ink3);margin-top:12px;text-align:center}
+@media(max-width:960px){.cg{grid-template-columns:1fr;gap:50px}}
+@media(max-width:520px){.f2{grid-template-columns:1fr;gap:0}form{padding:26px}.cl a,.cl>div{grid-template-columns:1fr;gap:4px}}
+footer{background:#121110;color:#8E877C;padding:30px 0;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:#fff}
+.hgrid>*,.ig>*,.ag>*,.bg>*,.cg>*,.sg>*,.faq .wrap>*{min-width:0}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+:focus-visible{outline:2px solid var(--terra);outline-offset:3px}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<div class="demo">Voorbeeldsite van Digital Impression voor Dirk Heveraet Architecture. Benieuwd wat zoiets kost? <a href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20Dirk%20Heveraet%20Architecture">Stuur Stijn een bericht</a></div>
+
+<header id="top">
+<div class="wrap nav">
+<a class="logo" href="#top"><b>Dirk Heveraet</b><small>Architecture · Linden</small></a>
+<ul>
+<li><a href="#werk">Werk</a></li>
+<li><a href="#hand">Aquarel</a></li>
+<li><a href="#bio">Over Dirk</a></li>
+<li><a href="#werkwijze">Werkwijze</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a class="btn d" href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 7 9 6 9-6"/></svg><span>Contact</span></a>
+</div>
+</header>
+
+<section class="hero">
+<div class="wrap">
+<div class="hgrid">
+<div class="rv">
+<span class="lbl">Architect en schilder · Linden</span>
+<h1>Huizen die bij hun <em>landschap</em> horen.</h1>
+<p class="lead">Ik ben Dirk Heveraet. Sinds 1981 ontwerp ik villa's en privéwoningen, van een strakke woning aan het water tot een klassieke villa in een oude tuin. Elk huis begint bij mij met een potlood, een penseel en de plek zelf.</p>
+<div class="acts"><a class="btn d" href="#werk">Bekijk het werk <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn l" href="#contact">Plan een gesprek</a></div>
+</div>
+<figure class="hfig rv">
+<div class="im"><img src="img/hero.webp" alt="Witte hedendaagse woning tussen het riet aan een rivier" width="1500" height="1000"></div>
+<figcaption><i>The Riverside house</i><span>Water, een rivier, een huis</span></figcaption>
+<div class="hstamp"><div><b>5,0</b>op Google</div></div>
+</figure>
+</div>
+<div class="landen rv"><span>België</span><span>Nederland</span><span>Duitsland</span><span>Spanje</span><span>Italië</span></div>
+</div>
+</section>
+
+<section class="intro">
+<div class="wrap ig">
+<div class="paar rv">
+<div class="a"><img src="img/rv-gang.webp" alt="Witte gang met glas en zicht op de tuin" width="900" height="795" loading="lazy"></div>
+<div class="b"><img src="img/kl-baksteen.webp" alt="Klassieke villa in baksteen met leien dak en klimplanten" width="900" height="675" loading="lazy"></div>
+</div>
+<div class="rv">
+<span class="lbl">Een eigen hand</span>
+<h2>Strak of klassiek, maar nooit <em>zonder ziel</em>.</h2>
+<p>Ik ontwerp geen huizen uit een catalogus. Een villa in het Zoute vraagt iets anders dan een paviljoen in het bos of een stenen huis aan de Middellandse Zee. Licht, zicht en de grond waarop het staat bepalen de vorm.</p>
+<p>Daarom teken en schilder ik nog altijd met de hand. Zo ziet u al vroeg hoe uw huis zal voelen, niet alleen hoe het eruitziet.</p>
+<div class="sig">Dirk</div>
+</div>
+</div>
+</section>
+
+<section class="idx" id="werk">
+<div class="wrap">
+<div class="ih rv"><div><span class="lbl">Werk</span><h2>Een selectie <em>van woningen</em>.</h2></div>
+<div class="filter" role="group" aria-label="Filter op stijl"><button type="button" aria-pressed="true" data-f="alle">Alles</button><button type="button" aria-pressed="false" data-f="modern">Hedendaags</button><button type="button" aria-pressed="false" data-f="klassiek">Klassiek en landelijk</button><button type="button" aria-pressed="false" data-f="zuiden">Het Zuiden</button></div></div>
+<div class="pgrid" id="pg">
+<article class="pj w rv" data-c="modern"><div class="im"><img src="img/rv-zicht.webp" alt="Zicht vanuit de woning over de rivier en de velden" width="900" height="424" loading="lazy"></div><div class="meta"><h3>The Riverside house</h3><span>Hedendaags</span></div><p>Een huis met zicht. Rivier, riet en wijde velden komen tot binnen.</p></article>
+<article class="pj t rv" data-c="modern"><div class="im"><img src="img/pav-glas.webp" alt="Glazen paviljoenwoning op een groot gazon" width="900" height="675" loading="lazy"></div><div class="meta"><h3>Paviljoen in het bos</h3><span>Hedendaags</span></div><p>Een glazen paviljoen in het groen, met de tuin als muur.</p></article>
+<article class="pj rv" data-c="klassiek"><div class="im"><img src="img/zoute-zwembad.webp" alt="Witte villa met rode pannen en een zwembad in het Zoute" width="1200" height="865" loading="lazy"></div><div class="meta"><h3>Villa in het Zoute</h3><span>Hedendaags klassiek</span></div><p>Witte gevels, rode pannen en een tuin rond het zwembad.</p></article>
+<article class="pj rv" data-c="klassiek"><div class="im"><img src="img/kl-villa.webp" alt="Klassieke villa met zwembad en lichte gevel" width="1200" height="852" loading="lazy"></div><div class="meta"><h3>Klassieke villa's</h3><span>Klassiek</span></div><p>Rust, symmetrie en materialen die mooi ouder worden.</p></article>
+<article class="pj rv" data-c="modern"><div class="im"><img src="img/heu-zwembad.webp" alt="Binnenzwembad met grote glazen wand naar de tuin" width="900" height="587" loading="lazy"></div><div class="meta"><h3>Tussen minimalisme en art deco</h3><span>Hedendaags</span></div><p>Witte volumes, een binnenzwembad en de tuin als schilderij.</p></article>
+<article class="pj t rv" data-c="klassiek"><div class="im"><img src="img/kl-hoeve.webp" alt="Landelijke woning in oude steen met een kasseien oprit" width="900" height="674" loading="lazy"></div><div class="meta"><h3>Landelijk wonen</h3><span>Klassiek</span></div><p>Oude steen, kasseien en een dak dat laag in het landschap ligt.</p></article>
+<article class="pj w rv" data-c="zuiden"><div class="im"><img src="img/bend-steen.webp" alt="Nieuwe stenen villa op Mallorca met tuin en terrassen" width="900" height="664" loading="lazy"></div><div class="meta"><h3>Bendinat, Mallorca</h3><span>Nieuwbouw</span></div><p>Een nieuwe villa in natuursteen, gebouwd in het licht van het eiland.</p></article>
+<article class="pj h3c rv" data-c="zuiden"><div class="im"><img src="img/bend-zee.webp" alt="Zwembad met cipressen en zicht op zee" width="1200" height="703" loading="lazy"></div><div class="meta"><h3>Aan de Middellandse Zee</h3><span>Het Zuiden</span></div><p>Cipressen, rots en een zwembad dat in de zee lijkt over te lopen.</p></article>
+<article class="pj h3c rv" data-c="klassiek"><div class="im"><img src="img/kl-wit.webp" alt="Witte klassieke gevel met luiken en klimplanten" width="900" height="718" loading="lazy"></div><div class="meta"><h3>Een witte gevel</h3><span>Klassiek</span></div><p>Luiken, klimplanten en een gevel die het hele jaar rust uitstraalt.</p></article>
+</div>
+</div>
+</section>
+
+<section class="spot">
+<div class="wrap">
+<div class="sg rv">
+<div class="im"><img src="img/zoute-gevel.webp" alt="Witte villa met steile rode daken en een grote glazen pui" width="900" height="683" loading="lazy"></div>
+<div class="tx"><span class="lbl">In de kijker</span><h2>Een villa in het <em>Zoute</em>.</h2><p>Hedendaags, maar met de steile rode daken die je aan de kust verwacht. Grote glazen puien openen de leefruimte naar het terras en het zwembad.</p>
+<div class="thumbs"><div><img src="img/zoute-zit.webp" alt="Leefruimte met zicht op de tuin" width="900" height="600" loading="lazy"></div><div><img src="img/heu-zit.webp" alt="Lichte zithoek met grote ramen" width="900" height="662" loading="lazy"></div></div></div>
+</div>
+</div>
+</section>
+
+<section class="aq" id="hand">
+<div class="wrap ag">
+<div class="rv">
+<span class="lbl">Eerst met de hand</span>
+<h2>Uw huis, eerst als <em>aquarel</em>.</h2>
+<p>Veel van mijn ontwerpen beginnen als aquarel, lang voor er een plan op de computer staat. Met water en kleur in plaats van lijnen en maten. Zo voelt u meteen of de sfeer klopt: het licht in de tuin, de kleur van de gevel, hoe het huis in zijn omgeving staat.</p>
+<p>Naast architect ben ik ook schilder. Mijn werk hing onder meer in Leuven en Brussel.</p>
+<div class="quote">Wie inspiratie zoekt, zoekt ze best bij de allerbesten.<small>Het motto van Dirk</small></div>
+</div>
+<div class="vellen rv">
+<div class="vel v1"><img src="img/aq-1.webp" alt="Aquarel van een klassieke villa met tuin" width="900" height="600" loading="lazy"><small>Villa met tuin</small></div>
+<div class="vel v2"><img src="img/aq-3.webp" alt="Aquarel van een villa in roze en grijze tinten" width="900" height="682" loading="lazy"><small>Een eerste sfeerbeeld</small></div>
+<div class="vel v3"><img src="img/aq-2.webp" alt="Aquarel van een witte woning met fontein" width="900" height="618" loading="lazy"><small>De binnentuin</small></div>
+<div class="vel v4"><img src="img/aq-4.webp" alt="Aquarel van een kasteelachtige villa" width="900" height="675" loading="lazy"><small>Voor de eerste lijn</small></div>
+</div>
+</div>
+</section>
+
+<section class="bio" id="bio">
+<div class="wrap bg">
+<div class="rv">
+<span class="lbl">Over Dirk</span>
+<h2>Tussen <em>Linden</em> en Sardinië.</h2>
+<p class="lead">Geboren in Roeselare, opgeleid in Gent en al ruim veertig jaar aan het werk als architect. Ik woon en werk in Linden, deelgemeente van Lubbeek, en in Olbia op Sardinië. Twee landschappen die elk op hun manier mijn werk kleuren.</p>
+<div class="twee">
+<div><img src="img/zee.webp" alt="Zicht op zee met een rotseiland bij Sardinië" width="1200" height="899" loading="lazy"><span>Sardinië</span></div>
+<div><img src="img/expo.webp" alt="Bezoekers bij een groot schilderij in een tentoonstelling" width="900" height="795" loading="lazy"><span>Schilderwerk</span></div>
+</div>
+</div>
+<ol class="tijd rv">
+<li><b>1954</b><span>Geboren in Roeselare.</span></li>
+<li><b>1963</b><span>Eerste lessen aan de Academie voor Schone Kunsten in Roeselare.</span></li>
+<li><b>1972 tot 1979</b><span>Architectuur en schone kunsten in Gent. Diploma architect in 1979.</span></li>
+<li><b>1981 tot 2019</b><span>Villa's en privéwoningen in België, Nederland, Duitsland, Spanje en Italië.</span></li>
+<li><b>1991</b><span>Groepstentoonstelling bij Interni Art Gallery in Leuven, samen met beeldhouwer Isidoor Goddeeris en Geert Clarisse.</span></li>
+<li><b>2020 en 2023</b><span>Solotentoonstellingen bij Le 9 in Rivoli, Brussel, met onder meer de reeks Blinds on paper.</span></li>
+</ol>
+</div>
+</section>
+
+<section class="ww" id="werkwijze">
+<div class="wrap">
+<div class="wwh rv"><span class="lbl">Werkwijze</span><h2>Van een gesprek tot <em>de sleutel</em>.</h2></div>
+<div class="wgr rv">
+<div class="wst"><i>i</i><h3>De plek</h3><p>We wandelen samen over de grond of door de woning. Waar valt het licht, wat ziet u, wat wilt u net niet zien.</p></div>
+<div class="wst"><i>ii</i><h3>Het beeld</h3><p>Schetsen en aquarellen die tonen hoe het huis zal voelen. U reageert, ik pas aan.</p></div>
+<div class="wst"><i>iii</i><h3>Het plan</h3><p>Het ontwerp wordt een volledig dossier, tot in de details van ramen, steen en hout.</p></div>
+<div class="wst"><i>iv</i><h3>Het huis</h3><p>Tijdens de bouw blijf ik betrokken, zodat wat we samen tekenden ook echt zo gebouwd wordt.</p></div>
+</div>
+</div>
+</section>
+
+<section class="zee">
+<img src="img/bend-avond.webp" alt="Stenen villa met verlichte terrassen bij avond" width="900" height="634" loading="lazy">
+<div class="wrap rv">
+<span class="lbl">Wat klanten zeggen</span>
+<h2>Een huis dat <em>na jaren</em> nog altijd klopt.</h2>
+<p>Wie met mij bouwde, geeft op Google een perfecte score. Dat zegt meer dan elke folder.</p>
+<div class="sc"><b>5,0</b><div><span class="stars">★★★★★</span><br><span>op Google · <a href="https://www.google.com/maps/place/?q=place_id:ChIJi_dcsHdnwUcRQxb4CrENwVY" target="_blank" rel="noopener">lees de reviews</a></span></div></div>
+</div>
+</section>
+
+<section class="faq">
+<div class="wrap">
+<div class="rv"><span class="lbl">Vragen</span><h2>Goed om <em>te weten</em>.</h2></div>
+<div class="rv">
+<details open><summary>Ontwerpt u ook in Vlaams-Brabant?</summary><p>Graag. Ik woon en werk in Linden. Een project in de buurt van Leuven of Lubbeek is voor mij net zo boeiend als een villa aan zee.</p></details>
+<details><summary>Kan ik ook een aquarel van mijn ontwerp krijgen?</summary><p>Het schilderen hoort bij mijn manier van werken. Vraag er gerust naar in het eerste gesprek.</p></details>
+<details><summary>Werkt u ook buiten België?</summary><p>Ja. Ik ontwierp woningen in Nederland, Duitsland, Spanje en Italië, en ik ben vaak op Sardinië.</p></details>
+<details><summary>Bent u er voor een klassieke of een moderne woning?</summary><p>Voor allebei. Het werk gaat van strakke witte volumes tot klassieke villa's en landelijke woningen. De plek en uw manier van leven beslissen, niet een vaste stijl.</p></details>
+<details><summary>Hoe begin ik?</summary><p>Stuur me een berichtje of bel. Vertel waar uw grond of woning ligt en wat u voor ogen hebt. Dan spreken we af, liefst ter plaatse.</p></details>
+</div>
+</div>
+</section>
+
+<section class="contact" id="contact">
+<div class="wrap cg">
+<div class="rv">
+<span class="lbl">Contact</span>
+<h2>Laten we beginnen bij <em>de plek</em>.</h2>
+<p class="lead">Vertel me waar u wil bouwen of wat u wil veranderen. Ik kom graag kijken.</p>
+<div class="cl">
+<a href="tel:+32475415789"><span>Gsm</span><b>0475 41 57 89</b></a>
+<a href="mailto:arch.heveraet@gmail.com"><span>Mail</span><b>arch.heveraet@gmail.com</b></a>
+<a href="https://wa.me/32475415789" target="_blank" rel="noopener"><span>WhatsApp</span><b>Stuur een bericht</b></a>
+<a href="https://www.google.com/maps/dir/?api=1&destination=Kortrijkstraat+110+3210+Lubbeek" target="_blank" rel="noopener"><span>Adres</span><b>Kortrijkstraat 110, 3210 Linden</b></a>
+</div>
+</div>
+<form class="rv" id="f">
+<h3>Een eerste gesprek</h3>
+<p>Uw bericht komt rechtstreeks in mijn mailbox.</p>
+<div class="f2"><label class="v"><span>Naam</span><input name="naam" required autocomplete="name"></label><label class="v"><span>Telefoon</span><input name="tel" type="tel" autocomplete="tel"></label></div>
+<label class="v"><span>Soort project</span><select name="soort"><option>Nieuwe villa of woning</option><option>Verbouwing</option><option>Project in het buitenland</option><option>Een aquarel of schets</option></select></label>
+<label class="v"><span>Waar ligt het project</span><input name="waar" placeholder="bv. Pellenberg"></label>
+<label class="v"><span>Vertel kort</span><textarea name="bericht" rows="3"></textarea></label>
+<button class="btn d" type="submit">Verstuur</button>
+<p class="fine">Liever bellen? 0475 41 57 89</p>
+</form>
+</div>
+</section>
+
+<footer><div class="wrap"><span>© Dirk Heveraet Architecture · Kortrijkstraat 110, 3210 Linden</span><span>Voorbeeldsite door <a href="https://digital-impression.be">Digital Impression</a></span></div></footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const fb=document.querySelectorAll('.filter button'),pj=document.querySelectorAll('.pj');
+fb.forEach(b=>b.addEventListener('click',()=>{const f=b.dataset.f;fb.forEach(x=>x.setAttribute('aria-pressed',x===b));pj.forEach(p=>{const show=f==='alle'||p.dataset.c===f;p.classList.toggle('uit',!show);p.classList.add('in')})}));
+document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();const d=new FormData(e.target);const body=`Naam: ${d.get('naam')}\nTelefoon: ${d.get('tel')}\nProject: ${d.get('soort')}\nLigging: ${d.get('waar')}\n\n${d.get('bericht')}`;location.href='mailto:arch.heveraet@gmail.com?subject='+encodeURIComponent('Eerste gesprek: '+d.get('soort'))+'&body='+encodeURIComponent(body)});
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Onest:wght@400;600;700&display=swap">
+<style>
+.di,.di *{box-sizing:border-box}.di .wrap{margin:0 auto;padding-left:clamp(20px,5vw,40px);padding-right:clamp(20px,5vw,40px)}
+.di{--n:#0E1C3A;--n2:#162a52;--n3:#21386a;--cr:#F5EEE2;--pa:#FBF7F0;--te:#D7603A;--ted:#B04722;--ap:#F2AE84;--bu:#F1CB78;--od2:#c9cfdf;
+  background:var(--n);color:var(--cr);padding:100px 0 100px;position:relative;overflow:clip;font:19px/1.6 'Onest',system-ui,sans-serif}
+.di::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 85% 0%,rgba(215,96,58,.18),transparent 70%);pointer-events:none}
+.di .wrap{max-width:1080px;position:relative}
+.di .naad{position:absolute;left:0;right:0;top:0;height:6px;background:repeating-linear-gradient(90deg,var(--te) 0 22px,var(--bu) 22px 44px,var(--ap) 44px 66px)}
+.di .merk{display:inline-flex;align-items:center;gap:12px;margin-bottom:26px;font-size:16px;font-weight:600;color:var(--od2)}
+.di .merk i{width:40px;height:40px;border-radius:12px;background:var(--ted);display:grid;place-items:center;font:400 22px/1 'DM Serif Display',serif;font-style:normal;color:#fff}
+.di h2{font:400 clamp(40px,5vw,64px)/1.04 'DM Serif Display',serif;letter-spacing:-.5px;color:var(--pa);max-width:16em}
+.di h2 em{font-style:italic;color:var(--ap)}
+.di .intro{color:var(--od2);font-size:20px;margin:20px 0 54px;max-width:34em}
+.di .kop3{font:400 34px/1.1 'DM Serif Display',serif;color:var(--pa);margin:0 0 24px}
+.di .prijzen{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.di .pk{border-radius:26px;padding:36px}
+.di .pk.wit{background:var(--pa);color:var(--n)}
+.di .pk.donker{background:var(--n2);border:1.5px solid rgba(245,238,226,.16)}
+.di .pk .label{display:block;font-size:16px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.di .pk.wit .label{color:var(--ted)}
+.di .pk.donker .label{color:var(--ap)}
+.di .bedrag{font:400 88px/.9 'DM Serif Display',serif;letter-spacing:-2px;display:flex;align-items:flex-start;gap:6px}
+.di .bedrag small{font-size:36px;margin-top:8px}
+.di .wanneer{font-size:20px;font-weight:700;margin:12px 0 26px}
+.di .pk ul{list-style:none;margin:0;padding:0;display:grid;gap:14px;font-size:18.5px;line-height:1.45}
+.di .pk li{display:flex;gap:14px;align-items:flex-start}
+.di .pk li::before{content:"";flex:none;width:24px;height:24px;margin-top:2px;border-radius:50%;background:var(--ted) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/15px no-repeat}
+.di .geruststelling{margin-top:26px;padding-top:22px;border-top:2px dashed rgba(14,28,58,.18);font-size:18px;font-weight:600}
+.di .keuze{border-radius:18px;padding:22px 24px;background:rgba(245,238,226,.05);border:1.5px solid rgba(245,238,226,.14)}
+.di .keuze+.keuze{margin-top:16px}
+.di .keuze.aan{border-color:var(--ap);background:rgba(242,174,132,.08)}
+.di .keuze .rij{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap}
+.di .keuze h4{margin:0;font:400 28px/1.1 'DM Serif Display',serif;color:var(--pa)}
+.di .keuze .p{font-size:22px;font-weight:700;color:var(--ap);white-space:nowrap}
+.di .keuze p{color:var(--od2);font-size:18px;margin-top:8px}
+.di .keuze .raad{display:inline-block;margin-top:12px;font:700 15px/1.4 'Onest',sans-serif;background:var(--ap);color:var(--n);border-radius:999px;padding:4px 12px}
+.di .di-stappen{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.di .di-stap{display:flex;gap:18px;align-items:flex-start}
+.di .di-stap i{flex:none;width:52px;height:52px;border-radius:50%;background:var(--ted);color:#fff;display:grid;place-items:center;font:400 26px/1 'DM Serif Display',serif;font-style:normal}
+.di .di-stap b{display:block;font-size:20px;color:var(--pa);line-height:1.3;margin-bottom:6px}
+.di .di-stap span{color:var(--od2);font-size:18px}
+.di .contact{margin-top:64px;background:var(--pa);color:var(--n);border-radius:26px;padding:32px 36px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+.di .contact .vraag{font:400 34px/1.1 'DM Serif Display',serif}
+.di .contact p{font-size:19px;color:#3d4660;margin-top:8px}
+.di .contact p b{color:var(--n)}
+.di .knoppen{display:flex;flex-direction:column;gap:12px;min-width:280px}
+.di .knoppen a{display:flex;justify-content:center;align-items:center;gap:10px;border-radius:999px;padding:18px 26px;font-weight:700;font-size:19px;text-decoration:none;transition:transform .15s,background .15s}
+.di .knoppen a:hover{transform:translateY(-2px)}
+.di .knoppen a svg{width:22px;height:22px}
+.di .knoppen .wa{background:var(--ted);color:#fff}
+.di .knoppen .wa:hover{background:#963a1a}
+.di .knoppen .lijn{border:2px solid var(--n);color:var(--n)}
+.di :focus-visible{outline:3px solid var(--ap);outline-offset:3px}
+.di h2,.di h3,.di h4{text-transform:none;font-style:normal;letter-spacing:normal}
+@media (max-width:960px){.di{padding:80px 0;font-size:18px}.di .prijzen{grid-template-columns:1fr}.di .di-stappen{grid-template-columns:1fr;gap:22px;margin-top:52px}.di .contact{grid-template-columns:1fr;padding:28px}.di .knoppen{min-width:0}}
+@media (max-width:640px){.di .pk{padding:26px 22px}.di .bedrag{font-size:76px}.di .intro{font-size:18.5px;margin-bottom:44px}.di .kop3,.di .contact .vraag{font-size:30px}}
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ico-wa" viewbox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z" fill="currentColor"></path></symbol></svg>
+<style>.di .knoppen .cal{background:var(--n);color:var(--pa)}.di .knoppen .cal:hover{background:var(--n3)}.di .knoppen .cal svg{width:20px;height:20px}</style>
+<style>/*di-center*/.di .merk{display:flex;width:max-content;max-width:100%;margin-left:auto;margin-right:auto}.di #di-titel{text-align:center;margin-left:auto;margin-right:auto;text-wrap:balance}.di .intro{text-align:center;margin-left:auto;margin-right:auto;text-wrap:pretty}</style>
+<section aria-labelledby="di-titel" class="di">
+<span aria-hidden="true" class="naad"></span>
+<div class="wrap">
+<span class="merk"><i aria-hidden="true">D</i>Voorstel van Digital Impression</span>
+<h2 id="di-titel">Zo zou uw website <em>eruit kunnen zien</em>.</h2>
+<p class="intro">Een eerste schets, op maat van Dirk Heveraet Architecture. U kiest de stijl, ik zorg dat alles klopt.</p>
+<h3 class="kop3">Wat het kost</h3>
+<div class="prijzen">
+<div class="pk wit">
+<span class="label">Uw website</span>
+<div class="bedrag"><small>€</small>499</div>
+<p class="wanneer">één keer, alles inbegrepen</p>
+<ul>
+<li>Uw website, in de stijl die u kiest</li>
+<li>Werkt op gsm, tablet en computer</li>
+<li>Uren, adres en route altijd juist</li>
+<li>Aanvragen voor een gesprek komen rechtstreeks in uw mailbox</li>
+</ul>
+<p class="geruststelling">Geen voorschot. U betaalt pas als de site klaar is.</p>
+</div>
+<div class="pk donker">
+<span class="label">Daarna kiest u</span>
+<div class="keuze">
+<div class="rij"><h4>Zelf beheren</h4><span class="p">€ 0 / maand</span></div>
+<p>Hosting en domein op uw naam. Een aanpassing vraagt u per keer aan.</p>
+</div>
+<div class="keuze aan">
+<div class="rij"><h4>Zorgeloos</h4><span class="p">€ 19,99 / maand</span></div>
+<p>Hosting en domein inbegrepen. Nieuwe acties, verlofdagen en wijzigingen zet ik er voor u op.</p>
+<span class="raad">mijn aanrader</span>
+</div>
+</div>
+</div>
+<div class="di-stappen">
+<div class="di-stap"><i aria-hidden="true">1</i><div><b>U laat iets weten</b><span>Een berichtje of telefoontje is genoeg.</span></div></div>
+<div class="di-stap"><i aria-hidden="true">2</i><div><b>We maken hem af</b><span>U zegt wat anders moet, ik pas het aan.</span></div></div>
+<div class="di-stap"><i aria-hidden="true">3</i><div><b>Online</b><span>Op uw eigen domein, binnen 10 tot 14 dagen.</span></div></div>
+</div>
+<div class="contact">
+<div>
+<div class="vraag">Vragen? Plan een gesprek of stuur me een berichtje.</div>
+<p><b>Stijn Vranken</b> · 0496 25 14 45 · info@digital-impression.be</p>
+</div>
+<div class="knoppen">
+<a class="wa" href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20Dirk%20Heveraet%20Architecture" rel="noopener" target="_blank"><svg><use href="#ico-wa"></use></svg>WhatsApp Stijn</a>
+<a class="cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Dirk%20Heveraet%20Architecture" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Plan een gesprek van 30 min</a>
+<a class="lijn" href="tel:+32496251445">Bel 0496 25 14 45</a>
+</div>
+</div>
+</div>
+</section>
+
+</body>
+</html>
