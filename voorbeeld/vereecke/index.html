@@ -235,6 +235,32 @@ footer a{color:#fff}
 .js .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 :focus-visible{outline:2px solid var(--brick);outline-offset:3px}
+
+/* revisie: moderne hero, minder tekst */
+.hero2{padding:22px 0 70px}
+.hero2 .frame{position:relative;border-radius:32px;overflow:hidden;min-height:min(78vh,720px);display:flex;align-items:flex-end;box-shadow:0 50px 90px -50px rgba(42,34,29,.6)}
+.hero2 .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scale(1.03);animation:zoom 14s ease-out forwards}
+@keyframes zoom{to{transform:scale(1)}}
+.hero2 .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(30,22,17,.78) 0%,rgba(30,22,17,.45) 42%,rgba(30,22,17,0) 70%),linear-gradient(0deg,rgba(30,22,17,.5),transparent 45%)}
+.hero2 .inhoud{position:relative;padding:clamp(28px,5vw,64px);max-width:640px;color:#fff}
+.kick.licht{color:#F3E2CF}
+.hero2 h1{font-size:clamp(44px,6vw,88px);color:#fff;margin:18px 0 18px;line-height:1}
+.hero2 h1 em{color:#F2B694}
+.hero2 p{font-size:19px;color:#EFE4D8;max-width:28em;margin:0 0 30px}
+.hero2 .acts{display:flex;gap:12px;flex-wrap:wrap}
+.knop.glas{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.35);backdrop-filter:blur(8px)}.knop.glas:hover{background:rgba(255,255,255,.24)}
+.hero2 .zwevers{position:absolute;right:28px;top:28px;display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+.hero2 .zw{background:rgba(255,253,248,.95);backdrop-filter:blur(10px);border-radius:18px;padding:12px 16px;box-shadow:0 18px 36px -18px rgba(0,0,0,.45)}
+.hero2 .zw.score{display:flex;gap:12px;align-items:center}.hero2 .zw.score b{font:400 32px/1 var(--serif)}.hero2 .zw.score small{display:block;font-size:12.5px;color:var(--ink3)}
+.hero2 .zw.label img{width:150px;height:auto;display:block}
+.hero2 .duim{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+.hero2 .duim a{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:16/9;display:block;text-decoration:none}
+.hero2 .duim img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.hero2 .duim a:hover img{transform:scale(1.06)}
+.hero2 .duim span{position:absolute;left:12px;bottom:12px;background:rgba(255,253,248,.95);border-radius:999px;padding:6px 12px;font:700 13px var(--sans);color:var(--ink)}
+.motto blockquote{font-size:clamp(30px,3.6vw,50px)!important}
+@media (max-width:900px){.hero2 .frame{min-height:620px}.hero2 .shade{background:linear-gradient(0deg,rgba(30,22,17,.88) 0%,rgba(30,22,17,.5) 55%,rgba(30,22,17,.1))}.hero2 .duim{grid-template-columns:1fr 1fr}.hero2 .zwevers{right:16px;top:16px}.hero2 .zw.label{display:none}}
+@media (max-width:560px){.hero2{padding:12px 0 50px}.hero2 .frame{border-radius:24px;min-height:600px}.hero2 h1{font-size:44px}.hero2 p{font-size:17px}}
+@media (prefers-reduced-motion:reduce){.hero2 .bg{animation:none;transform:none}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -256,30 +282,34 @@ footer a{color:#fff}
 </div>
 </header>
 
-<section class="hero">
+<section class="hero2">
 <div class="wrap">
-<div class="htop">
-<div class="rv">
-<span class="kick"><b></b>Architect in Eeklo, sinds de jaren negentig</span>
-<h1>Wij tekenen het huis dat <em>uw plek</em> verdient.</h1>
+<div class="frame rv">
+<img class="bg" src="img/hero.webp" alt="Hedendaagse woning met natuursteen, glas en een oude boom in de tuin" width="1337" height="890" fetchpriority="high">
+<div class="shade"></div>
+<div class="inhoud">
+<span class="kick licht"><b></b>Architect in Eeklo</span>
+<h1>Het huis dat <em>uw plek</em> verdient.</h1>
+<p>Nieuwbouw, massief hout en renovatie. Ontworpen vanuit de straat, het landschap en uw manier van leven.</p>
+<div class="acts"><a class="knop vol" href="#contact">Plan een eerste gesprek</a><a class="knop glas" href="#domeinen">Bekijk ons werk</a></div>
 </div>
-<div class="side rv">
-<p>Leen Vereecke en haar team vertrekken van wat er al is: de straat, het landschap, de buren. Daarna zoeken we wat er binnen uw budget allemaal mogelijk is. Van een nieuwe gezinswoning tot een huis in massief hout of een oude hoeve die opnieuw leeft.</p>
-<div class="acts"><a class="knop vol" href="#contact">Plan een eerste gesprek</a><a class="knop lijn" href="#domeinen">Bekijk ons werk</a></div>
+<div class="zwevers">
+<div class="zw score"><b>5,0</b><div><span class="stars">★★★★★</span><small>op Google</small></div></div>
+<div class="zw label"><img src="img/label.webp" alt="Label Energiebewust Architect" width="600" height="235"></div>
 </div>
 </div>
-<div class="hband rv">
-<div class="big"><img src="img/hero.webp" alt="Hedendaagse woning met natuursteen, glas en een oude boom in de tuin" width="1336" height="890"></div>
-<div class="stack"><div><img src="img/woning-gazon.webp" alt="Bakstenen woning met grote ramen aan een groot gazon" width="667" height="500"></div><div><img src="img/hout-cottage.webp" alt="Woning in massief hout met lichte gevelbekleding" width="749" height="500"></div></div>
-<div class="fl score"><b>5,0</b><div><span class="stars">★★★★★</span><small>op Google</small></div></div>
-<div class="fl label"><img src="img/label.webp" alt="Label Energiebewust Architect" width="600" height="235"><span>Energiebewust architect sinds 2009</span></div>
+<div class="duim rv">
+<a href="#domeinen"><img src="img/woning-gazon.webp" alt="" width="667" height="500" loading="lazy"><span>Nieuwbouw</span></a>
+<a href="#hout"><img src="img/hout-cottage.webp" alt="" width="749" height="500" loading="lazy"><span>Massief hout</span></a>
+<a href="#hoeve"><img src="img/hoeve-gebinte.webp" alt="" width="640" height="480" loading="lazy"><span>Renovatie</span></a>
+<a href="#domeinen"><img src="img/praktijk-terras.webp" alt="" width="1336" height="888" loading="lazy"><span>Praktijkruimte</span></a>
 </div>
 </div>
 </section>
 
 <section class="motto">
 <div class="wrap">
-<blockquote class="rv">Wij denken mee, wij kijken mee, <em>wij werken mee.</em> Want architectuur is uw noden vertalen naar woonkwaliteit, in en met de buurt.</blockquote>
+<blockquote class="rv">Wij denken mee, kijken mee en <em>werken mee.</em></blockquote>
 <div class="feiten rv">
 <div><b>1994</b><span>Leen studeert af aan Sint-Lucas in Gent</span></div>
 <div><b>2009</b><span>label Energiebewust Architect</span></div>
@@ -294,12 +324,12 @@ footer a{color:#fff}
 <div class="rv">
 <span class="kick"><b></b>Zo begint het</span>
 <h2>Drie vragen voor we <em>één lijn</em> trekken.</h2>
-<p class="intro">Een mooi huis op de verkeerde plek blijft een gemiste kans. Daarom stellen we eerst deze vragen, en pas daarna de vraag wat u zelf graag wilt.</p>
+<p class="intro">Een mooi huis op de verkeerde plek blijft een gemiste kans.</p>
 <div class="qlist" id="ql">
-<button class="q" type="button" aria-pressed="true" data-i="0"><span class="n">1</span><div><h3>In welke straat ligt uw grond?</h3><p>Hoe staan de buren, waar valt de zon, wat ziet u vanop de stoep. De straat bepaalt meer dan je denkt.</p></div></button>
-<button class="q" type="button" aria-pressed="false" data-i="1"><span class="n">2</span><div><h3>In welk landschap staat het huis?</h3><p>Open polder, een dorpskern of een verkaveling met veel groen. Het huis moet er thuishoren, niet alleen erop staan.</p></div></button>
-<button class="q" type="button" aria-pressed="false" data-i="2"><span class="n">3</span><div><h3>Wat zijn de sterktes van de buurt?</h3><p>Een mooi zicht, een oude boom, een rustige achterkant. Wat goed is, gebruiken we. Wat stoort, schermen we af.</p></div></button>
-<button class="q" type="button" aria-pressed="false" data-i="3"><span class="n">4</span><div><h3>En dan: wat wilt u zelf?</h3><p>Hoe u leeft, wat u nodig hebt en wat u mag uitgeven. Pas dan zoeken we de maximale kracht van de beschikbare ruimte.</p></div></button>
+<button class="q" type="button" aria-pressed="true" data-i="0"><span class="n">1</span><div><h3>In welke straat ligt uw grond?</h3><p>Buren, zon en zicht vanop de stoep.</p></div></button>
+<button class="q" type="button" aria-pressed="false" data-i="1"><span class="n">2</span><div><h3>In welk landschap staat het huis?</h3><p>Polder, dorpskern of groene verkaveling.</p></div></button>
+<button class="q" type="button" aria-pressed="false" data-i="2"><span class="n">3</span><div><h3>Wat zijn de sterktes van de buurt?</h3><p>Wat goed is gebruiken we, wat stoort schermen we af.</p></div></button>
+<button class="q" type="button" aria-pressed="false" data-i="3"><span class="n">4</span><div><h3>En dan: wat wilt u zelf?</h3><p>Hoe u leeft, wat u nodig hebt en uw budget.</p></div></button>
 </div>
 </div>
 <div class="qvis rv" aria-hidden="true">
@@ -314,7 +344,7 @@ footer a{color:#fff}
 
 <section class="domeinen" id="domeinen">
 <div class="wrap">
-<div class="dhead rv"><div><span class="kick"><b></b>Wat we tekenen</span><h2>Van gezinswoning tot <em>praktijkruimte</em>.</h2></div><p>Architectuur en interieur gaan bij ons samen. Er werken twee interieurarchitecten mee aan uw project, van het eerste plan tot de keuze van de trap.</p></div>
+<div class="dhead rv"><div><span class="kick"><b></b>Wat we tekenen</span><h2>Van gezinswoning tot <em>praktijkruimte</em>.</h2></div><p>Architectuur en interieur aan één tafel, met twee interieurarchitecten in huis.</p></div>
 <div class="dgrid">
 <a class="dk rv" href="#contact" data-soort="Eengezinswoning"><div class="im"><img src="img/woning-pergola.webp" alt="Bakstenen woning met een pergola boven de raampartij" width="667" height="500" loading="lazy"></div><div class="tx"><span class="lb">Nieuwbouw</span><h3>Eengezinswoningen</h3><p>Een huis voor heel het gezin, met licht en vrijheid in elke kamer.</p><span class="meer">Bespreek uw plannen →</span></div></a>
 <a class="dk rv" href="#hout" data-soort="Houtmassiefbouw"><div class="im"><img src="img/hout-leefruimte.webp" alt="Leefruimte in een woning met wanden in massief hout" width="474" height="500" loading="lazy"></div><div class="tx"><span class="lb">Onze specialiteit</span><h3>Houtmassiefbouw</h3><p>Wanden in massief Noors dennenhout. Warm, gezond en snel gebouwd.</p><span class="meer">Lees hoe het werkt →</span></div></a>
@@ -331,12 +361,12 @@ footer a{color:#fff}
 <div class="rv">
 <span class="kick"><b></b>Houtmassiefbouw</span>
 <h2>Een huis met een <em>warme kern</em>, in zes maanden recht.</h2>
-<p class="lead">De binnenmuren bestaan uit massieve balken rood Noors dennenhout, met tand en groef op elkaar gestapeld en in de hoeken verankerd. Aan de buitenkant kiest u zelf: baksteen, hout of een mengeling van beide.</p>
+<p class="lead">Binnenmuren in massief Noors dennenhout. Buiten kiest u zelf: baksteen, hout of beide.</p>
 <div class="hfacts">
-<div><b>Isoleert van nature</b><span>Massief hout houdt de warmte binnen en regelt zelf het vocht in huis.</span></div>
-<div><b>Stevig en weerbestendig</b><span>Een sterke constructie die het Vlaamse weer goed aankan.</span></div>
-<div><b>Snel gebouwd</b><span>Ongeveer zes maanden van fundering tot afwerking. Goed op voorhand plannen loont.</span></div>
-<div><b>Ook strak en modern</b><span>Een minimalistisch huis kan perfect een warme houten kern hebben.</span></div>
+<div><b>Isoleert van nature</b><span>Houdt warmte binnen en regelt het vocht.</span></div>
+<div><b>Stevig en weerbestendig</b><span>Kan het Vlaamse weer goed aan.</span></div>
+<div><b>Snel gebouwd</b><span>Ongeveer zes maanden van fundering tot afwerking.</span></div>
+<div><b>Ook strak en modern</b><span>Strak van buiten, warm van binnen.</span></div>
 </div>
 <div class="dertig"><b>30+</b><span>houtmassieve woningen getekend en opgevolgd door ons bureau</span></div>
 </div>
@@ -353,12 +383,11 @@ footer a{color:#fff}
 <div class="rv">
 <span class="kick"><b></b>Uit ons werk</span>
 <h2>Een vierkantshoeve in <em>Balegem</em> die opnieuw leeft.</h2>
-<p>Een gesloten hoeve uit minstens de achttiende eeuw, in de Vlaamse Zandleemstreek. Twee schuurvleugels, een binnenkoer, een woonhuis en drie oude lindes op het kruispunt. De hoeve staat op de inventaris van het bouwkundig erfgoed, maar is niet beschermd.</p>
-<p>We wilden houden wat de streek eigen is: de gesloten baksteen van de schuren, de Vlaamse pannen, de muurankers, de kasseien op de koer en die lindes. En toch moest het een fijne woning worden.</p>
+<p>Een gesloten hoeve uit minstens de achttiende eeuw. We hielden de baksteen, de Vlaamse pannen, de kasseien en de oude lindes. En toch werd het een fijne woning.</p>
 <ul class="ingrepen">
-<li><b>Woonhuis</b><span>Verhoogd, met een diepere en grotere kelder en een kleine uitbreiding aan de tuinkant.</span></li>
+<li><b>Woonhuis</b><span>Verhoogd, met een grotere kelder en een kleine uitbreiding.</span></li>
 <li><b>Schuren</b><span>Gestabiliseerd, met maar enkele kleine aanpassingen aan de gevels.</span></li>
-<li><b>Parkeren</b><span>Een nieuwe carport tegen de eindgevel van de buren, zodat de gesloten gevels geen garagepoort nodig hebben.</span></li>
+<li><b>Parkeren</b><span>Een carport, zodat de gesloten gevels intact blijven.</span></li>
 <li><b>De stallen</b><span>Weer voor paarden, met de wei errond als graasland.</span></li>
 </ul>
 </div>
@@ -376,10 +405,10 @@ footer a{color:#fff}
 <div class="rv">
 <span class="kick"><b></b>Wie we zijn</span>
 <h2>Vier hoofden, <em>acht handen</em>.</h2>
-<p class="intro">Leen startte het bureau in de jaren negentig, na haar stage en eerste jaren aan de Tieltsesteenweg in Eeklo. Sinds 2011 werken we vanuit ons eigen gebouw aan de Oostveldstraat. Het vertrouwen tussen u en ons is het anker van heel het bouwproces.</p>
+<p class="intro">Sinds 2011 vanuit ons eigen gebouw aan de Oostveldstraat in Eeklo.</p>
 </div>
 <div class="leden rv">
-<div class="lid"><i style="background:var(--brick)">L</i><div><h3>Leen Vereecke</h3><p>Architect. Geboren in Gent, opgegroeid in Waarschoot. Afgestudeerd aan Sint-Lucas Gent in 1994.</p><span class="tag">Zaakvoerder</span></div></div>
+<div class="lid"><i style="background:var(--brick)">L</i><div><h3>Leen Vereecke</h3><p>Architect, Sint-Lucas Gent 1994.</p><span class="tag">Zaakvoerder</span></div></div>
 <div class="lid"><i style="background:var(--moss)">G</i><div><h3>Gerlinde Lybaert</h3><p>Interieurarchitect en architect-assistente.</p><span class="tag">Interieur en plannen</span></div></div>
 <div class="lid"><i style="background:var(--honey)">S</i><div><h3>Sigrid De Kemel</h3><p>Interieurarchitect, 3D en grafisch ontwerp.</p><span class="tag">3D-beelden</span></div></div>
 </div>
@@ -411,7 +440,7 @@ footer a{color:#fff}
 <div class="rv">
 <span class="kick"><b></b>Contact</span>
 <h2>Kom eens langs aan de <em>Oostveldstraat</em>.</h2>
-<p class="lead">Breng mee wat u hebt: een plan van de grond, foto's of gewoon uw ideeën. We nemen de tijd en denken met u mee.</p>
+<p class="lead">Breng een plan, foto's of gewoon uw ideeën mee.</p>
 <div class="cinfo">
 <a href="tel:+3293781813"><span>Telefoon</span><b>09 378 18 13</b></a>
 <a href="mailto:leen@architectena2.be"><span>Mail</span><b>leen@architectena2.be</b></a>

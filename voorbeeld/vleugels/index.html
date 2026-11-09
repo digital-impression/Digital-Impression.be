@@ -225,6 +225,32 @@ footer a{color:#fff}
 @media(prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 :focus-visible{outline:2px solid var(--brick);outline-offset:3px}
 .hgrid>*,.pgrid>*,.bgrid>*,.cgrid>*,.fgrid>*,.rgrid>*{min-width:0}.info b{overflow-wrap:anywhere}
+
+/* revisie 2: rustiger hero, verfijnde UI */
+.hero h1 em{font-style:italic;font-family:var(--serif)}.hero h1 em::after{display:none}
+.hero{padding:64px 0 120px}.hero::before{width:46%;height:100%;border-radius:0 0 0 64px}
+.hgrid{grid-template-columns:1fr 1.05fr;gap:70px}
+.hero .lead{font-size:18.5px;max-width:30em}
+.hvis{padding:0 0 30px 40px}.hvis .main{aspect-ratio:4/4.4;border-radius:260px 260px 28px 28px;box-shadow:0 40px 80px -40px rgba(29,40,34,.45)}
+.badge{border:1px solid rgba(226,218,203,.7)}
+.badge.score{left:0;top:70px;padding:16px 20px}
+.badge.sandra{left:6px;bottom:56px}
+.strip{background:transparent;padding:0;margin-top:-64px;position:relative;z-index:2}.strip .wrap{display:block!important}
+.strip .wrap>.kaart{flex:1 1 100%!important;max-width:none!important;background:#fff;border-radius:24px;box-shadow:0 30px 60px -36px rgba(29,40,34,.4);border:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);width:100%}
+.strip .kaart>div{display:flex;flex-direction:column;gap:4px;padding:26px 30px;color:var(--ink)}
+.strip .kaart>div+div{border-left:1px solid var(--line)}
+.strip .kaart b{font:400 34px/1 var(--serif);color:var(--green)}.strip .kaart span{font-size:14px;color:var(--ink3)}
+.steps{position:relative}
+.step{transition:transform .25s,box-shadow .25s,border-color .25s}.step:hover{transform:translateY(-6px);box-shadow:var(--sh);border-color:transparent}
+footer{background:var(--green2);color:#c9d5cc;padding:64px 0 0}
+footer .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:34px;padding-bottom:44px}
+footer .logo{color:#fff;text-decoration:none;margin-bottom:14px;display:flex}footer .logo b{color:#fff}footer .logo small{color:#a9bcae}
+footer p{font-size:14.5px;max-width:24em;margin:0}
+footer h5{font:600 13px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#fff;margin:6px 0 14px}
+footer .fgrid a,footer .fgrid span{display:block;font-size:14.5px;color:#c9d5cc;text-decoration:none;margin-bottom:8px}footer .fgrid a:hover{color:#fff}
+footer .fonder{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding:20px 0 26px;font-size:13px;color:#93a698}
+@media (max-width:980px){.strip{margin-top:-40px}.strip .wrap>.kaart{grid-template-columns:1fr 1fr}.strip .wrap>.kaart>div{min-width:0}.badge.score{left:8px}.hgrid{grid-template-columns:1fr;gap:44px}.hero::before{display:none}.hero{padding:44px 0 90px}.hvis{max-width:560px}.strip .kaart>div:nth-child(3){border-left:0}.strip .kaart>div:nth-child(n+3){border-top:1px solid var(--line)}footer .fgrid{grid-template-columns:1fr 1fr}.hvis{padding:0 0 30px}}
+@media (max-width:560px){.strip .kaart>div{padding:18px 18px}.strip .wrap>.kaart b{font-size:22px}footer .fgrid{grid-template-columns:1fr}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -255,27 +281,22 @@ footer a{color:#fff}
 <a class="btn pri" href="#contact">Plan een kennismaking <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 <a class="btn out" href="#werk">Bekijk ons werk</a>
 </div>
-<div class="trust">
-<div><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .7-5.3 4.8 1.6 7L12 17.5 5.7 21l1.6-7L2 9.3l7-.7Z"/></svg></span><div><b>4,6 op Google</b><span>tevreden bouwheren</span></div></div>
-<div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b>Opgericht in 1998</b><span>meer dan 25 jaar ervaring</span></div></div>
-<div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><b>Klein Vennestraat 31</b><span>3201 Langdorp</span></div></div>
-</div>
 </div>
 <div class="hvis rv">
 <div class="main"><img src="img/hero.webp" alt="Hedendaagse nieuwbouwwoning met crepi, houten gevelbekleding en een glazen bovenverdieping" width="1600" height="1067"></div>
 <div class="badge score"><b>4,6</b><div><span class="stars">★★★★★</span><small>op Google</small></div></div>
-<div class="badge beheer"><h4>Alles in eigen beheer</h4><ul><li><span class="tick"></span>Ontwerp en werfopvolging</li><li><span class="tick"></span>EPB-verslaggeving</li><li><span class="tick"></span>Veiligheidscoördinatie</li></ul></div>
+
 <div class="badge sandra"><img src="img/sandra.webp" alt="Sandra Vleugels" width="578" height="868"><div><b>Sandra Vleugels</b><span>tot binnenkort</span></div></div>
 </div>
 </div>
 </section>
 
 <div class="strip">
-<div class="wrap">
+<div class="wrap"><div class="kaart">
 <div><b>1998</b><span>opgericht in Langdorp</span></div>
 <div><b>3 in 1</b><span>architect, EPB en veiligheid</span></div>
 <div><b>4,6</b><span>sterren op Google</span></div>
-<div><b>Nieuwbouw</b><span>en renovatie</span></div>
+<div><b>Nieuwbouw</b><span>en renovatie</span></div></div>
 </div>
 </div>
 
@@ -414,7 +435,12 @@ footer a{color:#fff}
 </div>
 </section>
 
-<footer><div class="wrap"><span>© Architectenbureau Vleugels · Klein Vennestraat 31, 3201 Langdorp · BE 0630.459.715</span><span>Voorbeeldsite door <a href="https://digital-impression.be">Digital Impression</a></span></div></footer>
+<footer><div class="wrap fgrid">
+<div><a class="logo" href="#top"><i>V</i><div><b>Architectenbureau Vleugels</b><small>Langdorp · Aarschot</small></div></a><p>Architectuur, EPB-verslag en veiligheidscoördinatie onder één dak, sinds 1998.</p></div>
+<div><h5>Bureau</h5><a href="#werk">Nieuwbouw en renovatie</a><a href="#werkwijze">Werkwijze</a><a href="#bureau">Over het bureau</a></div>
+<div><h5>Contact</h5><a href="tel:+32478520316">0478 52 03 16</a><a href="tel:+3216564377">016 56 43 77</a><a href="mailto:info@architectvleugels.be">info@architectvleugels.be</a></div>
+<div><h5>Adres</h5><span>Klein Vennestraat 31</span><span>3201 Langdorp</span></div>
+</div><div class="wrap fonder"><span>© Architectenbureau Vleugels · BE 0630.459.715</span><span>Voorbeeldsite door Digital Impression</span></div></footer>
 
 <script>
 const hd=document.querySelector('header');addEventListener('scroll',()=>hd.classList.toggle('sc',scrollY>10),{passive:true});
