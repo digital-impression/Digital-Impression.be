@@ -28,7 +28,7 @@ svg.i{width:18px;height:18px;flex:none}
 .demo a{color:#fff;font-weight:700;text-underline-offset:3px}
 /* nav */
 .nav{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:18px;padding:14px max(24px,calc((100% - 1240px)/2));background:rgba(243,240,233,.88);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid transparent;transition:border-color .4s,background .4s,padding .4s}
-.nav.sc{border-color:var(--line);background:rgba(243,240,233,.96);padding-top:10px;padding-bottom:10px}
+.nav.vast{border-color:var(--line);background:rgba(243,240,233,.96);padding-top:10px;padding-bottom:10px}
 .brand{display:flex;align-items:center;gap:11px;text-decoration:none;min-width:0}
 .mk{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:13px;background:var(--navy);color:#fff;font:500 16px/1 var(--serif);letter-spacing:-.03em}
 .mk i{color:var(--amber2);font-style:normal}
@@ -37,8 +37,8 @@ svg.i{width:18px;height:18px;flex:none}
 .nav ul{display:flex;gap:2px;list-style:none;margin:0 0 0 auto;padding:0}
 .nav ul a{display:block;padding:9px 15px;border-radius:999px;text-decoration:none;font:500 15px/1 var(--sans);color:var(--ink2);transition:background .25s,color .25s}
 .nav ul a:hover{background:var(--ice);color:var(--ink)}
-@media(max-width:980px){.nav ul{display:none}.nav .btn{margin-left:auto}}
-@media(max-width:520px){.brand small{display:none}.nav .btn .t{display:none}.nav .btn{padding:5px}}
+.mnu{display:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;place-items:center;flex:none;transition:background .25s}.mnu span{display:block;width:16px;height:1.6px;background:var(--ink);border-radius:2px;position:relative;transition:transform .35s var(--ease),background .2s}.mnu span::before,.mnu span::after{content:"";position:absolute;left:0;width:16px;height:1.6px;background:var(--ink);border-radius:2px;transition:transform .35s var(--ease)}.mnu span::before{top:-5px}.mnu span::after{top:5px}.nav.menu-open .mnu span{background:transparent}.nav.menu-open .mnu span::before{transform:translateY(5px) rotate(45deg)}.nav.menu-open .mnu span::after{transform:translateY(-5px) rotate(-45deg)}@media(max-width:980px){.nav{flex-wrap:wrap}.nav .btn{margin-left:auto}.mnu{display:grid}.nav ul{display:grid;order:9;flex-basis:100%;margin:0;gap:0;max-height:0;overflow:hidden;opacity:0;transition:max-height .45s var(--ease),opacity .3s,padding .3s}.nav.menu-open ul{max-height:320px;opacity:1;padding:8px 0 6px}.nav ul a{padding:14px 4px;border-radius:0;border-top:1px solid var(--line);font-size:17px;color:var(--ink)}.nav ul a:hover{background:none}}
+@media(max-width:520px){.brand small{display:none}.nav .btn{display:none}.mnu{margin-left:auto}}
 /* buttons */
 .btn{display:inline-flex;align-items:center;gap:12px;padding:6px 6px 6px 22px;border-radius:999px;border:0;cursor:pointer;text-decoration:none;font:600 15.5px/1 var(--sans);white-space:nowrap;transition:transform .45s var(--ease),box-shadow .45s var(--ease),background .3s}
 .btn .ic{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;flex:none;transition:transform .55s var(--ease)}
@@ -269,6 +269,7 @@ footer::before{content:"";position:absolute;right:-120px;top:-160px;width:420px;
   <a class="brand" href="#top"><span class="mk">M<i>V</i></span><span><b>Mattijs, Voet &amp; C°</b><small>Advocaten · Lier, Mechelen, Antwerpen</small></span></a>
   <ul><li><a href="#domeinen">Domeinen</a></li><li><a href="#aanpak">Aanpak</a></li><li><a href="#kantoren">Kantoren</a></li><li><a href="#contact">Contact</a></li></ul>
   <a class="btn dk sm" href="#contact"><span class="t">Leg uw vraag voor</span><span class="ic"><svg><use href="#i-arr"/></svg></span></a>
+  <button class="mnu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span></button>
 </nav>
 
 <header class="hero" id="top">
@@ -423,7 +424,9 @@ document.documentElement.classList.add('js');
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
 var nav=document.getElementById('nav'),par=[].slice.call(document.querySelectorAll('[data-par]')),tk=false;
-function onS(){nav.classList.toggle('sc',scrollY>40);if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;par.forEach(function(el){var r=el.parentNode.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;var c=(r.top+r.height/2-innerHeight/2);el.style.transform='translate3d(0,'+(c*+el.dataset.par-r.height*.07)+'px,0)'});tk=false}
+var mb=nav.querySelector('.mnu');mb.addEventListener('click',function(){var o=nav.classList.toggle('menu-open');mb.setAttribute('aria-expanded',o)});[].forEach.call(nav.querySelectorAll('ul a'),function(a){a.addEventListener('click',function(){nav.classList.remove('menu-open');mb.setAttribute('aria-expanded','false')})});
+
+function onS(){nav.classList.toggle('vast',scrollY>40);if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;par.forEach(function(el){var r=el.parentNode.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;var c=(r.top+r.height/2-innerHeight/2);el.style.transform='translate3d(0,'+(c*+el.dataset.par-r.height*.07)+'px,0)'});tk=false}
 addEventListener('scroll',function(){if(!tk){requestAnimationFrame(onS);tk=true}},{passive:true});onS();
 /* open nu */
 var n=new Date(),d=n.getDay(),m=n.getHours()*60+n.getMinutes(),op=d>0&&d<6&&((m>=540&&m<780)||(m>=840&&m<1020));

@@ -29,7 +29,7 @@ h1 em,h2 em{color:var(--gd2)}
 .top{background:var(--dk);color:#EDE7DC;position:relative;overflow:hidden;border-radius:0 0 44px 44px}
 .top::before{content:"";position:absolute;right:-10%;top:-20%;width:70%;height:120%;background:radial-gradient(closest-side,rgba(210,174,104,.16),transparent);pointer-events:none}
 .nav{position:fixed;left:0;right:0;top:0;z-index:50;transition:background .3s,backdrop-filter .3s}
-.nav.s{background:rgba(15,14,13,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.nav.vast{background:rgba(15,14,13,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .nav .w{display:flex;align-items:center;justify-content:space-between;height:84px;gap:20px}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
 .logo img{width:60px;height:42px;object-fit:cover;border-radius:10px}
@@ -130,7 +130,7 @@ footer{padding:56px 0 40px}
 </style>
 </head>
 <body>
-<style>.di-strook{background:#0E1C3A;color:rgba(241,235,223,.78);font:500 14px/1.4 Inter,system-ui,sans-serif;border-bottom:1px solid rgba(201,162,74,.35);text-align:center;padding:9px 16px;position:relative;z-index:60}.di-strook a{color:#D8BB6A;font-weight:700;text-decoration:underline;text-underline-offset:3px}</style><div class="di-strook">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div><script>/*di-strook*/(function(){var s=document.querySelector('.di-strook');if(!s)return;var v=[];function zoek(){v=[].filter.call(document.body.querySelectorAll('*'),function(e){if(e===s||e.closest('.di'))return false;var c=getComputedStyle(e);return c.position==='fixed'&&parseFloat(c.top)<=1&&e.getBoundingClientRect().top<=s.offsetHeight+1})}function zet(){var t=Math.max(0,s.offsetHeight-window.scrollY);v.forEach(function(e){e.style.top=t+'px'})}function start(){zoek();zet()}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();window.addEventListener('scroll',zet,{passive:true});window.addEventListener('resize',start)})();</script>
+<style>.di-strook{background:#0E1C3A;color:rgba(241,235,223,.78);font:500 14px/1.4 Inter,system-ui,sans-serif;border-bottom:1px solid rgba(201,162,74,.35);text-align:center;padding:9px 16px;position:relative;z-index:60}.di-strook a{color:#D8BB6A;font-weight:700;text-decoration:underline;text-underline-offset:3px}</style><div class="di-strook">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div><script>/*di-strook*/(function(){var s=document.querySelector('.di-strook');if(!s)return;var v=[];function zoek(){v.forEach(function(e){e.style.top=''});v=[].filter.call(document.body.querySelectorAll('*'),function(e){if(e===s||e.closest('.di'))return false;var c=getComputedStyle(e);return c.position==='fixed'&&parseFloat(c.top)<=1&&e.getBoundingClientRect().top<=s.offsetHeight+1})}function zet(){var t=Math.max(0,s.offsetHeight-window.scrollY);v.forEach(function(e){e.style.top=t+'px'})}function start(){zoek();zet()}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();window.addEventListener('scroll',zet,{passive:true});window.addEventListener('resize',start)})();</script>
 
 
 
@@ -213,7 +213,7 @@ footer{padding:56px 0 40px}
 <footer><div class="w ft"><span>Garcia Ink · Schepen Dejonghstraat 1 bus 8-9, 3800 Sint-Truiden · <a href="tel:+32491227379">0491 22 73 79</a></span><span>Voorbeeldsite door <a href="#di">Digital Impression</a></span></div></footer>
 <script>
 document.documentElement.classList.add('js');
-var nav=document.getElementById('nav');addEventListener('scroll',function(){nav.classList.toggle('s',scrollY>40)},{passive:true});
+var nav=document.getElementById('nav');addEventListener('scroll',function(){nav.classList.toggle('vast',scrollY>40)},{passive:true});
 (function(){var d=new Date().getDay(),r=document.querySelector('.uren tr[data-d="'+d+'"]');if(r)r.classList.add('vd')})();
 if('IntersectionObserver' in window){var io=new IntersectionObserver(function(x){x.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -6% 0px'});document.querySelectorAll('.rv').forEach(function(el){io.observe(el)})}else document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
 </script>
