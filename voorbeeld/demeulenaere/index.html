@@ -8,10 +8,10 @@
 <meta name="description" content="Advocatenkantoor De Meulenaere &amp; Partners aan de Emiel Clauslaan in Astene. Mr. Bart De Meulenaere en Mr. Ingrid Van Royen, balie van Gent. Voor ondernemers, zelfstandigen en particulieren.">
 <script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Manrope:wght@400;500;600;700;800&display=swap">
 <style>
-:root{--bg:#F3F0EB;--surface:#FFFFFF;--ink:#231F1C;--ink2:#524B45;--muted:#8F877F;--brand:#2D2723;--on-brand:#fff;--accent:#9E8875;--accent-ink:#86705C;--brand-txt:#86705C;
---serif:"Gloock",Georgia,serif;--sans:"Instrument Sans",system-ui,sans-serif;--hw:400;--hls:-.015em;--r:22px;--demo-bg:#2D2723;--taupe:#E7E0D7}
+:root{--bg:#FBF6F3;--surface:#FFFFFF;--ink:#24151A;--ink2:#5A4A4F;--muted:#968489;--brand:#7A1F33;--on-brand:#fff;--accent:#D5A55A;--accent-ink:#7A1F33;--brand-txt:#7A1F33;
+--serif:"Hedvig Letters Serif",Georgia,serif;--sans:"Manrope",system-ui,sans-serif;--hw:400;--hls:-.025em;--r:26px;--demo-bg:#4A1220;--blush:#F3E2DD;--rose:#E9C9C1}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:96px;-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
@@ -126,201 +126,251 @@ p{margin:0}
 :focus-visible{outline:2.5px solid var(--accent);outline-offset:3px;border-radius:6px}
 .g>*{min-width:0}
 
-h1 em,h2 em{font-style:normal;color:var(--accent-ink)}
+h1 em,h2 em{font-style:italic;color:var(--brand)}
 .mark{width:44px;height:44px;border-radius:13px;background:#fff;display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(0,0,0,.07)}
 .mark img{width:28px;height:auto}
+.duo{background:var(--rose);overflow:hidden;position:relative}
+.duo img{mix-blend-mode:multiply;filter:contrast(1.08) brightness(1.06);width:100%;height:100%;object-fit:cover}
 /* hero */
-.hero{padding:50px 0 20px}
-.hero .g{display:grid;grid-template-columns:1.05fr 1fr;gap:54px;align-items:center}
-.hero h1{margin:20px 0 22px;font-size:clamp(42px,5.2vw,74px);line-height:1.02}
-.hero .lead{max-width:33em}
+.hero{padding:18px 12px 0}
+.hp{background:var(--brand);color:#F7E7E4;border-radius:36px;padding:clamp(40px,5vw,72px) 0 clamp(40px,5vw,72px);position:relative;overflow:hidden}
+.hp::before{content:"";position:absolute;right:-140px;top:-160px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(213,165,90,.35),transparent 68%)}
+.hp .g{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative;z-index:1}
+.hp .eyebrow{color:#F1CFC6}
+.hp h1{color:#fff;font-size:clamp(44px,5.6vw,82px);line-height:1;margin:22px 0 22px}
+.hp h1 em{color:#F2C98B}
+.hp .lead{color:#EBCFCA;max-width:31em}
 .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
-.since{display:flex;align-items:center;gap:16px;margin-top:34px}
-.since b{font:400 52px/1 var(--serif);color:var(--accent-ink)}
-.since span{font-size:14.5px;color:var(--ink2);line-height:1.45}
-.mos{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:300px 260px;gap:14px;position:relative}
-.mos .ph:first-child{grid-row:span 2}
-.mos .ph img{filter:grayscale(1) contrast(1.02)}
-.mos .rate{position:absolute;left:-24px;bottom:34px}
-.mos .who{position:absolute;right:16px;top:16px;padding:10px 16px 10px 10px;display:flex;gap:10px;align-items:center}
-.mos .who img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:center 20%}
-.mos .who b{display:block;font-size:14.5px}.mos .who span{font-size:12.5px;color:#666}
-@media(max-width:980px){.hero .g{grid-template-columns:1fr;gap:36px}.mos .rate{left:14px}}
-@media(max-width:560px){.mos{grid-template-rows:220px 200px}.mos .who{display:none}.mos .rate{bottom:14px}}
-/* logos/clients */
-.cl{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:stretch}
-.cl .card{padding:32px}
-.cl h3{font-size:28px;margin:14px 0 10px}
-.cl p{color:var(--ink2)}
-.cl .dark{background:var(--brand);color:#EDE7E0}
-.cl .dark h3{color:#fff}.cl .dark p{color:#C9BFB4}
-.cl .dark .eyebrow{color:#D8C8B6}
-@media(max-width:900px){.cl{grid-template-columns:1fr}}
-/* tabs */
+.team-mini{display:flex;align-items:center;gap:14px;margin-top:34px}
+.team-mini .av{display:flex}
+.team-mini .av span{width:48px;height:48px;border-radius:50%;border:3px solid var(--brand);background:var(--rose);overflow:hidden}
+.team-mini .av span+span{margin-left:-12px}
+.team-mini .av img{width:100%;height:100%;object-fit:cover;object-position:center 20%;mix-blend-mode:multiply}
+.team-mini p{font-size:14.5px;color:#EBCFCA;line-height:1.4}
+.team-mini b{color:#fff}
+.hv{position:relative;height:560px}
+.hv .a{position:absolute;inset:0 0 0 60px;border-radius:28px}
+.hv .a img{object-position:center 40%}
+.hv .rate{position:absolute;left:0;top:50px}
+.hv .card2{position:absolute;left:0;bottom:30px;padding:18px 20px;max-width:270px}
+.hv .card2 b{display:block;font:400 22px/1.15 var(--serif)}
+.hv .card2 span{font-size:13.5px;color:#666}
+@media(max-width:980px){.hp .g{grid-template-columns:1fr;gap:40px}.hv{height:460px}.hv .a{inset:0}.hv .rate{left:14px;top:14px}.hv .card2{left:14px;bottom:14px}}
+@media(max-width:560px){.hero{padding:10px 8px 0}.hp{border-radius:28px}.hv{height:400px}}
+/* bento facts */
+.bento{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:auto auto;gap:14px}
+.bx{padding:28px;border-radius:26px;background:var(--surface);box-shadow:0 1px 2px rgba(0,0,0,.03),0 18px 40px -30px rgba(0,0,0,.25);display:flex;flex-direction:column;gap:10px}
+.bx b{font:400 46px/1 var(--serif);color:var(--brand);letter-spacing:-.02em}
+.bx p{font-size:15.5px;color:var(--ink2)}
+.bx.big{grid-row:span 2;background:var(--blush);justify-content:space-between}
+.bx.big h3{font-size:clamp(28px,2.6vw,38px);line-height:1.1}
+.bx.big .ph{height:220px;border-radius:20px}
+.bx.gold{background:var(--accent);color:#3B2410}
+.bx.gold b{color:#3B2410}.bx.gold p{color:#4E3418}
+@media(max-width:900px){.bento{grid-template-columns:1fr 1fr}.bx.big{grid-column:span 2;grid-row:auto}}
+@media(max-width:560px){.bento{grid-template-columns:1fr}.bx.big{grid-column:auto}}
+/* domains */
 .tabs{display:inline-flex;gap:4px;padding:5px;border-radius:999px;background:var(--surface);margin-top:34px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
-.tabs button{border:0;cursor:pointer;padding:12px 22px;border-radius:999px;background:transparent;font-weight:600;font-size:15px;color:var(--ink2);transition:background .25s,color .25s}
+.tabs button{border:0;cursor:pointer;padding:13px 22px;border-radius:999px;background:transparent;font-weight:700;font-size:15px;color:var(--ink2);transition:background .25s,color .25s}
 .tabs button[aria-selected=true]{background:var(--brand);color:#fff}
-.pane{display:none;margin-top:26px}
-.pane.on{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px}
-.pane .ph{min-height:440px}
-.pane .ph img{position:absolute;inset:0}
-.dl{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.di2{padding:22px 22px 20px;border-radius:20px;background:var(--surface);box-shadow:inset 0 0 0 1px rgba(0,0,0,.05);display:flex;flex-direction:column;gap:6px;text-decoration:none;transition:transform .25s,box-shadow .25s}
-.di2:hover{transform:translateY(-3px);box-shadow:inset 0 0 0 1px var(--accent),0 16px 30px -24px rgba(0,0,0,.4)}
-.di2 b{font:400 21px/1.15 var(--serif)}
-.di2 span{font-size:14.5px;color:var(--ink2)}
-@media(max-width:900px){.pane.on{grid-template-columns:1fr}.pane .ph{min-height:260px}}
-@media(max-width:560px){.dl{grid-template-columns:1fr}.tabs{display:flex}.tabs button{flex:1;padding:12px 10px}}
+.pane{display:none;margin-top:24px;grid-template-columns:repeat(3,1fr);gap:14px}
+.pane.on{display:grid}
+.dc{position:relative;padding:26px;border-radius:24px;background:var(--surface);text-decoration:none;display:flex;flex-direction:column;gap:10px;min-height:210px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,background .35s;overflow:hidden}
+.dc .n{font:700 12.5px/1 var(--sans);letter-spacing:.06em;color:var(--muted)}
+.dc b{font:400 24px/1.15 var(--serif);margin-top:auto}
+.dc span{font-size:14.5px;color:var(--ink2)}
+.dc i{position:absolute;right:20px;top:20px;width:38px;height:38px;border-radius:50%;background:var(--blush);color:var(--brand);display:grid;place-items:center;transition:transform .35s,background .35s,color .35s}
+.dc i svg{width:16px;height:16px}
+.dc:hover{transform:translateY(-4px);box-shadow:inset 0 0 0 1px var(--rose),0 24px 40px -28px rgba(122,31,51,.5)}
+.dc:hover i{transform:rotate(-45deg);background:var(--brand);color:#fff}
+.dc.photo{padding:0;color:#fff}
+.dc.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dc.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(60,10,20,.75))}
+.dc.photo .in{position:relative;z-index:1;margin-top:auto;padding:24px}
+.dc.photo b{display:block;color:#fff}.dc.photo span{color:#F3DCD6}
+@media(max-width:900px){.pane{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.pane{grid-template-columns:1fr}.tabs{display:flex}.tabs button{flex:1;padding:12px 8px}}
 /* team */
-.team{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px}
-.tm{overflow:hidden;display:flex;flex-direction:column}
-.tm .ph{height:360px;border-radius:0}
-.tm .ph img{object-position:center 18%}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:46px}
+.tm{border-radius:28px;background:var(--surface);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 18px 40px -30px rgba(0,0,0,.3)}
+.tm .duo{height:340px}
+.tm .duo img{object-position:center 18%;transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.tm:hover .duo img{transform:scale(1.04)}
 .tm .in{padding:24px 24px 26px;display:flex;flex-direction:column;gap:8px}
+.tm .r{font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--brand)}
 .tm h3{font-size:28px}
-.tm .r{font-size:14px;font-weight:600;color:var(--accent-ink)}
 .tm p{font-size:15px;color:var(--ink2)}
 .tm ul{margin:6px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
-.tm li{font-size:12.5px;font-weight:600;padding:5px 10px;border-radius:999px;background:var(--taupe);color:#5B4C3F}
-.sec2{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;padding:24px;margin-top:18px}
-.sec2 .av{display:flex}.sec2 .av img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:center 20%;border:3px solid #fff}
-.sec2 .av img+img{margin-left:-14px}
+.tm li{font-size:12.5px;font-weight:700;padding:6px 11px;border-radius:999px;background:var(--blush);color:var(--brand)}
+.tm:nth-child(2) .duo{background:#E7D3B4}.tm:nth-child(3) .duo{background:#D9D2E6}
+.sec2{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;padding:22px 26px;margin-top:16px;border-radius:24px;background:var(--blush)}
+.sec2 .av{display:flex}.sec2 .av span{width:62px;height:62px;border-radius:50%;border:3px solid var(--blush);overflow:hidden;background:var(--rose)}
+.sec2 .av span+span{margin-left:-14px}
+.sec2 .av img{width:100%;height:100%;object-fit:cover;object-position:center 20%;mix-blend-mode:multiply}
 .sec2 b{font:400 22px/1.2 var(--serif)}
 .sec2 p{font-size:15px;color:var(--ink2)}
 @media(max-width:980px){.team{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){.team{grid-template-columns:1fr}.sec2{grid-template-columns:1fr}}
+/* steps */
+.stp{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px;position:relative}
+.stp::before{content:"";position:absolute;left:8%;right:8%;top:34px;height:2px;background:repeating-linear-gradient(90deg,var(--rose) 0 10px,transparent 10px 18px)}
+.s3{position:relative;text-align:center;padding:0 10px}
+.s3 i{display:grid;place-items:center;width:68px;height:68px;margin:0 auto 20px;border-radius:50%;background:var(--brand);color:#fff;font:400 26px/1 var(--serif);font-style:normal;box-shadow:0 0 0 8px var(--bg)}
+.s3 h3{font-size:24px;margin-bottom:8px}
+.s3 p{font-size:15px;color:var(--ink2);max-width:22em;margin:0 auto}
+@media(max-width:800px){.stp{grid-template-columns:1fr;gap:30px}.stp::before{display:none}}
 /* calc */
-.cc{background:var(--brand);color:#E9E2DA;border-radius:40px;margin:0 12px;padding:clamp(60px,8vw,104px) 0}
-.cc h2{color:#fff}.cc .eyebrow{color:#D8C8B6}.cc .lead{color:#C5BAAE}
-.cg{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;margin-top:44px}
+.cc{background:var(--ink);color:#E9DCDD;border-radius:40px;margin:0 12px;padding:clamp(60px,8vw,104px) 0;position:relative;overflow:hidden}
+.cc::after{content:"";position:absolute;left:-160px;bottom:-200px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(122,31,51,.55),transparent 70%)}
+.cc h2{color:#fff}.cc h2 em{color:#F2C98B}.cc .eyebrow{color:#E3B9B0}.cc .lead{color:#C9B6B8}
+.cg{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;margin-top:44px;position:relative;z-index:1}
+.cg>*{min-width:0}
 .cin{border-radius:28px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:30px;display:grid;gap:26px}
-.cin label{display:block}
 .cin .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
 .cin .top b{font-size:16px;color:#fff}.cin .top output{font:400 26px/1 var(--serif);color:#fff}
-.cin small{display:block;color:#A99E92;font-size:13.5px;margin-top:8px}
-input[type=range]{width:100%;accent-color:#D8C8B6;height:28px}
+.cin small{display:block;color:#A99598;font-size:13.5px;margin-top:8px}
+input[type=range]{width:100%;accent-color:#F2C98B;height:28px}
 .seg{display:flex;gap:6px}
-.seg button{flex:1;border:0;cursor:pointer;padding:12px;border-radius:14px;background:rgba(255,255,255,.08);color:#E9E2DA;font-weight:600}
+.seg button{flex:1;border:0;cursor:pointer;padding:12px;border-radius:14px;background:rgba(255,255,255,.08);color:#E9DCDD;font-weight:700}
 .seg button[aria-pressed=true]{background:#fff;color:var(--brand)}
-.cout{border-radius:28px;background:#fff;color:var(--ink);padding:32px;display:flex;flex-direction:column;gap:12px}
-.cout .big{font:400 78px/.95 var(--serif);letter-spacing:-.02em}
+.cout{border-radius:28px;background:#fff;color:var(--ink);padding:32px;display:flex;flex-direction:column;gap:10px}
+.cout .big{font:400 72px/.95 var(--serif);letter-spacing:-.02em;color:var(--brand)}
 .cout .big small{font-size:28px}
-.cout .row{display:flex;justify-content:space-between;font-size:15px;color:var(--ink2);padding:8px 0;border-bottom:1px solid #EEE9E3}
+.cout .row{display:flex;justify-content:space-between;font-size:15px;color:var(--ink2);padding:8px 0;border-bottom:1px solid #F1E6E3}
 .cout .row b{color:var(--ink)}
 .cout p{font-size:13.5px;color:var(--muted)}
 .cout .btn{margin-top:auto;align-self:flex-start}
 @media(max-width:900px){.cg{grid-template-columns:1fr}.cc{margin:0 8px;border-radius:30px}}
 /* office */
-.of{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:46px}
-.of .a{grid-column:span 7;height:460px}.of .b{grid-column:span 5;height:460px}
-.of .c{grid-column:span 4;height:280px}.of .d{grid-column:span 8;padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
-.of .d h3{font-size:30px;margin-bottom:12px}
-.of table{width:100%;border-collapse:collapse;font-size:15px}
-.of td{padding:8px 0;border-bottom:1px solid #EEE9E3}.of td:last-child{text-align:right;color:var(--ink2)}
-.of tr.today td{font-weight:700;color:var(--accent-ink)}
-@media(max-width:900px){.of .a,.of .b,.of .c,.of .d{grid-column:span 12}.of .a,.of .b{height:300px}.of .d{grid-template-columns:1fr}}
+.of{display:grid;grid-template-columns:1.25fr .75fr;gap:16px;margin-top:44px}
+.of .a{height:520px}
+.of .side{display:grid;gap:16px}
+.of .side .ph{height:250px}
+.oh{padding:26px;border-radius:26px;background:var(--surface)}
+.oh h3{font-size:26px;margin-bottom:10px}
+.oh table{width:100%;border-collapse:collapse;font-size:15px}
+.oh td{padding:7px 0;border-bottom:1px solid #F1E6E3}.oh td:last-child{text-align:right;color:var(--ink2)}
+.oh tr.today td{font-weight:800;color:var(--brand)}
+@media(max-width:900px){.of{grid-template-columns:1fr}.of .a{height:320px}}
 .two{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:start}
 @media(max-width:900px){.two{grid-template-columns:1fr;gap:34px}}
 .frm{padding:34px}.frm h3{font-size:30px;margin-bottom:6px}.frm .sm{color:var(--muted);font-size:14.5px;margin-bottom:20px}
-.mq{background:var(--taupe);color:var(--brand)}
-.mq span{font-family:var(--serif);font-style:normal}
-.mq span::after{background:var(--accent)}
+/* footer */
+.ft{background:var(--brand);color:#EBCFCA;border-radius:40px 40px 0 0;margin-top:clamp(70px,8vw,110px);padding:72px 0 28px;position:relative;overflow:hidden}
+.ft .top2{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.16)}
+.ft .top2 h2{color:#fff;max-width:13em}.ft .top2 h2 em{color:#F2C98B}
+.ft .g{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:36px;margin-top:44px}
+.ft h4{font:700 12.5px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:#E3B9B0;margin-bottom:16px}
+.ft ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:15px}
+.ft a{color:#fff;text-decoration:none}.ft a:hover{text-decoration:underline}
+.ft .b{display:flex;gap:14px;align-items:flex-start}
+.ft .b p{font-size:15px}
+.ft .bt{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:50px;padding-top:22px;border-top:1px solid rgba(255,255,255,.16);font-size:13px;color:#DDB1A8}
+.ft .bt a{font-weight:700}
+@media(max-width:900px){.ft .g{grid-template-columns:1fr 1fr}.ft{border-radius:30px 30px 0 0}}
+@media(max-width:520px){.ft .g{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="demo">Voorbeeldsite van Digital Impression voor De Meulenaere &amp; Partners. Benieuwd wat zoiets kost? <a href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20De%20Meulenaere%20%26%20Partners">Stuur Stijn een bericht</a></div>
 <nav class="nav" aria-label="Hoofdmenu">
-<a class="brand" href="#top"><span class="mark"><img src="img/mark.png" alt=""></span><span><b>De Meulenaere &amp; Partners</b><small>Advocatenkantoor · Astene</small></span></a>
+<a class="brand" href="#top"><span class="mark"><img src="img/mark.png" alt=""></span><span><b>De Meulenaere &amp; Partners</b><small>Advocaten · balie van Gent</small></span></a>
 <ul><li><a href="#domeinen">Domeinen</a></li><li><a href="#team">Team</a></li><li><a href="#ereloon">Ereloon</a></li><li><a href="#kantoor">Kantoor</a></li><li><a href="#contact">Contact</a></li></ul>
 <a class="btn dk sm" href="tel:+3292230034"><span class="t">09 223 00 34</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span></a>
 </nav>
 
 <header class="hero" id="top">
+<div class="hp">
 <div class="wrap g">
 <div>
-<span class="eyebrow">Advocatenkantoor aan de Emiel Clauslaan in Astene</span>
-<h1 class="rv">Een familiekantoor met <em>een volle dossierkast</em> aan ervaring.</h1>
-<p class="lead rv d1s">Vader Luk begon in 1975 aan de Gentse balie, zoon Bart nam in 2003 de fakkel mee op. Vandaag staan Mr. Bart De Meulenaere en Mr. Ingrid Van Royen, met een vast secretariaat, klaar voor ondernemers, zelfstandigen en particulieren uit Deinze en ver daarbuiten.</p>
-<div class="acts rv d2s"><a class="btn dk" href="#contact">Plan een eerste consultatie<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a class="btn lt" href="#ereloon">Wat kost een advocaat?<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
-<div class="since rv d3s"><b>1975</b><span>het jaar waarin Mr. Luk De Meulenaere<br>advocaat werd aan de balie van Gent</span></div>
+<span class="eyebrow">Advocatenkantoor sinds 1975</span>
+<h1 class="rv">Juridisch advies <em>met een gezicht</em>.</h1>
+<p class="lead rv d1s">Een familiekantoor waar u niet bij een nummer terechtkomt. Mr. Bart De Meulenaere volgt elk dossier persoonlijk op, samen met Mr. Ingrid Van Royen en een vast secretariaat. Voor ondernemers, zelfstandigen en particulieren.</p>
+<div class="acts rv d2s"><a class="btn wh" href="#contact">Plan een eerste consultatie<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a class="btn gh" href="#domeinen">Waarmee we helpen</a></div>
+<div class="team-mini rv d3s"><span class="av"><span><img src="img/bart.webp" alt=""></span><span><img src="img/ingrid.webp" alt=""></span><span><img src="img/luc.webp" alt=""></span></span><p><b>Bart, Ingrid en Luk</b><br>één familiekantoor, sinds 1975</p></div>
 </div>
-<div class="mos rv d1s">
-<div class="ph"><img src="img/aan-het-werk.webp" alt="Aan het werk op kantoor" fetchpriority="high"></div>
-<div class="ph"><img src="img/bibliotheek.webp" alt="Vergaderzaal met bibliotheek"></div>
-<div class="ph"><img src="img/dossiers.webp" alt="Dossiers in de kast"></div>
+<div class="hv rv d1s">
+<div class="ph a"><img src="img/aan-het-werk.webp" alt="Aan het werk aan het bureau tussen de boekenkasten" fetchpriority="high"></div>
 <div class="glass rate"><span class="n">4,8</span><div><span class="stars"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg></span><small>op Google</small></div></div>
-<div class="glass who"><img src="img/bart.webp" alt="Mr. Bart De Meulenaere"><div><b>Mr. Bart De Meulenaere</b><span>Bestuurder en advocaat</span></div></div>
+<div class="glass card2"><b>Al jaren vertrouwd door Partena</b><span>en talrijke kmo's, over heel Vlaanderen</span></div>
+</div>
 </div>
 </div>
 </header>
 
-<div class="mq" aria-hidden="true"><div class="tr"><span>Sociaal statuut zelfstandigen</span><span>Ondernemingen in moeilijkheden</span><span>Bouw en aanneming</span><span>Huur en mede-eigendom</span><span>Familie</span><span>Verkeer</span><span>Incasso</span><span>Sociaal statuut zelfstandigen</span><span>Ondernemingen in moeilijkheden</span><span>Bouw en aanneming</span><span>Huur en mede-eigendom</span><span>Familie</span><span>Verkeer</span><span>Incasso</span></div></div>
-
 <section class="sec">
-<div class="wrap cl">
-<div class="card rv"><span class="eyebrow">Onze aanpak</span><h3>Elk dossier onder leiding van Mr. Bart De Meulenaere</h3><p>Met de hulp van de medewerkers en een uitgebreid secretariaat. Een doorgedreven digitale werking zorgt dat uw dossier vlot opgevolgd wordt, en dat u altijd weet hoe het ervoor staat.</p></div>
-<div class="card dark rv d1s"><span class="eyebrow">Al jaren vertrouwd door</span><h3>Partena en talrijke kmo's</h3><p>Het kantoor staat al jaren de Partena-groep bij, sociale verzekeringskas voor zelfstandigen, over heel Vlaanderen. Ook veel kmo's rekenen op het kantoor voor advies, bemiddeling en procedures.</p></div>
+<div class="wrap bento">
+<div class="bx big rv"><h3>Elk dossier onder leiding van <em style="color:var(--brand)">Mr. Bart De Meulenaere</em>.</h3><p>Met de hulp van een uitgebreid secretariaat en een doorgedreven digitale werking. Zo weet u altijd hoe uw zaak ervoor staat.</p><div class="ph"><img src="img/bibliotheek.webp" alt="Bibliotheek en vergadertafel" loading="lazy"></div></div>
+<div class="bx rv d1s"><b>1975</b><p>Mr. Luk De Meulenaere begint aan de balie van Gent en sticht het kantoor.</p></div>
+<div class="bx gold rv d2s"><b>2016</b><p>Mr. Bart De Meulenaere wordt curator bij de ondernemingsrechtbank in Gent.</p></div>
+<div class="bx rv d1s"><b>1991</b><p>Mr. Ingrid Van Royen wordt advocaat. Sinds 1998 ook vice-consul van Spanje.</p></div>
+<div class="bx rv d2s"><b>4,8</b><p>Gemiddelde score van cliënten op Google.</p></div>
 </div>
 </section>
 
 <section class="sec t0" id="domeinen">
 <div class="wrap">
-<div class="hd"><span class="eyebrow">Domeinen</span><h2 class="d2">Voor uw zaak <em>of voor uzelf</em>.</h2><p class="lead">Kies wat bij u past en zie waarmee het kantoor u dagelijks helpt.</p></div>
+<div class="hd"><span class="eyebrow">Domeinen</span><h2 class="d2">Voor uw zaak <em>of voor uzelf</em>.</h2></div>
 <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="z">Ik ben ondernemer</button><button role="tab" aria-selected="false" data-t="p">Ik ben particulier</button></div>
 <div class="pane on" id="pz" role="tabpanel">
-<div class="ph rv"><img src="img/kmo.webp" alt="Ondernemer in zijn zaak" loading="lazy"></div>
-<div class="dl">
-<a class="di2" href="#contact" data-o="Sociaal statuut zelfstandigen"><b>Sociaal statuut zelfstandigen</b><span>Sociale bijdragen en vennootschapsbijdragen, en betwistingen met de sociale kas.</span></a>
-<a class="di2" href="#contact" data-o="Onderneming in moeilijkheden"><b>Ondernemingen in moeilijkheden</b><span>Mr. Bart De Meulenaere is sinds 2016 curator bij de ondernemingsrechtbank in Gent.</span></a>
-<a class="di2" href="#contact" data-o="Contract of aanneming"><b>Contracten, bouw en aanneming</b><span>Van het opstellen van een overeenkomst tot een geschil met een aannemer of klant.</span></a>
-<a class="di2" href="#contact" data-o="Invordering"><b>Invorderingen en incasso</b><span>Onbetaalde facturen opvolgen, minnelijk of via de rechtbank.</span></a>
-<a class="di2" href="#contact" data-o="Advies voor mijn zaak"><b>Advies en bedrijfsvoering</b><span>Juridische begeleiding bij de dagelijkse werking van uw zaak.</span></a>
-<a class="di2" href="#contact" data-o="Sociale zekerheid"><b>Sociale zekerheid</b><span>Het domein van Mr. Ingrid Van Royen.</span></a>
-</div>
+<a class="dc photo" href="#contact" data-o="Sociaal statuut zelfstandigen"><img src="img/kmo.webp" alt="" loading="lazy"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i><div class="in"><b>Sociaal statuut zelfstandigen</b><span>Sociale bijdragen en betwistingen met de sociale kas.</span></div></a>
+<a class="dc" href="#contact" data-o="Onderneming in moeilijkheden"><span class="n">02</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i><b>Ondernemingen in moeilijkheden</b><span>Met de ervaring van een curator aan uw kant.</span></a>
+<a class="dc" href="#contact" data-o="Contract of aanneming"><span class="n">03</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i><b>Bouw en aanneming</b><span>Van overeenkomst tot geschil met aannemer of klant.</span></a>
+<a class="dc" href="#contact" data-o="Invordering"><span class="n">04</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i><b>Invorderingen en incasso</b><span>Onbetaalde facturen, minnelijk of via de rechtbank.</span></a>
+<a class="dc" href="#contact" data-o="Advies voor mijn zaak"><span class="n">05</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i><b>Advies en contracten</b><span>Juridische begeleiding bij de werking van uw zaak.</span></a>
+<a class="dc" href="#contact" data-o="Sociale zekerheid"><span class="n">06</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i><b>Sociale zekerheid</b><span>Het domein van Mr. Ingrid Van Royen.</span></a>
 </div>
 <div class="pane" id="pp" role="tabpanel">
-<div class="ph"><img src="img/gezin.webp" alt="Gezin aan de ontbijttafel" loading="lazy"></div>
-<div class="dl">
-<a class="di2" href="#contact" data-o="Familie"><b>Personen- en familierecht</b><span>Scheiding, afspraken over de kinderen, onderhoudsgeld.</span></a>
-<a class="di2" href="#contact" data-o="Huwelijksvermogen"><b>Huwelijksvermogensrecht</b><span>De verdeling van woning, spaargeld en schulden.</span></a>
-<a class="di2" href="#contact" data-o="Huur of mede-eigendom"><b>Huur en mede-eigendom</b><span>Geschillen tussen huurder en verhuurder, of in een gebouw met meerdere eigenaars.</span></a>
-<a class="di2" href="#contact" data-o="Schade"><b>Aansprakelijkheid en verzekering</b><span>Na een ongeval of schadegeval uw vergoeding krijgen.</span></a>
-<a class="di2" href="#contact" data-o="Verkeer"><b>Verkeersrecht</b><span>Een dagvaarding voor de politierechtbank.</span></a>
-<a class="di2" href="#contact" data-o="Strafrecht"><b>Strafrecht</b><span>Bijstand en verdediging, als verdachte of als slachtoffer.</span></a>
-</div>
+<a class="dc photo" href="#contact" data-o="Familie"><img src="img/gezin.webp" alt="" loading="lazy"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i><div class="in"><b>Personen- en familierecht</b><span>Scheiding, kinderen, onderhoudsgeld.</span></div></a>
+<a class="dc" href="#contact" data-o="Huwelijksvermogen"><span class="n">02</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i><b>Huwelijksvermogen</b><span>De verdeling van woning, spaargeld en schulden.</span></a>
+<a class="dc" href="#contact" data-o="Huur of mede-eigendom"><span class="n">03</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i><b>Huur en mede-eigendom</b><span>Huurder, verhuurder of mede-eigenaar.</span></a>
+<a class="dc" href="#contact" data-o="Schade"><span class="n">04</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i><b>Aansprakelijkheid</b><span>Na een ongeval of schadegeval uw vergoeding krijgen.</span></a>
+<a class="dc" href="#contact" data-o="Verkeer"><span class="n">05</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i><b>Verkeersrecht</b><span>Een dagvaarding voor de politierechtbank.</span></a>
+<a class="dc" href="#contact" data-o="Strafrecht"><span class="n">06</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i><b>Strafrecht</b><span>Bijstand als verdachte of als slachtoffer.</span></a>
 </div>
 </div>
 </section>
 
 <section class="sec" id="team">
 <div class="wrap">
-<div class="hd"><span class="eyebrow">Team</span><h2 class="d2">Vertrouwde gezichten <em>aan de balie van Gent</em>.</h2></div>
+<div class="hd"><span class="eyebrow">Team</span><h2 class="d2">De mensen <em>achter uw dossier</em>.</h2></div>
 <div class="team">
-<div class="card tm rv"><div class="ph"><img src="img/bart.webp" alt="Mr. Bart De Meulenaere" loading="lazy"></div><div class="in"><span class="r">Bestuurder · advocaat · vennoot</span><h3>Bart De Meulenaere</h3><p>Licentiaat in de rechten met onderscheiding (UGent, 2003). Curator sinds 2016, tien jaar penningmeester van de Orde van Advocaten in Gent.</p><ul><li>Zelfstandigenstatuut</li><li>Insolventie</li><li>Bouw en aanneming</li><li>Familie</li></ul></div></div>
-<div class="card tm rv d1s"><div class="ph"><img src="img/ingrid.webp" alt="Mr. Ingrid Van Royen" loading="lazy"></div><div class="in"><span class="r">Advocaat · vennoot</span><h3>Ingrid Van Royen</h3><p>Advocaat aan de balie van Gent sinds 1991. Sinds 1998 ook honorair vice-consul van Spanje in Oost-Vlaanderen.</p><ul><li>Sociale zekerheid</li><li>Invorderingen</li><li>Incasso</li></ul></div></div>
-<div class="card tm rv d2s"><div class="ph"><img src="img/luc.webp" alt="Mr. Luk De Meulenaere" loading="lazy"></div><div class="in"><span class="r">Stichter · ere-advocaat</span><h3>Luk De Meulenaere</h3><p>Begon in 1975 aan de Gentse balie en richtte het kantoor op. Erkend bemiddelaar in burgerlijke en handelszaken. Sinds 2021 ere-advocaat.</p><ul><li>Stichter</li><li>Bemiddelaar</li></ul></div></div>
+<div class="tm rv"><div class="duo"><img src="img/bart.webp" alt="Mr. Bart De Meulenaere" loading="lazy"></div><div class="in"><span class="r">Bestuurder · vennoot</span><h3>Bart De Meulenaere</h3><p>Advocaat sinds 2003. Curator, en tien jaar penningmeester van de Orde van Advocaten in Gent.</p><ul><li>Zelfstandigen</li><li>Insolventie</li><li>Bouw</li><li>Familie</li></ul></div></div>
+<div class="tm rv d1s"><div class="duo"><img src="img/ingrid.webp" alt="Mr. Ingrid Van Royen" loading="lazy"></div><div class="in"><span class="r">Advocaat · vennoot</span><h3>Ingrid Van Royen</h3><p>Advocaat sinds 1991 en honorair vice-consul van Spanje in Oost-Vlaanderen.</p><ul><li>Sociale zekerheid</li><li>Invorderingen</li><li>Incasso</li></ul></div></div>
+<div class="tm rv d2s"><div class="duo"><img src="img/luc.webp" alt="Mr. Luk De Meulenaere" loading="lazy"></div><div class="in"><span class="r">Stichter · ere-advocaat</span><h3>Luk De Meulenaere</h3><p>Stichtte het kantoor in 1975. Erkend bemiddelaar in burgerlijke en handelszaken.</p><ul><li>Stichter</li><li>Bemiddelaar</li></ul></div></div>
 </div>
-<div class="card sec2 rv"><div class="av"><img src="img/secr1.webp" alt="Secretariaat"><img src="img/secr2.webp" alt="Secretariaat"></div><div><b>Patricia Milo en Severine Willems</b><p>Het secretariaat. Zij plannen uw afspraak, beantwoorden uw vragen over het dossier en zorgen dat alles vlot loopt.</p></div></div>
+<div class="sec2 rv"><div class="av"><span><img src="img/secr1.webp" alt="Patricia Milo"></span><span><img src="img/secr2.webp" alt="Severine Willems"></span></div><div><b>Patricia en Severine</b><p>Het secretariaat. Zij plannen uw afspraak en beantwoorden uw vragen over het dossier.</p></div></div>
+</div>
+</section>
+
+<section class="sec t0">
+<div class="wrap">
+<div class="hd c"><span class="eyebrow">Werkwijze</span><h2 class="d2">Zo gaat <em>uw dossier</em> van start.</h2></div>
+<div class="stp">
+<div class="s3 rv"><i>1</i><h3>U belt of mailt</h3><p>Het secretariaat plant een eerste consultatie in.</p></div>
+<div class="s3 rv d1s"><i>2</i><h3>Eerste consultatie</h3><p>We bekijken uw zaak, de mogelijkheden en het ereloon.</p></div>
+<div class="s3 rv d2s"><i>3</i><h3>Opvolging</h3><p>U krijgt tussentijdse provisiestaten, dus geen verrassingen op het einde.</p></div>
+</div>
 </div>
 </section>
 
 <section class="cc" id="ereloon">
 <div class="wrap">
-<div class="hd"><span class="eyebrow">Ereloon en kosten</span><h2 class="d2">Transparant, <em style="color:#D8C8B6">ook vooraf</em>.</h2><p class="lead">Het kantoor rekent met een basisuurtarief en een vaste opslag voor kantoorkosten. Schuif mee voor een eerste beeld. Het exacte bedrag wordt bij de eerste consultatie met u afgesproken.</p></div>
+<div class="hd"><span class="eyebrow">Ereloon</span><h2 class="d2">Transparant, <em>ook vooraf</em>.</h2><p class="lead">Een basisuurtarief en een vaste opslag voor kantoorkosten. Schuif mee voor een eerste beeld.</p></div>
 <div class="cg">
 <div class="cin">
 <div><div class="top"><b>Basisuurtarief</b><output id="oR">€ 135</output></div><div class="seg" id="seg"><button type="button" aria-pressed="true" data-r="135">€ 135</button><button type="button" aria-pressed="false" data-r="150">€ 150</button></div><small>Naargelang de aard van de zaak.</small></div>
 <label><div class="top"><b>Aantal uren</b><output id="oH">4 uur</output></div><input type="range" id="h" min="1" max="40" value="4"></label>
-<label><div class="top"><b>Bedrag dat u terugvordert</b><output id="oA">geen</output></div><input type="range" id="a" min="0" max="100000" step="1000" value="0"><small>Optioneel. Voor een eventuele succes fee bovenop het ereloon, enkel als dat vooraf schriftelijk is afgesproken.</small></label>
+<label><div class="top"><b>Bedrag dat u terugvordert</b><output id="oA">geen</output></div><input type="range" id="a" min="0" max="100000" step="1000" value="0"><small>Enkel voor een succes fee die vooraf schriftelijk is afgesproken.</small></label>
 </div>
 <div class="cout" aria-live="polite">
 <span class="eyebrow">Richtbedrag</span>
 <div class="big" id="tot"><small>€ </small>0</div>
 <div class="row"><span>Ereloon</span><b id="r1"></b></div>
-<div class="row"><span>Kantoorkosten (15 % van het ereloon)</span><b id="r2"></b></div>
+<div class="row"><span>Kantoorkosten (15 %)</span><b id="r2"></b></div>
 <div class="row"><span>Succes fee</span><b id="r3"></b></div>
 <div class="row"><span>Btw 21 %</span><b id="r4"></b></div>
-<p>Zonder specifieke kosten zoals gerechtskosten of deurwaarders. Tussentijds ontvangt u provisiestaten, zodat er op het einde geen verrassingen zijn.</p>
+<p>Zonder gerechtskosten of deurwaarders. Het exacte bedrag spreken we af bij de eerste consultatie.</p>
 <a class="btn dk" href="#contact">Bespreek uw dossier<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
 </div>
 </div>
@@ -329,14 +379,12 @@ input[type=range]{width:100%;accent-color:#D8C8B6;height:28px}
 
 <section class="sec" id="kantoor">
 <div class="wrap">
-<div class="hd"><span class="eyebrow">Kantoor</span><h2 class="d2">Het kantoor <em>in Astene</em>.</h2><p class="lead">Aan de Emiel Clauslaan 19A in Astene, deelgemeente van Deinze.</p></div>
+<div class="hd"><span class="eyebrow">Kantoor</span><h2 class="d2">Welkom aan <em>de Emiel Clauslaan</em>.</h2></div>
 <div class="of">
 <div class="ph a zoom rv"><img src="img/vergaderzaal.webp" alt="Vergaderzaal" loading="lazy"></div>
-<div class="ph b zoom rv d1s"><img src="img/archief.webp" alt="Archief met dossiers" loading="lazy"></div>
-<div class="ph c zoom rv"><img src="img/dossiers.webp" alt="Dossiers" loading="lazy"></div>
-<div class="card d rv d1s">
-<div><h3>Openingsuren</h3><table id="hrs"><tbody><tr data-d="1"><td>Maandag</td><td>8.45 tot 18.30</td></tr><tr data-d="2"><td>Dinsdag</td><td>8.45 tot 18.30</td></tr><tr data-d="3"><td>Woensdag</td><td>8.45 tot 18.30</td></tr><tr data-d="4"><td>Donderdag</td><td>8.45 tot 18.30</td></tr><tr data-d="5"><td>Vrijdag</td><td>8.45 tot 16.30</td></tr><tr data-d="6"><td>Weekend</td><td>gesloten</td></tr></tbody></table></div>
-<div><h3>Bereikbaar</h3><p style="color:var(--ink2);font-size:15.5px">Emiel Clauslaan 19A<br>9800 Astene (Deinze)<br><br>Tel. 09 223 00 34<br>Fax 09 224 31 20<br>info@advocatendemeulenaere.be</p><a class="btn lt sm" style="margin-top:18px" href="https://www.google.com/maps/search/?api=1&query=Emiel+Clauslaan+19A+9800+Astene" target="_blank" rel="noopener">Route<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span></a></div>
+<div class="side">
+<div class="oh rv d1s"><h3>Openingsuren</h3><table id="hrs"><tbody><tr data-d="1"><td>Maandag</td><td>8.45 tot 18.30</td></tr><tr data-d="2"><td>Dinsdag</td><td>8.45 tot 18.30</td></tr><tr data-d="3"><td>Woensdag</td><td>8.45 tot 18.30</td></tr><tr data-d="4"><td>Donderdag</td><td>8.45 tot 18.30</td></tr><tr data-d="5"><td>Vrijdag</td><td>8.45 tot 16.30</td></tr></tbody></table></div>
+<div class="oh rv d2s"><h3>Adres</h3><p style="color:var(--ink2);font-size:15.5px">Emiel Clauslaan 19A<br>9800 Astene (Deinze)</p><a class="btn lt sm" style="margin-top:16px" href="https://www.google.com/maps/search/?api=1&query=Emiel+Clauslaan+19A+9800+Astene" target="_blank" rel="noopener">Route<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span></a></div>
 </div>
 </div>
 </div>
@@ -344,12 +392,11 @@ input[type=range]{width:100%;accent-color:#D8C8B6;height:28px}
 
 <section class="sec t0" id="contact">
 <div class="wrap two">
-<div><span class="eyebrow">Vragen</span><h2 class="d2" style="margin-top:18px">Goed om <em>vooraf te weten</em>.</h2>
-<div class="faq-l" style="margin-top:30px">
-<details open><summary>Hoe verloopt een eerste consultatie?<i></i></summary><p>U legt uw situatie uit, het kantoor bekijkt de mogelijkheden en licht de werkwijze en het ereloon toe. Breng alle stukken mee die over de zaak gaan.</p></details>
+<div><span class="eyebrow">Vragen</span><h2 class="d2" style="margin:18px 0 28px">Goed om <em>vooraf te weten</em>.</h2>
+<div class="faq-l">
+<details open><summary>Hoe verloopt een eerste consultatie?<i></i></summary><p>U legt uw situatie uit, wij bekijken de mogelijkheden en lichten de werkwijze en het ereloon toe. Breng alle stukken mee die over de zaak gaan.</p></details>
 <details><summary>Ik ben zelfstandige en heb een probleem met mijn sociale bijdragen.<i></i></summary><p>Dat is net een van de domeinen waar het kantoor al jaren in werkt, onder meer voor de Partena-groep. Bel gerust om te overlopen wat er speelt.</p></details>
-<details><summary>Wordt er een succes fee aangerekend?<i></i></summary><p>Enkel als dat vooraf schriftelijk is overeengekomen. Het percentage daalt naarmate het bedrag hoger ligt: maximaal 10 procent tot 25.000 euro, 5 procent tot 50.000 euro, 2,5 procent tot 250.000 euro en 1 procent daarboven.</p></details>
-<details><summary>Waar parkeer ik?<i></i></summary><p>Vraag het gerust bij het maken van de afspraak, het secretariaat legt u uit waar u het makkelijkst staat.</p></details>
+<details><summary>Wordt er een succes fee aangerekend?<i></i></summary><p>Enkel als dat vooraf schriftelijk is afgesproken. Het percentage daalt naarmate het bedrag hoger ligt: tot 10 procent tot 25.000 euro, 5 procent tot 50.000 euro, 2,5 procent tot 250.000 euro en 1 procent daarboven.</p></details>
 </div></div>
 <form class="card frm rv" id="frm">
 <h3>Neem contact op</h3><p class="sm">Uw bericht komt rechtstreeks bij het secretariaat terecht.</p>
@@ -362,7 +409,18 @@ input[type=range]{width:100%;accent-color:#D8C8B6;height:28px}
 </div>
 </section>
 
-<footer class="foot"><div class="wrap"><span>© BV De Meulenaere &amp; Partners · Emiel Clauslaan 19A, 9800 Astene · KBO 0866.907.212</span><span>Voorbeeldsite door <a href="https://digital-impression.be">Digital Impression</a></span></div></footer>
+<footer class="ft">
+<div class="wrap">
+<div class="top2"><h2 class="d2">Een vraag? <em>Bel ons gerust.</em></h2><a class="btn wh" href="tel:+3292230034">09 223 00 34<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span></a></div>
+<div class="g">
+<div class="b"><span class="mark"><img src="img/mark.png" alt=""></span><p>De Meulenaere &amp; Partners<br>Advocaten aan de balie van Gent</p></div>
+<div><h4>Kantoor</h4><ul><li>Emiel Clauslaan 19A</li><li>9800 Astene (Deinze)</li><li>Ma tot do 8.45 tot 18.30</li><li>Vr 8.45 tot 16.30</li></ul></div>
+<div><h4>Contact</h4><ul><li><a href="tel:+3292230034">09 223 00 34</a></li><li><a href="mailto:info@advocatendemeulenaere.be">info@advocatendemeulenaere.be</a></li></ul></div>
+<div><h4>Menu</h4><ul><li><a href="#domeinen">Domeinen</a></li><li><a href="#team">Team</a></li><li><a href="#ereloon">Ereloon</a></li><li><a href="#kantoor">Kantoor</a></li></ul></div>
+</div>
+<div class="bt"><span>© BV De Meulenaere &amp; Partners · KBO 0866.907.212</span><span>Voorbeeldsite door <a href="https://digital-impression.be">Digital Impression</a></span></div>
+</div>
+</footer>
 <script>
 document.documentElement.classList.add('js');
 (function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.rv').forEach(function(el){io.observe(el)})})();
@@ -370,13 +428,13 @@ document.documentElement.classList.add('js');
 <script>
 (function(){
 var T=document.querySelectorAll('[role=tab]');T.forEach(function(b){b.addEventListener('click',function(){T.forEach(function(x){x.setAttribute('aria-selected',x===b)});document.getElementById('pz').classList.toggle('on',b.dataset.t==='z');document.getElementById('pp').classList.toggle('on',b.dataset.t==='p');document.getElementById('fw').selectedIndex=b.dataset.t==='z'?0:1})});
-document.querySelectorAll('.di2').forEach(function(a){a.addEventListener('click',function(){document.getElementById('fo').value=a.dataset.o})});
-var d=new Date().getDay();var r=document.querySelector('#hrs tr[data-d="'+(d===0?6:d)+'"]');if(r)r.classList.add('today');
+document.querySelectorAll('.dc').forEach(function(a){a.addEventListener('click',function(){document.getElementById('fo').value=a.dataset.o})});
+var d=new Date().getDay();var r=document.querySelector('#hrs tr[data-d="'+d+'"]');if(r)r.classList.add('today');
 var rate=135,S=document.querySelectorAll('#seg button'),h=document.getElementById('h'),a=document.getElementById('a');
 function e(x){return x.toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.')}
 function fee(x){var t=0,b=[[25000,.10],[50000,.05],[250000,.025],[1e12,.01]],lo=0;b.forEach(function(s){if(x>lo){t+=(Math.min(x,s[0])-lo)*s[1]}lo=s[0]});return t}
 function calc(){var er=rate*h.value,kk=er*.15,sf=fee(+a.value),ex=er+kk+sf,v=ex*.21;
-document.getElementById('oR').textContent='€ '+rate;document.getElementById('oH').textContent=h.value+(h.value==1?' uur':' uur');document.getElementById('oA').textContent=+a.value?'€ '+(+a.value).toLocaleString('nl-BE'):'geen';
+document.getElementById('oR').textContent='€ '+rate;document.getElementById('oH').textContent=h.value+' uur';document.getElementById('oA').textContent=+a.value?'€ '+(+a.value).toLocaleString('nl-BE'):'geen';
 document.getElementById('r1').textContent='€ '+e(er);document.getElementById('r2').textContent='€ '+e(kk);document.getElementById('r3').textContent=sf?'€ '+e(sf):'geen';document.getElementById('r4').textContent='€ '+e(v);
 document.getElementById('tot').innerHTML='<small>€ </small>'+e(ex+v)}
 S.forEach(function(b){b.addEventListener('click',function(){S.forEach(function(x){x.setAttribute('aria-pressed',x===b)});rate=+b.dataset.r;calc()})});h.addEventListener('input',calc);a.addEventListener('input',calc);calc();
