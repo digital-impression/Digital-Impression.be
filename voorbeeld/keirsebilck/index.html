@@ -128,33 +128,39 @@ p{margin:0}
 h1,h2,h3{font-variation-settings:"SOFT" 100,"opsz" 120}
 h1 em,h2 em,h3 em{font-weight:300}
 .brand .mk{width:42px;height:42px;border-radius:50%;background:var(--blush);color:var(--brand);display:grid;place-items:center;font:500 20px/1 var(--serif);font-style:italic}
-/* hero v2 */
+/* hero v3 */
 :root{--ease:cubic-bezier(.22,.8,.24,1)}
-.hx{position:relative;margin:16px auto 0;width:min(1320px,100% - 24px);border-radius:40px;background:linear-gradient(160deg,#F7E6DF 0%,#FBF3EE 55%,#F3E2EA 100%);overflow:hidden;isolation:isolate}
-.hx::before{content:"";position:absolute;right:-8%;top:-30%;width:62%;height:120%;background:radial-gradient(closest-side,rgba(232,167,146,.45),transparent);z-index:-1}
-.hx .hg{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:clamp(48px,6vw,88px) clamp(24px,5vw,72px) clamp(40px,5vw,64px)}
-.hx h1{font-size:clamp(44px,5.6vw,86px);line-height:.98;margin:22px 0 22px}
-.hx .lead{max-width:500px}
+.hx{position:relative;margin:16px auto 0;width:min(1320px,100% - 24px);min-height:min(760px,calc(100vh - 120px));border-radius:40px;overflow:hidden;isolation:isolate;display:flex;align-items:flex-end;color:#fff}
+.hx .bg{position:absolute;inset:0;z-index:-2}
+.hx .bg img{width:100%;height:115%;object-fit:cover;object-position:50% 38%}
+.hx::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(42,16,34,.86) 0%,rgba(42,16,34,.55) 45%,rgba(42,16,34,.08) 75%),linear-gradient(0deg,rgba(42,16,34,.55),transparent 45%)}
+.hx .hg{width:100%;display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:end;padding:clamp(40px,6vw,84px) clamp(24px,5vw,72px)}
+.hx .kick{display:inline-flex;align-items:center;gap:12px;font:500 14px/1 var(--sans);color:rgba(255,255,255,.85)}
+.hx .kick i{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--rose);color:var(--brand);font:italic 400 18px/1 var(--serif);flex:none}
+.hx h1{font-size:clamp(46px,6vw,92px);line-height:.98;margin:22px 0 22px;color:#fff;max-width:13ch}
+.hx h1 em{color:var(--rose)}
+.hx .lead{color:rgba(255,255,255,.82);max-width:470px}
 .hx .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
-.hx .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px}
-.hx .tags a{padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.7);text-decoration:none;font:500 14px/1 var(--sans);color:var(--ink2);box-shadow:inset 0 0 0 1px rgba(91,42,74,.1);transition:background .4s var(--ease),color .4s,transform .5s var(--ease)}
-.hx .tags a:hover{background:var(--brand);color:#fff;transform:translateY(-2px)}
-.hv{position:relative;height:600px}
-.hv .arch{position:absolute;right:0;top:0;width:76%;height:100%;border-radius:999px 999px 34px 34px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(62,28,51,.6)}
-.hv .arch img{width:100%;height:118%;object-fit:cover;object-position:50% 40%}
-.hv .orb{position:absolute;left:0;bottom:8%;width:42%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:8px solid #FBF3EE;box-shadow:0 30px 60px -28px rgba(62,28,51,.6)}
-.hv .orb img{width:100%;height:100%;object-fit:cover}
-.hv .rate{position:absolute;left:6%;top:12%}
-.hv .fee{position:absolute;right:-12px;bottom:12%;padding:16px 20px;max-width:250px}
-.hv .fee b{display:block;font:400 30px/1 var(--serif);color:var(--brand)}
-.hv .fee span{display:block;font-size:13.5px;color:#6f5f68;margin-top:6px}
-.hv .stamp{left:34%;top:46%;background:var(--brand);color:#fff;width:118px;height:118px}
-.hv .stamp .mid{font-size:30px}
-.hx .pl{margin:0;padding:0 clamp(24px,5vw,72px) clamp(24px,4vw,48px);gap:10px}
-.hx .pl div{background:rgba(255,255,255,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.8);transition:transform .6s var(--ease),background .4s}
-.hx .pl div:hover{transform:translateY(-4px);background:#fff}
-@media(max-width:980px){.hx .hg{grid-template-columns:1fr}.hv{height:520px}}
-@media(max-width:560px){.hx{border-radius:30px;width:calc(100% - 16px)}.hv{height:420px}.hv .arch{width:88%}.hv .orb{width:46%;bottom:2%}.hv .fee{right:4px;bottom:auto;top:56%;max-width:200px}.hv .stamp{display:none}.hv .rate{left:2%;top:6%}}
+.hx .btn.lt{background:rgba(255,255,255,.12);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.3);backdrop-filter:blur(8px)}
+.hx .btn.lt .ic{background:rgba(255,255,255,.16);color:#fff}
+.hx .btn.dk{background:#fff;color:var(--brand)}.hx .btn.dk .ic{background:var(--brand);color:#fff}
+.hcard{background:rgba(255,255,255,.9);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);color:var(--ink);border-radius:28px;padding:24px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.hcard .top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid rgba(91,42,74,.1)}
+.hcard .top b{font:400 26px/1 var(--serif);color:var(--brand)}
+.hcard .top small{display:block;font-size:12.5px;color:var(--muted);margin-top:4px}
+.hcard .top .stars{color:#E8A23A}
+.hcard p.q{font-size:15px;font-weight:600;margin:16px 0 10px}
+.hcard .ch{display:flex;flex-wrap:wrap;gap:6px}
+.hcard .ch a{padding:9px 13px;border-radius:999px;background:var(--blush);text-decoration:none;font:500 14px/1 var(--sans);color:var(--brand);transition:background .4s var(--ease),color .4s,transform .5s var(--ease)}
+.hcard .ch a:hover{background:var(--brand);color:#fff;transform:translateY(-2px)}
+.hcard .fee{display:flex;align-items:center;gap:12px;margin-top:16px;padding:14px 16px;border-radius:18px;background:var(--bg)}
+.hcard .fee b{font:400 28px/1 var(--serif);color:var(--brand);white-space:nowrap}
+.hcard .fee span{font-size:13.5px;color:var(--ink2);line-height:1.4}
+.pl.under{width:min(1240px,100% - 48px);margin:14px auto 0;gap:10px}
+.pl.under div{background:var(--surface);transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.pl.under div:hover{transform:translateY(-4px);box-shadow:0 24px 40px -30px rgba(62,28,51,.5)}
+@media(max-width:980px){.hx .hg{grid-template-columns:1fr;gap:28px}.hx{min-height:0}.hx::after{background:linear-gradient(0deg,rgba(42,16,34,.92) 0%,rgba(42,16,34,.7) 55%,rgba(42,16,34,.2))}}
+@media(max-width:560px){.hx{border-radius:30px;width:calc(100% - 16px)}.hx .hg{padding:120px 20px 20px}.pl.under{width:calc(100% - 32px);grid-template-columns:1fr 1fr}.pl.under div{padding:16px}.pl.under b{font-size:15px}.pl.under span{font-size:13.5px;line-height:1.45;display:block}}
 /* footer v2 */
 .fx{margin:0 auto 12px;width:min(1320px,100% - 24px);border-radius:40px;background:var(--brand);color:rgba(255,255,255,.72);padding:clamp(44px,6vw,84px) clamp(24px,5vw,72px) 28px;position:relative;overflow:hidden}
 .fx::after{content:"";position:absolute;right:-140px;bottom:-200px;width:520px;height:520px;border-radius:50%;background:radial-gradient(closest-side,rgba(232,167,146,.3),transparent)}
@@ -288,28 +294,28 @@ h1 em,h2 em,h3 em{font-weight:300}
 </nav>
 
 <header class="hx" id="top">
+  <div class="bg"><img data-par="-0.05" src="img/hero.webp" alt="Ouders en kinderen wandelen samen in de avondzon" width="1600" height="1067" fetchpriority="high"></div>
   <div class="hg">
     <div>
-      <span class="chip rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Ardooisesteenweg 22, tegenover het station</span>
+      <span class="kick rv"><i>K</i>Mr. Ibele Keirsebilck · familierecht in Roeselare</span>
       <h1 class="rv d1s">Als het thuis <em>verandert,</em> staat u er niet alleen voor.</h1>
-      <p class="lead rv d2s">Mr. Ibele Keirsebilck volgt uw dossier zelf op, van het eerste gesprek tot het pleidooi. Pragmatisch en zonder omwegen.</p>
+      <p class="lead rv d2s">Ze volgt uw dossier zelf op, van het eerste gesprek tot het pleidooi. Pragmatisch en zonder omwegen.</p>
       <div class="cta rv d2s"><a class="btn dk" href="#voorbereiden">Bereid uw gesprek voor<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a class="btn lt" href="tel:+3251201980">051 20 19 80<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span></a></div>
-      <div class="tags rv d3s"><a href="#materies">Echtscheiding</a><a href="#materies">Kinderen</a><a href="#materies">Verdeling en erfenis</a><a href="#materies">Schulden</a><a href="#materies">Verkeer</a></div>
     </div>
-    <div class="hv rv d1s">
-      <div class="arch"><img data-par="-0.06" src="img/hero.webp" alt="Ouders en kinderen wandelen samen in de avondzon" width="1600" height="1067" fetchpriority="high"></div>
-      <div class="orb"><img src="img/gesprek.webp" alt="Rustig gesprek aan tafel" loading="lazy"></div>
-      <div class="glass rate"><span class="stars"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg></span><div><span class="n">4,5</span><small>21 reviews op Google</small></div></div>
-      <div class="glass fee"><b>€ 80</b><span>Eerste mondeling advies. Vrijblijvend, we kijken samen wat kan.</span></div>
-      <div class="stamp"><svg class="ring" viewBox="0 0 132 132" aria-hidden="true"><defs><path id="sp-k1" d="M66 66m-50 0a50 50 0 1 1 100 0a50 50 0 1 1-100 0"/></defs><text><textPath href="#sp-k1">Eigen kantoor sinds 2009 ·</textPath></text></svg><span class="mid">K</span></div>
+    <div class="hcard rv d3s">
+      <div class="top"><div><b>4,5</b><small>21 reviews op Google</small></div><span class="stars"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg></span></div>
+      <p class="q">Waarover wil u praten?</p>
+      <div class="ch"><a href="#voorbereiden" data-s="0">Echtscheiding</a><a href="#voorbereiden" data-s="1">Kinderen</a><a href="#voorbereiden" data-s="2">Verdeling of erfenis</a><a href="#voorbereiden" data-s="4">Schulden</a><a href="#voorbereiden" data-s="3">Verkeer</a></div>
+      <div class="fee"><b>€ 80</b><span>Eerste mondeling advies. Vrijblijvend, we kijken samen wat kan.</span></div>
     </div>
   </div>
-  <div class="pl">
+</header>
+<div class="pl under">
       <div class="rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><b>Eén advocaat, van begin tot eind</b><span>Ze stelt zelf de dagvaarding en de besluiten op en pleit zelf.</span></div>
       <div class="rv d1s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12h8M12 8v8"/><circle cx="12" cy="12" r="9"/></svg><b>Overeenkomst waar het kan</b><span>Bemiddeling of een regeling op papier gaat voor, de rechtbank als het moet.</span></div>
       <div class="rv d2s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3v4M16 3v4M4 10h16"/></svg><b>Ook na de kantooruren</b><span>Consultaties kunnen in overleg buiten de kantooruren.</span></div>
       <div class="rv d3s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><b>Vlak bij het station</b><span>Te voet vanaf trein en bus, of parkeren in de ondergrondse NMBS-parking.</span></div>
-</header>
+</div>
 
 <section class="sec" id="materies">
   <div class="wrap">
@@ -467,6 +473,9 @@ document.documentElement.classList.add('js');
 (function(){var nav=document.querySelector('.nav'),par=[].slice.call(document.querySelectorAll('[data-par]')),tk=false;
 function s(){if(nav)nav.classList.toggle('sc',scrollY>40);if(!matchMedia('(prefers-reduced-motion:reduce)').matches)par.forEach(function(el){var r=el.parentNode.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;el.style.transform='translate3d(0,'+((r.top+r.height/2-innerHeight/2)*+el.dataset.par-r.height*.08)+'px,0)'});tk=false}
 addEventListener('scroll',function(){if(!tk){requestAnimationFrame(s);tk=true}},{passive:true});s()})();
+</script>
+<script>
+document.querySelectorAll('.hcard .ch a').forEach(function(a){a.addEventListener('click',function(){var b=document.querySelector('#voorbereiden button[data-s="'+a.dataset.s+'"]');if(b)setTimeout(function(){b.click()},350)})});
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Onest:wght@400;600;700&display=swap">
 <style>
