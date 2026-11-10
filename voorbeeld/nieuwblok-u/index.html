@@ -417,7 +417,7 @@ a.dm-chip:hover{border-color:var(--ink)}
 <style>/*di-safe*/.dm-rv{animation:disafe .01s 1.6s forwards}@keyframes disafe{to{opacity:1;transform:none;clip-path:none;visibility:visible}}</style>
 </head>
 <body class="dm">
-<style>.di-strook{background:#0E1C3A;color:#c3cadb;font:500 14px/1.4 system-ui,sans-serif;text-align:center;padding:9px 16px;position:relative;z-index:60}.di-strook a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px}</style><div class="di-strook">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div><script>/*di-strook*/(function(){var s=document.querySelector('.di-strook');if(!s)return;var v=[];function zoek(){v=[].filter.call(document.body.querySelectorAll('*'),function(e){if(e===s||e.closest('.di'))return false;var c=getComputedStyle(e);return c.position==='fixed'&&parseFloat(c.top)<=1&&e.getBoundingClientRect().top<=s.offsetHeight+1})}function zet(){var t=Math.max(0,s.offsetHeight-window.scrollY);v.forEach(function(e){e.style.top=t+'px'})}function start(){zoek();zet()}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();window.addEventListener('scroll',zet,{passive:true});window.addEventListener('resize',start)})();</script>
+<style>.di-strook{background:#0E1C3A;color:rgba(241,235,223,.78);font:500 14px/1.4 Inter,system-ui,sans-serif;border-bottom:1px solid rgba(201,162,74,.35);text-align:center;padding:9px 16px;position:relative;z-index:60}.di-strook a{color:#D8BB6A;font-weight:700;text-decoration:underline;text-underline-offset:3px}</style><div class="di-strook">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div><script>/*di-strook*/(function(){var s=document.querySelector('.di-strook');if(!s)return;var v=[];function zoek(){v=[].filter.call(document.body.querySelectorAll('*'),function(e){if(e===s||e.closest('.di'))return false;var c=getComputedStyle(e);return c.position==='fixed'&&parseFloat(c.top)<=1&&e.getBoundingClientRect().top<=s.offsetHeight+1})}function zet(){var t=Math.max(0,s.offsetHeight-window.scrollY);v.forEach(function(e){e.style.top=t+'px'})}function start(){zoek();zet()}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();window.addEventListener('scroll',zet,{passive:true});window.addEventListener('resize',start)})();</script>
 <a class="dm-skip" href="#inhoud">Naar de inhoud</a>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -806,116 +806,196 @@ a.dm-chip:hover{border-color:var(--ink)}
 })();
 </script>
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Onest:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
 <style>
-.di,.di *{box-sizing:border-box;margin:0}
-.di{--n:#0E1C3A;--n2:#162a52;--n3:#21386a;--pa:#FBF7F0;--cr:#F5EEE2;--te:#D7603A;--ted:#B04722;--ap:#F2AE84;--bu:#F1CB78;--mu:#c3cadb;--lijn:rgba(245,238,226,.14);
-  background:var(--n);color:var(--cr);position:relative;overflow:clip;padding:96px 0 72px;font:18px/1.6 'Onest',system-ui,sans-serif;text-align:left;scroll-margin-top:0}
-.di::before{content:"";position:absolute;inset:0;background:radial-gradient(55% 45% at 90% 0%,rgba(215,96,58,.16),transparent 70%),radial-gradient(40% 40% at 0% 100%,rgba(241,203,120,.06),transparent 70%);pointer-events:none}
-.di .naad{position:absolute;left:0;right:0;top:0;height:6px;background:repeating-linear-gradient(90deg,var(--te) 0 22px,var(--bu) 22px 44px,var(--ap) 44px 66px)}
-.di .wrap{position:relative;max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)}
-.di h2,.di h3,.di h4{text-transform:none;letter-spacing:normal;font-style:normal}
-.di .merk{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ap);margin-bottom:22px}
-.di .merk::before{content:"";width:28px;height:2px;background:currentColor;border-radius:2px}
-.di .boven{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
-.di h2{font:400 clamp(40px,5.2vw,62px)/1.04 'DM Serif Display',serif;color:var(--pa);letter-spacing:-.5px;margin-bottom:26px}
-.di h2 em{font-style:italic;color:var(--ap)}
-.di .brief p{color:var(--mu);font-size:19px;max-width:32em}
-.di .brief p+p{margin-top:14px}
-.di .brief p b{color:var(--pa);font-weight:600}
-.di .teken{display:flex;align-items:center;gap:16px;margin-top:30px}
-.di .di-foto{flex:none;width:64px;height:64px;border-radius:50%;object-fit:cover;background:linear-gradient(140deg,var(--ted),var(--te));display:grid;place-items:center;font:400 30px/1 'DM Serif Display',serif;color:#fff;box-shadow:0 0 0 4px var(--n),0 0 0 6px rgba(242,174,132,.5)}
-.di .teken .naam{font:italic 400 30px/1 'DM Serif Display',serif;color:var(--pa)}
-.di .teken .wie{display:block;font-size:15px;color:var(--mu);margin-top:6px}
-.di .vgl{background:var(--pa);color:var(--n);border-radius:24px;padding:10px 26px 22px;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
-.di .vgl .kop{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:16px 0 12px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.di .vgl .kop span:first-child{color:#8a90a3}
-.di .vgl .kop span:last-child{color:var(--ted)}
-.di .rij{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:16px 0;border-top:1px solid rgba(14,28,58,.1);font-size:16.5px;line-height:1.4}
-.di .rij .nu{color:#6d7488}
-.di .rij .straks{font-weight:600;display:flex;gap:10px;align-items:flex-start}
-.di .rij .straks::before{content:"";flex:none;width:20px;height:20px;margin-top:1px;border-radius:50%;background:var(--ted) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/13px no-repeat}
-.di .gesprek{margin-top:64px;background:linear-gradient(135deg,var(--n2),var(--n3));border:1.5px solid var(--lijn);border-radius:28px;padding:40px;display:grid;grid-template-columns:1fr auto;gap:36px;align-items:center}
-.di .gesprek h3{font:400 clamp(30px,3.4vw,40px)/1.1 'DM Serif Display',serif;color:var(--pa)}
-.di .gesprek p{color:var(--mu);margin-top:10px;max-width:30em}
-.di .opties{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.di .opties span{font-size:14.5px;font-weight:600;color:var(--pa);background:rgba(245,238,226,.08);border:1px solid var(--lijn);border-radius:999px;padding:6px 14px}
-.di .knoppen{display:flex;flex-direction:column;gap:12px;min-width:300px}
-.di .knoppen a{display:flex;justify-content:center;align-items:center;gap:10px;border-radius:999px;padding:17px 26px;font-weight:700;font-size:17.5px;text-decoration:none;white-space:nowrap;transition:transform .15s,background .15s,border-color .15s}
-.di .knoppen a:hover{transform:translateY(-2px)}
-.di .knoppen svg{width:20px;height:20px;flex:none}
-.di .knoppen .cal{background:var(--te);color:#fff;box-shadow:0 14px 30px -12px rgba(215,96,58,.7)}
-.di .knoppen .cal:hover{background:var(--ted)}
-.di .knoppen .wa{border:1.5px solid rgba(245,238,226,.35);color:var(--pa)}
-.di .knoppen .wa:hover{border-color:var(--pa)}
-.di .knoppen .tel{color:var(--mu);font-weight:600;font-size:15.5px;padding:4px}
-.di .knoppen .tel:hover{color:var(--pa);transform:none}
-.di .stappen{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px;counter-reset:st}
-.di .stap{display:flex;gap:16px;align-items:flex-start}
-.di .stap i{flex:none;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--ap);color:var(--ap);display:grid;place-items:center;font:400 22px/1 'DM Serif Display',serif;font-style:normal}
-.di .stap b{display:block;color:var(--pa);font-size:18px;line-height:1.3;margin-bottom:4px}
-.di .stap span{color:var(--mu);font-size:16.5px;line-height:1.5}
-.di .prijs{margin-top:56px;padding-top:36px;border-top:1px solid var(--lijn)}
-.di .prijs h4{font:400 26px/1.1 'DM Serif Display',serif;color:var(--pa);margin-bottom:20px}
-.di .prijs .cellen{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.di .cel{border:1px solid var(--lijn);border-radius:18px;padding:20px 22px;background:rgba(245,238,226,.03)}
-.di .cel .b{font:400 32px/1 'DM Serif Display',serif;color:var(--pa)}
-.di .cel .b small{font:600 15px/1 'Onest',sans-serif;color:var(--ap);margin-left:4px}
-.di .cel p{color:var(--mu);font-size:15.5px;line-height:1.5;margin-top:8px}
-.di .voet{margin-top:44px;font-size:14.5px;color:#8f98b3;text-align:center}
-.di .voet a{color:inherit}
-.di :focus-visible{outline:3px solid var(--ap);outline-offset:3px}
-@media (max-width:940px){.di .boven{grid-template-columns:1fr;gap:40px}.di .gesprek{grid-template-columns:1fr;padding:30px 24px;gap:26px}.di .knoppen{min-width:0}.di .stappen{grid-template-columns:1fr;gap:20px}.di .prijs .cellen{grid-template-columns:1fr}}
-@media (max-width:640px){.di{padding:76px 0 56px;font-size:17px}.di .brief p{font-size:17.5px}.di .vgl{padding:6px 18px 14px}.di .rij{grid-template-columns:1fr;gap:4px;padding:14px 0}.di .vgl .kop{display:none}.di .rij .nu{font-size:14.5px;text-decoration:line-through;text-decoration-color:rgba(109,116,136,.5)}.di .knoppen a{white-space:normal}}
+.di,.di *{box-sizing:border-box;margin:0;padding:0}
+.di{--navy:#0E1C3A;--deep:#0A1530;--navy2:#13244A;--goud:#C9A24A;--goud2:#D8BB6A;--bleek:#E8D9A8;--beige:#F1EBDF;--creme:#FBF8F2;
+  --zacht:rgba(241,235,223,.72);--stil:rgba(241,235,223,.5);--lijn:rgba(241,235,223,.12);--ease:cubic-bezier(.16,1,.3,1);
+  position:relative;overflow:clip;background:var(--navy);color:var(--beige);padding:clamp(80px,10vw,128px) 0 64px;
+  font:400 17px/1.65 'Inter',system-ui,sans-serif;text-align:left;-webkit-font-smoothing:antialiased}
+.di::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(900px 520px at 88% -8%,rgba(201,162,74,.14),transparent 62%),radial-gradient(700px 500px at -10% 105%,rgba(19,36,74,.9),transparent 70%)}
+.di::after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,162,74,.7) 30%,rgba(232,217,168,.9) 50%,rgba(201,162,74,.7) 70%,transparent)}
+.di .wrap{position:relative;max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+.di h2,.di h3,.di h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:-.01em;text-transform:none;font-style:normal;color:var(--creme)}
+.di a{color:inherit}
+
+/* briefje */
+.di .boven{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(40px,6vw,88px);align-items:center}
+.di .afz{display:flex;align-items:center;gap:12px;margin-bottom:28px;color:var(--goud2);font-size:15px;font-weight:500}
+.di .afz i{width:34px;height:34px;border-radius:10px;background:var(--deep);border:1px solid rgba(201,162,74,.45);display:grid;place-items:center;font:600 16px/1 'Cormorant Garamond',serif;font-style:normal;color:var(--goud);letter-spacing:-.5px}
+.di h2{font-size:clamp(46px,6vw,76px);line-height:.98;margin-bottom:28px;max-width:11em}
+.di .brief p{color:var(--zacht);font-size:18px;max-width:34em}
+.di .brief p+p{margin-top:16px}
+.di .brief p strong{color:var(--creme);font-weight:500}
+.di .teken{display:flex;align-items:center;gap:18px;margin-top:36px}
+.di .di-foto{flex:none;width:68px;height:68px;border-radius:50%;object-fit:cover;display:grid;place-items:center;
+  background:radial-gradient(circle at 30% 25%,#1d3263,var(--deep));color:var(--goud);font:500 32px/1 'Cormorant Garamond',serif;
+  box-shadow:0 0 0 1px rgba(201,162,74,.55),0 0 0 6px var(--navy),0 0 0 7px rgba(201,162,74,.22)}
+.di .teken .naam{font:italic 500 38px/1 'Cormorant Garamond',serif;color:var(--creme)}
+.di .teken .wie{display:block;font-size:14.5px;color:var(--stil);margin-top:6px}
+
+/* nu / straks */
+.di .vgl{position:relative;background:var(--creme);color:var(--navy);border-radius:28px;padding:30px 30px 14px;
+  box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 40px 80px -40px rgba(0,0,0,.65),0 0 0 1px rgba(201,162,74,.25)}
+.di .vgl h3{color:var(--navy);font-size:28px;line-height:1.1;margin-bottom:6px}
+.di .vgl .sub{font-size:14.5px;color:rgba(14,28,58,.55);margin-bottom:10px}
+.di .vgl ol{list-style:none}
+.di .vgl li{display:grid;gap:4px;padding:16px 0;border-top:1px solid rgba(14,28,58,.1)}
+.di .vgl .nu{font-size:14.5px;color:rgba(14,28,58,.5);text-decoration:line-through;text-decoration-color:rgba(201,162,74,.85);text-decoration-thickness:1.5px}
+.di .vgl .straks{font-size:17px;font-weight:500;color:var(--navy);display:flex;gap:10px;align-items:baseline}
+.di .vgl .straks::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--goud);transform:translateY(-2px)}
+
+/* uitnodiging */
+.di .gesprek{margin-top:clamp(72px,9vw,112px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center;
+  padding:clamp(30px,4vw,48px);border-radius:32px;border:1px solid transparent;
+  background:linear-gradient(160deg,var(--navy2),var(--deep)) padding-box,linear-gradient(135deg,rgba(201,162,74,.55),rgba(241,235,223,.06) 45%,rgba(201,162,74,.3)) border-box}
+.di .gesprek h3{font-size:clamp(34px,4vw,48px);line-height:1.04}
+.di .gesprek p{color:var(--zacht);margin-top:12px;max-width:31em}
+.di .feiten{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:22px;list-style:none}
+.di .feiten li{display:flex;align-items:center;gap:9px;font-size:15px;color:var(--beige)}
+.di .feiten svg{width:18px;height:18px;color:var(--goud);flex:none}
+.di .knoppen{display:flex;flex-direction:column;gap:12px;min-width:290px}
+.di .knoppen a{position:relative;overflow:hidden;display:flex;justify-content:center;align-items:center;gap:10px;border-radius:999px;padding:17px 28px;
+  font:600 16.5px/1.2 'Inter',sans-serif;text-decoration:none;isolation:isolate;transition:color .5s var(--ease),border-color .5s var(--ease),transform .5s var(--ease)}
+.di .knoppen a svg{width:19px;height:19px;flex:none}
+.di .knoppen a::before{content:"";position:absolute;inset:0;z-index:-1;transform:translateY(101%);transition:transform .55s var(--ease)}
+.di .knoppen a:hover::before{transform:translateY(0)}
+.di .knoppen .cal{background:var(--goud);color:var(--deep);box-shadow:0 18px 40px -18px rgba(201,162,74,.8)}
+.di .knoppen .cal::before{background:var(--bleek)}
+.di .knoppen .wa{border:1px solid rgba(241,235,223,.3);color:var(--creme)}
+.di .knoppen .wa::before{background:var(--creme)}
+.di .knoppen .wa:hover{color:var(--navy);border-color:var(--creme)}
+.di .knoppen .tel{color:var(--stil);font-weight:500;font-size:15px;padding:6px}
+.di .knoppen .tel::before{display:none}
+.di .knoppen .tel:hover{color:var(--creme)}
+
+/* tijdlijn */
+.di .stappen{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:clamp(64px,8vw,96px);list-style:none}
+.di .stappen::before,.di .stappen::after{content:"";position:absolute;left:22px;right:calc(33.33% - 22px);top:22px;height:1px}
+.di .stappen::before{background:var(--lijn)}
+.di .stappen::after{background:linear-gradient(90deg,var(--goud),var(--bleek));transform-origin:left;transform:scaleX(1)}
+.di .stap{position:relative}
+.di .stap .bol{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--navy);border:1px solid rgba(201,162,74,.6);
+  font:500 22px/1 'Cormorant Garamond',serif;font-variant-numeric:lining-nums;color:var(--goud);margin-bottom:20px;position:relative;z-index:1}
+.di .stap:first-child .bol{background:var(--goud);color:var(--deep);border-color:var(--goud)}
+.di .stap h4{font-size:26px;line-height:1.1;margin-bottom:8px}
+.di .stap p{color:var(--zacht);font-size:16px;max-width:20em}
+
+/* prijs */
+.di .prijs{margin-top:clamp(64px,8vw,96px);display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:40px;padding-top:44px;border-top:1px solid var(--lijn)}
+.di .prijs h3{font-size:clamp(30px,3.2vw,40px);line-height:1.05}
+.di .prijs .kort{color:var(--stil);font-size:15.5px;margin-top:12px;max-width:18em}
+.di .prijs dl{display:grid;grid-template-columns:repeat(3,1fr)}
+.di .prijs dl>div{padding:0 26px;border-left:1px solid var(--lijn)}
+.di .prijs dt{font:500 44px/1 'Cormorant Garamond',serif;color:var(--creme);font-variant-numeric:lining-nums;white-space:nowrap}
+.di .prijs dt small{display:block;font:500 14px/1.3 'Inter',sans-serif;color:var(--goud2);margin-top:10px}
+.di .prijs dd{color:var(--zacht);font-size:15px;line-height:1.55;margin-top:12px}
+.di .prijs .tip{display:inline-block;margin-top:12px;font-size:13px;font-weight:500;color:var(--goud);border:1px solid rgba(201,162,74,.45);border-radius:999px;padding:3px 11px}
+
+.di .voet{margin-top:72px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 26px;font-size:14px;color:var(--stil)}
+.di .voet a{text-decoration:none;transition:color .3s}
+.di .voet a:hover{color:var(--creme)}
+.di :focus-visible{outline:2px solid var(--goud);outline-offset:4px;border-radius:12px}
+
+/* één beweging: bij het in beeld komen */
+.di.di-js [data-in]{opacity:0;transform:translateY(18px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0) * 90ms)}
+.di.di-js.di-zien [data-in]{opacity:1;transform:none}
+.di.di-js .stappen::after{transform:scaleX(0);transition:transform 1.6s var(--ease) .5s}
+.di.di-js.di-zien .stappen::after{transform:scaleX(1)}
+
+@media (max-width:960px){
+  .di .boven{grid-template-columns:1fr}
+  .di .gesprek{grid-template-columns:1fr;gap:30px}
+  .di .knoppen{min-width:0}
+  .di .prijs{grid-template-columns:1fr;gap:28px}
+}
+@media (max-width:720px){
+  .di{font-size:16.5px;padding-bottom:48px}
+  .di .brief p{font-size:17px}
+  .di .vgl{padding:24px 22px 8px;border-radius:24px}
+  .di .gesprek{border-radius:26px;padding:28px 22px}
+  .di .stappen{grid-template-columns:1fr;gap:28px}
+  .di .stappen::before,.di .stappen::after{left:22px;right:auto;top:22px;bottom:22px;width:1px;height:auto}
+  .di .stappen::after{background:linear-gradient(180deg,var(--goud),var(--bleek));transform-origin:top}
+  .di.di-js .stappen::after{transform:scaleY(0)}
+  .di.di-js.di-zien .stappen::after{transform:scaleY(1)}
+  .di .stap{display:grid;grid-template-columns:44px 1fr;column-gap:18px}
+  .di .stap .bol{margin:0;grid-row:span 2}
+  .di .stap h4{font-size:24px;margin-top:8px}
+  .di .prijs dl{grid-template-columns:1fr}
+  .di .prijs dl>div{display:grid;grid-template-columns:112px 1fr;column-gap:18px;align-items:start;padding:18px 0;border-left:0;border-top:1px solid var(--lijn)}
+  .di .prijs dl>div:first-child{border-top:0;padding-top:0}
+  .di .prijs dt{font-size:34px;grid-row:span 2}
+  .di .prijs dt small{margin-top:6px;font-size:13px}
+  .di .prijs dd{margin-top:2px;font-size:14.5px}
+  .di .prijs .tip{justify-self:start;margin-top:10px}
+  .di .voet{flex-direction:column;align-items:center;gap:6px;margin-top:56px}
+}
+@media (prefers-reduced-motion:reduce){.di.di-js [data-in],.di.di-js .stappen::after{transition:none!important;opacity:1!important;transform:none!important}.di .knoppen a,.di .knoppen a::before{transition:none}}
 </style>
 <section aria-labelledby="di-titel" class="di" id="di">
-<span aria-hidden="true" class="naad"></span>
 <div class="wrap">
 <div class="boven">
 <div class="brief">
-<span class="merk">Een woordje uitleg</span>
-<h2 id="di-titel">Dit is nog maar <em>een voorbeeld</em>.</h2>
-<p>Ik maakte deze site voor Demdes zonder u al te kennen. De teksten haalde ik uit wat ik online over uw zaak vond, de foto's en de stijl koos ik zelf.</p>
-<p>De echte site maak ik pas na een gesprek. Dan hoor ik wat uw klanten altijd vragen, wat er anders moet en wat écht bij u past. <b>Het resultaat wordt een stuk mooier en persoonlijker dan wat hier staat.</b></p>
-<div class="teken"><span class="di-foto" aria-hidden="true">S</span><div><span class="naam">Stijn</span><span class="wie">Stijn Vranken, Digital Impression</span></div></div>
+<p class="afz" data-in><i aria-hidden="true">DI</i>Een woordje uitleg van Stijn</p>
+<h2 id="di-titel" data-in style="--d:1">Dit is nog maar een voorbeeld.</h2>
+<p data-in style="--d:2">Ik maakte deze site voor Demdes zonder u al te kennen. De teksten haalde ik uit wat ik online over uw zaak vond, de foto's en de stijl koos ik zelf.</p>
+<p data-in style="--d:3">De echte site maak ik pas na een gesprek. Dan hoor ik wat uw klanten altijd vragen, wat er anders moet en wat écht bij u past. <strong>Het resultaat wordt een stuk mooier en persoonlijker dan wat hier staat.</strong></p>
+<div class="teken" data-in style="--d:4"><span class="di-foto" aria-hidden="true">S</span><div><span class="naam">Stijn</span><span class="wie">Stijn Vranken, Digital Impression</span></div></div>
 </div>
-<div class="vgl" role="table" aria-label="Wat dit nu is en wat het wordt">
-<div class="kop" role="row"><span role="columnheader">Nu, als voorbeeld</span><span role="columnheader">Straks, uw site</span></div>
-<div class="rij" role="row"><span class="nu" role="cell">Teksten op basis van Google en reviews</span><span class="straks" role="cell">Teksten in uw eigen woorden</span></div>
-<div class="rij" role="row"><span class="nu" role="cell">Foto's die ik zelf bij elkaar zocht</span><span class="straks" role="cell">Uw eigen beelden</span></div>
-<div class="rij" role="row"><span class="nu" role="cell">Een stijl die ik koos</span><span class="straks" role="cell">Kleuren en sfeer die u kiest</span></div>
-<div class="rij" role="row"><span class="nu" role="cell">Gemaakt zonder u</span><span class="straks" role="cell">Samen uitgewerkt, tot het klopt</span></div>
+<div class="vgl" data-in style="--d:3">
+<h3>Van voorbeeld naar uw site</h3>
+<p class="sub">Wat er na ons gesprek verandert</p>
+<ol>
+<li><span class="nu">Teksten op basis van Google en reviews</span><span class="straks">Teksten in uw eigen woorden</span></li>
+<li><span class="nu">Foto's die ik zelf bij elkaar zocht</span><span class="straks">Uw eigen beelden</span></li>
+<li><span class="nu">Een stijl die ik koos</span><span class="straks">Kleuren en sfeer die u kiest</span></li>
+<li><span class="nu">Gemaakt zonder u</span><span class="straks">Samen uitgewerkt, tot het klopt</span></li>
+</ol>
 </div>
 </div>
-<div class="gesprek">
+
+<div class="gesprek" data-in>
 <div>
 <h3>Zin om er eens over te praten?</h3>
 <p>Een half uurtje, vrijblijvend. U vertelt wat u wil, ik toon wat kan. Ook als u daarna niet verder wil, is dat helemaal oké.</p>
-<div class="opties"><span>Ik kom langs</span><span>Of we bellen even</span><span>30 minuten</span></div>
+<ul class="feiten">
+<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>Ik kom langs in de zaak</li>
+<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Of we bellen even</li>
+<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>30 minuten</li>
+</ul>
 </div>
 <div class="knoppen">
-<a class="cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Demdes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Plan een gesprek</a>
+<a class="cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Demdes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Plan een gesprek</a>
 <a class="wa" href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20Demdes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z"/></svg>Stuur een WhatsApp</a>
 <a class="tel" href="tel:+32496251445">of bel 0496 25 14 45</a>
 </div>
 </div>
-<div class="stappen">
-<div class="stap"><i aria-hidden="true">1</i><div><b>We praten even</b><span>Bij u in de zaak of aan de telefoon, wat u het best uitkomt.</span></div></div>
-<div class="stap"><i aria-hidden="true">2</i><div><b>Ik werk het uit</b><span>Op maat van uw zaak. Wat anders moet, pas ik aan.</span></div></div>
-<div class="stap"><i aria-hidden="true">3</i><div><b>Uw site staat online</b><span>Op uw eigen domein, 10 tot 14 dagen na ons gesprek.</span></div></div>
+
+<ol class="stappen" aria-label="Hoe het verder gaat">
+<li class="stap" data-in style="--d:1"><span class="bol" aria-hidden="true">1</span><h4>We praten even</h4><p>Bij u in de zaak of aan de telefoon, wat u het best uitkomt.</p></li>
+<li class="stap" data-in style="--d:2"><span class="bol" aria-hidden="true">2</span><h4>Ik werk het uit</h4><p>Op maat van uw zaak. Wat anders moet, pas ik aan.</p></li>
+<li class="stap" data-in style="--d:3"><span class="bol" aria-hidden="true">3</span><h4>Uw site staat online</h4><p>Op uw eigen domein, 10 tot 14 dagen na ons gesprek.</p></li>
+</ol>
+
+<div class="prijs" data-in>
+<div><h3>En wat kost dat dan?</h3><p class="kort">Vooraf duidelijk, zonder verrassingen achteraf.</p></div>
+<dl>
+<div><dt>€ 499<small>eenmalig</small></dt><dd>De volledige site, op gsm, tablet en computer. Alles inbegrepen.</dd></div>
+<div><dt>€ 19,99<small>per maand</small></dt><dd>Hosting, domein en aanpassingen door mij. Liever zelf beheren? Dan betaalt u niets per maand.</dd><span class="tip">mijn aanrader</span></div>
+<div><dt>€ 0<small>vooraf</small></dt><dd>Geen voorschot. U betaalt pas als de site klaar is.</dd></div>
+</dl>
 </div>
-<div class="prijs">
-<h4>En wat kost dat dan?</h4>
-<div class="cellen">
-<div class="cel"><div class="b">€ 499<small>eenmalig</small></div><p>De volledige site, op gsm, tablet en computer. Alles inbegrepen.</p></div>
-<div class="cel"><div class="b">€ 19,99<small>per maand</small></div><p>Hosting, domein en aanpassingen door mij. Liever zelf beheren? Dan betaalt u niets per maand.</p></div>
-<div class="cel"><div class="b">€ 0<small>vooraf</small></div><p>Geen voorschot. U betaalt pas als de site klaar is.</p></div>
-</div>
-</div>
-<p class="voet">Stijn Vranken · Digital Impression · <a href="tel:+32496251445">0496 25 14 45</a> · <a href="mailto:info@digital-impression.be">info@digital-impression.be</a> · <a href="https://digital-impression.be" target="_blank" rel="noopener">digital-impression.be</a></p>
+
+<p class="voet"><span>Stijn Vranken, Digital Impression</span><a href="tel:+32496251445">0496 25 14 45</a><a href="mailto:info@digital-impression.be">info@digital-impression.be</a><a href="https://digital-impression.be" target="_blank" rel="noopener">digital-impression.be</a></p>
 </div>
 </section>
-<script>/*di-rust*/(function(){var d=document.getElementById('di');if(!d||!('IntersectionObserver' in window))return;var vast=[];function zoek(){vast=[].filter.call(document.body.querySelectorAll('*'),function(e){if(d.contains(e)||e.closest('.di-strook,.demo'))return false;var p=getComputedStyle(e).position;return p==='fixed'||p==='sticky'})}new IntersectionObserver(function(x){if(!vast.length)zoek();var aan=x[0].isIntersecting;vast.forEach(function(e){e.style.transition='opacity .25s';e.style.opacity=aan?'0':'';e.style.pointerEvents=aan?'none':''})},{threshold:0.15}).observe(d)})();</script>
+<script>/*di-v4*/(function(){var d=document.getElementById('di');if(!d)return;
+var io='IntersectionObserver' in window,stil=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(io&&!stil){d.classList.add('di-js');new IntersectionObserver(function(x,o){if(x[0].isIntersecting){d.classList.add('di-zien');o.disconnect()}},{threshold:.08}).observe(d)}
+if(!io)return;var vast=[];function zoek(){vast=[].filter.call(document.body.querySelectorAll('*'),function(e){if(d.contains(e)||e.closest('.di-strook,.demo'))return false;var p=getComputedStyle(e).position;return p==='fixed'||p==='sticky'})}
+new IntersectionObserver(function(x){if(!vast.length)zoek();var aan=x[0].isIntersecting;vast.forEach(function(e){e.style.transition='opacity .35s';e.style.opacity=aan?'0':'';e.style.pointerEvents=aan?'none':''})},{threshold:.15}).observe(d)})();</script>
 
 </body>
 </html>
