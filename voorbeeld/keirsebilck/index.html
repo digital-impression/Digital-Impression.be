@@ -128,21 +128,62 @@ p{margin:0}
 h1,h2,h3{font-variation-settings:"SOFT" 100,"opsz" 120}
 h1 em,h2 em,h3 em{font-weight:300}
 .brand .mk{width:42px;height:42px;border-radius:50%;background:var(--blush);color:var(--brand);display:grid;place-items:center;font:500 20px/1 var(--serif);font-style:italic}
-/* hero */
-.hero{padding:46px 0 0}
-.hero .top{display:grid;grid-template-columns:1.25fr .75fr;gap:44px;align-items:end}
-.hero h1{font-size:clamp(44px,6.4vw,98px);line-height:.98;margin-top:22px}
-.hero .side .lead{margin-bottom:22px}
-.hero .side .cta{display:flex;gap:10px;flex-wrap:wrap}
-.panel{position:relative;margin-top:44px}
-.panel .ph{aspect-ratio:21/9;border-radius:34px}
-.panel .ph img{object-position:center 35%}
-.panel .q{position:absolute;left:28px;bottom:28px;max-width:400px;padding:22px 24px}
-.panel .q p{font:400 21px/1.35 var(--serif);font-style:italic;color:#2b1a24}
-.panel .q small{display:block;margin-top:10px;font-size:13px;color:#6f5f68}
-.panel .rate{position:absolute;right:28px;top:28px}
-.panel .stamp{right:60px;bottom:-46px;background:var(--rose);color:var(--brand)}
-@media(max-width:900px){.hero .top{grid-template-columns:1fr;gap:22px}.panel .ph{aspect-ratio:4/3.4}.panel .q{left:14px;right:14px;bottom:14px;max-width:none}.panel .q p{font-size:17px}.panel .rate{right:14px;top:14px}.panel .stamp{display:none}}
+/* hero v2 */
+:root{--ease:cubic-bezier(.22,.8,.24,1)}
+.hx{position:relative;margin:16px auto 0;width:min(1320px,100% - 24px);border-radius:40px;background:linear-gradient(160deg,#F7E6DF 0%,#FBF3EE 55%,#F3E2EA 100%);overflow:hidden;isolation:isolate}
+.hx::before{content:"";position:absolute;right:-8%;top:-30%;width:62%;height:120%;background:radial-gradient(closest-side,rgba(232,167,146,.45),transparent);z-index:-1}
+.hx .hg{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:clamp(48px,6vw,88px) clamp(24px,5vw,72px) clamp(40px,5vw,64px)}
+.hx h1{font-size:clamp(44px,5.6vw,86px);line-height:.98;margin:22px 0 22px}
+.hx .lead{max-width:500px}
+.hx .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.hx .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px}
+.hx .tags a{padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.7);text-decoration:none;font:500 14px/1 var(--sans);color:var(--ink2);box-shadow:inset 0 0 0 1px rgba(91,42,74,.1);transition:background .4s var(--ease),color .4s,transform .5s var(--ease)}
+.hx .tags a:hover{background:var(--brand);color:#fff;transform:translateY(-2px)}
+.hv{position:relative;height:600px}
+.hv .arch{position:absolute;right:0;top:0;width:76%;height:100%;border-radius:999px 999px 34px 34px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(62,28,51,.6)}
+.hv .arch img{width:100%;height:118%;object-fit:cover;object-position:50% 40%}
+.hv .orb{position:absolute;left:0;bottom:8%;width:42%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:8px solid #FBF3EE;box-shadow:0 30px 60px -28px rgba(62,28,51,.6)}
+.hv .orb img{width:100%;height:100%;object-fit:cover}
+.hv .rate{position:absolute;left:6%;top:12%}
+.hv .fee{position:absolute;right:-12px;bottom:12%;padding:16px 20px;max-width:250px}
+.hv .fee b{display:block;font:400 30px/1 var(--serif);color:var(--brand)}
+.hv .fee span{display:block;font-size:13.5px;color:#6f5f68;margin-top:6px}
+.hv .stamp{left:34%;top:46%;background:var(--brand);color:#fff;width:118px;height:118px}
+.hv .stamp .mid{font-size:30px}
+.hx .pl{margin:0;padding:0 clamp(24px,5vw,72px) clamp(24px,4vw,48px);gap:10px}
+.hx .pl div{background:rgba(255,255,255,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.8);transition:transform .6s var(--ease),background .4s}
+.hx .pl div:hover{transform:translateY(-4px);background:#fff}
+@media(max-width:980px){.hx .hg{grid-template-columns:1fr}.hv{height:520px}}
+@media(max-width:560px){.hx{border-radius:30px;width:calc(100% - 16px)}.hv{height:420px}.hv .arch{width:88%}.hv .orb{width:46%;bottom:2%}.hv .fee{right:4px;bottom:auto;top:56%;max-width:200px}.hv .stamp{display:none}.hv .rate{left:2%;top:6%}}
+/* footer v2 */
+.fx{margin:0 auto 12px;width:min(1320px,100% - 24px);border-radius:40px;background:var(--brand);color:rgba(255,255,255,.72);padding:clamp(44px,6vw,84px) clamp(24px,5vw,72px) 28px;position:relative;overflow:hidden}
+.fx::after{content:"";position:absolute;right:-140px;bottom:-200px;width:520px;height:520px;border-radius:50%;background:radial-gradient(closest-side,rgba(232,167,146,.3),transparent)}
+.fx>*{position:relative;z-index:1}
+.fx .fh{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:end;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.14)}
+.fx .fh h2{font:400 clamp(36px,4.4vw,64px)/1 var(--serif);color:#fff;letter-spacing:-.025em}
+.fx .fh h2 em{color:var(--rose)}
+.fx .fh .bt{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+.fx .btn.wh{background:#fff;color:var(--brand)}.fx .btn.wh .ic{background:var(--brand);color:#fff}
+.fx .btn.g2{background:rgba(255,255,255,.1);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}.fx .btn.g2 .ic{background:rgba(255,255,255,.14);color:#fff}
+.fx .fc{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:34px;padding:40px 0}
+.fx h4{margin:0 0 14px;font:600 12.5px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--rose)}
+.fx p,.fx li{font-size:15px;line-height:1.75}
+.fx ul{list-style:none;margin:0;padding:0}
+.fx a{color:#fff;text-decoration:none}.fx a:hover{text-decoration:underline;text-underline-offset:3px}
+.fx .nm{font:400 30px/1.05 var(--serif);color:#fff}
+.fx .nm small{display:block;font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--rose);margin-bottom:10px}
+.fx .fb{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:13.5px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14)}
+.fx .fb a{font-weight:600}
+@media(max-width:900px){.fx .fh{grid-template-columns:1fr}.fx .fh .bt{justify-content:flex-start}.fx .fc{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.fx .fc{grid-template-columns:1fr}.fx{border-radius:30px;width:calc(100% - 16px)}}
+/* smoother */
+.btn{transition:transform .5s var(--ease),box-shadow .5s var(--ease),background .3s}
+.btn .ic{transition:transform .6s var(--ease)}
+.ph img{transition:transform 1.4s var(--ease)}
+.js .rv{transition:opacity 1s var(--ease),transform 1s var(--ease)!important}
+.nav{transition:background .4s,box-shadow .4s}
+.nav.sc{background:rgba(255,255,255,.92);box-shadow:0 16px 40px -22px rgba(62,28,51,.45)}
+[data-par]{will-change:transform}
 /* pillars */
 .pl{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:84px}
 .pl div{padding:22px;border-radius:22px;background:var(--surface)}
@@ -235,6 +276,7 @@ h1 em,h2 em,h3 em{font-weight:300}
 .hrs2 div b{display:block;font-size:14px;color:#fff;margin-bottom:2px}
 .hrs2 div.t{background:var(--rose);color:var(--brand)}.hrs2 div.t b{color:var(--brand)}
 @media(max-width:900px){.cg{grid-template-columns:1fr}}
+@media(max-width:560px){.hx .pl{grid-template-columns:1fr 1fr}.hx .pl div{padding:16px}.hx .pl b{font-size:15.5px}.hx .pl span{font-size:13.5px;line-height:1.45;display:block}}
 </style>
 </head>
 <body>
@@ -245,27 +287,28 @@ h1 em,h2 em,h3 em{font-weight:300}
   <a class="btn dk sm" href="#contact"><span class="t">Maak een afspraak</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
 </nav>
 
-<header class="hero" id="top">
-  <div class="wrap">
-    <div class="top">
-      <div class="rv"><span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Ardooisesteenweg 22, tegenover het station van Roeselare</span>
-        <h1>Als het thuis <em>verandert,</em> staat u er niet alleen voor.</h1></div>
-      <div class="side rv d1s"><p class="lead">Mr. Ibele Keirsebilck volgt uw dossier zelf op: van het eerste gesprek tot het pleidooi op de rechtbank. Echtscheiding, kinderen, een verdeling of een schuldenlast, pragmatisch en zonder omwegen.</p>
-        <div class="cta"><a class="btn dk" href="#voorbereiden">Bereid uw gesprek voor<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a class="btn lt" href="tel:+3251201980">051 20 19 80<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span></a></div></div>
+<header class="hx" id="top">
+  <div class="hg">
+    <div>
+      <span class="chip rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Ardooisesteenweg 22, tegenover het station</span>
+      <h1 class="rv d1s">Als het thuis <em>verandert,</em> staat u er niet alleen voor.</h1>
+      <p class="lead rv d2s">Mr. Ibele Keirsebilck volgt uw dossier zelf op, van het eerste gesprek tot het pleidooi. Pragmatisch en zonder omwegen.</p>
+      <div class="cta rv d2s"><a class="btn dk" href="#voorbereiden">Bereid uw gesprek voor<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a class="btn lt" href="tel:+3251201980">051 20 19 80<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span></a></div>
+      <div class="tags rv d3s"><a href="#materies">Echtscheiding</a><a href="#materies">Kinderen</a><a href="#materies">Verdeling en erfenis</a><a href="#materies">Schulden</a><a href="#materies">Verkeer</a></div>
     </div>
-    <div class="panel rv d2s">
-      <div class="ph"><img src="img/hero.webp" alt="Advocate in gesprek met cliënten aan tafel" width="1400" height="788" fetchpriority="high"></div>
+    <div class="hv rv d1s">
+      <div class="arch"><img data-par="-0.06" src="img/hero.webp" alt="Ouders en kinderen wandelen samen in de avondzon" width="1600" height="1067" fetchpriority="high"></div>
+      <div class="orb"><img src="img/gesprek.webp" alt="Rustig gesprek aan tafel" loading="lazy"></div>
       <div class="glass rate"><span class="stars"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg></span><div><span class="n">4,5</span><small>21 reviews op Google</small></div></div>
-      <div class="glass q"><p>Een eerste gesprek is steeds vrijblijvend. We kijken samen wat kan en wat u mag verwachten.</p><small>Eerste mondeling advies vanaf € 80</small></div>
-      <div class="stamp"><svg class="ring" viewBox="0 0 132 132" aria-hidden="true"><defs><path id="sp-keirsebilck-1" d="M66 66m-50 0a50 50 0 1 1 100 0a50 50 0 1 1-100 0"/></defs><text><textPath href="#sp-keirsebilck-1">Eigen kantoor sinds 2009 ·</textPath></text></svg><span class="mid">K</span></div>
+      <div class="glass fee"><b>€ 80</b><span>Eerste mondeling advies. Vrijblijvend, we kijken samen wat kan.</span></div>
+      <div class="stamp"><svg class="ring" viewBox="0 0 132 132" aria-hidden="true"><defs><path id="sp-k1" d="M66 66m-50 0a50 50 0 1 1 100 0a50 50 0 1 1-100 0"/></defs><text><textPath href="#sp-k1">Eigen kantoor sinds 2009 ·</textPath></text></svg><span class="mid">K</span></div>
     </div>
-    <div class="pl">
+  </div>
+  <div class="pl">
       <div class="rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><b>Eén advocaat, van begin tot eind</b><span>Ze stelt zelf de dagvaarding en de besluiten op en pleit zelf.</span></div>
       <div class="rv d1s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12h8M12 8v8"/><circle cx="12" cy="12" r="9"/></svg><b>Overeenkomst waar het kan</b><span>Bemiddeling of een regeling op papier gaat voor, de rechtbank als het moet.</span></div>
       <div class="rv d2s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3v4M16 3v4M4 10h16"/></svg><b>Ook na de kantooruren</b><span>Consultaties kunnen in overleg buiten de kantooruren.</span></div>
       <div class="rv d3s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><b>Vlak bij het station</b><span>Te voet vanaf trein en bus, of parkeren in de ondergrondse NMBS-parking.</span></div>
-    </div>
-  </div>
 </header>
 
 <section class="sec" id="materies">
@@ -373,7 +416,7 @@ h1 em,h2 em,h3 em{font-weight:300}
       </form>
       <div class="loc rv d1s">
         <h3>Ardooisesteenweg 22, Roeselare</h3>
-        <div class="hrs2" id="hrs"><div data-d="1"><b>Ma</b>9 tot 18</div><div data-d="2"><b>Di</b>9 tot 18</div><div data-d="3"><b>Wo</b>9 tot 18</div><div data-d="4"><b>Do</b>9 tot 18</div><div data-d="5"><b>Vr</b>9 tot 18</div><div data-d="6"><b>Za</b>dicht</div><div data-d="0"><b>Zo</b>dicht</div></div>
+        <div class="hrs2" id="hrs"><div data-d="1"><b>Ma</b>9u tot 18u</div><div data-d="2"><b>Di</b>9u tot 18u</div><div data-d="3"><b>Wo</b>9u tot 18u</div><div data-d="4"><b>Do</b>9u tot 18u</div><div data-d="5"><b>Vr</b>9u tot 18u</div><div data-d="6"><b>Za</b>dicht</div><div data-d="0"><b>Zo</b>dicht</div></div>
         <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span><b>Tegenover het trein- en busstation</b>8800 Roeselare, centrum</span></div>
         <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg><span><b><a href="tel:+3251201980" style="color:#fff">051 20 19 80</a></b>Consultatie na afspraak</span></div>
         <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="3"/><path d="m3 6 9 7 9-7"/></svg><span><b><a href="mailto:info@advocaatroeselare.be" style="color:#fff">info@advocaatroeselare.be</a></b>BTW BE 0824.261.359</span></div>
@@ -383,7 +426,19 @@ h1 em,h2 em,h3 em{font-weight:300}
   </div>
 </section>
 
-<footer class="foot"><div class="wrap"><span>© Advocatenkantoor Keirsebilck · Ardooisesteenweg 22, 8800 Roeselare</span><span>Voorbeeldsite door <a href="https://digital-impression.be">Digital Impression</a></span></div></footer>
+<footer class="fx">
+  <div class="fh">
+    <h2>Een eerste gesprek <em>maakt al veel duidelijk.</em></h2>
+    <div class="bt"><a class="btn wh" href="tel:+3251201980">051 20 19 80<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span></a><a class="btn g2" href="mailto:info@advocaatroeselare.be">Stuur een mail<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="3"/><path d="m3 6 9 7 9-7"/></svg></span></a></div>
+  </div>
+  <div class="fc">
+    <div><span class="nm"><small>Advocatenkantoor</small>Keirsebilck</span><p style="margin-top:16px">Ardooisesteenweg 22<br>8800 Roeselare<br>Tegenover het trein- en busstation</p></div>
+    <div><h4>Kantooruren</h4><p>Maandag tot vrijdag<br>9u tot 18u</p><p style="margin-top:8px">Na de kantooruren in overleg</p></div>
+    <div><h4>Materies</h4><ul><li><a href="#materies">Echtscheiding</a></li><li><a href="#materies">Kinderen en onderhoudsgeld</a></li><li><a href="#materies">Verdeling en erfenis</a></li><li><a href="#materies">Verkeer en strafrecht</a></li><li><a href="#materies">Schulden en bewind</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li><a href="tel:+3251201980">051 20 19 80</a></li><li><a href="mailto:info@advocaatroeselare.be">info@advocaatroeselare.be</a></li><li>BTW BE 0824.261.359</li><li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Ardooisesteenweg+22+8800+Roeselare" target="_blank" rel="noopener">Route plannen</a></li></ul></div>
+  </div>
+  <div class="fb"><span>© Advocatenkantoor Keirsebilck</span><span>Voorbeeldsite door <a href="https://digital-impression.be">Digital Impression</a></span></div>
+</footer>
 <script>
 var L=[
 ["Echtscheiding","Zo kunnen we in één gesprek al een eerste regeling verkennen.",["Uw trouwboekje en eventueel het huwelijkscontract","Recente loonfiches of andere inkomsten van u beiden","Het laatste aanslagbiljet van de personenbelasting","Overzicht van de woning, leningen en spaargeld","Een idee van wat u voor de kinderen wil regelen"]],
@@ -407,6 +462,11 @@ var t=document.querySelector('#hrs [data-d="'+new Date().getDay()+'"]');if(t)t.c
 <script>
 document.documentElement.classList.add('js');
 (function(){if(!('IntersectionObserver' in window)){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});return}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.rv').forEach(function(el){io.observe(el)})})();
+</script>
+<script>
+(function(){var nav=document.querySelector('.nav'),par=[].slice.call(document.querySelectorAll('[data-par]')),tk=false;
+function s(){if(nav)nav.classList.toggle('sc',scrollY>40);if(!matchMedia('(prefers-reduced-motion:reduce)').matches)par.forEach(function(el){var r=el.parentNode.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;el.style.transform='translate3d(0,'+((r.top+r.height/2-innerHeight/2)*+el.dataset.par-r.height*.08)+'px,0)'});tk=false}
+addEventListener('scroll',function(){if(!tk){requestAnimationFrame(s);tk=true}},{passive:true});s()})();
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Onest:wght@400;600;700&display=swap">
 <style>
@@ -519,5 +579,6 @@ document.documentElement.classList.add('js');
 </div>
 </div>
 </section>
+
 </body>
 </html>
