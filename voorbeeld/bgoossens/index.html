@@ -210,13 +210,53 @@ h1 em,h2 em{font-family:var(--sans);font-style:italic;font-weight:500;letter-spa
 .rev{display:flex;gap:22px;align-items:center;padding:26px 28px;margin-top:30px}
 .rev .n{font:400 58px/1 var(--serif);color:var(--brand)}
 .rev p{font-size:15px;color:var(--ink2)}
+
+h1 em,h2 em{font-family:var(--serif)!important;font-style:normal!important;font-weight:400!important;letter-spacing:inherit!important;color:var(--brand)!important;background:linear-gradient(transparent 68%,rgba(201,161,91,.38) 68%,rgba(201,161,91,.38) 92%,transparent 92%);padding:0 .06em}
+.offices span{font-family:var(--sans);color:var(--ink)}
+/* placeholders */
+.plh{position:relative;height:100%;min-height:200px;border-radius:var(--r);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:24px;color:var(--brand);background:repeating-linear-gradient(135deg,#ECEEF4 0 14px,#F3F4F8 14px 28px);box-shadow:inset 0 0 0 1.5px rgba(36,48,94,.14)}
+.plh .ci{width:54px;height:54px;border-radius:50%;background:#fff;display:grid;place-items:center;margin-bottom:6px;box-shadow:0 10px 24px -14px rgba(36,48,94,.5)}
+.plh .ci svg{width:24px;height:24px}
+.plh b{font:400 19px/1.2 var(--serif)}
+.plh small{font-size:13px;color:var(--muted)}
+/* persoon */
+.pers{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+.pers .plh{aspect-ratio:4/5;height:auto}
+.pers .q{font:400 clamp(26px,2.6vw,36px)/1.2 var(--serif);color:var(--ink);margin:18px 0 22px}
+.pers p{color:var(--ink2);margin-bottom:14px}
+.facts2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}
+.facts2 div{background:var(--surface);border-radius:18px;padding:18px 20px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}
+.facts2 b{display:block;font:400 22px/1.15 var(--serif);color:var(--brand)}
+.facts2 span{font-size:14px;color:var(--ink2)}
+@media(max-width:900px){.pers{grid-template-columns:1fr;gap:30px}.pers .tx{order:-1}.pers .plh{aspect-ratio:4/3.4}}
+/* footer */
+.ft{background:var(--brand);color:#E8EAF2;border-radius:36px 36px 0 0;margin-top:40px;padding:72px 0 0;position:relative;overflow:hidden}
+.ft::before{content:"";position:absolute;right:-140px;top:-140px;width:420px;height:420px;border-radius:50%;border:60px solid rgba(201,161,91,.08)}
+.ft .top{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px;position:relative}
+.ft .bm{display:flex;gap:14px;align-items:center}
+.ft .bm .mono{width:48px;height:48px;border-radius:14px;background:#fff;color:var(--brand);display:grid;place-items:center;font:400 19px/1 var(--serif)}
+.ft .bm b{display:block;font:400 21px/1.15 var(--serif);color:#fff}
+.ft .bm small{font-size:13px;color:rgba(232,234,242,.6)}
+.ft p.in{margin-top:18px;color:rgba(232,234,242,.72);font-size:15px;max-width:30em}
+.ft h4{font:600 12.5px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.ft ul{list-style:none;padding:0;margin:0;display:grid;gap:9px;font-size:15px}
+.ft a{color:#fff;text-decoration:none}
+.ft a:hover{text-decoration:underline;text-underline-offset:3px}
+.ft li span{color:rgba(232,234,242,.62)}
+.ft .cta{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:56px;padding:26px 30px;border-radius:24px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+.ft .cta b{font:400 24px/1.2 var(--serif);color:#fff}
+.ft .leg{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:26px 0 30px;margin-top:40px;border-top:1px solid rgba(255,255,255,.12);font-size:13.5px;color:rgba(232,234,242,.6)}
+.ft .leg a{color:#fff;font-weight:600}
+@media(max-width:900px){.ft .top{grid-template-columns:1fr 1fr}.ft .top>div:first-child{grid-column:1/-1}}
+@media(max-width:520px){.ft .top{grid-template-columns:1fr}}
+.duo h2 em{color:var(--accent)!important;background:none!important}
 </style>
 </head>
 <body>
 <div class="demo">Voorbeeldsite van Digital Impression voor Advocatenkantoor Benny Goossens. Benieuwd wat zoiets kost? <a href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20Advocatenkantoor%20Benny%20Goossens">Stuur Stijn een bericht</a></div>
 <nav class="nav" aria-label="Hoofdmenu">
 <a class="brand" href="#top"><span class="mono">BG</span><span><b>Advocatenkantoor Benny Goossens</b><small>Deinze · Wijnegem</small></span></a>
-<ul><li><a href="#kantoren">Twee kantoren</a></li><li><a href="#werkwijze">Werkwijze</a></li><li><a href="#vraag">Uw vraag</a></li><li><a href="#faq">Vragen</a></li></ul>
+<ul><li><a href="#kantoren">Twee kantoren</a></li><li><a href="#advocaat">Uw advocaat</a></li><li><a href="#werkwijze">Werkwijze</a></li><li><a href="#vraag">Uw vraag</a></li><li><a href="#faq">Vragen</a></li></ul>
 <a class="btn dk sm" href="tel:+3293289480"><span class="t">09 328 94 80</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span></a>
 </nav>
 
@@ -250,18 +290,28 @@ h1 em,h2 em{font-family:var(--sans);font-style:italic;font-weight:500;letter-spa
 
 <section class="duo" id="kantoren">
 <div class="wrap">
-<div class="hd"><span class="eyebrow">Twee kantoren</span><h2 class="d2">Oost-Vlaanderen of de Antwerpse rand. <em>U kiest.</em></h2><p class="lead">Geef uw gemeente in en zie meteen welk kantoor het dichtst bij u ligt.</p></div>
+<div class="hd"><span class="eyebrow">Twee kantoren</span><h2 class="d2">Twee adressen, <em>één dossier.</em></h2><p class="lead">U kiest waar u afspreekt. Mr. Goossens volgt uw zaak zelf op, in Deinze en in Wijnegem.</p></div>
 <div class="dg">
 <div class="off rv" id="oD"><span class="lb">Hoofdkantoor</span><h3>Deinze</h3><p>Tolpoortstraat 145<br>9800 Deinze</p><p>Tel. 09 328 94 80<br>Fax 09 328 94 81</p><div class="km" id="kD"></div><a class="btn wh sm" href="https://www.google.com/maps/search/?api=1&query=Tolpoortstraat+145+9800+Deinze" target="_blank" rel="noopener">Route<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span></a></div>
 <div class="off rv d1s" id="oW"><span class="lb">Bijkantoor</span><h3>Wijnegem</h3><p>Marktplein 22<br>2110 Wijnegem</p><p>Tel. 03 355 50 30<br>Fax 03 355 50 49</p><div class="km" id="kW"></div><a class="btn wh sm" href="https://www.google.com/maps/search/?api=1&query=Marktplein+22+2110+Wijnegem" target="_blank" rel="noopener">Route<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span></a></div>
-<div class="near rv d2s"><h3>Waar woont u?</h3><p>Kies uw gemeente. We rekenen de afstand in vogelvlucht naar beide kantoren.</p>
-<select id="gem" aria-label="Uw gemeente"><option value="">Kies een gemeente</option></select>
-<div class="out" id="out">Het correspondentieadres is altijd Deinze.</div></div>
+<div class="near rv d2s"><h3>Goed om te weten</h3><p>Brieven en stukken stuurt u altijd naar het hoofdkantoor in Deinze, ook als u in Wijnegem afspreekt.</p><a class="btn dk sm" href="#vraag">Afspraak maken<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
 </div>
 </div>
 </section>
 
-<section class="sec" id="werkwijze">
+<section class="sec" id="advocaat">
+<div class="wrap pers">
+<div class="rv"><div class="plh "><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.8l1.4-2h6.6l1.4 2h1.8A2.5 2.5 0 0 1 21 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z"/><circle cx="12" cy="12.5" r="3.6"/></svg></span><b>Portret van Mr. Goossens</b><small>Hier komt een echte foto, liefst in het kantoor</small></div></div>
+<div class="tx rv d1s">
+<span class="eyebrow">Uw advocaat</span>
+<p class="q">Wie u belt over uw dossier, is ook wie het opvolgt en voor u pleit.</p>
+<p>Mr. Benny Goossens is ingeschreven aan de balie van Gent, waar zijn hoofdkantoor in Deinze ligt, en aan de balie van Antwerpen voor het bijkantoor in Wijnegem. Zo kan hij mensen uit beide regio's bijstaan zonder dat ze ver moeten rijden.</p>
+<p>Elk dossier loopt over zijn bureau. Brieven, telefoontjes en zittingen: u weet altijd bij wie u terechtkunt.</p>
+<div class="facts2"><div><b>Balie van Gent</b><span>Hoofdkantoor in Deinze</span></div><div><b>Balie van Antwerpen</b><span>Bijkantoor in Wijnegem</span></div><div><b>€ 2,5 miljoen</b><span>verzekerd per schadegeval</span></div><div><b>5,0 op Google</b><span>van cliënten die reageerden</span></div></div>
+</div>
+</div>
+</section>
+<section class="sec t0" id="werkwijze">
 <div class="wrap">
 <div class="hd"><span class="eyebrow">Werkwijze</span><h2 class="d2">Zo verloopt <em>een eerste contact</em>.</h2><p class="lead">Rustig, in vaste stappen. U weet na het eerste gesprek waar u staat en wat de volgende stap is.</p></div>
 <div class="st">
@@ -271,8 +321,8 @@ h1 em,h2 em{font-family:var(--sans);font-style:italic;font-weight:500;letter-spa
 <div class="sp rv d3s"><h3>Opvolging tot het einde</h3><p>U wordt op de hoogte gehouden bij elke stap, tot uw dossier afgerond is.</p></div>
 </div>
 <div class="pb">
-<div class="ph zoom rv"><img src="img/bureau.webp" alt="Bureau met laptop" loading="lazy"></div>
-<div class="ph zoom rv d1s"><img src="img/contract.webp" alt="Documenten op tafel" loading="lazy"></div>
+<div class="plh "><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.8l1.4-2h6.6l1.4 2h1.8A2.5 2.5 0 0 1 21 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z"/><circle cx="12" cy="12.5" r="3.6"/></svg></span><b>Foto van het kantoor in Deinze</b><small>Tolpoortstraat 145 · uw eigen beeld</small></div>
+<div class="plh "><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2.5 2.5 0 0 1 5.5 6h1.8l1.4-2h6.6l1.4 2h1.8A2.5 2.5 0 0 1 21 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z"/><circle cx="12" cy="12.5" r="3.6"/></svg></span><b>Foto van het kantoor in Wijnegem</b><small>Marktplein 22 · uw eigen beeld</small></div>
 <div class="ph zoom rv d2s"><img src="img/handdruk.webp" alt="Handdruk na een gesprek" loading="lazy"></div>
 </div>
 </div>
@@ -317,7 +367,18 @@ h1 em,h2 em{font-family:var(--sans);font-style:italic;font-weight:500;letter-spa
 </div>
 </section>
 
-<footer class="foot"><div class="wrap"><span>© Advocatenkantoor Benny Goossens BV · Tolpoortstraat 145, 9800 Deinze · Marktplein 22, 2110 Wijnegem · info@advocaat-goossens.be</span><span>Voorbeeldsite door <a href="https://digital-impression.be">Digital Impression</a></span></div></footer>
+<footer class="ft">
+<div class="wrap">
+<div class="top">
+<div><div class="bm"><span class="mono">BG</span><span><b>Advocatenkantoor Benny Goossens</b><small>Advocaat aan de balies van Gent en Antwerpen</small></span></div><p class="in">Eén advocaat die uw dossier zelf opvolgt, in Deinze of in Wijnegem. Afspraken op het kantoor van uw keuze.</p></div>
+<div><h4>Deinze</h4><ul><li>Tolpoortstraat 145</li><li>9800 Deinze</li><li><a href="tel:+3293289480">09 328 94 80</a></li><li><span>Hoofdkantoor</span></li></ul></div>
+<div><h4>Wijnegem</h4><ul><li>Marktplein 22</li><li>2110 Wijnegem</li><li><a href="tel:+3233555030">03 355 50 30</a></li><li><span>Bijkantoor</span></li></ul></div>
+<div><h4>Snel naar</h4><ul><li><a href="#kantoren">Twee kantoren</a></li><li><a href="#advocaat">Uw advocaat</a></li><li><a href="#werkwijze">Werkwijze</a></li><li><a href="#vraag">Uw vraag</a></li><li><a href="mailto:info@advocaat-goossens.be">info@advocaat-goossens.be</a></li></ul></div>
+</div>
+<div class="cta"><b>Een vraag over uw situatie?</b><a class="btn wh" href="tel:+3293289480">Bel 09 328 94 80<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span></a></div>
+<div class="leg"><span>© Advocatenkantoor Benny Goossens BV · Correspondentieadres Deinze · Beroepsaansprakelijkheid verzekerd</span><span>Voorbeeldsite door <a href="https://digital-impression.be">Digital Impression</a></span></div>
+</div>
+</footer>
 <script>
 document.documentElement.classList.add('js');
 (function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.rv').forEach(function(el){io.observe(el)})})();
@@ -326,7 +387,7 @@ document.documentElement.classList.add('js');
 (function(){
 var O={D:[50.9786,3.5323],W:[51.2235,4.5215]};
 var G=[["Aalter",51.088,3.447],["Antwerpen",51.219,4.402],["Astene",50.992,3.594],["Brasschaat",51.291,4.491],["Deinze",50.983,3.527],["Drongen",51.050,3.660],["Gent",51.054,3.717],["Kruishoutem",50.902,3.527],["Lier",51.131,4.570],["Machelen-aan-de-Leie",50.969,3.476],["Malle",51.298,4.693],["Mechelen",51.026,4.478],["Merelbeke",50.995,3.746],["Nazareth",50.957,3.594],["Nevele",51.035,3.548],["Ranst",51.190,4.561],["Schilde",51.242,4.583],["Schoten",51.252,4.501],["Sint-Martens-Latem",51.019,3.637],["Tielt",50.999,3.326],["Waregem",50.889,3.427],["Wijnegem",51.227,4.519],["Wommelgem",51.205,4.521],["Zandhoven",51.214,4.661],["Zulte",50.919,3.449],["Zwijnaarde",51.003,3.717]];
-var s=document.getElementById('gem');G.forEach(function(g){var o=document.createElement('option');o.value=g[0];o.textContent=g[0];s.appendChild(o)});
+var s=document.getElementById('gem')||document.createElement('select');G.forEach(function(g){var o=document.createElement('option');o.value=g[0];o.textContent=g[0];s.appendChild(o)});
 function km(a,b){var R=6371,r=Math.PI/180,dl=(b[0]-a[0])*r,dg=(b[1]-a[1])*r,x=Math.sin(dl/2)*Math.sin(dl/2)+Math.cos(a[0]*r)*Math.cos(b[0]*r)*Math.sin(dg/2)*Math.sin(dg/2);return 2*R*Math.asin(Math.sqrt(x))}
 s.addEventListener('change',function(){var g=G.filter(function(x){return x[0]===s.value})[0],oD=document.getElementById('oD'),oW=document.getElementById('oW');
 if(!g){oD.classList.remove('hit');oW.classList.remove('hit');document.getElementById('kD').textContent='';document.getElementById('kW').textContent='';return}

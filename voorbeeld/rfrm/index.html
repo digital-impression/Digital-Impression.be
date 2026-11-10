@@ -189,6 +189,46 @@ h1 em,h2 em,h3 em{color:var(--brand)}
 .ct .ph{min-height:100%}
 @media(max-width:1020px){.sk .card{order:-1}.hb{grid-template-columns:1fr}.hb .r{min-height:420px}.hb .l .wm{display:none}.sf,.rg,.fq,.ct,.sk{grid-template-columns:1fr}.el{grid-template-columns:1fr 1fr}.ct .ph{min-height:320px}}
 @media(max-width:600px){.hero{padding:12px 8px 0}.hb{border-radius:28px}.hb .r{min-height:320px}.rf{margin:0;border-radius:28px}.el{grid-template-columns:1fr}.sk .card{padding:30px}.hs{width:36px;height:36px;margin:-18px 0 0 -18px;font-size:13px}.info{padding:24px;min-height:0}.sfg .ph:nth-child(2){margin-top:30px}}
+
+.hx{padding:14px 14px 0}
+.hxw{position:relative;border-radius:40px;overflow:hidden;min-height:min(92vh,860px);display:grid;grid-template-columns:minmax(0,1fr) 300px;grid-template-rows:1fr auto;gap:0 28px;padding:clamp(28px,4vw,56px);color:#FBEFE6;isolation:isolate}
+.hxw .bg{position:absolute;inset:0;z-index:-1}
+.hxw .bg img{width:100%;height:100%;object-fit:cover;object-position:center 60%;transform:scale(1.04);animation:hz 14s ease-out forwards}
+@keyframes hz{to{transform:scale(1)}}
+.hxw .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(60,22,8,.82) 0%,rgba(60,22,8,.45) 42%,rgba(60,22,8,0) 72%),linear-gradient(0deg,rgba(40,14,4,.7),transparent 45%)}
+.hxw .cp{align-self:end;max-width:620px;position:relative}
+.hxw .wm{display:block;font:300 clamp(80px,13vw,200px)/.8 var(--serif);letter-spacing:.16em;color:rgba(251,239,230,.16);margin:0 0 clamp(20px,6vh,70px) -6px}
+.hxw .tg{display:inline-block;padding:8px 14px;border-radius:999px;background:rgba(251,239,230,.14);backdrop-filter:blur(8px);font-size:13.5px;font-weight:600;letter-spacing:.02em}
+.hxw h1{font-size:clamp(46px,6vw,96px);line-height:.96;margin:22px 0 20px;color:#FBEFE6}
+.hxw h1 em{color:var(--accent)}
+.hxw p{color:rgba(251,239,230,.84);font-size:clamp(17px,1.3vw,19px);max-width:31em}
+.hxw .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hxw .btn.gh{color:#FBEFE6}
+.hxw .side{grid-column:2;grid-row:1;align-self:start;margin:0;border-radius:26px;overflow:hidden;background:rgba(251,239,230,.12);backdrop-filter:blur(12px);border:1px solid rgba(251,239,230,.22);padding:8px}
+.hxw .side img{width:100%;aspect-ratio:3/3.6;object-fit:cover;border-radius:20px}
+.hxw .side figcaption{padding:14px 10px 8px}
+.hxw .side b{display:block;font:400 22px/1.1 var(--serif)}
+.hxw .side span{display:block;font-size:14px;color:rgba(251,239,230,.78);margin-top:4px}
+.hxw .rate{grid-column:2;grid-row:1;align-self:end;justify-self:start;display:flex;align-items:center;gap:12px;padding:12px 18px 12px 14px;margin-bottom:24px}
+.hxw .rate .n{font:400 32px/1 var(--serif);color:#2B1A12}
+.hxw .rate small{display:block;font-size:12.5px;color:#6b5a50;margin-top:3px}
+.hxw .facts{grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(28px,5vh,52px);border-top:1px solid rgba(251,239,230,.22)}
+.hxw .facts div{padding:18px 18px 0 0}
+.hxw .facts b{display:block;font-weight:600;font-size:15.5px}
+.hxw .facts span{font-size:14px;color:rgba(251,239,230,.7)}
+.hxw .facts a{text-decoration:none;color:inherit}
+@media(max-width:900px){
+.hx{padding:10px 8px 0}
+.hxw{display:flex;flex-direction:column;min-height:0;padding:28px 22px 22px;border-radius:30px;background:#5A2610}
+.hxw .bg{position:relative;z-index:0;order:3;margin:24px -22px 0;height:360px}
+.hxw .bg::after{background:linear-gradient(180deg,#5A2610 0%,transparent 30%)}
+.hxw .wm{font-size:72px;margin-bottom:22px}
+.hxw .side{display:none}
+.hxw .rate{order:4;position:relative;z-index:2;margin:-84px 0 0 0;align-self:flex-start}
+.hxw .facts{order:2;grid-template-columns:1fr 1fr;gap:4px 12px}
+.hxw .facts div:last-child{grid-column:1/-1}
+}
+@media(prefers-reduced-motion:reduce){.hxw .bg img{animation:none;transform:none}}
 </style>
 </head>
 <body>
@@ -199,20 +239,19 @@ h1 em,h2 em,h3 em{color:var(--brand)}
   <a class="btn dk sm" href="https://rfrm.trainin.app" target="_blank" rel="noopener"><span class="t">Boek een les</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span></a>
 </nav>
 
-<header class="hero" id="top">
-  <div class="hb">
-    <div class="l rv">
+<header class="hx" id="top">
+  <div class="hxw">
+    <div class="bg"><img src="img/t5.webp" alt="De studio van RFRM met een rij reformers tegen een terracotta muur" width="1600" height="1067" fetchpriority="high"></div>
+    <div class="cp rv">
       <span class="wm" aria-hidden="true">RFRM</span>
-      <span class="eyebrow">Reformer pilates in Turnhout</span>
-      <h1>Warm licht, <em>trage veren</em>, sterk lijf.</h1>
-      <p class="lead">In de Muizenvenstraat staat een studio in zachte aardetinten, met een rij reformers en plaats om op adem te komen. Hier train je rustig, precies en met volle aandacht.</p>
+      <span class="tg">Reformer pilates · Turnhout</span>
+      <h1>Warm licht, <em>trage veren,</em> sterk lijf.</h1>
+      <p>Een studio in zachte aardetinten, met een rij reformers en een plek om op adem te komen. Hier train je rustig, precies en met volle aandacht.</p>
       <div class="acts"><a class="btn wh" href="https://rfrm.trainin.app" target="_blank" rel="noopener">Boek je les<span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a class="btn gh" href="#eerste-les">Je eerste keer</a></div>
     </div>
-    <div class="r">
-      <img src="img/t5.webp" alt="De studio van RFRM met een rij reformers tegen een terracotta muur" width="1600" height="1067">
-      <a class="glass ig" href="https://www.instagram.com/rfrm_pilates_turnhout/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@rfrm_pilates_turnhout</a>
-      <div class="glass rate"><span class="n">4,8</span><span><span class="stars"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg></span><small>19 reviews op Google</small></span></div>
-    </div>
+    <figure class="side rv d1s"><img src="img/t8.webp" alt="Oefening op de reformer" loading="eager"><figcaption><b>Op de reformer</b><span>Weerstand waar je ze nodig hebt, steun waar het moet.</span></figcaption></figure>
+    <div class="glass rate rv d2s"><span class="n">4,8</span><span><span class="stars"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg></span><small>19 reviews op Google</small></span></div>
+    <div class="facts rv d2s"><div><b>Muizenvenstraat 6</b><span>Turnhout</span></div><div><b>Ma tot za</b><span>9 tot 18 uur</span></div><div><a href="https://www.instagram.com/rfrm_pilates_turnhout/" target="_blank" rel="noopener"><b>@rfrm_pilates_turnhout</b><span>Volg de studio</span></a></div></div>
   </div>
 </header>
 
