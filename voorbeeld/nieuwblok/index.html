@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="nl-BE">
+<head><meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Kapsalon Borgers & C° · Kapper voor het hele gezin in Herk-de-Stad</title>
+<meta name="description" content="Kapsalon Borgers & C° in Herk-de-Stad: kapper voor dames, heren en kinderen. Snit, brushing, kleuring, permanent, watergolf en opsteekkapsels met Joico. Enkel op afspraak.">
+<link rel="preload" href="img/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/jakarta.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/c-hero.webp" as="image">
+<style>
+@font-face{font-family:Fraunces;src:url(img/fraunces.woff2) format('woff2');font-weight:300 700;font-display:swap}
+@font-face{font-family:Fraunces;src:url(img/fraunces-i.woff2) format('woff2');font-weight:300 600;font-style:italic;font-display:swap}
+@font-face{font-family:Jakarta;src:url(img/jakarta.woff2) format('woff2');font-weight:200 800;font-display:swap}
+@font-face{font-family:Yester;src:url(img/yester.woff2) format('woff2');font-display:swap}
+:root{
+  --cream:#FFF8F1;--paper:#FFFDFA;--peach:#F7D9C8;--peach-2:#F1C3AA;--apricot:#E9A07E;--plum:#4A2340;--plum-2:#36182F;--sage:#C9D3B6;--sage-l:#E7ECDD;--butter:#F6E2A6;--butter-l:#FBF0D2;
+  --ink:#2E1A2A;--ink-2:#6A5464;--muted:#8E7C87;--line:rgba(74,35,64,.12);
+  --f-d:Fraunces,Georgia,serif;--f-b:Jakarta,system-ui,-apple-system,'Segoe UI',sans-serif;--f-s:Yester,'Brush Script MT',cursive;
+  --sh:0 2px 4px rgba(74,35,64,.04),0 22px 44px -22px rgba(74,35,64,.28);--sh-l:0 40px 80px -36px rgba(74,35,64,.42);
+  --w:1240px;--ease:cubic-bezier(.2,.7,.2,1)
+}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{font:400 16.5px/1.7 var(--f-b);color:var(--ink);background:var(--cream);overflow-x:clip;-webkit-font-smoothing:antialiased}
+b,strong{font-weight:700}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button,select{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+.ic{width:1.1em;height:1.1em;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.wrap{width:min(100% - 48px,var(--w));margin-inline:auto}
+h1,h2,h3{font-family:var(--f-d);font-weight:500;line-height:1.04;letter-spacing:-.025em;color:var(--plum)}
+h2{font-size:clamp(2.4rem,4.6vw,3.9rem)}
+h3{font-size:1.5rem;line-height:1.15;letter-spacing:-.015em}
+.script{font-family:var(--f-s);font-weight:400;letter-spacing:0;color:var(--apricot)}
+.kick{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.86rem;color:var(--plum);background:var(--paper);border-radius:999px;padding:8px 16px 8px 8px;box-shadow:var(--sh)}
+.kick i{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--peach);color:var(--plum)}
+.kick i .ic{width:14px;height:14px}
+.lead{font-size:1.08rem;color:var(--ink-2);max-width:52ch}
+.sec{padding:120px 0}
+.sec-head{text-align:center;max-width:720px;margin:0 auto 60px}
+.sec-head h2{margin:18px 0 16px}
+.sec-head .lead{margin:0 auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:999px;font:700 .98rem/1 var(--f-b);white-space:nowrap;transition:transform .3s var(--ease),background .3s,color .3s,box-shadow .3s}
+.btn .ic{width:19px;height:19px}
+.btn.pl{background:var(--plum);color:#fff;box-shadow:0 16px 30px -14px rgba(74,35,64,.6)}
+.btn.pl:hover{background:var(--plum-2);transform:translateY(-2px)}
+.btn.ln{background:var(--paper);color:var(--plum);box-shadow:inset 0 0 0 1.5px var(--line),var(--sh)}
+.btn.ln:hover{box-shadow:inset 0 0 0 1.5px var(--plum)}
+.btn.pc{background:var(--peach);color:var(--plum)}
+.btn.pc:hover{background:#fff}
+a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(--apricot);outline-offset:3px}
+
+.demo{background:var(--plum-2);color:#E9D6DE;font-size:.82rem;text-align:center;padding:9px 16px}
+.demo a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+
+/* header */
+.head{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s}
+.head.scrolled{background:rgba(255,248,241,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+.head .wrap{display:flex;align-items:center;gap:34px;height:86px}
+.logo{display:flex;align-items:center;gap:12px;white-space:nowrap}
+.logo .m{width:46px;height:46px;border-radius:50%;background:var(--plum);color:var(--peach);display:grid;place-items:center;font:italic 500 1.35rem/1 var(--f-d)}
+.logo b{display:block;font:500 1.35rem/1 var(--f-d);color:var(--plum);letter-spacing:-.01em}
+.logo small{display:block;font-size:.74rem;color:var(--muted);margin-top:4px}
+.nav{display:flex;gap:30px;margin-left:auto;font-weight:600;font-size:.95rem;white-space:nowrap}
+.nav a{color:var(--ink-2);transition:color .2s}
+.nav a:hover{color:var(--plum)}
+.head .btn{min-height:46px;padding:0 20px}
+.menu-btn{display:none;width:48px;height:48px;border-radius:50%;background:var(--paper);box-shadow:var(--sh);place-items:center;color:var(--plum)}
+.menu-btn .ic{width:20px;height:20px}
+
+/* hero */
+.hero{position:relative;padding:30px 0 110px;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-10%;top:-30%;width:70%;height:120%;background:radial-gradient(closest-side,rgba(247,217,200,.65),rgba(247,217,200,0));pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1fr 1.02fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(3.2rem,6.4vw,6rem);margin:28px 0 24px;animation:up .9s var(--ease) both}
+.hero h1 .script{display:block;font-size:.92em;line-height:1.05;margin-top:.04em;transform:rotate(-3deg);transform-origin:left;color:var(--apricot)}
+.hero .lead{margin-bottom:34px;animation:up .9s var(--ease) .1s both}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;animation:up .9s var(--ease) .18s both}
+.fam{display:flex;align-items:center;gap:18px;margin-top:46px;padding-top:28px;border-top:1px solid var(--line);animation:up .9s var(--ease) .26s both}
+.fam .av{display:flex}
+.fam .av span{width:58px;height:58px;border-radius:50%;overflow:hidden;border:3px solid var(--cream);margin-left:-14px;box-shadow:var(--sh)}
+.fam .av span:first-child{margin-left:0}
+.fam .av img{width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+.fam .av span:nth-child(1){background:var(--peach)}.fam .av span:nth-child(2){background:var(--sage)}.fam .av span:nth-child(3){background:var(--butter)}.fam .av span:nth-child(4){background:var(--peach-2)}
+.fam b{display:block;font:500 1.15rem/1.2 var(--f-d);color:var(--plum)}
+.fam small{font-size:.88rem;color:var(--muted)}
+.stage{position:relative;height:660px;animation:in 1.1s var(--ease) .1s both}
+.stage .disc{position:absolute;left:8%;right:2%;bottom:0;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 30% 30%,#FBE6DA,var(--peach) 55%,var(--peach-2))}
+.stage .ring{position:absolute;left:3%;right:-3%;bottom:-4%;aspect-ratio:1;border-radius:50%;border:1.5px dashed rgba(74,35,64,.22)}
+.stage .portal{position:absolute;left:8%;right:2%;bottom:0;aspect-ratio:1/1.32;-webkit-mask:radial-gradient(50% 37.88% at 50% 62.12%,#000 99.4%,transparent 100%),linear-gradient(#000 62.12%,transparent 62.12%);mask:radial-gradient(50% 37.88% at 50% 62.12%,#000 99.4%,transparent 100%),linear-gradient(#000 62.12%,transparent 62.12%)}
+.stage .person{position:absolute;left:50%;bottom:0;height:88%;transform:translateX(-48%)}
+.stage .person img{height:100%;width:auto;max-width:none}
+.chip{position:absolute;display:flex;align-items:center;gap:12px;background:var(--paper);border-radius:18px;padding:12px 16px 12px 12px;box-shadow:var(--sh-l);animation:float 6s ease-in-out infinite}
+.chip i{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--peach);color:var(--plum);flex:none}
+.chip i .ic{width:20px;height:20px}
+.chip b{display:block;font:500 1.02rem/1.15 var(--f-d);color:var(--plum)}
+.chip small{display:block;font-size:.8rem;color:var(--muted)}
+.chip.c1{left:-2%;top:30%}
+.chip.c2{right:-2%;top:12%;animation-delay:-2s}
+.chip.c2 i{background:var(--sage)}
+.chip.c3{right:4%;bottom:12%;animation-delay:-4s}
+.chip.c3 i{background:var(--butter)}
+.stars{color:#D9902F;letter-spacing:1px;font-size:.82rem}
+.seal{position:absolute;left:4%;bottom:6%;width:120px;height:120px;animation:spin 30s linear infinite}
+.seal text{font:700 9.4px var(--f-b);letter-spacing:3.4px;fill:var(--plum)}
+.sci{position:absolute;right:16%;top:-2%;width:120px;color:var(--plum);opacity:.85}
+@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes in{from{opacity:0;transform:scale(.96) translateY(20px)}to{opacity:1;transform:none}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border-radius:30px;padding:12px 12px 26px;display:flex;flex-direction:column;transition:transform .4s var(--ease)}
+.card:hover{transform:translateY(-6px)}
+.card:nth-child(3n+1){background:var(--peach)}
+.card:nth-child(3n+2){background:var(--sage-l)}
+.card:nth-child(3n+3){background:var(--butter-l)}
+.card .ph{position:relative;height:250px;border-radius:22px;overflow:hidden}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.card:hover .ph img{transform:scale(1.05)}
+.card .tag{position:absolute;left:12px;top:12px;background:rgba(255,253,250,.92);border-radius:999px;padding:6px 12px;font-size:.76rem;font-weight:700;color:var(--plum)}
+.card h3{margin:22px 14px 8px}
+.card p{margin:0 14px 18px;font-size:.95rem;color:var(--ink-2)}
+.card a{margin:auto 14px 0;display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.92rem;color:var(--plum)}
+.card a .ic{width:16px;height:16px;transition:transform .3s}
+.card a:hover .ic{transform:translateX(4px)}
+
+/* planner */
+.plan{background:var(--plum);color:#E9D6DE;border-radius:48px;margin:0 16px;position:relative;overflow:hidden}
+.plan::before{content:"";position:absolute;left:-200px;bottom:-260px;width:620px;height:620px;border-radius:50%;background:radial-gradient(closest-side,rgba(233,160,126,.28),transparent)}
+.plan .sec-head h2{color:#fff}
+.plan .sec-head .lead{color:#D8C1CC}
+.plan .kick{background:rgba(255,255,255,.1);color:#fff;box-shadow:none}
+.plan .kick i{background:var(--apricot);color:var(--plum)}
+.pg{position:relative;display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+.pi h2{color:#fff;margin:22px 0 18px}
+.pi .lead{color:#D8C1CC}
+.pl-facts{list-style:none;padding:0;margin:36px 0 0;display:grid;gap:12px}
+.pl-facts li{display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.07);border-radius:20px;padding:14px 18px}
+.pl-facts i{display:grid;place-items:center;width:42px;height:42px;border-radius:14px;background:var(--apricot);color:var(--plum);flex:none}
+.pl-facts b{display:block;font:500 1.12rem/1.2 var(--f-d);color:#fff}
+.pl-facts span{font-size:.9rem;color:#D8C1CC}
+.pl-facts a{color:var(--peach);font-weight:700}
+.af{position:relative;background:var(--paper);color:var(--ink);border-radius:30px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.5)}
+.af-top{background:var(--peach);padding:24px 30px 22px}
+.af-top b{display:block;font:500 1.6rem/1 var(--f-d);color:var(--plum)}
+.af-top small{display:block;margin-top:7px;font-size:.86rem;color:var(--ink-2)}
+.af-bd{padding:26px 30px 30px;display:grid;gap:16px}
+.af-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.af label{display:grid;gap:7px;font-weight:600;font-size:.9rem;color:var(--plum)}
+.af label span{font-weight:500;color:var(--muted)}
+.af input,.af select,.af textarea{width:100%;font:400 1rem/1.4 var(--f-b);color:var(--ink);background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:13px 14px;transition:border-color .2s,box-shadow .2s}
+.af select{appearance:none;-webkit-appearance:none;background:var(--cream) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%234A2340' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 14px center;padding-right:36px}
+.af textarea{resize:vertical;min-height:92px}
+.af input:focus,.af select:focus,.af textarea:focus{outline:none;border-color:var(--apricot);box-shadow:0 0 0 4px rgba(233,160,126,.22)}
+.af [aria-invalid="true"]{border-color:#C2554B}
+.af .err{display:none;margin:0;font-size:.88rem;color:#A4433A}
+.af.bad .err{display:block}
+.af .btn{width:100%;margin-top:4px}
+.af small.n{display:block;text-align:center;font-size:.84rem;color:var(--muted)}
+.af small.n a{color:var(--plum);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:640px){.af-row{grid-template-columns:1fr}.af-bd{padding:22px 20px 24px}.af-top{padding:20px}}
+
+/* craft */
+.craft .wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.cv{position:relative;height:640px}
+.cv .a{position:absolute;left:0;top:0;width:70%;height:86%;border-radius:220px 220px 30px 30px;overflow:hidden;box-shadow:var(--sh-l)}
+.cv .b{position:absolute;right:0;bottom:0;width:46%;height:46%;border-radius:30px;overflow:hidden;border:8px solid var(--cream);box-shadow:var(--sh-l)}
+.cv img{width:100%;height:100%;object-fit:cover}
+.cv .note{position:absolute;right:4%;top:10%;background:var(--butter);border-radius:22px;padding:18px 20px;max-width:200px;transform:rotate(3deg);box-shadow:var(--sh)}
+.cv .note .script{font-size:1.9rem;line-height:1;color:var(--plum);display:block}
+.cv .note small{display:block;font-size:.84rem;color:var(--ink-2);margin-top:6px}
+.craft h2{margin:18px 0 20px}
+.craft p{color:var(--ink-2);margin-bottom:14px}
+.ticks{list-style:none;padding:0;margin:24px 0 30px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ticks li{display:flex;gap:10px;align-items:center;background:var(--paper);border-radius:16px;padding:12px 14px;font-weight:600;font-size:.94rem;box-shadow:var(--sh)}
+.ticks .ic{width:22px;height:22px;padding:4px;border-radius:50%;background:var(--sage);color:var(--plum)}
+.joico{display:flex;gap:18px;align-items:center;background:var(--peach);border-radius:24px;padding:20px 22px}
+.joico .lg{flex:none;width:64px;height:64px;border-radius:50%;background:var(--plum);color:var(--peach);display:grid;place-items:center;font:italic 500 1.05rem/1 var(--f-d)}
+.joico b{display:block;font:500 1.2rem/1.2 var(--f-d);color:var(--plum)}
+.joico span{font-size:.92rem;color:var(--ink-2)}
+
+/* reviews */
+.rv{padding:40px 0 120px}
+.rv .box{background:var(--sage-l);border-radius:48px;padding:80px 70px;display:grid;grid-template-columns:.75fr 1.25fr;gap:60px;align-items:center;position:relative;overflow:hidden}
+.rv .box::after{content:"\201C";position:absolute;right:40px;top:-40px;font:500 22rem/1 var(--f-d);color:rgba(74,35,64,.06)}
+.score b{display:block;font:500 6.6rem/.9 var(--f-d);color:var(--plum);letter-spacing:-.04em}
+.score .stars{font-size:1.2rem;letter-spacing:4px;display:block;margin:12px 0 6px}
+.score span{color:var(--ink-2)}
+.score a{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-weight:700;color:var(--plum);font-size:.94rem}
+.qs{position:relative;z-index:1;display:grid;gap:16px}
+.qc{background:var(--paper);border-radius:26px;padding:28px 30px;box-shadow:var(--sh)}
+.qc q{display:block;quotes:none;font:italic 400 1.35rem/1.45 var(--f-d);color:var(--plum)}
+.qc .by{display:flex;align-items:center;gap:12px;margin-top:16px}
+.qc .by i{width:38px;height:38px;border-radius:50%;background:var(--peach);display:grid;place-items:center;font:500 1rem/1 var(--f-d);color:var(--plum);font-style:normal}
+.qc .by b{font-size:.92rem}
+.qc .by small{display:block;font-size:.8rem;color:var(--muted)}
+
+/* visit */
+.visit .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:26px}
+.vp{position:relative;border-radius:36px;overflow:hidden;min-height:560px}
+.vp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vp .tag{position:absolute;left:22px;bottom:22px;right:22px;background:rgba(255,253,250,.95);border-radius:22px;padding:18px 20px;display:flex;align-items:center;gap:14px}
+.vp .tag i{flex:none;width:44px;height:44px;border-radius:14px;background:var(--plum);color:var(--peach);display:grid;place-items:center}
+.vp .tag b{display:block;font:500 1.15rem/1.2 var(--f-d);color:var(--plum)}
+.vp .tag span{font-size:.88rem;color:var(--ink-2)}
+.vi{background:var(--paper);border-radius:36px;padding:50px 46px;box-shadow:var(--sh)}
+.vi h2{font-size:clamp(2.2rem,3.6vw,3rem);margin:16px 0 8px}
+.vi .addr{color:var(--ink-2);margin-bottom:24px}
+.nowl{display:inline-flex;align-items:center;gap:10px;background:var(--sage-l);border-radius:999px;padding:8px 16px;font-size:.9rem;margin-bottom:18px}
+.nowl i{width:9px;height:9px;border-radius:50%;background:#B9A3A0}
+.nowl.is-open i{background:#3E8E5A;box-shadow:0 0 0 4px rgba(62,142,90,.18)}
+.nowl.is-closed i{background:#C0583A}
+.hours{list-style:none;padding:0;margin:0 0 30px}
+.hours li{display:flex;justify-content:space-between;padding:11px 14px;border-radius:12px;font-size:.97rem}
+.hours li:nth-child(odd){background:var(--cream)}
+.hours li.today{background:var(--peach);font-weight:700;color:var(--plum)}
+.hours li.cl span:last-child{color:var(--muted)}
+.vi .row{display:flex;flex-wrap:wrap;gap:10px}
+
+.foot{background:var(--plum-2);color:#CDB6C2;padding:80px 0 32px;margin-top:120px;border-radius:48px 48px 0 0}
+.foot .logo b{color:#fff}.foot .logo small{color:#B49EAA}.foot .logo .m{background:var(--peach);color:var(--plum)}
+.foot .fg{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px}
+.foot p{margin-top:16px;font-size:.95rem;max-width:34ch}
+.foot h4{font:500 1.2rem/1 var(--f-d);color:#fff;margin-bottom:16px}
+.foot ul{list-style:none;padding:0;display:grid;gap:9px;font-size:.96rem}
+.foot a:hover{color:#fff}
+.foot .legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:60px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:.84rem;color:#A48E9A}
+.foot .legal a{text-decoration:underline}
+.mbar{display:none}
+
+@media (max-width:1080px){
+  .who{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:980px){
+  .nav{display:none}
+  .menu-btn{display:grid;margin-left:auto}
+  .head .btn{display:none}
+  body.menu-open .nav{display:flex;position:fixed;inset:86px 0 auto 0;flex-direction:column;gap:0;background:var(--cream);padding:8px 24px 24px;box-shadow:0 24px 40px -24px rgba(0,0,0,.3)}
+  body.menu-open .nav a{padding:14px 0;border-bottom:1px solid var(--line);font-size:1.05rem}
+  .hero .wrap,.pg,.craft .wrap,.rv .box,.visit .wrap{grid-template-columns:1fr}
+  .stage{height:560px;max-width:600px;width:100%;margin:0 auto}
+  .svc{grid-template-columns:1fr 1fr}
+  .ticket{position:static}
+  .cv{max-width:600px;width:100%}
+  .rv .box{padding:60px 40px;gap:36px}
+  .foot .fg{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{width:min(100% - 36px,var(--w))}
+  .sec{padding:84px 0}
+  .head .wrap{height:74px}
+  body.menu-open .nav{inset:74px 0 auto 0}
+  .logo b{font-size:1.15rem}.logo small{display:none}.logo .m{width:40px;height:40px}
+  .hero{padding:16px 0 70px}
+  .hero h1{font-size:clamp(2.8rem,13vw,3.6rem)}
+  .hero .cta .btn{flex:1}
+  .fam{flex-wrap:wrap;gap:14px}
+  .stage{height:440px}
+  .chip{padding:9px 12px 9px 9px;border-radius:14px}
+  .chip i{width:32px;height:32px;border-radius:10px}
+  .chip b{font-size:.9rem}.chip small{font-size:.74rem}
+  .chip.c1{left:-2%;top:22%}
+  .chip.c2{right:-2%;top:4%}
+  .chip.c3{display:none}
+  .seal{width:90px;height:90px;left:0;bottom:2%}
+  .sci{display:none}
+  .svc{grid-template-columns:1fr}
+  .card .ph{height:220px}
+  .plan{border-radius:32px;margin:0 8px}
+  .who{gap:10px}
+  .pp .ph{height:120px}.pp .ph img{height:112px}
+  .ticket .bd{padding:6px 20px 22px}.ticket .top{padding:20px}
+  .rows li{grid-template-columns:72px 1fr}
+  .cv{height:470px}
+  .cv .note{max-width:160px;padding:14px}
+  .ticks{grid-template-columns:1fr}
+  .rv .box{padding:44px 22px;border-radius:32px}
+  .score b{font-size:5rem}
+  .qc{padding:22px}
+  .qc q{font-size:1.15rem}
+  .vp{min-height:380px;border-radius:28px}
+  .vi{padding:32px 22px;border-radius:28px}
+  .foot{padding-bottom:110px;border-radius:32px 32px 0 0}
+  .foot .fg{grid-template-columns:1fr}
+  .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;gap:8px;padding:8px;border-radius:999px;background:rgba(255,253,250,.96);backdrop-filter:blur(10px);box-shadow:0 20px 40px -16px rgba(74,35,64,.45)}
+  .mbar .btn{flex:1;min-height:48px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+<style>/*di-safe*/.rv{animation:disafe .01s 1.6s forwards}@keyframes disafe{to{opacity:1;visibility:visible}}</style>
+</head>
+<body id="top">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-phone" viewBox="0 0 24 24"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 5h16" /> <path d="M4 12h16" /> <path d="M4 19h16" /></symbol><symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3" /> <path d="M8.12 8.12 12 12" /> <path d="M20 4 8.12 15.88" /> <circle cx="6" cy="18" r="3" /> <path d="M14.8 14.8 20 20" /></symbol><symbol id="i-calendar-heart" viewBox="0 0 24 24"><path d="M12.127 21H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v5.125" /> <path d="M14.62 17.8A2.25 2.25 0 1118 14.836a2.25 2.25 0 113.38 2.966l-2.626 2.856a.998.998 0 01-1.507 0z" /> <path d="M16 2v3" /> <path d="M3 9h18" /> <path d="M8 2v3" /></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></symbol><symbol id="i-droplet" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" /></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /> <path d="M20 2v4" /> <path d="M22 4h-4" /> <circle cx="4" cy="20" r="2" /></symbol><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /></symbol><symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <path d="M16 3.128a4 4 0 0 1 0 7.744" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <circle cx="9" cy="7" r="4" /></symbol><symbol id="i-mail" viewBox="0 0 24 24"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /> <rect x="2" y="4" width="20" height="16" rx="2" /></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /></symbol><symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10" /> <path d="M7 17 17 7" /></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></symbol><symbol id="i-navigation" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11" /></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></symbol></defs></svg>
+<div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
+
+<header class="head" data-head>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Kapsalon Borgers & C°, naar boven"><span class="m">B</span><span><b>Borgers &amp; C°</b><small>Kapsalon in Herk-de-Stad</small></span></a>
+    <nav class="nav" data-menu><a href="#diensten">Diensten</a><a href="#afspraak">Afspraak</a><a href="#vakwerk">Watergolf</a><a href="#reviews">Reviews</a><a href="#bezoek">Bezoek</a></nav>
+    <a class="btn pl" href="tel:+3213551268"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> 013 55 12 68</a>
+    <button class="menu-btn" data-menu-btn aria-label="Menu" aria-expanded="false"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="kick"><i><svg class="ic" aria-hidden="true"><use href="#i-scissors"/></svg></i>Kapsalon in Herk-de-Stad, sinds 2010</span>
+      <h1>Mooi haar, <span class="script">voor het hele gezin.</span></h1>
+      <p class="lead">Bij Borgers &amp; C° kan iedereen terecht. Mama voor haar kleur, papa voor een frisse snit, de kinderen voor hun knipbeurt en oma voor haar vaste watergolf. Altijd op afspraak, dus je zit meteen in de stoel.</p>
+      <div class="cta"><a class="btn pl" href="#afspraak"><svg class="ic" aria-hidden="true"><use href="#i-calendar-heart"/></svg> Plan een afspraak</a><a class="btn ln" href="tel:+3213551268"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Bel het salon</a></div>
+      <div class="fam">
+        <div class="av"><span><img src="img/c-md.webp" alt="" width="489" height="700"></span><span><img src="img/c-man.webp" alt="" width="520" height="663"></span><span><img src="img/c-boy.webp" alt="" width="457" height="700"></span><span><img src="img/c-oma.webp" alt="" width="520" height="628"></span></div>
+        <div><b>Dames, heren en kinderen</b><small>Enkel op afspraak, dinsdag tot zaterdag</small></div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="ring"></div>
+      <div class="disc"></div>
+      <svg class="sci" viewBox="0 0 120 60" aria-hidden="true"><path d="M4 40c18-30 40-34 58-18s34 18 54-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="5 6" stroke-linecap="round"/></svg>
+      <div class="portal"><div class="person"><img src="img/c-hero.webp" alt="Vrouw met lange, krullende haren" width="1076" height="1539" fetchpriority="high"></div></div>
+      <div class="chip c1"><i><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></i><div><b>4,9 op Google</b><small><span class="stars">★★★★★</span> 54 reviews</small></div></div>
+      <div class="chip c2"><i><svg class="ic" aria-hidden="true"><use href="#i-droplet"/></svg></i><div><b>Verzorging van Joico</b><small>Professionele producten</small></div></div>
+      <div class="chip c3"><i><svg class="ic" aria-hidden="true"><use href="#i-sparkles"/></svg></i><div><b>Permanent en watergolf</b><small>Het vakwerk van vroeger</small></div></div>
+      <svg class="seal" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="cs" d="M60 60m-44 0a44 44 0 1 1 88 0a44 44 0 1 1-88 0"/></defs><circle cx="60" cy="60" r="58" fill="#FFFDFA"/><text><textPath href="#cs">BORGERS &amp; C° · HERK-DE-STAD · SINDS 2010 ·</textPath></text><text x="60" y="68" text-anchor="middle" style="font:italic 500 24px Fraunces,serif;letter-spacing:0;fill:#4A2340">B&amp;C</text></svg>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="diensten" style="padding-top:60px">
+  <div class="wrap">
+    <div class="sec-head"><span class="kick"><i><svg class="ic" aria-hidden="true"><use href="#i-sparkles"/></svg></i>Diensten</span><h2>Van snit tot watergolf</h2><p class="lead">Het vertrouwde vakwerk, en ook de dingen die je bij veel kappers niet meer vindt. Altijd met de producten van Joico.</p></div>
+    <div class="svc">
+      <article class="card"><div class="ph"><img src="img/blow.webp" alt="Kapster brusht het haar van een klant" loading="lazy" width="1300" height="868" style="object-position:62% 50%"><span class="tag">Dames, heren, kinderen</span></div><h3>Knippen en brushen</h3><p>Een frisse snit of gewoon wat bijwerken, en netjes gebrusht weer naar buiten.</p><a href="#afspraak">Plan dit <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></article>
+      <article class="card"><div class="ph"><img src="img/color.webp" alt="Haar wordt gekleurd in het salon" loading="lazy" width="1000" height="667"><span class="tag">Kleur</span></div><h3>Kleuren en highlights</h3><p>Grijs wegwerken, een nieuwe tint of subtiele highlights die je gezicht oplichten.</p><a href="#afspraak">Plan dit <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></article>
+      <article class="card"><div class="ph"><img src="img/waves.webp" alt="Lang haar met zachte golven" loading="lazy" width="1000" height="1250" style="object-position:50% 35%"><span class="tag">Krul en volume</span></div><h3>Permanent</h3><p>Voor wie graag wat meer krul of volume heeft, zonder elke ochtend te föhnen.</p><a href="#afspraak">Plan dit <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></article>
+      <article class="card"><div class="ph"><img src="img/curl.webp" alt="Kapster krult haar met een krultang" loading="lazy" width="1200" height="800"><span class="tag">Klassiek</span></div><h3>Watergolf</h3><p>De klassieke ingelegde golf, netjes en verzorgd. Voor wie al jaren elke week haar vaste afspraak heeft.</p><a href="#vakwerk">Meer over watergolf <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></article>
+      <article class="card"><div class="ph"><img src="img/updo.webp" alt="Opgestoken kapsel met een gedraaide knot" loading="lazy" width="1000" height="1778" style="object-position:50% 40%"><span class="tag">Feest</span></div><h3>Opsteekkapsels</h3><p>Voor een trouw, een communie of een feest. Opgestoken zodat het de hele dag blijft zitten.</p><a href="#afspraak">Plan dit <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></article>
+      <article class="card"><div class="ph"><img src="img/kid.webp" alt="Jongen in een kapperscape" loading="lazy" width="1100" height="1650" style="object-position:50% 30%"><span class="tag">Heren en kinderen</span></div><h3>Voor de mannen en de kleinsten</h3><p>Een nette snit zonder gedoe. En de kinderen plan je gerust net voor of na je eigen afspraak.</p><a href="#afspraak">Plan dit <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec plan" id="afspraak">
+  <div class="wrap">
+    <div class="pg">
+      <div class="pi">
+        <span class="kick"><i><svg class="ic" aria-hidden="true"><use href="#i-calendar-heart"/></svg></i>Afspraak</span>
+        <h2>Plan je afspraak</h2>
+        <p class="lead">Laat weten wat je wil laten doen en wanneer het je past. Het salon neemt contact met je op om het uur vast te leggen.</p>
+        <ul class="pl-facts">
+          <li><i><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg></i><div><b>Dinsdag tot zaterdag</b><span>Van 8 tot 18 uur, enkel op afspraak</span></div></li>
+          <li><i><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg></i><div><b>Liever bellen?</b><span><a href="tel:+3213551268">013 55 12 68</a></span></div></li>
+          <li><i><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg></i><div><b>Met meer dan één?</b><span>Zet het bij je opmerking, dan plannen we jullie na elkaar.</span></div></li>
+        </ul>
+      </div>
+      <form class="af" id="af" novalidate>
+        <div class="af-top"><b>Afspraakaanvraag</b><small>Je aanvraag opent als mail, klaar om te versturen.</small></div>
+        <div class="af-bd">
+          <div class="af-row">
+            <label for="af-naam">Naam<input id="af-naam" name="naam" autocomplete="name" required></label>
+            <label for="af-gsm">Gsm-nummer<input id="af-gsm" name="gsm" type="tel" inputmode="tel" autocomplete="tel" required></label>
+          </div>
+          <label for="af-wat">Wat wil je laten doen?<select id="af-wat" name="wat"><option>Knippen en brushen</option><option>Kleuren of highlights</option><option>Permanent</option><option>Watergolf</option><option>Opsteekkapsel</option><option>Heren of kinderen knippen</option><option>Iets anders</option></select></label>
+          <div class="af-row">
+            <label for="af-dag">Voorkeursdag<select id="af-dag" name="dag"><option>Maakt niet uit</option><option>Dinsdag</option><option>Woensdag</option><option>Donderdag</option><option>Vrijdag</option><option>Zaterdag</option></select></label>
+            <label for="af-deel">Liefst in de<select id="af-deel" name="deel"><option>Maakt niet uit</option><option>Voormiddag</option><option>Namiddag</option></select></label>
+          </div>
+          <label for="af-opm">Opmerking (mag leeg blijven)<textarea id="af-opm" name="opm" rows="3" placeholder="Bijvoorbeeld: mijn zoontje komt ook mee voor een knipbeurt."></textarea></label>
+          <p class="err" id="af-err">Vul je naam en gsm-nummer in, dan kan het salon je terugbellen.</p>
+          <button class="btn pl" type="submit"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> Verstuur je aanvraag</button>
+          <small class="n">Of bel meteen naar <a href="tel:+3213551268">013 55 12 68</a></small>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="sec craft" id="vakwerk">
+  <div class="wrap">
+    <div class="cv">
+      <div class="a"><img src="img/curl.webp" alt="Lang haar wordt in golven gekruld" loading="lazy" width="1200" height="800" style="object-position:40% 50%"></div>
+      <div class="b"><img src="img/scis.webp" alt="Kappersschaar op een roze achtergrond" loading="lazy" width="1100" height="733"></div>
+      <div class="note"><span class="script">zoals vroeger</span><small>Watergolf en permanent, met de hand gezet</small></div>
+    </div>
+    <div>
+      <span class="kick"><i><svg class="ic" aria-hidden="true"><use href="#i-sparkles"/></svg></i>Het vakmanschap</span>
+      <h2>Watergolf en permanent, zoals het hoort</h2>
+      <p>Een watergolf leggen of een goede permanent zetten: veel kappers doen het niet meer. Bij Borgers &amp; C° hoort het er gewoon bij.</p>
+      <p>Voor wie al jaren elke week dezelfde vaste afspraak heeft. En voor wie graag wat meer krul of volume wil, zonder elke ochtend te föhnen.</p>
+      <ul class="ticks"><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Watergolf</li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Permanent</li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Opsteekkapsels</li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Kleuring</li></ul>
+      <div class="joico"><span class="lg">Joico</span><div><b>Verzorging van Joico</b><span>We werken met de producten van Joico. Twijfel je welke verzorging bij je haar past? Vraag het gerust tijdens je afspraak.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="rv" id="reviews">
+  <div class="wrap">
+    <div class="box">
+      <div class="score"><span class="kick"><i><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></i>Reviews</span><b style="margin-top:22px">4,9</b><span class="stars" aria-hidden="true">★★★★★</span><span>uit 54 reviews op Google</span><br><a href="https://www.google.com/maps/search/?api=1&query=Kapsalon+Borgers+Herk-de-Stad" target="_blank" rel="noopener">Lees ze op Google <svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a></div>
+      <div class="qs">
+        <div class="qc"><q>Vriendelijke en sympathieke bediening. Alles verloopt vlotjes, zonder wachttijd.</q><div class="by"><i>L</i><div><b>Lieve Jacobs</b><small>op Google</small></div></div></div>
+        <div class="qc"><q>Maxi is de beste kapper.</q><div class="by"><i>H</i><div><b>Helene Shaikh</b><small>op Google</small></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="bezoek" class="visit">
+  <div class="wrap">
+    <div class="vp"><img src="img/room2.webp" alt="Kapsalon met roze stoelen en grote spiegel" loading="lazy" width="1200" height="800"><div class="tag"><i><svg class="ic" aria-hidden="true"><use href="#i-map-pin"/></svg></i><div><b>Steenweg 39, Herk-de-Stad</b><span>Enkel op afspraak, zodat je nooit hoeft te wachten</span></div></div></div>
+    <div class="vi">
+      <span class="kick"><i><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg></i>Openingsuren</span>
+      <h2>Kom langs</h2>
+      <p class="addr">Steenweg 39, 3540 Herk-de-Stad</p>
+      <span class="nowl" data-open><i></i><span><b data-open-t>Op afspraak</b> <span data-open-s></span></span></span>
+      <ul class="hours" data-today>
+        <li data-day="1" class="cl"><span>Maandag</span><span>Gesloten</span></li>
+        <li data-day="2"><span>Dinsdag</span><span>8 tot 18 uur</span></li>
+        <li data-day="3"><span>Woensdag</span><span>8 tot 18 uur</span></li>
+        <li data-day="4"><span>Donderdag</span><span>8 tot 18 uur</span></li>
+        <li data-day="5"><span>Vrijdag</span><span>8 tot 18 uur</span></li>
+        <li data-day="6"><span>Zaterdag</span><span>8 tot 18 uur</span></li>
+        <li data-day="0" class="cl"><span>Zondag</span><span>Gesloten</span></li>
+      </ul>
+      <div class="row"><a class="btn pl" href="tel:+3213551268"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> 013 55 12 68</a><a class="btn ln" href="https://www.google.com/maps/dir/?api=1&destination=Steenweg+39+3540+Herk-de-Stad" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-navigation"/></svg> Route</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="fg">
+      <div><span class="logo"><span class="m">B</span><span><b>Borgers &amp; C°</b><small>Kapsalon in Herk-de-Stad</small></span></span><p>Kapsalon voor dames, heren en kinderen. Snit, kleur, permanent, watergolf en opsteekkapsels. Enkel op afspraak.</p></div>
+      <div><h4>Salon</h4><ul><li>Steenweg 39</li><li>3540 Herk-de-Stad</li><li><a href="tel:+3213551268">013 55 12 68</a></li><li><a href="mailto:kapsalonborgers@hotmail.com">Mail het salon</a></li></ul></div>
+      <div><h4>Volg ons</h4><ul><li><a href="https://www.instagram.com/kapsalon.borgersco/" target="_blank" rel="noopener">Instagram</a></li><li><a href="#afspraak">Afspraak</a></li><li><a href="#diensten">Diensten</a></li></ul></div>
+    </div>
+    <div class="legal"><span>© Kapsalon Borgers &amp; C° BV, Herk-de-Stad</span><span>Voorbeeldsite door <a href="https://digital-impression.be" target="_blank" rel="noopener">Digital Impression</a></span></div>
+  </div>
+</footer>
+
+<div class="mbar"><a class="btn pl" href="#afspraak">Afspraak</a><a class="btn ln" href="tel:+3213551268"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg> Bellen</a></div>
+
+<span hidden><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></span>
+<script>window.HOURS={2:[[480,1080]],3:[[480,1080]],4:[[480,1080]],5:[[480,1080]],6:[[480,1080]]};</script>
+<script>(()=>{
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+/* Brussels time, so a visitor abroad sees the shop's real state */
+const now=(off=0)=>{const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Brussels',weekday:'short',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date(Date.now()+off*864e5));const g=t=>p.find(x=>x.type===t).value;return{d:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(g('weekday')),m:(+g('hour')%24)*60+(+g('minute')),ymd:g('year')+'-'+g('month')+'-'+g('day')}};
+window.DI={now,$,$$};
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px',threshold:.08});
+$$('[data-r]').forEach((el,i)=>{if(RM){el.classList.add('in');return}const st=el.dataset.r;if(st)el.style.setProperty('--d',st+'ms');io.observe(el)});
+/* counters */
+const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;co.unobserve(e.target);const el=e.target,to=parseFloat(el.dataset.count),dec=(el.dataset.count.split(/[.,]/)[1]||'').length,dur=1400,t0=performance.now();const fmt=v=>v.toFixed(dec).replace('.',',');if(RM){el.textContent=fmt(to);return}const step=t=>{const k=Math.min(1,(t-t0)/dur),e2=1-Math.pow(1-k,3);el.textContent=fmt(to*e2);if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}),{threshold:.6});
+$$('[data-count]').forEach(el=>co.observe(el));
+/* header state */
+const hd=$('[data-head]');if(hd){const f=()=>hd.classList.toggle('scrolled',scrollY>30);f();addEventListener('scroll',f,{passive:true})}
+/* opening hours: window.HOURS = {1:[[420,1110]],...} minutes, 0=sunday */
+const H=window.HOURS;
+const hm=m=>{const h=Math.floor(m/60),mm=m%60;return h+'u'+(mm?String(mm).padStart(2,'0'):'')};
+const days=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+const SP=window.SPECIAL||{};const hrs=(off)=>{const n=now(off);return SP[n.ymd]||H[n.d]||[]};
+window.DI.hrs=hrs;
+window.DI.status=()=>{if(!H)return null;const{d,m}=now();const t=hrs(0);for(const[a,b]of t){if(m>=a&&m<b)return{open:true,txt:'Nu open',sub:'tot '+hm(b),close:b,m}}
+ const later=t.find(([a])=>a>m);if(later)return{open:false,txt:'Nu gesloten',sub:'open om '+hm(later[0])};
+ for(let i=1;i<8;i++){const dd=(d+i)%7,tt=hrs(i);if(tt.length)return{open:false,txt:'Nu gesloten',sub:'open '+(i===1?'morgen':days[dd])+' om '+hm(tt[0][0])}}return null};
+const st=window.DI.status();
+if(st)$$('[data-open]').forEach(el=>{el.classList.toggle('is-open',st.open);el.classList.toggle('is-closed',!st.open);const a=$('[data-open-t]',el),b=$('[data-open-s]',el);if(a)a.textContent=st.txt;if(b)b.textContent=st.sub});
+$$('[data-today]').forEach(tb=>{const{d}=now();const r=tb.querySelector(`[data-day="${d}"]`);if(r)r.classList.add('today')});
+/* tabs */
+$$('[data-tabs]').forEach(w=>{const bs=$$('[data-tab]',w),ps=$$('[data-panel]',w);const set=k=>{bs.forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===k));ps.forEach(p=>p.hidden=p.dataset.panel!==k);w.dispatchEvent(new CustomEvent('tab',{detail:k}))};bs.forEach(b=>b.addEventListener('click',()=>set(b.dataset.tab)));w._set=set});
+$$('[data-goto-tab]').forEach(a=>a.addEventListener('click',()=>{const [sel,k]=a.dataset.gotoTab.split('|');const w=$(sel);if(w&&w._set)w._set(k)}));
+/* accordion */
+$$('[data-acc] > button').forEach(b=>b.addEventListener('click',()=>{const it=b.parentElement,o=it.classList.toggle('open');b.setAttribute('aria-expanded',o)}));
+/* marquee: duplicate content for a seamless loop */
+$$('[data-marquee]').forEach(m=>{const t=m.firstElementChild;if(!t)return;m.appendChild(t.cloneNode(true)).setAttribute('aria-hidden','true')});
+/* gentle parallax for decorative layers */
+if(!RM&&innerWidth>900){const px=$$('[data-px]');if(px.length){let tk=false;const run=()=>{const vh=innerHeight;px.forEach(el=>{const r=el.getBoundingClientRect();const c=(r.top+r.height/2-vh/2)/vh;el.style.translate=`0 ${(c*parseFloat(el.dataset.px)).toFixed(1)}px`});tk=false};addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(run)}},{passive:true});run()}}
+/* mobile menu */
+const mb=$('[data-menu-btn]'),mn=$('[data-menu]');if(mb&&mn){mb.addEventListener('click',()=>{const o=document.body.classList.toggle('menu-open');mb.setAttribute('aria-expanded',o)});$$('a',mn).forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-open')))}
+})();
+</script>
+<script>
+(()=>{const{$,$$}=DI;const f=$('#af');if(!f)return;
+const MAP={'Knippen en brushen':'Knippen en brushen','Kleuren en highlights':'Kleuren of highlights','Permanent':'Permanent','Opsteekkapsels':'Opsteekkapsel','Voor de mannen en de kleinsten':'Heren of kinderen knippen'};
+$$('.card a[href="#afspraak"]').forEach(a=>a.addEventListener('click',()=>{const h=a.closest('.card').querySelector('h3');const v=h&&MAP[h.textContent.trim()];if(v)$('#af-wat').value=v}));
+f.addEventListener('submit',e=>{e.preventDefault();const n=$('#af-naam'),g=$('#af-gsm');
+ [n,g].forEach(x=>x.setAttribute('aria-invalid',x.value.trim()?'false':'true'));const ok=n.value.trim()&&g.value.trim();f.classList.toggle('bad',!ok);if(!ok){(n.value.trim()?g:n).focus();return}
+ const v=id=>$(id).value.trim();const dag=v('#af-dag'),deel=v('#af-deel');const any='Maakt niet uit';
+ const pref=(dag===any&&deel===any)?'maakt niet uit':[dag===any?'':dag.toLowerCase(),deel===any?'':'in de '+deel.toLowerCase()].filter(Boolean).join(', ');
+ const body=`Dag Borgers & C°,\n\nIk wil graag een afspraak maken.\n\nWat: ${v('#af-wat')}\nVoorkeur: ${pref}\n${v('#af-opm')?'Opmerking: '+v('#af-opm')+'\n':''}\nNaam: ${v('#af-naam')}\nGsm: ${v('#af-gsm')}\n\nAlvast bedankt!`;
+ location.href='mailto:kapsalonborgers@hotmail.com?subject='+encodeURIComponent('Afspraak: '+v('#af-wat'))+'&body='+encodeURIComponent(body)});
+})();
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Onest:wght@400;500;600;700&display=swap">
+<style>
+.di,.di *{box-sizing:border-box;margin:0}
+.di{--n:#0E1C3A;--n2:#162a52;--n3:#21386a;--pa:#FBF7F0;--cr:#F5EEE2;--te:#D7603A;--ted:#B04722;--ap:#F2AE84;--bu:#F1CB78;--mu:#c3cadb;--lijn:rgba(245,238,226,.14);
+  background:var(--n);color:var(--cr);position:relative;overflow:clip;padding:96px 0 72px;font:18px/1.6 'Onest',system-ui,sans-serif;text-align:left;scroll-margin-top:70px}
+.di::before{content:"";position:absolute;inset:0;background:radial-gradient(55% 45% at 90% 0%,rgba(215,96,58,.16),transparent 70%),radial-gradient(40% 40% at 0% 100%,rgba(241,203,120,.06),transparent 70%);pointer-events:none}
+.di .naad{position:absolute;left:0;right:0;top:0;height:6px;background:repeating-linear-gradient(90deg,var(--te) 0 22px,var(--bu) 22px 44px,var(--ap) 44px 66px)}
+.di .wrap{position:relative;max-width:1080px;margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+.di h2,.di h3,.di h4{text-transform:none;letter-spacing:normal;font-style:normal}
+.di .merk{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ap);margin-bottom:22px}
+.di .merk::before{content:"";width:28px;height:2px;background:currentColor;border-radius:2px}
+.di .boven{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+.di h2{font:400 clamp(40px,5.2vw,62px)/1.04 'DM Serif Display',serif;color:var(--pa);letter-spacing:-.5px;margin-bottom:26px}
+.di h2 em{font-style:italic;color:var(--ap)}
+.di .brief p{color:var(--mu);font-size:19px;max-width:32em}
+.di .brief p+p{margin-top:14px}
+.di .brief p b{color:var(--pa);font-weight:600}
+.di .teken{display:flex;align-items:center;gap:16px;margin-top:30px}
+.di .di-foto{flex:none;width:64px;height:64px;border-radius:50%;object-fit:cover;background:linear-gradient(140deg,var(--ted),var(--te));display:grid;place-items:center;font:400 30px/1 'DM Serif Display',serif;color:#fff;box-shadow:0 0 0 4px var(--n),0 0 0 6px rgba(242,174,132,.5)}
+.di .teken .naam{font:italic 400 30px/1 'DM Serif Display',serif;color:var(--pa)}
+.di .teken .wie{display:block;font-size:15px;color:var(--mu);margin-top:6px}
+.di .vgl{background:var(--pa);color:var(--n);border-radius:24px;padding:10px 26px 22px;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+.di .vgl .kop{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:16px 0 12px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.di .vgl .kop span:first-child{color:#8a90a3}
+.di .vgl .kop span:last-child{color:var(--ted)}
+.di .rij{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:16px 0;border-top:1px solid rgba(14,28,58,.1);font-size:16.5px;line-height:1.4}
+.di .rij .nu{color:#6d7488}
+.di .rij .straks{font-weight:600;display:flex;gap:10px;align-items:flex-start}
+.di .rij .straks::before{content:"";flex:none;width:20px;height:20px;margin-top:1px;border-radius:50%;background:var(--ted) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/13px no-repeat}
+.di .gesprek{margin-top:64px;background:linear-gradient(135deg,var(--n2),var(--n3));border:1.5px solid var(--lijn);border-radius:28px;padding:40px;display:grid;grid-template-columns:1fr auto;gap:36px;align-items:center}
+.di .gesprek h3{font:400 clamp(30px,3.4vw,40px)/1.1 'DM Serif Display',serif;color:var(--pa)}
+.di .gesprek p{color:var(--mu);margin-top:10px;max-width:30em}
+.di .opties{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.di .opties span{font-size:14.5px;font-weight:600;color:var(--pa);background:rgba(245,238,226,.08);border:1px solid var(--lijn);border-radius:999px;padding:6px 14px}
+.di .knoppen{display:flex;flex-direction:column;gap:12px;min-width:300px}
+.di .knoppen a{display:flex;justify-content:center;align-items:center;gap:10px;border-radius:999px;padding:17px 26px;font-weight:700;font-size:17.5px;text-decoration:none;white-space:nowrap;transition:transform .15s,background .15s,border-color .15s}
+.di .knoppen a:hover{transform:translateY(-2px)}
+.di .knoppen svg{width:20px;height:20px;flex:none}
+.di .knoppen .cal{background:var(--te);color:#fff;box-shadow:0 14px 30px -12px rgba(215,96,58,.7)}
+.di .knoppen .cal:hover{background:var(--ted)}
+.di .knoppen .wa{border:1.5px solid rgba(245,238,226,.35);color:var(--pa)}
+.di .knoppen .wa:hover{border-color:var(--pa)}
+.di .knoppen .tel{color:var(--mu);font-weight:600;font-size:15.5px;padding:4px}
+.di .knoppen .tel:hover{color:var(--pa);transform:none}
+.di .stappen{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px;counter-reset:st}
+.di .stap{display:flex;gap:16px;align-items:flex-start}
+.di .stap i{flex:none;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--ap);color:var(--ap);display:grid;place-items:center;font:400 22px/1 'DM Serif Display',serif;font-style:normal}
+.di .stap b{display:block;color:var(--pa);font-size:18px;line-height:1.3;margin-bottom:4px}
+.di .stap span{color:var(--mu);font-size:16.5px;line-height:1.5}
+.di .prijs{margin-top:56px;padding-top:36px;border-top:1px solid var(--lijn)}
+.di .prijs h4{font:400 26px/1.1 'DM Serif Display',serif;color:var(--pa);margin-bottom:20px}
+.di .prijs .cellen{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.di .cel{border:1px solid var(--lijn);border-radius:18px;padding:20px 22px;background:rgba(245,238,226,.03)}
+.di .cel .b{font:400 32px/1 'DM Serif Display',serif;color:var(--pa)}
+.di .cel .b small{font:600 15px/1 'Onest',sans-serif;color:var(--ap);margin-left:4px}
+.di .cel p{color:var(--mu);font-size:15.5px;line-height:1.5;margin-top:8px}
+.di .voet{margin-top:44px;font-size:14.5px;color:#8f98b3;text-align:center}
+.di .voet a{color:inherit}
+.di :focus-visible{outline:3px solid var(--ap);outline-offset:3px}
+@media (max-width:940px){.di .boven{grid-template-columns:1fr;gap:40px}.di .gesprek{grid-template-columns:1fr;padding:30px 24px;gap:26px}.di .knoppen{min-width:0}.di .stappen{grid-template-columns:1fr;gap:20px}.di .prijs .cellen{grid-template-columns:1fr}}
+@media (max-width:640px){.di{padding:76px 0 56px;font-size:17px}.di .brief p{font-size:17.5px}.di .vgl{padding:6px 18px 14px}.di .rij{grid-template-columns:1fr;gap:4px;padding:14px 0}.di .vgl .kop{display:none}.di .rij .nu{font-size:14.5px;text-decoration:line-through;text-decoration-color:rgba(109,116,136,.5)}.di .knoppen a{white-space:normal}}
+</style>
+<section aria-labelledby="di-titel" class="di" id="di">
+<span aria-hidden="true" class="naad"></span>
+<div class="wrap">
+<div class="boven">
+<div class="brief">
+<span class="merk">Een woordje uitleg</span>
+<h2 id="di-titel">Dit is nog maar <em>een voorbeeld</em>.</h2>
+<p>Ik maakte deze site voor Kapsalon Borgers &amp; C° zonder jullie al te kennen. De teksten haalde ik uit wat ik online over jullie vond, de foto's en de stijl koos ik zelf.</p>
+<p>De echte site maak ik pas na een gesprek. Dan hoor ik wat jullie klanten altijd vragen, wat er anders moet en wat écht bij jullie past. <b>Het resultaat wordt een stuk mooier en persoonlijker dan wat hier staat.</b></p>
+<div class="teken"><span class="di-foto" aria-hidden="true">S</span><div><span class="naam">Stijn</span><span class="wie">Stijn Vranken, Digital Impression</span></div></div>
+</div>
+<div class="vgl" role="table" aria-label="Wat dit nu is en wat het wordt">
+<div class="kop" role="row"><span role="columnheader">Nu, als voorbeeld</span><span role="columnheader">Straks, jullie site</span></div>
+<div class="rij" role="row"><span class="nu" role="cell">Teksten op basis van Google en reviews</span><span class="straks" role="cell">Teksten in jullie eigen woorden</span></div>
+<div class="rij" role="row"><span class="nu" role="cell">Foto's die ik zelf bij elkaar zocht</span><span class="straks" role="cell">Jullie eigen beelden</span></div>
+<div class="rij" role="row"><span class="nu" role="cell">Een stijl die ik koos</span><span class="straks" role="cell">Kleuren en sfeer die jullie kiezen</span></div>
+<div class="rij" role="row"><span class="nu" role="cell">Gemaakt zonder jullie</span><span class="straks" role="cell">Samen uitgewerkt, tot het klopt</span></div>
+</div>
+</div>
+<div class="gesprek">
+<div>
+<h3>Zin om er eens over te praten?</h3>
+<p>Een half uurtje, vrijblijvend. Jullie vertellen wat jullie willen, ik toon wat kan. Ook als jullie daarna niet verder willen, is dat helemaal oké.</p>
+<div class="opties"><span>Ik kom langs</span><span>Of we bellen even</span><span>30 minuten</span></div>
+</div>
+<div class="knoppen">
+<a class="cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Kapsalon%20Borgers%20%26%20C%C2%B0" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Plan een gesprek</a>
+<a class="wa" href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20Kapsalon%20Borgers%20%26%20C%C2%B0" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z"/></svg>Stuur een WhatsApp</a>
+<a class="tel" href="tel:+32496251445">of bel 0496 25 14 45</a>
+</div>
+</div>
+<div class="stappen">
+<div class="stap"><i aria-hidden="true">1</i><div><b>We praten even</b><span>Bij jullie in de zaak of aan de telefoon, wat jullie het best uitkomt.</span></div></div>
+<div class="stap"><i aria-hidden="true">2</i><div><b>Ik werk het uit</b><span>Op maat van jullie zaak. Wat anders moet, pas ik aan.</span></div></div>
+<div class="stap"><i aria-hidden="true">3</i><div><b>Jullie site staat online</b><span>Op jullie eigen domein, 10 tot 14 dagen na ons gesprek.</span></div></div>
+</div>
+<div class="prijs">
+<h4>En wat kost dat dan?</h4>
+<div class="cellen">
+<div class="cel"><div class="b">€ 499<small>eenmalig</small></div><p>De volledige site, op gsm, tablet en computer. Alles inbegrepen.</p></div>
+<div class="cel"><div class="b">€ 19,99<small>per maand</small></div><p>Hosting, domein en aanpassingen door mij. Liever zelf beheren? Dan betalen jullie niets per maand.</p></div>
+<div class="cel"><div class="b">€ 0<small>vooraf</small></div><p>Geen voorschot. Jullie betalen pas als de site klaar is.</p></div>
+</div>
+</div>
+<p class="voet">Stijn Vranken · Digital Impression · <a href="tel:+32496251445">0496 25 14 45</a> · <a href="mailto:info@digital-impression.be">info@digital-impression.be</a> · <a href="https://digital-impression.be" target="_blank" rel="noopener">digital-impression.be</a></p>
+</div>
+</section>
+<script>/*di-rust*/(function(){var d=document.getElementById('di');if(!d||!('IntersectionObserver' in window))return;var vast=[];function zoek(){vast=[].filter.call(document.body.querySelectorAll('*'),function(e){if(d.contains(e)||e.closest('.di-strook,.demo'))return false;var p=getComputedStyle(e).position;return p==='fixed'||p==='sticky'})}new IntersectionObserver(function(x){if(!vast.length)zoek();var aan=x[0].isIntersecting;vast.forEach(function(e){e.style.transition='opacity .25s';e.style.opacity=aan?'0':'';e.style.pointerEvents=aan?'none':''})},{threshold:0.15}).observe(d)})();</script>
+
+
+
+</body>
+</html>
