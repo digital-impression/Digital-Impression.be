@@ -9,219 +9,321 @@
 <script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Figtree:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300,100;0,9..144,400,100;1,9..144,300,100;1,9..144,400,100&family=Figtree:wght@300;400;500;600&display=swap">
 <style>
 :root{
-  --stone:#eeeae4;--stone2:#e2dcd3;--paper:#f7f5f1;--esp:#231e1b;--esp2:#3a322d;--taupe:#857669;--sage:#8a957c;--line:rgba(35,30,27,.12);
+  --stone:#eeeae4;--stone2:#e3ddd4;--stone3:#d8d0c5;--paper:#f8f6f2;--esp:#231e1b;--esp2:#3a322d;--taupe:#857669;--taupe2:#a4968a;--line:rgba(35,30,27,.12);--line2:rgba(35,30,27,.22);
+  --ease:cubic-bezier(.2,.7,.2,1);--shadow:0 30px 60px -30px rgba(35,30,27,.35),0 10px 24px -14px rgba(35,30,27,.18);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--stone);color:var(--esp);font:300 17px/1.7 "Figtree",system-ui,sans-serif;overflow-x:hidden}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:90px}
+body{background:var(--stone);color:var(--esp);font:300 17px/1.7 "Figtree",system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 b,strong{font-weight:500}
 .demo{background:var(--esp);color:#e9e3da;text-align:center;font-size:14px;line-height:1.4;padding:9px 16px}
 .demo a{color:#fff;font-weight:600}
 .wrap{width:min(1240px,100% - 40px);margin-inline:auto}
-.bd{font-family:"Bodoni Moda",Georgia,serif;font-weight:400;letter-spacing:-.01em}
-.lbl{font-size:12px;letter-spacing:.26em;text-transform:uppercase;font-weight:500;color:var(--taupe)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 26px;border-radius:999px;font:500 15px/1 "Figtree",sans-serif;letter-spacing:.02em;text-decoration:none;transition:background .25s ease,color .25s ease,border-color .25s ease}
-.btn svg{width:18px;height:18px;flex:none}
+.bd,h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:300;font-variation-settings:"SOFT" 100;letter-spacing:-.02em}
+.bd i,h1 i,h2 i,h3 i{font-style:italic;color:var(--taupe)}
+.lbl{display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.26em;text-transform:uppercase;font-weight:500;color:var(--taupe)}
+.lbl:before{content:"";width:26px;height:1px;background:currentColor;opacity:.6}
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:8px 8px 8px 24px;min-height:52px;border-radius:999px;font:500 15px/1 "Figtree",sans-serif;letter-spacing:.01em;text-decoration:none;transition:background .4s var(--ease),color .4s var(--ease),border-color .4s var(--ease),transform .4s var(--ease)}
+.btn .ar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;flex:none;transition:transform .45s var(--ease),background .4s var(--ease)}
+.btn .ar svg{width:15px;height:15px}
+.btn:hover .ar{transform:translateX(3px) rotate(-45deg)}
+.btn svg{flex:none}
 .btn-dark{background:var(--esp);color:var(--paper)}
+.btn-dark .ar{background:rgba(248,246,242,.14)}
 .btn-dark:hover{background:var(--esp2)}
-.btn-line{border:1px solid rgba(35,30,27,.3)}
+.btn-line{border:1px solid var(--line2);padding:0 24px}
+.btn-line svg{width:18px;height:18px}
 .btn-line:hover{border-color:var(--esp);background:var(--paper)}
+.btn-light{background:#ece6dd;color:var(--esp)}
+.btn-light .ar{background:var(--esp);color:#ece6dd}
+.btn-light:hover{background:#fff}
 
-header{position:sticky;top:0;z-index:40;background:rgba(238,234,228,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
-.nav{display:flex;justify-content:space-between;align-items:center;height:76px;gap:20px}
+/* header */
+header{position:sticky;top:0;z-index:40;background:rgba(238,234,228,.82);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);border-bottom:1px solid transparent;transition:border-color .4s,box-shadow .4s}
+header.sc{border-bottom-color:var(--line);box-shadow:0 10px 30px -24px rgba(35,30,27,.5)}
+.nav{display:flex;justify-content:space-between;align-items:center;height:78px;gap:20px;transition:height .4s var(--ease)}
+header.sc .nav{height:66px}
 .wm{text-decoration:none;line-height:1}
-.wm .bd{font-size:24px;letter-spacing:.06em;text-transform:uppercase}
-.wm small{display:block;font-size:9.5px;letter-spacing:.42em;text-transform:uppercase;color:var(--taupe);margin-top:4px}
-.pill-nav{display:flex;gap:4px;background:rgba(247,245,241,.7);border:1px solid var(--line);border-radius:999px;padding:5px}
-.pill-nav a{padding:8px 16px;border-radius:999px;text-decoration:none;font-size:14.5px;font-weight:400;transition:background .2s}
+.wm .bd{font-size:23px;letter-spacing:.08em;text-transform:uppercase;font-weight:400}
+.wm small{display:block;font-size:9.5px;letter-spacing:.42em;text-transform:uppercase;color:var(--taupe);margin-top:5px}
+.pill-nav{display:flex;gap:2px;background:rgba(248,246,242,.72);border:1px solid var(--line);border-radius:999px;padding:5px}
+.pill-nav a{padding:8px 17px;border-radius:999px;text-decoration:none;font-size:14.5px;font-weight:400;transition:background .3s var(--ease)}
 .pill-nav a:hover{background:var(--stone2)}
-.nav .btn{padding:11px 20px;font-size:14.5px}
+.nav .btn{min-height:44px;padding:6px 6px 6px 18px;font-size:14.5px}
+.nav .btn .ar{width:32px;height:32px}
 
 /* hero */
-.hero{padding:10px 0 0}
-.hero-visual{position:relative;border-radius:30px;overflow:hidden;height:min(74vh,700px);min-height:440px;background:var(--esp)}
-.hero-visual img{width:100%;height:100%;object-fit:cover;object-position:50% 35%}
-.hero-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(35,30,27,.05) 40%,rgba(35,30,27,.55))}
-.hero-visual .word{position:absolute;left:0;right:0;bottom:-.17em;text-align:center;font-family:"Bodoni Moda",serif;font-weight:400;font-size:clamp(90px,17.5vw,252px);line-height:1;color:#f7f5f1;letter-spacing:-.03em;z-index:2;white-space:nowrap;opacity:.96}
-.hero-visual .stamp{position:absolute;top:24px;right:24px;z-index:2;background:rgba(247,245,241,.92);border-radius:999px;padding:10px 18px;font-size:13.5px;font-weight:500;letter-spacing:.06em}
-.hero-text{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;padding:70px 0 40px;align-items:start}
-.hero-text h1{font-size:clamp(38px,4.6vw,64px);line-height:1.08}
-.hero-text h1 i{color:var(--taupe)}
-.hero-text p{color:var(--esp2);font-size:18.5px;max-width:46ch}
-.hero-text .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-.facts span{border:1px solid var(--line);border-radius:999px;padding:7px 15px;font-size:14px;background:rgba(247,245,241,.6)}
+.hero{position:relative;padding:56px 0 0;overflow:hidden}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:64px;align-items:center}
+.hero-tx{padding:20px 0 40px}
+.chip{display:inline-flex;align-items:center;gap:10px;padding:7px 16px 7px 8px;border-radius:999px;background:var(--paper);border:1px solid var(--line);font-size:13.5px;font-weight:400}
+.chip i{width:24px;height:24px;border-radius:50%;background:var(--esp);display:grid;place-items:center}
+.chip i:after{content:"";width:6px;height:6px;border-radius:50%;background:#e9dccb}
+.hero h1{font-size:clamp(46px,5.7vw,86px);line-height:1.02;margin:26px 0 26px;letter-spacing:-.035em}
+.hero h1 i{display:inline-block}
+.hero-tx p{color:var(--esp2);font-size:18.5px;max-width:45ch}
+.hero-tx .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.proof{display:flex;align-items:center;gap:22px;margin-top:40px;padding-top:28px;border-top:1px solid var(--line);flex-wrap:wrap}
+.proof .st{display:flex;gap:3px}
+.proof .st svg{width:16px;height:16px}
+.proof b{display:block;font-weight:500;font-size:15.5px;line-height:1.3}
+.proof small{font-size:13.5px;color:var(--taupe)}
+.proof .sep{width:1px;height:34px;background:var(--line2)}
+.proof a{text-decoration:none;display:flex;flex-direction:column;gap:4px}
 
-.sec{padding:110px 0}
+.hero-vis{position:relative;padding:0 0 60px 40px}
+.arch{position:relative;border-radius:320px 320px 30px 30px;overflow:hidden;aspect-ratio:4/5;max-height:680px;margin-left:auto;background:var(--stone3);box-shadow:var(--shadow)}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:52% 40%;transform:scale(1.06);transition:transform 1.8s var(--ease)}
+.loaded .arch img{transform:scale(1)}
+.arch:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(35,30,27,.35));pointer-events:none}
+.arch .tag{position:absolute;right:22px;bottom:22px;z-index:2;color:#f5efe7;font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+.badge{position:absolute;left:0;top:44px;width:132px;height:132px;border-radius:50%;background:var(--paper);box-shadow:var(--shadow);display:grid;place-items:center;z-index:3}
+.badge svg.ring{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);animation:spin 26s linear infinite}
+.badge text{font:500 10.4px "Figtree",sans-serif;letter-spacing:.32em;text-transform:uppercase;fill:var(--esp)}
+.badge .mid{width:46px;height:46px;border-radius:50%;background:var(--esp);display:grid;place-items:center}
+.badge .mid svg{width:20px;height:20px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.float{position:absolute;left:0;bottom:0;z-index:3;display:flex;gap:16px;align-items:center;padding:12px 22px 12px 12px;width:min(370px,90%);border-radius:24px;background:rgba(248,246,242,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.7);box-shadow:var(--shadow);text-decoration:none;transition:transform .5s var(--ease)}
+.float:hover{transform:translateY(-4px)}
+.float img{width:84px;height:84px;border-radius:16px;object-fit:cover;flex:none}
+.float small{display:block;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe);font-weight:500}
+.float b{display:block;font-family:"Fraunces",serif;font-weight:400;font-variation-settings:"SOFT" 100;font-size:21px;line-height:1.15;margin:4px 0 6px;letter-spacing:-.01em}
+.float span{font-size:14px;color:var(--esp2);display:flex;align-items:center;gap:8px}
+.float span em{font-style:normal;font-weight:500;color:var(--esp)}
+
+.feat{position:relative;z-index:2;margin-top:70px;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(248,246,242,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:26px;margin-bottom:10px}
+.feat div{display:flex;gap:16px;align-items:flex-start;padding:28px 28px}
+.feat div+div{border-left:1px solid var(--line)}
+.feat svg{width:38px;height:38px;flex:none;padding:9px;border-radius:50%;border:1px solid var(--line2);color:var(--esp2)}
+.feat b{display:block;font-size:15.5px;font-weight:500;line-height:1.3}
+.feat span{display:block;font-size:14px;line-height:1.5;color:var(--taupe);margin-top:4px}
+
+.sec{padding:120px 0}
 
 /* intro */
-.intro{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
-.intro .pic{border-radius:26px;overflow:hidden}
-.intro .pic img{width:100%;aspect-ratio:16/11;object-fit:cover}
-.intro h2{font-size:clamp(34px,4vw,54px);line-height:1.1;margin:16px 0 22px}
+.intro{display:grid;grid-template-columns:.95fr 1.05fr;gap:80px;align-items:center}
+.stack{position:relative;padding:0 60px 70px 0}
+.stack .a{border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
+.stack .a img{width:100%;aspect-ratio:5/4;object-fit:cover;transition:transform 1.2s var(--ease)}
+.stack:hover .a img{transform:scale(1.03)}
+.stack .b{position:absolute;right:0;bottom:0;width:44%;border-radius:22px;overflow:hidden;border:8px solid var(--stone);box-shadow:var(--shadow)}
+.stack .b img{width:100%;aspect-ratio:1;object-fit:cover}
+.intro h2{font-size:clamp(36px,4.2vw,58px);line-height:1.06;margin:18px 0 24px}
 .intro p{color:var(--esp2)}
 .intro p+p{margin-top:14px}
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
-.duo div{background:var(--paper);border-radius:20px;padding:22px 24px}
-.duo b{display:block;font-family:"Bodoni Moda",serif;font-weight:400;font-size:24px;margin-bottom:4px}
-.duo span{font-size:15px;color:var(--taupe)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:36px}
+.duo div{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:22px 24px;display:flex;gap:16px;align-items:flex-start;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.duo div:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.duo svg{width:22px;height:22px;flex:none;margin-top:4px;color:var(--taupe)}
+.duo b{display:block;font-family:"Fraunces",serif;font-weight:400;font-variation-settings:"SOFT" 100;font-size:23px;line-height:1.2;margin-bottom:4px}
+.duo span{font-size:15px;color:var(--taupe);line-height:1.5}
 
 /* signature */
-.sig{background:var(--esp);color:#ece6dd;border-radius:34px;margin-inline:20px;overflow:hidden}
+.sig{background:var(--esp);color:#ece6dd;border-radius:36px;margin-inline:20px;overflow:hidden;position:relative}
 .sig-grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
-.sig .ph{position:relative;min-height:560px}
-.sig .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.sig .tx{padding:80px 70px}
+.sig .ph{position:relative;min-height:600px;overflow:hidden}
+.sig .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.sig .ph:hover img{transform:scale(1.04)}
+.sig .ph .glass{position:absolute;left:24px;bottom:24px;right:24px;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 22px;border-radius:20px;background:rgba(35,30,27,.42);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(236,230,221,.18);font-size:14.5px;color:#f1ebe2}
+.sig .ph .glass b{font-weight:500}
+.sig .tx{padding:84px 72px}
 .sig .lbl{color:#b9ad9f}
-.sig h2{font-size:clamp(36px,4.2vw,58px);line-height:1.06;margin:16px 0 18px}
+.sig h2{font-size:clamp(38px,4.4vw,62px);line-height:1.04;margin:18px 0 20px}
 .sig h2 i{color:#c9bba9}
-.sig p{color:rgba(236,230,221,.75)}
-.sig ol{list-style:none;margin-top:30px;counter-reset:s;display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
-.sig li{counter-increment:s;padding:13px 0;border-top:1px solid rgba(236,230,221,.15);display:flex;gap:14px;font-size:16px}
-.sig li:before{content:counter(s,decimal-leading-zero);font-family:"Bodoni Moda",serif;color:#b9ad9f;min-width:26px}
-.sig .price{display:flex;align-items:center;gap:20px;margin-top:34px;flex-wrap:wrap}
-.sig .price b{font-family:"Bodoni Moda",serif;font-weight:400;font-size:34px}
-.sig .btn{background:#ece6dd;color:var(--esp)}
-.sig .btn:hover{background:#fff}
+.sig p{color:rgba(236,230,221,.76)}
+.sig ol{list-style:none;margin-top:34px;counter-reset:s;display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.sig li{counter-increment:s;padding:14px 0;border-top:1px solid rgba(236,230,221,.14);display:flex;align-items:center;gap:14px;font-size:16px}
+.sig li:before{content:counter(s,decimal-leading-zero);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:1px solid rgba(236,230,221,.22);font:400 12px/1 "Figtree",sans-serif;color:#cdbfae;flex:none}
+.sig .price{display:flex;align-items:center;gap:22px;margin-top:38px;flex-wrap:wrap}
+.sig .price b{font-family:"Fraunces",serif;font-weight:300;font-size:44px;line-height:1;letter-spacing:-.02em}
+.sig .price b small{display:block;font:400 12px/1 "Figtree",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#b9ad9f;margin-bottom:8px}
 
 /* menu */
 .menu-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:56px;flex-wrap:wrap}
-.menu-head h2{font-size:clamp(38px,4.8vw,66px);line-height:1.04;max-width:13ch;margin-top:14px}
+.menu-head h2{font-size:clamp(40px,5vw,70px);line-height:1.02;max-width:13ch;margin-top:16px}
 .menu-head p{max-width:42ch;color:var(--esp2)}
-.menu{border-top:1px solid rgba(35,30,27,.25)}
-.item{display:grid;grid-template-columns:70px 1.05fr 1.4fr auto;gap:28px;padding:30px 0;border-bottom:1px solid rgba(35,30,27,.15);align-items:baseline;transition:background .3s}
-.item:hover{background:rgba(247,245,241,.5)}
-.item .no{font-family:"Bodoni Moda",serif;font-size:18px;color:var(--taupe)}
-.item h3{font-family:"Bodoni Moda",serif;font-weight:400;font-size:30px;line-height:1.15}
+.menu{border-top:1px solid var(--line2)}
+.item{position:relative;display:grid;grid-template-columns:70px 1.05fr 1.4fr 150px;gap:28px;padding:32px 20px 32px 0;border-bottom:1px solid rgba(35,30,27,.15);align-items:baseline;transition:padding .5s var(--ease),background .5s var(--ease)}
+.item:before{content:"";position:absolute;inset:0 -20px;border-radius:22px;background:var(--paper);opacity:0;transition:opacity .5s var(--ease);z-index:-1}
+.item:hover{padding-left:16px}
+.item:hover:before{opacity:1}
+.item .no{font:400 13px/1 "Figtree",sans-serif;letter-spacing:.14em;color:var(--taupe)}
+.item h3{font-weight:300;font-size:32px;line-height:1.12}
 .item p{color:var(--esp2);font-size:16px}
-.item .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.item .tags span{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:3px 11px;color:var(--taupe)}
-.item .pr{font-size:15px;white-space:nowrap;color:var(--esp);font-weight:400}
+.item .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.item .tags span{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:3px 11px;color:var(--taupe);background:rgba(248,246,242,.6)}
+.item .pr{justify-self:end;display:inline-flex;align-items:center;gap:10px;font-size:15px;white-space:nowrap;color:var(--esp);font-weight:400}
+.item .pr:after{content:"";width:8px;height:8px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor;transform:rotate(45deg);opacity:0;margin-left:-6px;transition:opacity .4s var(--ease),margin .4s var(--ease)}
+.item:hover .pr:after{opacity:1;margin-left:2px}
+.menu-foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:34px;color:var(--taupe);font-size:15px}
 
-/* quote */
-.quote{text-align:center;padding:120px 0}
-.quote blockquote{font-family:"Bodoni Moda",serif;font-size:clamp(30px,4.2vw,58px);line-height:1.18;max-width:22ch;margin:22px auto 0}
+/* red carpet */
+.quote{position:relative;text-align:center;padding:130px 0 120px}
+.quote blockquote{font-family:"Fraunces",serif;font-weight:300;font-variation-settings:"SOFT" 100;letter-spacing:-.025em;font-size:clamp(32px,4.4vw,62px);line-height:1.12;max-width:21ch;margin:24px auto 0}
 .quote blockquote i{color:var(--taupe)}
-.quote p{margin-top:24px;color:var(--esp2);max-width:54ch;margin-inline:auto}
-.quote .row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:60px}
-.quote .row img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:24px}
-.quote .row img:nth-child(2){transform:translateY(30px)}
+.quote p{margin-top:26px;color:var(--esp2);max-width:54ch;margin-inline:auto}
+.steps3{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:28px}
+.steps3 span{padding:8px 16px;border-radius:999px;border:1px solid var(--line2);font-size:14px;background:rgba(248,246,242,.5)}
+.quote .row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:64px;text-align:left;align-items:start}
+.quote figure{position:relative;border-radius:26px;overflow:hidden;background:var(--stone3)}
+.quote figure img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform 1.4s var(--ease)}
+.quote figure:hover img{transform:scale(1.05)}
+.quote figcaption{position:absolute;left:14px;bottom:14px;padding:8px 14px;border-radius:999px;background:rgba(248,246,242,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-size:13.5px;font-weight:500}
+.quote figure:nth-child(2){margin-top:36px}
 
 /* laser */
-.laser{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
-.laser h2{font-size:clamp(34px,4vw,54px);line-height:1.08;margin:16px 0 20px}
+.laser{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:center}
+.laser h2{font-size:clamp(36px,4.2vw,58px);line-height:1.06;margin:18px 0 22px}
 .laser p{color:var(--esp2)}
-.zones{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:30px}
-.zones div{background:var(--paper);border-radius:16px;padding:16px 18px}
+.zones{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:34px;counter-reset:z}
+.zones div{counter-increment:z;position:relative;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px 18px 16px;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s}
+.zones div:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:transparent}
+.zones div:before{content:counter(z,decimal-leading-zero);display:block;font-size:11.5px;letter-spacing:.16em;color:var(--taupe2);margin-bottom:10px}
 .zones b{display:block;font-weight:500}
-.zones span{font-size:14px;color:var(--taupe)}
-.laser .pics{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.laser .pics img{width:100%;aspect-ratio:3/4.4;object-fit:cover;border-radius:22px}
-.laser .pics img:last-child{margin-top:50px}
+.zones span{font-size:14px;color:var(--taupe);line-height:1.5}
+.laser .pics{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.laser .pics figure{border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
+.laser .pics img{width:100%;aspect-ratio:3/4.4;object-fit:cover;transition:transform 1.4s var(--ease)}
+.laser .pics figure:hover img{transform:scale(1.04)}
+.laser .pics figure:nth-of-type(2){margin-top:60px}
+.laser .pics .from{position:absolute;left:0;right:0;bottom:30px;margin:auto;width:max-content;z-index:2;padding:10px 18px;border-radius:999px;background:var(--esp);color:#f1ebe2;font-size:14px;white-space:nowrap;box-shadow:var(--shadow)}
 
 /* review */
-.review{background:var(--paper);border-block:1px solid var(--line)}
-.rv-grid{display:grid;grid-template-columns:auto 1fr;gap:70px;align-items:center}
-.score{text-align:center;padding-right:70px;border-right:1px solid var(--line)}
-.score .n{font-family:"Bodoni Moda",serif;font-size:clamp(90px,10vw,140px);line-height:1}
-.score .stars{display:flex;justify-content:center;gap:4px;margin:12px 0 8px}
+.review{background:var(--paper);border-block:1px solid var(--line);position:relative;overflow:hidden}
+.rv-grid{display:grid;grid-template-columns:auto 1fr;gap:80px;align-items:center}
+.score{text-align:center;padding-right:80px;border-right:1px solid var(--line)}
+.score .n{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(96px,10vw,150px);line-height:1;letter-spacing:-.04em}
+.score .stars{display:flex;justify-content:center;gap:4px;margin:14px 0 8px}
 .score .stars svg{width:20px;height:20px}
 .score p{font-size:15px;color:var(--taupe)}
-.review blockquote{font-family:"Bodoni Moda",serif;font-style:italic;font-size:clamp(24px,2.6vw,34px);line-height:1.35}
-.review cite{display:block;font-style:normal;margin-top:18px;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--taupe)}
-.review .src{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.review .qm{font-family:"Fraunces",serif;font-size:120px;line-height:.6;color:var(--stone3);display:block;height:46px}
+.review blockquote{font-family:"Fraunces",serif;font-weight:300;font-style:italic;font-variation-settings:"SOFT" 100;font-size:clamp(25px,2.7vw,36px);line-height:1.3;letter-spacing:-.01em}
+.review cite{display:flex;align-items:center;gap:12px;font-style:normal;margin-top:22px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--taupe)}
+.review cite i{width:38px;height:38px;border-radius:50%;background:var(--stone2);display:grid;place-items:center;font:400 16px/1 "Fraunces",serif;letter-spacing:0;color:var(--esp);font-style:normal}
+.review .src{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
 
 /* visit */
 .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.box{background:var(--paper);border-radius:28px;padding:48px}
-.box h2{font-size:clamp(32px,3.6vw,48px);line-height:1.08;margin:14px 0 24px}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:52px}
+.box h2{font-size:clamp(34px,3.8vw,50px);line-height:1.06;margin:16px 0 26px}
 .hours{list-style:none}
-.hours li{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:16.5px}
+.hours li{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line);font-size:16.5px}
 .hours li:last-child{border-bottom:0}
 .hours li span:last-child{font-variant-numeric:tabular-nums}
 .hours .off{color:#a89c90}
-.box.dark{background:var(--esp);color:#ece6dd}
+.box.dark{background:var(--esp);color:#ece6dd;border-color:var(--esp)}
 .box.dark .lbl{color:#b9ad9f}
-.box.dark .addr{font-family:"Bodoni Moda",serif;font-size:28px;line-height:1.3}
-.box.dark p.m{color:rgba(236,230,221,.7);margin-top:10px}
-.cl{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:30px}
-.cl a{display:flex;flex-direction:column;gap:4px;padding:18px 20px;border-radius:18px;border:1px solid rgba(236,230,221,.18);text-decoration:none;transition:background .2s,border-color .2s}
-.cl a:hover{background:rgba(236,230,221,.07);border-color:rgba(236,230,221,.4)}
+.box.dark .addr{font-family:"Fraunces",serif;font-weight:300;font-size:32px;line-height:1.2;letter-spacing:-.015em}
+.box.dark p.m{color:rgba(236,230,221,.7);margin-top:12px}
+.cl{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:32px}
+.cl a{display:flex;flex-direction:column;gap:4px;padding:18px 20px;border-radius:18px;border:1px solid rgba(236,230,221,.16);text-decoration:none;transition:background .4s var(--ease),border-color .4s var(--ease),transform .4s var(--ease)}
+.cl a:hover{background:rgba(236,230,221,.07);border-color:rgba(236,230,221,.38);transform:translateY(-2px)}
 .cl b{font-weight:500;display:flex;align-items:center;gap:10px}
 .cl svg{width:18px;height:18px;flex:none}
 .cl small{font-size:13.5px;color:rgba(236,230,221,.6);word-break:break-word}
+.box.dark .ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.btn-ghost{border:1px solid rgba(236,230,221,.3);padding:0 24px;color:#ece6dd}
+.btn-ghost:hover{border-color:#ece6dd}
 
-footer{padding:50px 0 44px}
-.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:14.5px;color:var(--taupe)}
-.foot .bd{font-size:22px;letter-spacing:.06em;text-transform:uppercase;color:var(--esp)}
+footer{padding:56px 0 46px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:14.5px;color:var(--taupe);padding-top:30px;border-top:1px solid var(--line)}
+.foot .bd{font-size:22px;letter-spacing:.08em;text-transform:uppercase;color:var(--esp);font-weight:400}
 
-.js .rv{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s ease}
+/* reveal */
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease);transition-delay:var(--d,0s)}
 .js .rv.in{opacity:1;transform:none}
+.js .rv-img{clip-path:inset(12% 6% 0 6% round 30px);transition:clip-path 1.4s var(--ease);transition-delay:var(--d,0s)}
+.js .rv-img.in{clip-path:inset(0 0 0 0 round 0)}
 
 @media (max-width:1060px){
   .pill-nav{display:none}
-  .hero-text,.intro,.laser{grid-template-columns:1fr;gap:40px}
+  .hero{padding-top:36px}
+  .hero-grid{grid-template-columns:1fr;gap:30px}
+  .hero-tx{padding:0}
+  .hero-vis{max-width:600px;width:100%;margin-inline:auto;padding:0 0 50px 30px}
+  .feat{grid-template-columns:1fr 1fr;margin-top:40px}
+  .feat div:nth-child(3){border-left:0}
+  .feat div:nth-child(n+3){border-top:1px solid var(--line)}
+  .intro,.laser{grid-template-columns:1fr;gap:50px}
   .sig-grid{grid-template-columns:1fr}
   .sig .ph{min-height:0;aspect-ratio:16/10;order:2}
-  .sig .ph img{position:static}
-  .sig .tx{padding:60px 44px}
-  .item{grid-template-columns:50px 1fr auto;gap:8px 20px}
+  .sig .tx{padding:64px 44px}
+  .item{grid-template-columns:50px 1fr auto;gap:8px 20px;padding-right:0}
   .item h3{grid-column:2;grid-row:1}
   .item .pr{grid-column:3;grid-row:1}
   .item > div{grid-column:2/4;grid-row:2}
   .rv-grid{grid-template-columns:1fr;gap:40px}
   .score{border-right:0;padding-right:0;border-bottom:1px solid var(--line);padding-bottom:40px}
   .visit-grid{grid-template-columns:1fr}
-  .intro .pic{order:2}
+  .intro .stack{order:2;max-width:640px}
   .laser .pics{order:2;max-width:640px}
 }
 @media (max-width:640px){
   body{font-size:16.5px}
   .wrap{width:calc(100% - 32px)}
-  .nav{height:66px}
-  .wm .bd{font-size:20px}
-  .nav .btn{padding:10px 16px}
-  .hero{display:flex;flex-direction:column}
-  .hero .hero-text{order:1;padding:36px 0 34px}
-  .hero .vwrap{order:2}
-  .hero-visual{height:auto;min-height:0;aspect-ratio:4/5;border-radius:22px}
-  .hero-visual .word{font-size:21vw}
-  .hero-visual .stamp{top:14px;right:14px;font-size:12.5px;padding:8px 14px}
-  .hero-text p{font-size:17px}
-  .sec{padding:80px 0}
-  .sig{margin-inline:10px;border-radius:24px}
-  .sig .tx{padding:48px 24px}
+  .nav,header.sc .nav{height:64px}
+  .wm .bd{font-size:19px}
+  .wm small{font-size:8.5px}
+  .nav .btn{font-size:14px}
+  .hero{padding-top:30px}
+  .hero h1{font-size:clamp(40px,11.4vw,52px);margin:20px 0 20px}
+  .hero-tx p{font-size:17px}
+  .hero-tx .ctas{margin-top:28px}
+  .proof{gap:16px;margin-top:30px}
+  .proof .sep{display:none}
+  .hero-vis{padding:0 0 70px 0}
+  .arch{border-radius:200px 200px 24px 24px}
+  .badge{width:104px;height:104px;left:auto;right:10px;top:auto;bottom:130px}
+  .badge text{font-size:9.6px}
+  .badge .mid{width:38px;height:38px}
+  .float{left:12px;width:calc(100% - 24px);bottom:0}
+  .float img{width:70px;height:70px}
+  .float b{font-size:19px}
+  .feat{grid-template-columns:1fr;border-radius:22px}
+  .feat div{padding:20px 22px}
+  .feat div+div{border-left:0;border-top:1px solid var(--line)}
+  .sec{padding:86px 0}
+  .stack{padding:0 30px 50px 0}
+  .stack .b{border-width:6px}
+  .sig{margin-inline:10px;border-radius:26px}
+  .sig .tx{padding:50px 24px}
   .sig ol{grid-template-columns:1fr}
+  .sig .ph .glass{left:12px;right:12px;bottom:12px;padding:12px 16px;font-size:13.5px}
   .duo{grid-template-columns:1fr}
   .item{grid-template-columns:1fr auto;padding:26px 0}
+  .item:hover{padding-left:0}
+  .item:before{inset:0 -12px}
   .item .no{display:none}
-  .item h3{font-size:26px}
-  .item h3{grid-column:1}
+  .item h3{font-size:27px;grid-column:1}
   .item .pr{grid-column:2}
   .item > div{grid-column:1/-1}
-  .quote{padding:80px 0}
-  .quote .row{gap:8px}
-  .quote .row img{border-radius:14px}
-  .quote .row img:nth-child(2){transform:translateY(16px)}
+  .quote{padding:90px 0}
+  .quote .row{grid-template-columns:1fr 1fr;gap:10px}
+  .quote figure{border-radius:18px}
+  .quote figure:nth-child(2){margin-top:24px}
+  .quote figure:nth-child(3){grid-column:1/-1;margin-top:34px}
+  .quote figure:nth-child(3) img{aspect-ratio:16/10}
+  .quote figcaption{left:10px;bottom:10px;font-size:12.5px;padding:6px 11px}
   .zones{grid-template-columns:1fr 1fr}
-  .box{padding:34px 22px}
+  .laser .pics{gap:10px}
+  .laser .pics figure{border-radius:18px}
+  .box{padding:36px 22px;border-radius:24px}
   .cl{grid-template-columns:1fr}
   .btn{width:100%}
-  .nav .btn{width:auto}
-  .sig .price .btn{width:auto}
+  .nav .btn,.sig .price .btn{width:auto}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.js .rv{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.js .rv{opacity:1;transform:none}.js .rv-img{clip-path:none}}
 </style>
 </head>
 <body>
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
-<header>
+<header id="hd">
   <div class="wrap nav">
     <a class="wm" href="#top" aria-label="Pure Skin Pro, naar boven"><span class="bd">Pure Skin Pro</span><small>Revive your skin</small></a>
     <nav class="pill-nav" aria-label="Hoofdmenu">
@@ -230,43 +332,73 @@ footer{padding:50px 0 44px}
       <a href="#laser">Laser</a>
       <a href="#afspraak">Afspraak</a>
     </nav>
-    <a class="btn btn-dark" href="https://www.fresha.com/a/pure-skin-pro-kortrijk-vlamingenstraat-3-exjm7fuq">Boek online</a>
+    <a class="btn btn-dark" href="https://www.fresha.com/a/pure-skin-pro-kortrijk-vlamingenstraat-3-exjm7fuq">Boek online<span class="ar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
   </div>
 </header>
 
 <main id="top">
-<section class="hero wrap">
-  <div class="vwrap rv">
-    <div class="hero-visual">
-      <img src="img/facial.webp" alt="Vrouw krijgt een rustgevende gezichtsbehandeling" width="1600" height="1064" fetchpriority="high">
-      <span class="stamp">Ladies only</span>
-      <span class="word" aria-hidden="true">pure skin</span>
-    </div>
-  </div>
-  <div class="hero-text">
-    <h1 class="bd rv">Je huid weer laten stralen, <i>in alle rust</i></h1>
-    <div class="rv">
-      <p>Laserontharing, laserfacials, peelings en facials in een salon dat helemaal voor vrouwen is. Elke behandeling begint bij jouw huid en wat die op dat moment nodig heeft.</p>
-      <div class="ctas">
-        <a class="btn btn-dark" href="https://www.fresha.com/a/pure-skin-pro-kortrijk-vlamingenstraat-3-exjm7fuq">Plan je behandeling</a>
-        <a class="btn btn-line" href="https://wa.me/32497339480"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Stel je vraag</a>
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-tx">
+        <span class="chip rv"><i></i>Ladies only · enkel op afspraak</span>
+        <h1 class="rv" style="--d:.08s">Je huid weer laten stralen, <i>in alle rust</i></h1>
+        <div class="rv" style="--d:.16s">
+          <p>Laserontharing, laserfacials, peelings en facials in een salon dat helemaal voor vrouwen is. Elke behandeling begint bij jouw huid en wat die op dat moment nodig heeft.</p>
+          <div class="ctas">
+            <a class="btn btn-dark" href="https://www.fresha.com/a/pure-skin-pro-kortrijk-vlamingenstraat-3-exjm7fuq">Plan je behandeling<span class="ar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+            <a class="btn btn-line" href="https://wa.me/32497339480"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Stel je vraag</a>
+          </div>
+          <div class="proof">
+            <a href="https://www.google.com/maps?cid=2656452366362797392">
+              <span class="st" aria-label="5 op 5 sterren"><svg viewBox="0 0 24 24" fill="#231e1b"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="#231e1b"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="#231e1b"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="#231e1b"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="#231e1b"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></span>
+              <b>5,0 op Google</b><small>uit 38 reviews</small>
+            </a>
+            <span class="sep"></span>
+            <div><b>Vlamingenstraat 3</b><small>ma, di en do tot za · 10:00 tot 18:00</small></div>
+          </div>
+        </div>
       </div>
-      <div class="facts"><span>Enkel op afspraak</span><span>5,0 op Google</span><span>Ladies only</span></div>
+
+      <div class="hero-vis">
+        <div class="arch rv-img">
+          <img src="img/facial.webp" alt="Vrouw krijgt een rustgevende gezichtsbehandeling" width="1600" height="1064" fetchpriority="high">
+          <span class="tag">Revive your skin</span>
+        </div>
+        <div class="badge rv" style="--d:.5s" aria-hidden="true">
+          <svg class="ring" viewBox="0 0 120 120"><defs><path id="c" d="M60 60m-48 0a48 48 0 1 1 96 0a48 48 0 1 1-96 0"/></defs><text><textPath href="#c">Ladies only · Pure Skin Pro · </textPath></text></svg>
+          <span class="mid"><svg viewBox="0 0 24 24" fill="#ece6dd"><path d="M12 2c.6 4.8 2.2 7.4 6 8.4V12c-3.8 1-5.4 3.6-6 8.4h-.1c-.6-4.8-2.2-7.4-6-8.4v-1.6c3.8-1 5.4-3.6 6-8.4Z"/></svg></span>
+        </div>
+        <a class="float rv" style="--d:.65s" href="#carbon">
+          <img src="img/laser.webp" alt="" width="1179" height="663">
+          <div><small>Meest geboekt</small><b>Carbon peeling met picolaser</b><span><em>€ 110</em> · bekijk de 6 stappen</span></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="feat rv">
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c.8-3.8 3.6-6 7-6s6.2 2.2 7 6"/></svg><p><b>Ladies only</b><span>Een rustige plek, enkel voor vrouwen</span></p></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg><p><b>Laser en picolaser</b><span>Van ontharing tot carbon peeling</span></p></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><p><b>Enkel op afspraak</b><span>Je moment is helemaal voor jou</span></p></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><p><b>Online boeken</b><span>Kies zelf een moment via Fresha</span></p></div>
     </div>
   </div>
 </section>
 
 <section class="sec" id="salon">
   <div class="wrap intro">
-    <div class="pic rv"><img src="img/gevel.webp" alt="De voorgevel van Pure Skin Pro met de behandelingen op het raam" width="1398" height="786" loading="lazy"></div>
+    <div class="stack">
+      <div class="a rv-img"><img src="img/gevel.webp" alt="De voorgevel van Pure Skin Pro met de behandelingen op het raam" width="1398" height="786" loading="lazy"></div>
+      <div class="b rv" style="--d:.3s"><img src="img/olie.webp" alt="Verzorgende olie en kaarslicht" width="1600" height="1067" loading="lazy"></div>
+    </div>
     <div class="rv">
       <span class="lbl">Het salon</span>
-      <h2 class="bd">Een plek waar je helemaal jezelf mag zijn</h2>
+      <h2>Een plek waar je helemaal <i>jezelf</i> mag zijn</h2>
       <p>Bij Pure Skin Pro draait alles om huid- en lichaamsverzorging, in een setting die exclusief voor vrouwen is. Geen haast, geen pottenkijkers. Gewoon jij, je huid en iemand die weet wat ze doet.</p>
       <p>Er wordt gewerkt met hoogwaardige producten en een persoonlijke aanpak. Van laserontharing tot een luxe facial: elke behandeling gebeurt met zorg, aandacht en de nodige vakkennis.</p>
       <div class="duo">
-        <div><b>Ladies only</b><span>een veilige, rustige plek voor vrouwen</span></div>
-        <div><b>Op afspraak</b><span>zo is de tijd echt voor jou</span></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M12 21s-7-4.4-7-10.2A4.3 4.3 0 0 1 12 8a4.3 4.3 0 0 1 7 2.8C19 16.6 12 21 12 21Z"/></svg><p><b>Ladies only</b><span>een veilige, rustige plek voor vrouwen</span></p></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><p><b>Op afspraak</b><span>zo is de tijd echt voor jou</span></p></div>
       </div>
     </div>
   </div>
@@ -276,7 +408,7 @@ footer{padding:50px 0 44px}
   <div class="sig-grid">
     <div class="tx rv">
       <span class="lbl">Meest geboekt</span>
-      <h2 class="bd">Carbon peeling <i>met picolaser</i></h2>
+      <h2>Carbon peeling <i>met picolaser</i></h2>
       <p>Niet voor niets de behandeling waar de meeste klanten voor terugkomen. Een diepe reiniging die onzuiverheden verwijdert, grove poriën verfijnt en je huid een natuurlijke glow geeft. Ideaal bij een vette huid, zwarte puntjes of een doffe teint. En je kan meteen weer verder met je dag.</p>
       <ol>
         <li>Dieptereiniging</li>
@@ -286,16 +418,19 @@ footer{padding:50px 0 44px}
         <li>Verzorgend masker</li>
         <li>Afsluitende verzorging</li>
       </ol>
-      <div class="price"><b>€ 110</b><a class="btn" href="https://www.fresha.com/a/pure-skin-pro-kortrijk-vlamingenstraat-3-exjm7fuq">Boek deze behandeling</a></div>
+      <div class="price"><b><small>Volledige behandeling</small>€ 110</b><a class="btn btn-light" href="https://www.fresha.com/a/pure-skin-pro-kortrijk-vlamingenstraat-3-exjm7fuq">Boek deze behandeling<span class="ar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a></div>
     </div>
-    <div class="ph"><img src="img/carbon.webp" alt="Carbon peeling: het masker wordt met de laser behandeld" width="1179" height="663" loading="lazy"></div>
+    <div class="ph">
+      <img src="img/carbon.webp" alt="Carbon peeling: het masker wordt met de laser behandeld" width="1179" height="663" loading="lazy">
+      <div class="glass"><span>Vette huid, zwarte puntjes of een doffe teint</span><b>6 stappen</b></div>
+    </div>
   </div>
 </section>
 
 <section class="sec" id="behandelingen">
   <div class="wrap">
     <div class="menu-head rv">
-      <div><span class="lbl">Behandelingen</span><h2 class="bd">Van laser tot glanzend haar</h2></div>
+      <div><span class="lbl">Behandelingen</span><h2>Van laser tot <i>glanzend haar</i></h2></div>
       <p>Een overzicht van wat je bij Pure Skin Pro kan laten doen. Twijfel je wat het best bij jouw huid past? Stuur gerust een bericht, dan denken we mee.</p>
     </div>
     <div class="menu">
@@ -307,6 +442,7 @@ footer{padding:50px 0 44px}
       <div class="item rv"><span class="no">06</span><h3>Keratine &amp; haarbotox</h3><div><p>Keratine voor glad, handelbaar haar zonder frizz. Haarbotox voor glans en volume, zonder dat je haar steil wordt.</p></div><span class="pr">vanaf € 50</span></div>
       <div class="item rv"><span class="no">07</span><h3>Tattoo &amp; PMU removal</h3><div><p>Spijt van een tattoo of permanente make-up aan je wenkbrauwen? Het begint met een consultatie, zodat je weet wat haalbaar is.</p></div><span class="pr">vanaf € 90</span></div>
     </div>
+    <div class="menu-foot rv"><span>Alle prijzen en vrije momenten vind je in de online agenda.</span><a class="btn btn-dark" href="https://www.fresha.com/a/pure-skin-pro-kortrijk-vlamingenstraat-3-exjm7fuq">Bekijk de agenda<span class="ar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a></div>
   </div>
 </section>
 
@@ -315,19 +451,20 @@ footer{padding:50px 0 44px}
     <span class="lbl rv">Red Carpet Glow</span>
     <blockquote class="rv">Sommige behandelingen zijn bedoeld voor resultaten. <i>Deze is bedoeld voor complimenten.</i></blockquote>
     <p class="rv">Dermaplaning, een ARES antioxidant booster en nanoneedling, afgewerkt met SPF. Voor vóór je vakantie, een feest, je trouw of een fotoshoot. Of gewoon omdat je huid wat extra aandacht verdient.</p>
+    <div class="steps3 rv"><span>Dermaplaning</span><span>ARES booster</span><span>Nanoneedling</span><span>SPF</span></div>
     <div class="row">
-      <img class="rv" src="img/serum.webp" alt="Druppel serum uit een pipet" loading="lazy" width="1600" height="1067">
-      <img class="rv" src="img/facial2.webp" alt="Verzorging van het gezicht met een zachte borstel" loading="lazy" width="1600" height="1067">
-      <img class="rv" src="img/glans.webp" alt="Glanzend, glad haar na een keratinebehandeling" loading="lazy" width="1179" height="663">
+      <figure class="rv"><img src="img/serum.webp" alt="Druppel serum uit een pipet" loading="lazy" width="1600" height="1067"><figcaption>Facials</figcaption></figure>
+      <figure class="rv" style="--d:.12s"><img src="img/facial2.webp" alt="Verzorging van het gezicht met een zachte borstel" loading="lazy" width="1600" height="1067"><figcaption>Peelings</figcaption></figure>
+      <figure class="rv" style="--d:.24s"><img src="img/glans.webp" alt="Glanzend, glad haar na een keratinebehandeling" loading="lazy" width="1179" height="663"><figcaption>Keratine</figcaption></figure>
     </div>
   </div>
 </section>
 
-<section class="sec" id="laser" style="padding-top:60px">
+<section class="sec" id="laser" style="padding-top:70px">
   <div class="wrap laser">
     <div class="rv">
       <span class="lbl">Laserontharing</span>
-      <h2 class="bd">Nooit meer scheren voor de zomer</h2>
+      <h2>Nooit meer scheren <i>voor de zomer</i></h2>
       <p>Met laserontharing pak je het één keer goed aan. Kies één zone of combineer er een paar. Benen kunnen in de meeste combinaties ook vervangen worden door volledige armen.</p>
       <div class="zones">
         <div><b>Gezicht</b><span>bovenlip, kin, kaaklijn, wangen</span></div>
@@ -338,9 +475,10 @@ footer{padding:50px 0 44px}
         <div><b>Full Body</b><span>plus één zone naar keuze</span></div>
       </div>
     </div>
-    <div class="pics rv">
-      <img src="img/benen.webp" alt="Gladde benen na laserontharing" loading="lazy" width="1080" height="1350">
-      <img src="img/oksel.webp" alt="Laserontharing van de oksel" loading="lazy" width="1179" height="663">
+    <div class="pics">
+      <figure class="rv-img"><img src="img/benen.webp" alt="Gladde benen na laserontharing" loading="lazy" width="1080" height="1350"></figure>
+      <figure class="rv-img" style="--d:.15s"><img src="img/oksel.webp" alt="Laserontharing van de oksel" loading="lazy" width="1179" height="663"></figure>
+      <span class="from rv" style="--d:.4s">Laserontharing vanaf € 30</span>
     </div>
   </div>
 </section>
@@ -354,8 +492,9 @@ footer{padding:50px 0 44px}
     </div>
     <div class="rv">
       <span class="lbl">Na een Japanese headspa</span>
-      <blockquote style="margin-top:16px">Un vrai moment de détente, très professionnel du début à la fin. Je suis ressortie super satisfaite, totalement relaxée, et clairement prête à revenir.</blockquote>
-      <cite>Soraya B. · via Fresha</cite>
+      <span class="qm" aria-hidden="true" style="margin-top:22px">“</span>
+      <blockquote>Un vrai moment de détente, très professionnel du début à la fin. Je suis ressortie super satisfaite, totalement relaxée, et clairement prête à revenir.</blockquote>
+      <cite><i>S</i>Soraya B. · via Fresha</cite>
       <div class="src"><a class="btn btn-line" href="https://www.google.com/maps?cid=2656452366362797392">Lees alle reviews op Google</a></div>
     </div>
   </div>
@@ -365,7 +504,7 @@ footer{padding:50px 0 44px}
   <div class="wrap visit-grid">
     <div class="box rv">
       <span class="lbl">Openingsuren</span>
-      <h2 class="bd">Enkel op afspraak</h2>
+      <h2>Enkel op <i>afspraak</i></h2>
       <ul class="hours">
         <li><span>Maandag</span><span>10:00 tot 18:00</span></li>
         <li><span>Dinsdag</span><span>10:00 tot 18:00</span></li>
@@ -376,9 +515,9 @@ footer{padding:50px 0 44px}
         <li class="off"><span>Zondag</span><span>gesloten</span></li>
       </ul>
     </div>
-    <div class="box dark rv">
+    <div class="box dark rv" style="--d:.1s">
       <span class="lbl">Adres &amp; contact</span>
-      <p class="addr" style="margin-top:14px">Vlamingenstraat 3<br>8500 Kortrijk</p>
+      <p class="addr" style="margin-top:16px">Vlamingenstraat 3<br>8500 Kortrijk</p>
       <p class="m">Ladies only. Kies je moment online of stuur even een bericht.</p>
       <div class="cl">
         <a href="https://wa.me/32497339480"><b><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>WhatsApp</b><small>0497 33 94 80</small></a>
@@ -386,9 +525,9 @@ footer{padding:50px 0 44px}
         <a href="mailto:info@pureskinpro.be"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Mailen</b><small>info@pureskinpro.be</small></a>
         <a href="https://www.instagram.com/pureskinpro_/"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Instagram</b><small>@pureskinpro_</small></a>
       </div>
-      <div class="ctas" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:22px">
-        <a class="btn" style="background:#ece6dd;color:#231e1b" href="https://www.fresha.com/a/pure-skin-pro-kortrijk-vlamingenstraat-3-exjm7fuq">Boek online</a>
-        <a class="btn" style="border:1px solid rgba(236,230,221,.3)" href="https://www.google.com/maps/dir/?api=1&amp;destination=Vlamingenstraat+3+8500+Kortrijk">Route plannen</a>
+      <div class="ctas">
+        <a class="btn btn-light" href="https://www.fresha.com/a/pure-skin-pro-kortrijk-vlamingenstraat-3-exjm7fuq">Boek online<span class="ar"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+        <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=Vlamingenstraat+3+8500+Kortrijk">Route plannen</a>
       </div>
     </div>
   </div>
@@ -404,8 +543,11 @@ footer{padding:50px 0 44px}
 </footer>
 
 <script>
-(function(){var els=document.querySelectorAll('.rv');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
-var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+(function(){
+var hd=document.getElementById('hd');function sc(){hd.classList.toggle('sc',window.scrollY>10)}sc();window.addEventListener('scroll',sc,{passive:true});
+requestAnimationFrame(function(){document.documentElement.classList.add('loaded')});
+var els=document.querySelectorAll('.rv,.rv-img');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
 els.forEach(function(e){io.observe(e)});setTimeout(function(){els.forEach(function(e){e.classList.add('in')})},3500)})();
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
