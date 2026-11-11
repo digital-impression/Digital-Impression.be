@@ -8,7 +8,7 @@
 <meta name="description" content="Golden Mirror Tattoo: tattoos op afspraak door Jadran. Maandag tot vrijdag van 11 tot 20 uur.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Instrument+Serif:ital@0;1&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{--zwart:#0F0D0B;--diep:#17130F;--kaart:#1E1914;--goud:#C9A45F;--goud2:#E6CB92;--licht:#EEE6D8;--grijs:#A2988A;--lijn:rgba(201,164,95,.22);
 --serif:"Bodoni Moda",Georgia,serif;--sans:"Jost",system-ui,sans-serif}
@@ -140,6 +140,85 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   .knoppen .knop{width:100%}
   .kaart{padding:26px 22px}
 }
+
+/* hero v2 */
+.knop{transition:background .3s,color .3s,transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s}
+.knop:hover{transform:translateY(-2px)}
+.knop.goud:hover{box-shadow:0 16px 34px -16px rgba(201,164,95,.65)}
+a:focus-visible{outline:1px solid var(--goud2);outline-offset:4px}
+.hero{padding:140px 0 70px;overflow:hidden;overflow:clip;background:radial-gradient(60% 55% at 50% 42%,#2E2418 0%,rgba(15,13,11,0) 72%),radial-gradient(30% 40% at 85% 20%,rgba(201,164,95,.07),rgba(201,164,95,0)),var(--zwart)}
+.hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(201,164,95,.035) 0 1px,transparent 1px 25%);pointer-events:none;-webkit-mask:linear-gradient(#000,transparent 85%);mask:linear-gradient(#000,transparent 85%)}
+.hero .wrap{position:relative;z-index:1}
+.hero-grid{grid-template-columns:1.05fr 440px .8fr;gap:clamp(36px,4vw,64px)}
+.hero h1{font:400 clamp(70px,8.6vw,138px)/.86 "Instrument Serif",Georgia,serif;letter-spacing:-.025em;margin-top:24px}
+.hero h1 em{color:transparent;background:linear-gradient(100deg,#B48A45 0%,#F1D9A4 45%,#C9A45F 70%,#8E6A31 100%);-webkit-background-clip:text;background-clip:text;padding-right:.08em}
+.hero .tekst p{max-width:380px;font-size:17.5px}
+.hero .knoppen .knop{padding:16px 24px}
+.sig{display:flex;align-items:center;gap:12px;margin-top:34px;padding-top:22px;border-top:1px solid var(--lijn);font-size:14px;letter-spacing:.04em;color:var(--grijs);max-width:380px}
+.sig .dot{width:8px;height:8px;border-radius:50%;background:var(--goud);box-shadow:0 0 0 4px rgba(201,164,95,.18);flex:none}
+.sig .dot.uit{background:#6c6257;box-shadow:0 0 0 4px rgba(108,98,87,.2)}
+.spiegel-w{position:relative}
+.spiegel{box-shadow:0 60px 120px -50px rgba(0,0,0,.9),0 0 90px -30px rgba(201,164,95,.28)}
+.spiegel::after{content:"";position:absolute;inset:-30px;border:1px solid rgba(201,164,95,.06);border-radius:280px 280px 16px 16px;pointer-events:none}
+.spiegel img{transform:scale(1.05);transition:transform 2s cubic-bezier(.2,.7,.2,1)}
+.spiegel-w.in .spiegel img{transform:none}
+.spiegel{overflow:hidden}
+.ring{position:absolute;right:-56px;bottom:70px;width:132px;height:132px;animation:draai 26s linear infinite;background:radial-gradient(closest-side,#17130F 62%,rgba(23,19,15,0) 63%)}
+.ring text{font:500 12px var(--sans);text-transform:uppercase;fill:var(--goud2)}
+.ster{position:absolute;right:-56px;bottom:70px;width:132px;height:132px;display:grid;place-items:center;color:var(--goud);font-size:24px;pointer-events:none}
+@keyframes draai{to{transform:rotate(360deg)}}
+.zij{gap:26px}
+.hero .feit b{font:400 58px/1 "Instrument Serif",Georgia,serif;letter-spacing:-.01em}
+.feit{transition:border-color .4s}
+.feit:hover{border-color:rgba(201,164,95,.6)}
+.mini{display:flex;align-items:center;gap:14px;padding:10px 16px 10px 10px;border:1px solid var(--lijn);border-radius:999px 14px 14px 999px;text-decoration:none;background:rgba(30,25,20,.6);transition:border-color .3s,background .3s,transform .4s cubic-bezier(.2,.7,.2,1)}
+.mini:hover{border-color:var(--goud);background:var(--kaart);transform:translateX(4px)}
+.mini img{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:none}
+.mini span{flex:1;font:400 italic 19px/1.2 var(--serif);color:var(--goud2)}
+.mini small{display:block;font:500 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--grijs);font-style:normal;margin-bottom:6px}
+.mini i{font-style:normal;color:var(--goud)}
+.pad{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(56px,6vw,84px);border-top:1px solid var(--lijn)}
+.pad li+li{border-left:1px solid var(--lijn)}
+.pad a{display:flex;align-items:baseline;gap:14px;padding:24px 28px;text-decoration:none;font-size:15px;letter-spacing:.06em;color:var(--licht);transition:background .4s,color .3s}
+.pad li:first-child a{padding-left:0}
+.pad a:hover{color:var(--goud2)}
+.pad span{font:400 italic 22px/1 var(--serif);color:var(--goud)}
+/* afwerking */
+.boog .lijst{transition:border-color .5s,transform .6s cubic-bezier(.2,.7,.2,1)}
+.boog:hover .lijst{border-color:rgba(201,164,95,.6);transform:translateY(-6px)}
+.boog .lijst{overflow:hidden}
+.boog:hover img{transform:scale(1.03)}
+.stappen li{transition:padding .4s cubic-bezier(.2,.7,.2,1),background .4s}
+.stappen li:hover{padding-left:14px;background:linear-gradient(90deg,rgba(201,164,95,.07),rgba(201,164,95,0))}
+.duo img{transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.duo.in .a{transform:translateY(0)}
+.score .cijfer{background:linear-gradient(100deg,#B48A45,#F1D9A4 50%,#C9A45F);-webkit-background-clip:text;background-clip:text;color:transparent}
+.uren li.nu{color:var(--goud2)}
+.uren li.nu span:first-child::after{content:"vandaag";margin-left:10px;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#1A140C;background:var(--goud);padding:2px 8px;border-radius:999px;vertical-align:1px}
+.adres a{transition:color .25s}
+.js .bogen [data-r]:nth-child(2){transition-delay:.12s}.js .bogen [data-r]:nth-child(3){transition-delay:.24s}
+.js .hero .spiegel-w[data-r]{transition-delay:.1s}.js .hero .zij[data-r]{transition-delay:.2s}
+@media (max-width:1200px){.ring,.ster{right:-30px}}
+@media (max-width:1020px){
+  .hero{padding:120px 0 60px}
+  .hero-grid{grid-template-columns:1fr 1fr}
+  .ring,.ster{right:-16px;width:112px;height:112px;bottom:50px}
+}
+@media (max-width:640px){
+  .hero{padding:100px 0 50px}
+  .hero-grid{grid-template-columns:1fr}
+  .hero h1{font-size:clamp(66px,21vw,92px)}
+  .hero .knoppen .knop{width:100%}
+  .spiegel{max-width:320px}
+  .spiegel-w{max-width:320px;margin:0 auto;width:100%}
+  .ring,.ster{right:-14px;width:96px;height:96px;bottom:40px}
+  .zij{flex-direction:column;gap:20px}
+  .zij .feits{display:flex}
+  .pad{grid-template-columns:1fr}
+  .pad li+li{border-left:0;border-top:1px solid var(--lijn)}
+  .pad a,.pad li:first-child a{padding:18px 0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.js [data-r]{opacity:1;transform:none}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -166,19 +245,33 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
     <div class="wrap hero-grid">
       <div class="tekst" data-r>
         <span class="klein">Tattoo studio · Jadran</span>
-        <h1 style="margin-top:22px">Golden <em>Mirror</em></h1>
+        <h1>Golden <em>Mirror</em></h1>
         <p>Een tattoo die past bij wie je bent. Jadran neemt de tijd om je idee te begrijpen, en tekent het dan uit voor jouw huid, jouw lijnen, jouw verhaal.</p>
         <div class="knoppen">
           <a class="knop goud" href="https://wa.me/32486388426?text=Hallo%20Jadran%2C%20ik%20heb%20een%20idee%20voor%20een%20tattoo">Stuur je idee</a>
+          <a class="knop rand" href="#werk">Bekijk het werk</a>
         </div>
+        <div class="sig"><span class="dot"></span><span id="nu">Op afspraak, maandag tot vrijdag</span></div>
       </div>
-      <div class="spiegel" data-r>
-        <img src="img/handen.webp" alt="Vrouw met tattoos op handen en armen" width="1600" height="1110" style="object-position:30% 30%">
+      <div class="spiegel-w" data-r>
+        <div class="spiegel">
+          <img src="img/handen.webp" alt="Vrouw met tattoos op handen en armen" width="1600" height="1110" style="object-position:30% 30%" fetchpriority="high">
+        </div>
+        <svg class="ring" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="rc" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><text><textPath href="#rc" textLength="486" lengthAdjust="spacing">Golden Mirror Tattoo ✦ enkel op afspraak ✦</textPath></text></svg>
+        <span class="ster" aria-hidden="true">✦</span>
       </div>
       <div class="zij" data-r>
         <div class="feit"><div class="sterren">★★★★★</div><b>5,0</b><span>uit 80 reviews op Google</span></div>
         <div class="feit"><b>11 tot 20u</b><span>maandag tot vrijdag, op afspraak</span></div>
+        <a class="mini" href="#werk"><img src="img/mandala.webp" alt="" width="1600" height="2400" loading="lazy"><span><small>Uit het werk</small>Rug en schouders</span><i>→</i></a>
       </div>
+    </div>
+    <div class="wrap">
+      <ol class="pad" data-r>
+        <li><a href="#afspraak"><span>i.</span>Stuur je idee door</a></li>
+        <li><a href="#afspraak"><span>ii.</span>Samen uitwerken</a></li>
+        <li><a href="#afspraak"><span>iii.</span>De dag zelf</a></li>
+      </ol>
     </div>
   </section>
 
@@ -243,11 +336,11 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       <div class="kaart" data-r>
         <h3>Openingsuren</h3>
         <ul class="uren">
-          <li><span>Maandag</span><span>11:00 tot 20:00</span></li>
-          <li><span>Dinsdag</span><span>11:00 tot 20:00</span></li>
-          <li><span>Woensdag</span><span>11:00 tot 20:00</span></li>
-          <li><span>Donderdag</span><span>11:00 tot 20:00</span></li>
-          <li><span>Vrijdag</span><span>11:00 tot 20:00</span></li>
+          <li data-d="1"><span>Maandag</span><span>11:00 tot 20:00</span></li>
+          <li data-d="2"><span>Dinsdag</span><span>11:00 tot 20:00</span></li>
+          <li data-d="3"><span>Woensdag</span><span>11:00 tot 20:00</span></li>
+          <li data-d="4"><span>Donderdag</span><span>11:00 tot 20:00</span></li>
+          <li data-d="5"><span>Vrijdag</span><span>11:00 tot 20:00</span></li>
           <li class="dicht"><span>Zaterdag en zondag</span><span>Gesloten</span></li>
         </ul>
         <div class="adres">
@@ -262,6 +355,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 <footer>
   <div class="wrap"><span>© Golden Mirror Tattoo · Heidestraat 33, 9170 Sint-Gillis-Waas</span><span>Voorbeeldsite door Digital Impression</span></div>
 </footer>
+<script>
+(function(){var n=new Date(),d=n.getDay(),t=n.getHours()+n.getMinutes()/60,el=document.getElementById('nu'),r=document.querySelector('.uren [data-d="'+d+'"]');if(r)r.classList.add('nu');
+if(el){var w=d>=1&&d<=5;if(w&&t>=11&&t<20)el.textContent='Vandaag in de studio tot 20u';else{el.previousElementSibling.classList.add('uit');el.textContent=(w&&t<11)?'Vandaag in de studio vanaf 11u':((d==5||d==6||d==0)?'Maandag terug in de studio vanaf 11u':'Morgen in de studio vanaf 11u')}}})();
+</script>
 <script>
 (function(){var els=document.querySelectorAll('[data-r]');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
 var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e)})})();

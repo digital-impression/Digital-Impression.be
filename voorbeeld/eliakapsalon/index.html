@@ -149,7 +149,94 @@ footer a{color:var(--esp);font-weight:700}
   .stack{padding:0 0 40px 30px}
   .strip .wrap{gap:10px}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.js [data-r]{opacity:1;transform:none}}
+
+/* hero v2 */
+header{position:sticky;top:0;z-index:50;background:rgba(247,241,231,.0);transition:background .35s,box-shadow .35s}
+header.sc{background:rgba(247,241,231,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -24px rgba(42,30,24,.5)}
+header nav a{position:relative;padding:4px 0}
+header nav a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--brass);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+header nav a:hover::after{transform:none}
+.btn{transition:transform .35s cubic-bezier(.2,.7,.2,1),background .3s,color .3s,box-shadow .35s}
+.btn-e:hover{box-shadow:0 16px 30px -16px rgba(42,30,24,.7)}
+a:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.hero{position:relative;padding:clamp(40px,5vw,70px) 0 clamp(50px,6vw,80px);overflow:hidden;overflow:clip}
+.hero{border-bottom:1px solid var(--line)}
+.hero::after{content:"";position:absolute;left:50%;top:0;width:900px;height:900px;margin-left:-450px;top:-380px;border-radius:50%;background:radial-gradient(closest-side,rgba(179,134,74,.14),rgba(179,134,74,0));pointer-events:none}
+.hero .wrap{position:relative;z-index:1;grid-template-columns:.9fr 1.35fr .9fr}
+.hero .col,.hero .col.b{position:relative;overflow:visible;aspect-ratio:auto;border-radius:0}
+.hero .col::before{content:"";position:absolute;inset:-12px;border:1px solid rgba(179,134,74,.55);border-radius:212px 212px 16px 16px;pointer-events:none;transition:inset .9s cubic-bezier(.2,.7,.2,1)}
+.hero .col.b::before{border-radius:16px 16px 212px 212px}
+.hero .col.in::before{inset:-14px}
+.arch{border-radius:200px 200px 10px 10px;overflow:hidden;aspect-ratio:3/4.5;box-shadow:0 40px 70px -40px rgba(42,30,24,.6)}
+.col.b .arch{border-radius:10px 10px 200px 200px}
+.arch img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 1.8s cubic-bezier(.2,.7,.2,1)}
+.col.in .arch img{transform:none}
+.hero .col.b{margin-top:110px}
+.tag{position:absolute;right:-34px;bottom:34px;display:flex;align-items:center;gap:12px;background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:12px 16px 12px 12px;box-shadow:0 24px 40px -24px rgba(42,30,24,.55);max-width:250px}
+.tag svg{width:38px;height:38px;padding:8px;border-radius:50%;background:var(--esp);color:#e2bf88;flex:none}
+.tag span{font-size:13px;line-height:1.35;color:var(--mut)}
+.tag b{display:block;font-family:"Libre Caslon Text",serif;font-weight:400;font-size:17px;color:var(--ink);margin-bottom:2px}
+.tq{position:absolute;left:-40px;top:-30px;width:230px;background:var(--esp);color:var(--cream);border-radius:12px;padding:16px 18px;box-shadow:0 24px 40px -24px rgba(42,30,24,.7)}
+.tq .st{font-size:12px;color:#e2bf88}
+.tq p{font-family:"Libre Caslon Text",serif;font-size:16px;line-height:1.4;margin:6px 0 8px;color:var(--cream);max-width:none}
+.tq cite{font-style:normal;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#cdbfae}
+.hero h1{font-size:clamp(42px,5vw,74px)}
+.meta{display:inline-flex;align-items:stretch;margin-top:34px;background:#fbf7f0;border:1px solid var(--line);border-radius:12px;text-align:left}
+.meta>div{display:flex;align-items:center;gap:12px;padding:14px 20px}
+.meta .g{border-right:1px solid var(--line)}
+.meta .g b{font-family:"Libre Caslon Display",serif;font-weight:400;font-size:34px;line-height:1}
+.meta span{font-size:13.5px;line-height:1.4;color:var(--mut)}
+.meta .st{display:block;font-size:12px}
+.meta .o i{width:9px;height:9px;border-radius:50%;background:#6f9b5a;box-shadow:0 0 0 4px rgba(111,155,90,.2);flex:none}
+.meta .o i.x{background:#b9a99a;box-shadow:0 0 0 4px rgba(185,169,154,.25)}
+.trio{position:relative;z-index:1;display:flex !important;justify-content:center;gap:clamp(18px,4vw,60px);margin-top:clamp(40px,5vw,64px);padding-top:clamp(24px,3vw,34px);border-top:1px solid var(--line);max-width:820px}
+.trio a{display:flex;align-items:baseline;gap:10px;text-decoration:none;font-family:"Libre Caslon Text",serif;font-size:clamp(20px,2vw,26px);color:var(--esp);padding-bottom:6px;border-bottom:1px solid transparent;transition:border-color .3s,color .3s}
+.trio a:hover{border-color:var(--brass);color:var(--brass)}
+.trio span{font-style:italic;color:var(--brass);font-size:.75em}
+/* afwerking */
+.pk{transition:background .4s}
+.pk svg{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.pk:hover svg{transform:translateY(-4px)}
+.mi{transition:padding .4s cubic-bezier(.2,.7,.2,1),background .3s}
+.mi:hover{padding-left:12px;background:linear-gradient(90deg,rgba(179,134,74,.08),rgba(179,134,74,0))}
+.stack .a img,.stack .b img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.stack:hover .a img{transform:scale(1.03)}
+.strip figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,30,24,0) 60%,rgba(42,30,24,.35));pointer-events:none}
+.rv blockquote{position:relative;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+.rv blockquote:hover{transform:translateY(-5px);box-shadow:0 30px 50px -34px rgba(42,30,24,.5)}
+.rv blockquote::after{content:"";position:absolute;left:50%;top:-1px;width:40px;height:2px;margin-left:-20px;background:var(--brass)}
+.hr div{transition:color .3s}
+.hr div.now{color:#fff}
+.hr div.now span:first-child::after{content:"vandaag";margin-left:10px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--esp);background:#e2bf88;padding:2px 8px;border-radius:4px;vertical-align:1px}
+.cx{transition:background .25s,transform .35s cubic-bezier(.2,.7,.2,1),border-color .3s}
+.cx:hover{transform:translateX(4px);border-color:rgba(226,191,136,.45)}
+.js [data-r]{transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.hero .mid[data-r]{transition-delay:.1s}.hero .col.b[data-r]{transition-delay:.2s}
+.rv [data-r]:nth-child(2),.perks [data-r]:nth-child(2){transition-delay:.1s}
+.rv [data-r]:nth-child(3),.perks [data-r]:nth-child(3){transition-delay:.2s}
+@media (max-width:1180px){.tag{right:-20px}.tq{left:-20px}}
+@media (max-width:980px){
+  .hero .wrap{grid-template-columns:1fr 1fr;gap:30px 40px}
+  .tag{right:-12px}.tq{left:-12px;top:-24px}
+  .hero .col.b{margin-top:70px}
+}
+@media (max-width:640px){
+  .hero .wrap{gap:24px 18px}
+  .arch{border-radius:120px 120px 8px 8px}
+  .col.b .arch{border-radius:8px 8px 120px 120px}
+  .hero .col::before{border-radius:128px 128px 12px 12px;inset:-7px}
+  .hero .col.b::before{border-radius:12px 12px 128px 128px}
+  .hero .col.in::before{inset:-8px}
+  .hero .col.b{margin-top:40px}
+  .tag{left:-6px;right:-6px;bottom:14px;max-width:none;padding:9px 10px;gap:8px}
+  .tag svg{width:30px;height:30px;padding:6px}
+  .tag b{font-size:14px}.tag span{font-size:0}.tag span b{font-size:14px;margin:0}
+  .tq{display:none}
+  .meta{display:flex;flex-direction:column;width:100%}
+  .meta .g{border-right:0;border-bottom:1px solid var(--line)}
+  .trio{flex-wrap:wrap;gap:12px 22px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important;animation:none!important}.js [data-r]{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -166,7 +253,10 @@ footer a{color:var(--esp);font-weight:700}
 <main id="top">
 <section class="hero">
   <div class="wrap">
-    <div class="col" data-r><img src="img/hero.webp" alt="Barber met hoed knipt een klant" width="1067" height="1600" style="object-position:40% 50%"></div>
+    <div class="col" data-r>
+      <div class="arch"><img src="img/hero.webp" alt="Barber met hoed knipt een klant" width="1067" height="1600" style="object-position:40% 50%" fetchpriority="high"></div>
+      <div class="tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 8h1a4 4 0 0 1 0 8h-1M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/><path d="M6 2v3M10 2v3M14 2v3"/></svg><span><b>Koffie in de stoel</b>Staat klaar terwijl je geknipt wordt</span></div>
+    </div>
     <div class="mid" data-r>
       <span class="sm">Barber</span>
       <h1>Een goede knipbeurt, <em>met een koffie erbij.</em></h1>
@@ -175,9 +265,20 @@ footer a{color:var(--esp);font-weight:700}
         <a class="btn btn-e" href="https://wa.me/32487737990"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4 3.5 3.5 0 0 0-1.1 2.6 6 6 0 0 0 1.3 3.2 13.8 13.8 0 0 0 5.3 4.7c2 .8 2.7.9 3.7.8a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3zM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm0-21.6A11.8 11.8 0 0 0 1.9 18L.2 24l6.2-1.6A11.8 11.8 0 1 0 12 .2z"/></svg>Stuur een WhatsApp</a>
         <a class="btn btn-c" href="#bezoek">Openingsuren</a>
       </div>
-      <div class="rt"><b>4,6</b> <span class="st">★★★★★</span><br>112 reviews op Google</div>
+      <div class="meta">
+        <div class="g"><b>4,6</b><span><span class="st">★★★★★</span>112 reviews op Google</span></div>
+        <div class="o"><i></i><span id="nu">Maandag tot zaterdag<br>van 10 tot 20 uur</span></div>
+      </div>
     </div>
-    <div class="col b" data-r><img src="img/jong.webp" alt="Jonge klant met een verse coupe" width="1600" height="1067" style="object-position:55% 50%"></div>
+    <div class="col b" data-r>
+      <div class="arch"><img src="img/jong.webp" alt="Jonge klant met een verse coupe" width="1600" height="1067" style="object-position:55% 50%"></div>
+      <blockquote class="tq"><span class="st">★★★★★</span><p>“Perfect place for perfect haircut. See You soon.”</p><cite>Google-review</cite></blockquote>
+    </div>
+  </div>
+  <div class="wrap trio" data-r>
+    <a href="#diensten"><span>i.</span>Knippen</a>
+    <a href="#diensten"><span>ii.</span>Baard</a>
+    <a href="#diensten"><span>iii.</span>Kinderen</a>
   </div>
 </section>
 
@@ -238,13 +339,13 @@ footer a{color:var(--esp);font-weight:700}
       <h2>Kom gerust <em>binnen</em></h2>
       <p>Bel of stuur een berichtje als je zeker wil zijn van een plekje.</p>
       <div class="hr">
-        <div><span>Maandag</span><span>10.00 tot 20.00</span></div>
-        <div><span>Dinsdag</span><span>10.00 tot 20.00</span></div>
-        <div><span>Woensdag</span><span>10.00 tot 20.00</span></div>
-        <div><span>Donderdag</span><span>10.00 tot 20.00</span></div>
-        <div><span>Vrijdag</span><span>10.00 tot 20.00</span></div>
-        <div><span>Zaterdag</span><span>10.00 tot 20.00</span></div>
-        <div><span>Zondag</span><span class="x">gesloten</span></div>
+        <div data-d="1"><span>Maandag</span><span>10.00 tot 20.00</span></div>
+        <div data-d="2"><span>Dinsdag</span><span>10.00 tot 20.00</span></div>
+        <div data-d="3"><span>Woensdag</span><span>10.00 tot 20.00</span></div>
+        <div data-d="4"><span>Donderdag</span><span>10.00 tot 20.00</span></div>
+        <div data-d="5"><span>Vrijdag</span><span>10.00 tot 20.00</span></div>
+        <div data-d="6"><span>Zaterdag</span><span>10.00 tot 20.00</span></div>
+        <div data-d="0"><span>Zondag</span><span class="x">gesloten</span></div>
       </div>
     </div>
     <div class="r">
@@ -263,6 +364,11 @@ footer a{color:var(--esp);font-weight:700}
     <span>Voorbeeldsite door <a href="#di">Digital Impression</a></span>
   </div>
 </footer>
+<script>
+(function(){var hd=document.querySelector('header');function s(){hd.classList.toggle('sc',scrollY>20)}addEventListener('scroll',s,{passive:true});s();
+var n=new Date(),d=n.getDay(),t=n.getHours()+n.getMinutes()/60,el=document.getElementById('nu'),r=document.querySelector('.hr [data-d="'+d+'"]');if(r)r.classList.add('now');
+if(el){var op=d>0;if(op&&t>=10&&t<20)el.innerHTML='Nu open<br>tot 20.00 uur';else{el.previousElementSibling.classList.add('x');el.innerHTML=(op&&t<10)?'Vandaag open<br>vanaf 10.00 uur':((d==6||d==0)?'Maandag weer open<br>vanaf 10.00 uur':'Morgen open<br>vanaf 10.00 uur')}}})();
+</script>
 <script>
 (function(){var els=document.querySelectorAll('[data-r]');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
 var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e)})})();

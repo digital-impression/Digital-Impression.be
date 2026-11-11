@@ -204,6 +204,75 @@ footer .logo{font-size:22px}
   .vbox{padding:34px 24px}
   .f2{grid-template-columns:1fr}
 }
+
+/* hero v2 */
+.hero{position:relative;padding:64px 0 0;background:radial-gradient(60% 70% at 85% 30%,#F3DDD6 0%,rgba(246,236,232,0) 70%),var(--blush)}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:46px;background:var(--white)}
+.hero .wrap{position:relative;z-index:1}
+.hero .wrap+.wrap{display:block}
+.hero .wrap:first-child{grid-template-columns:1.02fr .98fr;gap:clamp(40px,6vw,90px)}
+.hero h1{font-size:clamp(42px,4.6vw,68px);line-height:1.04;margin:22px 0 24px}
+.hero h1 em{font-style:normal;color:var(--plum2);position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:-.04em;right:-.04em;bottom:.08em;height:.24em;background:var(--rose);opacity:.32;border-radius:3px;z-index:-1}
+.hero .btn svg{transition:transform .35s var(--ease)}
+.hero .btn:hover svg{transform:translateX(3px)}
+.trust{display:flex;align-items:center;gap:22px;margin-top:38px;padding-top:28px;border-top:1px solid var(--line);flex-wrap:wrap}
+.trust .g{display:flex;align-items:center;gap:12px}
+.trust .g b{font:400 40px/1 Gloock,serif;color:var(--plum)}
+.trust .g span{font-size:13.5px;line-height:1.35;color:var(--mut)}
+.trust .g i{display:block;font-style:normal;color:#C98A3D;letter-spacing:2px;font-size:12.5px}
+.trust .w{display:flex;align-items:center;gap:12px;padding-left:22px;border-left:1px solid var(--line);max-width:290px}
+.trust .w img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:50% 20%;flex:none;border:2px solid #fff}
+.trust .w span{font-size:13.5px;line-height:1.4;color:var(--ink)}
+.visual{padding:0 0 70px 70px}
+.visual::before{content:"";position:absolute;right:-18px;top:-18px;left:88px;bottom:52px;border:1px solid rgba(78,26,38,.18);border-radius:210px 210px 32px 32px;pointer-events:none}
+.visual .main{aspect-ratio:4/4.5}
+.visual .main img{transform:scale(1.05);transition:transform 1.8s var(--ease)}
+.visual.in .main img{transform:none}
+.visual .side{position:absolute;left:0;bottom:30px;width:36%;aspect-ratio:3/4;border-radius:22px;overflow:hidden;border:7px solid var(--blush);box-shadow:0 30px 50px -26px rgba(78,26,38,.55)}
+.visual .side img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.visual .badge{right:-22px;top:56px}
+.vn-chip{position:absolute;right:-22px;bottom:96px;display:flex;align-items:center;gap:12px;background:#fff;border-radius:18px;padding:10px 16px 10px 10px;text-decoration:none;box-shadow:0 26px 50px -24px rgba(78,26,38,.45);transition:transform .4s var(--ease)}
+.vn-chip:hover{transform:translateY(-3px)}
+.vn-chip .th{display:flex}
+.vn-chip .th img{width:40px;height:54px;object-fit:cover;border-radius:10px;border:2px solid #fff}
+.vn-chip .th img+img{margin-left:-12px}
+.vn-chip b{display:block;font-size:15px;color:var(--plum)}
+.vn-chip span{font-size:12.5px;line-height:1.35;color:var(--mut)}
+.tbar{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:#fff;border-radius:24px;padding:10px;margin-top:clamp(40px,5vw,64px);box-shadow:0 30px 60px -40px rgba(78,26,38,.45),0 0 0 1px var(--line)}
+.tbar a{display:flex;align-items:center;gap:14px;padding:10px 14px 10px 10px;border-radius:16px;text-decoration:none;transition:background .3s}
+.tbar a+a{position:relative}
+.tbar a+a::before{content:"";position:absolute;left:0;top:22%;bottom:22%;width:1px;background:var(--line)}
+.tbar a:hover{background:var(--blush)}
+.tbar img{width:52px;height:52px;border-radius:50%;object-fit:cover;flex:none;transition:transform .5s var(--ease)}
+.tbar a:hover img{transform:scale(1.08)}
+.tbar span{font-size:13px;line-height:1.35;color:var(--mut)}
+.tbar b{display:block;font-size:15.5px;color:var(--plum);font-weight:500}
+@media (max-width:1180px){.visual .badge,.vn-chip{right:0}}
+.nav ul a{white-space:nowrap}
+@media (max-width:980px){.nav ul{display:none}}
+@media (max-width:1040px){
+  .hero .wrap:first-child{grid-template-columns:1fr;gap:50px}
+  .visual{max-width:600px}
+  .tbar{grid-template-columns:1fr 1fr}
+  .tbar a:nth-child(3)::before{display:none}
+}
+@media (max-width:760px){
+  .hero{padding:36px 0 0}
+  .hero h1{font-size:clamp(38px,10.4vw,48px)}
+  .hero .cta .btn{width:100%;justify-content:center}
+  .trust{gap:16px}
+  .trust .w{border-left:0;padding-left:0}
+  .visual{padding:0 0 60px 0}
+  .visual::before{left:22px;right:-6px;top:-10px}
+  .visual .main{aspect-ratio:1/1.1}
+  .visual .side{width:34%;left:-6px;bottom:20px;border-width:5px}
+  .visual .badge{right:8px;top:18px;padding:12px 14px}
+  .visual .badge b{font-size:28px}
+  .vn-chip{right:8px;bottom:0}
+  .tbar{grid-template-columns:1fr;padding:6px}
+  .tbar a+a::before{left:14px;right:14px;top:0;bottom:auto;width:auto;height:1px;display:block}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.js [data-r]{opacity:1;transform:none}}
 </style>
 </head>
@@ -227,25 +296,33 @@ footer .logo{font-size:22px}
 <main>
 <section class="hero">
   <div class="wrap">
-    <div>
+    <div class="htx">
       <span class="eye">HIFU · Laser · Huidverbetering</span>
-      <h1>Een strakkere huid, zonder dat er een mes aan te pas komt.</h1>
+      <h1>Een strakkere huid, zonder dat er <em>een mes</em> aan te pas komt.</h1>
       <p class="lead">Bij Beau'Voir ben je aan het juiste adres voor HIFU-huidverstrakking, permanente laserontharing en micro haarpigmentatie. Met moderne toestellen, eerlijk advies en resultaten die je echt ziet.</p>
       <div class="cta">
-        <a class="btn plum" href="https://beauvoir.setmore.com" target="_blank" rel="noopener">Boek een intakegesprek</a>
+        <a class="btn plum" href="https://beauvoir.setmore.com" target="_blank" rel="noopener">Boek een intakegesprek<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn soft" href="https://wa.me/32488004114" target="_blank" rel="noopener">Stel je vraag via WhatsApp</a>
       </div>
-      <div class="proof">
-        <div><b>5,0</b><span>57 reviews op Google</span></div>
-        <div><b>HIFU</b><span>gezicht, hals en lichaam</span></div>
-        <div><b>Laser</b><span>permanent ontharen</span></div>
+      <div class="trust">
+        <div class="g"><b>5,0</b><span><i>★★★★★</i>57 reviews op Google</span></div>
+        <div class="w"><img src="img/elif.webp" alt="" width="1080" height="1080"><span>Eerst een intake, dan pas een behandeling die bij jou past.</span></div>
       </div>
     </div>
     <div class="visual" data-r>
       <div class="main"><img src="img/hifu.webp" alt="HIFU-behandeling op de kaaklijn bij Beau'Voir" width="1600" height="1067" fetchpriority="high"></div>
+      <div class="side"><img src="img/hifu2.webp" alt="HIFU-toestel klaar voor een behandeling" width="1333" height="2000"></div>
       <div class="badge"><b>5,0</b><span>★★★★★ Google</span></div>
-      <div class="card"><img src="img/elif.webp" alt="" width="1080" height="1080"><div><b>Persoonlijk advies</b><span>Eerst een intake, dan pas een behandeling die bij jou past.</span></div></div>
+      <a class="vn-chip" href="#voor-en-na"><span class="th"><img src="img/vn1.webp" alt="" width="900" height="1600"><img src="img/vn2.webp" alt="" width="900" height="1600"></span><span><b>Voor en na</b>Echte resultaten uit de salon</span></a>
     </div>
+  </div>
+  <div class="wrap">
+    <nav class="tbar" aria-label="Specialiteiten" data-r>
+      <a href="#hifu"><img src="img/hifu4.webp" alt="" width="1333" height="2000" loading="lazy"><span><b>HIFU</b>Gezicht, hals en lichaam</span></a>
+      <a href="#behandelingen"><img src="img/laser.webp" alt="" width="1200" height="1600" loading="lazy"><span><b>Laserontharing</b>Permanent, met diodelaser</span></a>
+      <a href="#behandelingen"><img src="img/mhp.webp" alt="" width="1500" height="2000" loading="lazy"><span><b>Micro haarpigmentatie</b>Voor dunner wordend haar</span></a>
+      <a href="#behandelingen"><img src="img/led.webp" alt="" width="1125" height="1500" loading="lazy"><span><b>Huidverbetering</b>Teint, poriën en glow</span></a>
+    </nav>
   </div>
 </section>
 
