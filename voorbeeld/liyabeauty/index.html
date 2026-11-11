@@ -36,18 +36,39 @@ h1 em,h2 em{color:var(--tc)}
 .nav .btn{padding:11px 22px}
 
 /* hero */
-.hero{padding:10px 0 100px}
-.hcard{display:grid;grid-template-columns:1.15fr .85fr;background:var(--cr);border-radius:36px;overflow:hidden;min-height:620px}
-.hfoto{position:relative}
-.hfoto img{width:100%;height:100%;object-fit:cover}
-.hfoto .chip{position:absolute;left:24px;bottom:24px;background:rgba(255,248,242,.92);backdrop-filter:blur(8px);border-radius:16px;padding:12px 18px;font-size:14px;display:flex;gap:10px;align-items:center}
-.hfoto .chip b{font:500 22px/1 Fraunces,serif}
-.hfoto .chip .st{color:var(--tc);letter-spacing:2px}
-.htekst{padding:64px 56px;display:flex;flex-direction:column;justify-content:center}
-.htekst h1{font-size:clamp(42px,4.8vw,70px);margin:20px 0 22px}
-.htekst .lead{color:#5b4940;font-size:17.5px}
+.hero{padding:10px 0 110px}
+.hcard{display:grid;grid-template-columns:1.05fr .95fr;background:var(--cr);border-radius:36px 36px 0 0;overflow:hidden;min-height:660px;position:relative}
+.hfoto{position:relative;min-height:100%}
+.hfoto>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hfoto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(40,24,17,0) 60%,rgba(40,24,17,.28) 100%);pointer-events:none}
+.hfoto .chip{position:absolute;z-index:2;left:26px;bottom:26px;background:rgba(255,248,242,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:18px;padding:14px 20px;font-size:14px;display:flex;gap:12px;align-items:center;box-shadow:0 18px 40px -22px rgba(40,24,17,.55)}
+.hfoto .chip b{font:400 26px/1 Fraunces,serif}
+.hfoto .chip .st{color:var(--tc);letter-spacing:2px;display:block;font-size:13px;line-height:1.2}
+.hfoto .chip small{display:block;color:var(--mu);font-size:12.5px;line-height:1.3}
+.hfoto .inzet{position:absolute;z-index:2;right:26px;top:26px;width:190px;background:rgba(255,248,242,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:22px;padding:8px 8px 14px;box-shadow:0 22px 44px -24px rgba(40,24,17,.6)}
+.hfoto .inzet img{border-radius:16px;aspect-ratio:4/3;object-fit:cover;width:100%;object-position:40% 50%}
+.hfoto .inzet span{display:block;padding:10px 8px 0;font:italic 400 17px/1.2 Fraunces,serif}
+.hfoto .inzet small{display:block;padding:3px 8px 0;font-size:12.5px;color:var(--mu);line-height:1.35}
+.htekst{padding:64px 58px 58px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.htekst::before{content:"";position:absolute;right:-90px;top:-90px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(242,199,192,.55),rgba(242,199,192,0) 70%);pointer-events:none}
+.htekst>*{position:relative}
+.htekst h1{font-size:clamp(44px,5vw,74px);line-height:1;margin:22px 0 24px;letter-spacing:-.025em}
+.htekst .lead{color:#5b4940;font-size:18px;max-width:470px}
 .htekst .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-
+.hquote{margin-top:44px;padding-top:28px;border-top:1px solid rgba(59,42,35,.14);display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;max-width:470px}
+.hquote .q{font:italic 400 58px/.7 Fraunces,serif;color:var(--tc);height:34px}
+.hquote p{font:italic 400 18px/1.45 Fraunces,serif;color:var(--dp)}
+.hquote small{display:block;margin-top:8px;font-size:13px;color:var(--mu)}
+.hzones{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-radius:0 0 36px 36px;border:1px solid rgba(59,42,35,.07);border-top:0;box-shadow:0 30px 60px -48px rgba(59,42,35,.5)}
+.hzones a{display:flex;gap:14px;align-items:center;padding:24px 26px;position:relative;transition:background .3s}
+.hzones a+a::before{content:"";position:absolute;left:0;top:24px;bottom:24px;width:1px;background:var(--line)}
+.hzones a:hover{background:#fffaf6}
+.hzones a:first-child{border-bottom-left-radius:36px}.hzones a:last-child{border-bottom-right-radius:36px}
+.hzones img{width:52px;height:52px;border-radius:50%;object-fit:cover;flex:none}
+.hzones b{display:block;font:400 19px/1.15 Fraunces,serif;white-space:nowrap}
+.hzones span{display:block;font-size:13.5px;color:var(--mu);line-height:1.4;margin-top:3px}
+.hzones a:hover b{color:var(--tc)}
+.hzones b{transition:color .3s}
 /* specialiteiten */
 .spec{padding:20px 0 120px}
 .spec-kop{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:50px}
@@ -118,9 +139,14 @@ h1 em,h2 em{color:var(--tc)}
 
 @media (max-width:1040px){
  .nav ul{display:none}
- .hcard{grid-template-columns:1fr}
- .htekst{order:1;padding:50px 40px}
- .hfoto{order:2;aspect-ratio:3/2}
+ .hcard{grid-template-columns:1fr;min-height:0}
+ .htekst{order:1;padding:56px 44px 48px}
+ .htekst::before{right:-60px;top:-60px}
+ .hfoto{order:2;aspect-ratio:3/2;min-height:0}
+ .hzones{grid-template-columns:1fr 1fr}
+ .hzones a:nth-child(3)::before{display:none}
+ .hzones a:nth-child(-n+2){border-bottom:1px solid var(--line)}
+ .hzones a:first-child{border-bottom-left-radius:0}.hzones a:last-child{border-bottom-right-radius:36px}.hzones a:nth-child(3){border-bottom-left-radius:36px}
  .spec-kop{flex-direction:column;align-items:flex-start}
  .tri{grid-template-columns:1fr 1fr}
  .tri .tegel:last-child{grid-column:span 2;min-height:380px}
@@ -136,9 +162,24 @@ h1 em,h2 em{color:var(--tc)}
  .logo{font-size:25px}
  .logo span{font-size:9.5px;margin-left:4px}
  .nav .btn{padding:9px 16px;font-size:14px}
- .hcard{border-radius:26px}
- .htekst{padding:36px 24px 40px}
- .hfoto .chip{left:14px;bottom:14px}
+ .hcard{border-radius:26px 26px 0 0}
+ .htekst{padding:38px 24px 40px}
+ .htekst .lead{font-size:16.5px}
+ .htekst .ctas .btn{flex:1 1 auto;justify-content:center}
+ .hquote{margin-top:34px;padding-top:22px;gap:12px}
+ .hquote p{font-size:16.5px}
+ .hfoto{aspect-ratio:4/5}
+ .hfoto .chip{left:14px;bottom:14px;padding:12px 16px}
+ .hfoto .inzet{right:14px;top:14px;width:142px;padding:6px 6px 10px;border-radius:18px}
+ .hfoto .inzet img{border-radius:13px}
+ .hfoto .inzet span{font-size:15px;padding:8px 6px 0}
+ .hfoto .inzet small{display:none}
+ .hzones{grid-template-columns:1fr;border-radius:0 0 26px 26px}
+ .hzones a{padding:18px 20px}
+ .hzones a::before{display:none}
+ .hzones a:not(:last-child){border-bottom:1px solid var(--line)}
+ .hzones a:nth-child(3){border-bottom-left-radius:0}.hzones a:last-child{border-bottom-left-radius:26px;border-bottom-right-radius:26px}
+ .hzones img{width:48px;height:48px}
  .hero{padding:4px 0 70px}
  .spec{padding:10px 0 80px}
  .tri{grid-template-columns:1fr}
@@ -181,21 +222,31 @@ h1 em,h2 em{color:var(--tc)}
   <div class="hcard">
    <div class="hfoto" data-r>
     <img src="img/salon.webp" alt="De salon van Liya Beauty met bloemenwand, oranje fluwelen zetel en trap" width="1080" height="720" fetchpriority="high">
-    <div class="chip"><b>4,9</b><span class="st">★★★★★</span><span>38 reviews op Google</span></div>
+    <div class="inzet"><img src="img/behandeling.webp" alt="Microneedling aan het gezicht" width="1600" height="1064"><span>Microneedling</span><small>Voor een egalere huid en fijnere poriën</small></div>
+    <div class="chip"><b>4,9</b><div><span class="st">★★★★★</span><small>38 reviews op Google</small></div></div>
    </div>
    <div class="htekst">
-    <span class="pre" data-r>Schoonheidssalon</span>
+    <span class="pre" data-r>Schoonheidssalon voor gezicht en lichaam</span>
     <h1 data-r>Een salon waar je <em>graag</em> even blijft zitten</h1>
-    <p class="lead" data-r>Van ontharing en microneedling tot een gelaatsverzorging, threading of een deugddoende massage. Je neemt plaats tussen de bloemen, wij zorgen voor de rest.</p>
+    <p class="lead" data-r>Van ontharing en microneedling tot een gelaatsverzorging, threading of een deugddoende massage. Je krijgt eerst uitleg over wat we doen en waarom. Daarna neem je plaats tussen de bloemen, wij zorgen voor de rest.</p>
     <div class="ctas" data-r>
      <a class="btn btn-t" href="https://wa.me/32484185670"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3Z"/></svg>Maak een afspraak</a>
      <a class="btn btn-g" href="#behandelingen">Alle behandelingen</a>
     </div>
+    <div class="hquote" data-r>
+     <span class="q">“</span>
+     <div><p>Heel tevreden over de eerste afspraak. Veel info, maar bij vragen mocht ik zeker iets laten weten</p><small>E. · via Treatwell</small></div>
+    </div>
    </div>
   </div>
+  <nav class="hzones" aria-label="Behandelingen" data-r>
+   <a href="#specialiteiten"><img src="img/t-lichaam.webp" alt="" width="160" height="160" loading="lazy"><div><b>Ontharing</b><span>Klein zoneke of volledig lichaam</span></div></a>
+   <a href="#specialiteiten"><img src="img/t-serum.webp" alt="" width="160" height="160" loading="lazy"><div><b>Huid</b><span>Microneedling en plasma pen</span></div></a>
+   <a href="#behandelingen"><img src="img/t-producten.webp" alt="" width="160" height="160" loading="lazy"><div><b>Gelaat &amp; brauwen</b><span>Verzorging op maat, threading</span></div></a>
+   <a href="#behandelingen"><img src="img/t-nagels.webp" alt="" width="160" height="160" loading="lazy"><div><b>Massage &amp; nagels</b><span>Even alles los laten</span></div></a>
+  </nav>
  </div>
 </section>
-
 <section class="spec" id="specialiteiten">
  <div class="wrap">
   <div class="spec-kop">

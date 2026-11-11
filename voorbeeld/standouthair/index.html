@@ -8,78 +8,88 @@
 <meta name="description" content="StandOut Hair: knippen, kleuren en balayage voor dames, heren en kids. Alle prijzen inclusief shampoo, masker en styling.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#f6f3fa;--ink:#22152e;--pu:#7e5bae;--pu2:#5f3f8f;--li:#e3d8f3;--pe:#f6d3c2;--mu:#6c6177;--line:rgba(34,21,46,.12);--wrap:1260px}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--ink);font:400 16.5px/1.65 Inter,system-ui,sans-serif;overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font:400 16.5px/1.7 Manrope,system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
-.demo{background:var(--pu);color:#fff;text-align:center;font:500 14px/1.4 Inter,sans-serif;padding:9px 16px}
+.demo{background:var(--pu);color:#fff;text-align:center;font:500 14px/1.4 Manrope,sans-serif;padding:9px 16px}
 .demo a{font-weight:700;text-decoration:underline;text-underline-offset:3px}
-h1,h2,h3{font-family:Syne,sans-serif;font-weight:800;line-height:.98;letter-spacing:-.025em}
-.lbl{display:inline-block;font-size:13px;font-weight:600;padding:7px 14px;border-radius:99px;background:var(--li);color:var(--pu2)}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:14px;font-weight:600;font-size:15px;transition:all .3s ease}
+h1,h2,h3{font-family:"Instrument Serif",Georgia,serif;font-weight:400;line-height:1;letter-spacing:-.015em}
+h1 span,h2 span{font-style:italic}
+.lbl{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pu2)}
+.lbl::before{content:"";width:22px;height:1px;background:currentColor;opacity:.7}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font-weight:600;font-size:15px;letter-spacing:-.005em;transition:all .35s cubic-bezier(.2,.7,.2,1)}
+.btn .pijl{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.14);margin:-6px -14px -6px 4px;transition:transform .35s}
+.btn:hover .pijl{transform:translateX(3px)}
 .btn svg{width:18px;height:18px}
-.btn-p{background:var(--ink);color:#fff}.btn-p:hover{background:var(--pu);transform:translateY(-2px)}
-.btn-o{background:#fff;border:1px solid var(--line)}.btn-o:hover{border-color:var(--pu);color:var(--pu)}
+.btn-p{background:var(--ink);color:#fff;box-shadow:0 14px 30px -18px rgba(34,21,46,.7)}.btn-p:hover{background:var(--pu2);transform:translateY(-2px)}
+.btn-o{background:rgba(255,255,255,.7);border:1px solid rgba(34,21,46,.16)}.btn-o:hover{border-color:var(--ink);background:#fff}
 
 .nav{position:sticky;top:0;z-index:30;background:rgba(246,243,250,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(34,21,46,.06)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:78px}
 .nav .logo img{height:46px;width:auto}
-.nav ul{display:flex;gap:34px;list-style:none;font-weight:500;font-size:15px}
+.nav ul{display:flex;gap:36px;list-style:none;font-weight:500;font-size:14.5px;color:#4a3f55}
 .nav ul a{position:relative}
-.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;background:var(--pu);transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:1px;background:var(--pu);transform:scaleX(0);transition:transform .3s;transform-origin:left}
 .nav ul a:hover::after{transform:scaleX(1)}
-.nav .btn{padding:12px 20px}
+.nav .btn{padding:12px 22px;font-size:14.5px}
 
 /* hero */
 .hero{padding:60px 0 100px;position:relative}
 .hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.hero h1{font-size:clamp(64px,10vw,150px);margin:22px 0 26px}
+.hero h1{font-size:clamp(76px,11.4vw,176px);line-height:.88;letter-spacing:-.035em;margin:26px 0 30px}
 .hero h1 span{color:var(--pu)}
-.hero .lead{font-size:19px;color:#4a3f55;max-width:500px}
-.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin:34px 0 40px}
-.rate{display:flex;align-items:center;gap:14px}
-.rate b{font:800 34px/1 Syne,sans-serif}
-.rate .st{color:var(--pu);letter-spacing:2px}
+.hero .lead{font-size:18.5px;color:#4a3f55;max-width:480px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin:36px 0 42px}
+.rate{display:flex;align-items:center;gap:16px;padding-top:28px;border-top:1px solid var(--line);max-width:480px}
+.rate .incl{margin-left:auto;font-size:13.5px;color:var(--mu);line-height:1.4;text-align:right}
+.rate b{font:400 52px/.9 "Instrument Serif",serif;letter-spacing:-.02em}
+.rate .st{color:var(--pu);letter-spacing:3px;font-size:14px}
 .rate p{font-size:14px;color:var(--mu);line-height:1.35}
 .col{position:relative;height:620px}
-.col figure{position:absolute;overflow:hidden;box-shadow:0 30px 60px -34px rgba(34,21,46,.45)}
+.col figure{position:absolute;overflow:hidden;box-shadow:0 30px 60px -34px rgba(34,21,46,.45);outline:6px solid var(--bg)}
 .col img{width:100%;height:100%;object-fit:cover}
 .col .a{left:12%;top:0;width:58%;height:74%;border-radius:200px 200px 28px 28px}
 .col .b{right:0;top:22%;width:40%;height:46%;border-radius:28px}
 .col .c{left:0;bottom:0;width:44%;height:36%;border-radius:28px}
-.sticker{position:absolute;right:6%;bottom:6%;width:150px;height:150px;border-radius:50%;background:var(--pe);display:grid;place-items:center;text-align:center;font:800 18px/1.05 Syne,sans-serif;transform:rotate(-8deg);box-shadow:0 20px 40px -20px rgba(34,21,46,.4)}
-.sticker small{display:block;font:500 12px/1.3 Inter,sans-serif;margin-top:6px}
+.sticker{position:absolute;right:6%;bottom:6%;width:150px;height:150px;border-radius:50%;background:var(--pe);display:grid;place-items:center;text-align:center;font:italic 400 26px/1 "Instrument Serif",serif;transform:rotate(-8deg);color:var(--ink);box-shadow:0 20px 40px -20px rgba(34,21,46,.4)}
+.sticker small{display:block;font:600 10.5px/1.3 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;margin-top:8px;font-style:normal}
 
 /* kassa */
 .kassa{background:var(--ink);color:#fff;padding:100px 0;overflow:hidden;position:relative}
 .kassa .wrap{display:grid;grid-template-columns:1.3fr .7fr;gap:60px;align-items:end}
-.kassa h2{font-size:clamp(40px,5.4vw,80px)}
+.kassa h2{font-size:clamp(48px,6.4vw,96px);line-height:.95}
 .kassa h2 span{color:#b99be6}
 .kassa p{color:#cfc4dc;font-size:18px}
 .kassa ul{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-.kassa li{border:1px solid rgba(255,255,255,.22);border-radius:99px;padding:8px 16px;font-size:14px}
+.kassa li{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);border-radius:99px;padding:8px 16px 8px 12px;font-size:14px}
+.kassa li::before{content:"";width:16px;height:16px;border-radius:50%;background:#b99be6 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%2322152e' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
 
 /* diensten */
 .dien{padding:130px 0 100px}
 .dien-kop{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:56px}
-.dien-kop h2{font-size:clamp(40px,5vw,72px);margin-top:18px}
+.dien-kop h2{font-size:clamp(48px,5.8vw,84px);margin-top:18px}
 .dien-kop p{max-width:420px;color:var(--mu);font-size:17px}
 .drie{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:20px}
-.blok{background:#fff;border-radius:28px;overflow:hidden;display:flex;flex-direction:column}
-.blok figure{aspect-ratio:16/11;overflow:hidden}
+.blok{background:#fff;border-radius:28px;overflow:hidden;display:flex;flex-direction:column;border:1px solid rgba(34,21,46,.06);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+.blok:hover{transform:translateY(-4px);box-shadow:0 30px 60px -40px rgba(34,21,46,.45)}
+.blok figure{height:250px;overflow:hidden;margin:8px 8px 0;border-radius:22px}
 .blok figure img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
 .blok:hover figure img{transform:scale(1.05)}
-.blok .in{padding:30px 30px 34px}
-.blok h3{font-size:32px;margin-bottom:16px}
+.blok .in{padding:26px 28px 30px}
+.blok .kop{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px}
+.blok .kop i{font:italic 400 20px/1 "Instrument Serif",serif;color:var(--pu)}
+.blok h3{font-size:42px;letter-spacing:-.02em}
 .blok ul{list-style:none}
-.blok li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px solid var(--line);font-size:15.5px}
-.blok li span{color:var(--mu);font-size:14px;white-space:nowrap}
-.blok.kids{background:var(--pe)}
+.blok li{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-top:1px solid var(--line);font-size:15px;font-weight:500}
+.blok li span{color:var(--mu);font-size:13px;font-weight:500;white-space:nowrap;background:var(--bg);border-radius:99px;padding:2px 10px;align-self:center}
+.blok.kids{background:var(--pe);border-color:transparent}
+.blok.kids li span{background:rgba(255,255,255,.55)}
 .blok.kids li{border-color:rgba(34,21,46,.15)}
 
 /* kleur */
@@ -89,12 +99,12 @@ h1,h2,h3{font-family:Syne,sans-serif;font-weight:800;line-height:.98;letter-spac
 .kleur-fotos img{border-radius:24px;width:100%;object-fit:cover}
 .kleur-fotos .l{grid-row:span 2;height:100%;aspect-ratio:auto}
 .kleur-fotos .r{aspect-ratio:1/1}
-.kleur h2{font-size:clamp(40px,4.8vw,70px);margin:18px 0 20px}
+.kleur h2{font-size:clamp(48px,5.6vw,84px);margin:18px 0 22px}
 .kleur .lead{color:#4a3f55;font-size:18px}
 .stap{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:36px 0 38px}
-.stap div{background:#fff;border-radius:20px;padding:22px}
-.stap b{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--li);color:var(--pu2);font:800 15px/1 Syne,sans-serif;margin-bottom:12px}
-.stap strong{display:block;font-size:16px;margin-bottom:4px}
+.stap div{background:#fff;border-radius:20px;padding:22px 22px 24px;border:1px solid rgba(34,21,46,.06)}
+.stap b{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;border:1px solid rgba(126,91,174,.35);color:var(--pu2);font:italic 400 20px/1 "Instrument Serif",serif;margin-bottom:14px}
+.stap strong{display:block;font-size:15.5px;font-weight:700;margin-bottom:4px;letter-spacing:-.005em}
 .stap span{font-size:14.5px;color:var(--mu);line-height:1.5}
 
 /* strip */
@@ -107,14 +117,14 @@ h1,h2,h3{font-family:Syne,sans-serif;font-weight:800;line-height:.98;letter-spac
 .contact{padding:150px 0 110px}
 .ckaart{background:var(--li);border-radius:36px;padding:70px;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;position:relative;overflow:hidden}
 .ckaart::after{content:"";position:absolute;right:-120px;top:-120px;width:340px;height:340px;border-radius:50%;background:rgba(126,91,174,.16)}
-.ckaart h2{font-size:clamp(44px,5.4vw,80px);margin-bottom:22px}
+.ckaart h2{font-size:clamp(52px,6vw,92px);margin-bottom:22px}
 .ckaart .lead{font-size:18px;color:#4a3f55;max-width:460px;margin-bottom:32px}
 .ckaart .ctas{display:flex;flex-wrap:wrap;gap:12px}
-.gegevens{position:relative;z-index:1;background:#fff;border-radius:26px;padding:34px}
+.gegevens{position:relative;z-index:1;background:#fff;border-radius:26px;padding:34px;box-shadow:0 30px 60px -44px rgba(34,21,46,.5)}
 .gegevens div{padding:16px 0;border-bottom:1px solid var(--line)}
 .gegevens div:last-child{border:0;padding-bottom:0}
 .gegevens div:first-child{padding-top:0}
-.gegevens small{display:block;font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--pu);margin-bottom:4px}
+.gegevens small{display:block;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pu);margin-bottom:4px}
 .gegevens a{border-bottom:1px solid rgba(126,91,174,.4)}
 .gegevens a:hover{color:var(--pu)}
 
@@ -129,6 +139,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
  .nav ul{display:none}
  .hero .wrap,.kassa .wrap,.kleur .wrap,.ckaart{grid-template-columns:1fr;gap:48px}
  .col{height:560px;max-width:620px}
+ .hero h1{font-size:clamp(76px,15vw,140px)}
  .drie{grid-template-columns:1fr 1fr}
  .blok.dames{grid-column:span 2}
  .strip{grid-template-columns:repeat(3,1fr)}
@@ -143,10 +154,15 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
  .nav .logo img{height:36px}
  .nav .btn{padding:10px 14px;font-size:14px}
  .hero{padding:36px 0 70px}
- .hero h1{margin:16px 0 18px}
+ .hero h1{margin:18px 0 22px;font-size:clamp(76px,25vw,104px)}
  .hero .lead{font-size:17px}
  .col{height:440px}
- .sticker{width:118px;height:118px;font-size:15px;right:0}
+ .sticker{width:118px;height:118px;font-size:21px;right:0}
+ .rate{flex-wrap:wrap}
+ .rate .incl{margin-left:0;text-align:left;flex-basis:100%}
+ .rate .incl br{display:none}
+ .blok h3{font-size:38px}
+ .blok figure{height:auto;aspect-ratio:16/11}
  .kassa{padding:70px 0}
  .dien{padding:80px 0 60px}
  .drie{grid-template-columns:1fr}
@@ -188,12 +204,13 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
    <h1 data-r>Stand <span>out.</span></h1>
    <p class="lead" data-r>Een frisse snit, een kleur die bij je past of die balayage waar je al maanden over twijfelt. We luisteren eerst, en je gaat de deur uit met een glimlach.</p>
    <div class="ctas" data-r>
-    <a class="btn btn-p" href="https://wa.me/32488817101"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3Z"/></svg>Stuur een berichtje</a>
+    <a class="btn btn-p" href="https://wa.me/32488817101"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3Z"/></svg>Stuur een berichtje<span class="pijl" aria-hidden="true">→</span></a>
     <a class="btn btn-o" href="tel:+32488817101">Bel 0488 81 71 01</a>
    </div>
    <div class="rate" data-r>
     <b>4,8</b>
     <div><span class="st">★★★★★</span><p>40 reviews op Google</p></div>
+    <p class="incl">Prijzen inclusief <br>shampoo en styling</p>
    </div>
   </div>
   <div class="col" data-r>
@@ -225,7 +242,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
    <article class="blok dames" data-r>
     <figure><img src="img/fohn.webp" alt="Haar wordt glad geföhnd met een ronde borstel" width="1260" height="756" loading="lazy"></figure>
     <div class="in">
-     <h3>Dames</h3>
+     <div class="kop"><h3>Dames</h3><i>01</i></div>
      <ul>
       <li>Enkel stylen <span>± 30 min</span></li>
       <li>Snit &amp; styling <span>± 45 min</span></li>
@@ -237,7 +254,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
    <article class="blok" data-r>
     <figure><img src="img/heren.webp" alt="Herensnit met schaar en kam" width="1260" height="756" loading="lazy"></figure>
     <div class="in">
-     <h3>Heren</h3>
+     <div class="kop"><h3>Heren</h3><i>02</i></div>
      <ul>
       <li>Snit &amp; styling</li>
       <li>Snit met kleur of permanent</li>
@@ -248,7 +265,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
    <article class="blok kids" data-r>
     <figure><img src="img/was.webp" alt="Haar wordt gewassen aan de wastafel" width="1260" height="756" loading="lazy"></figure>
     <div class="in">
-     <h3>Kids</h3>
+     <div class="kop"><h3>Kids</h3><i>03</i></div>
      <ul>
       <li>Kinderen en jongeren tot 18 <span>met korting</span></li>
       <li>Wassen, knippen, klaar</li>
@@ -276,7 +293,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
     <div><b>3</b><strong>Kleuren</strong><span>Van één kleur tot een zachte balayage.</span></div>
     <div><b>4</b><strong>Toner &amp; styling</strong><span>Zit inbegrepen. Je gaat buiten zoals je wil.</span></div>
    </div>
-   <a class="btn btn-p" href="https://wa.me/32488817101" data-r>Vraag een testlokje aan</a>
+   <a class="btn btn-p" href="https://wa.me/32488817101" data-r>Vraag een testlokje aan<span class="pijl" aria-hidden="true">→</span></a>
   </div>
  </div>
 </section>
@@ -293,11 +310,11 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
  <div class="wrap">
   <div class="ckaart">
    <div style="position:relative;z-index:1">
-    <span class="lbl" data-r style="background:#fff">Afspraak</span>
+    <span class="lbl" data-r>Afspraak</span>
     <h2 data-r style="margin-top:18px">Klaar om op te vallen?</h2>
     <p class="lead" data-r>Stuur een berichtje, bel even of laat een DM achter op Instagram. Zeg wat je wil laten doen, dan plannen we genoeg tijd in.</p>
     <div class="ctas" data-r>
-     <a class="btn btn-p" href="https://wa.me/32488817101">WhatsApp</a>
+     <a class="btn btn-p" href="https://wa.me/32488817101">WhatsApp<span class="pijl" aria-hidden="true">→</span></a>
      <a class="btn btn-o" href="tel:+32488817101">Bellen</a>
      <a class="btn btn-o" href="https://www.google.com/maps/dir/?api=1&amp;destination=Wijngaardstraat+1a+8500+Kortrijk" target="_blank" rel="noopener">Route</a>
     </div>
