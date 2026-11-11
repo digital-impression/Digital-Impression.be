@@ -6,6 +6,7 @@
 <meta name="robots" content="noindex,nofollow">
 <title>Hair.Botanicals · Kapper Jordi Vanmeenen</title>
 <meta name="description" content="Hair.Botanicals is de kapsalon van Jordi Vanmeenen. Knippen, kleuren, highlights en brushing voor dames en heren, in een rustige salon vol groen.">
+<meta name="theme-color" content="#f1efe7">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Work+Sans:wght@400;500;600&display=swap">
@@ -15,168 +16,301 @@
   --bg:#f1efe7;--card:#e5e7da;--paper:#faf9f4;
   --green:#1c3326;--green2:#2a4a37;--leaf:#5f7c59;--sage:#a9b89d;
   --red:#b5412d;
-  --text:#2b3a30;--soft:#66736a;
+  --text:#2b3a30;--soft:#66736a;--line:rgba(28,51,38,.15);
   --serif:"Fraunces",Georgia,serif;
   --sans:"Work Sans",system-ui,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:84px}
 html,body{overflow-x:clip}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.65}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
-.demo{background:var(--green);color:#dfe7da;font-size:13px;line-height:1.4;text-align:center;padding:9px 16px}
+::selection{background:var(--green);color:#fff}
+.demo{background:var(--green);color:#dfe7da;font-size:13px;line-height:1.4;text-align:center;padding:9px 16px;position:relative;z-index:60}
 .demo a{color:#fff;font-weight:600;text-underline-offset:3px}
-.wrap{width:min(1240px,100% - 40px);margin-inline:auto}
+.wrap{width:min(1240px,100% - 48px);margin-inline:auto}
 h1,h2,h3{font-family:var(--serif);font-weight:400;color:var(--green);line-height:1.04;font-variation-settings:"opsz" 120}
 h2 em,h1 em{font-style:italic;color:var(--leaf);font-weight:300}
 .label{font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--leaf);font-weight:600;display:inline-flex;align-items:center;gap:10px}
 .label svg{width:16px;height:16px}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;font-weight:500;font-size:15px;text-decoration:none;transition:transform .25s,background .25s;white-space:nowrap}
-.btn:hover{transform:translateY(-2px)}
-.btn svg{width:18px;height:18px}
-.btn-g{background:var(--green);color:#fff}
-.btn-g:hover{background:var(--green2)}
+.btn{position:relative;overflow:hidden;isolation:isolate;display:inline-flex;align-items:center;gap:10px;padding:16px 25px;border-radius:999px;font-weight:500;font-size:15px;text-decoration:none;transition:color .45s var(--ease),border-color .45s var(--ease);white-space:nowrap}
+.btn::after{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;transform:translateY(101%);transition:transform .55s var(--ease)}
+.btn:hover::after{transform:none}
+.btn svg{width:18px;height:18px;flex:none}
+.btn .pijl{transition:transform .45s var(--ease)}
+.btn:hover .pijl{transform:translateX(4px)}
+.btn-g{background:var(--green);color:#fff;box-shadow:0 16px 34px -18px rgba(28,51,38,.7)}
+.btn-g::after{background:var(--leaf)}
 .btn-o{border:1px solid rgba(28,51,38,.25);color:var(--green)}
-.btn-o:hover{border-color:var(--green)}
+.btn-o::after{background:var(--green)}
+.btn-o:hover{color:#fff;border-color:var(--green)}
 
-.nav{position:absolute;left:0;right:0;z-index:5}
-.nav .wrap{display:flex;justify-content:space-between;align-items:center;height:80px;gap:20px}
-.nav .mark{font-family:var(--serif);font-size:20px;text-decoration:none;color:var(--green)}
-.nav ul{display:flex;gap:30px;list-style:none;font-size:14.5px}
-.nav ul a{text-decoration:none;color:var(--soft)}
+/* nav */
+.nav{position:sticky;top:0;z-index:40}
+.nav::before{content:"";position:absolute;inset:0;background:rgba(241,239,231,.86);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);border-bottom:1px solid var(--line);opacity:0;transition:opacity .5s var(--ease)}
+.nav.vast::before{opacity:1}
+.nav .wrap{position:relative;display:flex;justify-content:space-between;align-items:center;height:80px;gap:20px;transition:height .5s var(--ease)}
+.nav.vast .wrap{height:66px}
+.nav .mark{font-family:var(--serif);font-size:22px;text-decoration:none;color:var(--green);display:flex;align-items:center;gap:10px}
+.nav .mark svg{width:22px;height:22px;color:var(--leaf)}
+.nav .mark span{color:var(--red)}
+.nav ul{display:flex;gap:4px;list-style:none;font-size:14.5px}
+.nav ul a{position:relative;display:block;text-decoration:none;color:var(--soft);padding:8px 14px;transition:color .3s}
+.nav ul a::after{content:"";position:absolute;left:50%;bottom:2px;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--leaf);transform:scale(0);transition:transform .45s var(--ease)}
 .nav ul a:hover{color:var(--green)}
-.nav .btn{padding:10px 18px;font-size:14px}
+.nav ul a:hover::after{transform:scale(1)}
+.nav .btn{padding:11px 19px;font-size:14px}
+.mt{display:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--green);cursor:pointer;place-items:center}
+.mt span{position:relative;width:16px;height:1.5px;background:currentColor}
+.mt span::before,.mt span::after{content:"";position:absolute;left:0;width:16px;height:1.5px;background:currentColor;transition:transform .45s var(--ease)}
+.mt span::before{top:-5px}.mt span::after{top:5px}
+.menu-open .mt span{background:transparent}
+.menu-open .mt span::before{transform:translateY(5px) rotate(45deg)}
+.menu-open .mt span::after{transform:translateY(-5px) rotate(-45deg)}
+.sheet{position:fixed;inset:0;z-index:39;background:var(--bg);display:flex;flex-direction:column;justify-content:center;padding:110px 28px 40px;opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s}
+.menu-open .sheet{opacity:1;visibility:visible}
+.sheet a{font-family:var(--serif);font-weight:300;font-size:44px;line-height:1.2;color:var(--green);text-decoration:none;border-bottom:1px solid var(--line);padding:10px 0}
+.sheet .btn{font-family:var(--sans);font-weight:500;font-size:16px;color:#fff;margin-top:30px;align-self:flex-start;border:0;padding:16px 25px;line-height:1.2}
 
 /* hero */
-.hero{padding:120px 0 90px}
-.word{font-family:var(--serif);font-weight:300;font-size:clamp(64px,15.4vw,226px);line-height:.86;letter-spacing:-.045em;color:var(--green);white-space:nowrap;font-variation-settings:"opsz" 144}
-.word span{color:var(--red)}
+.hero{padding:26px 0 0;position:relative;overflow:clip}
+.hero-top{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-bottom:14px;border-bottom:1px solid var(--line);font-size:14px;color:var(--soft)}
+.hero-top b{color:var(--green);font-weight:600}
+.hero-top .open{display:none;align-items:center;gap:8px}
+.js .hero-top .open{display:inline-flex}
+.hero-top .open i{width:8px;height:8px;border-radius:50%;background:#5c9a6b;box-shadow:0 0 0 4px rgba(92,154,107,.18)}
+.hero-top .open.dicht i{background:var(--red);box-shadow:0 0 0 4px rgba(181,65,45,.16)}
+.word{font-family:var(--serif);font-weight:300;font-size:clamp(64px,15.2vw,224px);line-height:.9;letter-spacing:-.045em;color:var(--green);white-space:nowrap;font-variation-settings:"opsz" 144;margin-top:18px}
+.word .ln{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .04em .12em 0;margin-bottom:-.12em}
+.word .ln>span{display:inline-block}
+.js .word .ln>span{transform:translateY(105%);transition:transform 1.35s var(--ease)}
+.js .hero.klaar .word .ln>span{transform:none}
+.js .word .ln:nth-child(2)>span{transition-delay:.1s}
+.word .dot{color:var(--red)}
 .word i{font-style:italic;color:var(--leaf)}
-.hero-grid{display:grid;grid-template-columns:.8fr 1.6fr;gap:40px;margin-top:44px;align-items:end}
+.hero-grid{display:grid;grid-template-columns:.92fr 1.6fr;gap:44px;margin-top:40px;align-items:stretch;padding-bottom:80px}
+.hero-txt{display:flex;flex-direction:column;justify-content:space-between;gap:30px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{font-size:13px;font-weight:500;color:var(--green);background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:6px 12px;display:inline-flex;align-items:center;gap:8px}
+.tags span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--leaf)}
 .hero-txt p{font-size:18.5px;margin-bottom:28px;max-width:24em}
+.hero-txt p b{color:var(--green);font-weight:600}
 .hero-txt .cta{display:flex;flex-wrap:wrap;gap:10px}
-.hero-txt .rate{display:flex;align-items:center;gap:12px;margin-top:34px;padding-top:24px;border-top:1px solid rgba(28,51,38,.15)}
-.rate b{font-family:var(--serif);font-size:38px;font-weight:400;color:var(--green);line-height:1}
+.rate{display:flex;align-items:center;gap:14px;margin-top:34px;padding-top:24px;border-top:1px solid var(--line)}
+.rate b{font-family:var(--serif);font-size:44px;font-weight:300;color:var(--green);line-height:1;letter-spacing:-.02em}
 .rate small{display:block;color:var(--soft);font-size:13.5px}
+.rate .tw{margin-left:auto;text-align:right;padding-left:14px;border-left:1px solid var(--line)}
+.rate .tw b{font-size:24px;font-weight:400}
 .stars{color:var(--red);letter-spacing:2px;font-size:14px}
-.hero-img{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:16/10}
-.hero-img img{width:100%;height:100%;object-fit:cover}
-.hero-img .chip{position:absolute;left:20px;bottom:20px;background:rgba(250,249,244,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:16px;padding:14px 18px;display:flex;gap:12px;align-items:center}
-.chip .dot{width:38px;height:38px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-size:18px}
+.stage{position:relative;min-height:520px}
+.hero-img{position:absolute;inset:0 0 0 70px;border-radius:30px;overflow:hidden;background:var(--card)}
+.hero-img img{width:100%;height:110%;object-fit:cover;will-change:transform}
+.hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(28,51,38,.25))}
+.js .hero-img{clip-path:inset(0 0 0 100% round 30px);transition:clip-path 1.6s var(--ease) .15s}
+.js .hero.klaar .hero-img{clip-path:inset(0 0 0 0 round 30px)}
+.inset{position:absolute;left:0;bottom:44px;width:210px;aspect-ratio:4/5;border-radius:22px;overflow:hidden;border:6px solid var(--bg);box-shadow:0 34px 60px -30px rgba(28,51,38,.6);z-index:2}
+.inset img{width:100%;height:100%;object-fit:cover}
+.chip{position:absolute;left:236px;bottom:24px;background:rgba(250,249,244,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:16px;padding:14px 18px;display:flex;gap:12px;align-items:center;z-index:2;box-shadow:0 20px 40px -26px rgba(28,51,38,.6)}
+.chip .dot{width:40px;height:40px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-size:18px}
 .chip b{display:block;font-size:15px;color:var(--green);font-weight:600;line-height:1.2}
 .chip span{font-size:13px;color:var(--soft)}
+.qchip{position:absolute;right:22px;top:22px;width:270px;background:var(--green);color:#e9efe5;border-radius:20px;padding:20px 22px;z-index:2;box-shadow:0 30px 60px -30px rgba(28,51,38,.8)}
+.qchip p{font-family:var(--serif);font-weight:300;font-size:19px;line-height:1.3;margin:6px 0 10px}
+.qchip small{font-size:12.5px;color:var(--sage)}
+.qchip .stars{color:#e6a08f}
+.blad{position:absolute;left:24px;top:-18px;width:96px;height:96px;color:var(--sage);z-index:1;transform-origin:20% 90%;animation:wieg 7s ease-in-out infinite}
+@keyframes wieg{50%{transform:rotate(-6deg)}}
+.js .inset,.js .chip,.js .qchip,.js .blad{opacity:0;translate:0 24px;transition:opacity 1.1s var(--ease),translate 1.1s var(--ease)}
+.js .hero.klaar .blad{opacity:1;translate:0 0;transition-delay:.35s}
+.js .hero.klaar .inset{opacity:1;translate:0 0;transition-delay:.55s}
+.js .hero.klaar .chip{opacity:1;translate:0 0;transition-delay:.75s}
+.js .hero.klaar .qchip{opacity:1;translate:0 0;transition-delay:.9s}
+
+.rail{border-top:1px solid var(--line);background:var(--paper)}
+.rail .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.rail div{display:flex;gap:14px;align-items:flex-start;padding:26px 24px 26px 0}
+.rail div+div{padding-left:24px;border-left:1px solid var(--line)}
+.rail svg{width:22px;height:22px;color:var(--leaf);flex:none;margin-top:2px}
+.rail b{display:block;color:var(--green);font-size:15.5px;font-weight:600}
+.rail span{display:block;font-size:13.5px;color:var(--soft);line-height:1.45;margin-top:2px}
 
 /* jordi */
-.jordi{padding:120px 0;background:var(--paper)}
+.jordi{padding:130px 0;background:var(--paper)}
 .jordi .wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.jordi h2{font-size:clamp(40px,4.6vw,66px);margin:18px 0 24px}
+.jordi h2{font-size:clamp(42px,4.8vw,68px);margin:18px 0 24px}
 .jordi p{margin-bottom:16px;max-width:30em}
-.bigq{background:var(--green);color:#eef2ea;border-radius:28px;padding:56px 50px;position:relative}
-.bigq svg.leaf{position:absolute;right:30px;top:-34px;width:84px;height:84px;color:var(--sage)}
-.bigq p{font-family:var(--serif);font-weight:300;font-size:clamp(25px,2.4vw,33px);line-height:1.25;margin-bottom:28px}
-.bigq footer{font-size:14.5px;color:#b9c6b4}
-.bigq footer b{color:#fff;font-weight:500}
+.sign{display:flex;align-items:center;gap:14px;margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.sign .dot{width:48px;height:48px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-size:21px}
+.sign b{display:block;color:var(--green);font-weight:600}
+.sign span{font-size:14px;color:var(--soft)}
+.bigq{background:var(--green);color:#eef2ea;border-radius:30px;padding:60px 52px;position:relative;overflow:hidden}
+.bigq::before{content:"\201C";position:absolute;left:34px;top:-10px;font-family:var(--serif);font-size:180px;line-height:1;color:rgba(169,184,157,.18)}
+.bigq svg.leaf{position:absolute;right:-20px;bottom:-24px;width:180px;height:180px;color:rgba(169,184,157,.22)}
+.bigq p{position:relative;font-family:var(--serif);font-weight:300;font-size:clamp(25px,2.4vw,34px);line-height:1.25;margin-bottom:30px}
+.bigq footer{position:relative;font-size:14.5px;color:#b9c6b4;display:flex;align-items:center;gap:12px}
+.bigq footer i{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;font-style:normal;font-family:var(--serif);font-size:18px;color:#fff}
+.bigq footer b{display:block;color:#fff;font-weight:500}
 
 /* diensten */
-.dienst{padding:120px 0}
-.dienst .top{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:50px;flex-wrap:wrap}
-.dienst h2{font-size:clamp(42px,5vw,72px);margin-top:16px}
+.dienst{padding:130px 0}
+.dienst .top{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:54px;flex-wrap:wrap}
+.dienst h2{font-size:clamp(44px,5.2vw,76px);margin-top:16px}
 .dienst .top p{max-width:25em;color:var(--soft)}
-.dgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
+.dgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start}
 .rows{border-top:1px solid rgba(28,51,38,.18)}
-.row{display:grid;grid-template-columns:64px 1fr;gap:10px;padding:28px 0;border-bottom:1px solid rgba(28,51,38,.18);transition:padding .35s}
-.row:hover{padding-left:10px}
+.row{position:relative;display:grid;grid-template-columns:64px 1fr 28px;gap:10px;padding:30px 0;border-bottom:1px solid rgba(28,51,38,.18);transition:padding .5s var(--ease)}
+.row::before{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
+.row:hover{padding-left:14px}
+.row:hover::before{transform:scaleX(1)}
 .row .n{font-family:var(--serif);font-style:italic;color:var(--red);font-size:20px;padding-top:6px}
-.row h3{font-size:32px;margin-bottom:6px}
+.row h3{font-size:34px;margin-bottom:6px}
 .row p{color:var(--soft);font-size:16px;max-width:32em}
-.dside{position:sticky;top:30px}
-.dside .ph{border-radius:24px;overflow:hidden;aspect-ratio:4/5}
+.row svg{width:22px;height:22px;color:var(--sage);margin-top:12px;transition:color .4s,transform .6s var(--ease)}
+.row:hover svg{color:var(--leaf);transform:rotate(-20deg)}
+.dside{position:sticky;top:100px}
+.dside .ph{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:4/5}
 .dside .ph img{width:100%;height:100%;object-fit:cover}
+.dside .ph span{position:absolute;left:16px;bottom:16px;background:rgba(250,249,244,.92);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-size:13px;font-weight:600;color:var(--green);padding:8px 14px;border-radius:999px}
 .dside .small{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
-.dside .small div{border-radius:18px;overflow:hidden;aspect-ratio:1}
-.dside .small img{width:100%;height:100%;object-fit:cover}
+.dside .small div{border-radius:20px;overflow:hidden;aspect-ratio:1}
+.dside .small img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.dside .small div:hover img{transform:scale(1.06)}
 
 /* reviews */
-.rev{padding:120px 0;background:var(--card)}
-.rev .head{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:end;margin-bottom:54px}
-.rev .score{font-family:var(--serif);font-weight:300;font-size:clamp(90px,11vw,160px);line-height:.8;color:var(--green);letter-spacing:-.04em}
-.rev h2{font-size:clamp(34px,3.6vw,50px);margin:12px 0 0}
+.rev{padding:130px 0;background:var(--card)}
+.rev .head{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:end;margin-bottom:56px}
+.rev .score{font-family:var(--serif);font-weight:300;font-size:clamp(96px,11vw,170px);line-height:.8;color:var(--green);letter-spacing:-.04em}
+.rev h2{font-size:clamp(34px,3.6vw,52px);margin:12px 0 0}
 .rcards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.rc{background:var(--paper);border-radius:22px;padding:32px;display:flex;flex-direction:column}
-.rc p{margin:16px 0 24px;flex:1;font-size:16.5px}
-.rc footer{font-weight:600;color:var(--green);font-size:15px}
+.rc{position:relative;background:var(--paper);border-radius:24px;padding:34px;display:flex;flex-direction:column;transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.rc:hover{transform:translateY(-5px);box-shadow:0 36px 60px -44px rgba(28,51,38,.55)}
+.rc::before{content:"\201C";position:absolute;right:26px;top:2px;font-family:var(--serif);font-size:110px;line-height:1;color:var(--card)}
+.rc p{position:relative;margin:16px 0 26px;flex:1;font-size:16.5px}
+.rc footer{display:flex;align-items:center;gap:12px;font-weight:600;color:var(--green);font-size:15px;padding-top:20px;border-top:1px solid var(--line)}
+.rc footer i{width:40px;height:40px;border-radius:50%;background:var(--card);display:grid;place-items:center;font-style:normal;font-family:var(--serif);font-weight:400;font-size:18px}
 .rc footer small{display:block;font-weight:400;color:var(--soft);font-size:13px}
 
 /* contact */
-.contact{padding:120px 0}
+.contact{padding:130px 0}
 .cgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
-.cmain{background:var(--green);color:#e5ece1;border-radius:28px;padding:60px;position:relative;overflow:hidden}
-.cmain::after{content:"";position:absolute;right:-90px;bottom:-90px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(169,184,157,.28),transparent 70%)}
-.cmain h2{color:#fff;font-size:clamp(42px,4.8vw,68px);margin:16px 0 20px}
+.cmain{background:var(--green);color:#e5ece1;border-radius:30px;padding:64px;position:relative;overflow:hidden}
+.cmain::after{content:"";position:absolute;right:-90px;bottom:-90px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(169,184,157,.3),transparent 70%)}
+.cmain svg.blad2{position:absolute;right:40px;top:40px;width:110px;height:110px;color:rgba(169,184,157,.25)}
+.cmain h2{color:#fff;font-size:clamp(44px,5vw,72px);margin:16px 0 20px;position:relative}
 .cmain h2 em{color:var(--sage)}
 .cmain .label{color:var(--sage)}
-.cmain p{max-width:28em}
-.cmain .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;position:relative;z-index:1}
+.cmain p{max-width:28em;position:relative}
+.cmain .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px;position:relative;z-index:1}
 .cmain .btn-w{background:#fff;color:var(--green)}
+.cmain .btn-w::after{background:var(--sage)}
 .cmain .btn-l{border:1px solid rgba(255,255,255,.35);color:#fff}
-.cinfo{background:var(--paper);border-radius:28px;padding:44px}
-.cinfo h3{font-size:26px;margin-bottom:18px}
+.cmain .btn-l::after{background:#fff}
+.cmain .btn-l:hover{color:var(--green)}
+.cinfo{background:var(--paper);border-radius:30px;padding:46px}
+.cinfo .kop{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.cinfo h3{font-size:28px}
+.nu{display:none;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--green);background:var(--card);border-radius:999px;padding:6px 12px}
+.js .nu{display:inline-flex}
+.nu i{width:8px;height:8px;border-radius:50%;background:#5c9a6b}
+.nu.dicht i{background:var(--red)}
 .uren{width:100%;border-collapse:collapse;font-size:15.5px;margin-bottom:30px}
-.uren td{padding:8px 0;border-bottom:1px solid rgba(28,51,38,.1)}
+.uren td{padding:10px 0;border-bottom:1px solid rgba(28,51,38,.1)}
 .uren td:last-child{text-align:right;color:var(--green);font-weight:500}
 .uren .x td{color:var(--soft)}
 .uren .x td:last-child{color:var(--soft);font-weight:400}
-.addr{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.uren .vandaag td{color:var(--red);font-weight:600}
+.uren .vandaag td:first-child::after{content:" · vandaag";font-weight:400;color:var(--soft)}
+.addr{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:6px}
 .addr b{display:block;color:var(--green);font-weight:600}
 .addr span{color:var(--soft);font-size:15px}
 
-footer.site{padding:28px 0 36px;border-top:1px solid rgba(28,51,38,.14);font-size:14px;color:var(--soft)}
-footer.site .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-footer.site a{text-decoration:none}
+footer.site{padding:64px 0 36px;border-top:1px solid var(--line);font-size:14.5px;color:var(--soft)}
+.f-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid var(--line)}
+.f-top .mark{font-family:var(--serif);font-size:30px;color:var(--green);text-decoration:none}
+.f-top .mark span{color:var(--red)}
+.f-top p{margin-top:12px;max-width:24em}
+.f-top h4{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--leaf);font-weight:600;margin-bottom:14px}
+.f-top ul{list-style:none;display:grid;gap:8px}
+.f-top a{text-decoration:none;transition:color .3s}
+.f-top a:hover{color:var(--green)}
+.f-bot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-top:26px}
+.f-bot a{text-decoration:none}
+.f-bot a:hover{color:var(--green)}
 
-.js [data-r]{opacity:0;transform:translateY(24px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.js [data-r]{opacity:0;transform:translateY(28px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease);transition-delay:calc(var(--i,0) * 90ms)}
 .js [data-r].in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js [data-r]{opacity:1;transform:none;transition:none}}
+.js [data-img]{clip-path:inset(8% 0 0 0 round 26px);transition:clip-path 1.4s var(--ease);transition-delay:calc(var(--i,0) * 100ms)}
+.js [data-img] img{transform:scale(1.1);transition:transform 1.8s var(--ease)}
+.js [data-img].in{clip-path:inset(0 0 0 0 round 26px)}
+.js [data-img].in img{transform:none}
+@media (prefers-reduced-motion:reduce){
+  .js [data-r],.js [data-img],.js [data-img] img,.js .word .ln>span,.js .hero-img,.js .inset,.js .chip,.js .qchip,.js .blad{opacity:1!important;transform:none!important;translate:none!important;clip-path:none!important;transition:none!important}
+  .blad{animation:none}
+}
 
-@media (max-width:1020px){
+@media (max-width:1100px){
   .nav ul{display:none}
-  .hero-grid{grid-template-columns:1fr 1.3fr}
+  .nav .btn{margin-left:auto}
+  .mt{display:grid}
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .stage{min-height:0;aspect-ratio:16/11}
+  .rail .wrap{grid-template-columns:1fr 1fr}
+  .rail div:nth-child(3){padding-left:0;border-left:0}
+  .rail div:nth-child(n+3){border-top:1px solid var(--line)}
   .jordi .wrap{gap:50px}
   .dgrid{grid-template-columns:1fr 1fr;gap:36px}
   .rcards{grid-template-columns:1fr 1fr}
   .rcards .rc:last-child{grid-column:1/-1}
   .cgrid{grid-template-columns:1fr}
+  .f-top{grid-template-columns:1fr 1fr}
+  .f-top>div:first-child{grid-column:1/-1}
 }
 @media (max-width:760px){
   body{font-size:16px}
   .wrap{width:calc(100% - 32px)}
-  .nav .wrap{height:68px}
+  .nav .wrap,.nav.vast .wrap{height:68px}
   .nav .btn{display:none}
-  .hero{padding:96px 0 70px}
-  .word{font-size:clamp(40px,15.2vw,96px);white-space:normal}
-  .hero-grid{grid-template-columns:1fr;gap:36px;margin-top:30px}
-  .hero-img{aspect-ratio:4/3.4}
-  .jordi,.dienst,.rev,.contact{padding:76px 0}
+  .hero{padding-top:14px}
+  .hero-top{font-size:13px;flex-wrap:wrap;gap:6px 16px}
+  .word{font-size:clamp(40px,15vw,96px);white-space:normal;line-height:.95}
+  .word .ln{display:block}
+  .hero-grid{gap:44px;margin-top:26px;padding-bottom:70px}
+  .hero-txt p{font-size:17px}
+  .tags{display:none}
+  .hero-txt .cta .btn{flex:1 1 auto;justify-content:center}
+  .stage{aspect-ratio:auto;height:auto;padding-bottom:0;display:grid;gap:12px}
+  .hero-img{position:relative;inset:auto;aspect-ratio:4/3.3}
+  .inset{display:none}
+  .blad{left:auto;right:14px;top:-40px;width:70px;height:70px}
+  .chip{display:none}
+  .qchip{position:relative;right:auto;top:auto;width:auto}
+  .rail .wrap{grid-template-columns:1fr}
+  .rail div,.rail div+div{padding:18px 0;border-left:0}
+  .rail div+div{border-top:1px solid var(--line)}
+  .jordi,.dienst,.rev,.contact{padding:84px 0}
   .jordi .wrap,.dgrid{grid-template-columns:1fr}
-  .bigq{padding:44px 26px 34px}
-  .bigq svg.leaf{width:64px;height:64px;top:-26px;right:20px}
+  .bigq{padding:46px 26px 36px}
   .dside{position:static}
   .dside .ph{aspect-ratio:4/3}
   .row{grid-template-columns:44px 1fr}
-  .row h3{font-size:27px}
+  .row svg{display:none}
+  .row h3{font-size:28px}
   .rev .head{grid-template-columns:1fr;gap:16px}
   .rcards{grid-template-columns:1fr}
-  .cmain,.cinfo{padding:38px 24px}
+  .rcards .rc:last-child{grid-column:auto}
+  .cmain,.cinfo{padding:40px 24px}
+  .f-top{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
-<header class="nav">
+<header class="nav" id="nav">
   <div class="wrap">
-    <a class="mark" href="#top">Hair.Botanicals</a>
+    <a class="mark" href="#top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 19C5 10 11 5 20 4c-1 9-6 15-15 15Z"/><path d="M5 19 13 11"/></svg><b style="font-weight:400">Hair<span>.</span>Botanicals</b></a>
     <ul>
       <li><a href="#jordi">Jordi</a></li>
       <li><a href="#diensten">Behandelingen</a></li>
@@ -184,29 +318,55 @@ footer.site a{text-decoration:none}
       <li><a href="#contact">Openingsuren</a></li>
     </ul>
     <a class="btn btn-g" href="tel:+32497122758">Afspraak maken</a>
+    <button class="mt" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
   </div>
 </header>
+<nav class="sheet" aria-label="Menu">
+  <a href="#jordi">Jordi</a>
+  <a href="#diensten">Behandelingen</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#contact">Openingsuren</a>
+  <a class="btn btn-g" href="tel:+32497122758">Afspraak maken</a>
+</nav>
 
 <main id="top">
-  <section class="hero">
+  <section class="hero" id="hero">
     <div class="wrap">
-      <h1 class="word" data-r>Hair<span>.</span><i>Botanicals</i></h1>
+      <div class="hero-top">
+        <span>Kapper voor dames en heren, met <b>Jordi Vanmeenen</b></span>
+        <span class="open" id="open"><i></i><em style="font-style:normal">Vandaag open</em></span>
+      </div>
+      <h1 class="word" aria-label="Hair.Botanicals"><span class="ln"><span>Hair<span class="dot">.</span></span></span><span class="ln"><span><i>Botanicals</i></span></span></h1>
       <div class="hero-grid">
-        <div class="hero-txt" data-r>
-          <p>Een rustige salon vol groen, waar Jordi de tijd neemt voor je haar. Knippen, kleuren, highlights of een brushing: voor dames en heren, en altijd zoals jij het vraagt.</p>
+        <div class="hero-txt">
+          <div class="tags"><span>Knippen</span><span>Kleuren</span><span>Highlights</span><span>Brushing</span></div>
+          <div>
+          <p>Een rustige salon vol groen, waar <b>Jordi zelf</b> de tijd neemt voor je haar. Knippen, kleuren, highlights of een brushing: voor dames en heren, en altijd zoals jij het vraagt. Geen drukte, wel een goeie babbel.</p>
           <div class="cta">
             <a class="btn btn-g" href="https://wa.me/32497122758?text=Hallo%20Jordi%2C%20ik%20wil%20graag%20een%20afspraak%20maken." target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>
               Stuur een bericht
             </a>
-            <a class="btn btn-o" href="#diensten">Behandelingen</a>
+            <a class="btn btn-o" href="#diensten">Behandelingen <svg class="pijl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
-          <div class="rate"><b>5,0</b><div><span class="stars">★★★★★</span><small>12 reviews op Google</small></div></div>
+          <div class="rate"><b>5,0</b><div><span class="stars">★★★★★</span><small>12 reviews op Google</small></div><div class="tw"><b>4,9</b><small>203 reviews<br>op Treatwell</small></div></div>
+          </div>
         </div>
-        <div class="hero-img" data-r>
-          <img src="img/salon.webp" alt="De salon van Hair.Botanicals met planten aan het raam" width="1080" height="720" fetchpriority="high">
+        <div class="stage">
+          <svg class="blad" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M10 54C10 28 26 12 54 10c-2 28-18 44-44 44Z"/><path d="M10 54 38 26M22 42l-1-11M30 34l-1-10M22 42l11 1M30 34l10 1"/></svg>
+          <div class="hero-img"><img src="img/salon.webp" alt="De salon van Hair.Botanicals met planten aan het raam" width="1080" height="720" fetchpriority="high" data-px></div>
+          <div class="inset"><img src="img/brushing.webp" alt="Brushing met ronde borstel" width="1600" height="1068" style="object-position:62% center"></div>
           <div class="chip"><span class="dot">J</span><div><b>Jordi Vanmeenen</b><span>Je kapper bij Hair.Botanicals</span></div></div>
+          <div class="qchip"><span class="stars">★★★★★</span><p>“Het voelt net als "thuis" komen, je bent op je gemak.”</p><small>Annik Pultau, al 10 jaar klant</small></div>
         </div>
+      </div>
+    </div>
+    <div class="rail">
+      <div class="wrap">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><p><b>Jordi aan de stoel</b><span>Van ontvangst tot laatste knip.</span></p></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9.5" r="2.5"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6M15 20c0-2.5 1-4.5 3-4.5s3 2 3 4.5"/></svg><p><b>Dames en heren</b><span>Knippen, kleuren, highlights, brushing.</span></p></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 19C5 10 11 5 20 4c-1 9-6 15-15 15Z"/><path d="M5 19 13 11"/></svg><p><b>Rustig en groen</b><span>Geen drukte, wel tijd voor een babbel.</span></p></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><p><b>Di, wo, vr en za</b><span>Dinsdag en vrijdag tot 19 uur.</span></p></div>
       </div>
     </div>
   </section>
@@ -219,11 +379,12 @@ footer.site a{text-decoration:none}
         <p>Bij Hair.Botanicals word je ontvangen door Jordi zelf. Hij luistert eerst, kijkt naar je haar en zegt eerlijk wat er mooi zal staan.</p>
         <p>Geen drukte en geen lopende band. Je zit hier op je gemak, er is tijd voor een babbel, en je gaat naar huis met haar dat precies doet wat je wil.</p>
         <p>Veel klanten komen al jaren. Dat zegt meer dan wij hier kunnen schrijven.</p>
+        <div class="sign"><span class="dot">J</span><div><b>Jordi Vanmeenen</b><span>Kapper bij Hair.Botanicals</span></div></div>
       </div>
-      <blockquote class="bigq" data-r>
-        <svg class="leaf" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 54C10 28 26 12 54 10c-2 28-18 44-44 44Z"/><path d="M10 54 38 26M22 42l-1-11M30 34l-1-10M22 42l11 1M30 34l10 1"/></svg>
+      <blockquote class="bigq" data-r style="--i:1">
+        <svg class="leaf" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M10 54C10 28 26 12 54 10c-2 28-18 44-44 44Z"/><path d="M10 54 38 26M22 42l-1-11M30 34l-1-10M22 42l11 1M30 34l10 1"/></svg>
         <p>“Ik ga al 10 jaar bij Jordi en het voelt net als "thuis" komen, je bent op je gemak. Hij doet alles tot in de perfectie en maakt een zeer goed resultaat van wat je vraagt.”</p>
-        <footer><b>Annik Pultau</b> · review op Google</footer>
+        <footer><i>A</i><span><b>Annik Pultau</b>review op Google</span></footer>
       </blockquote>
     </div>
   </section>
@@ -236,16 +397,16 @@ footer.site a{text-decoration:none}
       </div>
       <div class="dgrid">
         <div class="rows">
-          <div class="row" data-r><span class="n">01</span><div><h3>Knippen</h3><p>Voor dames en heren. Een frisse coupe of gewoon netjes bijwerken, met aandacht voor hoe je haar valt en groeit.</p></div></div>
-          <div class="row" data-r><span class="n">02</span><div><h3>Kleuren</h3><p>Grijze haren wegwerken, een nieuwe tint proberen of je eigen kleur wat meer glans geven.</p></div></div>
-          <div class="row" data-r><span class="n">03</span><div><h3>Highlights</h3><p>Lichte accenten die mooi in je haar opgaan. Dit vraagt wat tijd, dus plan er een rustig moment voor in.</p></div></div>
-          <div class="row" data-r><span class="n">04</span><div><h3>Brushing &amp; krullen</h3><p>Glad, met volume of met zachte krullen. Voor een feest, een trouw of gewoon voor jezelf.</p></div></div>
+          <div class="row" data-r><span class="n">01</span><div><h3>Knippen</h3><p>Voor dames en heren. Een frisse coupe of gewoon netjes bijwerken, met aandacht voor hoe je haar valt en groeit.</p></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 19C5 10 11 5 20 4c-1 9-6 15-15 15Z"/><path d="M5 19 13 11"/></svg></div>
+          <div class="row" data-r><span class="n">02</span><div><h3>Kleuren</h3><p>Grijze haren wegwerken, een nieuwe tint proberen of je eigen kleur wat meer glans geven.</p></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 19C5 10 11 5 20 4c-1 9-6 15-15 15Z"/><path d="M5 19 13 11"/></svg></div>
+          <div class="row" data-r><span class="n">03</span><div><h3>Highlights</h3><p>Lichte accenten die mooi in je haar opgaan. Dit vraagt wat tijd, dus plan er een rustig moment voor in.</p></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 19C5 10 11 5 20 4c-1 9-6 15-15 15Z"/><path d="M5 19 13 11"/></svg></div>
+          <div class="row" data-r><span class="n">04</span><div><h3>Brushing &amp; krullen</h3><p>Glad, met volume of met zachte krullen. Voor een feest, een trouw of gewoon voor jezelf.</p></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 19C5 10 11 5 20 4c-1 9-6 15-15 15Z"/><path d="M5 19 13 11"/></svg></div>
         </div>
-        <div class="dside" data-r>
-          <div class="ph"><img src="img/brushing.webp" alt="Brushing met ronde borstel" loading="lazy" width="1600" height="1068"></div>
+        <div class="dside">
+          <div class="ph" data-img><img src="img/brushing.webp" alt="Brushing met ronde borstel" loading="lazy" width="1600" height="1068"><span>Brushing</span></div>
           <div class="small">
-            <div><img src="img/tools.webp" alt="Kappersgerief naast een plant" loading="lazy" width="1600" height="919"></div>
-            <div><img src="img/knippen.webp" alt="Knippen in de salon" loading="lazy" width="1600" height="1067"></div>
+            <div data-img style="--i:1"><img src="img/tools.webp" alt="Kappersgerief naast een plant" loading="lazy" width="1600" height="919"></div>
+            <div data-img style="--i:2"><img src="img/knippen.webp" alt="Knippen in de salon" loading="lazy" width="1600" height="1067"></div>
           </div>
         </div>
       </div>
@@ -259,9 +420,9 @@ footer.site a{text-decoration:none}
         <div><span class="stars">★★★★★</span><h2>Uit 12 reviews op Google. <em>Allemaal vijf sterren.</em></h2></div>
       </div>
       <div class="rcards">
-        <blockquote class="rc" data-r><span class="stars">★★★★★</span><p>“Echt geen betere kapper te vinden, hij is top!”</p><footer>Annik Pultau<small>Google</small></footer></blockquote>
-        <blockquote class="rc" data-r><span class="stars">★★★★★</span><p>“Heel vriendelijk, fijn ontvangen. Mooie knip beurt en een leuk gesprek. Ik heb mijn vast kapper gevonden!”</p><footer>Niels<small>Google</small></footer></blockquote>
-        <blockquote class="rc" data-r><span class="stars">★★★★★</span><p>“Vaste kapper sinds jaren. Naast knippen altijd leuke joviale ontvangst en goede service!! 💇🏼‍♂️”</p><footer>Olivier Pepermans (Oli)<small>Google</small></footer></blockquote>
+        <blockquote class="rc" data-r><span class="stars">★★★★★</span><p>“Echt geen betere kapper te vinden, hij is top!”</p><footer><i>A</i><span>Annik Pultau<small>Google</small></span></footer></blockquote>
+        <blockquote class="rc" data-r style="--i:1"><span class="stars">★★★★★</span><p>“Heel vriendelijk, fijn ontvangen. Mooie knip beurt en een leuk gesprek. Ik heb mijn vast kapper gevonden!”</p><footer><i>N</i><span>Niels<small>Google</small></span></footer></blockquote>
+        <blockquote class="rc" data-r style="--i:2"><span class="stars">★★★★★</span><p>“Vaste kapper sinds jaren. Naast knippen altijd leuke joviale ontvangst en goede service!! 💇🏼‍♂️”</p><footer><i>O</i><span>Olivier Pepermans (Oli)<small>Google</small></span></footer></blockquote>
       </div>
     </div>
   </section>
@@ -270,6 +431,7 @@ footer.site a{text-decoration:none}
     <div class="wrap">
       <div class="cgrid">
         <div class="cmain" data-r>
+          <svg class="blad2" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M10 54C10 28 26 12 54 10c-2 28-18 44-44 44Z"/><path d="M10 54 38 26M22 42l-1-11M30 34l-1-10M22 42l11 1M30 34l10 1"/></svg>
           <span class="label">Afspraak maken</span>
           <h2>Tijd voor <em>een nieuwe knip?</em></h2>
           <p>Bel even of stuur een bericht met wat je wil laten doen. Jordi laat je weten wanneer het past.</p>
@@ -278,18 +440,18 @@ footer.site a{text-decoration:none}
             <a class="btn btn-l" href="https://wa.me/32497122758?text=Hallo%20Jordi%2C%20ik%20wil%20graag%20een%20afspraak%20maken." target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </div>
-        <div class="cinfo" data-r>
-          <h3>Openingsuren</h3>
-          <table class="uren">
-            <tr class="x"><td>Maandag</td><td>Gesloten</td></tr>
-            <tr><td>Dinsdag</td><td>9.00 tot 19.00</td></tr>
-            <tr><td>Woensdag</td><td>9.00 tot 18.30</td></tr>
-            <tr class="x"><td>Donderdag</td><td>Gesloten</td></tr>
-            <tr><td>Vrijdag</td><td>9.00 tot 19.00</td></tr>
-            <tr><td>Zaterdag</td><td>9.00 tot 17.00</td></tr>
-            <tr class="x"><td>Zondag</td><td>Gesloten</td></tr>
+        <div class="cinfo" data-r style="--i:1">
+          <div class="kop"><h3>Openingsuren</h3><span class="nu" id="nu"><i></i><em style="font-style:normal">Nu open</em></span></div>
+          <table class="uren" id="uren">
+            <tr class="x" data-d="1"><td>Maandag</td><td>Gesloten</td></tr>
+            <tr data-d="2" data-o="9" data-c="19"><td>Dinsdag</td><td>9.00 tot 19.00</td></tr>
+            <tr data-d="3" data-o="9" data-c="18.5"><td>Woensdag</td><td>9.00 tot 18.30</td></tr>
+            <tr class="x" data-d="4"><td>Donderdag</td><td>Gesloten</td></tr>
+            <tr data-d="5" data-o="9" data-c="19"><td>Vrijdag</td><td>9.00 tot 19.00</td></tr>
+            <tr data-d="6" data-o="9" data-c="17"><td>Zaterdag</td><td>9.00 tot 17.00</td></tr>
+            <tr class="x" data-d="0"><td>Zondag</td><td>Gesloten</td></tr>
           </table>
-          <div class="addr"><div><b>Nieuwstraat 17</b><span>2800 Mechelen</span></div><a class="btn btn-o" href="https://www.google.com/maps/dir/?api=1&amp;destination=Nieuwstraat+17+2800+Mechelen" target="_blank" rel="noopener">Route</a></div>
+          <div class="addr"><div><b>Nieuwstraat 17</b><span>2800 Mechelen</span></div><a class="btn btn-o" href="https://www.google.com/maps/dir/?api=1&amp;destination=Nieuwstraat+17+2800+Mechelen" target="_blank" rel="noopener">Route <svg class="pijl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div>
       </div>
     </div>
@@ -298,17 +460,35 @@ footer.site a{text-decoration:none}
 
 <footer class="site">
   <div class="wrap">
-    <span>© Hair.Botanicals · Jordi Vanmeenen</span>
-    <a href="#di">Voorbeeldsite door Digital Impression</a>
+    <div class="f-top">
+      <div><a class="mark" href="#top">Hair<span>.</span>Botanicals</a><p>De kapsalon van Jordi Vanmeenen. Knippen, kleuren, highlights en brushing voor dames en heren.</p></div>
+      <div><h4>Salon</h4><ul><li>Nieuwstraat 17</li><li>2800 Mechelen</li></ul></div>
+      <div><h4>Afspraak</h4><ul><li><a href="tel:+32497122758">0497 12 27 58</a></li><li><a href="https://wa.me/32497122758" target="_blank" rel="noopener">WhatsApp</a></li></ul></div>
+    </div>
+    <div class="f-bot">
+      <span>© Hair.Botanicals · Jordi Vanmeenen</span>
+      <a href="#di">Voorbeeldsite door Digital Impression</a>
+    </div>
   </div>
 </footer>
 
 <script>
 (function(){
-  var els=document.querySelectorAll('[data-r]');
+  var h=document.getElementById('hero');requestAnimationFrame(function(){setTimeout(function(){h.classList.add('klaar')},60)});
+  var nav=document.getElementById('nav');function sc(){nav.classList.toggle('vast',scrollY>20)}sc();addEventListener('scroll',sc,{passive:true});
+  var mt=document.querySelector('.mt'),root=document.documentElement;
+  mt.addEventListener('click',function(){var o=root.classList.toggle('menu-open');mt.setAttribute('aria-expanded',o)});
+  document.querySelectorAll('.sheet a').forEach(function(a){a.addEventListener('click',function(){root.classList.remove('menu-open');mt.setAttribute('aria-expanded','false')})});
+  var d=new Date(),dag=d.getDay(),uur=d.getHours()+d.getMinutes()/60,rij=document.querySelector('#uren tr[data-d="'+dag+'"]'),nu=document.getElementById('nu'),op=document.getElementById('open');
+  if(rij){rij.classList.add('vandaag');var heeft=!!rij.dataset.o,open=heeft&&uur>=+rij.dataset.o&&uur<+rij.dataset.c;
+    if(!open){nu.classList.add('dicht');nu.querySelector('em').textContent='Nu gesloten'}
+    if(!heeft){op.classList.add('dicht');op.querySelector('em').textContent='Vandaag gesloten'}else{op.querySelector('em').textContent='Vandaag open tot '+rij.cells[1].textContent.split('tot ')[1]}}
+  var els=document.querySelectorAll('[data-r],[data-img]');
   if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
   var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
   els.forEach(function(e){io.observe(e)});
+  var px=document.querySelector('[data-px]');
+  if(px&&!matchMedia('(prefers-reduced-motion: reduce)').matches){var t=false;addEventListener('scroll',function(){if(t)return;t=true;requestAnimationFrame(function(){var y=Math.min(scrollY,900);px.style.transform='translateY('+(-y*0.06)+'px)';t=false})},{passive:true})}
 })();
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
