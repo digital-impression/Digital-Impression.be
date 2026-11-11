@@ -41,26 +41,60 @@ header .nav{display:flex;align-items:center;justify-content:space-between;height
 
 /* hero */
 .hero{padding:10px 0 40px}
-.hero-card{background:var(--sand);border-radius:44px;display:grid;grid-template-columns:1.15fr .85fr;gap:30px;padding:70px 0 70px 70px;position:relative;overflow:hidden;min-height:620px}
-.hero-card::before{content:"";position:absolute;right:-140px;top:-160px;width:520px;height:520px;border-radius:50%;background:var(--sand2);opacity:.7}
+.hero-card{background:var(--sand);border-radius:44px;position:relative;overflow:hidden;isolation:isolate;box-shadow:inset 0 0 0 1px rgba(184,102,78,.08)}
+.hero-card::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(700px 520px at 78% 40%,#ead8c6 0,transparent 70%),radial-gradient(520px 380px at 0% 100%,rgba(205,124,99,.16),transparent 70%)}
+.hero-card::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.45;mix-blend-mode:multiply;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .18 0 0 0 0 .13 0 0 0 0 .11 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero-main{display:grid;grid-template-columns:1.08fr .92fr;gap:30px;padding:76px 0 56px 72px;min-height:640px}
 .hero-txt{position:relative;align-self:center}
-h1{font-family:"Bodoni Moda",serif;font-weight:400;font-size:clamp(46px,5.6vw,80px);line-height:1.04;letter-spacing:-.02em;margin:20px 0 24px}
+.hero-txt .tag{display:inline-flex;align-items:center;gap:12px}
+.hero-txt .tag::before{content:"";width:34px;height:1px;background:currentColor}
+h1{font-family:"Bodoni Moda",serif;font-weight:400;font-size:clamp(48px,5.8vw,84px);line-height:1.02;letter-spacing:-.025em;margin:22px 0 26px}
 h1 em{color:var(--rose)}
-.hero-txt p{color:var(--mute);font-size:18.5px;max-width:28em}
+h1 .l{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+h1 .l>span{display:inline-block}
+.hero-txt p{color:var(--mute);font-size:18.5px;max-width:27em}
 .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
-.mini{display:flex;align-items:center;gap:16px;margin-top:44px}
-.mini .st{color:#d39a2f;letter-spacing:2px}
-.mini b{font-family:"Bodoni Moda",serif;font-weight:400;font-size:36px;line-height:1}
-.mini span{color:var(--mute);font-size:15px;line-height:1.35}
-.hero-pic{position:relative;align-self:stretch;margin:-70px 0;display:flex;justify-content:center}
-.pill-img{width:min(340px,90%);border-radius:999px;overflow:hidden;margin:46px 0;box-shadow:0 40px 70px -40px rgba(45,33,28,.6);position:relative;z-index:1}
-.pill-img img{width:100%;height:100%;object-fit:cover}
-.chip{position:absolute;z-index:2;background:var(--white);border-radius:999px;padding:10px 18px 10px 12px;font-size:15px;font-weight:500;display:flex;align-items:center;gap:10px;box-shadow:0 14px 28px -16px rgba(45,33,28,.45)}
-.chip i{width:28px;height:28px;border-radius:50%;background:var(--rose);display:grid;place-items:center}
+.perks{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:0;margin-top:44px;list-style:none}
+.perks li{display:flex;align-items:center;gap:10px;font-size:14.5px;line-height:1.3;color:var(--choc);padding-right:22px;margin-right:22px;border-right:1px solid rgba(45,33,28,.12)}
+.perks li:last-child{border:0;margin:0;padding:0}
+.perks i{width:34px;height:34px;flex:none;border-radius:50%;background:var(--white);display:grid;place-items:center;box-shadow:0 6px 16px -10px rgba(45,33,28,.4)}
+.perks svg{width:16px;height:16px;color:var(--rose)}
+.hero-pic{position:relative;display:flex;justify-content:center;align-items:center;min-height:560px}
+.rings{position:absolute;left:50%;top:50%;width:520px;height:520px;translate:-50% -50%;pointer-events:none}
+.rings i{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(184,102,78,.2)}
+.rings i:nth-child(2){inset:50px;border-style:dashed;border-color:rgba(184,102,78,.16);animation:turn 60s linear infinite}
+.rings i:nth-child(3){inset:-60px;border-color:rgba(184,102,78,.1)}
+@keyframes turn{to{transform:rotate(360deg)}}
+.pill-img{width:330px;aspect-ratio:9/15.4;border-radius:999px;overflow:hidden;box-shadow:0 50px 80px -40px rgba(45,33,28,.65),0 0 0 10px rgba(255,253,250,.55);position:relative;z-index:1}
+.pill-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 2s cubic-bezier(.16,1,.3,1)}
+.dot-img{position:absolute;z-index:2;left:2%;bottom:6%;width:150px;height:150px;border-radius:50%;overflow:hidden;border:7px solid var(--white);box-shadow:0 24px 40px -20px rgba(45,33,28,.55)}
+.dot-img img{width:100%;height:100%;object-fit:cover}
+.chip{position:absolute;z-index:3;background:rgba(255,253,250,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:999px;padding:10px 18px 10px 10px;font-size:15px;font-weight:500;display:flex;align-items:center;gap:10px;box-shadow:0 16px 30px -16px rgba(45,33,28,.45);animation:float 7s ease-in-out infinite}
+.chip i{width:30px;height:30px;border-radius:50%;background:var(--rose);display:grid;place-items:center}
 .chip svg{width:15px;height:15px;color:#fff}
-.chip.c1{left:-10px;top:24%}
-.chip.c2{right:20px;top:52%}
-.chip.c3{left:6px;bottom:16%}
+.chip.c1{left:4%;top:16%}
+.chip.c2{right:2%;top:44%;animation-delay:-2.3s}
+.chip.c3{right:12%;bottom:9%;animation-delay:-4.6s}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -8px}}
+.rate{position:absolute;z-index:3;right:34px;top:5%;background:var(--white);border-radius:22px;padding:16px 20px;box-shadow:0 24px 44px -24px rgba(45,33,28,.5);display:flex;align-items:center;gap:14px;text-decoration:none}
+.rate b{font:300 40px/1 Jost,sans-serif;letter-spacing:-.03em}
+.rate span{font-size:13.5px;color:var(--mute);line-height:1.35}
+.rate .st{color:#d39a2f;letter-spacing:2px;font-size:14px}
+.hero-foot{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 72px 26px;border-top:1px solid rgba(45,33,28,.1);background:rgba(255,253,250,.38)}
+.hero-foot p{font-size:15.5px;color:var(--mute)}
+.hero-foot p b{color:var(--choc);font-weight:500}
+.hero-foot nav{display:flex;gap:6px;flex-wrap:wrap}
+.hero-foot nav a{font-size:14.5px;text-decoration:none;padding:8px 16px;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(45,33,28,.14);transition:background .4s,color .4s,box-shadow .4s}
+.hero-foot nav a:hover{background:var(--rose);color:#fff;box-shadow:inset 0 0 0 1px var(--rose)}
+/* intro */
+.js h1 .l>span{transform:translateY(108%);transition:transform 1.25s cubic-bezier(.16,1,.3,1);transition-delay:calc(.12s + var(--d,0) * .12s)}
+.js .h-in{opacity:0;transform:translateY(18px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1);transition-delay:calc(.4s + var(--d,0) * .1s)}
+.js .pill-img{clip-path:inset(100% 0 0 0 round 999px);transition:clip-path 1.5s cubic-bezier(.77,0,.18,1) .15s}
+.js .dot-img{scale:.6;opacity:0;transition:scale 1.1s cubic-bezier(.16,1,.3,1) .9s,opacity .8s .9s}
+.loaded h1 .l>span,.loaded .h-in{transform:none;opacity:1}
+.loaded .pill-img{clip-path:inset(0 0 0 0 round 999px)}
+.loaded .pill-img img{transform:none}
+.loaded .dot-img{scale:1;opacity:1}
 
 section{padding:110px 0}
 .sh{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:54px}
@@ -122,15 +156,12 @@ section{padding:110px 0}
 footer{padding:40px 0 46px;color:var(--mute);font-size:14.5px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
-.js .rv{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
-.js .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none}}
 
 @media (max-width:1060px){
  .nav nav{display:none}
- .hero-card{grid-template-columns:1fr;padding:56px 46px 0;min-height:0}
- .hero-pic{margin:0;min-height:520px}
- .pill-img{width:300px;margin:20px 0 -40px}
+ .hero-main{grid-template-columns:1fr;padding:56px 46px 30px;min-height:0}
+ .hero-pic{min-height:560px}
+ .hero-foot{padding:22px 46px;flex-direction:column;align-items:flex-start}
  .dg{grid-template-columns:1fr 1fr}
  .why{margin:0 16px}
  .why-g{grid-template-columns:1fr;gap:56px}
@@ -145,14 +176,24 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
  .nav .btn{padding:11px 16px;font-size:14.5px}
  .logo b{font-size:25px}
  .hero{padding:0 0 20px}
- .hero-card{border-radius:30px;padding:40px 22px 0}
+ .hero-card{border-radius:30px}
+ .hero-main{padding:40px 22px 20px}
  .hero-txt p{font-size:17px}
- .hero-pic{min-height:440px}
- .pill-img{width:240px}
- .chip{font-size:14px;padding:8px 14px 8px 9px}
- .chip.c1{left:0}
- .chip.c2{right:0}
- .chip.c3{left:0}
+ .perks{grid-template-columns:1fr;gap:10px;margin-top:32px}
+ .perks li{border:0;margin:0;padding:0}
+ .perks br{display:none}
+ .hero-pic{min-height:470px}
+ .rings{width:360px;height:360px}
+ .pill-img{width:230px}
+ .dot-img{width:104px;height:104px;left:0;bottom:4%;border-width:5px}
+ .rate{right:-4px;top:2%;padding:12px 14px;border-radius:18px}
+ .rate b{font-size:32px}
+ .chip{font-size:14px;padding:8px 14px 8px 8px}
+ .chip i{width:26px;height:26px}
+ .chip.c1{left:0;top:30%}
+ .chip.c2{right:0;top:58%}
+ .chip.c3{right:4%;bottom:2%}
+ .hero-foot{padding:20px 22px}
  section{padding:80px 0}
  .dg{grid-template-columns:1fr}
  .dc .ph{aspect-ratio:16/11}
@@ -162,6 +203,52 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
  .ct .tx{padding:40px 24px}
  .ct .im{min-height:280px}
 }
+/* afwerking */
+header{position:sticky;top:0;z-index:30;background:rgba(250,245,240,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:box-shadow .4s,background .4s}
+header.scrolled{box-shadow:0 12px 30px -24px rgba(45,33,28,.45);background:rgba(250,245,240,.95)}
+.nav nav a{position:relative}
+.nav nav a::after{content:"";position:absolute;left:50%;right:50%;bottom:-6px;height:1px;background:var(--rose);transition:left .4s cubic-bezier(.16,1,.3,1),right .4s cubic-bezier(.16,1,.3,1)}
+.nav nav a:hover::after{left:0;right:0}
+.btn{transition:transform .45s cubic-bezier(.16,1,.3,1),background .4s,color .4s,box-shadow .4s}
+.b-rose:hover{box-shadow:0 16px 30px -16px rgba(45,33,28,.6)}
+.sh .tag{display:inline-flex;align-items:center;gap:12px}
+.sh .tag::before{content:"";width:34px;height:1px;background:currentColor}
+.dc{position:relative;box-shadow:0 0 0 1px rgba(45,33,28,.06);transition:transform .7s cubic-bezier(.16,1,.3,1),box-shadow .7s cubic-bezier(.16,1,.3,1)}
+.dc .ph{position:relative}
+.dc .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(45,33,28,.25));opacity:0;transition:opacity .6s}
+.dc:hover .ph::after{opacity:1}
+.dc img{transition:transform 1.4s cubic-bezier(.16,1,.3,1)}
+.dc:hover img{transform:scale(1.07)}
+.dc div.t{position:relative;flex:1}
+.dc .go{position:absolute;right:20px;top:-26px;width:48px;height:48px;border-radius:50%;background:var(--white);display:grid;place-items:center;box-shadow:0 10px 24px -12px rgba(45,33,28,.45);transition:background .4s,color .4s,transform .6s cubic-bezier(.16,1,.3,1)}
+.dc .go svg{width:18px;height:18px}
+.dc:hover .go{background:var(--rose);color:#fff;transform:rotate(-45deg)}
+.dc .num{display:inline-flex;align-items:center;gap:8px}
+.dc .num::after{content:"";width:22px;height:1px;background:currentColor;opacity:.6}
+.col .a,.col .b{position:relative;box-shadow:0 30px 50px -30px rgba(0,0,0,.6)}
+.col figcaption{position:absolute;left:14px;bottom:14px;background:rgba(45,33,28,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#f6ece3;font-size:13px;padding:6px 12px;border-radius:999px}
+.pt{transition:padding .5s cubic-bezier(.16,1,.3,1)}
+.pt i{transition:background .4s,border-color .4s}
+.pt:hover i{background:rgba(205,124,99,.16);border-color:var(--rose2)}
+.rev-box{position:relative;background:var(--sand);border-radius:44px;padding:76px 40px 70px;overflow:hidden;isolation:isolate}
+.rev-box::before,.rev-box::after{content:"";position:absolute;z-index:-1;border-radius:50%;border:1px solid rgba(184,102,78,.18)}
+.rev-box::before{width:460px;height:460px;left:-160px;top:-180px}
+.rev-box::after{width:340px;height:340px;right:-120px;bottom:-160px;border-style:dashed}
+.rev .big{font-family:Jost,sans-serif!important}
+.rev .g{display:inline-flex;align-items:center;gap:10px;font-size:14px;color:var(--mute);background:var(--white);border-radius:999px;padding:7px 16px 7px 8px;margin-bottom:22px;box-shadow:0 8px 20px -14px rgba(45,33,28,.4)}
+.rev .g svg{width:22px;height:22px}
+.ct{box-shadow:inset 0 0 0 1px rgba(184,102,78,.08)}
+.ct .im{overflow:hidden}
+.ct .im img{transition:transform 1.6s cubic-bezier(.16,1,.3,1)}
+.ct:hover .im img{transform:scale(1.04)}
+.ct .badge{position:absolute;left:24px;bottom:24px;z-index:1;display:flex;align-items:center;gap:10px;background:rgba(255,253,250,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:999px;padding:10px 18px 10px 10px;font-size:14.5px;font-weight:500;text-decoration:none}
+.ct .badge i{width:30px;height:30px;border-radius:50%;background:var(--rose);color:#fff;display:grid;place-items:center}
+.ct .badge svg{width:15px;height:15px}
+.lines i{box-shadow:0 8px 18px -12px rgba(45,33,28,.4)}
+.js .rv{opacity:0;transform:translateY(28px);filter:blur(5px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1),filter 1s;transition-delay:calc(var(--i,0) * 100ms)}
+.js .rv.in{opacity:1;transform:none;filter:none}
+@media (max-width:620px){.rev-box{border-radius:30px;padding:56px 22px 50px}}
+@media (prefers-reduced-motion:reduce){.js .rv,.js .h-in,.js h1 .l>span{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}.js .pill-img{clip-path:none!important}.js .dot-img{scale:1!important;opacity:1!important}.chip,.rings i{animation:none!important}}
 </style>
 </head>
 <body>
@@ -179,24 +266,34 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
  <section class="hero">
   <div class="wrap">
    <div class="hero-card">
-    <div class="hero-txt">
-     <span class="tag">Kapster Elif</span>
-     <h1>Haar dat ook thuis <em>nog mooi</em> valt.</h1>
-     <p>Een coupe die er niet alleen in de kappersstoel goed uitziet, maar ook de dag erna, als je hem zelf in model brengt. Daar let ik op, bij elke knipbeurt en elke brushing.</p>
-     <div class="acts">
-      <a class="btn b-rose" href="https://wa.me/32485840037"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .3-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.1.1.6-.1 1.2Z"/></svg>Stuur een berichtje</a>
-      <a class="btn b-soft" href="tel:+32485840037">0485 84 00 37</a>
+    <div class="hero-main">
+     <div class="hero-txt">
+      <span class="tag h-in" style="--d:0">Kapster Elif</span>
+      <h1><span class="l"><span style="--d:0">Haar dat ook</span></span><span class="l"><span style="--d:1">thuis <em>nog mooi</em></span></span><span class="l"><span style="--d:2">valt.</span></span></h1>
+      <p class="h-in" style="--d:2">Een coupe die er niet alleen in de kappersstoel goed uitziet, maar ook de dag erna, als je hem zelf in model brengt. Daar let ik op, bij elke knipbeurt en elke brushing.</p>
+      <div class="acts h-in" style="--d:3">
+       <a class="btn b-rose" href="https://wa.me/32485840037"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .3-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.1.1.6-.1 1.2Z"/></svg>Stuur een berichtje</a>
+       <a class="btn b-soft" href="tel:+32485840037">0485 84 00 37</a>
+      </div>
+      <ul class="perks h-in" style="--d:4">
+       <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a9 9 0 1 1-3-6.7M21 4v5h-5"/></svg></i>Je eigen<br>kapster</li>
+       <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h10M4 18h7"/></svg></i>Eerlijk<br>advies</li>
+       <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.4-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 6.6-7 11-7 11Z"/></svg></i>Tips voor<br>thuis</li>
+      </ul>
      </div>
-     <div class="mini">
-      <b>4,8</b>
-      <span><span class="st">★★★★★</span><br>18 reviews op Google</span>
+     <div class="hero-pic">
+      <div class="rings" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="pill-img"><img src="img/eigen-glad.webp" alt="Lang, glad en glanzend donker haar na een behandeling bij Elif" width="900" height="1600" fetchpriority="high"></div>
+      <div class="dot-img" aria-hidden="true"><img src="img/borstel.webp" alt="" width="1600" height="1068"></div>
+      <a class="rate h-in" style="--d:5" href="https://www.google.com/maps?cid=8742544154449082826" target="_blank" rel="noopener"><b>4,8</b><span><span class="st">★★★★★</span><br>18 reviews op Google</span></a>
+      <span class="chip c1 h-in" style="--d:6"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg></i>Knippen</span>
+      <span class="chip c2 h-in" style="--d:7"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12c3-6 6-6 9 0s6 6 9 0"/></svg></i>Brushing</span>
+      <span class="chip c3 h-in" style="--d:8"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></i>Kleuren</span>
      </div>
     </div>
-    <div class="hero-pic">
-     <div class="pill-img rv"><img src="img/eigen-glad.webp" alt="Lang, glad en glanzend donker haar na een behandeling bij Elif" width="900" height="1600" fetchpriority="high"></div>
-     <span class="chip c1"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg></i>Knippen</span>
-     <span class="chip c2"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12c3-6 6-6 9 0s6 6 9 0"/></svg></i>Brushing</span>
-     <span class="chip c3"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></i>Kleuren</span>
+    <div class="hero-foot h-in" style="--d:6">
+     <p><b>Twijfel je wat bij je past?</b> Stuur een foto van je haar nu, dan bekijken we het samen.</p>
+     <nav aria-label="Diensten"><a href="#diensten">Knippen</a><a href="#diensten">Brushing</a><a href="#diensten">Kleuren</a><a href="#diensten">Opsteken</a></nav>
     </div>
    </div>
   </div>
@@ -209,10 +306,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <p>Twijfel je wat het best bij je haar past? Stuur een foto van hoe het nu is en wat je zou willen. Dan bekijken we het samen.</p>
    </div>
    <div class="dg">
-    <article class="dc rv"><div class="ph"><img src="img/fohnen.webp" alt="Kapster werkt een coupe af met de föhn" width="1600" height="1068" loading="lazy" style="object-position:60% 50%"></div><div class="t"><span class="num">01</span><h3>Knippen</h3><p>Van een paar centimeter eraf tot een volledig nieuwe coupe. Eerst praten, dan pas knippen.</p></div></article>
-    <article class="dc rv"><div class="ph"><img src="img/borstel.webp" alt="Haar wordt rond geborsteld en geföhnd" width="1600" height="1068" loading="lazy"></div><div class="t"><span class="num">02</span><h3>Brushing</h3><p>Glad en glanzend, met volume of met een zachte golf. Je stapt buiten alsof je net van de kapper komt.</p></div></article>
-    <article class="dc rv"><div class="ph"><img src="img/golven.webp" alt="Lang golvend haar in een warme bruine tint" width="1600" height="1068" loading="lazy"></div><div class="t"><span class="num">03</span><h3>Kleuren</h3><p>Je uitgroei bijwerken, een warmere tint of iets helemaal nieuws. Altijd met een kleur die bij jou past.</p></div></article>
-    <article class="dc rv"><div class="ph"><img src="img/speldjes.webp" alt="Haar wordt opgestoken met speldjes" width="1600" height="1067" loading="lazy"></div><div class="t"><span class="num">04</span><h3>Opsteken</h3><p>Voor een trouw, een communie of gewoon een avond waarop je er eens extra mooi wil uitzien.</p></div></article>
+    <article class="dc rv" style="--i:0"><div class="ph"><img src="img/fohnen.webp" alt="Kapster werkt een coupe af met de föhn" width="1600" height="1068" loading="lazy" style="object-position:60% 50%"></div><div class="t"><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="num">01</span><h3>Knippen</h3><p>Van een paar centimeter eraf tot een volledig nieuwe coupe. Eerst praten, dan pas knippen.</p></div></article>
+    <article class="dc rv" style="--i:1"><div class="ph"><img src="img/borstel.webp" alt="Haar wordt rond geborsteld en geföhnd" width="1600" height="1068" loading="lazy"></div><div class="t"><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="num">02</span><h3>Brushing</h3><p>Glad en glanzend, met volume of met een zachte golf. Je stapt buiten alsof je net van de kapper komt.</p></div></article>
+    <article class="dc rv" style="--i:2"><div class="ph"><img src="img/golven.webp" alt="Lang golvend haar in een warme bruine tint" width="1600" height="1068" loading="lazy"></div><div class="t"><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="num">03</span><h3>Kleuren</h3><p>Je uitgroei bijwerken, een warmere tint of iets helemaal nieuws. Altijd met een kleur die bij jou past.</p></div></article>
+    <article class="dc rv" style="--i:3"><div class="ph"><img src="img/speldjes.webp" alt="Haar wordt opgestoken met speldjes" width="1600" height="1067" loading="lazy"></div><div class="t"><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="num">04</span><h3>Opsteken</h3><p>Voor een trouw, een communie of gewoon een avond waarop je er eens extra mooi wil uitzien.</p></div></article>
    </div>
   </div>
  </section>
@@ -220,8 +317,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
  <section class="why" id="elif">
   <div class="wrap why-g">
    <div class="col rv">
-    <div class="a"><img src="img/eigen-glad.webp" alt="Glad, donker haar" width="900" height="1600" loading="lazy" style="object-position:50% 40%"></div>
-    <div class="b"><img src="img/wassen.webp" alt="Haar wordt gewassen aan de wastafel" width="1600" height="1067" loading="lazy"></div>
+    <figure class="a"><img src="img/eigen-glad.webp" alt="Glad, donker haar" width="900" height="1600" loading="lazy" style="object-position:50% 40%"><figcaption>Uit het salon</figcaption></figure>
+    <figure class="b"><img src="img/wassen.webp" alt="Haar wordt gewassen aan de wastafel" width="1600" height="1067" loading="lazy"></figure>
    </div>
    <div class="rv">
     <span class="tag">Bij Elif</span>
@@ -237,13 +334,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
  </section>
 
  <section id="reviews">
-  <div class="wrap rev rv">
+  <div class="wrap"><div class="rev-box rv"><div class="rev">
+   <span class="g"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.5 12.2c0-.7-.1-1.4-.2-2H12v3.9h5.9a5 5 0 0 1-2.2 3.3v2.7h3.5c2.1-1.9 3.3-4.7 3.3-7.9Z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.2-2.7l-3.5-2.7c-1 .7-2.2 1-3.7 1-2.9 0-5.3-1.9-6.2-4.5H2.2v2.8A11 11 0 0 0 12 23Z"/><path fill="#FBBC05" d="M5.8 14.1a6.6 6.6 0 0 1 0-4.2V7.1H2.2a11 11 0 0 0 0 9.8l3.6-2.8Z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3 .6 4.2 1.6l3.1-3.1A11 11 0 0 0 2.2 7.1l3.6 2.8C6.7 7.3 9.1 5.4 12 5.4Z"/></svg>Reviews op Google</span>
    <div class="big">4,8</div>
    <div class="st">★★★★★</div>
    <h2>18 klanten deelden hun ervaring op Google.</h2>
    <p>Wil je weten hoe anderen hun bezoek beleefden? Hun reviews staan op Google, voor iedereen te lezen.</p>
    <a class="btn b-soft" href="https://www.google.com/maps?cid=8742544154449082826" target="_blank" rel="noopener">Lees de reviews</a>
-  </div>
+  </div></div></div>
  </section>
 
  <section id="contact" style="padding-top:0">
@@ -262,7 +360,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <a class="btn b-soft" href="https://www.google.com/maps/dir/?api=1&destination=Klein-Hulststraat+104+9100+Sint-Niklaas" target="_blank" rel="noopener">Route plannen</a>
      </div>
     </div>
-    <div class="im"><img src="img/borstel.webp" alt="Haar wordt in model geföhnd" width="1600" height="1068" loading="lazy" style="object-position:30% 50%"></div>
+    <div class="im"><img src="img/borstel.webp" alt="Haar wordt in model geföhnd" width="1600" height="1068" loading="lazy" style="object-position:30% 50%"><a class="badge" href="https://wa.me/32485840037"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 0 1-13.4 7.9L3 21l1.2-4.4A9 9 0 1 1 21 12z"/></svg></i>Afspraak via WhatsApp</a></div>
    </div>
   </div>
  </section>
@@ -273,6 +371,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 </footer>
 
 <script>
+(function(){var r=document.documentElement;function go(){r.classList.add('loaded')}
+if(document.readyState==='complete')requestAnimationFrame(go);else addEventListener('load',function(){requestAnimationFrame(go)});setTimeout(go,1600);
+var h=document.querySelector('header');function sc(){h.classList.toggle('scrolled',scrollY>10)}addEventListener('scroll',sc,{passive:true});sc()})();
 (function(){var els=document.querySelectorAll('.rv');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
 var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e)})})();
 </script>

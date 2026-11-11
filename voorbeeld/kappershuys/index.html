@@ -40,20 +40,56 @@ header{position:sticky;top:0;z-index:40;background:rgba(246,241,233,.94);backdro
 .nav ul a:hover{color:var(--ink)}
 .nav .btn{padding:13px 20px;font-size:14px}
 
-.hero{padding:76px 0 100px}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.hero{padding:70px 0 96px;position:relative;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(700px 560px at 22% 55%,var(--sand),transparent 70%),radial-gradient(500px 400px at 100% 0%,rgba(176,141,87,.12),transparent 70%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.45;mix-blend-mode:multiply;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .14 0 0 0 0 .13 0 0 0 0 .12 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:84px;align-items:center}
 .hero-photos{position:relative;padding:0 0 70px 0}
-.hero-photos .main{border-radius:220px 220px 4px 4px;overflow:hidden;aspect-ratio:4/4.6}
-.hero-photos .main img{width:100%;height:100%;object-fit:cover}
-.hero-photos .small{position:absolute;right:-34px;bottom:0;width:46%;border:8px solid var(--ivory);box-shadow:0 30px 50px -30px rgba(0,0,0,.45);aspect-ratio:4/3;overflow:hidden}
+.hero-photos .frame{position:absolute;left:26px;top:-22px;right:-22px;bottom:92px;border:1px solid var(--brass);border-radius:220px 220px 4px 4px;z-index:-1;opacity:.6}
+.hero-photos .main{position:relative;border-radius:220px 220px 4px 4px;overflow:hidden;aspect-ratio:4/4.6;box-shadow:0 50px 80px -45px rgba(30,58,50,.6)}
+.hero-photos .main img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 2s cubic-bezier(.16,1,.3,1)}
+.hero-photos .main::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 65%,rgba(30,58,50,.35))}
+.hero-photos .small{position:absolute;right:-34px;bottom:0;width:46%;border:8px solid var(--ivory);box-shadow:0 30px 50px -30px rgba(0,0,0,.45);aspect-ratio:4/3;overflow:hidden;background:var(--ivory)}
 .hero-photos .small img{width:100%;height:100%;object-fit:cover}
-.hero-photos .tag{position:absolute;left:-26px;top:54%;background:var(--green);color:#F2EBDD;padding:18px 22px;font:400 15px/1.35 Jost;box-shadow:0 20px 40px -24px rgba(0,0,0,.6)}
+.hero-photos .small span{position:absolute;left:0;bottom:0;background:var(--ivory);padding:6px 12px 0 0;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.hero-photos .tag{position:absolute;left:-26px;top:50%;background:var(--green);color:#F2EBDD;padding:18px 22px;font:400 15px/1.35 Jost;box-shadow:0 20px 40px -24px rgba(0,0,0,.6);text-decoration:none;transition:translate .5s cubic-bezier(.16,1,.3,1),opacity 1s,transform 1s cubic-bezier(.16,1,.3,1)}
+.hero-photos .tag:hover{translate:0 -4px}
 .hero-photos .tag b{display:block;font:400 30px/1 Marcellus,serif;color:var(--brass2);margin-bottom:4px}
+.hero-photos .tag i{display:block;font-style:normal;color:var(--brass2);letter-spacing:2px;font-size:12px;margin-bottom:6px}
+.badge{position:absolute;left:30px;top:24px;width:112px;height:112px;border-radius:50%;background:var(--ivory);display:grid;place-items:center;box-shadow:0 20px 40px -24px rgba(0,0,0,.5);color:var(--green)}
+.badge svg.ring{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px);animation:spin 36s linear infinite}
+.badge svg.ic{width:28px;height:28px;color:var(--brass)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:12px}
+.hero .eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
 .hero h1{font-size:clamp(44px,5.4vw,76px);margin:22px 0 26px;letter-spacing:-.005em}
-.hero h1 span{color:var(--brass)}
+.hero h1 .l{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+.hero h1 .l>span{display:inline-block;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--brass)}
 .hero p{font-size:19px;color:var(--soft);max-width:500px}
-.hero .acts{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
-.hero .note{margin-top:22px;font-size:14px;color:var(--soft)}
+.hero .acts{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.week{margin-top:38px;padding-top:26px;border-top:1px solid var(--line);max-width:500px}
+.week-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:14px}
+.week-top b{font:400 19px/1.2 Marcellus,serif}
+.week-top span{font-size:13.5px;color:var(--soft)}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;list-style:none}
+.days li{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 0 11px;border:1px solid var(--line);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);background:rgba(251,248,243,.6);transition:background .4s,border-color .4s}
+.days li i{width:7px;height:7px;border-radius:50%;background:var(--green)}
+.days li.off{color:#a39b90;background:transparent;border-style:dashed}
+.days li.off i{background:transparent;box-shadow:inset 0 0 0 1px #b9b1a5}
+.days li.today{border-color:var(--brass);background:#fff;color:var(--ink);font-weight:500}
+.days li.today i{background:var(--brass);box-shadow:0 0 0 4px rgba(176,141,87,.2)}
+.hero .note{margin-top:14px;font-size:14px;color:var(--soft)}
+/* intro */
+.js .hero h1 .l>span{transform:translateY(108%);transition:transform 1.25s cubic-bezier(.16,1,.3,1);transition-delay:calc(.15s + var(--d,0) * .12s)}
+.js .h-in{opacity:0;transform:translateY(18px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1),translate .5s cubic-bezier(.16,1,.3,1);transition-delay:calc(.4s + var(--d,0) * .1s)}
+.js .hero-photos .main{clip-path:inset(100% 0 0 0 round 220px 220px 4px 4px);transition:clip-path 1.5s cubic-bezier(.77,0,.18,1) .1s}
+.js .hero-photos .frame{opacity:0;transform:translate(-12px,12px);transition:opacity 1.2s 1s,transform 1.4s cubic-bezier(.16,1,.3,1) 1s}
+.loaded .hero h1 .l>span,.loaded .h-in{transform:none;opacity:1}
+.loaded .hero-photos .main{clip-path:inset(0 0 0 0 round 220px 220px 4px 4px)}
+.loaded .hero-photos .main img{transform:none}
+.loaded .hero-photos .frame{opacity:.6;transform:none}
+.settled .h-in{transition-delay:0s}
 
 .facts{background:var(--green);color:#EFE8DA}
 .facts-in{display:grid;grid-template-columns:repeat(4,1fr)}
@@ -124,8 +160,6 @@ header{position:sticky;top:0;z-index:40;background:rgba(246,241,233,.94);backdro
 .c-grid .btn:hover{color:#fff}
 footer{padding:28px 0 36px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:14px;color:#9FA79E}
 
-.js [data-r]{opacity:0;transform:translateY(24px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
-.js [data-r].in{opacity:1;transform:none}
 
 @media (max-width:1020px){
  .nav ul{display:none}
@@ -134,6 +168,7 @@ footer{padding:28px 0 36px;display:flex;justify-content:space-between;gap:20px;f
  .hero-photos{max-width:560px;margin:0 auto;width:100%}
  .hero-photos .small{right:0}
  .hero-photos .tag{left:0}
+ .hero-photos .frame{right:-10px;left:16px}
  .facts-in{grid-template-columns:1fr 1fr}
  .fact:nth-child(3){border-left:0;padding-left:0}
  .fact{border-top:1px solid rgba(239,232,218,.14)}
@@ -160,6 +195,11 @@ footer{padding:28px 0 36px;display:flex;justify-content:space-between;gap:20px;f
  .hero-photos{padding-bottom:50px}
  .hero-photos .small{width:52%;border-width:6px}
  .hero-photos .tag{padding:14px 16px;font-size:13px;top:auto;bottom:90px}
+ .badge{width:88px;height:88px;left:12px;top:12px}
+ .badge svg.ic{width:22px;height:22px}
+ .days{gap:4px}
+ .days li{font-size:11px;padding:10px 0 9px}
+ .week-top{flex-direction:column;gap:2px}
  .hero-photos .tag b{font-size:24px}
  .facts-in{grid-template-columns:1fr}
  .fact,.fact:nth-child(3){padding:22px 0;border-left:0;border-top:1px solid rgba(239,232,218,.14)}
@@ -180,6 +220,45 @@ footer{padding:28px 0 36px;display:flex;justify-content:space-between;gap:20px;f
  .contact{padding-top:70px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}.js [data-r]{opacity:1;transform:none}}
+/* afwerking */
+header{transition:box-shadow .4s,background .4s}
+header.scrolled{box-shadow:0 12px 30px -24px rgba(30,58,50,.5);background:rgba(246,241,233,.97)}
+.nav ul a{position:relative}
+.nav ul a::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:1px;background:var(--brass);transition:right .5s cubic-bezier(.16,1,.3,1)}
+.nav ul a:hover::after{right:0}
+.btn{transition:background .45s cubic-bezier(.16,1,.3,1),color .45s,transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s}
+.btn-green:hover{box-shadow:0 16px 30px -16px rgba(30,58,50,.7)}
+.fact svg{transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.fact:hover svg{transform:translateY(-3px)}
+.sec-head .eyebrow{display:inline-flex;align-items:center;gap:12px}
+.sec-head .eyebrow::before,.sec-head .eyebrow::after{content:"";width:28px;height:1px;background:currentColor}
+.d-item{position:relative;transition:background .5s}
+.d-item::before{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--brass);transform:scaleX(0);transform-origin:left;transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.d-item:hover::before{transform:scaleX(1)}
+.d-item .no{width:50px;height:50px;border-radius:50%;border:1px solid rgba(176,141,87,.45);display:grid;place-items:center;font-size:20px;transition:background .45s,color .45s,border-color .45s}
+.d-item:hover .no{background:var(--green);color:var(--brass2);border-color:var(--green)}
+.d-item h3{transition:color .4s}
+.d-item:hover h3{color:var(--green)}
+.b-grid figure{box-shadow:0 30px 50px -36px rgba(30,58,50,.6)}
+.b-grid figcaption{display:flex;align-items:center;gap:10px}
+.b-grid figcaption::before{content:"";width:22px;height:1px;background:var(--brass)}
+.b-grid figure.f2 + figcaption{justify-content:center}
+.q-photo{transition:box-shadow .8s cubic-bezier(.16,1,.3,1)}
+.q-photo:hover{box-shadow:30px 30px 0 var(--brass)}
+.a-box{box-shadow:0 40px 80px -60px rgba(30,58,50,.5)}
+.dag{transition:padding .5s cubic-bezier(.16,1,.3,1),color .3s}
+.dag.today{color:#fff}
+.dag.today span:first-child{display:inline-flex;align-items:center;gap:10px}
+.dag.today span:first-child::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--brass2);box-shadow:0 0 0 4px rgba(200,167,112,.2)}
+.rev-card{position:relative;max-width:900px;margin:0 auto;border:1px solid var(--line);background:#FBF8F3;padding:66px 40px 60px;overflow:hidden;isolation:isolate}
+.rev-card::before{content:"";position:absolute;left:50%;top:-260px;width:520px;height:520px;translate:-50% 0;border-radius:50%;border:1px solid rgba(176,141,87,.25);z-index:-1}
+.rev .g{display:inline-flex;align-items:center;gap:10px;font-size:14px;color:var(--soft);border:1px solid var(--line);background:var(--ivory);padding:7px 16px 7px 8px;border-radius:999px;margin-bottom:22px}
+.rev .g svg{width:22px;height:22px}
+.rev .big{font:400 clamp(80px,9vw,120px)/1 Marcellus,serif;color:var(--green);margin-bottom:6px}
+.js [data-r]{opacity:0;transform:translateY(28px);filter:blur(5px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1),filter 1s;transition-delay:calc(var(--i,0) * 100ms)}
+.js [data-r].in{opacity:1;transform:none;filter:none}
+@media (max-width:640px){.rev-card{padding:50px 22px 46px}.d-item .no{width:40px;height:40px;font-size:16px}}
+@media (prefers-reduced-motion:reduce){.js .h-in,.js .hero h1 .l>span,.js [data-r]{opacity:1!important;transform:none!important;filter:none!important}.js .hero-photos .main{clip-path:none!important}.js .hero-photos .frame{opacity:.6!important;transform:none!important}.badge svg.ring{animation:none}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -202,20 +281,36 @@ footer{padding:28px 0 36px;display:flex;justify-content:space-between;gap:20px;f
 <main id="top">
 <section class="hero">
  <div class="wrap hero-grid">
-  <div class="hero-photos" data-r>
+  <div class="hero-photos">
+   <span class="frame" aria-hidden="true"></span>
    <div class="main"><img src="img/gevel.webp" alt="De voorgevel van Het Kappershuys met de grote ramen" width="960" height="720" fetchpriority="high" style="object-position:30% center"></div>
-   <div class="small"><img src="img/redken.webp" alt="Redken producten in de salon" width="1400" height="787"></div>
-   <div class="tag"><b>4,9</b>op Google, 17 reviews</div>
+   <div class="small h-in" style="--d:5"><img src="img/redken.webp" alt="Redken producten in de salon" width="1400" height="787"><span>Redken</span></div>
+   <a class="tag h-in" style="--d:6" href="https://www.google.com/maps?cid=7405147540827756840" target="_blank" rel="noopener"><i>★★★★★</i><b>4,9</b>op Google, 17 reviews</a>
+   <div class="badge h-in" style="--d:7" aria-hidden="true">
+    <svg class="ring" viewBox="0 0 100 100"><defs><path id="br" d="M50 50m-40 0a40 40 0 1 1 80 0a40 40 0 1 1-80 0"/></defs><text font-family="Jost" font-size="8.6" font-weight="500" letter-spacing="2.6" fill="#1E3A32"><textPath href="#br">ENKEL OP AFSPRAAK · ENKEL OP AFSPRAAK ·</textPath></text></svg>
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4.5" width="18" height="16" rx="1.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg>
+   </div>
   </div>
-  <div class="hero-text" data-r>
-   <span class="eyebrow">Kapsalon, enkel op afspraak</span>
-   <h1>Tijd voor je haar. <span>En voor jou.</span></h1>
-   <p>Bij Het Kappershuys kom je op afspraak. Zo zit er niemand te wachten en hebben we alle tijd om te luisteren, te knippen en af te werken zoals het hoort.</p>
-   <div class="acts">
-    <a class="btn btn-green" href="tel:+3214583247">Bel 014 58 32 47</a>
+  <div class="hero-text">
+   <span class="eyebrow h-in" style="--d:0">Kapsalon, enkel op afspraak</span>
+   <h1><span class="l"><span style="--d:0">Tijd voor je haar.</span></span><span class="l"><span style="--d:1"><em>En voor jou.</em></span></span></h1>
+   <p class="h-in" style="--d:2">Bij Het Kappershuys kom je op afspraak. Zo zit er niemand te wachten en hebben we alle tijd om te luisteren, te knippen en af te werken zoals het hoort.</p>
+   <div class="acts h-in" style="--d:3">
+    <a class="btn btn-green" href="tel:+3214583247"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Bel 014 58 32 47</a>
     <a class="btn btn-line" href="#diensten">Wat we doen</a>
    </div>
-   <p class="note">Dinsdag tot zaterdag. Zondag en maandag gesloten.</p>
+   <div class="week h-in" style="--d:4">
+    <div class="week-top"><b>Wanneer je terechtkunt</b><span>Op afspraak, over de middag even pauze</span></div>
+    <ul class="days">
+     <li class="off" data-dag="1"><i></i>Ma</li>
+     <li data-dag="2"><i></i>Di</li>
+     <li data-dag="3"><i></i>Wo</li>
+     <li data-dag="4"><i></i>Do</li>
+     <li data-dag="5"><i></i>Vr</li>
+     <li data-dag="6"><i></i>Za</li>
+     <li class="off" data-dag="0"><i></i>Zo</li>
+    </ul>
+   </div>
   </div>
  </div>
 </section>
@@ -237,10 +332,10 @@ footer{padding:28px 0 36px;display:flex;justify-content:space-between;gap:20px;f
    <p>Je vaste coupe bijwerken of eens iets helemaal anders? We bekijken het samen in de stoel en zeggen eerlijk wat bij je haar past.</p>
   </div>
   <div class="d-grid">
-   <article class="d-item" data-r><span class="no">I</span><div><h3>Knippen</h3><p>Voor dames en heren. Of je nu enkel de punten wil laten bijwerken of een nieuwe snit zoekt, we nemen de tijd om te begrijpen wat je wil.</p></div></article>
-   <article class="d-item" data-r><span class="no">II</span><div><h3>Kleuren</h3><p>Een frisse kleur, wat glans erbij of die eerste grijze haren wegwerken. We kiezen samen een tint die bij je huid en je stijl past.</p></div></article>
-   <article class="d-item" data-r><span class="no">III</span><div><h3>Brushing</h3><p>Volume, een strakke föhn of zachte golven. Voor elke dag of voor dat feest waar je net iets mooier naartoe wil.</p></div></article>
-   <article class="d-item" data-r><span class="no">IV</span><div><h3>Verzorging en advies</h3><p>We werken met Redken. Je krijgt eerlijk advies over wat je haar nodig heeft, ook voor thuis, zodat je coupe er langer goed blijft uitzien.</p></div></article>
+   <article class="d-item" data-r style="--i:0"><span class="no">I</span><div><h3>Knippen</h3><p>Voor dames en heren. Of je nu enkel de punten wil laten bijwerken of een nieuwe snit zoekt, we nemen de tijd om te begrijpen wat je wil.</p></div></article>
+   <article class="d-item" data-r style="--i:1"><span class="no">II</span><div><h3>Kleuren</h3><p>Een frisse kleur, wat glans erbij of die eerste grijze haren wegwerken. We kiezen samen een tint die bij je huid en je stijl past.</p></div></article>
+   <article class="d-item" data-r style="--i:0"><span class="no">III</span><div><h3>Brushing</h3><p>Volume, een strakke föhn of zachte golven. Voor elke dag of voor dat feest waar je net iets mooier naartoe wil.</p></div></article>
+   <article class="d-item" data-r style="--i:1"><span class="no">IV</span><div><h3>Verzorging en advies</h3><p>We werken met Redken. Je krijgt eerlijk advies over wat je haar nodig heeft, ook voor thuis, zodat je coupe er langer goed blijft uitzien.</p></div></article>
   </div>
  </div>
 </section>
@@ -248,8 +343,8 @@ footer{padding:28px 0 36px;display:flex;justify-content:space-between;gap:20px;f
 <section class="beeld" aria-label="Sfeer in de salon">
  <div class="wrap b-grid">
   <div data-r><figure class="f1"><img src="img/fohnen.webp" alt="Kapster föhnt het haar van een klant" width="1400" height="934" loading="lazy"></figure><figcaption>Afwerken zoals het hoort</figcaption></div>
-  <div data-r><figure class="f2"><img src="img/blond.webp" alt="Vrouw met verzorgd blond haar" width="1100" height="1568" loading="lazy"></figure><figcaption>Kleur die bij je past</figcaption></div>
-  <div data-r><figure class="f3"><img src="img/wassen.webp" alt="Haar wassen aan de wastafel" width="1100" height="1647" loading="lazy"></figure><figcaption>Even achterover leunen</figcaption></div>
+  <div data-r style="--i:1"><figure class="f2"><img src="img/blond.webp" alt="Vrouw met verzorgd blond haar" width="1100" height="1568" loading="lazy"></figure><figcaption>Kleur die bij je past</figcaption></div>
+  <div data-r style="--i:2"><figure class="f3"><img src="img/wassen.webp" alt="Haar wassen aan de wastafel" width="1100" height="1647" loading="lazy"></figure><figcaption>Even achterover leunen</figcaption></div>
  </div>
 </section>
 
@@ -278,13 +373,13 @@ footer{padding:28px 0 36px;display:flex;justify-content:space-between;gap:20px;f
    </div>
    <div class="a-right">
     <h3>Wanneer</h3>
-    <div class="dag off"><span>Maandag</span><span>gesloten</span></div>
-    <div class="dag"><span>Dinsdag</span><span>op afspraak</span></div>
-    <div class="dag"><span>Woensdag</span><span>op afspraak</span></div>
-    <div class="dag"><span>Donderdag</span><span>op afspraak</span></div>
-    <div class="dag"><span>Vrijdag</span><span>op afspraak</span></div>
-    <div class="dag"><span>Zaterdag</span><span>op afspraak</span></div>
-    <div class="dag off"><span>Zondag</span><span>gesloten</span></div>
+    <div class="dag off" data-dag="1"><span>Maandag</span><span>gesloten</span></div>
+    <div class="dag" data-dag="2"><span>Dinsdag</span><span>op afspraak</span></div>
+    <div class="dag" data-dag="3"><span>Woensdag</span><span>op afspraak</span></div>
+    <div class="dag" data-dag="4"><span>Donderdag</span><span>op afspraak</span></div>
+    <div class="dag" data-dag="5"><span>Vrijdag</span><span>op afspraak</span></div>
+    <div class="dag" data-dag="6"><span>Zaterdag</span><span>op afspraak</span></div>
+    <div class="dag off" data-dag="0"><span>Zondag</span><span>gesloten</span></div>
     <p class="small">Over de middag nemen we even pauze. Bel gerust, we bellen je terug.</p>
    </div>
   </div>
@@ -292,12 +387,14 @@ footer{padding:28px 0 36px;display:flex;justify-content:space-between;gap:20px;f
 </section>
 
 <section class="rev">
- <div class="wrap" data-r>
+ <div class="wrap" data-r><div class="rev-card">
+  <span class="g"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.5 12.2c0-.7-.1-1.4-.2-2H12v3.9h5.9a5 5 0 0 1-2.2 3.3v2.7h3.5c2.1-1.9 3.3-4.7 3.3-7.9Z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.2-2.7l-3.5-2.7c-1 .7-2.2 1-3.7 1-2.9 0-5.3-1.9-6.2-4.5H2.2v2.8A11 11 0 0 0 12 23Z"/><path fill="#FBBC05" d="M5.8 14.1a6.6 6.6 0 0 1 0-4.2V7.1H2.2a11 11 0 0 0 0 9.8l3.6-2.8Z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3 .6 4.2 1.6l3.1-3.1A11 11 0 0 0 2.2 7.1l3.6 2.8C6.7 7.3 9.1 5.4 12 5.4Z"/></svg>Reviews op Google</span>
+  <div class="big">4,9</div>
   <div class="stars">★★★★★</div>
-  <h2>Gemiddeld 4,9 sterren uit 17 reviews op Google</h2>
+  <h2>17 reviews op Google, gemiddeld 4,9 sterren</h2>
   <p>Wil je weten wat onze klanten schrijven? Lees het zelf.</p>
   <a class="btn btn-line" href="https://www.google.com/maps?cid=7405147540827756840" target="_blank" rel="noopener">Bekijk de reviews</a>
- </div>
+ </div></div>
 </section>
 
 <section class="contact" id="contact">
@@ -313,6 +410,10 @@ footer{padding:28px 0 36px;display:flex;justify-content:space-between;gap:20px;f
 </main>
 
 <script>
+(function(){var r=document.documentElement;function go(){if(r.classList.contains('loaded'))return;r.classList.add('loaded');setTimeout(function(){r.classList.add('settled')},2600)}
+if(document.readyState==='complete')requestAnimationFrame(go);else addEventListener('load',function(){requestAnimationFrame(go)});setTimeout(go,1600);
+var h=document.querySelector('header');function sc(){h.classList.toggle('scrolled',scrollY>10)}addEventListener('scroll',sc,{passive:true});sc();
+var d=new Date().getDay();document.querySelectorAll('[data-dag]').forEach(function(e){if(+e.getAttribute('data-dag')===d&&!e.classList.contains('off'))e.classList.add('today')})})();
 (function(){var els=document.querySelectorAll('[data-r]');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
 var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 els.forEach(function(e){io.observe(e)})})();
