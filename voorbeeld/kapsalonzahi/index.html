@@ -17,165 +17,245 @@
   --grey:#6b6c70;--line:rgba(17,18,20,.12);
   --disp:"Anton",Impact,sans-serif;
   --sans:"Inter Tight",system-ui,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --sh:0 30px 60px -36px rgba(17,18,20,.45);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 html,body{overflow-x:clip}
-body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
-.demo{background:var(--ink);color:#d9d9db;font-size:13px;line-height:1.4;text-align:center;padding:9px 16px}
+.demo{position:relative;z-index:40;background:var(--ink);color:#d9d9db;font-size:13px;line-height:1.4;text-align:center;padding:9px 16px}
 .demo a{color:#fff;font-weight:600;text-underline-offset:3px}
-.wrap{width:min(1240px,100% - 40px);margin-inline:auto}
+.wrap{width:min(1240px,100% - 48px);margin-inline:auto}
 .d{font-family:var(--disp);font-weight:400;text-transform:uppercase;letter-spacing:.005em;line-height:.92}
 .tag{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 .tag::before{content:"";width:8px;height:8px;background:var(--red);border-radius:50%}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 24px;border-radius:12px;font-weight:600;font-size:15.5px;text-decoration:none;transition:transform .2s,background .2s;white-space:nowrap}
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:17px 26px;border-radius:14px;font-weight:600;font-size:15.5px;text-decoration:none;transition:transform .5s var(--ease),background .3s,box-shadow .5s var(--ease),border-color .3s,color .3s;white-space:nowrap}
 .btn:hover{transform:translateY(-2px)}
-.btn svg{width:18px;height:18px}
-.btn-r{background:var(--red);color:#fff}
-.btn-r:hover{background:var(--red2)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn .pijl{transition:transform .5s var(--ease)}
+.btn:hover .pijl{transform:translateX(4px)}
+.btn-r{background:var(--red);color:#fff;box-shadow:0 16px 30px -18px rgba(211,38,44,.9)}
+.btn-r:hover{background:var(--red2);box-shadow:0 22px 36px -18px rgba(211,38,44,.95)}
 .btn-k{background:var(--ink);color:#fff}
 .btn-o{border:1.5px solid var(--ink);color:var(--ink)}
+.btn-o:hover{background:var(--ink);color:#fff}
 
 /* nav */
-.nav{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px;gap:20px}
+.nav{position:sticky;top:0;z-index:30;background:rgba(242,240,234,.86);backdrop-filter:saturate(1.3) blur(14px);-webkit-backdrop-filter:saturate(1.3) blur(14px);border-bottom:1px solid var(--line);transition:box-shadow .4s}
+.nav.vast{box-shadow:0 12px 30px -24px rgba(17,18,20,.35)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px;gap:20px;transition:height .4s var(--ease)}
+.nav.vast .wrap{height:64px}
 .logo{font-family:var(--disp);font-size:30px;text-decoration:none;letter-spacing:.02em;display:flex;align-items:center;gap:8px}
-.logo svg{width:22px;height:22px;color:var(--red)}
-.nav ul{display:flex;gap:28px;list-style:none;font-size:14.5px;font-weight:500}
-.nav ul a{text-decoration:none;color:var(--grey)}
+.logo svg{width:22px;height:22px;color:var(--red);transition:transform .6s var(--ease)}
+.logo:hover svg{transform:rotate(-25deg)}
+.nav ul{display:flex;gap:30px;list-style:none;font-size:14.5px;font-weight:500}
+.nav ul a{position:relative;text-decoration:none;color:var(--grey);transition:color .3s}
+.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
 .nav ul a:hover{color:var(--ink)}
-.nav .btn{padding:11px 18px;font-size:14.5px}
+.nav ul a:hover::after{transform:none}
+.nav .rechts{display:flex;align-items:center;gap:16px}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:var(--grey);white-space:nowrap}
+.status i{width:8px;height:8px;border-radius:50%;background:#a5a6aa}
+.status.open i{background:#2fa35a;box-shadow:0 0 0 0 rgba(47,163,90,.5);animation:puls 2s infinite}
+@keyframes puls{70%{box-shadow:0 0 0 8px rgba(47,163,90,0)}100%{box-shadow:0 0 0 0 rgba(47,163,90,0)}}
+.nav .btn{padding:12px 18px;font-size:14.5px;border-radius:12px}
 
 /* hero */
-.hero{padding:56px 0 0}
-.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:stretch}
-.hero h1{font-size:clamp(66px,9.6vw,148px);margin:22px 0 26px}
-.hero h1 span{color:var(--red)}
-.hero p{font-size:19px;max-width:29em;color:#2f3034}
-.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.hero-ph{position:relative;border-radius:22px;overflow:hidden;min-height:560px}
-.hero-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:42% center}
-.sticker{position:absolute;right:20px;top:20px;width:132px;height:132px;border-radius:50%;background:var(--red);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(-8deg);box-shadow:0 20px 40px -16px rgba(0,0,0,.5)}
-.sticker b{font-family:var(--disp);font-size:44px;font-weight:400;line-height:1}
+.hero{position:relative;padding:60px 0 0;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-160px;top:40px;width:640px;height:640px;border-radius:50%;background:radial-gradient(closest-side,rgba(211,38,44,.07),transparent);pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.12fr .88fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(66px,9vw,138px);margin:22px 0 28px}
+.hero h1 .rood{color:var(--red)}
+.hero h1 .lijn{display:block;overflow:hidden}
+.hero h1 .lijn>span{display:inline-block}
+.js .hero h1 .lijn>span{transform:translateY(105%);transition:transform 1.1s var(--ease)}
+.js .hero .in h1 .lijn>span{transform:none}
+.hero h1 .lijn:nth-child(2)>span{transition-delay:.08s}
+.hero h1 .lijn:nth-child(3)>span{transition-delay:.16s}
+.hero .lead{font-size:19px;max-width:30em;color:#2f3034}
+.hero .lead b{font-weight:600;color:var(--ink)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.mini{display:flex;gap:16px;align-items:flex-start;margin-top:40px;padding-top:26px;border-top:1px solid var(--line);max-width:540px}
+.mini .g{flex:none;width:44px;height:44px;border-radius:50%;background:var(--white);border:1px solid var(--line);display:grid;place-items:center;font:700 18px/1 var(--sans);color:var(--ink)}
+.mini .stars{font-size:13px}
+.mini p{font-size:16px;line-height:1.45;margin:3px 0 4px;color:var(--ink)}
+.mini small{font-size:13.5px;color:var(--grey)}
+.hero-vis{position:relative;padding:0 0 34px 34px}
+.hero-ph{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:4/5;box-shadow:var(--sh)}
+.hero-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:42% center;transition:transform 1.6s var(--ease)}
+.hero-vis:hover .hero-ph img{transform:scale(1.03)}
+.hero-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(17,18,20,.45))}
+.sticker{position:absolute;right:-14px;top:-14px;width:136px;height:136px;border-radius:50%;background:var(--red);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transform:rotate(-8deg);box-shadow:0 20px 40px -16px rgba(0,0,0,.5);z-index:3;transition:transform .6s var(--ease)}
+.hero-vis:hover .sticker{transform:rotate(0deg) scale(1.04)}
+.sticker::before{content:"";position:absolute;inset:7px;border-radius:50%;border:1px dashed rgba(255,255,255,.45)}
+.sticker b{font-family:var(--disp);font-size:46px;font-weight:400;line-height:1}
 .sticker span{font-size:11.5px;font-weight:600;letter-spacing:.06em;line-height:1.3;margin-top:4px}
+.kaart{position:absolute;left:0;bottom:0;z-index:3;display:flex;gap:14px;align-items:center;background:var(--white);border-radius:20px;padding:10px 20px 10px 10px;box-shadow:0 26px 50px -24px rgba(17,18,20,.5)}
+.kaart img{width:68px;height:68px;border-radius:14px;object-fit:cover;object-position:center 30%}
+.kaart b{display:block;font-family:var(--disp);font-weight:400;font-size:24px;text-transform:uppercase;line-height:1}
+.kaart span{display:block;font-size:13.5px;color:var(--grey);margin-top:5px}
+.label{position:absolute;left:20px;bottom:20px;z-index:2;color:#fff;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;display:none}
 
 /* band */
-.band{background:var(--red);color:#fff;margin-top:56px;overflow:hidden}
-.band .row{display:flex;gap:44px;justify-content:center;align-items:center;padding:20px 0;font-family:var(--disp);font-size:clamp(20px,2.2vw,30px);text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;flex-wrap:wrap;row-gap:6px}
+.band{background:var(--red);color:#fff;margin-top:70px;overflow:hidden;border-top:1px solid rgba(255,255,255,.12)}
+.band .loop{display:flex;width:max-content;animation:loop 38s linear infinite}
+.band .row{display:flex;gap:44px;align-items:center;padding:20px 22px;font-family:var(--disp);font-size:clamp(20px,2.2vw,30px);text-transform:uppercase;letter-spacing:.03em;white-space:nowrap}
 .band .row i{font-style:normal;opacity:.55}
+@keyframes loop{to{transform:translateX(-50%)}}
 
 /* stats */
 .stats{padding:90px 0 40px}
 .sgrid{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink)}
-.s{padding:26px 24px 0 0;border-right:1px solid var(--line);margin-right:24px}
+.s{position:relative;padding:28px 24px 0 0;border-right:1px solid var(--line);margin-right:24px}
 .s:last-child{border-right:0;margin-right:0}
 .s b{display:block;font-family:var(--disp);font-weight:400;font-size:clamp(52px,5.6vw,84px);line-height:1}
 .s b em{font-style:normal;color:var(--red)}
-.s span{display:block;color:var(--grey);font-size:15px;margin-top:8px}
+.s span{display:block;color:var(--grey);font-size:15px;margin-top:10px;max-width:15em}
 
 /* zo */
 .zo{padding:90px 0 110px}
 .zo .top{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:50px}
 .zo h2{font-size:clamp(52px,6.4vw,96px);margin-top:16px}
 .zo .top p{max-width:26em;color:#3a3b3f}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.step{background:var(--white);border-radius:20px;padding:34px 32px 36px;border:1px solid var(--line);position:relative;overflow:hidden}
-.step .n{font-family:var(--disp);font-size:120px;line-height:.8;color:rgba(17,18,20,.06);position:absolute;right:18px;bottom:-8px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
+.step{background:var(--white);border-radius:22px;padding:34px 32px 38px;border:1px solid var(--line);position:relative;overflow:hidden;transition:transform .6s var(--ease),box-shadow .6s var(--ease),border-color .4s}
+.step::before{content:"";position:absolute;left:0;top:0;height:4px;width:100%;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
+.step:hover{transform:translateY(-6px);box-shadow:var(--sh);border-color:transparent}
+.step:hover::before{transform:none}
+.step .ic{position:relative;width:52px;height:52px;border-radius:14px;background:var(--paper);display:grid;place-items:center;color:var(--red);margin-bottom:26px}
+.step .ic svg{width:24px;height:24px}
+.step .n{font-family:var(--disp);font-size:130px;line-height:.8;color:rgba(17,18,20,.05);position:absolute;right:18px;bottom:-10px;transition:color .5s}
+.step:hover .n{color:rgba(211,38,44,.1)}
 .step h3{position:relative;font-family:var(--disp);font-weight:400;text-transform:uppercase;font-size:40px;line-height:1;margin-bottom:14px}
 .step h3 span{color:var(--red)}
 .step p{color:#3a3b3f;font-size:16px;position:relative}
 
 /* foto's */
 .fotos{padding:0 0 110px}
-.fgrid{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:300px 300px;gap:16px}
-.fgrid figure{border-radius:20px;overflow:hidden;position:relative}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:310px 310px;gap:16px}
+.fgrid figure{border-radius:22px;overflow:hidden;position:relative}
 .fgrid figure:first-child{grid-row:1/3}
-.fgrid img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
-.fgrid figure:hover img{transform:scale(1.04)}
-.fgrid figcaption{position:absolute;left:16px;bottom:16px;background:var(--paper);border-radius:8px;padding:7px 12px;font-size:13px;font-weight:600}
+.fgrid img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.fgrid figure:hover img{transform:scale(1.05)}
+.fgrid figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(17,18,20,.5));opacity:.8;transition:opacity .5s}
+.fgrid figcaption{position:absolute;left:18px;bottom:18px;z-index:2;background:var(--paper);border-radius:10px;padding:8px 14px;font-size:13px;font-weight:600}
+.fgrid .q{position:absolute;left:28px;right:28px;bottom:26px;z-index:2;color:#fff}
+.fgrid .q b{display:block;font-family:var(--disp);font-weight:400;text-transform:uppercase;font-size:clamp(30px,3.2vw,46px);line-height:1}
+.fgrid .q span{display:block;font-size:14px;color:rgba(255,255,255,.8);margin-top:10px}
 
 /* reviews */
-.rev{background:var(--ink);color:#e7e7e9;padding:110px 0}
+.rev{position:relative;background:var(--ink);color:#e7e7e9;padding:120px 0;overflow:hidden}
+.rev::before{content:"";position:absolute;right:-200px;top:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(closest-side,rgba(211,38,44,.22),transparent);pointer-events:none}
+.rev .wrap{position:relative}
 .rev .top{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:56px}
 .rev .tag{color:#fff}
 .rev h2{font-size:clamp(52px,6.4vw,96px);color:#fff;margin-top:16px}
-.rev .score{display:flex;align-items:center;gap:16px}
-.rev .score b{font-family:var(--disp);font-weight:400;font-size:84px;line-height:1;color:#fff}
+.rev .score{display:flex;align-items:center;gap:18px;text-decoration:none;padding:18px 24px;border:1px solid rgba(255,255,255,.12);border-radius:20px;transition:border-color .3s,background .3s}
+.rev .score:hover{border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.04)}
+.rev .score b{font-family:var(--disp);font-weight:400;font-size:72px;line-height:1;color:#fff}
 .rev .score small{display:block;color:#a3a4a8;font-size:14.5px}
+.rev .score u{color:#fff;text-underline-offset:3px;text-decoration-color:var(--red)}
 .stars{color:var(--red);letter-spacing:2px}
 .rgrid{display:grid;grid-template-columns:1.3fr 1fr;gap:18px}
-.rq{background:var(--ink2);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:36px}
+.rq{background:var(--ink2);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:36px;transition:transform .6s var(--ease),border-color .4s}
+.rq:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.18)}
 .rq.big{grid-row:span 2;display:flex;flex-direction:column;justify-content:space-between;background:var(--red);border-color:var(--red)}
-.rq.big p{font-family:var(--disp);text-transform:uppercase;font-size:clamp(36px,3.8vw,56px);line-height:1;color:#fff}
+.rq.big p{font-family:var(--disp);text-transform:uppercase;font-size:clamp(38px,4vw,60px);line-height:1;color:#fff;margin-top:22px}
 .rq.big .stars{color:#fff}
-.rq p{font-size:18px;margin:14px 0 22px;color:#f1f1f2}
-.rq footer{font-size:14.5px;color:#a3a4a8}
-.rq footer b{color:#fff;font-weight:600}
-.rq.big footer{color:#ffd3d4;margin-top:30px}
+.rq.big .rest{font-size:17px;color:#ffe3e4;margin-top:26px;max-width:28em}
+.rq p{font-size:18px;margin:14px 0 24px;color:#f1f1f2}
+.rq footer{display:flex;align-items:center;gap:12px;font-size:14px;color:#a3a4a8}
+.rq footer i{flex:none;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;font-style:normal;font-weight:700;font-size:13px;color:#fff}
+.rq footer b{display:block;color:#fff;font-weight:600;line-height:1.3}
+.rq.big footer{color:#ffd3d4;margin-top:30px;padding-top:24px;border-top:1px solid rgba(255,255,255,.25)}
+.rq.big footer i{background:rgba(255,255,255,.18)}
 
 /* uren */
 .uren{padding:110px 0}
 .ugrid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.ubox{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:44px}
+.ubox{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:44px}
+.ubox .kop{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.ubox .status{background:var(--paper);border-radius:99px;padding:7px 14px}
 .ubox h2{font-size:clamp(46px,5vw,72px);margin:14px 0 26px}
 .ubox table{width:100%;border-collapse:collapse;font-size:17px}
-.ubox td{padding:12px 0;border-bottom:1px solid var(--line)}
+.ubox td{padding:13px 0;border-bottom:1px solid var(--line)}
 .ubox td:first-child{font-weight:600}
 .ubox td:last-child{text-align:right;font-variant-numeric:tabular-nums}
 .ubox tr.x td{color:var(--red)}
-.cbox{background:var(--navy);color:#dfe4ef;border-radius:22px;padding:44px;display:flex;flex-direction:column}
+.ubox tr.vandaag td{background:var(--paper)}
+.ubox tr.vandaag td:first-child{border-radius:10px 0 0 10px;padding-left:14px}
+.ubox tr.vandaag td:last-child{border-radius:0 10px 10px 0;padding-right:14px}
+.ubox tr.vandaag td:first-child::after{content:"vandaag";margin-left:10px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--ink);border-radius:99px;padding:3px 9px;vertical-align:2px}
+.cbox{position:relative;background:var(--navy);color:#dfe4ef;border-radius:24px;padding:44px;display:flex;flex-direction:column;overflow:hidden}
+.cbox::before{content:"";position:absolute;right:-120px;top:-120px;width:340px;height:340px;border-radius:50%;border:1px solid rgba(255,255,255,.1)}
+.cbox::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(255,255,255,.08)}
+.cbox>*{position:relative;z-index:1}
 .cbox .tag{color:#fff}
 .cbox h2{font-size:clamp(46px,5vw,72px);color:#fff;margin:14px 0 18px}
 .cbox p{color:#c4cbdb;max-width:26em}
 .cbox .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .cbox .btn-w{background:#fff;color:var(--ink)}
 .cbox .btn-l{border:1.5px solid rgba(255,255,255,.4);color:#fff}
+.cbox .btn-l:hover{border-color:#fff;background:rgba(255,255,255,.06)}
 .cbox .adr{margin-top:auto;padding-top:34px;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
 .cbox .adr b{display:block;color:#fff;font-size:18px}
 .cbox .adr span{font-size:15px}
+.ruimte{height:34px}
 
-footer.site{border-top:1px solid var(--line);padding:28px 0 34px;font-size:14px;color:var(--grey)}
-footer.site .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-footer.site a{text-decoration:none}
+footer.site{border-top:1px solid var(--line);padding:34px 0 38px;font-size:14px;color:var(--grey)}
+footer.site .wrap{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+footer.site .logo{font-size:24px;color:var(--ink)}
+footer.site nav{display:flex;gap:22px;flex-wrap:wrap}
+footer.site a{text-decoration:none;transition:color .3s}
+footer.site a:hover{color:var(--ink)}
 
-.js [data-r]{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.js [data-r]{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s)}
 .js [data-r].in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js [data-r]{opacity:1;transform:none;transition:none}}
+@media (prefers-reduced-motion:reduce){.js [data-r]{opacity:1;transform:none;transition:none}.band .loop{animation:none}.js .hero h1 .lijn>span{transform:none}}
 
 @media (max-width:1020px){
-  .nav ul{display:none}
-  .hero .wrap{grid-template-columns:1fr 1fr;gap:32px}
-  .hero-ph{min-height:480px}
+  .nav ul,.nav .status{display:none}
+  .hero .wrap{grid-template-columns:1fr 1fr;gap:36px}
   .sgrid{grid-template-columns:1fr 1fr}
   .s{padding-bottom:26px;border-bottom:1px solid var(--line)}
   .s:nth-child(2){border-right:0;margin-right:0}
   .steps{grid-template-columns:1fr}
   .ugrid{grid-template-columns:1fr}
+  .kaart{padding:8px 16px 8px 8px}
+  .kaart img{width:56px;height:56px}
+  .kaart b{font-size:20px}
 }
 @media (max-width:760px){
   body{font-size:16px}
   .wrap{width:calc(100% - 32px)}
+  .nav .wrap,.nav.vast .wrap{height:64px}
   .hero{padding:36px 0 0}
-  .hero .wrap{grid-template-columns:1fr}
+  .hero .wrap{grid-template-columns:1fr;gap:44px}
   .hero h1{font-size:clamp(56px,17vw,92px)}
-  .hero-ph{min-height:0;aspect-ratio:4/4.4}
-  .sticker{width:108px;height:108px}
+  .hero .lead{font-size:17px}
+  .hero .cta .btn{flex:1}
+  .hero-vis{padding:0 0 30px 14px}
+  .hero-ph{aspect-ratio:4/4.4}
+  .sticker{width:108px;height:108px;right:-4px;top:-10px}
   .sticker b{font-size:36px}
-  .band{margin-top:40px}
-  .band .row{gap:18px;font-size:19px}
+  .band{margin-top:50px}
+  .band .row{gap:18px;font-size:19px;padding:16px 9px}
   .stats{padding:64px 0 20px}
   .s{margin-right:14px;padding-right:14px}
-  .zo,.rev,.uren{padding:76px 0}
-  .fotos{padding-bottom:76px}
+  .zo,.rev,.uren{padding:80px 0}
+  .fotos{padding-bottom:80px}
   .fgrid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
   .fgrid figure{aspect-ratio:1}
-  .fgrid figure:first-child{grid-column:1/-1;grid-row:auto;aspect-ratio:16/10}
+  .fgrid figure:first-child{grid-column:1/-1;grid-row:auto;aspect-ratio:4/4.4}
   .rgrid{grid-template-columns:1fr}
   .rq.big{grid-row:auto}
   .rq{padding:28px 24px}
+  .rev .score b{font-size:56px}
   .ubox,.cbox{padding:32px 22px}
+  .ubox td{font-size:16px}
   .nav .btn{padding:10px 14px}
 }
 </style>
@@ -183,7 +263,7 @@ footer.site a{text-decoration:none}
 <body>
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
-<header class="nav">
+<header class="nav" id="nav">
   <div class="wrap">
     <a class="logo" href="#top">ZAHI <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg></a>
     <ul>
@@ -191,7 +271,7 @@ footer.site a{text-decoration:none}
       <li><a href="#reviews">Reviews</a></li>
       <li><a href="#uren">Openingsuren</a></li>
     </ul>
-    <a class="btn btn-r" href="tel:+32466097923">Bel ons</a>
+    <div class="rechts"><span class="status" data-status><i></i><span>9.00 tot 19.00</span></span><a class="btn btn-r" href="tel:+32466097923">Bel ons</a></div>
   </div>
 </header>
 
@@ -200,23 +280,31 @@ footer.site a{text-decoration:none}
     <div class="wrap">
       <div data-r>
         <span class="tag">Kapsalon ZAHI</span>
-        <h1 class="d">Vlot geknipt.<br><span>Precies</span> goed.</h1>
-        <p>Je zegt hoe je het wil, de kapper doet de rest. Snel, nauwkeurig en zonder poespas. Daarom komen veel klanten hier al jaren, en daarom staat de teller op 867 reviews.</p>
+        <h1 class="d"><span class="lijn"><span>Vlot</span></span><span class="lijn"><span>geknipt.</span></span><span class="lijn"><span><span class="rood">Precies</span> goed.</span></span></h1>
+        <p class="lead">Je zegt hoe je het wil, de kapper doet de rest. Snel, nauwkeurig en zonder poespas. <b>Daarom komen veel klanten hier al jaren terug, en daarom staat de teller op 867 reviews.</b> Zes dagen op zeven open, ook op zondag.</p>
         <div class="cta">
           <a class="btn btn-r" href="tel:+32466097923">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>
             0466 09 79 23
           </a>
-          <a class="btn btn-o" href="#uren">Openingsuren</a>
+          <a class="btn btn-o" href="#uren">Openingsuren<svg class="pijl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="mini">
+          <span class="g">G</span>
+          <div><span class="stars">★★★★★</span><p>“Altijd heel vlot en perfect wat je als klant wilt!”</p><small>Ili cool, op Google</small></div>
         </div>
       </div>
-      <div class="hero-ph" data-r>
-        <img src="img/zaak.webp" alt="Het interieur van Kapsalon ZAHI" width="1124" height="633" fetchpriority="high">
+      <div class="hero-vis" data-r style="--d:.12s">
+        <div class="hero-ph"><img src="img/zaak.webp" alt="Het interieur van Kapsalon ZAHI" width="1124" height="633" fetchpriority="high"></div>
         <div class="sticker"><b>4,8</b><span>★★★★★<br>867 reviews</span></div>
+        <div class="kaart"><img src="img/spiegel.webp" alt="" width="1100" height="1464"><div><b>Ook op zondag</b><span>Van 9.00 tot 19.00 open</span></div></div>
       </div>
     </div>
     <div class="band" aria-hidden="true">
-      <div class="row"><span>6 dagen op 7 open</span><i>✂</i><span>ook op zondag</span><i>✂</i><span>9.00 tot 19.00</span></div>
+      <div class="loop">
+        <div class="row"><span>6 dagen op 7 open</span><i>✂</i><span>ook op zondag</span><i>✂</i><span>9.00 tot 19.00</span><i>✂</i><span>4,8 uit 867 reviews</span><i>✂</i><span>vlot en precies</span><i>✂</i></div>
+        <div class="row"><span>6 dagen op 7 open</span><i>✂</i><span>ook op zondag</span><i>✂</i><span>9.00 tot 19.00</span><i>✂</i><span>4,8 uit 867 reviews</span><i>✂</i><span>vlot en precies</span><i>✂</i></div>
+      </div>
     </div>
   </section>
 
@@ -225,7 +313,7 @@ footer.site a{text-decoration:none}
       <div class="sgrid" data-r>
         <div class="s"><b>4,8<em>★</em></b><span>gemiddelde score op Google</span></div>
         <div class="s"><b>867</b><span>reviews van klanten</span></div>
-        <div class="s"><b>6<em>/</em>7</b><span>dagen per week open</span></div>
+        <div class="s"><b>6<em>/</em>7</b><span>dagen per week open, enkel dinsdag dicht</span></div>
         <div class="s"><b>ZO</b><span>ook op zondag geknipt</span></div>
       </div>
     </div>
@@ -238,9 +326,9 @@ footer.site a{text-decoration:none}
         <p>Geen gedoe en geen lange babbels als je daar geen zin in hebt. Gewoon goed vakwerk, in korte tijd.</p>
       </div>
       <div class="steps">
-        <div class="step" data-r><span class="n">01</span><h3>Zeg wat <span>je wil</span></h3><p>Kort, opgeschoren, een fade of gewoon wat bijwerken. Een foto op je gsm helpt ook.</p></div>
-        <div class="step" data-r><span class="n">02</span><h3>Snel <span>en precies</span></h3><p>De kapper werkt vlot, maar zonder te haasten. Elke lijn zit waar ze moet zitten.</p></div>
-        <div class="step" data-r><span class="n">03</span><h3>Klaar <span>voor de dag</span></h3><p>Even in de spiegel kijken, afrekenen en weer verder. Meestal sta je sneller buiten dan je denkt.</p></div>
+        <div class="step" data-r><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></span><span class="n">01</span><h3>Zeg wat <span>je wil</span></h3><p>Kort, opgeschoren, een fade of gewoon wat bijwerken. Een foto op je gsm helpt ook.</p></div>
+        <div class="step" data-r style="--d:.08s"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg></span><span class="n">02</span><h3>Snel <span>en precies</span></h3><p>De kapper werkt vlot, maar zonder te haasten. Elke lijn zit waar ze moet zitten.</p></div>
+        <div class="step" data-r style="--d:.16s"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></span><span class="n">03</span><h3>Klaar <span>voor de dag</span></h3><p>Even in de spiegel kijken, afrekenen en weer verder. Meestal sta je sneller buiten dan je denkt.</p></div>
       </div>
     </div>
   </section>
@@ -248,9 +336,9 @@ footer.site a{text-decoration:none}
   <section class="fotos">
     <div class="wrap">
       <div class="fgrid">
-        <figure data-r><img src="img/fade.webp" alt="Strakke fade met tondeuse" loading="lazy" width="1100" height="1648" style="object-position:center 35%"></figure>
-        <figure data-r><img src="img/spiegel.webp" alt="Werkplek met spiegel bij Kapsalon ZAHI" loading="lazy" width="1100" height="1464" style="object-position:center 30%"><figcaption>In de zaak</figcaption></figure>
-        <figure data-r><img src="img/gerief.webp" alt="Tondeuses, schaar en kam" loading="lazy" width="1600" height="1067"></figure>
+        <figure data-r><img src="img/fade.webp" alt="Strakke fade met tondeuse" loading="lazy" width="1100" height="1647" style="object-position:center 35%"><div class="q"><b>Elke lijn op zijn plaats.</b><span>Fades, opscheren of gewoon wat korter.</span></div></figure>
+        <figure data-r style="--d:.08s"><img src="img/spiegel.webp" alt="Werkplek met spiegel bij Kapsalon ZAHI" loading="lazy" width="1100" height="1464" style="object-position:center 30%"><figcaption>In de zaak</figcaption></figure>
+        <figure data-r style="--d:.16s"><img src="img/gerief.webp" alt="Tondeuses, schaar en kam" loading="lazy" width="1600" height="1067"></figure>
       </div>
     </div>
   </section>
@@ -259,15 +347,15 @@ footer.site a{text-decoration:none}
     <div class="wrap">
       <div class="top" data-r>
         <div><span class="tag">Reviews</span><h2 class="d">Klanten blijven komen.</h2></div>
-        <div class="score"><b>4,8</b><div><span class="stars">★★★★★</span><small>867 reviews op Google</small></div></div>
+        <a class="score" href="https://www.google.com/maps?cid=7695916271773405403" target="_blank" rel="noopener"><b>4,8</b><div><span class="stars">★★★★★</span><small>867 reviews op Google<br><u>Lees ze allemaal</u></small></div></a>
       </div>
       <div class="rgrid">
         <blockquote class="rq big" data-r>
-          <div><span class="stars">★★★★★</span><p style="margin-top:20px">“Gemiddeld ben ik in 7 minuten terug buiten.”</p></div>
-          <footer><b style="color:#fff">T P</b> · “Ik kom hier al jaren omdat de kapper snel werkt en ik geen praatje hoef te doen.”</footer>
+          <div><span class="stars">★★★★★</span><p>“Gemiddeld ben ik in 7 minuten terug buiten.”</p><div class="rest">“Ik kom hier al jaren omdat de kapper snel werkt en ik geen praatje hoef te doen.”</div></div>
+          <footer><i>TP</i><span><b>T P</b>Google-review</span></footer>
         </blockquote>
-        <blockquote class="rq" data-r><span class="stars">★★★★★</span><p>“Ik ben al een paar jaar een vaste klant bij Kapsalon Zahi. De kapper is heel professioneel en hij kan je haar in korte tijd knippen. Ook is hij heel precies in zijn techniek.”</p><footer><b>Paul TRAIPHOOMI</b> · Google</footer></blockquote>
-        <blockquote class="rq" data-r><span class="stars">★★★★★</span><p>“Altijd heel vlot en perfect wat je als klant wilt!”</p><footer><b>Ili cool</b> · Google</footer></blockquote>
+        <blockquote class="rq" data-r style="--d:.08s"><span class="stars">★★★★★</span><p>“Ik ben al een paar jaar een vaste klant bij Kapsalon Zahi. De kapper is heel professioneel en hij kan je haar in korte tijd knippen. Ook is hij heel precies in zijn techniek.”</p><footer><i>PT</i><span><b>Paul TRAIPHOOMI</b>Google-review</span></footer></blockquote>
+        <blockquote class="rq" data-r style="--d:.16s"><span class="stars">★★★★★</span><p>“Altijd heel vlot en perfect wat je als klant wilt!”</p><footer><i>IC</i><span><b>Ili cool</b>Google-review</span></footer></blockquote>
       </div>
     </div>
   </section>
@@ -276,19 +364,19 @@ footer.site a{text-decoration:none}
     <div class="wrap">
       <div class="ugrid">
         <div class="ubox" data-r>
-          <span class="tag">Openingsuren</span>
+          <div class="kop"><span class="tag">Openingsuren</span><span class="status" data-status><i></i><span>9.00 tot 19.00</span></span></div>
           <h2 class="d">Open als jij tijd hebt.</h2>
           <table>
-            <tr><td>Maandag</td><td>9.00 tot 19.00</td></tr>
-            <tr class="x"><td>Dinsdag</td><td>Gesloten</td></tr>
-            <tr><td>Woensdag</td><td>9.00 tot 19.00</td></tr>
-            <tr><td>Donderdag</td><td>9.00 tot 19.00</td></tr>
-            <tr><td>Vrijdag</td><td>9.00 tot 19.00</td></tr>
-            <tr><td>Zaterdag</td><td>9.00 tot 19.00</td></tr>
-            <tr><td>Zondag</td><td>9.00 tot 19.00</td></tr>
+            <tr data-dag="1"><td>Maandag</td><td>9.00 tot 19.00</td></tr>
+            <tr class="x" data-dag="2"><td>Dinsdag</td><td>Gesloten</td></tr>
+            <tr data-dag="3"><td>Woensdag</td><td>9.00 tot 19.00</td></tr>
+            <tr data-dag="4"><td>Donderdag</td><td>9.00 tot 19.00</td></tr>
+            <tr data-dag="5"><td>Vrijdag</td><td>9.00 tot 19.00</td></tr>
+            <tr data-dag="6"><td>Zaterdag</td><td>9.00 tot 19.00</td></tr>
+            <tr data-dag="0"><td>Zondag</td><td>9.00 tot 19.00</td></tr>
           </table>
         </div>
-        <div class="cbox" data-r>
+        <div class="cbox" data-r style="--d:.1s">
           <span class="tag">Contact</span>
           <h2 class="d">Vragen? Bel even.</h2>
           <p>Wil je weten hoe druk het is, of heb je een vraag? Bel of stuur een berichtje via WhatsApp.</p>
@@ -296,7 +384,8 @@ footer.site a{text-decoration:none}
             <a class="btn btn-w" href="tel:+32466097923">Bel 0466 09 79 23</a>
             <a class="btn btn-l" href="https://wa.me/32466097923" target="_blank" rel="noopener">WhatsApp</a>
           </div>
-          <div class="adr"><div><b>Katelijnestraat 53</b><span>8000 Brugge</span></div><a class="btn btn-l" href="https://www.google.com/maps/dir/?api=1&amp;destination=Katelijnestraat+53+8000+Brugge" target="_blank" rel="noopener">Route</a></div>
+          <div class="ruimte"></div>
+          <div class="adr"><div><b>Katelijnestraat 53</b><span>8000 Brugge</span></div><a class="btn btn-l" href="https://www.google.com/maps/dir/?api=1&amp;destination=Katelijnestraat+53+8000+Brugge" target="_blank" rel="noopener">Route<svg class="pijl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div>
       </div>
     </div>
@@ -305,7 +394,8 @@ footer.site a{text-decoration:none}
 
 <footer class="site">
   <div class="wrap">
-    <span>© Kapsalon ZAHI</span>
+    <a class="logo" href="#top">ZAHI</a>
+    <nav><a href="#zo">Zo gaat het</a><a href="#reviews">Reviews</a><a href="#uren">Openingsuren</a><span>Katelijnestraat 53, 8000 Brugge</span></nav>
     <a href="#di">Voorbeeldsite door Digital Impression</a>
   </div>
 </footer>
@@ -313,9 +403,14 @@ footer.site a{text-decoration:none}
 <script>
 (function(){
   var els=document.querySelectorAll('[data-r]');
-  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
-  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
-  els.forEach(function(e){io.observe(e)});
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});}
+  else{var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e)});}
+  var nav=document.getElementById('nav');function sc(){nav.classList.toggle('vast',scrollY>30)}window.addEventListener('scroll',sc,{passive:true});sc();
+  var n=new Date(),d=n.getDay(),t=n.getHours()+n.getMinutes()/60,open=d!==2&&t>=9&&t<19;
+  var txt=open?'Nu open tot 19.00':(d!==2&&t<9?'Vandaag open vanaf 9.00':(d===1?'Nu gesloten, woensdag terug open':'Nu gesloten, morgen open vanaf 9.00'));
+  document.querySelectorAll('[data-status]').forEach(function(e){e.classList.toggle('open',open);e.querySelector('span').textContent=txt});
+  document.querySelectorAll('[data-dag="'+d+'"]').forEach(function(e){e.classList.add('vandaag')});
 })();
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">

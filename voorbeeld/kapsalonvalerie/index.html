@@ -17,7 +17,7 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:var(--room);color:var(--inkt);font:400 17px/1.7 var(--sans);overflow-x:hidden}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
-.demo{background:var(--terra);color:#FFF6F0;font:600 13px/1.4 var(--sans);text-align:center;padding:9px 16px}
+.demo{position:relative;z-index:60;background:var(--terra);color:#FFF6F0;font:600 13px/1.4 var(--sans);text-align:center;padding:9px 16px}
 .demo a{color:#FFF6F0;text-underline-offset:3px}
 .wrap{width:min(1180px,100% - 48px);margin-inline:auto}
 .over{display:inline-flex;align-items:center;gap:10px;font:700 12.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--terra)}
@@ -41,23 +41,52 @@ nav a.l:hover{color:var(--terra)}
 nav .knop{padding:12px 20px;font-size:14px}
 
 /* hero */
-.hero{padding:40px 0 110px}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-.hero h1{font:300 clamp(46px,5.6vw,80px)/1.02 var(--serif);letter-spacing:-.02em;margin:20px 0 26px}
+.hero{position:relative;padding:34px 0 0;isolation:isolate}
+header{position:relative;z-index:3}
+.hero::before{content:"";position:absolute;inset:-130px 0 0;z-index:-1;background:radial-gradient(900px 520px at 88% 30%,rgba(239,221,209,.9),transparent 70%),radial-gradient(460px 360px at 0% 62%,rgba(227,231,220,.7),transparent 70%)}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:64px;align-items:center;min-height:min(720px,calc(100vh - 150px))}
+.hero .over{margin-bottom:4px}
+.hero h1{font:300 clamp(46px,5.4vw,78px)/1.02 var(--serif);letter-spacing:-.02em;margin:20px 0 26px;text-wrap:balance}
 .hero h1 em{font-style:italic;color:var(--terra)}
-.hero .lead{font-size:19px;color:var(--zacht);max-width:480px}
-.hero .knoppen{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
-.collage{position:relative;height:600px}
-.collage .groot{position:absolute;right:0;top:0;width:78%;height:88%;object-fit:cover;border-radius:300px 300px 24px 24px}
-.collage .klein{position:absolute;left:0;bottom:0;width:44%;height:42%;object-fit:cover;border-radius:24px;border:8px solid var(--room)}
-.collage .blob{position:absolute;left:8%;top:6%;width:42%;aspect-ratio:1;border-radius:50%;background:var(--salie2);z-index:-1}
-.open{position:absolute;right:6%;bottom:2%;background:#fff;border-radius:18px;padding:16px 20px;box-shadow:0 24px 50px -24px rgba(45,36,32,.35);display:flex;gap:14px;align-items:center}
-.open i{width:10px;height:10px;border-radius:50%;background:var(--salie);box-shadow:0 0 0 5px var(--salie2)}
-.open b{display:block;font-size:15px}
+.hero .lead{font-size:19px;color:var(--zacht);max-width:500px}
+.hero .lead b{color:var(--inkt);font-weight:600}
+.hero .knoppen{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.knop.vol svg{transition:transform .3s}
+.knop.vol:hover svg{transform:rotate(-12deg)}
+.hero-score{display:flex;align-items:center;gap:16px;margin-top:38px;padding-top:26px;border-top:1px solid var(--lijn);max-width:500px;text-decoration:none}
+.hero-score .s{font:300 46px/1 var(--serif);letter-spacing:-.02em}
+.hero-score .st{display:block;color:var(--terra);letter-spacing:3px;font-size:14px;line-height:1}
+.hero-score small{display:block;color:var(--zacht);font-size:14.5px;margin-top:6px;line-height:1.4}
+.hero-score small u{text-underline-offset:3px;text-decoration-color:var(--blos2)}
+.hero-score:hover small u{text-decoration-color:var(--terra)}
+.collage{position:relative;height:640px}
+.collage .groot{position:absolute;right:0;top:0;width:78%;height:90%;object-fit:cover;border-radius:300px 300px 26px 26px;box-shadow:0 40px 80px -50px rgba(45,36,32,.5)}
+.collage .klein{position:absolute;left:0;bottom:4%;width:44%;height:40%;object-fit:cover;border-radius:24px;border:8px solid var(--room);box-shadow:0 30px 60px -36px rgba(45,36,32,.45)}
+.collage .blob{position:absolute;left:6%;top:8%;width:42%;aspect-ratio:1;border-radius:50%;background:var(--salie2);z-index:-1}
+.collage .lijnboog{position:absolute;right:-18px;top:-18px;width:calc(78% + 36px);height:calc(90% + 18px);border:1px solid var(--blos2);border-bottom:0;border-radius:320px 320px 0 0;z-index:-1}
+.zegel{position:absolute;left:12%;top:2%;width:132px;height:132px;border-radius:50%;background:var(--room);display:grid;place-items:center;box-shadow:0 20px 40px -28px rgba(45,36,32,.45)}
+.zegel svg{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);animation:draai 28s linear infinite}
+.zegel text{font:700 8.6px var(--sans);letter-spacing:.12em;text-transform:uppercase;fill:var(--terra2)}
+.zegel b{font:400 italic 30px/1 var(--serif);color:var(--inkt)}
+@keyframes draai{to{transform:rotate(360deg)}}
+.open{position:absolute;right:4%;bottom:0;background:#fff;border-radius:18px;padding:16px 20px;box-shadow:0 24px 50px -24px rgba(45,36,32,.35);display:flex;gap:14px;align-items:center}
+.open i{flex:none;width:10px;height:10px;border-radius:50%;background:var(--salie);box-shadow:0 0 0 5px var(--salie2);animation:puls 2.4s ease-in-out infinite}
+.open.dicht i{background:#C9A99A;box-shadow:0 0 0 5px var(--blos);animation:none}
+@keyframes puls{50%{box-shadow:0 0 0 9px rgba(227,231,220,.4)}}
+.open b{display:block;font-size:15px;line-height:1.3}
 .open span{font-size:13.5px;color:var(--zacht)}
+.feiten{position:relative;display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-radius:26px;margin-top:64px;box-shadow:0 30px 60px -44px rgba(45,36,32,.4);transform:translateY(50%);z-index:2}
+.feit{display:flex;gap:16px;align-items:flex-start;padding:28px 24px 30px}
+.feit+.feit{border-left:1px solid var(--lijn)}
+.feit .ic{flex:none;width:44px;height:44px;border-radius:14px;background:var(--room);display:grid;place-items:center;color:var(--terra)}
+.feit .ic svg{width:21px;height:21px}
+.feit b{display:block;font:400 18px/1.25 var(--serif);white-space:nowrap;margin-bottom:4px}
+.feit span{display:block;font-size:14.5px;line-height:1.5;color:var(--zacht)}
+.feit a{text-underline-offset:3px;text-decoration-color:var(--blos2)}
+.feit a:hover{color:var(--terra)}
 
 /* welkom */
-.welkom{background:#fff;padding:120px 0}
+.welkom{background:#fff;padding:200px 0 120px}
 .welkom-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px;align-items:center}
 .welkom img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:24px}
 .welkom .t{order:2}.welkom .f{order:1}
@@ -115,7 +144,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 @media (max-width:1000px){
   nav a.l{display:none}
   .hero-grid,.welkom-grid,.contact-grid{grid-template-columns:1fr;gap:48px}
-  .collage{height:520px;max-width:620px;width:100%;margin:0 auto}
+  .hero-grid{min-height:0}
+  .collage{height:540px;max-width:620px;width:100%;margin:0 auto}
+  .feiten{grid-template-columns:1fr 1fr;transform:none;margin-top:56px}
+  .feit:nth-child(3){border-left:0}
+  .feit:nth-child(n+3){border-top:1px solid var(--lijn)}
+  .hero{padding-bottom:84px}
+  .welkom{padding-top:110px}
   .kaarten{grid-template-columns:1fr 1fr}
   .diensten .kop{flex-direction:column;align-items:start;gap:0}
   .band-grid{grid-template-columns:1fr;gap:24px}
@@ -127,11 +162,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
   .wrap{width:calc(100% - 32px)}
   header .wrap{padding:18px 0}
   .logo b{font-size:26px}
-  .hero{padding:28px 0 80px}
+  .hero{padding:28px 0 64px}
   .hero .lead{font-size:17px}
   .hero .knoppen .knop{width:100%}
-  .collage{height:420px}
+  .collage{height:440px}
+  .collage .lijnboog{right:-8px;top:-10px;width:calc(78% + 16px)}
+  .zegel{width:104px;height:104px;left:4%}
+  .zegel b{font-size:24px}
   .open{right:0;padding:12px 16px}
+  .hero-score{margin-top:30px}
+  .feiten{grid-template-columns:1fr;margin-top:44px}
+  .feit{padding:22px}
+  .feit b{white-space:normal}
+  .feit+.feit{border-left:0;border-top:1px solid var(--lijn)}
   .welkom,.diensten,.contact{padding:84px 0}
   .beloftes{grid-template-columns:1fr}
   .kaarten{grid-template-columns:1fr;gap:16px}
@@ -165,21 +208,35 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 
 <main id="top">
   <section class="hero">
-    <div class="wrap hero-grid">
-      <div data-r>
-        <span class="over">Kapsalon Valerie</span>
-        <h1>Even tijd voor <em>jezelf</em>, en naar buiten met haar dat goed zit.</h1>
-        <p class="lead">Een rustig salon waar je niet moet roepen om gehoord te worden. Je vertelt wat je wil, Valerie denkt mee en je gaat naar huis met een kapsel dat ook thuis nog te doen is.</p>
-        <div class="knoppen">
-          <a class="knop vol" href="tel:+32499222965"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Bel 0499 22 29 65</a>
-          <a class="knop zacht" href="https://wa.me/32499222965?text=Hallo%20Valerie%2C%20ik%20zou%20graag%20een%20afspraak%20maken">Stuur een berichtje</a>
+    <div class="wrap">
+      <div class="hero-grid">
+        <div data-r>
+          <span class="over">Kapsalon · op afspraak</span>
+          <h1>Even tijd voor <em>jezelf</em>, en naar buiten met haar dat goed zit.</h1>
+          <p class="lead">Een rustig salon waar je niet moet roepen om gehoord te worden. Je vertelt wat je wil, Valerie denkt mee en kijkt eerlijk naar wat jouw haar aankan. <b>Je gaat naar huis met een kapsel dat je ook thuis zelf in model krijgt.</b></p>
+          <div class="knoppen">
+            <a class="knop vol" href="tel:+32499222965"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Bel 0499 22 29 65</a>
+            <a class="knop zacht" href="https://wa.me/32499222965?text=Hallo%20Valerie%2C%20ik%20zou%20graag%20een%20afspraak%20maken">Stuur een berichtje</a>
+          </div>
+          <a class="hero-score" href="https://www.google.com/maps?cid=4821107155276838495" target="_blank" rel="noopener">
+            <span class="s">5,0</span>
+            <span><span class="st">★★★★★</span><small>Elke klant gaf vijf sterren op Google. <u>Lees wat ze schrijven</u></small></span>
+          </a>
+        </div>
+        <div class="collage" data-r>
+          <span class="blob"></span>
+          <span class="lijnboog" aria-hidden="true"></span>
+          <img class="groot" src="img/brushing.webp" alt="Kapster brusht het haar van een klant" width="1600" height="1068" style="object-position:55% 40%">
+          <img class="klein" src="img/opsteek.webp" alt="Haar wordt opgestoken met spelden" width="1600" height="1067">
+          <div class="zegel" aria-hidden="true"><svg viewBox="0 0 100 100"><defs><path id="cirkel" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text><textPath href="#cirkel" textLength="236" lengthAdjust="spacing">knippen · kleuren · brushen · krullen ·</textPath></text></svg><b>V</b></div>
+          <div class="open" id="open"><i></i><div><b>Maandag tot vrijdag open</b><span>vanaf 9 uur, op afspraak</span></div></div>
         </div>
       </div>
-      <div class="collage" data-r>
-        <span class="blob"></span>
-        <img class="groot" src="img/brushing.webp" alt="Kapster brusht het haar van een klant" width="1600" height="1068" style="object-position:55% 40%">
-        <img class="klein" src="img/opsteek.webp" alt="Haar wordt opgestoken met spelden" width="1600" height="1067">
-        <div class="open"><i></i><div><b>Maandag tot vrijdag open</b><span>vanaf 9 uur, op afspraak</span></div></div>
+      <div class="feiten" data-r>
+        <div class="feit"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><div><b>Op afspraak</b><span>Zo zit je niet te wachten en is er tijd voor jou.</span></div></div>
+        <div class="feit"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b>Ma tot vr open</b><span>Vanaf 9 uur, dinsdag tot donderdag tot 18 uur.</span></div></div>
+        <div class="feit"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg></span><div><b>Knippen tot kleuren</b><span>Ook krullen, brushings en kinderen.</span></div></div>
+        <div class="feit"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><div><b>Pannenhuisstraat 337</b><span><a href="https://www.google.com/maps/dir/?api=1&destination=Pannenhuisstraat+337+2500+Lier" target="_blank" rel="noopener">Toon de route</a></span></div></div>
       </div>
     </div>
   </section>
@@ -267,6 +324,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 <script>
 (function(){var els=document.querySelectorAll('[data-r]');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
 var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e)})})();
+</script>
+<script>
+(function(){var o=document.getElementById('open');if(!o)return;var u={1:[9,15],2:[9,18],3:[9,18],4:[9,18],5:[9,17]};var n=new Date(),d=n.getDay(),t=n.getHours()+n.getMinutes()/60,b=o.querySelector('b'),s=o.querySelector('span');
+var dagen=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+if(u[d]&&t>=u[d][0]&&t<u[d][1]){b.textContent='Nu open';s.textContent='vandaag tot '+u[d][1]+':00';return}
+o.classList.add('dicht');var k=d,x=0;if(u[d]&&t<u[d][0]){b.textContent='Vandaag open';s.textContent='van '+u[d][0]+':00 tot '+u[d][1]+':00';o.classList.remove('dicht');return}
+do{k=(k+1)%7;x++}while(!u[k]&&x<8);b.textContent='Nu gesloten';s.textContent=(x===1?'morgen':dagen[k])+' terug open vanaf '+u[k][0]+':00'})();
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
 <style>

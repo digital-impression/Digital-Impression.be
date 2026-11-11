@@ -12,244 +12,399 @@
 <script>document.documentElement.classList.replace('no-js','js')</script>
 <style>
 :root{
-  --pearl:#f8f3ef;--blush:#efe1db;--rose:#e2c7bf;
-  --mauve:#8a5866;--mauve2:#74475499;
+  --pearl:#f8f3ef;--blush:#efe1db;--rose:#e2c7bf;--rose2:#f4e9e4;
+  --mauve:#8a5866;--mauve-d:#744754;
   --deep:#2f2227;--text:#4a3b40;--soft:#8a7a7f;
   --gold:#bf9f74;
   --disp:"Italiana",Georgia,serif;
   --sans:"Jost",system-ui,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --sh:0 30px 60px -40px rgba(47,34,39,.38);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 html,body{overflow-x:clip}
-body{background:var(--pearl);color:var(--text);font-family:var(--sans);font-weight:400;font-size:17px;line-height:1.7}
+body{background:var(--pearl);color:var(--text);font-family:var(--sans);font-weight:400;font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
-.demo{background:var(--mauve);color:#f7e8ec;font-size:13px;line-height:1.4;text-align:center;padding:9px 16px}
+.demo{position:relative;z-index:60;background:var(--mauve);color:#f7e8ec;font-size:13px;line-height:1.4;text-align:center;padding:9px 16px}
 .demo a{color:#fff;font-weight:600;text-underline-offset:3px}
-.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
-h1,h2,h3{font-family:var(--disp);font-weight:400;color:var(--deep);line-height:1.08;letter-spacing:.005em}
-.over{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--mauve);font-weight:500}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 28px;border-radius:999px;font-size:14.5px;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:transform .25s,background .25s;white-space:nowrap}
+.wrap{width:min(1200px,100% - 48px);margin-inline:auto}
+h1,h2,h3{font-family:var(--disp);font-weight:400;color:var(--deep);line-height:1.06;letter-spacing:.005em}
+.over{display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--mauve);font-weight:500}
+.over::before,.over.c::after{content:"";width:22px;height:1px;background:var(--gold)}
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:999px;font-size:14.5px;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:transform .5s var(--ease),background .4s,box-shadow .5s var(--ease),color .3s;white-space:nowrap}
 .btn:hover{transform:translateY(-2px)}
-.btn svg{width:17px;height:17px}
-.btn-m{background:var(--mauve);color:#fff}
-.btn-m:hover{background:#774a56}
-.btn-l{border:1px solid var(--rose);color:var(--deep);background:rgba(255,255,255,.5)}
+.btn svg{width:17px;height:17px;flex:none}
+.btn .pijl{transition:transform .5s var(--ease)}
+.btn:hover .pijl{transform:translateX(4px)}
+.btn-m{background:var(--mauve);color:#fff;box-shadow:0 14px 30px -16px rgba(138,88,102,.8)}
+.btn-m:hover{background:var(--mauve-d);box-shadow:0 20px 36px -16px rgba(138,88,102,.9)}
+.btn-l{border:1px solid var(--rose);color:var(--deep);background:rgba(255,255,255,.6);backdrop-filter:blur(6px)}
+.btn-l:hover{background:#fff}
 
 /* nav */
-.nav{border-bottom:1px solid var(--blush)}
-.nav .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:92px;gap:20px}
-.nav ul{display:flex;gap:30px;list-style:none;font-size:14px;letter-spacing:.06em}
-.nav ul a{text-decoration:none;color:var(--soft)}
+.nav{position:sticky;top:0;z-index:50;background:transparent;border-bottom:1px solid transparent;transition:border-color .4s,box-shadow .4s,background .4s}
+.nav.vast{background:rgba(248,243,239,.86);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom-color:var(--blush);box-shadow:0 10px 30px -24px rgba(47,34,39,.3)}
+.nav .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:88px;gap:20px;transition:height .4s var(--ease)}
+.nav.vast .wrap{height:72px}
+.nav ul{display:flex;gap:32px;list-style:none;font-size:14px;letter-spacing:.06em}
+.nav ul a{position:relative;text-decoration:none;color:var(--soft);transition:color .3s}
+.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:1px;background:var(--mauve);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
 .nav ul a:hover{color:var(--deep)}
+.nav ul a:hover::after{transform:none}
 .logo{text-align:center;text-decoration:none;line-height:1}
 .logo b{display:block;font-family:var(--disp);font-weight:400;font-size:34px;color:var(--deep)}
 .logo small{display:block;font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--mauve);margin-top:6px}
-.nav .right{justify-self:end}
-.nav .btn{padding:11px 20px;font-size:13.5px}
+.nav .right{justify-self:end;display:flex;align-items:center;gap:18px}
+.nav .tel{font-size:14px;color:var(--soft);text-decoration:none;letter-spacing:.03em}
+.nav .tel:hover{color:var(--deep)}
+.nav .btn{padding:12px 22px;font-size:13.5px}
 
 /* hero */
-.hero{padding:76px 0 40px;text-align:center}
-.hero h1{font-size:clamp(52px,7vw,104px);max-width:12em;margin:20px auto 22px}
-.hero p.lead{max-width:34em;margin:0 auto;font-size:18.5px;color:var(--text)}
-.hero .cta{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:34px}
-.trio{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:24px;align-items:end;margin-top:70px}
-.trio figure{overflow:hidden}
-.trio .a{border-radius:200px 200px 22px 22px;aspect-ratio:3/4}
-.trio .b{border-radius:300px 300px 22px 22px;aspect-ratio:4/5.2;position:relative}
-.trio .c{border-radius:50%;aspect-ratio:1}
-.trio img{width:100%;height:100%;object-fit:cover}
-.badge{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);background:rgba(255,255,255,.94);border-radius:999px;padding:12px 22px;font-size:14px;color:var(--deep);white-space:nowrap;box-shadow:0 20px 40px -20px rgba(47,34,39,.4)}
+.hero{position:relative;padding:70px 0 0;text-align:center;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:-90px 0 0;z-index:-1;background:
+  radial-gradient(700px 420px at 50% 0%,rgba(255,255,255,.95),transparent 70%),
+  radial-gradient(620px 520px at 8% 70%,rgba(239,225,219,.95),transparent 70%),
+  radial-gradient(620px 520px at 92% 60%,rgba(239,225,219,.95),transparent 70%)}
+.hero .top{max-width:860px;margin:0 auto}
+.hero h1{font-size:clamp(50px,7vw,104px);margin:22px auto 24px;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--mauve)}
+.hero p.lead{max-width:36em;margin:0 auto;font-size:18.5px;color:var(--text);text-wrap:pretty}
+.hero .cta{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:36px}
+.score{display:inline-flex;align-items:center;gap:12px;margin-top:28px;font-size:14px;color:var(--soft);text-decoration:none}
+.score .st{color:var(--gold);letter-spacing:3px;font-size:13px}
+.score b{color:var(--deep);font-weight:500}
+.score:hover b{color:var(--mauve)}
+.trio{position:relative;display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:26px;align-items:end;margin-top:72px}
+.trio figure{position:relative;overflow:hidden;box-shadow:var(--sh)}
+.trio .a{border-radius:220px 220px 26px 26px;aspect-ratio:3/4}
+.trio .b{border-radius:320px 320px 26px 26px;aspect-ratio:4/5.1;overflow:visible;box-shadow:none}
+.trio .b .in-b{position:absolute;inset:0;border-radius:inherit;overflow:hidden;box-shadow:var(--sh)}
+.trio .c{border-radius:50%;aspect-ratio:1;margin-bottom:40px}
+.trio img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
+.trio figure:hover img{transform:scale(1.04)}
+.trio .b::before{content:"";position:absolute;inset:-16px -16px 30% -16px;border:1px solid var(--rose);border-bottom:0;border-radius:340px 340px 0 0;pointer-events:none}
+.badge{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-radius:999px;padding:12px 22px 12px 14px;font-size:14px;color:var(--deep);white-space:nowrap;box-shadow:0 20px 40px -20px rgba(47,34,39,.45);display:flex;align-items:center;gap:10px;z-index:2}
+.badge i{width:28px;height:28px;border-radius:50%;background:var(--rose2);display:grid;place-items:center;color:var(--mauve)}
+.badge i svg{width:15px;height:15px}
 .badge b{color:var(--mauve);font-weight:600}
+.zegel{position:absolute;right:-46px;top:16%;width:112px;height:112px;border-radius:50%;background:var(--pearl);display:grid;place-items:center;box-shadow:0 20px 40px -26px rgba(47,34,39,.5);z-index:2}
+.zegel svg{position:absolute;inset:7px;width:calc(100% - 14px);height:calc(100% - 14px);animation:draai 30s linear infinite}
+.zegel text{font:500 8.4px var(--sans);letter-spacing:.2em;text-transform:uppercase;fill:var(--mauve)}
+.zegel b{font:400 26px/1 var(--disp);color:var(--deep)}
+@keyframes draai{to{transform:rotate(360deg)}}
+.kaartje{position:absolute;left:-30px;top:20%;background:#fff;border-radius:20px;padding:16px 18px;text-align:left;box-shadow:0 24px 50px -26px rgba(47,34,39,.45);z-index:2;max-width:220px}
+.kaartje .st{display:block;color:var(--gold);letter-spacing:2px;font-size:12px}
+.kaartje p{font:400 19px/1.25 var(--disp);color:var(--deep);margin:6px 0 6px}
+.kaartje small{font-size:12.5px;color:var(--soft)}
+.feiten{display:grid;grid-template-columns:repeat(4,1fr);margin-top:56px;border-top:1px solid var(--rose);border-bottom:1px solid var(--rose);text-align:left}
+.feit{display:flex;gap:14px;align-items:flex-start;padding:28px 26px}
+.feit+.feit{border-left:1px solid var(--rose)}
+.feit .ic{flex:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--rose);display:grid;place-items:center;color:var(--mauve);background:rgba(255,255,255,.5)}
+.feit .ic svg{width:19px;height:19px}
+.feit b{display:block;font-weight:500;color:var(--deep);font-size:15.5px;line-height:1.35}
+.feit span{display:block;font-size:14px;color:var(--soft);line-height:1.5;margin-top:3px}
+.feit a{text-underline-offset:3px;text-decoration-color:var(--rose)}
+.feit a:hover{color:var(--mauve)}
 
 /* avond */
-.avond{padding:130px 0;text-align:center;position:relative}
-.avond .big{font-family:var(--disp);font-size:clamp(110px,18vw,250px);line-height:.85;color:var(--mauve);letter-spacing:-.02em}
-.avond .big small{font-size:.32em;color:var(--gold);vertical-align:top;margin-left:6px}
-.avond h2{font-size:clamp(34px,3.8vw,52px);margin:26px auto 18px;max-width:16em}
-.avond p{max-width:33em;margin:0 auto}
-.days{display:flex;justify-content:center;gap:10px;margin-top:30px;flex-wrap:wrap}
-.days span{border:1px solid var(--rose);border-radius:999px;padding:8px 18px;font-size:14px;letter-spacing:.05em}
-.days span.on{background:var(--deep);border-color:var(--deep);color:#fff}
+.avond{padding:130px 0 120px}
+.avond .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}
+.avond .big{font-family:var(--disp);font-size:clamp(130px,17vw,240px);line-height:.8;color:var(--mauve);letter-spacing:-.02em}
+.avond .big small{font-size:.3em;color:var(--gold);vertical-align:top;margin-left:6px}
+.avond h2{font-size:clamp(36px,3.8vw,54px);margin:22px 0 18px;max-width:12em}
+.avond p{max-width:30em}
+.week{background:#fff;border-radius:30px;padding:34px 34px 26px;box-shadow:var(--sh)}
+.week .kop{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}
+.week .kop b{font:400 28px/1 var(--disp);color:var(--deep)}
+.week .nu{flex:none;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--soft)}
+.week .nu i{width:8px;height:8px;border-radius:50%;background:#c9b3b9}
+.week .nu.open i{background:#7fa27b;box-shadow:0 0 0 4px rgba(127,162,123,.18)}
+.rij{display:grid;grid-template-columns:44px 1fr 96px;align-items:center;gap:14px;padding:9px 0;font-size:14.5px}
+.rij+.rij{border-top:1px solid var(--rose2)}
+.rij .d{color:var(--deep);font-weight:500}
+.rij .bar{position:relative;height:10px;border-radius:99px;background:var(--rose2)}
+.rij .bar i{position:absolute;top:0;bottom:0;border-radius:99px;background:linear-gradient(90deg,var(--rose),var(--mauve));transform-origin:left;transition:transform 1.4s var(--ease)}
+.js .week:not(.in) .bar i{transform:scaleX(0)}
+.rij .u{text-align:right;color:var(--soft);font-size:13.5px;white-space:nowrap}
+.rij.dicht .u{color:#b9a9ae}
+.rij.vandaag .d{color:var(--mauve)}
+.rij.vandaag{background:linear-gradient(90deg,transparent,var(--rose2) 20%,var(--rose2) 80%,transparent)}
+.schaal{display:grid;grid-template-columns:44px 1fr 96px;gap:14px;margin-top:8px;font-size:11.5px;color:var(--soft);letter-spacing:.04em}
+.schaal div{display:flex;justify-content:space-between}
 
 /* behandelingen */
-.beh{padding:30px 0 130px}
-.beh .intro{text-align:center;max-width:620px;margin:0 auto 60px}
-.beh .intro h2{font-size:clamp(42px,5vw,72px);margin-top:14px}
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-.card{background:#fff;border-radius:30px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 30px 60px -44px rgba(47,34,39,.35)}
-.card .ph{aspect-ratio:16/11;overflow:hidden}
-.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
-.card:hover .ph img{transform:scale(1.04)}
-.card .tx{padding:36px 38px 40px}
-.card h3{font-size:40px;margin-bottom:10px}
-.card p{color:var(--text)}
-.card ul{list-style:none;margin-top:20px;border-top:1px solid var(--blush)}
-.card li{padding:12px 0;border-bottom:1px solid var(--blush);display:flex;justify-content:space-between;gap:16px;font-size:15.5px}
+.beh{padding:40px 0 130px}
+.beh .intro{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:56px}
+.beh .intro h2{font-size:clamp(42px,5vw,72px);margin-top:16px;max-width:9em}
+.beh .intro p{max-width:26em;color:var(--soft)}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.card{position:relative;background:#fff;border-radius:32px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--sh);transition:transform .7s var(--ease),box-shadow .7s var(--ease)}
+.card:hover{transform:translateY(-6px);box-shadow:0 44px 70px -44px rgba(47,34,39,.45)}
+.card .ph{position:relative;aspect-ratio:16/10.5;overflow:hidden;margin:12px 12px 0;border-radius:22px}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.card:hover .ph img{transform:scale(1.05)}
+.card .nr{position:absolute;left:18px;top:18px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-radius:999px;padding:6px 14px;font-size:12px;letter-spacing:.2em;color:var(--mauve)}
+.card .tx{padding:32px 34px 34px;display:flex;flex-direction:column;flex:1}
+.card h3{font-size:42px;margin-bottom:10px}
+.card ul{list-style:none;margin:22px 0 28px;border-top:1px solid var(--blush)}
+.card li{padding:13px 0;border-bottom:1px solid var(--blush);display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15.5px;color:var(--deep)}
+.card li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--rose);margin-right:-4px}
+.card li b{font-weight:400;flex:1}
 .card li span{color:var(--soft);font-size:14px;text-align:right}
+.card .vraag{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:10px;font-size:14.5px;font-weight:500;color:var(--mauve);text-decoration:none;letter-spacing:.03em}
+.card .vraag svg{width:16px;height:16px;transition:transform .5s var(--ease)}
+.card .vraag:hover svg{transform:translateX(4px)}
 
 /* instituut */
-.inst{background:var(--blush);padding:120px 0}
-.inst .wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.inst .pics{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
-.inst .pics figure{border-radius:24px;overflow:hidden}
-.inst .pics figure:first-child{aspect-ratio:3/4.4}
-.inst .pics figure:last-child{aspect-ratio:3/4.4;margin-top:70px}
-.inst .pics img{width:100%;height:100%;object-fit:cover}
-.inst h2{font-size:clamp(40px,4.6vw,64px);margin:16px 0 22px}
+.inst{position:relative;background:var(--blush);padding:130px 0;overflow:hidden}
+.inst::before{content:"";position:absolute;right:-180px;top:-180px;width:520px;height:520px;border-radius:50%;border:1px solid var(--rose)}
+.inst .wrap{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.inst .pics{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.inst .pics figure{border-radius:26px;overflow:hidden;box-shadow:var(--sh)}
+.inst .pics figure:first-child{aspect-ratio:3/4.4;border-radius:200px 200px 26px 26px}
+.inst .pics figure:nth-child(2){aspect-ratio:3/4.4;margin-top:80px}
+.inst .pics img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.inst .pics figure:hover img{transform:scale(1.04)}
+.inst .woord{position:absolute;left:50%;bottom:-26px;transform:translateX(-50%);background:var(--pearl);border-radius:22px;padding:18px 24px;box-shadow:0 24px 50px -28px rgba(47,34,39,.45);text-align:center;white-space:nowrap}
+.inst .woord small{display:block;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--soft)}
+.inst .woord b{display:block;font:400 30px/1.1 var(--disp);color:var(--mauve);margin-top:4px}
+.inst h2{font-size:clamp(40px,4.6vw,64px);margin:18px 0 22px}
 .inst p{margin-bottom:16px;max-width:30em}
-.sig{font-family:var(--disp);font-size:30px;color:var(--mauve);margin-top:22px}
+.punten{list-style:none;margin:26px 0 0;display:grid;gap:12px}
+.punten li{display:flex;gap:14px;align-items:flex-start;font-size:16px;color:var(--deep)}
+.punten li i{flex:none;width:26px;height:26px;border-radius:50%;background:var(--pearl);display:grid;place-items:center;color:var(--mauve);margin-top:1px}
+.punten li i svg{width:13px;height:13px}
+.sig{font-family:var(--disp);font-size:30px;color:var(--mauve);margin-top:30px}
 
 /* reviews */
-.rev{padding:130px 0;text-align:center}
-.rev h2{font-size:clamp(40px,4.6vw,62px);margin:14px 0 10px}
-.rev .sc{color:var(--soft);margin-bottom:56px}
-.rev .sc b{color:var(--mauve);font-weight:500}
+.rev{padding:130px 0}
+.rev .kop{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:54px}
+.rev h2{font-size:clamp(40px,4.6vw,62px);margin-top:16px}
+.rev .sc{display:flex;align-items:center;gap:18px;background:#fff;border-radius:22px;padding:16px 22px;box-shadow:var(--sh);text-decoration:none}
+.rev .sc .n{font:400 46px/1 var(--disp);color:var(--deep)}
+.rev .sc small{display:block;font-size:13.5px;color:var(--soft);line-height:1.4}
 .stars{color:var(--gold);letter-spacing:3px}
-.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;text-align:left}
-.rq{border:1px solid var(--rose);border-radius:26px;padding:36px 32px;display:flex;flex-direction:column;background:rgba(255,255,255,.45)}
-.rq p{font-family:var(--disp);font-size:27px;line-height:1.25;color:var(--deep);margin:18px 0 26px;flex:1}
-.rq footer{font-size:14.5px;color:var(--soft)}
-.rq footer b{color:var(--deep);font-weight:500}
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.rq{position:relative;border-radius:28px;padding:38px 34px 32px;display:flex;flex-direction:column;background:#fff;box-shadow:0 24px 50px -40px rgba(47,34,39,.35);transition:transform .7s var(--ease)}
+.rq:hover{transform:translateY(-4px)}
+.rq::before{content:"“";position:absolute;right:28px;top:6px;font:400 110px/1 var(--disp);color:var(--blush)}
+.rq p{position:relative;font-family:var(--disp);font-size:27px;line-height:1.25;color:var(--deep);margin:18px 0 28px;flex:1}
+.rq footer{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--soft);padding-top:20px;border-top:1px solid var(--blush)}
+.rq footer i{flex:none;width:38px;height:38px;border-radius:50%;background:var(--blush);color:var(--mauve);display:grid;place-items:center;font-style:normal;font-weight:500;font-size:14px;letter-spacing:.04em}
+.rq footer b{display:block;color:var(--deep);font-weight:500;line-height:1.3}
 
 /* contact */
-.contact{background:var(--deep);color:#e9dde1;padding:120px 0}
-.contact .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:start}
+.contact{position:relative;background:var(--deep);color:#e9dde1;padding:130px 0;overflow:hidden}
+.contact::before{content:"";position:absolute;left:-10%;top:-40%;width:70%;height:120%;background:radial-gradient(closest-side,rgba(138,88,102,.35),transparent);pointer-events:none}
+.contact .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:start}
 .contact .over{color:var(--rose)}
-.contact h2{color:#fff;font-size:clamp(44px,5vw,72px);margin:16px 0 20px}
+.contact h2{color:#fff;font-size:clamp(46px,5.2vw,76px);margin:18px 0 20px}
 .contact p{max-width:28em;color:#d6c6cc}
-.contact .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.contact .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
 .contact .btn-w{background:#fff;color:var(--deep)}
+.contact .btn-w:hover{background:var(--rose2)}
 .contact .btn-o{border:1px solid rgba(255,255,255,.3);color:#fff}
-.hours{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:28px;padding:40px}
-.hours h3{color:#fff;font-size:30px;margin-bottom:16px}
+.contact .btn-o:hover{border-color:#fff}
+.lijnen{margin-top:44px;display:grid;gap:0;max-width:440px;border-top:1px solid rgba(255,255,255,.1)}
+.lijnen a{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.1);text-decoration:none;transition:padding .5s var(--ease),color .3s}
+.lijnen a:hover{padding-left:8px;color:#fff}
+.lijnen small{display:block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#a8959c}
+.lijnen span{color:#fff;font-size:16.5px}
+.lijnen svg{width:18px;height:18px;color:var(--rose);flex:none}
+.hours{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:30px;padding:40px;backdrop-filter:blur(6px)}
+.hours .hk{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
+.hours h3{color:#fff;font-size:32px}
+.hours .pil{font-size:12.5px;letter-spacing:.06em;border-radius:999px;padding:6px 14px;background:rgba(255,255,255,.08);color:#d6c6cc;display:inline-flex;align-items:center;gap:8px}
+.hours .pil i{width:7px;height:7px;border-radius:50%;background:#9d8c92}
+.hours .pil.open i{background:#9cc497;box-shadow:0 0 0 4px rgba(156,196,151,.2)}
 .hours table{width:100%;border-collapse:collapse;font-size:15.5px}
-.hours td{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.09)}
+.hours td{padding:11px 0;border-bottom:1px solid rgba(255,255,255,.09)}
 .hours td:last-child{text-align:right;color:#fff}
-.hours .x td{color:#9d8c92}
-.hours .x td:last-child{color:#9d8c92}
+.hours .x td,.hours .x td:last-child{color:#9d8c92}
 .hours .late td:last-child{color:var(--rose)}
+.hours tr.vandaag td{color:#fff}
+.hours tr.vandaag td:first-child::after{content:"vandaag";margin-left:10px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);border:1px solid rgba(226,199,191,.4);border-radius:99px;padding:2px 8px}
 .adres{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:28px;flex-wrap:wrap}
 .adres b{display:block;color:#fff;font-weight:500}
 .adres span{font-size:15px;color:#b9a8ae}
 
-footer.site{background:var(--deep);border-top:1px solid rgba(255,255,255,.08);color:#9d8c92;font-size:13.5px;padding:26px 0 34px}
-footer.site .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-footer.site a{text-decoration:none}
+footer.site{background:var(--deep);border-top:1px solid rgba(255,255,255,.08);color:#9d8c92;font-size:13.5px;padding:44px 0 40px}
+footer.site .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer.site .fl b{display:block;font:400 26px/1 var(--disp);color:#fff}
+footer.site .fl small{display:block;font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:var(--rose);margin-top:6px}
+footer.site nav{display:flex;gap:24px;flex-wrap:wrap}
+footer.site a{text-decoration:none;transition:color .3s}
+footer.site a:hover{color:#fff}
 
-.js [data-r]{opacity:0;transform:translateY(24px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.js [data-r]{opacity:0;transform:translateY(28px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease);transition-delay:var(--d,0s)}
 .js [data-r].in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js [data-r]{opacity:1;transform:none;transition:none}}
+@media (prefers-reduced-motion:reduce){.js [data-r]{opacity:1;transform:none;transition:none}.zegel svg{animation:none}}
 
+@media (max-width:1100px){
+  .zegel{right:-18px}
+  .kaartje{left:-10px}
+}
 @media (max-width:1020px){
   .nav .wrap{grid-template-columns:1fr auto}
-  .nav ul{display:none}
+  .nav ul,.nav .tel{display:none}
   .logo{text-align:left}
-  .inst .wrap,.contact .wrap{gap:44px}
+  .feiten{grid-template-columns:1fr 1fr}
+  .feit:nth-child(3){border-left:0}
+  .feit:nth-child(n+3){border-top:1px solid var(--rose)}
+  .avond .wrap,.inst .wrap,.contact .wrap{grid-template-columns:1fr;gap:56px}
+  .inst .pics{max-width:620px}
   .rgrid{grid-template-columns:1fr 1fr}
   .rgrid .rq:last-child{grid-column:1/-1}
+  .beh .intro,.rev .kop{flex-direction:column;align-items:flex-start;gap:18px}
+  .kaartje{display:none}
 }
 @media (max-width:760px){
   body{font-size:16px}
   .wrap{width:calc(100% - 32px)}
-  .nav .wrap{height:76px}
-  .logo b{font-size:28px}
-  .nav .btn{display:none}
-  .hero{padding:50px 0 20px}
-  .trio{grid-template-columns:1fr 1fr;gap:14px;margin-top:50px}
-  .trio .b{grid-column:1/-1;order:-1;aspect-ratio:4/4.6}
-  .trio .c{border-radius:22px;aspect-ratio:3/4}
-  .avond{padding:90px 0}
+  .nav .wrap,.nav.vast .wrap{height:70px}
+  .logo b{font-size:27px}
+  .logo small{font-size:8px;letter-spacing:.2em}
+  .week .kop b{font-size:24px}
+  .nav .btn{padding:10px 16px;font-size:13px}
+  .hero{padding:44px 0 0}
+  .hero p.lead{font-size:17px}
+  .hero .cta .btn{width:100%}
+  .trio{grid-template-columns:1fr 1fr;gap:14px;margin-top:48px}
+  .trio .b{grid-column:1/-1;order:-1;aspect-ratio:4/4.4;margin-bottom:6px}
+  .trio .b::before{inset:-10px -10px 30% -10px}
+  .trio .c{border-radius:22px;aspect-ratio:3/4;margin-bottom:0}
+  .trio .a{border-radius:120px 120px 22px 22px}
+  .zegel{width:92px;height:92px;right:-4px;top:4%}
+  .zegel b{font-size:22px}
+  .badge{font-size:13px;padding:10px 16px 10px 10px;bottom:16px}
+  .feiten{grid-template-columns:1fr;margin-top:40px}
+  .feit{padding:20px 4px}
+  .feit+.feit{border-left:0;border-top:1px solid var(--rose)}
+  .avond{padding:90px 0 80px}
+  .week{padding:24px 18px 20px;border-radius:24px}
+  .rij,.schaal{grid-template-columns:34px 1fr 82px;gap:10px}
+  .rij .u{font-size:12.5px}
   .beh{padding:10px 0 90px}
   .cards,.rgrid{grid-template-columns:1fr}
-  .card .tx{padding:28px 24px 30px}
-  .card h3{font-size:34px}
-  .inst,.rev,.contact{padding:84px 0}
-  .inst .wrap,.contact .wrap{grid-template-columns:1fr}
-  .inst .pics{order:2}
-  .inst .pics figure:last-child{margin-top:40px}
+  .rgrid .rq:last-child{grid-column:auto}
+  .card .tx{padding:26px 22px 28px}
+  .card h3{font-size:36px}
+  .inst,.rev,.contact{padding:90px 0}
+  .inst .pics{order:2;margin-bottom:30px}
+  .inst .pics figure:nth-child(2){margin-top:50px}
+  .inst .woord{padding:14px 18px}
+  .inst .woord b{font-size:25px}
+  .rq{padding:30px 24px 26px}
   .rq p{font-size:24px}
-  .hours{padding:30px 22px}
+  .hours{padding:28px 20px}
+  .contact .cta .btn{flex:1}
 }
 </style>
 </head>
 <body>
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
-<header class="nav">
+<header class="nav" id="nav">
   <div class="wrap">
     <ul>
       <li><a href="#behandelingen">Behandelingen</a></li>
       <li><a href="#instituut">Instituut</a></li>
       <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Uren</a></li>
     </ul>
     <a class="logo" href="#top"><b>Belle et Beau</b><small>Nagel- &amp; schoonheidsinstituut</small></a>
-    <div class="right"><a class="btn btn-m" href="tel:+32498103690">Afspraak maken</a></div>
+    <div class="right"><a class="tel" href="tel:+32498103690">0498 10 36 90</a><a class="btn btn-m" href="#contact">Afspraak maken</a></div>
   </div>
 </header>
 
 <main id="top">
   <section class="hero">
     <div class="wrap">
-      <div data-r>
-        <span class="over">Nagels · handen · huid</span>
-        <h1>Even een uurtje helemaal voor jezelf.</h1>
-        <p class="lead">Mooie nagels, verzorgde handen en een huid die weer wat ademt. Bij Belle et Beau word je ontvangen in een rustig instituut, met een vriendelijk woord en alle tijd voor jou.</p>
+      <div class="top" data-r>
+        <span class="over c">Nagels · handen · huid</span>
+        <h1>Even een uurtje helemaal <em>voor jezelf.</em></h1>
+        <p class="lead">Mooie nagels, verzorgde handen en een huid die weer wat ademt. Bij Belle et Beau word je ontvangen in een klein, rustig instituut. Je komt op afspraak, dus de tijd die voorzien is, is echt voor jou. En kan het pas na je werk? Op dinsdag, woensdag en donderdag ben je welkom tot 21 uur.</p>
         <div class="cta">
           <a class="btn btn-m" href="https://wa.me/32498103690?text=Hallo%2C%20ik%20wil%20graag%20een%20afspraak%20maken%20bij%20Belle%20et%20Beau." target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>
             Afspraak via WhatsApp
           </a>
-          <a class="btn btn-l" href="#behandelingen">Behandelingen</a>
+          <a class="btn btn-l" href="#behandelingen">Bekijk de behandelingen<svg class="pijl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
+        <a class="score" href="https://www.google.com/maps?cid=14936932423372361087" target="_blank" rel="noopener"><span class="st">★★★★★</span><span><b>5,0 op Google</b> · iedereen gaf vijf sterren</span></a>
       </div>
       <div class="trio">
-        <figure class="a" data-r><img src="img/handen.webp" alt="Verzorgde handen met zachte nagellak" width="1600" height="900"></figure>
-        <figure class="b" data-r><img src="img/stoel.webp" alt="De behandelkamer van Belle et Beau" width="1100" height="1467" fetchpriority="high"><span class="badge">Dinsdag tot donderdag <b>open tot 21 uur</b></span></figure>
-        <figure class="c" data-r><img src="img/masker.webp" alt="Gelaatsverzorging met masker" width="1600" height="1067"></figure>
+        <figure class="a" data-r style="--d:.1s"><img src="img/handen.webp" alt="Verzorgde handen met zachte nagellak" width="1600" height="900"></figure>
+        <figure class="b" data-r><div class="in-b"><img src="img/stoel.webp" alt="De behandelkamer van Belle et Beau" width="1100" height="1467" fetchpriority="high"></div>
+          <span class="badge"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg></i>Dinsdag tot donderdag <b>open tot 21 uur</b></span>
+          <div class="kaartje"><span class="st">★★★★★</span><p>“Super vriendelijk heel goede service.”</p><small>Anja, op Google</small></div>
+          <div class="zegel" aria-hidden="true"><svg viewBox="0 0 100 100"><defs><path id="rond" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text><textPath href="#rond" textLength="236" lengthAdjust="spacing">nagels · handen · huid · rust ·</textPath></text></svg><b>B&amp;B</b></div>
+        </figure>
+        <figure class="c" data-r style="--d:.2s"><img src="img/masker.webp" alt="Gelaatsverzorging met masker" width="1600" height="1067"></figure>
+      </div>
+      <div class="feiten" data-r>
+        <div class="feit"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><div><b>Altijd op afspraak</b><span>Geen wachtzaal, geen haast.</span></div></div>
+        <div class="feit"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b>Di tot do tot 21 uur</b><span>Ideaal na een werkdag.</span></div></div>
+        <div class="feit"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2M12 19v2M5 12H3M21 12h-2M6.3 6.3 4.9 4.9M19.1 19.1l-1.4-1.4M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4"/><circle cx="12" cy="12" r="4"/></svg></span><div><b>Zaterdagvoormiddag</b><span>Van 8.30 tot 14 uur.</span></div></div>
+        <div class="feit"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><div><b>Glazenleeuwstraat 15</b><span><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Glazenleeuwstraat+15+9120+Beveren" target="_blank" rel="noopener">Toon de route</a></span></div></div>
       </div>
     </div>
   </section>
 
   <section class="avond">
-    <div class="wrap" data-r>
-      <div class="big">21<small>u</small></div>
-      <h2>Ook na je werk nog even langskomen.</h2>
-      <p>Op dinsdag, woensdag en donderdag blijft het instituut open tot 21 uur. Geen gehaast over de middag dus, maar rustig je afspraak plannen wanneer het jou past. Op zaterdag kan je in de voormiddag terecht.</p>
-      <div class="days"><span>Ma</span><span class="on">Di</span><span class="on">Wo</span><span class="on">Do</span><span>Vr</span><span>Za voormiddag</span><span>Zo</span></div>
+    <div class="wrap">
+      <div data-r>
+        <div class="big">21<small>u</small></div>
+        <h2>Ook na je werk nog even langskomen.</h2>
+        <p>Op dinsdag, woensdag en donderdag blijft het instituut open tot 21 uur. Geen gehaast over de middag dus, maar rustig je afspraak plannen wanneer het jou past. Op zaterdag kan je in de voormiddag terecht.</p>
+      </div>
+      <div class="week" data-r style="--d:.15s">
+        <div class="kop"><b>Je week bij Belle et Beau</b><span class="nu" id="nu"><i></i><span>op afspraak</span></span></div>
+        <div class="rij dicht" data-dag="1"><span class="d">Ma</span><span class="bar"></span><span class="u">gesloten</span></div>
+        <div class="rij" data-dag="2"><span class="d">Di</span><span class="bar"><i style="left:7.7%;width:92.3%"></i></span><span class="u">9.00 tot 21.00</span></div>
+        <div class="rij" data-dag="3"><span class="d">Wo</span><span class="bar"><i style="left:7.7%;width:92.3%"></i></span><span class="u">9.00 tot 21.00</span></div>
+        <div class="rij" data-dag="4"><span class="d">Do</span><span class="bar"><i style="left:7.7%;width:92.3%"></i></span><span class="u">9.00 tot 21.00</span></div>
+        <div class="rij dicht" data-dag="5"><span class="d">Vr</span><span class="bar"></span><span class="u">gesloten</span></div>
+        <div class="rij" data-dag="6"><span class="d">Za</span><span class="bar"><i style="left:3.8%;width:42.3%"></i></span><span class="u">8.30 tot 14.00</span></div>
+        <div class="rij dicht" data-dag="0"><span class="d">Zo</span><span class="bar"></span><span class="u">gesloten</span></div>
+        <div class="schaal"><span></span><div><span>8u</span><span>12u</span><span>16u</span><span>21u</span></div><span></span></div>
+      </div>
     </div>
   </section>
 
   <section class="beh" id="behandelingen">
     <div class="wrap">
       <div class="intro" data-r>
-        <span class="over">Behandelingen</span>
-        <h2>Zorg voor je nagels en je huid</h2>
+        <div><span class="over">Behandelingen</span><h2>Zorg voor je nagels en je huid</h2></div>
+        <p>Weet je nog niet goed wat je wil? Zeg gewoon waar je zin in hebt. Samen kijken we wat het best bij je handen of je huid past.</p>
       </div>
       <div class="cards">
         <article class="card" data-r>
-          <div class="ph"><img src="img/nagels.webp" alt="Mooi gelakte nagels" loading="lazy" width="1100" height="1650" style="object-position:center 60%"></div>
+          <div class="ph"><img src="img/nagels.webp" alt="Mooi gelakte nagels" loading="lazy" width="1100" height="1650" style="object-position:center 60%"><span class="nr">01 · NAGELS</span></div>
           <div class="tx">
             <h3>Nagels</h3>
             <p>Van een verzorging voor je handen tot een kleur die weken mooi blijft. Je kiest zelf hoe sober of uitgesproken het mag zijn.</p>
             <ul>
-              <li>Manicure <span>verzorgde handen en nagelriemen</span></li>
-              <li>Gelnagels <span>kleur die blijft zitten</span></li>
-              <li>Pedicure <span>ook je voeten verdienen het</span></li>
+              <li><b>Manicure</b> <span>verzorgde handen en nagelriemen</span></li>
+              <li><b>Gelnagels</b> <span>kleur die blijft zitten</span></li>
+              <li><b>Pedicure</b> <span>ook je voeten verdienen het</span></li>
             </ul>
+            <a class="vraag" href="https://wa.me/32498103690?text=Hallo%2C%20ik%20wil%20graag%20een%20afspraak%20voor%20mijn%20nagels." target="_blank" rel="noopener">Vraag een afspraak voor je nagels<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </article>
-        <article class="card" data-r>
-          <div class="ph"><img src="img/rust.webp" alt="Ontspannen gezichtsbehandeling" loading="lazy" width="1600" height="1067"></div>
+        <article class="card" data-r style="--d:.12s">
+          <div class="ph"><img src="img/rust.webp" alt="Ontspannen gezichtsbehandeling" loading="lazy" width="1600" height="1067"><span class="nr">02 · HUID</span></div>
           <div class="tx">
             <h3>Schoonheid</h3>
             <p>Een moment van rust voor je gezicht en je huid. Grondig verzorgd, met producten die passen bij wat jouw huid nodig heeft.</p>
             <ul>
-              <li>Gelaatsverzorging <span>reinigen, verzorgen, ontspannen</span></li>
-              <li>Ontharen <span>netjes en vlot</span></li>
-              <li>Wenkbrauwen <span>mooi in vorm</span></li>
+              <li><b>Gelaatsverzorging</b> <span>reinigen, verzorgen, ontspannen</span></li>
+              <li><b>Ontharen</b> <span>netjes en vlot</span></li>
+              <li><b>Wenkbrauwen</b> <span>mooi in vorm</span></li>
             </ul>
+            <a class="vraag" href="https://wa.me/32498103690?text=Hallo%2C%20ik%20wil%20graag%20een%20afspraak%20voor%20een%20verzorging." target="_blank" rel="noopener">Vraag een afspraak voor je huid<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </article>
       </div>
@@ -258,15 +413,21 @@ footer.site a{text-decoration:none}
 
   <section class="inst" id="instituut">
     <div class="wrap">
-      <div class="pics">
-        <figure data-r><img src="img/kabine.webp" alt="Kabine van het instituut" loading="lazy" width="1600" height="1200"></figure>
-        <figure data-r><img src="img/olie.webp" alt="Verzorgende olie" loading="lazy" width="1600" height="1067"></figure>
+      <div class="pics" data-r>
+        <figure><img src="img/kabine.webp" alt="Kabine van het instituut" loading="lazy" width="1600" height="1200"></figure>
+        <figure><img src="img/olie.webp" alt="Verzorgende olie" loading="lazy" width="1600" height="1067"></figure>
+        <div class="woord"><small>Het woord in de reviews</small><b>vriendelijk</b></div>
       </div>
-      <div data-r>
+      <div data-r style="--d:.12s">
         <span class="over">Het instituut</span>
         <h2>Klein, proper en heel persoonlijk.</h2>
         <p>Belle et Beau is geen drukke salon waar je even tussendoor geschoven wordt. Je komt op afspraak, de tijd die voorzien is, is voor jou, en er is ruimte voor een babbel als je daar zin in hebt.</p>
         <p>In de reviews komt vooral één woord terug: vriendelijk. Dat is misschien wel het mooiste compliment.</p>
+        <ul class="punten">
+          <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></i>Op afspraak, zodat er altijd rust is in de kabine</li>
+          <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></i>Eerlijk advies over wat je huid of nagels nodig hebben</li>
+          <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></i>Afspraken ook 's avonds, drie dagen per week</li>
+        </ul>
         <div class="sig">Welkom bij Belle et Beau</div>
       </div>
     </div>
@@ -274,15 +435,14 @@ footer.site a{text-decoration:none}
 
   <section class="rev" id="reviews">
     <div class="wrap">
-      <div data-r>
-        <span class="over">Reviews</span>
-        <h2>Wat klanten vertellen</h2>
-        <p class="sc"><span class="stars">★★★★★</span> &nbsp;<b>5,0 op Google</b></p>
+      <div class="kop" data-r>
+        <div><span class="over">Reviews</span><h2>Wat klanten vertellen</h2></div>
+        <a class="sc" href="https://www.google.com/maps?cid=14936932423372361087" target="_blank" rel="noopener"><span class="n">5,0</span><span><span class="stars">★★★★★</span><small>gemiddeld op Google</small></span></a>
       </div>
       <div class="rgrid">
-        <blockquote class="rq" data-r><span class="stars">★★★★★</span><p>“Super vriendelijk heel goede service. Kelly is een schatje 👍👍”</p><footer><b>Anja Van der Auwera</b> · Google</footer></blockquote>
-        <blockquote class="rq" data-r><span class="stars">★★★★★</span><p>“Super vriendelijk.. Top dame..”</p><footer><b>Conny Van Overtveldt</b> · Google</footer></blockquote>
-        <blockquote class="rq" data-r><span class="stars">★★★★★</span><p>“Vriendelijke madam en super goed verzorging”</p><footer><b>Tonny Wouters</b> · Google</footer></blockquote>
+        <blockquote class="rq" data-r><span class="stars">★★★★★</span><p>“Super vriendelijk heel goede service. Kelly is een schatje 👍👍”</p><footer><i>AV</i><span><b>Anja Van der Auwera</b>Google-review</span></footer></blockquote>
+        <blockquote class="rq" data-r style="--d:.1s"><span class="stars">★★★★★</span><p>“Super vriendelijk.. Top dame..”</p><footer><i>CV</i><span><b>Conny Van Overtveldt</b>Google-review</span></footer></blockquote>
+        <blockquote class="rq" data-r style="--d:.2s"><span class="stars">★★★★★</span><p>“Vriendelijke madam en super goed verzorging”</p><footer><i>TW</i><span><b>Tonny Wouters</b>Google-review</span></footer></blockquote>
       </div>
     </div>
   </section>
@@ -297,17 +457,21 @@ footer.site a{text-decoration:none}
           <a class="btn btn-w" href="tel:+32498103690">Bel 0498 10 36 90</a>
           <a class="btn btn-o" href="https://wa.me/32498103690?text=Hallo%2C%20ik%20wil%20graag%20een%20afspraak%20maken%20bij%20Belle%20et%20Beau." target="_blank" rel="noopener">WhatsApp</a>
         </div>
+        <div class="lijnen">
+          <a href="tel:+32498103690"><div><small>Bellen</small><span>0498 10 36 90</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Glazenleeuwstraat+15+9120+Beveren" target="_blank" rel="noopener"><div><small>Adres</small><span>Glazenleeuwstraat 15, 9120 Beveren</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
       </div>
-      <div class="hours" data-r>
-        <h3>Openingsuren</h3>
+      <div class="hours" data-r style="--d:.12s">
+        <div class="hk"><h3>Openingsuren</h3><span class="pil" id="pil"><i></i><span>op afspraak</span></span></div>
         <table>
-          <tr class="x"><td>Maandag</td><td>Gesloten</td></tr>
-          <tr class="late"><td>Dinsdag</td><td>9.00 tot 21.00</td></tr>
-          <tr class="late"><td>Woensdag</td><td>9.00 tot 21.00</td></tr>
-          <tr class="late"><td>Donderdag</td><td>9.00 tot 21.00</td></tr>
-          <tr class="x"><td>Vrijdag</td><td>Gesloten</td></tr>
-          <tr><td>Zaterdag</td><td>8.30 tot 14.00</td></tr>
-          <tr class="x"><td>Zondag</td><td>Gesloten</td></tr>
+          <tr class="x" data-dag="1"><td>Maandag</td><td>Gesloten</td></tr>
+          <tr class="late" data-dag="2"><td>Dinsdag</td><td>9.00 tot 21.00</td></tr>
+          <tr class="late" data-dag="3"><td>Woensdag</td><td>9.00 tot 21.00</td></tr>
+          <tr class="late" data-dag="4"><td>Donderdag</td><td>9.00 tot 21.00</td></tr>
+          <tr class="x" data-dag="5"><td>Vrijdag</td><td>Gesloten</td></tr>
+          <tr data-dag="6"><td>Zaterdag</td><td>8.30 tot 14.00</td></tr>
+          <tr class="x" data-dag="0"><td>Zondag</td><td>Gesloten</td></tr>
         </table>
         <div class="adres"><div><b>Glazenleeuwstraat 15</b><span>9120 Beveren</span></div><a class="btn btn-o" href="https://www.google.com/maps/dir/?api=1&amp;destination=Glazenleeuwstraat+15+9120+Beveren" target="_blank" rel="noopener">Route</a></div>
       </div>
@@ -317,7 +481,8 @@ footer.site a{text-decoration:none}
 
 <footer class="site">
   <div class="wrap">
-    <span>© Belle et Beau · Nagel- en schoonheidsinstituut</span>
+    <div class="fl"><b>Belle et Beau</b><small>Nagel- &amp; schoonheidsinstituut</small></div>
+    <nav><a href="#behandelingen">Behandelingen</a><a href="#instituut">Instituut</a><a href="#reviews">Reviews</a><a href="#contact">Uren</a></nav>
     <a href="#di">Voorbeeldsite door Digital Impression</a>
   </div>
 </footer>
@@ -325,9 +490,14 @@ footer.site a{text-decoration:none}
 <script>
 (function(){
   var els=document.querySelectorAll('[data-r]');
-  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
-  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
-  els.forEach(function(e){io.observe(e)});
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});}
+  else{var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e)});}
+  var nav=document.getElementById('nav');function sc(){nav.classList.toggle('vast',scrollY>40)}window.addEventListener('scroll',sc,{passive:true});sc();
+  var u={2:[9,21],3:[9,21],4:[9,21],6:[8.5,14]},n=new Date(),d=n.getDay(),t=n.getHours()+n.getMinutes()/60,open=u[d]&&t>=u[d][0]&&t<u[d][1];
+  var txt=open?'nu open':(u[d]&&t<u[d][0]?'vandaag open':'nu gesloten');
+  ['nu','pil'].forEach(function(id){var e=document.getElementById(id);if(!e)return;e.classList.toggle('open',!!open);e.querySelector('span').textContent=txt});
+  document.querySelectorAll('[data-dag="'+d+'"]').forEach(function(e){e.classList.add('vandaag')});
 })();
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
