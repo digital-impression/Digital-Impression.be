@@ -47,26 +47,98 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:500;line-height:1.08;let
 .btn-light:hover{transform:translateY(-2px)}
 .top .btn{padding:12px 20px;font-size:14px}
 
+.nav a{position:relative;padding:6px 0}
+.nav a:after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--terra);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.nav a:hover:after,.nav a.on:after{transform:scaleX(1)}
+.nav a.on{opacity:1}
+.top{transition:border-color .3s,box-shadow .3s}
+.top.scrolled{box-shadow:0 10px 30px -24px rgba(20,39,63,.45)}
+.menu-btn{display:none;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line);background:#fff;cursor:pointer;place-items:center;color:var(--deep)}
+.menu-btn span,.menu-btn span:before,.menu-btn span:after{display:block;width:18px;height:1.6px;background:currentColor;border-radius:2px;position:relative;transition:transform .3s,background .3s}
+.menu-btn span:before,.menu-btn span:after{content:"";position:absolute;left:0}
+.menu-btn span:before{top:-6px}.menu-btn span:after{top:6px}
+.open .menu-btn span{background:transparent}
+.open .menu-btn span:before{transform:translateY(6px) rotate(45deg)}
+.open .menu-btn span:after{transform:translateY(-6px) rotate(-45deg)}
+.top-r{display:flex;align-items:center;gap:10px}
+.drawer{display:none}
+.js .drawer{visibility:hidden;transition:visibility 0s .55s}
+.open .drawer{visibility:visible;transition:none}
+.btn .arr{transition:transform .3s}
+.btn:hover .arr{transform:translateX(4px)}
+
 /* hero */
-.hero{padding:56px 0 90px;position:relative}
-.hero .wrap{display:grid;grid-template-columns:1.02fr .98fr;gap:64px;align-items:center}
+.hero{padding:48px 0 0;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;right:-8%;top:-10%;width:58%;height:92%;background:radial-gradient(closest-side,rgba(194,112,78,.13),rgba(194,112,78,0));pointer-events:none}
+.hero:after{content:"";position:absolute;left:-12%;bottom:6%;width:44%;height:60%;background:radial-gradient(closest-side,rgba(43,84,128,.09),rgba(43,84,128,0));pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;position:relative;z-index:1;min-height:min(760px,calc(100svh - 150px))}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--terra2)}
 .eyebrow:before{content:"";width:28px;height:1.5px;background:currentColor}
-.hero h1{font-size:clamp(42px,5.6vw,76px);margin:22px 0 24px}
-.hero h1 em{font-style:italic;color:var(--sea2)}
-.hero p.lead{font-size:19px;color:var(--mute);max-width:33em}
-.hero .acts{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
-.facts{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:40px;padding-top:28px;border-top:1px solid var(--line);font-size:15px;color:var(--mute)}
-.facts span{display:flex;align-items:center;gap:9px}
-.facts i{width:8px;height:8px;border-radius:50%;background:var(--terra);display:block}
-.hero-pic{position:relative}
-.arch{border-radius:300px 300px var(--r) var(--r);overflow:hidden;aspect-ratio:4/5;background:var(--sand);box-shadow:0 40px 80px -40px rgba(20,39,63,.45)}
-.arch img{width:100%;height:100%;object-fit:cover}
-.score{position:absolute;left:-34px;bottom:46px;background:#fff;border-radius:18px;padding:18px 22px;box-shadow:0 24px 50px -24px rgba(20,39,63,.4);display:flex;align-items:center;gap:16px}
-.score b{font:500 40px/1 Fraunces,serif;color:var(--deep)}
-.score .st{color:#E0A33A;letter-spacing:2px;font-size:15px}
-.score small{display:block;font-size:13px;color:var(--mute);line-height:1.35}
-.sun{position:absolute;right:-18px;top:30px;width:92px;height:92px;border-radius:50%;background:var(--terra);color:#fff;display:grid;place-items:center;text-align:center;font:600 12px/1.25 Manrope,sans-serif;letter-spacing:.06em;text-transform:uppercase;transform:rotate(8deg);box-shadow:0 18px 30px -16px rgba(169,92,61,.8)}
+.status{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:14px;font-weight:600;color:var(--deep);box-shadow:0 10px 24px -18px rgba(20,39,63,.5);margin-bottom:26px}
+.status i{width:9px;height:9px;border-radius:50%;background:#3E9B6B;box-shadow:0 0 0 4px rgba(62,155,107,.16);animation:pulse 2.4s ease-in-out infinite}
+.status.closed i{background:var(--terra);box-shadow:0 0 0 4px rgba(194,112,78,.16)}
+@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(62,155,107,.05)}}
+.hero h1{font-size:clamp(44px,5.8vw,82px);margin:22px 0 26px;letter-spacing:-.025em}
+.hero h1 .ln{display:block}
+.hero h1 em{font-style:italic;color:var(--sea2);position:relative;white-space:nowrap}
+.hero h1 em svg{position:absolute;left:2%;bottom:-.12em;width:96%;height:.28em;color:var(--terra);overflow:visible}
+.hero h1 em path{stroke-dasharray:420;stroke-dashoffset:420;animation:draw 1.4s 1s cubic-bezier(.6,.1,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.hero p.lead{font-size:19px;color:var(--mute);max-width:31em}
+.hero .acts{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.hstats{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:0;margin-top:46px;padding-top:30px;border-top:1px solid var(--line)}
+.hstats div{padding:0 30px;border-left:1px solid var(--line)}
+.hstats div:first-child{padding-left:0;border:0}
+.hstats b{display:block;font:500 34px/1 Fraunces,serif;color:var(--deep);letter-spacing:-.02em}
+.hstats b sup{font-size:.45em;color:#E0A33A;margin-left:3px;vertical-align:.9em}
+.hstats small{display:block;font-size:13.5px;color:var(--mute);margin-top:8px;line-height:1.4}
+.hero-pic{position:relative;padding:20px 0 40px 60px}
+.arch{position:relative;border-radius:400px 400px var(--r) var(--r);overflow:hidden;aspect-ratio:4/5.05;background:var(--sand);box-shadow:0 50px 90px -46px rgba(20,39,63,.55)}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:62% 50%;transform:scale(1.08);transition:transform 1.8s cubic-bezier(.2,.7,.2,1)}
+.loaded .arch img{transform:scale(1)}
+.arch:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,39,63,0) 55%,rgba(20,39,63,.28));pointer-events:none}
+.arch-line{position:absolute;right:-18px;top:2px;width:calc(100% - 60px);bottom:58px;border:1.5px solid rgba(194,112,78,.45);border-radius:400px 400px 28px 28px;pointer-events:none}
+.pic-sm{position:absolute;left:0;bottom:6px;width:42%;aspect-ratio:1/1.12;border-radius:20px;overflow:hidden;border:7px solid var(--chalk);box-shadow:0 34px 60px -30px rgba(20,39,63,.55);z-index:2}
+.pic-sm img{width:100%;height:100%;object-fit:cover}
+.qcard{position:absolute;left:8px;top:96px;max-width:262px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:18px;padding:18px 20px;box-shadow:0 26px 50px -28px rgba(20,39,63,.5);z-index:3}
+.qcard p{font:italic 400 16.5px/1.45 Fraunces,serif;color:var(--deep)}
+.qcard span{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:12.5px;font-weight:600;color:var(--mute)}
+.qcard span:before{content:"★★★★★";color:#E0A33A;letter-spacing:1.5px;font-size:12px}
+.score{position:absolute;right:22px;bottom:70px;background:#fff;border-radius:18px;padding:16px 20px;box-shadow:0 24px 50px -24px rgba(20,39,63,.45);display:flex;align-items:center;gap:14px;z-index:3}
+.score b{font:500 38px/1 Fraunces,serif;color:var(--deep)}
+.score .st{color:#E0A33A;letter-spacing:2px;font-size:14px}
+.score small{display:block;font-size:12.5px;color:var(--mute);line-height:1.35}
+.sun{position:absolute;right:-26px;top:0;width:118px;height:118px;border-radius:50%;background:var(--terra);color:#fff;display:grid;place-items:center;box-shadow:0 18px 34px -16px rgba(169,92,61,.85);z-index:3}
+.sun svg.ring{position:absolute;inset:0;width:100%;height:100%;animation:spin 22s linear infinite}
+.sun svg.ring text{font:700 9.6px Manrope,sans-serif;letter-spacing:.1em;text-transform:uppercase;fill:#fff}
+.sun .ic{width:34px;height:34px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.float{animation:float 7s ease-in-out infinite}
+.float.d2{animation-delay:-3.5s}
+@keyframes float{50%{translate:0 -8px}}
+
+/* hero voet: snelkoppelingen naar de diensten */
+.hero-foot{position:relative;z-index:1;margin-top:46px;border-top:1px solid var(--line)}
+.hero-foot .wrap{display:grid;grid-template-columns:auto repeat(4,1fr);align-items:stretch}
+.scroll{display:flex;align-items:center;gap:12px;padding:22px 34px 22px 0;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);text-decoration:none}
+.scroll i{width:26px;height:40px;border:1.5px solid rgba(29,58,92,.3);border-radius:20px;position:relative}
+.scroll i:after{content:"";position:absolute;left:50%;top:8px;width:3px;height:8px;margin-left:-1.5px;border-radius:2px;background:var(--terra);animation:wheel 1.8s ease-in-out infinite}
+@keyframes wheel{0%{opacity:0;transform:translateY(-3px)}40%{opacity:1}100%{opacity:0;transform:translateY(10px)}}
+.svc{display:flex;align-items:center;gap:14px;padding:22px 20px;border-left:1px solid var(--line);text-decoration:none;transition:background .35s}
+.svc:hover{background:rgba(255,255,255,.7)}
+.svc img{width:52px;height:52px;border-radius:50%;object-fit:cover;flex:none;transition:transform .5s}
+.svc:hover img{transform:scale(1.08) rotate(-3deg)}
+.svc b{display:block;font:500 17.5px/1.2 Fraunces,serif;color:var(--deep)}
+.svc small{display:block;font-size:12.5px;color:var(--mute);margin-top:3px}
+.svc em{margin-left:auto;font-style:normal;color:var(--terra);transition:transform .3s}
+.svc:hover em{transform:translateX(4px)}
+
+/* intro-animatie hero */
+.js .in-up{opacity:0;transform:translateY(22px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0) * 110ms)}
+.js .in-pop{opacity:0;transform:translateY(16px) scale(.94);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1.15);transition-delay:calc(var(--d,0) * 110ms)}
+.js .in-arch{clip-path:inset(12% 6% 0 6% round 400px 400px 22px 22px);transition:clip-path 1.5s cubic-bezier(.7,0,.2,1)}
+.loaded .in-up,.loaded .in-pop{opacity:1;transform:none}
+.loaded .in-arch{clip-path:inset(0 0 0 0 round 400px 400px 22px 22px)}
 
 /* walk-in band */
 .walk{background:var(--sea);color:#E6EDF5;border-radius:36px;margin:0 20px;position:relative;overflow:hidden}
@@ -159,20 +231,59 @@ footer{background:var(--deep);color:#8193A9;font-size:14px;border-top:1px solid 
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:26px;padding-bottom:30px}
 footer a{color:#B9C6D6}
 
+/* afwerking */
+.card{position:relative}
+.card .no{position:absolute;top:16px;left:16px;z-index:1;font:600 12px/1 Manrope,sans-serif;letter-spacing:.1em;color:var(--deep);background:rgba(255,255,255,.88);backdrop-filter:blur(6px);padding:8px 11px;border-radius:999px}
+.card .go{position:absolute;top:16px;right:16px;z-index:1;width:38px;height:38px;border-radius:50%;background:var(--terra);color:#fff;display:grid;place-items:center;transform:scale(.6) rotate(-45deg);opacity:0;transition:transform .45s cubic-bezier(.2,.8,.2,1.2),opacity .3s}
+.card:hover .go{transform:scale(1) rotate(0);opacity:1}
+.card figure{position:relative}
+.card figure:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,39,63,0) 60%,rgba(20,39,63,.18))}
+.q{transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s}
+.q:hover{transform:translateY(-4px);box-shadow:0 30px 50px -34px rgba(20,39,63,.45)}
+.q:after{content:"\201D";position:absolute;right:26px;top:6px;font:400 96px/1 Fraunces,serif;color:var(--terra);opacity:.18}
+.gal img{transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .5s}
+.gal{overflow:visible}
+.gal img:hover{transform:scale(.985);filter:saturate(1.08)}
+.week li.today,.hours li.today{color:#fff;font-weight:700}
+.week li span:last-child{white-space:nowrap}
+.hours li.today span:first-child:after{content:"vandaag";margin-left:10px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#F0B396;vertical-align:1px}
+.steps li{transition:padding .35s}
+.steps li:hover{padding-left:10px}
+:focus-visible{outline:2px solid var(--terra);outline-offset:3px;border-radius:6px}
+
 /* reveal */
-.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.js .rv{opacity:0;transform:translateY(30px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0) * 90ms)}
 .js .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.js .rv,.js .in-up,.js .in-pop{opacity:1;transform:none;transition:none}.js .in-arch{clip-path:none;transition:none}.float,.sun svg.ring,.status i{animation:none}.hero h1 em path{animation:none;stroke-dashoffset:0}html{scroll-behavior:auto}}
 
 @media (max-width:1080px){
   .cards{grid-template-columns:repeat(2,1fr)}
-  .hero .wrap{gap:44px}
-  .score{left:-10px}
+  .hero-grid{gap:40px}
+  .hero-pic{padding-left:40px}
+  .qcard{max-width:220px}
+  .hero-foot .wrap{grid-template-columns:repeat(4,1fr)}
+  .scroll{display:none}
+  .svc:first-of-type{border-left:0}
+  .svc{padding:20px 14px;gap:10px}
+  .svc img{width:42px;height:42px}
+  .svc em{display:none}
 }
 @media (max-width:900px){
   .nav{display:none}
-  .hero{padding:34px 0 70px}
-  .hero .wrap,.walk .wrap,.how .wrap,.rev .wrap,.contact .wrap{grid-template-columns:1fr;gap:44px}
+  .js .menu-btn{display:grid}
+  .js .drawer{display:block;position:fixed;left:0;right:0;top:0;z-index:39;background:var(--chalk);padding:120px 28px 34px;transform:translateY(-102%);transition:transform .55s cubic-bezier(.7,0,.2,1),visibility 0s .55s;box-shadow:0 30px 60px -30px rgba(20,39,63,.5);border-radius:0 0 28px 28px}
+  .open .drawer{transform:none;transition:transform .55s cubic-bezier(.7,0,.2,1)}
+  .drawer a{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);font:500 26px/1.1 Fraunces,serif;color:var(--deep);text-decoration:none}
+  .drawer a span{color:var(--terra);font:600 14px Manrope,sans-serif}
+  .drawer p{margin-top:22px;font-size:14px;color:var(--mute)}
+  .hero{padding:30px 0 0}
+  .hero-grid{grid-template-columns:1fr;min-height:0;gap:30px}
+  .hero-pic{max-width:560px;width:100%;margin:0 auto;padding:20px 0 30px 50px}
+  .hero-foot{margin-top:30px}
+  .hero-foot .wrap{grid-template-columns:1fr 1fr;padding:0}
+  .svc{border-left:0;border-bottom:1px solid var(--line);padding:18px 20px}
+  .svc:nth-of-type(odd){border-right:1px solid var(--line)}
+  .walk .wrap,.how .wrap,.rev .wrap,.contact .wrap{grid-template-columns:1fr;gap:44px}
   .hero-pic{max-width:520px;width:100%;margin:0 auto}
   .head{flex-direction:column;align-items:start;gap:16px}
   .big{position:static}
@@ -192,10 +303,27 @@ footer a{color:#B9C6D6}
   .top .btn{padding:11px 13px}
   .logo small{letter-spacing:.16em}
   .hero p.lead{font-size:17px}
+  .hero h1{font-size:clamp(40px,11.4vw,56px)}
+  .hero h1 em{white-space:normal}
   .hero .acts .btn{flex:1 1 100%;justify-content:center}
-  .score{left:10px;bottom:16px;padding:14px 16px}
-  .score b{font-size:32px}
-  .sun{width:78px;height:78px;right:4px;font-size:11px}
+  .status{font-size:13px;margin-bottom:18px}
+  .hstats{grid-template-columns:repeat(3,1fr);margin-top:36px;padding-top:24px}
+  .hstats div{padding:0 12px}
+  .hstats b{font-size:24px}
+  .hstats small{font-size:12px}
+  .hero-pic{padding:14px 0 0 0}
+  .arch-line{right:-8px;width:calc(100% - 20px);bottom:-10px}
+  .pic-sm{display:none}
+  .qcard{position:relative;left:auto;top:auto;max-width:none;margin:-60px 14px 0;z-index:3}
+  .score{right:12px;bottom:auto;top:58%;padding:12px 15px}
+  .score b{font-size:30px}
+  .sun{width:92px;height:92px;right:-4px;top:-4px}
+  .sun svg.ring text{font-size:10px}
+  .sun .ic{width:26px;height:26px}
+  .svc{padding:16px 12px;gap:10px}
+  .svc img{width:38px;height:38px}
+  .svc b{font-size:15.5px}
+  .svc small{font-size:11.5px}
   .walk,.contact{border-radius:26px}
   .walk{margin:0 10px}
   .walk .wrap{padding-top:64px;padding-bottom:64px}
@@ -226,43 +354,71 @@ footer a{color:#B9C6D6}
       <a href="#reviews">Reviews</a>
       <a href="#contact">Contact</a>
     </nav>
+    <div class="top-r">
     <a class="btn btn-terra" href="https://wa.me/32475264306" aria-label="Stuur een WhatsApp">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
       <span>Stuur een berichtje</span>
     </a>
+    <button class="menu-btn" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="drawer"><span></span></button>
+    </div>
   </div>
 </header>
+  <nav class="drawer" id="drawer" aria-label="Menu">
+    <a href="#diensten">Diensten <span>01</span></a>
+    <a href="#zo-gaat-het">Zo gaat het <span>02</span></a>
+    <a href="#reviews">Reviews <span>03</span></a>
+    <a href="#contact">Contact <span>04</span></a>
+    <p>Ma tot vr 9u tot 19u · za 8u30 tot 19u · zonder afspraak welkom</p>
+  </nav>
+
 
 <main>
 <section class="hero">
-  <div class="wrap">
-    <div class="rv">
-      <span class="eyebrow">Dames, heren en kinderen</span>
-      <h1>Toon ons je foto. <em>Wij doen de rest.</em></h1>
-      <p class="lead">Knippen, kleuren, balayage of gewoon je lagen bijwerken. Je mag altijd binnenwandelen, ook zonder afspraak zoeken we een plekje voor je.</p>
-      <div class="acts">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="status in-up" style="--d:0"><i></i><span data-status>Maandag tot zaterdag open</span></div>
+      <span class="eyebrow in-up" style="--d:1">Dames, heren en kinderen</span>
+      <h1><span class="ln in-up" style="--d:2">Toon ons je foto.</span> <span class="ln in-up" style="--d:3"><em>Wij doen de rest.<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14C70 5 160 3 296 10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></em></span></h1>
+      <p class="lead in-up" style="--d:4">Knippen, kleuren, balayage of gewoon je lagen bijwerken. Je mag altijd binnenwandelen, ook zonder afspraak zoeken we een plekje voor je.</p>
+      <div class="acts in-up" style="--d:5">
         <a class="btn btn-terra" href="https://wa.me/32475264306">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
           WhatsApp ons
+          <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <a class="btn btn-line" href="tel:+32475264306">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>
           0475 26 43 06
         </a>
       </div>
-      <div class="facts">
-        <span><i></i>Maandag tot zaterdag open</span>
-        <span><i></i>Zaterdag al vanaf 8u30</span>
-        <span><i></i>Zonder afspraak welkom</span>
+      <div class="hstats in-up" style="--d:6">
+        <div><b>501</b><small>reviews op Google,<br>gemiddeld 4,9</small></div>
+        <div><b>8u30</b><small>zaterdag al<br>open</small></div>
+        <div><b>6 dagen</b><small>per week open,<br>ook zonder afspraak</small></div>
       </div>
     </div>
-    <div class="hero-pic rv">
-      <div class="arch"><img src="img/hero.webp" alt="Kapster föhnt het haar van een klant in de salon" width="1600" height="1068" fetchpriority="high"></div>
-      <div class="score">
+    <div class="hero-pic">
+      <span class="arch-line in-up" style="--d:4" aria-hidden="true"></span>
+      <div class="arch in-arch"><img src="img/hero.webp" alt="Kapster föhnt het haar van een klant in de salon" width="1600" height="1068" fetchpriority="high"></div>
+      <div class="pic-sm in-pop" style="--d:6"><img src="img/krullen.webp" alt="Vrouw met volle natuurlijke krullen" width="1000" height="1000"></div>
+      <figure class="qcard in-pop" style="--d:7"><div class="float"><p>“I just show her the picture and she did better than the picture.”</p><span>Google-review</span></div></figure>
+      <div class="score in-pop" style="--d:8"><div class="float d2" style="display:flex;align-items:center;gap:14px">
         <b>4,9</b>
         <span><span class="st">★★★★★</span><small>uit 501 reviews<br>op Google</small></span>
+      </div></div>
+      <div class="sun in-pop" style="--d:5" aria-label="Zonder afspraak welkom">
+        <svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="rg" d="M60 60m-44 0a44 44 0 1 1 88 0a44 44 0 1 1-88 0"/></defs><text><textPath href="#rg" textLength="272" lengthAdjust="spacing">Zonder afspraak welkom · zonder afspraak ·</textPath></text></svg>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg>
       </div>
-      <div class="sun">Zonder<br>afspraak<br>welkom</div>
+    </div>
+  </div>
+  <div class="hero-foot in-up" style="--d:7">
+    <div class="wrap">
+      <div class="scroll" aria-hidden="true"><i></i>Scroll</div>
+      <a class="svc" href="#diensten"><img src="img/lagen.webp" alt="" width="1600" height="1068"><span><b>Knippen &amp; föhnen</b><small>lagen, punten, brushing</small></span><em>→</em></a>
+      <a class="svc" href="#diensten"><img src="img/blond.webp" alt="" width="1000" height="1500"><span><b>Kleur &amp; balayage</b><small>uitgroei of iets nieuws</small></span><em>→</em></a>
+      <a class="svc" href="#diensten"><img src="img/heren.webp" alt="" width="1200" height="800"><span><b>Heren</b><small>bijwerken of nieuwe coupe</small></span><em>→</em></a>
+      <a class="svc" href="#diensten"><img src="img/opsteek.webp" alt="" width="1200" height="800"><span><b>Kinderen &amp; feest</b><small>klein en groot welkom</small></span><em>→</em></a>
     </div>
   </div>
 </section>
@@ -281,9 +437,9 @@ footer a{color:#B9C6D6}
     <div class="week rv">
       <h3>Wanneer we er zijn</h3>
       <ul>
-        <li><span>Maandag tot vrijdag</span><span>9u tot 19u</span></li>
-        <li><span>Zaterdag</span><span>8u30 tot 19u</span></li>
-        <li class="off"><span>Zondag</span><span>gesloten</span></li>
+        <li data-day="1 2 3 4 5"><span>Maandag tot vrijdag</span><span>9u tot 19u</span></li>
+        <li data-day="6"><span>Zaterdag</span><span>8u30 tot 19u</span></li>
+        <li class="off" data-day="0"><span>Zondag</span><span>gesloten</span></li>
       </ul>
     </div>
   </div>
@@ -296,19 +452,19 @@ footer a{color:#B9C6D6}
       <p>Lang of kort, klassiek of net iets gewaagder. Zeg wat je wil, of laat het zien. We kijken samen wat bij je haar past.</p>
     </div>
     <div class="cards">
-      <article class="card rv">
+      <article class="card rv" style="--d:0"><span class="no">01</span>
         <figure><img src="img/lagen.webp" alt="Lang haar met zachte lagen" loading="lazy" width="1600" height="1068"></figure>
         <div><span class="tag">Dames</span><h3>Knippen &amp; föhnen</h3><p>Lagen, een frisse lijn of gewoon de punten. Daarna föhnen en brushen tot het goed valt.</p></div>
       </article>
-      <article class="card rv">
+      <article class="card rv" style="--d:1"><span class="no">02</span>
         <figure><img src="img/blond.webp" alt="Lang blond haar met warme tinten" loading="lazy" width="1000" height="1500"></figure>
         <div><span class="tag">Kleur</span><h3>Kleuren &amp; balayage</h3><p>Een nieuwe kleur, je uitgroei bijwerken of zachte balayage. We bekijken wat bij je huid en je haar past.</p></div>
       </article>
-      <article class="card rv">
+      <article class="card rv" style="--d:2"><span class="no">03</span>
         <figure><img src="img/heren.webp" alt="Kapper knipt een man in de stoel" loading="lazy" width="1200" height="800"></figure>
         <div><span class="tag">Heren</span><h3>Een frisse coupe</h3><p>Bijwerken of iets helemaal nieuws. Snel geregeld, ook als je zonder afspraak binnenwandelt.</p></div>
       </article>
-      <article class="card rv">
+      <article class="card rv" style="--d:3"><span class="no">04</span>
         <figure><img src="img/opsteek.webp" alt="Haar wordt opgestoken met spelden" loading="lazy" width="1200" height="800"></figure>
         <div><span class="tag">Kinderen &amp; feest</span><h3>Klein en groot</h3><p>Ook de kleinsten zitten hier goed. En moet het haar mooi opgestoken voor een feest, vraag het ons gerust.</p></div>
       </article>
@@ -343,9 +499,9 @@ footer a{color:#B9C6D6}
       <p>Gemiddeld uit 501 reviews op Google. Klanten schrijven ze vaak in hun eigen taal, we laten ze zoals ze zijn.</p>
     </div>
     <div class="quotes">
-      <figure class="q rv"><blockquote>“WOW! What a nice Haircut! I asked for layers and I got exactly what I wanted. I left speechless😍”</blockquote><cite>Google-review</cite></figure>
-      <figure class="q rv"><blockquote>“Today my mother and I had our hair cut and styled, the people there made a radical change, they behave very nicely! professionalism! I highly recommend! these guys find a place even if you don't have an appointment!”</blockquote><cite>Google-review</cite></figure>
-      <figure class="q rv"><blockquote>“I just show her the picture and she did better than the picture.”</blockquote><cite>Google-review</cite></figure>
+      <figure class="q rv" style="--d:1"><blockquote>“WOW! What a nice Haircut! I asked for layers and I got exactly what I wanted. I left speechless😍”</blockquote><cite>Google-review</cite></figure>
+      <figure class="q rv" style="--d:2"><blockquote>“Today my mother and I had our hair cut and styled, the people there made a radical change, they behave very nicely! professionalism! I highly recommend! these guys find a place even if you don't have an appointment!”</blockquote><cite>Google-review</cite></figure>
+      <figure class="q rv" style="--d:3"><blockquote>“I just show her the picture and she did better than the picture.”</blockquote><cite>Google-review</cite></figure>
     </div>
   </div>
 </section>
@@ -381,13 +537,13 @@ footer a{color:#B9C6D6}
       <div class="box">
         <h3>Openingsuren</h3>
         <ul class="hours">
-          <li><span>Maandag</span><span>9u tot 19u</span></li>
-          <li><span>Dinsdag</span><span>9u tot 19u</span></li>
-          <li><span>Woensdag</span><span>9u tot 19u</span></li>
-          <li><span>Donderdag</span><span>9u tot 19u</span></li>
-          <li><span>Vrijdag</span><span>9u tot 19u</span></li>
-          <li><span>Zaterdag</span><span>8u30 tot 19u</span></li>
-          <li><span>Zondag</span><span>gesloten</span></li>
+          <li data-day="1"><span>Maandag</span><span>9u tot 19u</span></li>
+          <li data-day="2"><span>Dinsdag</span><span>9u tot 19u</span></li>
+          <li data-day="3"><span>Woensdag</span><span>9u tot 19u</span></li>
+          <li data-day="4"><span>Donderdag</span><span>9u tot 19u</span></li>
+          <li data-day="5"><span>Vrijdag</span><span>9u tot 19u</span></li>
+          <li data-day="6"><span>Zaterdag</span><span>8u30 tot 19u</span></li>
+          <li data-day="0"><span>Zondag</span><span>gesloten</span></li>
         </ul>
       </div>
     </div>
@@ -404,8 +560,24 @@ footer a{color:#B9C6D6}
 
 <script>
 (function(){
-  var t=document.getElementById('top');
+  var t=document.getElementById('top'),R=document.documentElement;
+  requestAnimationFrame(function(){requestAnimationFrame(function(){R.classList.add('loaded')})});
   addEventListener('scroll',function(){t.classList.toggle('scrolled',scrollY>8)},{passive:true});
+  /* menu */
+  var mb=t.querySelector('.menu-btn');
+  function menu(o){R.classList.toggle('open',o);mb.setAttribute('aria-expanded',o);mb.setAttribute('aria-label',o?'Menu sluiten':'Menu openen')}
+  mb.addEventListener('click',function(){menu(!R.classList.contains('open'))});
+  document.querySelectorAll('#drawer a').forEach(function(a){a.addEventListener('click',function(){menu(false)})});
+  /* open of dicht: uren 1-5 9u-19u, za 8u30-19u */
+  var n=new Date(),d=n.getDay(),m=n.getHours()*60+n.getMinutes(),st=document.querySelector('[data-status]');
+  var op=d>=1&&d<=5?540:d==6?510:null,isOpen=op!==null&&m>=op&&m<1140;
+  var dn=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+  if(st){if(isOpen){st.textContent='Nu open, tot 19u'}else{var nd=d,k=0;if(op!==null&&m<op){k=0}else{do{nd=(nd+1)%7;k++}while(nd==0)}var t2=nd==6?'8u30':'9u';st.textContent='Nu gesloten · '+(k==0?'vandaag':k==1?'morgen':dn[nd])+' open vanaf '+t2;st.parentNode.classList.add('closed')}}
+  document.querySelectorAll('[data-day]').forEach(function(li){if((' '+li.getAttribute('data-day')+' ').indexOf(' '+d+' ')>-1)li.classList.add('today')});
+  /* actieve sectie in menu */
+  var links=document.querySelectorAll('.nav a');
+  if('IntersectionObserver' in window){var so=new IntersectionObserver(function(x){x.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')=='#'+e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
+  links.forEach(function(a){var el=document.querySelector(a.getAttribute('href'));if(el)so.observe(el)});document.querySelectorAll('.hero,.walk').forEach(function(el){so.observe(el)})}
   var els=document.querySelectorAll('.rv');
   if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
   var io=new IntersectionObserver(function(x){x.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -5% 0px'});

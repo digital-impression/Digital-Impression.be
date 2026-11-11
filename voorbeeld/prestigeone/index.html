@@ -34,30 +34,79 @@ h1,h2,h3{font-family:Marcellus,Georgia,serif;font-weight:400;line-height:1.08;le
 
 /* hero */
 .hero{background:var(--green);color:var(--cream);position:relative;overflow:hidden;padding-bottom:0}
-.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(900px 500px at 50% 0,rgba(184,145,90,.16),transparent 70%)}
-.bar{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:96px;border-bottom:1px solid rgba(243,238,228,.1)}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(1000px 560px at 50% 8%,rgba(184,145,90,.2),transparent 70%),radial-gradient(700px 400px at 50% 100%,rgba(15,36,32,.9),transparent 70%)}
+.bar{position:relative;z-index:4;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:96px;border-bottom:1px solid rgba(243,238,228,.1)}
 .bar nav{display:flex;gap:30px;font-size:15px}
-.bar nav a{text-decoration:none;color:#C9C3B4;transition:color .2s}
-.bar nav a:hover{color:var(--brass2)}
+.bar nav a,.mini nav a{position:relative;text-decoration:none;color:#C9C3B4;transition:color .2s;padding:4px 0}
+.bar nav a:after,.mini nav a:after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--brass2);transform:scaleX(0);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.bar nav a:hover,.mini nav a:hover,.mini nav a.on{color:var(--brass2)}
+.bar nav a:hover:after,.mini nav a:hover:after,.mini nav a.on:after{transform:scaleX(1)}
 .bar nav.r{justify-content:flex-end}
 .mark{text-align:center;text-decoration:none}
 .mark b{display:block;font:400 25px/1 Marcellus,serif;letter-spacing:.24em;color:var(--cream)}
 .mark small{display:block;font-size:10.5px;letter-spacing:.42em;color:var(--brass);margin-top:7px;text-transform:uppercase}
 .bar .call{display:none}
-.hero-in{position:relative;z-index:2;text-align:center;padding:90px 30px 70px}
-.hero h1{font-size:clamp(46px,7.4vw,108px);margin:28px auto 26px;max-width:11em}
-.hero h1 span{color:var(--brass2)}
-.hero p{font-size:19px;color:#C9C3B4;max-width:36em;margin:0 auto;font-weight:300}
+.hero-in{position:relative;z-index:2;text-align:center;padding:86px 30px 64px}
+.hero h1{font-size:clamp(46px,7.4vw,112px);margin:30px auto 28px;max-width:11em;line-height:1.02}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}
+.hero h1 .ln>span{display:inline-block}
+.hero h1 .gold{color:var(--brass2)}
+.hero h1 .gold i{font-style:normal;position:relative}
+.hero p{font-size:19px;color:#C9C3B4;max-width:35em;margin:0 auto;font-weight:300}
 .hero .acts{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin-top:40px}
-.strip{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:20px;align-items:end;max-width:1120px;margin:0 auto;padding:0 30px}
-.strip figure{overflow:hidden;border-radius:200px 200px 0 0;background:var(--green2)}
-.strip figure img{width:100%;height:100%;object-fit:cover}
-.strip figure:nth-child(1){height:360px}
-.strip figure:nth-child(2){height:470px}
-.strip figure:nth-child(3){height:400px}
+.btn .arr{transition:transform .3s}
+.btn:hover .arr{transform:translateX(4px)}
+.hfacts{display:flex;justify-content:center;flex-wrap:wrap;gap:0;margin:52px auto 0;max-width:820px;border-top:1px solid rgba(243,238,228,.12);border-bottom:1px solid rgba(243,238,228,.12)}
+.hfacts div{flex:1 1 0;padding:20px 18px;display:flex;align-items:center;justify-content:center;gap:12px;font-size:14px;color:#B9B4A6;line-height:1.35;text-align:left}
+.hfacts div+div{border-left:1px solid rgba(243,238,228,.12)}
+.hfacts b{font:400 30px/1 Marcellus,serif;color:var(--cream);white-space:nowrap}
+.hfacts b em{font-style:normal;color:var(--brass2);font-size:.55em;vertical-align:.7em;margin-left:2px}
+/* zijkanten zoals een barbiersbord */
+.side{position:absolute;z-index:3;top:200px;display:flex;flex-direction:column;align-items:center;gap:14px;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:#8E978F}
+.side.l{left:34px}.side.r{right:34px}
+.side .vt{writing-mode:vertical-rl;transform:rotate(180deg)}
+.side .ln2{width:1px;height:70px;background:linear-gradient(rgba(184,145,90,0),var(--brass))}
+.side ul{list-style:none;display:grid;gap:12px;text-align:center;letter-spacing:.2em}
+.side li{transition:color .3s}
+.side li.on{color:var(--brass2)}
+.strip{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:22px;align-items:end;max-width:1140px;margin:0 auto;padding:0 30px}
+.strip figure{position:relative}
+.strip .ph{overflow:hidden;border-radius:240px 240px 0 0;background:var(--green2);height:100%;position:relative}
+.strip .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,36,32,0) 55%,rgba(15,36,32,.55))}
+.strip img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);transition:transform 1.8s cubic-bezier(.2,.7,.2,1)}
+.loaded .strip img{transform:scale(1.02)}
+.strip figure:before{content:"";position:absolute;inset:-12px -12px 0;border:1px solid rgba(210,174,120,.38);border-bottom:0;border-radius:250px 250px 0 0;pointer-events:none}
+.strip figure:nth-child(1){height:380px}
+.strip figure:nth-child(2){height:500px}
+.strip figure:nth-child(3){height:420px}
+.strip figcaption{position:absolute;left:0;right:0;bottom:26px;z-index:2;text-align:center;font-size:11.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--cream)}
+.strip figcaption:before{content:"";display:block;width:6px;height:6px;margin:0 auto 10px;border-radius:50%;background:var(--brass2)}
+.strip figure:nth-child(2) figcaption{bottom:92px}
 .badge{position:absolute;z-index:3;left:50%;bottom:30px;transform:translateX(-50%);background:var(--cream);color:var(--green);border-radius:999px;padding:12px 22px;font-size:14.5px;display:flex;gap:10px;align-items:center;box-shadow:0 20px 40px -20px rgba(0,0,0,.5);white-space:nowrap}
 .badge b{font:400 20px/1 Marcellus,serif}
 .badge i{font-style:normal;color:var(--brass);letter-spacing:2px}
+.ticker{position:relative;z-index:2;background:var(--brass);color:var(--green3);overflow:hidden;white-space:nowrap;border-top:1px solid rgba(15,36,32,.2)}
+.ticker div{display:inline-flex;gap:0;padding:17px 0;animation:tick 38s linear infinite}
+.ticker span{font:400 21px/1 Marcellus,serif;letter-spacing:.06em;padding:0 26px;display:inline-flex;align-items:center;gap:52px}
+.ticker span:after{content:"";width:7px;height:7px;transform:rotate(45deg);background:var(--green3);opacity:.6}
+@keyframes tick{to{transform:translateX(-50%)}}
+/* intro */
+.js .up{opacity:0;transform:translateY(24px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0) * 120ms)}
+.js .hero h1 .ln>span{transform:translateY(105%);transition:transform 1.1s cubic-bezier(.2,.75,.15,1);transition-delay:calc(var(--d,0) * 120ms)}
+.js .strip figure{opacity:0;transform:translateY(60px);transition:opacity 1.1s ease,transform 1.3s cubic-bezier(.2,.75,.15,1);transition-delay:calc(var(--d,0) * 120ms)}
+.loaded .up,.loaded .strip figure{opacity:1;transform:none}
+.loaded .hero h1 .ln>span{transform:none}
+/* mini-header bij scrollen */
+.mini{display:none}
+.js .mini{display:block;position:fixed;left:0;right:0;top:0;z-index:50;background:rgba(15,36,32,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(184,145,90,.25);transform:translateY(-105%);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.js .mini.show{transform:none}
+.mini .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:70px}
+.mini .mark{text-align:left}
+.mini .mark b{font-size:18px}
+.mini .mark small{font-size:9px;margin-top:5px}
+.mini nav{display:flex;gap:28px;font-size:14.5px}
+.mini .btn{padding:11px 18px;font-size:14px}
+.mini .btn svg{width:16px;height:16px}
 
 /* menu */
 .sec{padding:130px 0}
@@ -111,7 +160,7 @@ h1,h2,h3{font-family:Marcellus,Georgia,serif;font-weight:400;line-height:1.08;le
 .card blockquote{font:400 25px/1.3 Marcellus,serif;color:var(--green);padding-right:34px}
 .card cite{font-style:normal;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass)}
 .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
-.gal img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:18px}
+.gal img{width:100%;aspect-ratio:1/1;object-fit:cover}
 
 /* contact */
 .contact{background:var(--green);color:var(--cream);border-radius:32px 32px 0 0}
@@ -133,11 +182,48 @@ footer{background:var(--green);color:#8C968F;font-size:14px;border-top:1px solid
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:26px;padding-bottom:30px}
 footer a{color:#C9C3B4}
 
-.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+/* afwerking */
+.list li{position:relative}
+.list li:after{content:"\2192";position:absolute;right:6px;top:36px;font-size:20px;color:var(--brass);opacity:0;transform:translateX(-10px);transition:opacity .35s,transform .35s}
+.list li:hover:after{opacity:1;transform:none}
+.list li:hover h3{color:var(--brass)}
+.list h3{transition:color .3s}
+.menu-side img{transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.menu-side .pic{overflow:hidden;border-radius:18px;margin-top:38px}
+.menu-side .pic img{margin:0}
+.menu-side .pic:hover img{transform:scale(1.04)}
+.tongues li{transition:color .25s,padding .35s}
+.tongues li:hover{padding-left:12px}
+.lang-pic{isolation:isolate}
+.lang-pic:before{content:"";position:absolute;z-index:-1;inset:-16px 16px 16px -16px;border:1px solid rgba(184,145,90,.35);border-radius:22px;pointer-events:none}
+.lang-pic .tag{position:absolute;left:22px;bottom:22px;background:rgba(15,36,32,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(184,145,90,.3);border-radius:14px;padding:14px 18px;font-size:14px;color:#D9D2C2;max-width:260px;line-height:1.45}
+.lang-pic .tag b{display:block;font:400 18px/1.2 Marcellus,serif;color:var(--brass2);margin-bottom:3px}
+.days span{transition:transform .3s}
+.days span.today{background:var(--brass);color:var(--green3);transform:translateY(-4px);box-shadow:0 12px 22px -12px rgba(15,36,32,.6)}
+.days span.today.off{background:transparent;color:var(--mute);transform:none;box-shadow:none;border-style:solid}
+.hrs li.today span{color:var(--brass2)!important}
+.hrs li.today span:first-child:after{content:"vandaag";margin-left:10px;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase}
+.card{transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s,border-color .4s}
+.card:hover{transform:translateY(-5px);border-color:var(--brass);box-shadow:0 30px 50px -34px rgba(21,48,42,.5)}
+.gal figure{overflow:hidden;border-radius:18px}
+.gal figure img{border-radius:0;transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.gal figure:hover img{transform:scale(1.05)}
+:focus-visible{outline:2px solid var(--brass2);outline-offset:3px;border-radius:6px}
+.js .rv{opacity:0;transform:translateY(30px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0) * 90ms)}
 .js .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.js .rv,.js .up,.js .strip figure{opacity:1;transform:none;transition:none}.js .hero h1 .ln>span{transform:none;transition:none}.ticker div{animation:none}html{scroll-behavior:auto}}
 
+@media (max-width:1240px){
+  .side{display:none}
+}
 @media (max-width:980px){
+  .mini nav{display:none}
+  .hfacts{max-width:none}
+  .hfacts div{flex-direction:column;gap:8px;text-align:center}
+  .hfacts br{display:none}
+  .strip figure:nth-child(1){height:300px}
+  .strip figure:nth-child(2){height:420px}
+  .strip figure:nth-child(3){height:340px}
   .bar{grid-template-columns:1fr auto}
   .bar nav{display:none}
   .mark{text-align:left}
@@ -151,7 +237,7 @@ footer a{color:#C9C3B4}
   .cards{grid-template-columns:1fr}
   .lang-pic{max-width:520px}
   .gal{gap:10px}
-  .gal img{border-radius:12px}
+  .gal figure{border-radius:12px}
   .sec{padding:100px 0}
 }
 @media (max-width:600px){
@@ -166,11 +252,24 @@ footer a{color:#C9C3B4}
   .hero p{font-size:17px;margin:0}
   .hero .acts{justify-content:flex-start}
   .hero .acts .btn{flex:1 1 100%}
-  .strip{grid-template-columns:1fr 1fr;padding:0 20px;gap:12px}
+  .strip{grid-template-columns:1.2fr 1fr;padding:0 20px;gap:14px}
   .strip figure:nth-child(1){display:none}
-  .strip figure:nth-child(2){height:300px}
-  .strip figure:nth-child(3){height:250px}
+  .strip figure:nth-child(2){height:330px}
+  .strip figure:nth-child(3){height:270px}
+  .strip figure:before{inset:-8px -8px 0}
+  .strip figcaption{display:none}
   .badge{bottom:18px;font-size:13px;padding:10px 16px}
+  .hero h1{font-size:clamp(44px,12.5vw,60px)}
+  .hfacts{margin-top:40px;flex-direction:column;border-bottom:0}
+  .hfacts div{display:grid;grid-template-columns:130px 1fr;justify-content:start;text-align:left;gap:12px;padding:16px 0;border-bottom:1px solid rgba(243,238,228,.12)}
+  .hfacts div+div{border-left:0}
+  .hfacts b{font-size:26px;min-width:84px}
+  .ticker span{font-size:17px;padding:0 18px;gap:36px}
+  .ticker div{padding:14px 0}
+  .mini .wrap{height:62px}
+  .mini .btn span{display:none}
+  .mini .btn{padding:11px 13px}
+  .lang-pic .tag{left:14px;bottom:14px;right:14px;max-width:none}
   .list li{grid-template-columns:44px 1fr;gap:12px}
   .list h3{font-size:27px}
   .sun{border-radius:22px}
@@ -191,6 +290,14 @@ footer a{color:#C9C3B4}
 <body>
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
+<header class="mini" id="mini">
+  <div class="wrap">
+    <a class="mark" href="#top"><b>PRESTIGE ONE</b><small>Kapper &amp; barbier</small></a>
+    <nav aria-label="Menu"><a href="#wat">Wat we doen</a><a href="#talen">Talen</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></nav>
+    <a class="btn btn-brass" href="https://wa.me/32493459281"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg><span>WhatsApp</span></a>
+  </div>
+</header>
+
 <section class="hero" id="top">
   <div class="wrap bar">
     <nav aria-label="Menu links"><a href="#wat">Wat we doen</a><a href="#talen">Talen</a></nav>
@@ -200,24 +307,33 @@ footer a{color:#C9C3B4}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg><span>Bellen</span>
     </a>
   </div>
-  <div class="wrap hero-in rv">
-    <span class="lbl c">Knippen · fade · baard</span>
-    <h1>Strak geknipt. <span>Ook op zondag.</span></h1>
-    <p>Neem plaats in de stoel en zeg gewoon wat je wil. In het Nederlands, Engels, Frans, Turks of Arabisch: we verstaan je, en we knippen het zoals jij het draagt.</p>
-    <div class="acts">
+  <div class="side l" aria-hidden="true"><span class="ln2"></span><span class="vt">Dinsdag tot zondag · 9u30 tot 19u</span></div>
+  <div class="side r" aria-hidden="true"><span class="ln2"></span><ul><li>NL</li><li>EN</li><li>FR</li><li>TR</li><li>AR</li></ul></div>
+  <div class="wrap hero-in">
+    <span class="lbl c up" style="--d:0">Knippen · fade · baard</span>
+    <h1><span class="ln"><span style="--d:1">Strak geknipt.</span></span> <span class="ln gold"><span style="--d:2">Ook op zondag.</span></span></h1>
+    <p class="up" style="--d:3">Neem plaats in de stoel en zeg gewoon wat je wil. In het Nederlands, Engels, Frans, Turks of Arabisch: we verstaan je, en we knippen het zoals jij het draagt.</p>
+    <div class="acts up" style="--d:4">
       <a class="btn btn-brass" href="https://wa.me/32493459281">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
         Stuur een WhatsApp
+        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       <a class="btn btn-out" href="tel:+32493459281">0493 45 92 81</a>
     </div>
+    <div class="hfacts up" style="--d:5">
+      <div><b>4,8<em>★</em></b><span>54 reviews <br>op Google</span></div>
+      <div><b>Di tot zo</b><span>telkens van <br>9u30 tot 19u</span></div>
+      <div><b>5 talen</b><span>zeg het zoals <br>je het zegt</span></div>
+    </div>
   </div>
   <div class="strip">
-    <figure><img src="img/knip.webp" alt="Kapper werkt de nek van een klant bij" width="1200" height="800"></figure>
-    <figure><img src="img/fade.webp" alt="Barbier zet een strakke fade" width="1100" height="1648" fetchpriority="high"></figure>
-    <figure><img src="img/krul.webp" alt="Barbier knipt krullend haar met de tondeuse" width="1000" height="1330"></figure>
+    <figure style="--d:3"><div class="ph"><img src="img/knip.webp" alt="Kapper werkt de nek van een klant bij" width="1200" height="800"></div><figcaption>Knippen</figcaption></figure>
+    <figure style="--d:4"><div class="ph"><img src="img/fade.webp" alt="Barbier zet een strakke fade" width="1100" height="1648" fetchpriority="high"></div><figcaption>Fades</figcaption></figure>
+    <figure style="--d:5"><div class="ph"><img src="img/krul.webp" alt="Barbier knipt krullend haar met de tondeuse" width="1000" height="1330"></div><figcaption>Baard &amp; lijnen</figcaption></figure>
     <div class="badge"><b>4,8</b><i>★★★★★</i><span>54 reviews op Google</span></div>
   </div>
+  <div class="ticker" aria-hidden="true"><div><span>Knippen</span><span>Fades</span><span>Baard</span><span>Even bijwerken</span><span>Ook op zondag</span><span>Knippen</span><span>Fades</span><span>Baard</span><span>Even bijwerken</span><span>Ook op zondag</span><span>Knippen</span><span>Fades</span><span>Baard</span><span>Even bijwerken</span><span>Ook op zondag</span><span>Knippen</span><span>Fades</span><span>Baard</span><span>Even bijwerken</span><span>Ook op zondag</span></div></div>
 </section>
 
 <main>
@@ -227,13 +343,13 @@ footer a{color:#C9C3B4}
       <span class="lbl">Wat we doen</span>
       <h2>Alles voor een frisse kop</h2>
       <p>Geen ingewikkelde lijst. Je zegt wat je wil, of je toont een foto, en we gaan aan de slag.</p>
-      <img src="img/tools.webp" alt="Tondeuse, schaar en kam van de barbier" loading="lazy" width="1200" height="800">
+      <div class="pic"><img src="img/tools.webp" alt="Tondeuse, schaar en kam van de barbier" loading="lazy" width="1200" height="800"></div>
     </div>
     <ol class="list">
-      <li class="rv"><span class="n">01</span><div><h3>Knippen</h3><p>Klassiek, kort of met wat lengte bovenop. We knippen het zoals jij het graag draagt.</p></div></li>
-      <li class="rv"><span class="n">02</span><div><h3>Fades</h3><p>Van een zachte overgang tot een skin fade, netjes uitgewerkt tot in je nek.</p></div></li>
-      <li class="rv"><span class="n">03</span><div><h3>Baard</h3><p>Trimmen, in lijn zetten en afwerken, zodat je baard er weer verzorgd bij staat.</p></div></li>
-      <li class="rv"><span class="n">04</span><div><h3>Even bijwerken</h3><p>Tussen twee knipbeurten de contouren wat strakker? Dat is zo gebeurd.</p></div></li>
+      <li class="rv" style="--d:1"><span class="n">01</span><div><h3>Knippen</h3><p>Klassiek, kort of met wat lengte bovenop. We knippen het zoals jij het graag draagt.</p></div></li>
+      <li class="rv" style="--d:2"><span class="n">02</span><div><h3>Fades</h3><p>Van een zachte overgang tot een skin fade, netjes uitgewerkt tot in je nek.</p></div></li>
+      <li class="rv" style="--d:3"><span class="n">03</span><div><h3>Baard</h3><p>Trimmen, in lijn zetten en afwerken, zodat je baard er weer verzorgd bij staat.</p></div></li>
+      <li class="rv" style="--d:0"><span class="n">04</span><div><h3>Even bijwerken</h3><p>Tussen twee knipbeurten de contouren wat strakker? Dat is zo gebeurd.</p></div></li>
     </ol>
   </div>
 </section>
@@ -252,7 +368,7 @@ footer a{color:#C9C3B4}
         <li><span lang="ar" dir="rtl">العربية</span> <small>AR</small></li>
       </ul>
     </div>
-    <div class="lang-pic rv"><img src="img/baard.webp" alt="Barbier verzorgt de baard van een klant" loading="lazy" width="1200" height="798"></div>
+    <div class="lang-pic rv"><img src="img/baard.webp" alt="Barbier verzorgt de baard van een klant" loading="lazy" width="1200" height="798"><div class="tag"><b>Toon gerust een foto</b>Dan zitten we meteen op dezelfde lijn, in welke taal ook.</div></div>
   </div>
 </section>
 
@@ -265,7 +381,7 @@ footer a{color:#C9C3B4}
         <h2>Maandag rust. Zondag gewoon open.</h2>
         <p>Van dinsdag tot en met zondag staan we klaar, telkens van 9u30 tot 19u. Handig als je op zondag nog even fris de week in wil.</p>
         <div class="days" aria-label="Open van dinsdag tot zondag">
-          <span class="off"><b>Ma</b>dicht</span><span><b>Di</b>open</span><span><b>Wo</b>open</span><span><b>Do</b>open</span><span><b>Vr</b>open</span><span><b>Za</b>open</span><span><b>Zo</b>open</span>
+          <span class="off" data-day="1"><b>Ma</b>dicht</span><span data-day="2"><b>Di</b>open</span><span data-day="3"><b>Wo</b>open</span><span data-day="4"><b>Do</b>open</span><span data-day="5"><b>Vr</b>open</span><span data-day="6"><b>Za</b>open</span><span data-day="0"><b>Zo</b>open</span>
         </div>
         <p class="days-note">Elke openingsdag van 9u30 tot 19u.</p>
       </div>
@@ -280,14 +396,14 @@ footer a{color:#C9C3B4}
       <div class="rate"><b>4,8</b><span><i>★★★★★</i>gemiddeld uit 54 reviews<br>op Google</span></div>
     </div>
     <div class="cards">
-      <figure class="card rv"><blockquote>“The Best barber in hasselt”</blockquote><cite>Google-review</cite></figure>
-      <figure class="card rv"><blockquote>“Great barber, highly recommended”</blockquote><cite>Google-review</cite></figure>
-      <figure class="card rv"><blockquote>“This guy he knows how to fix my head up 🤣”</blockquote><cite>Google-review</cite></figure>
+      <figure class="card rv" style="--d:1"><blockquote>“The Best barber in hasselt”</blockquote><cite>Google-review</cite></figure>
+      <figure class="card rv" style="--d:2"><blockquote>“Great barber, highly recommended”</blockquote><cite>Google-review</cite></figure>
+      <figure class="card rv" style="--d:3"><blockquote>“This guy he knows how to fix my head up 🤣”</blockquote><cite>Google-review</cite></figure>
     </div>
     <div class="gal rv">
-      <img src="img/stoel.webp" alt="Klassieke barbierstoel" loading="lazy" width="1200" height="800">
-      <img src="img/schuim.webp" alt="Baard wordt ingezeept voor het scheren" loading="lazy" width="1100" height="733">
-      <img src="img/fohn.webp" alt="Haar wordt geföhnd en in model gebracht" loading="lazy" width="1000" height="1500">
+      <figure><img src="img/stoel.webp" alt="Klassieke barbierstoel" loading="lazy" width="1200" height="800"></figure>
+      <figure><img src="img/schuim.webp" alt="Baard wordt ingezeept voor het scheren" loading="lazy" width="1100" height="733"></figure>
+      <figure><img src="img/fohn.webp" alt="Haar wordt geföhnd en in model gebracht" loading="lazy" width="1000" height="1500"></figure>
     </div>
   </div>
 </section>
@@ -308,13 +424,13 @@ footer a{color:#C9C3B4}
       <h3>Prestige One</h3>
       <p class="adr">Kempische Steenweg 140, 3500 Hasselt</p>
       <ul class="hrs">
-        <li class="off"><span>Maandag</span><span>gesloten</span></li>
-        <li><span>Dinsdag</span><span>9u30 tot 19u</span></li>
-        <li><span>Woensdag</span><span>9u30 tot 19u</span></li>
-        <li><span>Donderdag</span><span>9u30 tot 19u</span></li>
-        <li><span>Vrijdag</span><span>9u30 tot 19u</span></li>
-        <li><span>Zaterdag</span><span>9u30 tot 19u</span></li>
-        <li><span>Zondag</span><span>9u30 tot 19u</span></li>
+        <li class="off" data-day="1"><span>Maandag</span><span>gesloten</span></li>
+        <li data-day="2"><span>Dinsdag</span><span>9u30 tot 19u</span></li>
+        <li data-day="3"><span>Woensdag</span><span>9u30 tot 19u</span></li>
+        <li data-day="4"><span>Donderdag</span><span>9u30 tot 19u</span></li>
+        <li data-day="5"><span>Vrijdag</span><span>9u30 tot 19u</span></li>
+        <li data-day="6"><span>Zaterdag</span><span>9u30 tot 19u</span></li>
+        <li data-day="0"><span>Zondag</span><span>9u30 tot 19u</span></li>
       </ul>
     </div>
   </div>
@@ -330,6 +446,18 @@ footer a{color:#C9C3B4}
 
 <script>
 (function(){
+  var R=document.documentElement;
+  requestAnimationFrame(function(){requestAnimationFrame(function(){R.classList.add('loaded')})});
+  var mini=document.getElementById('mini'),hero=document.getElementById('top');
+  addEventListener('scroll',function(){mini.classList.toggle('show',scrollY>hero.offsetHeight-140)},{passive:true});
+  var d=new Date().getDay();
+  document.querySelectorAll('[data-day]').forEach(function(e){if(+e.getAttribute('data-day')===d)e.classList.add('today')});
+  /* talen aan de zijkant lichten om beurten op */
+  var li=document.querySelectorAll('.side li'),k=0;
+  if(li.length&&!matchMedia('(prefers-reduced-motion:reduce)').matches)setInterval(function(){li.forEach(function(x,i){x.classList.toggle('on',i===k)});k=(k+1)%li.length},1600);
+  var links=document.querySelectorAll('.mini nav a');
+  if('IntersectionObserver' in window){var so=new IntersectionObserver(function(x){x.forEach(function(e){if(e.isIntersecting)links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')=='#'+e.target.id)})})},{rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('main>section,#top').forEach(function(el){so.observe(el)})}
   var els=document.querySelectorAll('.rv');
   if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
   var io=new IntersectionObserver(function(x){x.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -5% 0px'});

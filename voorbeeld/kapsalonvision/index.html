@@ -32,30 +32,84 @@ h1,h2,h3{font-family:"Bricolage Grotesque",Inter,sans-serif;font-weight:600;line
 .btn-line{border:1.5px solid var(--gra);color:var(--gra)}
 .btn-line:hover{background:var(--gra);color:#fff}
 
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:86px}
+header{position:sticky;top:0;z-index:40;background:rgba(243,242,238,.84);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+header.sc{border-color:var(--line);box-shadow:0 12px 30px -26px rgba(0,0,0,.4)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:86px;transition:height .35s}
+header.sc .wrap{height:72px}
 .logo{display:flex;align-items:center;gap:6px;text-decoration:none;font:700 24px/1 "Bricolage Grotesque",sans-serif;letter-spacing:-.02em}
-.logo .o{width:22px;height:22px;border-radius:50%;border:5px solid var(--cob);display:inline-block;margin:0 1px}
+.logo .o{width:22px;height:22px;border-radius:50%;border:5px solid var(--cob);display:inline-block;margin:0 1px;transition:transform .5s}
+.logo:hover .o{transform:scale(1.15)}
 .logo .wm{display:inline-flex;align-items:center}
 .logo small{font:500 12px/1 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-left:10px}
 .nav{display:flex;gap:32px;align-items:center;font-size:15px;font-weight:500}
-.nav a{text-decoration:none;color:var(--mute);transition:color .2s}
-.nav a:hover{color:var(--gra)}
+.nav a{text-decoration:none;color:var(--mute);transition:color .2s;position:relative}
+.nav a:not(.btn):after{content:"";position:absolute;left:50%;bottom:-8px;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--cob);transform:scale(0);transition:transform .3s}
+.nav a:hover,.nav a.on{color:var(--gra)}
+.nav a.on:after,.nav a:not(.btn):hover:after{transform:scale(1)}
 .nav .btn{color:#fff;padding:12px 18px}
+.mbtn{display:none;width:46px;height:46px;border-radius:14px;border:1.5px solid var(--line);background:var(--white);cursor:pointer;place-items:center;color:var(--gra)}
+.mbtn span,.mbtn span:before,.mbtn span:after{display:block;width:18px;height:2px;background:currentColor;border-radius:2px;position:relative;transition:transform .3s,background .3s}
+.mbtn span:before,.mbtn span:after{content:"";position:absolute;left:0}
+.mbtn span:before{top:-6px}.mbtn span:after{top:6px}
+.open .mbtn span{background:transparent}
+.open .mbtn span:before{transform:translateY(6px) rotate(45deg)}
+.open .mbtn span:after{transform:translateY(-6px) rotate(-45deg)}
+.drop{display:none}
+.btn .arr{transition:transform .3s}
+.btn:hover .arr{transform:translateX(4px)}
 
 /* hero */
-.hero{padding:40px 0 70px}
-.hero h1{font-size:clamp(54px,10.4vw,160px);margin:26px 0 0;max-width:9.5em}
-.hero h1 .lens{display:inline-block;width:.78em;height:.78em;border-radius:50%;vertical-align:-.04em;overflow:hidden;border:4px solid var(--cob);margin:0 .06em}
-.hero h1 .lens img{width:100%;height:100%;object-fit:cover}
-.hero-row{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;margin-top:56px;align-items:end}
-.hero-row p{font-size:19px;color:var(--mute);max-width:28em}
+.hero{padding:34px 0 80px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;right:-200px;top:-160px;width:700px;height:700px;border-radius:50%;background:radial-gradient(closest-side,rgba(46,76,147,.09),rgba(46,76,147,0));pointer-events:none}
+.htop{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.pill.live i{background:#3E9B6B;box-shadow:0 0 0 4px rgba(62,155,107,.16)}
+.pill.live.closed i{background:var(--cob);box-shadow:0 0 0 4px rgba(46,76,147,.16)}
+.hrs-mini{display:flex;gap:6px;font-size:13px;color:var(--mute)}
+.hrs-mini span{padding:7px 12px;border-radius:999px;border:1px solid var(--line)}
+.hrs-mini span b{color:var(--gra);font-weight:600}
+.h1wrap{position:relative}
+.hero h1{font-size:clamp(54px,10.4vw,160px);margin:30px 0 0;max-width:9.5em}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
+.hero h1 .ln>span{display:inline-block}
+.hero h1 .lens{position:relative;display:inline-block;width:.78em;height:.78em;border-radius:50%;vertical-align:-.04em;overflow:hidden;border:4px solid var(--cob);margin:0 .06em}
+.hero h1 .lens img{width:100%;height:100%;object-fit:cover;transform:scale(1.25);transition:transform 1.6s cubic-bezier(.2,.7,.2,1) .4s}
+.loaded .hero h1 .lens img{transform:scale(1)}
+.seal{position:absolute;right:0;bottom:6px;width:150px;height:150px;border-radius:50%;background:var(--cob);color:#fff;display:grid;place-items:center;box-shadow:0 24px 40px -22px rgba(46,76,147,.8)}
+.seal svg.ring{position:absolute;inset:0;width:100%;height:100%;animation:spin 24s linear infinite}
+.seal text{font:600 11.5px Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;fill:#fff}
+.seal .c{font:700 30px/1 "Bricolage Grotesque",sans-serif;letter-spacing:-.03em;text-align:center}
+.seal .c small{display:block;font:500 10.5px/1.2 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#C9D5F0;margin-top:4px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-row{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;margin-top:56px;align-items:stretch}
+.hero-txt{display:flex;flex-direction:column}
+.hero-row p.lead{font-size:19px;color:var(--mute);max-width:28em}
 .hero-row .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.hero-pic{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;background:var(--paper2)}
-.hero-pic img{width:100%;height:100%;object-fit:cover}
-.score{position:absolute;right:22px;bottom:22px;width:132px;height:132px;border-radius:50%;background:var(--white);display:grid;place-content:center;text-align:center;box-shadow:0 20px 40px -20px rgba(0,0,0,.35)}
+.how{list-style:none;margin-top:auto;padding-top:40px;display:grid;gap:10px}
+.how li{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:center;padding:16px 18px;border-radius:18px;background:var(--white);border:1px solid var(--line);transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s}
+.how li:hover{transform:translateX(6px);border-color:rgba(46,76,147,.4)}
+.how li span{width:44px;height:44px;border-radius:12px;background:var(--sky);color:var(--cob);display:grid;place-items:center;font:700 15px/1 "Bricolage Grotesque",sans-serif}
+.how li b{display:block;font:600 18px/1.2 "Bricolage Grotesque",sans-serif;letter-spacing:-.01em}
+.how li small{display:block;font-size:14px;color:var(--mute);margin-top:2px}
+.hero-pic{position:relative;border-radius:var(--r);overflow:hidden;min-height:520px;background:var(--paper2)}
+.hero-pic>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 1.8s cubic-bezier(.2,.7,.2,1)}
+.loaded .hero-pic>img{transform:scale(1)}
+.hero-pic:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(29,32,36,.25),rgba(29,32,36,0) 30%,rgba(29,32,36,0) 60%,rgba(29,32,36,.45))}
+.tagrow{position:absolute;left:22px;top:22px;right:22px;z-index:1;display:flex;flex-wrap:wrap;gap:8px}
+.tagrow span{padding:8px 14px;border-radius:999px;background:rgba(252,251,249,.18);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;font-size:13.5px;font-weight:500}
+.inset{position:absolute;left:22px;bottom:22px;z-index:1;width:190px;border-radius:18px;overflow:hidden;border:5px solid var(--white);box-shadow:0 24px 40px -20px rgba(0,0,0,.5)}
+.inset img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.score{position:absolute;right:22px;bottom:22px;z-index:1;width:132px;height:132px;border-radius:50%;background:var(--white);display:grid;place-content:center;text-align:center;box-shadow:0 20px 40px -20px rgba(0,0,0,.35)}
 .score b{font:700 42px/1 "Bricolage Grotesque",sans-serif;letter-spacing:-.03em}
 .score span{font-size:12px;color:var(--mute);line-height:1.3;margin-top:4px}
 .score i{font-style:normal;color:#E1A23B;font-size:12px;letter-spacing:1px}
+/* intro */
+.js .up{opacity:0;transform:translateY(22px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0) * 110ms)}
+.js .hero h1 .ln>span{transform:translateY(102%);transition:transform 1.1s cubic-bezier(.2,.75,.15,1);transition-delay:calc(var(--d,0) * 120ms)}
+.js .pop{opacity:0;transform:scale(.85);transition:opacity .8s ease,transform 1s cubic-bezier(.2,.8,.2,1.2);transition-delay:calc(var(--d,0) * 110ms)}
+.js .hero-pic{clip-path:inset(8% 0 0 0 round var(--r));transition:clip-path 1.4s cubic-bezier(.7,0,.2,1) .3s}
+.loaded .up,.loaded .pop{opacity:1;transform:none}
+.loaded .hero h1 .ln>span{transform:none}
+.loaded .hero-pic{clip-path:inset(0 0 0 0 round var(--r))}
 
 /* bento */
 .sec{padding:110px 0}
@@ -128,13 +182,45 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;heigh
 footer{color:var(--mute);font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:40px;padding-bottom:40px}
 
-.js .rv{opacity:0;transform:translateY(24px);transition:opacity .85s ease,transform .85s cubic-bezier(.2,.7,.2,1)}
+/* afwerking */
+.tile{transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s}
+.tile:hover{transform:translateY(-5px);box-shadow:0 30px 50px -36px rgba(29,32,36,.45)}
+.t1 img,.t5 img{transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.t1:hover img,.t5:hover img{transform:scale(1.05)}
+.rows li{transition:padding .35s}
+.rows li:hover{padding-left:10px}
+.rows li .num{transition:background .3s,border-color .3s}
+.rows li:hover .num{background:var(--cob);border-color:var(--cob)}
+.svc-pics img{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.svc-pics img:hover{transform:translateY(-6px)}
+.rev blockquote{position:relative}
+.mini .pill{transition:transform .3s}
+.mini .pill:hover{transform:translateY(-3px) rotate(-2deg)}
+.hrs li.today span{color:var(--cob)!important;font-weight:600}
+.hrs li.today span:first-child:after{content:"vandaag";margin-left:10px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:var(--sky)}
+:focus-visible{outline:2px solid var(--cob);outline-offset:3px;border-radius:6px}
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .95s ease,transform .95s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0) * 90ms)}
 .js .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.js .rv,.js .up,.js .pop{opacity:1;transform:none;transition:none}.js .hero h1 .ln>span{transform:none;transition:none}.js .hero-pic{clip-path:none}.seal svg.ring{animation:none}html{scroll-behavior:auto}}
 
+@media (max-width:1180px){
+  .seal{width:110px;height:110px;bottom:-34px;top:auto}
+  .seal text{font-size:10px}
+  .seal .c{font-size:24px}
+}
 @media (max-width:1000px){
   .nav a:not(.btn){display:none}
+  .js .mbtn{display:grid}
+  .nav{gap:10px}
+  .js .drop{display:block;position:fixed;left:12px;right:12px;top:84px;z-index:39;background:var(--white);border:1px solid var(--line);border-radius:22px;padding:10px 22px 22px;box-shadow:0 30px 60px -30px rgba(0,0,0,.45);opacity:0;transform:translateY(-10px) scale(.98);transform-origin:top right;visibility:hidden;transition:opacity .3s,transform .4s cubic-bezier(.2,.7,.2,1),visibility 0s .4s}
+  .open .drop{opacity:1;transform:none;visibility:visible;transition:opacity .3s,transform .4s cubic-bezier(.2,.7,.2,1)}
+  .drop a{display:flex;justify-content:space-between;align-items:center;padding:15px 0;border-bottom:1px solid var(--line);font:600 24px/1.1 "Bricolage Grotesque",sans-serif;letter-spacing:-.02em;text-decoration:none}
+  .drop a span{width:30px;height:30px;border-radius:50%;background:var(--sky);color:var(--cob);display:grid;place-items:center;font-size:15px}
+  .drop p{margin-top:16px;font-size:14px;color:var(--mute)}
+  .hrs-mini{display:none}
   .hero-row{grid-template-columns:1fr;gap:40px;margin-top:40px}
+  .how{padding-top:30px}
+  .hero-pic{min-height:0;aspect-ratio:16/11}
   .sh{flex-direction:column;align-items:start;gap:16px}
   .bento{grid-template-columns:1fr 1fr}
   .t1{grid-column:1/3;grid-row:auto;aspect-ratio:16/10}
@@ -156,6 +242,15 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
   .hero{padding:24px 0 50px}
   .hero-row p{font-size:17px}
   .hero-row .acts .btn{flex:1 1 100%}
+  .hero h1{font-size:clamp(46px,14vw,70px)}
+  .seal{top:auto;right:0;bottom:-4px;width:98px;height:98px}
+  .seal text{font-size:9px;letter-spacing:.16em}
+  .seal .c{font-size:20px}.seal .c small{font-size:9px}
+  .hero-pic{aspect-ratio:4/5}
+  .inset{width:130px;left:14px;bottom:14px;border-width:4px}
+  .tagrow{left:14px;top:14px;right:14px}
+  .tagrow span{font-size:12px;padding:6px 11px}
+  .how li{padding:13px 14px}
   .score{width:104px;height:104px;right:14px;bottom:14px}
   .score b{font-size:32px}
   .score span{font-size:11px}
@@ -190,31 +285,54 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
       <a class="btn btn-gra" href="tel:+32477791955" aria-label="Bel Kapsalon Vision">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg><span>0477 79 19 55</span>
       </a>
+      <button class="mbtn" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="drop"><span></span></button>
     </nav>
   </div>
 </header>
+<nav class="drop" id="drop" aria-label="Menu">
+  <a href="#waarom">Waarom Vision <span>→</span></a>
+  <a href="#knippen">Knippen <span>→</span></a>
+  <a href="#reviews">Reviews <span>→</span></a>
+  <a href="#contact">Contact <span>→</span></a>
+  <p>Di tot za 10u tot 19u · zondag 12u tot 19u</p>
+</nav>
 
 <main>
-<section class="hero">
+<section class="hero" id="start">
   <div class="wrap">
-    <div class="rv">
-      <span class="pill"><i></i>Ook op zondag open</span>
-      <h1 aria-label="Precies zoals je het vraagt.">Precies z<span class="lens" aria-hidden="true"><img src="img/portret.webp" alt="" width="1000" height="1294"></span>als je het vraagt.</h1>
+    <div class="htop up" style="--d:0">
+      <span class="pill live"><i></i><span data-now>Ook op zondag open</span></span>
+      <span class="hrs-mini"><span><b>Di tot za</b> 10u tot 19u</span><span><b>Zondag</b> 12u tot 19u</span></span>
+    </div>
+    <div class="h1wrap">
+      <h1 aria-label="Precies zoals je het vraagt."><span class="ln" aria-hidden="true"><span style="--d:1">Precies z<span class="lens"><img src="img/portret.webp" alt="" width="1000" height="1294"></span>als je het</span></span><span class="ln" aria-hidden="true"><span style="--d:2">vraagt.</span></span></h1>
+      <div class="seal pop" style="--d:5" aria-hidden="true">
+        <svg class="ring" viewBox="0 0 150 150"><defs><path id="sr" d="M75 75m-58 0a58 58 0 1 1 116 0a58 58 0 1 1-116 0"/></defs><text><textPath href="#sr" textLength="360" lengthAdjust="spacing">Ook op zondag · Ook op zondag · </textPath></text></svg>
+        <span class="c">12u<small>tot 19u</small></span>
+      </div>
     </div>
     <div class="hero-row">
-      <div class="rv">
-        <p>Je zegt hoe je het wil, wij knippen het zo. Met een afwerking die thuis ook nog klopt, als je het zelf in model brengt.</p>
-        <div class="acts">
+      <div class="hero-txt">
+        <p class="lead up" style="--d:3">Je zegt hoe je het wil, wij knippen het zo. Met een afwerking die thuis ook nog klopt, als je het zelf in model brengt.</p>
+        <div class="acts up" style="--d:4">
           <a class="btn btn-cob" href="https://wa.me/32477791955">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
             WhatsApp ons
+            <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <a class="btn btn-line" href="tel:+32477791955">Bel 0477 79 19 55</a>
         </div>
+        <ol class="how up" style="--d:5">
+          <li><span>01</span><div><b>Je zegt wat je wil</b><small>of je toont gewoon een foto</small></div></li>
+          <li><span>02</span><div><b>Wij knippen het zo</b><small>niet zoals wij het zouden doen</small></div></li>
+          <li><span>03</span><div><b>Thuis klopt het ook</b><small>netjes afgewerkt, makkelijk in model</small></div></li>
+        </ol>
       </div>
-      <div class="hero-pic rv">
+      <div class="hero-pic">
         <img src="img/hero.webp" alt="Strak ingerichte kapsalon met spiegels en stoelen" width="1600" height="1111" fetchpriority="high">
-        <div class="score"><b>4,7</b><i>★★★★★</i><span>35 reviews<br>op Google</span></div>
+        <div class="tagrow up" style="--d:6"><span>Knippen</span><span>Afwerken &amp; stylen</span><span>Even bijwerken</span></div>
+        <div class="inset pop" style="--d:7"><img src="img/dame.webp" alt="Vrouw met een frisse, soepele coupe" width="1200" height="800"></div>
+        <div class="score pop" style="--d:8"><b>4,7</b><i>★★★★★</i><span>35 reviews<br>op Google</span></div>
       </div>
     </div>
   </div>
@@ -227,20 +345,20 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
       <p>Geen poespas. Gewoon goed knippen, met aandacht voor wat jij wil en hoe het er achteraf uitziet.</p>
     </div>
     <div class="bento">
-      <div class="tile t1 rv"><img src="img/heer.webp" alt="Man met een strak geknipt kapsel" loading="lazy" width="1000" height="1498"></div>
-      <div class="tile t2 rv">
+      <div class="tile t1 rv" style="--d:1"><img src="img/heer.webp" alt="Man met een strak geknipt kapsel" loading="lazy" width="1000" height="1498"></div>
+      <div class="tile t2 rv" style="--d:2">
         <span class="k">Eerst luisteren</span>
         <div><h3>Jij zegt het, wij knippen het</h3><p>Voor de schaar erin gaat, vragen we wat je wil. Kort aan de zijkant, wat lengte bovenop of gewoon de punten: jij beslist.</p></div>
       </div>
-      <div class="tile t3 rv">
+      <div class="tile t3 rv" style="--d:3">
         <span class="k">Zondag</span>
         <div><b>12u tot 19u</b><p style="margin-top:12px">Lukt het in de week niet? Op zondag ben je ook welkom.</p></div>
       </div>
-      <div class="tile t4 rv">
+      <div class="tile t4 rv" style="--d:4">
         <span class="k">Afwerking</span>
         <div><h3>Ook thuis nog mooi</h3><p>Een goede coupe ziet er niet alleen in de salon goed uit. We werken alles netjes af, zodat het thuis ook goed valt.</p></div>
       </div>
-      <div class="tile t5 rv"><img src="img/tools.webp" alt="Schaar, kam en borstels van de kapper" loading="lazy" width="1200" height="689"></div>
+      <div class="tile t5 rv" style="--d:0"><img src="img/tools.webp" alt="Schaar, kam en borstels van de kapper" loading="lazy" width="1200" height="689"></div>
     </div>
   </div>
 </section>
@@ -294,13 +412,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
       <h3>Kapsalon Vision</h3>
       <p class="adr">Stationsstraat 20, 9160 Lokeren<br><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Stationsstraat%2020%2C%209160%20Lokeren" target="_blank" rel="noopener">Route plannen →</a></p>
       <ul class="hrs">
-        <li class="off"><span>Maandag</span><span>gesloten</span></li>
-        <li><span>Dinsdag</span><span>10u tot 19u</span></li>
-        <li><span>Woensdag</span><span>10u tot 19u</span></li>
-        <li><span>Donderdag</span><span>10u tot 19u</span></li>
-        <li><span>Vrijdag</span><span>10u tot 19u</span></li>
-        <li><span>Zaterdag</span><span>10u tot 19u</span></li>
-        <li class="sun"><span>Zondag</span><span>12u tot 19u</span></li>
+        <li class="off" data-day="1"><span>Maandag</span><span>gesloten</span></li>
+        <li data-day="2"><span>Dinsdag</span><span>10u tot 19u</span></li>
+        <li data-day="3"><span>Woensdag</span><span>10u tot 19u</span></li>
+        <li data-day="4"><span>Donderdag</span><span>10u tot 19u</span></li>
+        <li data-day="5"><span>Vrijdag</span><span>10u tot 19u</span></li>
+        <li data-day="6"><span>Zaterdag</span><span>10u tot 19u</span></li>
+        <li class="sun" data-day="0"><span>Zondag</span><span>12u tot 19u</span></li>
       </ul>
     </div>
   </div>
@@ -316,6 +434,23 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 
 <script>
 (function(){
+  var R=document.documentElement,H=document.querySelector('header');
+  requestAnimationFrame(function(){requestAnimationFrame(function(){R.classList.add('loaded')})});
+  addEventListener('scroll',function(){H.classList.toggle('sc',scrollY>10)},{passive:true});
+  var mb=H.querySelector('.mbtn');
+  function menu(o){R.classList.toggle('open',o);mb.setAttribute('aria-expanded',o);mb.setAttribute('aria-label',o?'Menu sluiten':'Menu openen')}
+  var dp=document.getElementById('drop');
+  mb.addEventListener('click',function(){dp.style.top=(H.getBoundingClientRect().bottom+8)+'px';menu(!R.classList.contains('open'))});
+  document.querySelectorAll('#drop a').forEach(function(a){a.addEventListener('click',function(){menu(false)})});
+  /* di tot za 10u tot 19u, zo 12u tot 19u, ma dicht */
+  var n=new Date(),d=n.getDay(),m=n.getHours()*60+n.getMinutes(),el=document.querySelector('[data-now]');
+  function st(x){return x==1?null:x==0?720:600}
+  var o=st(d),open=o!==null&&m>=o&&m<1140,dn=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+  if(el){if(open){el.textContent='Nu open, tot 19u'}else{var nd=d,k=0;if(o!==null&&m<o){k=0}else{do{nd=(nd+1)%7;k++}while(nd==1)}el.textContent='Gesloten · '+(k==0?'vandaag':k==1?'morgen':dn[nd])+' vanaf '+(st(nd)/60)+'u';el.parentNode.classList.add('closed')}}
+  document.querySelectorAll('[data-day]').forEach(function(li){if(+li.getAttribute('data-day')===d)li.classList.add('today')});
+  var links=document.querySelectorAll('.nav a:not(.btn)');
+  if('IntersectionObserver' in window){var so=new IntersectionObserver(function(x){x.forEach(function(e){if(e.isIntersecting)links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')=='#'+e.target.id)})})},{rootMargin:'-45% 0px -50% 0px'});
+  ['start','waarom','knippen','reviews','contact'].forEach(function(id){var e=document.getElementById(id);if(e)so.observe(e)})}
   var els=document.querySelectorAll('.rv');
   if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
   var io=new IntersectionObserver(function(x){x.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -5% 0px'});
