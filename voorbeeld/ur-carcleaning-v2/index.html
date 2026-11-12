@@ -1,0 +1,926 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>U&amp;R Car Cleaning · Handcarwash, interieur en spot repair</title>
+<meta name="description" content="U&amp;R Car Cleaning: handcarwash, interieurreiniging, polieren, coating en spot repair. In ons depot op de Herkenrodesingel of bij u ter plaatse.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bone:#ECEAE5;--paper:#F6F5F1;--white:#FFFFFF;
+  --ink:#101211;--ink2:#191C1A;--ink3:#2A2E2B;
+  --green:#1D3A2C;--green2:#28503D;--mint:#CFDCD3;
+  --brass:#B69457;--muted:#5E6460;--line:rgba(16,18,17,.12);--line2:rgba(255,255,255,.14);
+  --r:22px;--ease:cubic-bezier(.22,1,.36,1);
+  --wrap:1240px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bone);color:var(--ink);font:400 16.5px/1.6 'Instrument Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(18px,4vw,40px)}
+.h{font-family:'Archivo',sans-serif;font-stretch:118%;font-weight:800;letter-spacing:-.025em;line-height:.98;margin:0}
+.lbl{display:inline-flex;align-items:center;gap:10px;font:600 12.5px/1 'Archivo',sans-serif;font-stretch:100%;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.lbl b{font-weight:700;color:var(--ink);letter-spacing:.06em}
+.lbl::before{content:"";width:22px;height:1.5px;background:currentColor;opacity:.6}
+.lbl.lt{color:rgba(255,255,255,.72)}.lbl.lt b{color:#fff}
+.grain{position:relative}
+.grain::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* knoppen */
+.btn{white-space:nowrap;display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 24px;border-radius:999px;font:600 15.5px/1 'Instrument Sans',sans-serif;text-decoration:none;border:0;cursor:pointer;transition:transform .35s var(--ease),background .3s,color .3s,box-shadow .35s var(--ease)}
+.btn svg{width:18px;height:18px;transition:transform .35s var(--ease)}
+.btn:hover svg.arr{transform:translateX(4px)}
+.btn-w{background:#fff;color:var(--ink);box-shadow:0 10px 30px -12px rgba(0,0,0,.45)}
+.btn-w:hover{transform:translateY(-2px);box-shadow:0 18px 40px -16px rgba(0,0,0,.55)}
+.btn-g{background:var(--green);color:#fff}
+.btn-g:hover{background:var(--green2);transform:translateY(-2px)}
+.btn-o{background:rgba(255,255,255,.08);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.btn-o:hover{background:rgba(255,255,255,.18)}
+.btn-k{background:var(--ink);color:#fff}
+.btn-k:hover{background:var(--ink3);transform:translateY(-2px)}
+
+/* demo-balk */
+.demo{position:relative;z-index:70;background:var(--green);color:rgba(255,255,255,.82);text-align:center;font:500 13.5px/1.4 'Instrument Sans',sans-serif;padding:9px 16px}
+.demo a{color:#fff;font-weight:600;text-underline-offset:3px}
+
+/* header */
+.top{position:sticky;top:0;z-index:60;height:0}
+.bar{position:absolute;left:0;right:0;top:0;transition:background .45s var(--ease),box-shadow .45s var(--ease)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:84px;transition:height .45s var(--ease)}
+.top.sc .bar{background:rgba(236,234,229,.86);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);box-shadow:0 1px 0 var(--line)}
+.top.sc .bar .wrap{height:66px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;transition:color .4s}
+.logo .mk{font:900 30px/1 'Archivo',sans-serif;font-stretch:112%;letter-spacing:-.04em}
+.logo .mk i{font-style:normal;font-weight:800;font-stretch:90%;margin:0 -1px}
+.logo .tx{font:500 11px/1.15 'Archivo',sans-serif;letter-spacing:.24em;text-transform:uppercase;border-left:1px solid currentColor;padding-left:12px;opacity:.85}
+.nav{display:flex;align-items:center;gap:34px}
+.nav a{color:rgba(255,255,255,.88);text-decoration:none;font-weight:500;font-size:15px;position:relative;transition:color .3s}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1.5px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.nav a:hover::after{transform:scaleX(1)}
+.tel{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 18px;border-radius:999px;background:#fff;color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;transition:background .3s,color .3s,transform .35s var(--ease)}
+.tel svg{width:17px;height:17px}
+.tel:hover{transform:translateY(-1px)}
+.top.sc .logo,.top.sc .nav a{color:var(--ink)}
+.top.sc .tel{background:var(--green);color:#fff}
+.burger{display:none;width:46px;height:46px;border-radius:50%;border:0;background:rgba(255,255,255,.14);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);cursor:pointer;position:relative;color:#fff}
+.burger span{position:absolute;left:14px;right:14px;height:1.8px;background:currentColor;border-radius:2px;transition:transform .45s var(--ease),opacity .3s}
+.burger span:nth-child(1){top:18px}.burger span:nth-child(2){top:26px}
+.top.sc .burger{background:var(--ink);color:#fff}
+.menu-open .burger span:nth-child(1){transform:translateY(4px) rotate(45deg)}
+.menu-open .burger span:nth-child(2){transform:translateY(-4px) rotate(-45deg)}
+.mnav{position:fixed;inset:0;z-index:55;background:var(--ink);color:#fff;padding:120px 26px 40px;display:flex;flex-direction:column;gap:6px;clip-path:inset(0 0 100% 0);transition:clip-path .7s var(--ease);visibility:hidden}
+.menu-open .mnav{clip-path:inset(0 0 0 0);visibility:visible}
+.mnav a.l{font:800 38px/1.25 'Archivo',sans-serif;font-stretch:115%;letter-spacing:-.02em;text-decoration:none;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line2)}
+.mnav a.l small{font:500 13px/1 'Instrument Sans';color:rgba(255,255,255,.45);letter-spacing:.1em}
+.mnav .btn{margin-top:26px;justify-content:center}
+
+/* hero */
+.hero{position:relative;min-height:max(740px,100svh);color:#fff;display:flex;flex-direction:column;isolation:isolate}
+.hero .bg{position:absolute;inset:0;z-index:-2;overflow:hidden;background:#24301f}
+.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform-origin:4% 16%;transform:scale(1.4);animation:zoom 2.6s var(--ease) forwards}
+@keyframes zoom{to{transform:scale(1.32)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(90deg,rgba(7,13,9,.78) 0%,rgba(7,13,9,.5) 30%,rgba(7,13,9,.12) 56%,rgba(7,13,9,0) 70%),
+  linear-gradient(180deg,rgba(7,13,9,.5) 0%,rgba(7,13,9,0) 26%,rgba(7,13,9,0) 70%,rgba(7,12,9,.45) 100%)}
+.hero .in{flex:1;display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding-top:clamp(140px,17vh,190px);position:relative;width:100%}
+.chip{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:999px;background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font:600 12.5px/1 'Archivo';letter-spacing:.14em;text-transform:uppercase}
+.chip i{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#fff;color:var(--green)}
+.chip i svg{width:14px;height:14px}
+.chip .cm{display:none}
+.hero h1{font-size:clamp(46px,6vw,88px);max-width:11ch;margin:26px 0 0;text-wrap:balance;text-shadow:0 4px 40px rgba(0,0,0,.25)}
+.hero h1 em{font-style:normal;font-weight:300;font-stretch:100%;letter-spacing:-.03em}
+.hero p.sub{max-width:440px;margin:24px 0 0;font-size:clamp(16px,1.3vw,18.5px);color:rgba(255,255,255,.88);text-wrap:pretty}
+.hero .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.floats{display:contents}
+.score{position:absolute;right:clamp(18px,4vw,40px);top:clamp(150px,19vh,200px);display:flex;align-items:center;gap:14px;padding:14px 20px 14px 14px;border-radius:18px;background:rgba(255,255,255,.94);color:var(--ink);box-shadow:0 30px 60px -28px rgba(0,0,0,.6);animation:bob 6s ease-in-out infinite}
+.score .n{display:grid;place-items:center;width:58px;height:58px;border-radius:14px;background:var(--green);color:#fff;font:800 22px/1 'Archivo';font-stretch:110%}
+.score .st{display:flex;gap:2px;color:var(--brass)}.score .st svg{width:14px;height:14px}
+.score small{display:block;font-size:13.5px;color:var(--muted);margin-top:4px}
+.score b{font-weight:600}
+.hours{order:9;margin-top:22px;display:inline-flex;align-items:center;gap:10px;padding:10px 16px 10px 12px;border-radius:999px;background:rgba(16,18,17,.45);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);font-size:14px}
+.hours i{width:9px;height:9px;border-radius:50%;background:#7BD39A;box-shadow:0 0 0 5px rgba(123,211,154,.18)}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.feat{position:relative;z-index:3;margin-top:auto;transform:translateY(50%)}
+.feat ul{list-style:none;margin:0;padding:10px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--paper);border-radius:24px;box-shadow:0 40px 80px -40px rgba(16,18,17,.45),0 1px 0 rgba(255,255,255,.8) inset}
+.feat li{display:flex;gap:14px;align-items:center;padding:18px 20px;color:var(--ink);position:relative}
+.feat li+li::before{content:"";position:absolute;left:0;top:22%;bottom:22%;width:1px;background:var(--line)}
+.ic{flex:none;display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:var(--bone);color:var(--green);transition:background .35s,color .35s,transform .45s var(--ease)}
+.ic svg{width:22px;height:22px}
+.feat li:hover .ic{background:var(--green);color:#fff;transform:rotate(-6deg)}
+.feat b{display:block;font:700 15.5px/1.2 'Archivo';font-stretch:108%;letter-spacing:-.005em}
+.feat span{display:block;font-size:13.5px;color:var(--muted);line-height:1.35;margin-top:3px}
+
+/* secties */
+section{position:relative}
+.sec{padding:clamp(84px,10vw,136px) 0}
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:clamp(36px,5vw,56px)}
+.head .h{font-size:clamp(34px,4.2vw,58px);margin-top:18px;max-width:17ch;text-wrap:balance}
+.head p{max-width:400px;margin:0;color:var(--muted);font-size:17px}
+
+/* voor wie */
+.wie{padding-top:clamp(150px,16vw,200px)}
+.split{display:grid;grid-template-columns:1.32fr 1fr;gap:20px}
+.pcard{position:relative;border-radius:var(--r);overflow:hidden;background:#fff;min-height:560px;display:flex;flex-direction:column;justify-content:flex-end}
+.pcard .ph{position:absolute;inset:0}
+.pcard .ph img{width:100%;height:100%;object-fit:cover;object-position:62% 40%;transition:transform 1.2s var(--ease)}
+.pcard:hover .ph img{transform:scale(1.03)}
+.pcard .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0) 50%,rgba(16,18,17,.08))}
+.pcard .tx{position:relative;margin:20px;max-width:440px;padding:28px 30px;background:rgba(246,245,241,.93);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:18px;box-shadow:0 30px 60px -30px rgba(16,18,17,.35)}
+.tag{display:inline-flex;align-items:center;gap:8px;font:700 12px/1 'Archivo';letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+.tag i{width:7px;height:7px;border-radius:50%;background:currentColor}
+.pcard h3,.gcard h3{font:800 clamp(26px,2.5vw,34px)/1.05 'Archivo';font-stretch:115%;letter-spacing:-.02em;margin:14px 0 10px}
+.pcard p{margin:0;color:var(--ink3)}
+.gcard{position:relative;border-radius:var(--r);background:var(--green);color:#fff;padding:22px 22px 30px;overflow:hidden;display:flex;flex-direction:column}
+.gcard::before{content:"&";position:absolute;right:-30px;top:-80px;font:900 360px/1 'Archivo';font-stretch:112%;color:rgba(255,255,255,.045);pointer-events:none}
+.gcard figure{margin:0;position:relative;border-radius:16px;overflow:hidden;aspect-ratio:16/10;background:#0f1a14}
+.gcard figure img{width:100%;height:100%;object-fit:cover;object-position:30% 60%}
+.gcard figcaption{position:absolute;left:12px;bottom:12px;display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:rgba(16,18,17,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-size:12.5px;font-weight:500}
+.gcard figcaption svg{width:14px;height:14px}
+.gcard .tag{color:var(--mint);margin-top:26px;padding:0 8px}
+.gcard h3{padding:0 8px}
+.gcard p{margin:0 8px;color:rgba(255,255,255,.78)}
+.ticks{list-style:none;margin:20px 8px 0;padding:0;display:grid;gap:0}
+.ticks li{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--line2);font-size:15.5px}
+.ticks svg{flex:none;width:20px;height:20px;margin-top:2px;color:var(--mint)}
+
+/* diensten */
+.diensten{background:var(--paper)}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(0,auto);gap:18px}
+.tile{position:relative;border-radius:var(--r);overflow:hidden;background:var(--bone);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.tile:hover{transform:translateY(-4px);box-shadow:0 30px 60px -36px rgba(16,18,17,.4)}
+.t-wash{grid-column:span 7;min-height:520px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end}
+.t-wash img,.t-pol img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.tile:hover img{transform:scale(1.04)}
+.t-wash::after,.t-pol::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,11,0) 35%,rgba(10,12,11,.82))}
+.t-wash .tx,.t-pol .tx{position:relative;z-index:1;padding:32px}
+.num{font:600 12.5px/1 'Archivo';letter-spacing:.14em;color:var(--muted)}
+.t-wash .num,.t-pol .num{color:rgba(255,255,255,.66)}
+.tile h3{font:800 clamp(24px,2.3vw,32px)/1.05 'Archivo';font-stretch:115%;letter-spacing:-.02em;margin:12px 0 10px}
+.tile p{margin:0;font-size:15.5px;line-height:1.55}
+.t-wash p,.t-pol p{color:rgba(255,255,255,.82);max-width:470px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.pills span{padding:7px 12px;border-radius:999px;font-size:13px;font-weight:500;background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.pills.dk span{background:#fff;box-shadow:inset 0 0 0 1px var(--line);color:var(--ink3)}
+.t-int{grid-column:span 5;display:flex;flex-direction:column;background:#fff}
+.t-int .ph{height:250px;overflow:hidden}
+.t-int .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;transition:transform 1.2s var(--ease)}
+.t-int .tx{padding:28px 30px 30px}
+.t-int p{color:var(--ink3)}
+.t-pol{grid-column:span 4;min-height:420px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end}
+.t-pol img{object-position:50% 30%}
+.t-spot{grid-column:span 4;background:var(--bone);padding:30px;display:flex;flex-direction:column}
+.t-spot p{color:var(--ink3)}
+.a4mini{margin-top:auto;padding-top:24px;display:flex;align-items:flex-end;gap:18px}
+.a4mini svg{width:112px;height:auto;flex:none}
+.a4mini small{font-size:13px;color:var(--muted);line-height:1.45}
+.t-plaats{grid-column:span 4;background:var(--ink);color:#fff;padding:30px;display:flex;flex-direction:column}
+.t-plaats .num{color:rgba(255,255,255,.55)}
+.t-plaats p{color:rgba(255,255,255,.74)}
+.t-plaats .ic{background:rgba(255,255,255,.08);color:#fff;margin-bottom:22px}
+.t-plaats .lnk{margin-top:auto;padding-top:24px;display:inline-flex;align-items:center;gap:10px;color:#fff;font-weight:600;text-decoration:none}
+.t-plaats .lnk svg{width:18px;height:18px;transition:transform .35s var(--ease)}
+.t-plaats .lnk:hover svg{transform:translateX(4px)}
+.t-spot .ic{background:#fff;margin-bottom:22px}
+
+/* formules */
+.form-sec{padding:0 0 clamp(84px,10vw,136px);background:var(--paper)}
+.dark{position:relative;background:var(--ink);color:#fff;border-radius:32px;padding:clamp(48px,6vw,84px) clamp(22px,4.5vw,64px);overflow:hidden;isolation:isolate}
+.dark::before{content:"";position:absolute;z-index:-1;left:-20%;top:-60%;width:80%;height:160%;background:linear-gradient(100deg,transparent 40%,rgba(255,255,255,.055) 48%,rgba(255,255,255,.015) 52%,transparent 60%);transform:rotate(8deg)}
+.dark::after{content:"";position:absolute;z-index:-1;right:-10%;bottom:-40%;width:60%;height:120%;background:radial-gradient(closest-side,rgba(40,80,61,.55),transparent)}
+.dark .head .h{color:#fff}
+.dark .head p{color:rgba(255,255,255,.66)}
+.fgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.f{position:relative;border-radius:20px;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px var(--line2);padding:26px 24px 24px;display:flex;flex-direction:column;transition:background .4s,transform .5s var(--ease)}
+.f:hover{background:rgba(255,255,255,.07);transform:translateY(-4px)}
+.f.hl{background:var(--green);box-shadow:none}
+.f .gh{position:absolute;right:16px;top:8px;font:800 84px/1 'Archivo';font-stretch:120%;color:rgba(255,255,255,.06);letter-spacing:-.04em}
+.f .k{font:600 12px/1 'Archivo';letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.f h3{font:800 27px/1 'Archivo';font-stretch:108%;letter-spacing:-.02em;margin:12px 0 16px}
+.dur{display:inline-flex;align-self:flex-start;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.08);font-size:13px;font-weight:500;color:rgba(255,255,255,.88)}
+.dur svg{width:14px;height:14px}
+.f.hl .dur{background:rgba(255,255,255,.14)}
+.spec{list-style:none;margin:20px 0 0;padding:0}
+.spec li{padding:12px 0;border-top:1px solid var(--line2);font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.8)}
+.spec li b{display:block;font:600 11.5px/1 'Archivo';letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:6px}
+.f.hl .spec li{border-color:rgba(255,255,255,.18)}
+.fnote{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:28px;padding-top:26px;border-top:1px solid var(--line2);color:rgba(255,255,255,.66);font-size:15px}
+.fnote p{margin:0;max-width:640px}
+
+/* spot repair */
+.spot{background:var(--bone)}
+.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,96px);align-items:center}
+.a4{position:relative;max-width:520px;margin:0 auto;width:100%}
+.a4 .sheet{position:relative;aspect-ratio:210/297;width:78%;margin-left:12%;background:#fff;border-radius:6px;box-shadow:0 40px 80px -40px rgba(16,18,17,.45),0 0 0 1px rgba(16,18,17,.06)}
+.a4 .sheet svg.mark{position:absolute;inset:0;width:100%;height:100%}
+.a4 .dim{position:absolute;font:600 11.5px/1 'Archivo';letter-spacing:.14em;color:var(--muted)}
+.a4 .dim.w{left:12%;width:78%;top:-30px;display:flex;align-items:center;gap:10px}
+.a4 .dim.w::before,.a4 .dim.w::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--muted),var(--muted)) center/100% 1px no-repeat;opacity:.5}
+.a4 .dim.hgt{left:0;top:0;bottom:0;width:10%;display:flex;flex-direction:column;align-items:center;gap:10px;justify-content:center}
+.a4 .dim.hgt::before,.a4 .dim.hgt::after{content:"";flex:1;width:1px;background:var(--muted);opacity:.5}
+.a4 .dim.hgt span{writing-mode:vertical-rl;transform:rotate(180deg)}
+.a4 .ph{position:absolute;right:-4%;bottom:-6%;width:56%;aspect-ratio:4/3;border-radius:16px;overflow:hidden;border:6px solid var(--bone);box-shadow:0 30px 60px -30px rgba(16,18,17,.5)}
+.a4 .ph img{width:100%;height:100%;object-fit:cover;object-position:40% 50%}
+.a4 .note{position:absolute;left:4%;bottom:12%;padding:10px 14px;border-radius:12px;background:var(--ink);color:#fff;font-size:13px;line-height:1.35;box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
+.a4 .note b{display:block;font:700 14px/1.2 'Archivo';font-stretch:110%}
+.sgrid .h{font-size:clamp(34px,4.4vw,58px);margin:18px 0 20px;max-width:13ch}
+.sgrid .lead{font-size:18px;color:var(--ink3);margin:0 0 26px;max-width:520px}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:grid;grid-template-columns:1fr 1fr;gap:0 26px}
+.steps li{counter-increment:s;padding:16px 0;border-top:1px solid var(--line);display:flex;gap:14px;font-weight:500}
+.steps li::before{content:"0" counter(s);font:700 12.5px/1.9 'Archivo';letter-spacing:.1em;color:var(--green)}
+.eerlijk{margin-top:26px;padding:18px 20px;border-radius:16px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--line);display:flex;gap:14px;font-size:15px;color:var(--ink3)}
+.eerlijk svg{flex:none;width:22px;height:22px;color:var(--green);margin-top:1px}
+.eerlijk p{margin:0}
+
+/* galerij */
+.gal{background:var(--paper)}
+.mosaic{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:330px 250px;gap:18px}
+.m{position:relative;margin:0;border-radius:var(--r);overflow:hidden;background:#d9d7d1}
+.m img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.m:hover img{transform:scale(1.035)}
+.m span{position:absolute;left:14px;bottom:14px;padding:8px 13px;border-radius:999px;background:rgba(246,245,241,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-size:13px;font-weight:600;color:var(--ink)}
+.m1{grid-column:1/8;grid-row:1}
+.m1 img{object-position:50% 62%}
+.m2{grid-column:8/13;grid-row:1/3}
+.m2 img{object-position:36% 50%}
+.m3{grid-column:1/8;grid-row:2}
+.m3 img{object-position:50% 72%}
+.hp{max-width:400px}
+.hp p{margin:0 0 14px}
+.fbl{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--green);text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:3px}
+.fbl svg{width:16px;height:16px;transition:transform .35s var(--ease)}
+.fbl:hover svg{transform:translate(2px,-2px)}
+
+/* contact */
+.contact{background:var(--bone)}
+.cbox{display:grid;grid-template-columns:1fr 1.05fr;gap:18px}
+.cinfo{border-radius:28px;background:var(--green);color:#fff;padding:clamp(28px,4vw,48px);position:relative;overflow:hidden}
+.cinfo::before{content:"&";position:absolute;right:-20px;bottom:-120px;font:900 420px/1 'Archivo';font-stretch:112%;color:rgba(255,255,255,.05);pointer-events:none}
+.cinfo .h{font-size:clamp(32px,3.6vw,50px);margin:18px 0 16px;max-width:12ch}
+.cinfo>p{color:rgba(255,255,255,.78);margin:0 0 28px;max-width:420px}
+.rv{display:flex;align-items:center;gap:16px;padding:16px 18px;border-radius:16px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px var(--line2);margin-bottom:22px}
+.rv .big{font:800 44px/1 'Archivo';font-stretch:115%;letter-spacing:-.03em}
+.rv .st{display:flex;gap:3px;color:var(--brass)}.rv .st svg{width:16px;height:16px}
+.rv small{display:block;font-size:14px;color:rgba(255,255,255,.7);margin-top:4px}
+.uren{list-style:none;margin:0 0 24px;padding:0;font-size:15px}
+.uren li{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid var(--line2);color:rgba(255,255,255,.82)}
+.uren li.nu{color:#fff;font-weight:600}
+.uren li.nu span:first-child::after{content:"vandaag";margin-left:10px;padding:3px 8px;border-radius:999px;background:var(--mint);color:var(--green);font-size:11.5px;font-weight:700;letter-spacing:.04em}
+.uren li.dicht span:last-child{color:rgba(255,255,255,.45)}
+.clinks{display:grid;gap:10px}
+.clinks a{display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff;padding:12px 14px;border-radius:14px;transition:background .3s}
+.clinks a:hover{background:rgba(255,255,255,.08)}
+.clinks .ic{background:rgba(255,255,255,.1);color:#fff;width:42px;height:42px;border-radius:12px}
+.clinks .ic svg{width:19px;height:19px}
+.clinks small{display:block;font-size:12.5px;color:rgba(255,255,255,.55);letter-spacing:.04em}
+.clinks b{font-weight:600}
+.cform{border-radius:28px;background:var(--paper);padding:clamp(28px,4vw,48px);box-shadow:inset 0 0 0 1px var(--line)}
+.cform h3{font:800 clamp(24px,2.4vw,30px)/1.1 'Archivo';font-stretch:115%;letter-spacing:-.02em;margin:0 0 8px}
+.cform>p{margin:0 0 26px;color:var(--muted)}
+.fl{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fl .full{grid-column:1/-1}
+.fld label{display:block;font:600 12px/1 'Archivo';letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.fld input,.fld textarea,.fld select{width:100%;font:inherit;font-size:16px;color:var(--ink);background:#fff;border:0;border-radius:14px;box-shadow:inset 0 0 0 1px var(--line);padding:14px 16px;transition:box-shadow .3s;appearance:none;-webkit-appearance:none}
+.fld textarea{min-height:120px;resize:vertical}
+.fld input:focus,.fld textarea:focus,.fld select:focus{outline:0;box-shadow:inset 0 0 0 2px var(--green)}
+.fld select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23101211' stroke-width='1.8'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:18px}
+.cform .btn{margin-top:20px;width:100%;justify-content:center}
+.cform .alt{margin-top:14px;font-size:14px;color:var(--muted);text-align:center}
+.cform .alt a{color:var(--green);font-weight:600}
+
+/* footer */
+footer{background:var(--ink);color:rgba(255,255,255,.7);padding:64px 0 34px;font-size:14.5px}
+.fg{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid var(--line2)}
+footer .logo{color:#fff}
+footer p{margin:16px 0 0;max-width:340px}
+footer h4{margin:0 0 14px;font:600 12px/1 'Archivo';letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer a{text-decoration:none;transition:color .3s}
+footer a:hover{color:#fff}
+.fb{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:26px;font-size:13.5px;color:rgba(255,255,255,.45)}
+
+/* reveal */
+.js [data-r]{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js [data-r].in{opacity:1;transform:none}
+.js [data-r="2"]{transition-delay:.1s}.js [data-r="3"]{transition-delay:.2s}.js [data-r="4"]{transition-delay:.3s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js [data-r]{opacity:1;transform:none}}
+
+/* responsief */
+@media (max-width:1100px){
+  .feat ul{grid-template-columns:repeat(2,1fr)}
+  .feat li:nth-child(3)::before{display:none}
+  .wie{padding-top:clamp(200px,24vw,260px)}
+  .fgrid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:900px){
+  .hero p.sub{max-width:min(440px,54vw)}
+  .nav,.bar .tel{display:none}
+  .burger{display:block}
+  .split,.sgrid,.cbox{grid-template-columns:1fr}
+  .t-wash,.t-int{grid-column:span 12}
+  .t-pol,.t-spot,.t-plaats{grid-column:span 6}
+  .t-plaats{grid-column:span 12}
+  .head{flex-direction:column;align-items:flex-start;gap:16px}
+  .a4{max-width:440px;margin:30px auto 10px}
+  .mosaic{grid-template-rows:300px 220px}
+  .m1{grid-column:1/8;grid-row:1}
+  .m2{grid-column:8/13;grid-row:1/3}
+  .m3{grid-column:1/8;grid-row:2}
+  .fg{grid-template-columns:1fr 1fr}
+  .fg>div:first-child{grid-column:1/-1}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .bar .wrap{height:72px}
+  .logo .mk{font-size:26px}
+  .logo .tx{font-size:9.5px;letter-spacing:.2em;padding-left:10px}
+  .hero{min-height:auto}
+  .hero .in{padding-top:118px;padding-bottom:26px;align-items:center;text-align:center}
+  .hero .bg img{object-position:46% 62%;transform:none;animation:none}
+  .hero::before{background:linear-gradient(180deg,rgba(8,14,10,.74) 0%,rgba(8,14,10,.46) 42%,rgba(8,14,10,.12) 62%,rgba(8,12,10,.6) 100%)}
+  .chip .cd{display:none}.chip .cm{display:inline}
+  .hero h1{font-size:clamp(38px,11.4vw,50px);margin:20px auto 0}
+  .hero p.sub{font-size:16px;margin:16px auto 0;max-width:none}
+  .hero .acts{flex-direction:column;align-items:stretch;width:100%;max-width:340px;margin-top:24px}
+  .hero .acts .btn{justify-content:center}
+  .floats{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:220px}
+  .score{position:relative;right:auto;top:auto;animation:none}
+  .hours{margin-top:0}
+  .feat{transform:none;margin-top:0;padding-bottom:6px}
+  .feat ul{grid-template-columns:1fr 1fr;padding:6px;border-radius:20px}
+  .feat li{flex-direction:column;align-items:flex-start;gap:12px;padding:16px 14px}
+  .feat li::before{display:none}
+  .feat li:nth-child(n+3){border-top:1px solid var(--line)}
+  .feat li:nth-child(even){border-left:1px solid var(--line)}
+  .wie{padding-top:76px}
+  .sec{padding:76px 0}
+  .pcard{min-height:520px}
+  .pcard .tx{margin:12px;padding:22px}
+  .t-pol,.t-spot{grid-column:span 12}
+  .m3 img{object-position:50% 92%}
+  .t-wash{min-height:460px}
+  .t-wash .tx,.t-pol .tx{padding:24px}
+  .t-int .tx,.t-spot,.t-plaats{padding:24px}
+  .fgrid{grid-template-columns:1fr}
+  .fnote{flex-direction:column;align-items:flex-start}
+  .dark{border-radius:24px;margin:0 -6px}
+  .steps{grid-template-columns:1fr}
+  .a4 .note{left:0;bottom:6%}
+  .mosaic{grid-template-rows:230px 300px 150px;gap:12px}
+  .m1{grid-column:1/13;grid-row:1}
+  .m2{grid-column:1/13;grid-row:2}
+  .m3{grid-column:1/13;grid-row:3}
+  .fl{grid-template-columns:1fr}
+  .fg{grid-template-columns:1fr}
+  .cinfo,.cform{border-radius:22px}
+}
+</style>
+</head>
+<body>
+<div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
+
+<header class="top" id="top">
+  <div class="bar">
+    <div class="wrap">
+      <a class="logo" href="#" aria-label="U&amp;R Car Cleaning"><span class="mk">U<i>&amp;</i>R</span><span class="tx">Car<br>Cleaning</span></a>
+      <nav class="nav" aria-label="Hoofdmenu">
+        <a href="#diensten">Diensten</a>
+        <a href="#formules">Formules</a>
+        <a href="#spotrepair">Spot repair</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="tel" href="tel:+32477183336"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>0477 18 33 36</a>
+      <button class="burger" aria-label="Menu openen" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<nav class="mnav" aria-label="Mobiel menu">
+  <a class="l" href="#diensten">Diensten <small>01</small></a>
+  <a class="l" href="#formules">Formules <small>02</small></a>
+  <a class="l" href="#spotrepair">Spot repair <small>03</small></a>
+  <a class="l" href="#contact">Contact <small>04</small></a>
+  <a class="btn btn-w" href="tel:+32477183336">Bel 0477 18 33 36</a>
+</nav>
+
+<main>
+<section class="hero">
+  <div class="bg"><img src="img/190sl-haag.webp" alt="Zwarte Mercedes 190 SL, net gepoetst, voor een groene haag" fetchpriority="high"></div>
+  <div class="in wrap">
+    <span class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 6 7.2 6 10.5a6 6 0 0 1-12 0C6 10.2 9 7 12 3Z"/></svg></i><span class="cd">Handcarwash · interieur · spot repair</span><span class="cm">Handcarwash · spot repair</span></span>
+    <h1 class="h">De beste behandeling <em>voor uw wagen.</em></h1>
+    <p class="sub">Alles met de hand gewassen, een interieur dat weer fris ruikt, en die kras in de deur die eindelijk weg is. In ons depot of gewoon bij u ter plaatse.</p>
+    <div class="acts">
+      <a class="btn btn-w" href="tel:+32477183336">Bel voor een afspraak <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-o" href="#formules">Bekijk de formules</a>
+    </div>
+    <div class="floats">
+      <div class="float hours"><i></i>Ma tot vr · 8u tot 16u</div>
+      <div class="float score"><span class="n">4,8</span><span><span class="st"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span><small><b>25 reviews</b> op Google</small></span></div>
+    </div>
+  </div>
+  <div class="feat wrap">
+    <ul>
+      <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11V5.5a1.5 1.5 0 0 1 3 0V10m0-.5V4.5a1.5 1.5 0 0 1 3 0V10m0-4a1.5 1.5 0 0 1 3 0v7a7 7 0 0 1-7 7h-.5a6 6 0 0 1-5-2.7L3 14.5a1.6 1.6 0 0 1 2.6-1.8L8 15"/></svg></span><span><b>Altijd met de hand</b><span>Geen borstelstraat, geen krassen</span></span></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></span><span><b>Ook ter plaatse</b><span>Bij u thuis of op de zaak</span></span></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 14 10M13 5l6 6M15.5 7.5 18 5m-8.5 2.5L12 5M16 13l2.5 2.5"/><path d="M11 8l5 5-2 2-5-5z"/></svg></span><span><b>Spot repair</b><span>Kleine lakschade, snel weg</span></span></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.3 7.5 9.5 4.3-1.2 7.5-4.9 7.5-9.5V6z"/><path d="M12 8.5c1.6 2 2.8 3.4 2.8 4.8a2.8 2.8 0 0 1-5.6 0c0-1.4 1.2-2.8 2.8-4.8Z"/></svg></span><span><b>Polieren &amp; coating</b><span>Lak en velgen beschermd</span></span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec wie" id="wie">
+  <div class="wrap">
+    <div class="head" data-r>
+      <div><span class="lbl"><b>01</b> Voor wie</span><h2 class="h">Uw eigen wagen, of een hele rij.</h2></div>
+      <p>Particulieren rijden bij ons binnen. Voor garages en autobedrijven komen we met alles langs op de zaak.</p>
+    </div>
+    <div class="split">
+      <article class="pcard" data-r>
+        <div class="ph"><img src="img/r8.webp" alt="Zwarte Audi R8, net gewassen, voor een blauwe gevel" loading="lazy"></div>
+        <div class="tx">
+          <span class="tag"><i></i>Particulieren</span>
+          <h3>Binnenbrengen, blinkend ophalen.</h3>
+          <p>Een rol borstels doet uw lak geen plezier. Wij wassen alles met de hand: koetswerk, velgen, wielkasten, ook de sluitkanten. Zeg gerust waar u extra op wil letten, daar zorgen we voor.</p>
+        </div>
+      </article>
+      <article class="gcard" data-r="2">
+        <figure><img src="img/x5-depot.webp" alt="Witte BMW X5 voor het depot van U&amp;R Car Cleaning" loading="lazy"><figcaption><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Ons depot, Herkenrodesingel 89</figcaption></figure>
+        <span class="tag"><i></i>Garages &amp; autobedrijven</span>
+        <h3>Wij komen naar u.</h3>
+        <p>Geen verkopers meer die heen en weer rijden naar een carwash. Wij poetsen uw nieuwe wagens en occasies op uw eigen terrein, met al het materiaal mee.</p>
+        <ul class="ticks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Folies en transportbescherming eraf, showroomklaar</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Occasies verkoopklaar in vaste formules</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Bedrijfswagens, camionettes en minibussen</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec diensten grain" id="diensten">
+  <div class="wrap">
+    <div class="head" data-r>
+      <div><span class="lbl"><b>02</b> Wat we doen</span><h2 class="h">Van een gewone wasbeurt tot een lak die weer spiegelt.</h2></div>
+      <p>Kom voor een snelle handwas of laat ons de hele wagen onder handen nemen. Wat het ook wordt, het gebeurt met de hand.</p>
+    </div>
+    <div class="bento">
+      <article class="tile t-wash" data-r>
+        <img src="img/borstel.webp" alt="Detailborstel in het schuim rond een koplamp" loading="lazy">
+        <div class="tx">
+          <span class="num">01 · BUITENKANT</span>
+          <h3>Hand carwash</h3>
+          <p>Waxshampoo, velgen en wielkasten, spoelen, drogen. Ook de sluitkanten, ruiten en spiegels. Zo krijgt u uw wagen terug zonder strepen en zonder één nieuwe kras.</p>
+          <div class="pills"><span>Velgen</span><span>Wielkasten</span><span>Sluitkanten</span><span>Banden zwarten</span></div>
+        </div>
+      </article>
+      <article class="tile t-int" data-r="2">
+        <div class="ph"><img src="img/interieur.webp" alt="Interieur van een sportwagen wordt afgestoft" loading="lazy"></div>
+        <div class="tx">
+          <span class="num">02 · BINNENKANT</span>
+          <h3>Interieur &amp; dieptereiniging</h3>
+          <p>Stofzuigen, kunststoffen, ruiten. Of grondig: textiel en leder van de vloer tot het plafond. Hondenharen, nicotine of een geur die blijft hangen pakken we apart aan.</p>
+          <div class="pills dk"><span>Ozon</span><span>Airco Clean</span><span>Ledervoeding</span></div>
+        </div>
+      </article>
+      <article class="tile t-pol" data-r>
+        <img src="img/polieren.webp" alt="Lak wordt machinaal gepolierd" loading="lazy">
+        <div class="tx">
+          <span class="num">03 · LAK</span>
+          <h3>Polieren &amp; coating</h3>
+          <p>Lakgom en polieren in drie stappen. Daarna een coating zoals Carbon Collective: water en vuil lopen eraf.</p>
+        </div>
+      </article>
+      <article class="tile t-spot" id="spot-kort" data-r="2">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 14 10M13 5l6 6M15.5 7.5 18 5m-8.5 2.5L12 5M16 13l2.5 2.5"/><path d="M11 8l5 5-2 2-5-5z"/></svg></span>
+        <span class="num">04 · SCHADE</span>
+        <h3>Spot repair</h3>
+        <p>Een kras of plekje in de lak? Dan spuiten we enkel die plek, niet het hele paneel.</p>
+        <div class="a4mini">
+          <svg viewBox="0 0 92 130" fill="none"><rect x="1" y="1" width="90" height="128" rx="3" fill="#fff" stroke="#101211" stroke-opacity=".18"/><path d="M28 62c8-4 18-6 30-3" stroke="#1D3A2C" stroke-width="2.4" stroke-linecap="round"/><circle cx="46" cy="61" r="20" stroke="#1D3A2C" stroke-dasharray="3 4" stroke-opacity=".6"/></svg>
+          <small>Kleiner dan een A4-blad? Dan lukt het meestal met spot repair.</small>
+        </div>
+      </article>
+      <article class="tile t-plaats" data-r="3">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></span>
+        <span class="num">05 · AAN HUIS</span>
+        <h3>Wij komen langs</h3>
+        <p>Thuis, op kantoor of op uw bedrijfsterrein. Water, producten en machines brengen we zelf mee.</p>
+        <a class="lnk" href="#contact">Plan een bezoek <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="form-sec" id="formules">
+  <div class="wrap">
+    <div class="dark" data-r>
+      <div class="head">
+        <div><span class="lbl lt"><b>03</b> Formules voor garages</span><h2 class="h">Vier formules. U weet vooraf wat er gebeurt.</h2></div>
+        <p>Voor nieuwe wagens en occasies werken we met vaste formules. Zo weet uw team precies wat het terugkrijgt, en hoe lang het duurt.</p>
+      </div>
+      <div class="fgrid">
+        <article class="f">
+          <span class="gh">01</span>
+          <span class="k">Nieuwe wagen</span>
+          <h3>Showroom&shy;klaar</h3>
+          <span class="dur"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>Folies eraf, klaar voor levering</span>
+          <ul class="spec">
+            <li><b>Koetswerk</b>Waxshampoo, velgen, wielkasten, drogen, ruiten en spiegels</li>
+            <li><b>Interieur</b>Stofzuigen, dashboard en kunststoffen, ruiten zemen</li>
+            <li><b>Extra</b>Vliegroest en transportaanslag weg, gemiddeld een half uur tot een uur extra</li>
+          </ul>
+        </article>
+        <article class="f">
+          <span class="gh">02</span>
+          <span class="k">Occasie</span>
+          <h3>Extra</h3>
+          <span class="dur"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>2u à 2,5u per wagen</span>
+          <ul class="spec">
+            <li><b>Koetswerk</b>Handwas met glansshampoo, lak en ruiten met lakgom</li>
+            <li><b>Interieur</b>Zetels, matten, tapijt en koffer gestofzuigd, kunststoffen proper</li>
+            <li><b>Extra</b>Motorruimte en sluitkanten onder hoge druk, remstof en teer van de velgen</li>
+          </ul>
+        </article>
+        <article class="f hl">
+          <span class="gh">03</span>
+          <span class="k">Occasie</span>
+          <h3>Pro</h3>
+          <span class="dur"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>3,5u à 4u per wagen</span>
+          <ul class="spec">
+            <li><b>Koetswerk</b>Volledige handwas, sluitkanten proper en droog</li>
+            <li><b>Interieur</b>Dieptereiniging van textiel en leder: vloer, zetels, koffer, deurpanelen, plafond</li>
+            <li><b>Op vraag</b>Anti-nicotine, Airco Clean, dierenharen, ozon</li>
+          </ul>
+        </article>
+        <article class="f">
+          <span class="gh">04</span>
+          <span class="k">Occasie</span>
+          <h3>Compleet</h3>
+          <span class="dur"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>Doel: showroomstaat</span>
+          <ul class="spec">
+            <li><b>Koetswerk</b>Handwas, lakgom en polieren in drie stappen</li>
+            <li><b>Interieur</b>Alles van plafond tot vloer, leder gereinigd en gevoed</li>
+            <li><b>Op vraag</b>Diepe krassen, glas polieren, kleine retouches</li>
+          </ul>
+        </article>
+      </div>
+      <div class="fnote">
+        <p>Een uitzonderlijk vuil interieur bekijken we eerst samen. Zo staat er achteraf niets op de factuur dat u niet verwachtte.</p>
+        <a class="btn btn-w" href="#contact">Vraag de formules aan <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec spot" id="spotrepair">
+  <div class="wrap sgrid">
+    <div class="a4" data-r>
+      <span class="dim w">210 MM</span>
+      <span class="dim hgt"><span>297 MM</span></span>
+      <div class="sheet">
+        <svg class="mark" viewBox="0 0 210 297" fill="none" preserveAspectRatio="none"><g stroke="#101211" stroke-opacity=".08"><path d="M0 74h210M0 148h210M0 222h210M52 0v297M105 0v297M158 0v297"/></g><path d="M62 118c22-8 48-12 82-6" stroke="#1D3A2C" stroke-width="3" stroke-linecap="round"/><path d="M78 126c14-3 30-4 46-2" stroke="#1D3A2C" stroke-width="1.6" stroke-linecap="round" stroke-opacity=".5"/><ellipse cx="103" cy="119" rx="58" ry="40" stroke="#1D3A2C" stroke-width="1.3" stroke-dasharray="4 5"/></svg>
+      </div>
+      <div class="ph"><img src="img/lak.webp" alt="Glanzende lak van een grijze sportwagen, dicht bij de koplamp" loading="lazy"></div>
+      <div class="note"><b>Kleiner dan dit blad?</b>Dan is het meestal spot repair.</div>
+    </div>
+    <div data-r="2">
+      <span class="lbl"><b>04</b> Spot repair</span>
+      <h2 class="h">Kleine schade, kleine herstelling.</h2>
+      <p class="lead">Een schuurplek van een paaltje, een kras van een fietsstuur. Bij spot repair spuiten we alleen de plek die beschadigd is. Dat scheelt werkuren, en dus ook geld.</p>
+      <ol class="steps">
+        <li>Geen onderdelen demonteren</li>
+        <li>Geen aanpalende stukken mee spuiten</li>
+        <li>Snel hersteld</li>
+        <li>Minder werkuren, kleinere factuur</li>
+      </ol>
+      <div class="eerlijk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.1"/></svg><p>Eerlijk is eerlijk: soms blijft er een heel klein kleurverschil. Vaak polieren we dat weg. Daarom raden we spot repair vooral aan op plaatsen die niet meteen in het oog springen.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gal grain" id="werk">
+  <div class="wrap">
+    <div class="head" data-r>
+      <div><span class="lbl"><b>05</b> Uit het depot</span><h2 class="h">Wat er zoal bij ons binnenrijdt.</h2></div>
+      <div class="hp"><p>Van een dagelijkse gezinswagen tot een klassieker die zijn chroom weer mag tonen. Elke wagen krijgt dezelfde aandacht.</p><a class="fbl" href="https://www.facebook.com/urcarcleaning/" target="_blank" rel="noopener">Meer wagens op Facebook <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div>
+    </div>
+    <div class="mosaic">
+      <figure class="m m1" data-r><img src="img/m3.webp" alt="Groene BMW M3 met gouden velgen voor het depot" loading="lazy"><span>BMW M3</span></figure>
+      <figure class="m m2" data-r="2"><img src="img/190sl-studio.webp" alt="Mercedes 190 SL in de witte studio van U&amp;R" loading="lazy"><span>Mercedes 190 SL</span></figure>
+      <figure class="m m3" data-r><img src="img/modelwagens.webp" alt="Rij schaalmodellen van wagens in het kantoor van U&amp;R" loading="lazy"><span>En in het kantoor: de kleine versies</span></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec contact" id="contact">
+  <div class="wrap cbox">
+    <div class="cinfo" data-r>
+      <span class="lbl lt"><b>06</b> Contact</span>
+      <h2 class="h">Zeg wat uw wagen nodig heeft.</h2>
+      <p>Bel ons, stuur een mailtje of laat uw gegevens achter. U wordt snel geholpen.</p>
+      <div class="rv"><span class="big">4,8</span><span><span class="st"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span><small>gemiddeld uit 25 reviews op Google</small></span></div>
+      <ul class="uren" id="uren">
+        <li data-d="1"><span>Maandag</span><span>8u tot 16u</span></li>
+        <li data-d="2"><span>Dinsdag</span><span>8u tot 16u</span></li>
+        <li data-d="3"><span>Woensdag</span><span>8u tot 16u</span></li>
+        <li data-d="4"><span>Donderdag</span><span>8u tot 16u</span></li>
+        <li data-d="5"><span>Vrijdag</span><span>8u tot 16u</span></li>
+        <li data-d="6" class="dicht"><span>Zaterdag</span><span>gesloten</span></li>
+        <li data-d="0" class="dicht"><span>Zondag</span><span>gesloten</span></li>
+      </ul>
+      <div class="clinks">
+        <a href="tel:+32477183336"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><span><small>BELLEN</small><b>0477 18 33 36</b></span></a>
+        <a href="mailto:info@urcar-cleaning.be"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg></span><span><small>MAILEN</small><b>info@urcar-cleaning.be</b></span></a>
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Herkenrodesingel%2089%2C%203500%20Hasselt" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span><small>ROUTE</small><b>Herkenrodesingel 89, 3500 Hasselt</b></span></a>
+      </div>
+    </div>
+    <form class="cform" id="form" action="mailto:info@urcar-cleaning.be" method="post" enctype="text/plain" data-r="2">
+      <h3>Een afspraak of een prijs?</h3>
+      <p>Vul in wat u kan, wij bellen of mailen u terug.</p>
+      <div class="fl">
+        <div class="fld"><label for="f-naam">Naam</label><input id="f-naam" name="Naam" autocomplete="name" required></div>
+        <div class="fld"><label for="f-tel">Telefoon</label><input id="f-tel" name="Telefoon" type="tel" autocomplete="tel"></div>
+        <div class="fld"><label for="f-wagen">Welke wagen?</label><input id="f-wagen" name="Wagen" placeholder="Merk en model"></div>
+        <div class="fld"><label for="f-wat">Wat mag het zijn?</label>
+          <select id="f-wat" name="Dienst">
+            <option>Hand carwash</option>
+            <option>Interieur of dieptereiniging</option>
+            <option>Polieren of coating</option>
+            <option>Spot repair</option>
+            <option>Formules voor mijn garage</option>
+            <option>Iets anders</option>
+          </select></div>
+        <div class="fld full"><label for="f-msg">Uw vraag</label><textarea id="f-msg" name="Vraag" placeholder="Bijvoorbeeld: kras in de achterdeur, liefst volgende week"></textarea></div>
+      </div>
+      <button class="btn btn-g" type="submit">Verstuur <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <p class="alt">Liever meteen iemand aan de lijn? <a href="tel:+32477183336">Bel 0477 18 33 36</a></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fg">
+      <div>
+        <a class="logo" href="#"><span class="mk">U<i>&amp;</i>R</span><span class="tx">Car<br>Cleaning</span></a>
+        <p>Hand carwash, interieurreiniging, polieren, coating en spot repair. Voor particulieren en voor garages.</p>
+      </div>
+      <div>
+        <h4>Diensten</h4>
+        <ul><li><a href="#diensten">Hand carwash</a></li><li><a href="#diensten">Interieur</a></li><li><a href="#formules">Formules</a></li><li><a href="#spotrepair">Spot repair</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li>Herkenrodesingel 89, 3500 Hasselt</li><li><a href="tel:+32477183336">0477 18 33 36</a></li><li><a href="mailto:info@urcar-cleaning.be">info@urcar-cleaning.be</a></li><li>BTW BE0550.980.982</li></ul>
+      </div>
+    </div>
+    <div class="fb"><span>© U&amp;R Car Cleaning</span><span>Voorbeeldsite door Digital Impression</span></div>
+  </div>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var top=document.getElementById('top'),b=document.body,burger=document.querySelector('.burger');
+  function sc(){top.classList.toggle('sc',window.scrollY>40)}
+  sc();window.addEventListener('scroll',sc,{passive:true});
+  burger.addEventListener('click',function(){var o=b.classList.toggle('menu-open');burger.setAttribute('aria-expanded',o);top.classList.toggle('sc',o||window.scrollY>40)});
+  document.querySelectorAll('.mnav a').forEach(function(a){a.addEventListener('click',function(){b.classList.remove('menu-open');burger.setAttribute('aria-expanded','false');sc()})});
+  var els=document.querySelectorAll('[data-r]');
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});els.forEach(function(e){io.observe(e)})}else{els.forEach(function(e){e.classList.add('in')})}
+  var d=new Date().getDay(),li=document.querySelector('#uren li[data-d="'+d+'"]');if(li&&!li.classList.contains('dicht'))li.classList.add('nu');
+  var f=document.getElementById('form');
+  f.addEventListener('submit',function(e){e.preventDefault();var g=function(id){return document.getElementById(id).value.trim()};
+    var body='Naam: '+g('f-naam')+'\nTelefoon: '+g('f-tel')+'\nWagen: '+g('f-wagen')+'\nDienst: '+g('f-wat')+'\n\n'+g('f-msg');
+    location.href='mailto:info@urcar-cleaning.be?subject='+encodeURIComponent('Aanvraag via de website: '+g('f-wat'))+'&body='+encodeURIComponent(body)});
+})();
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
+<style>
+.di,.di *{box-sizing:border-box;margin:0;padding:0;border:0;background:none;box-shadow:none;text-shadow:none;text-transform:none;letter-spacing:normal;float:none;max-width:none;min-height:0;font:inherit;color:inherit;text-decoration:none;opacity:1;transform:none;filter:none;list-style:none}
+.di :is(h2,h3,h4,p,ul,ol,li,details,summary,b,strong,em,small,span,div)::before,.di :is(h2,h3,h4,p,ul,ol,li,details,summary,b,strong,em,small,span,div)::after{content:none!important}
+.di summary::marker{content:""}
+.di{--navy:#0E1C3A;--deep:#0A1530;--goud:#C9A24A;--goud2:#D8BB6A;--bleek:#E8D9A8;--beige:#F1EBDF;--creme:#FBF8F2;
+  --zacht:rgba(241,235,223,.74);--stil:rgba(241,235,223,.5);--lijn:rgba(241,235,223,.12);--ease:cubic-bezier(.16,1,.3,1);
+  position:relative;overflow:clip;background:var(--navy);color:var(--beige);padding:clamp(88px,11vw,136px) 0 56px;
+  font:400 17px/1.65 'Inter',system-ui,sans-serif;text-align:left;-webkit-font-smoothing:antialiased}
+.di::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(760px 480px at 50% -10%,rgba(201,162,74,.14),transparent 66%)}
+.di::after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,162,74,.7) 30%,rgba(232,217,168,.9) 50%,rgba(201,162,74,.7) 70%,transparent)}
+.di .di-wrap{position:relative;max-width:980px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+.di h2,.di h3,.di h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:-.01em;text-transform:none;font-style:normal;color:var(--creme)}
+.di a{color:inherit}
+.di svg{flex:none}
+
+/* boodschap */
+.di .di-kern{text-align:center;max-width:760px;margin:0 auto}
+.di .di-afz{display:inline-flex;align-items:center;gap:12px;margin-bottom:28px;color:var(--goud2);font-size:15px;font-weight:500}
+.di .di-afz i{width:32px;height:32px;border-radius:9px;border:1px solid rgba(201,162,74,.45);display:grid;place-items:center;font:600 15px/1 'Cormorant Garamond',serif;font-style:normal;color:var(--goud);letter-spacing:-.5px}
+.di h2{line-height:1}
+.di .di-voor{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:20px;font:italic 500 clamp(24px,2.5vw,31px)/1.2 'Cormorant Garamond',Georgia,serif;color:var(--goud2);letter-spacing:.005em}
+.di .di-kern .di-voor::before,.di .di-kern .di-voor::after{content:""!important;flex:none;width:clamp(28px,5vw,60px);height:1px;background:linear-gradient(90deg,transparent,var(--goud))}
+.di .di-kern .di-voor::after{background:linear-gradient(270deg,transparent,var(--goud))}
+.di .di-samen{display:block;font:500 clamp(46px,6.2vw,80px)/1.02 'Cormorant Garamond',Georgia,serif;letter-spacing:-.015em;text-wrap:balance;
+  color:var(--creme);background:linear-gradient(180deg,#FBF8F2 35%,#E8D9A8 135%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;padding-bottom:.06em}
+.di .di-lead{text-wrap:pretty;color:var(--zacht);font-size:clamp(17px,1.5vw,19px);margin:24px auto 0;max-width:33em}
+.di .di-knoppen{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:36px}
+.di .di-knoppen a{position:relative;overflow:hidden;display:inline-flex;justify-content:center;align-items:center;gap:10px;border-radius:999px;padding:18px 30px;
+  font:600 17px/1.2 'Inter',sans-serif;text-decoration:none;isolation:isolate;white-space:nowrap;transition:color .5s var(--ease),border-color .5s var(--ease)}
+.di .di-knoppen a svg{width:19px;height:19px}
+.di .di-knoppen a::before{content:"";position:absolute;inset:0;z-index:-1;transform:translateY(101%);transition:transform .55s var(--ease)}
+.di .di-knoppen a:hover::before{transform:translateY(0)}
+.di .di-knoppen .di-cal{background:var(--goud);color:var(--deep);box-shadow:0 18px 44px -18px rgba(201,162,74,.8)}
+.di .di-knoppen .di-cal::before{background:var(--bleek)}
+.di .di-knoppen .di-wa{border:1px solid rgba(241,235,223,.3);color:var(--creme)}
+.di .di-knoppen .di-wa::before{background:var(--creme)}
+.di .di-knoppen .di-wa:hover{color:var(--navy);border-color:var(--creme)}
+.di .di-klein{margin-top:18px;font-size:14.5px;color:var(--stil)}
+
+.di .di-blok{margin-top:clamp(88px,11vw,128px)}
+.di .di-blok>h3{font-size:clamp(30px,3.4vw,40px);line-height:1.05;text-align:center;margin-bottom:44px}
+
+/* prijs */
+.di .di-prijs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);border:1px solid var(--lijn);border-radius:28px;overflow:hidden}
+.di .di-prijs>div{padding:clamp(28px,3.6vw,40px)}
+.di .di-prijs>div+div{border-left:1px solid var(--lijn);background:rgba(241,235,223,.025)}
+.di .di-wat{font-size:15px;font-weight:500;color:var(--goud2)}
+.di .di-getal{font:500 clamp(60px,6.4vw,76px)/1 'Cormorant Garamond',serif;font-variant-numeric:lining-nums;color:var(--creme);margin-top:8px;letter-spacing:-.02em}
+.di .di-getal small{font:500 16px/1 'Inter',sans-serif;color:var(--stil);letter-spacing:0;margin-left:8px}
+.di .di-prijs p{color:var(--zacht);font-size:15.5px;margin-top:14px;max-width:24em}
+.di .di-prijs p b{color:var(--creme);font-weight:500}
+.di .di-opties{margin-top:22px;list-style:none}
+.di .di-opties li{display:grid;grid-template-columns:1fr auto;gap:4px 20px;padding:16px 0;border-top:1px solid var(--lijn)}
+.di .di-opties li:last-child{padding-bottom:0}
+.di .di-opties b{font:500 23px/1.2 'Cormorant Garamond',serif;color:var(--creme);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.di .di-opties b em{font:600 12px/1 'Inter',sans-serif;font-style:normal;color:var(--deep);background:var(--goud);border-radius:999px;padding:4px 10px}
+.di .di-opties .di-pp{font:500 24px/1.2 'Cormorant Garamond',serif;font-variant-numeric:lining-nums;color:var(--creme);text-align:right;white-space:nowrap}
+.di .di-opties .di-pp small{font:500 13.5px/1 'Inter',sans-serif;color:var(--stil);margin-left:4px}
+.di .di-opties .di-ot{grid-column:1/-1;color:var(--zacht);font-size:15px}
+
+/* faq */
+.di .di-faq{max-width:760px;margin:0 auto;border-top:1px solid var(--lijn)}
+.di .di-faq details{border-bottom:1px solid var(--lijn)}
+.di .di-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 2px;
+  font:500 22px/1.25 'Cormorant Garamond',serif;color:var(--creme);transition:color .3s}
+.di .di-faq summary::-webkit-details-marker{display:none}
+.di .di-faq summary:hover{color:var(--goud2)}
+.di .di-faq summary i{flex:none;position:relative;width:30px;height:30px;border-radius:50%;border:1px solid rgba(201,162,74,.5);transition:transform .45s var(--ease),background .3s}
+.di .di-faq summary i::before,.di .di-faq summary i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:var(--goud);transform:translate(-50%,-50%)}
+.di .di-faq summary i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .45s var(--ease)}
+.di .di-faq details[open] summary i{transform:rotate(180deg);background:rgba(201,162,74,.12)}
+.di .di-faq details[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+.di .di-faq .di-antw{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.di .di-faq details[open] .di-antw{grid-template-rows:1fr}
+.di .di-faq .di-antw>div{overflow:hidden}
+.di .di-faq .di-antw p{color:var(--zacht);font-size:16px;padding:0 50px 22px 2px;max-width:38em}
+
+.di .di-faq details,.di .di-faq details[open]{background:none;border-radius:0;box-shadow:none;margin:0;padding:0;border:0;border-bottom:1px solid var(--lijn);display:block}
+.di .di-faq details[open] summary,.di .di-faq summary:hover{background:none;box-shadow:none}
+
+/* afsluiter */
+.di .di-slot{margin-top:clamp(72px,9vw,104px);padding-top:36px;border-top:1px solid var(--lijn);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.di .di-wie{display:flex;align-items:center;gap:16px}
+.di .di-foto{flex:none;display:block;width:60px;height:60px;border-radius:50%;object-fit:cover;object-position:50% 40%;background:#0A1530;box-shadow:0 0 0 1px rgba(201,162,74,.6),0 0 0 4px #0E1C3A,0 0 0 5px rgba(201,162,74,.22)}
+.di .di-wie b{display:block;font:italic 500 26px/1.1 'Cormorant Garamond',serif;color:var(--creme)}
+.di .di-wie .di-lijn{font-size:14.5px;color:var(--stil)}
+.di .di-wie .di-lijn a{text-decoration:none}
+.di .di-wie .di-lijn a:hover{color:var(--creme)}
+.di .di-slot .di-knoppen{margin:0}
+.di .di-slot .di-knoppen a{padding:14px 24px;font-size:15.5px}
+.di :focus-visible{outline:2px solid var(--goud);outline-offset:4px;border-radius:12px}
+
+/* één rustige beweging */
+.di.di-js [data-in]{opacity:0;transform:translateY(16px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0) * 110ms)}
+.di.di-js [data-in].di-zien{opacity:1;transform:none}
+
+@media (max-width:820px){
+  .di .di-prijs{grid-template-columns:1fr}
+  .di .di-prijs>div+div{border-left:0;border-top:1px solid var(--lijn)}
+}
+@media (max-width:720px){
+  .di .di-faq summary{font-size:20px;padding:18px 2px}
+  .di .di-faq .di-antw p{padding-right:10px;font-size:15.5px}
+  .di{font-size:16.5px;padding-bottom:44px}
+  .di .di-voor{font-size:21px;gap:12px;margin-bottom:14px}
+  .di .di-kern .di-voor::before,.di .di-kern .di-voor::after{width:24px}
+  .di .di-samen{font-size:clamp(36px,10vw,46px)}
+  .di .di-lead{font-size:16.5px}
+  .di .di-knoppen{flex-direction:column;margin-top:30px}
+  .di .di-knoppen a{width:100%;padding:17px 18px;font-size:16px}
+  .di .di-blok>h3{margin-bottom:32px}
+  .di .di-prijs{border-radius:24px}
+  .di .di-prijs>div{padding:26px 22px}
+  .di .di-slot{flex-direction:column;align-items:stretch}
+  .di .di-slot .di-knoppen a{width:100%}
+}
+@media (prefers-reduced-motion:reduce){.di.di-js [data-in]{transition:none!important;opacity:1!important;transform:none!important}.di .di-knoppen a,.di .di-knoppen a::before,.di .di-faq summary i,.di .di-faq summary i::after,.di .di-faq .di-antw{transition:none}}
+
+/* kaartje halverwege */
+.di-tip,.di-tip *{box-sizing:border-box;margin:0;padding:0;border:0;background:none;box-shadow:none;text-shadow:none;text-transform:none;letter-spacing:normal;float:none;max-width:none;font:inherit;color:inherit;text-decoration:none;list-style:none}
+.di-tip{--navy:#0E1C3A;--goud:#C9A24A;--goud2:#D8BB6A;--creme:#FBF8F2;--zacht:rgba(241,235,223,.76);--ease:cubic-bezier(.16,1,.3,1);
+  position:fixed;left:20px;bottom:20px;z-index:2147483000;width:340px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+  padding:18px 18px 18px 18px;border-radius:20px;background:var(--navy);color:var(--creme);font:400 15px/1.5 'Inter',system-ui,sans-serif;text-align:left;
+  box-shadow:0 0 0 1px rgba(201,162,74,.4),0 24px 60px -18px rgba(0,0,0,.55);opacity:0;transform:translateY(24px) scale(.98);pointer-events:none;
+  transition:opacity .6s var(--ease),transform .6s var(--ease);-webkit-font-smoothing:antialiased}
+.di-tip.di-tip-aan{opacity:1;transform:none;pointer-events:auto}
+.di-tip .di-tip-s{display:block;width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:50% 40%;background:#0A1530;box-shadow:0 0 0 1px rgba(201,162,74,.6)}
+.di-tip .di-tip-t{font:italic 500 20px/1.2 'Cormorant Garamond',Georgia,serif;color:var(--goud2);padding-right:22px}
+.di-tip .di-tip-p{color:var(--zacht);margin-top:4px;font-size:14.5px}
+.di-tip .di-tip-k{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:10px 18px;border-radius:999px;background:var(--goud);color:#0A1530;font:600 14.5px/1.2 'Inter',sans-serif;cursor:pointer;transition:background .3s}
+.di-tip .di-tip-k:hover{background:#E8D9A8}
+.di-tip .di-tip-k svg{width:16px;height:16px}
+.di-tip .di-tip-x{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:var(--zacht);cursor:pointer;transition:background .3s,color .3s}
+.di-tip .di-tip-x:hover{background:rgba(241,235,223,.08);color:var(--creme)}
+.di-tip .di-tip-x svg{width:14px;height:14px}
+.di-tip :focus-visible{outline:2px solid var(--goud);outline-offset:3px}
+.di-tip :is(p,div,span,a,button)::before,.di-tip :is(p,div,span,a,button)::after{content:none!important}
+@media (max-width:560px){.di-tip{left:12px;right:12px;width:auto;bottom:12px;padding:14px 14px 14px 14px;gap:12px}.di-tip .di-tip-s{width:34px;height:34px;font-size:17px}.di-tip .di-tip-t{font-size:18px}.di-tip .di-tip-p{font-size:14px}}
+@media (prefers-reduced-motion:reduce){.di-tip{transition:none}}
+</style>
+<section aria-labelledby="di-titel" class="di" id="di">
+<div class="di-wrap">
+
+<div class="di-kern">
+<h2 id="di-titel" data-in style="--d:1"><span class="di-voor">Dit is slechts een voorbeeld.</span><span class="di-samen">Samen maken we er uw nieuwe site van.</span></h2>
+<p class="di-lead" data-in style="--d:2">Ik maakte deze demo voor u om te tonen wat er kan. Na een kort gesprek maak ik er iets veel persoonlijkers van, helemaal naar uw wens.</p>
+<div class="di-knoppen" data-in style="--d:3">
+<a class="di-cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20U%26R%20Car%20Cleaning" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Plan een gesprek van 30 min</a>
+<a class="di-wa" href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20U%26R%20Car%20Cleaning" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z"/></svg>Stuur een WhatsApp</a>
+</div>
+<p class="di-klein" data-in style="--d:4">Vrijblijvend. Ik kom langs of we bellen.</p>
+</div>
+
+
+<div class="di-blok">
+<h3 data-in>Wat kost het?</h3>
+<div class="di-prijs" data-in style="--d:1">
+<div>
+<span class="di-wat">De website</span>
+<div class="di-getal">€ 499<small>eenmalig</small></div>
+<p>Op maat, op uw eigen domein.<br><b>Geen voorschot.</b> U betaalt pas als alles klaar is.</p>
+</div>
+<div>
+<span class="di-wat">Daarna het onderhoud</span>
+<p style="margin-top:8px">Hosting, domeinnaam en kleine wijzigingen, zoals nieuwe openingsuren.</p>
+<ul class="di-opties">
+<li><b>Zorgeloos <em>mijn aanrader</em></b><span class="di-pp">€ 19,99<small>/ maand</small></span><span class="di-ot">Alles inbegrepen. Wijzigen kan met een berichtje.</span></li>
+<li><b>Zelf beheren</b><span class="di-pp">€ 0<small>/ maand</small></span><span class="di-ot">Alles op uw naam. Wijzigingen per keer.</span></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="di-blok">
+<h3 data-in>Goed om te weten</h3>
+<div class="di-faq" data-in style="--d:1">
+<details><summary>Waarom deze demo, zonder dat ik iets vroeg?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Omdat een voorbeeld meer zegt dan een mail. Zo ziet u meteen wat er kan, en het kost u niets.</p></div></div></details>
+<details><summary>Zit ik ergens aan vast?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Nee. Het gesprek is vrijblijvend. Vindt u het niks, dan is het daarmee gedaan.</p></div></div></details>
+<details><summary>Hoe lang duurt het?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Na ons gesprek staat uw site binnen 10 tot 14 dagen online.</p></div></div></details>
+<details><summary>Ik heb al een website. Kan dat ook?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Zeker. Uw domeinnaam kan gewoon blijven, de nieuwe site komt in de plaats van de oude.</p></div></div></details>
+<details><summary>Moet ik zelf teksten schrijven?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Nee, dat doe ik op basis van ons gesprek. Eigen foto's zijn mooi meegenomen, maar niet nodig om te starten.</p></div></div></details>
+</div>
+</div>
+
+<div class="di-slot" data-in>
+<div class="di-wie"><img class="di-foto" src="https://digital-impression.be/assets/img/stijn-2.webp" alt="Stijn Vranken" width="60" height="60" loading="lazy" decoding="async"><div><b>Stijn Vranken</b><span class="di-lijn">Digital Impression, <a href="tel:+32496251445">0496 25 14 45</a></span></div></div>
+<div class="di-knoppen"><a class="di-cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20U%26R%20Car%20Cleaning" target="_blank" rel="noopener">Plan een gesprek</a></div>
+</div>
+
+</div>
+</section>
+<script>/*di-v13*/(function(){var d=document.getElementById('di');if(!d||!('IntersectionObserver' in window))return;
+var stil=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!stil){d.classList.add('di-js');var io=new IntersectionObserver(function(x){x.forEach(function(e){if(e.isIntersecting){e.target.classList.add('di-zien');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+[].forEach.call(d.querySelectorAll('[data-in]'),function(e){io.observe(e)})}
+var vast=[];function zoek(){vast=[].filter.call(document.body.querySelectorAll('*'),function(e){if(d.contains(e)||e.closest('.di-strook,.demo'))return false;var p=getComputedStyle(e).position;return p==='fixed'||p==='sticky'})}
+new IntersectionObserver(function(x){if(!vast.length)zoek();var aan=x[0].isIntersecting;vast.forEach(function(e){e.style.transition='opacity .35s';e.style.opacity=aan?'0':'';e.style.pointerEvents=aan?'none':''})},{threshold:.05}).observe(d)})();</script>
+<aside class="di-tip" aria-label="Over deze voorbeeldsite" hidden>
+<img class="di-tip-s" src="https://digital-impression.be/assets/img/stijn-2.webp" alt="" width="40" height="40" loading="lazy" decoding="async">
+<div>
+<p class="di-tip-t">Dit is een voorbeeldsite.</p>
+<p class="di-tip-p">Onderaan leest u hoe we er samen uw site van maken.</p>
+<a class="di-tip-k" href="#di">Lees meer<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+</div>
+<button class="di-tip-x" type="button" aria-label="Sluiten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+</aside>
+<script>/*di-tip*/(function(){var t=document.querySelector('.di-tip'),d=document.getElementById('di');if(!t||!d)return;
+var weg=false;try{weg=sessionStorage.getItem('di-tip')==='weg'}catch(e){}if(weg)return;
+t.hidden=false;var aan=false,diZicht=false;
+function onder(){var m=0;[].forEach.call(document.body.querySelectorAll('*'),function(e){if(e===t||t.contains(e)||d.contains(e))return;var c=getComputedStyle(e);if(c.position!=='fixed'||c.display==='none'||c.visibility==='hidden'||+c.opacity===0)return;var r=e.getBoundingClientRect();if(r.height>0&&r.height<160&&r.bottom>=innerHeight-48&&r.bottom<=innerHeight+2&&r.top>innerHeight-200&&r.width>innerWidth*.4)m=Math.max(m,innerHeight-r.top)});return m}
+function zet(x){if(x===aan)return;aan=x;if(x){t.style.bottom=((innerWidth<=560?12:20)+onder())+'px'}t.classList.toggle('di-tip-aan',x)}
+function sluit(){try{sessionStorage.setItem('di-tip','weg')}catch(e){}zet(false);setTimeout(function(){t.hidden=true},700);window.removeEventListener('scroll',kijk)}
+function held(){var c=document.querySelectorAll('.hero,[class*="hero"],main>section,body>section,body>header,main>header');for(var i=0;i<c.length;i++){var e=c[i];if(d.contains(e)||t.contains(e)||e.closest('.di-strook,.demo,nav'))continue;var r=e.getBoundingClientRect();if(r.height>innerHeight*.35)return r.bottom+scrollY}return innerHeight*.9}
+var hb=0;window.addEventListener('resize',function(){hb=0});function kijk(){var top=d.getBoundingClientRect().top;
+if(top<innerHeight*1.1){if(aan)sluit();return}if(!hb)hb=held();zet(scrollY>hb-innerHeight*.55)}
+t.querySelector('.di-tip-x').addEventListener('click',sluit);
+t.querySelector('.di-tip-k').addEventListener('click',function(){setTimeout(sluit,300)});
+window.addEventListener('scroll',kijk,{passive:true});kijk()})();</script>
+
+</body>
+</html>
