@@ -986,6 +986,10 @@
       c_lead2: ["In your inbox within five working days. Free, no deposit.", "Dans votre boîte mail sous cinq jours ouvrables. Gratuit, sans acompte."],
       c_alt: ["Rather call? <a href=\"tel:+32496251445\">+32 496 25 14 45</a>", "Vous préférez appeler ? <a href=\"tel:+32496251445\">+32 496 25 14 45</a>"],
       f_site2: ["Website or Instagram", "Site web ou Instagram"], f_site_ph2: ["www.yourbusiness.com or @yourbusiness", "www.votreentreprise.be ou @votreentreprise"],
+      pr_once: ["one-off", "une fois"], pr_note: ["<b>No deposit.</b> You only pay when everything is finished.", "<b>Sans acompte.</b> Vous payez quand tout est terminé."],
+      pr_after: ["Then the upkeep", "Ensuite, l'entretien"], pr_after_p: ["Hosting, domain name and small changes, such as new opening hours.", "Hébergement, nom de domaine et petites modifications, comme de nouveaux horaires."],
+      pr_care: ["Carefree", "Sans souci"], pr_tip: ["my pick", "mon conseil"], pr_pm: ["/ month", "/ mois"], pr_care_p: ["Everything included. Changes with a quick message.", "Tout compris. Une modification ? Un petit message suffit."],
+      pr_self: ["Manage it yourself", "Gérer vous-même"], pr_self_p: ["Everything in your name. Changes billed per job.", "Tout à votre nom. Modifications facturées à la pièce."],
       f_msg2: ["Anything I should know? <small>optional</small>", "Quelque chose à savoir ? <small>facultatif</small>"], f_msg_ph2: ["E.g. what you do or what the site should do", "P. ex. votre activité ou ce que le site doit pouvoir faire"]
     };
     Object.keys(T).forEach(function (k) { I18N_UP.en[k] = T[k][0]; I18N_UP.fr[k] = T[k][1]; });
