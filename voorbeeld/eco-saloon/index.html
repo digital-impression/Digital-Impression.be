@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Eco Saloon · Kapper voor dames, heren en kinderen</title>
+<meta name="description" content="Kapsalon Eco Saloon: knippen, kleuren en lokken met Redken-verzorging, afgestemd op je gezicht en je seizoentype. Genkersteenweg 24A, Hasselt.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..500&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --paper:#F1ECE4;--paper2:#E7E0D4;--paper3:#DDD4C5;--ink:#161513;--ink2:#2A2824;--moss:#3D4632;--moss2:#55603F;--sage:#BAC0A3;--brass:#A6895A;
+  --muted:#6C665C;--line:rgba(22,21,19,.12);--r:24px;--ease:cubic-bezier(.2,.8,.2,1);
+  --bw:grayscale(1) contrast(1.06) brightness(.98) sepia(.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.65 'Figtree',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1300px;margin:0 auto;padding:0 clamp(20px,4vw,52px)}
+h1,h2,h3{font-family:'Bodoni Moda',Didot,Georgia,serif;font-weight:400;letter-spacing:-.02em;line-height:1.02}
+h2 em,h1 em,h3 em{font-style:italic}
+.ph{overflow:hidden;position:relative}
+.ph img{filter:var(--bw);transition:filter .9s var(--ease),transform 1.2s var(--ease)}
+.ph:hover img{filter:grayscale(0) contrast(1) brightness(1) sepia(0)}
+.grain{position:relative}
+.grain::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2 0 0 0 0 .18 0 0 0 0 .14 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.demo{background:var(--ink);color:rgba(241,236,228,.75);text-align:center;font-size:13.5px;padding:9px 16px;position:relative;z-index:60}
+.demo a{color:var(--sage);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+
+.lbl{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--moss)}
+.lbl .dot{width:6px;height:6px;border-radius:50%;background:var(--brass)}
+
+.btn{display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 26px;border-radius:99px;font-weight:600;font-size:15px;white-space:nowrap;transition:transform .35s var(--ease),background .35s,color .35s,border-color .35s}
+.btn svg{width:18px;height:18px;transition:transform .35s var(--ease)}
+.btn-i{background:var(--ink);color:var(--paper)}
+.btn-i:hover{background:var(--moss);transform:translateY(-2px)}
+.btn-i:hover svg{transform:translateX(3px)}
+.btn-l{border:1px solid rgba(22,21,19,.3)}
+.btn-l:hover{border-color:var(--ink);background:var(--ink);color:var(--paper);transform:translateY(-2px)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(241,236,228,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
+.nav.sc{border-bottom-color:var(--line)}
+.nav .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:76px;gap:20px}
+.nav ul{display:flex;gap:30px;list-style:none;font-size:14.5px;font-weight:500;color:var(--muted)}
+.nav ul a{transition:color .3s;position:relative}
+.nav ul a::after{content:"";position:absolute;left:0;right:100%;bottom:-4px;height:1px;background:var(--ink);transition:right .4s var(--ease)}
+.nav ul a:hover{color:var(--ink)}.nav ul a:hover::after{right:0}
+.logo{font:400 26px/1 'Bodoni Moda',serif;letter-spacing:-.01em;justify-self:center;display:flex;align-items:center;gap:10px}
+.logo i{font-style:italic}
+.logo svg{width:22px;height:22px;color:var(--moss)}
+.nav .tel{justify-self:end;display:flex;align-items:center;gap:10px;font-weight:600;font-size:14.5px;height:46px;padding:0 18px;border-radius:99px;border:1px solid var(--line);transition:background .3s,color .3s,border-color .3s}
+.nav .tel svg{width:17px;height:17px}
+.nav .tel:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* hero */
+.hero{padding:clamp(26px,3vw,40px) 0 0;overflow:hidden}
+.hero .meta{display:flex;justify-content:space-between;gap:20px;font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.wm{display:block;font:400 clamp(92px,17.4vw,268px)/.82 'Bodoni Moda',serif;letter-spacing:-.045em;margin:18px 0 0 -.04em;white-space:nowrap;position:relative;z-index:1}
+.wm em{font-style:italic;color:var(--moss)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.stage{position:relative;margin-top:clamp(-70px,-4.2vw,-30px);display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;height:640px}
+.stage .big{grid-column:2/4;border-radius:var(--r);height:100%}
+.stage .big img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.stage .card{grid-column:1/2;grid-row:1;align-self:end;background:var(--paper);border-radius:var(--r);padding:34px 4px 6px 0;position:relative;z-index:2}
+.stage .card h2{font-size:clamp(34px,3.2vw,48px);margin:16px 0 16px}
+.stage .card h2 em{color:var(--moss)}
+.stage .card p{color:var(--muted);max-width:380px}
+.stage .card .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.stage .arch{position:absolute;left:calc(33.33% - 150px);top:84px;width:196px;height:236px;border-radius:999px 999px 18px 18px;border:7px solid var(--paper);z-index:3;box-shadow:0 30px 50px -30px rgba(0,0,0,.5)}
+.stage .arch img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.stage .score{position:absolute;right:26px;bottom:26px;z-index:3;background:rgba(241,236,228,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:18px;padding:16px 20px;display:flex;align-items:center;gap:14px;box-shadow:0 20px 40px -20px rgba(0,0,0,.4)}
+.stage .score b{font:400 46px/1 'Bodoni Moda',serif}
+.stage .score .st{display:flex;gap:2px;color:var(--brass)}
+.stage .score .st svg{width:14px;height:14px}
+.stage .score small{display:block;font-size:13px;color:var(--muted);margin-top:3px}
+.stage .tagp{position:absolute;left:calc(33.33% + 30px);bottom:26px;z-index:3;display:flex;gap:8px;flex-wrap:wrap}
+.stage .tagp span{font-size:12.5px;font-weight:600;padding:8px 13px;border-radius:99px;background:rgba(22,21,19,.66);color:var(--paper);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.feat{display:grid;grid-template-columns:repeat(4,1fr);margin-top:26px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.feat .it{display:flex;gap:14px;align-items:flex-start;padding:26px 22px 26px 0}
+.feat .it+.it{padding-left:22px;border-left:1px solid var(--line)}
+.ic{width:46px;height:46px;border-radius:50%;background:var(--paper2);display:grid;place-items:center;color:var(--moss);flex:none;transition:background .3s,color .3s}
+.ic svg{width:21px;height:21px}
+.feat .it:hover .ic{background:var(--moss);color:var(--paper)}
+.feat h3{font:600 15px/1.3 'Figtree',sans-serif;letter-spacing:0;margin-bottom:3px}
+.feat p{font-size:14px;color:var(--muted);line-height:1.45}
+
+section{position:relative}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:46px}
+.head h2{font-size:clamp(38px,4.8vw,70px);margin-top:16px}
+.head h2 em{color:var(--moss)}
+.head p{max-width:400px;color:var(--muted)}
+
+/* aanpak */
+.aanpak{padding:clamp(90px,10vw,140px) 0}
+.aanpak .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,6vw,90px);align-items:start}
+.big-q{font:400 clamp(40px,4.9vw,74px)/1.04 'Bodoni Moda',serif;letter-spacing:-.025em;margin-top:18px}
+.big-q em{color:var(--moss)}
+.big-q .ln{display:inline-block;width:1.4em;height:.55em;border-radius:99px;vertical-align:.08em;overflow:hidden;margin:0 .08em}
+.big-q .ln img{width:100%;height:100%;object-fit:cover;filter:var(--bw)}
+.aanpak .sub{color:var(--muted);max-width:520px;margin-top:26px}
+.nums{list-style:none;margin-top:6px}
+.nums li{display:grid;grid-template-columns:62px 1fr;gap:16px;padding:24px 0;border-top:1px solid var(--line)}
+.nums li:last-child{border-bottom:1px solid var(--line)}
+.nums .n{font:400 italic 34px/1 'Bodoni Moda',serif;color:var(--brass)}
+.nums h3{font:600 18px/1.3 'Figtree',sans-serif;letter-spacing:0;margin-bottom:6px}
+.nums p{font-size:15px;color:var(--muted)}
+.aanpak .pic{margin-top:30px;display:grid;grid-template-columns:1.3fr 1fr;gap:14px;height:280px}
+.aanpak .pic .ph{border-radius:20px}
+.aanpak .pic .ph:first-child{border-radius:140px 20px 20px 20px}
+.aanpak .pic img{width:100%;height:100%;object-fit:cover}
+
+/* salon bento */
+.salon{padding:0 0 clamp(90px,10vw,140px)}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:250px 250px 210px;gap:16px}
+.b{border-radius:var(--r);padding:26px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;transition:transform .5s var(--ease)}
+.b:hover{transform:translateY(-4px)}
+.b h3{font-size:26px;line-height:1.08}
+.b p{font-size:14.5px;line-height:1.5}
+.b .ic{background:rgba(255,255,255,.14);color:inherit}
+.b.photo{padding:0}
+.b.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.b.photo .cap{position:absolute;left:16px;right:16px;bottom:16px;background:rgba(241,236,228,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:16px;padding:16px 18px;z-index:2}
+.b.photo .cap h3{font-size:22px}
+.b.photo .cap p{color:var(--muted);margin-top:4px}
+.b1{grid-column:1/3;grid-row:1/3}
+.b2{background:var(--moss);color:var(--paper)}
+.b2 p{color:rgba(241,236,228,.75)}
+.b3{grid-row:1/3}
+.b4{background:var(--paper2)}
+.b4 .ic{background:var(--paper);color:var(--moss)}
+.b4 p{color:var(--muted)}
+.b5{background:var(--ink);color:var(--paper);grid-column:1/3;grid-row:3}
+.b5 p{color:rgba(241,236,228,.7)}
+.b6{background:var(--sage);grid-column:3/5;grid-row:3}
+.b6 .ic{background:rgba(22,21,19,.1)}
+.b6 p{color:var(--ink2)}
+.b .big-n{position:absolute;right:-6px;bottom:-30px;font:400 italic 170px/1 'Bodoni Moda',serif;color:rgba(241,236,228,.1)}
+.b5 .row{display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+
+/* tarieven */
+.tar{padding:clamp(90px,10vw,130px) 0;background:var(--paper2)}
+.tar .grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,6vw,90px);align-items:start}
+.tar .col{position:sticky;top:110px;height:640px}
+.tar .col .ph{position:absolute;border-radius:20px}
+.tar .col .p1{left:0;top:0;width:68%;height:72%;border-radius:200px 200px 20px 20px}
+.tar .col .p2{right:0;bottom:0;width:56%;height:46%;border:7px solid var(--paper2)}
+.tar .col img{width:100%;height:100%;object-fit:cover}
+.tar .col .chip{position:absolute;left:14px;bottom:34%;z-index:2;background:var(--ink);color:var(--paper);font-size:13px;font-weight:600;padding:10px 14px;border-radius:99px;display:flex;gap:8px;align-items:center}
+.tar .col .chip svg{width:16px;height:16px;color:var(--sage)}
+.tar h2{font-size:clamp(38px,4.6vw,66px);margin:16px 0 10px}
+.tar h2 em{color:var(--moss)}
+.tar .intro{color:var(--muted);max-width:520px}
+.lst{margin-top:30px}
+.lst h3{font:600 12px/1 'Figtree',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--moss);margin:30px 0 6px;display:flex;align-items:center;gap:12px}
+.lst h3::after{content:"";flex:1;height:1px;background:var(--line)}
+.lst h3:first-child{margin-top:0}
+.lst ul{list-style:none}
+.lst li{display:grid;grid-template-columns:1fr auto auto;gap:18px;align-items:baseline;padding:13px 0;border-bottom:1px dashed rgba(22,21,19,.16);transition:padding .3s var(--ease)}
+.lst li:hover{padding-left:8px}
+.lst li span{font-size:16px}
+.lst li small{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+.lst li i{font-style:normal;font-size:13px;color:var(--muted);white-space:nowrap}
+.lst li b{font:400 24px/1 'Bodoni Moda',serif;min-width:62px;text-align:right}
+.tar .note{margin-top:20px;font-size:14px;color:var(--muted);display:flex;gap:10px;align-items:center}
+.tar .note svg{width:18px;height:18px;color:var(--moss)}
+
+/* reviews */
+.rv{padding:clamp(90px,10vw,140px) 0;overflow:hidden}
+.rv .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:center}
+.rv .n{font:400 clamp(150px,18vw,270px)/.8 'Bodoni Moda',serif;letter-spacing:-.05em;display:flex;align-items:flex-start;gap:20px}
+.rv .n small{font:500 15px/1.4 'Figtree',sans-serif;letter-spacing:0;color:var(--muted);margin-top:24px;max-width:150px}
+.rv .stars{display:flex;gap:6px;color:var(--brass);margin:26px 0 18px}
+.rv .stars svg{width:24px;height:24px}
+.rv p.t{font:400 clamp(24px,2.3vw,32px)/1.3 'Bodoni Moda',serif;max-width:520px}
+.rv p.t em{color:var(--moss)}
+.rv .lk{display:inline-flex;align-items:center;gap:8px;margin-top:26px;font-weight:600;border-bottom:1px solid var(--ink);padding-bottom:3px;transition:gap .3s}
+.rv .lk:hover{gap:14px}
+.rv .lk svg{width:16px;height:16px}
+.rv .pics{position:relative;height:560px}
+.rv .pics .ph{position:absolute;border-radius:20px}
+.rv .pics .q1{right:0;top:0;width:72%;height:76%}
+.rv .pics .q2{left:0;bottom:0;width:46%;height:52%;border:7px solid var(--paper);border-radius:20px 20px 20px 120px}
+.rv .pics img{width:100%;height:100%;object-fit:cover}
+.rv .pics .ring{position:absolute;left:8%;top:6%;width:150px;height:150px;border-radius:50%;border:1px solid var(--brass);display:grid;place-items:center;text-align:center;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--moss);font-weight:600;line-height:1.5;background:var(--paper);z-index:2;animation:spin 30s linear infinite}
+.rv .pics .ring span{animation:spin 30s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* contact */
+.ct{background:var(--ink);color:var(--paper);padding:clamp(90px,10vw,130px) 0 clamp(70px,8vw,100px);overflow:hidden}
+.ct .ghost{position:absolute;left:50%;bottom:-.18em;transform:translateX(-50%);font:400 italic clamp(120px,22vw,340px)/1 'Bodoni Moda',serif;color:transparent;-webkit-text-stroke:1px rgba(241,236,228,.08);white-space:nowrap;pointer-events:none;letter-spacing:-.04em}
+.ct .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);position:relative}
+.ct .lbl{color:var(--sage)}
+.ct h2{font-size:clamp(40px,5vw,74px);margin:16px 0 18px}
+.ct h2 em{color:var(--sage)}
+.ct .intro{color:rgba(241,236,228,.7);max-width:440px}
+.ct .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+.ct .btn-p{background:var(--paper);color:var(--ink)}
+.ct .btn-p:hover{background:var(--sage);transform:translateY(-2px)}
+.ct .btn-w{background:#1F8F55;color:#fff}
+.ct .btn-w:hover{background:#17764A;transform:translateY(-2px)}
+.ct .btn-o{border:1px solid rgba(241,236,228,.3)}
+.ct .btn-o:hover{border-color:var(--paper);transform:translateY(-2px)}
+.ct .cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cc{border-radius:20px;padding:24px;background:rgba(241,236,228,.05);border:1px solid rgba(241,236,228,.1);transition:background .3s,border-color .3s}
+a.cc:hover{background:rgba(241,236,228,.09);border-color:rgba(186,192,163,.5)}
+.cc small{display:block;font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin-bottom:8px}
+.cc span{font-size:16px}
+.cc.uur{grid-column:1/-1}
+.uren{list-style:none;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(4,auto);grid-auto-flow:column;column-gap:30px}
+.uren li{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(241,236,228,.08);font-size:15px}
+.uren li span:last-child{color:rgba(241,236,228,.62)}
+.uren li.nu{color:var(--sage);font-weight:600}
+.uren li.nu span:last-child{color:var(--sage)}
+.uren li.dicht span:last-child{color:rgba(241,236,228,.38)}
+
+footer{background:#0E0D0C;color:rgba(241,236,228,.55);font-size:14px;padding:50px 0 30px}
+footer .top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:26px;border-bottom:1px solid rgba(241,236,228,.08)}
+footer .logo{color:var(--paper);justify-self:auto}
+footer .cols{display:flex;gap:56px;flex-wrap:wrap}
+footer h4{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--sage);margin-bottom:12px;font-weight:600}
+footer .cols a,footer .cols span{display:block;padding:3px 0;transition:color .3s}
+footer .cols a:hover{color:var(--paper)}
+footer .bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:22px;font-size:13px}
+
+.js [data-r]{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js [data-r].in{opacity:1;transform:none}
+.js [data-r="2"]{transition-delay:.12s}.js [data-r="3"]{transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){.js [data-r]{opacity:1;transform:none;transition:none}.rv .pics .ring,.rv .pics .ring span{animation:none}}
+
+@media (max-width:1100px){
+  .nav ul{display:none}
+  .nav .wrap{grid-template-columns:1fr auto}
+  .logo{justify-self:start}
+  .stage{grid-template-columns:1fr 1fr;height:auto;margin-top:-26px}
+  .stage .big{grid-column:1/-1;grid-row:1;height:480px}
+  .stage .card{grid-column:1/-1;grid-row:2;padding:30px 0 0}
+  .stage .arch{display:none}
+  .stage .tagp{left:20px;bottom:auto;top:424px}
+  .stage .score{right:20px;bottom:auto;top:396px}
+  .feat{grid-template-columns:1fr 1fr}
+  .feat .it:nth-child(3){padding-left:0;border-left:0}
+  .feat .it:nth-child(n+3){border-top:1px solid var(--line)}
+  .aanpak .grid,.tar .grid,.rv .grid,.ct .grid{grid-template-columns:1fr}
+  .head{flex-direction:column;align-items:flex-start;gap:14px}
+  .bento{grid-template-columns:1fr 1fr;grid-template-rows:auto;grid-auto-flow:row dense}
+  .b{min-height:220px}
+  .b1{grid-column:1/-1;grid-row:auto;min-height:380px}
+  .b3{grid-row:span 2}
+  .b5{grid-column:1/-1;grid-row:auto}
+  .b6{grid-column:1/-1;grid-row:auto;min-height:170px!important}
+  .tar .col{position:relative;top:auto}
+  .tar .col{height:460px;max-width:560px;width:100%}
+  .rv .pics{height:460px}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .nav .wrap{height:64px}
+  .logo{font-size:22px}
+  .nav .tel span{display:none}
+  .nav .tel{width:46px;padding:0;justify-content:center}
+  .hero .meta span:last-child{display:none}
+  .wm{font-size:clamp(70px,22.5vw,96px);white-space:normal;line-height:.86;margin-top:12px}
+  .wm em{display:block}
+  .stage{margin-top:22px;gap:12px;display:flex;flex-direction:column}
+  .stage .card{order:-1;padding:0 0 10px}
+  .stage .card h2{font-size:34px;margin-top:0}
+  .stage .card .lbl{display:none}
+  .stage .card .acts .btn{flex:1;justify-content:center;padding:0 18px}
+  .stage .big{height:420px;order:1}
+  .stage .arch{display:none}
+  .stage .tagp{display:none}
+  .stage .score{position:relative;right:auto;bottom:auto;order:2;margin-top:-80px;margin-left:16px;align-self:flex-start;padding:12px 16px}
+  .stage .score b{font-size:38px}
+  .feat .it{flex-direction:column;gap:10px;padding:20px 14px 20px 0!important;border-left:0!important}
+  .feat .it:nth-child(even){padding-left:14px!important;border-left:1px solid var(--line)!important}
+  .feat h3{font-size:14px}
+  .feat p{font-size:13px}
+  .ic{width:40px;height:40px}
+  .big-q{font-size:38px}
+  .aanpak .pic{height:200px}
+  .nums li{grid-template-columns:44px 1fr;gap:12px;padding:20px 0}
+  .nums .n{font-size:28px}
+  .bento{gap:12px}
+  .b{padding:20px;min-height:190px}
+  .b h3{font-size:21px}
+  .b1{min-height:360px}
+  .b3{grid-row:span 1;grid-column:1/-1;min-height:300px}
+  .b4,.b2{grid-column:auto}
+  .b2 p,.b4 p,.b6 p{display:none}
+  .b5 .row{flex-direction:column;align-items:flex-start}
+  .b5 .row .ic{display:none}
+  .b.photo .cap{padding:14px 16px}
+  .tar .col{height:360px}
+  .tar .col .chip{font-size:12px;bottom:30%}
+  .lst li{grid-template-columns:1fr auto;gap:4px 14px}
+  .lst li i{grid-column:1;grid-row:2;margin-top:-2px}
+  .lst li b{grid-column:2;grid-row:1/3;align-self:center;font-size:22px}
+  .rv .n{font-size:132px}
+  .rv .pics{height:360px}
+  .rv .pics .ring{width:110px;height:110px;font-size:9px}
+  .ct .cards{grid-template-columns:1fr}
+  .uren{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row}
+  .ct .acts .btn{flex:1;justify-content:center}
+}
+</style>
+</head>
+<body>
+<div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="ster" viewBox="0 0 20 20"><path fill="currentColor" d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L10 15l-5.2 2.7 1-5.9L1.5 7.7l5.9-.8z"/></symbol>
+  <symbol id="pijl" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="tel" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M6.6 3.5h2.6l1.4 4-2 1.4a12 12 0 0 0 6.5 6.5l1.4-2 4 1.4v2.6a2 2 0 0 1-2 2A16.5 16.5 0 0 1 4.6 5.5a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="blad" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-14 15-14 0 10-6 15-14 15"/><path d="M5 19l8-8"/></g></symbol>
+  <symbol id="palet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5a8.5 8.5 0 1 0 0 17c1.4 0 1.8-1 1.3-2-.7-1.5.3-2.8 1.8-2.8h2.1a3.3 3.3 0 0 0 3.3-3.3C20.5 7.3 16.7 3.5 12 3.5z"/><circle cx="7.8" cy="11" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="15" cy="7.8" r="1"/></g></symbol>
+  <symbol id="water" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13h16a8 8 0 0 1-16 0z"/><path d="M8 9c0-1.5 1-2 1-3.5M12 9c0-1.5 1-2 1-3.5M16 9c0-1.5 1-2 1-3.5"/></g></symbol>
+  <symbol id="laptop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="10" rx="1.5"/><path d="M3 18.5h18"/></g></symbol>
+  <symbol id="auto" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v-3.5l2-5h12l2 5V16"/><path d="M4 12.5h16M4 16h16v2.5h-3V16M7 16v2.5H4V16"/><circle cx="7.5" cy="14" r=".6" fill="currentColor"/><circle cx="16.5" cy="14" r=".6" fill="currentColor"/></g></symbol>
+  <symbol id="kop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5z"/><path d="M16 10.5h1.5a2.5 2.5 0 0 1 0 5H16M8 3.5c0 1.5 1 1.5 1 3M12 3.5c0 1.5 1 1.5 1 3"/></g></symbol>
+  <symbol id="tablet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M11 18h2"/></g></symbol>
+  <symbol id="schaar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="6.5" cy="17.5" r="2.5"/><path d="M8.5 8L20 18M8.5 16L20 6"/></g></symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.8-1.3A9.5 9.5 0 1 0 12 2.5zm0 17.3a7.8 7.8 0 0 1-4-1.1l-.3-.2-2.8.8.8-2.8-.2-.3A7.8 7.8 0 1 1 12 19.8zm4.3-5.8c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.7.9-.3.2-.5.1a6.4 6.4 0 0 1-3.2-2.8c-.2-.4.2-.4.7-1.3a.4.4 0 0 0 0-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.9 2 4.7 4.7 0 0 0 1 2.5 10.7 10.7 0 0 0 4.1 3.6c1.5.7 2.1.7 2.9.6a2.4 2.4 0 0 0 1.6-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.4-.3z"/></symbol>
+</defs></svg>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <ul><li><a href="#aanpak">Aanpak</a></li><li><a href="#salon">Het salon</a></li><li><a href="#tarieven">Tarieven</a></li><li><a href="#contact">Contact</a></li></ul>
+    <a href="#top" class="logo" aria-label="Eco Saloon"><svg><use href="#blad"/></svg>Eco <i>Saloon</i></a>
+    <a class="tel" href="tel:+32492164996"><svg><use href="#tel"/></svg><span>0492 16 49 96</span></a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div class="meta" data-r><span>Kapsalon · dames, heren &amp; kinderen</span><span>Dinsdag tot zaterdag</span></div>
+    <h1 data-r><span class="wm">Eco <em>Saloon</em></span><span class="sr">Kapper voor dames, heren en kinderen</span></h1>
+    <div class="stage">
+      <div class="big ph" data-r="2"><img src="img/brushing.webp" alt="Kapper aan het brushen" width="1600" height="1068" fetchpriority="high"></div>
+      <div class="arch ph" data-r="3"><img src="img/redken-rek.webp" alt="Het rek met Redken-producten in het salon" width="1600" height="1696"></div>
+      <div class="tagp" data-r="3"><span>Snit</span><span>Kleur</span><span>Lokken</span><span>Brushing</span></div>
+      <div class="score" data-r="3"><b>5,0</b><div><span class="st"><svg><use href="#ster"/></svg><svg><use href="#ster"/></svg><svg><use href="#ster"/></svg><svg><use href="#ster"/></svg><svg><use href="#ster"/></svg></span><small>108 reviews op Google</small></div></div>
+      <div class="card" data-r>
+        <span class="lbl"><span class="dot"></span>Redken-kapsalon</span>
+        <h2>Eerst kijken, <em>dan pas knippen.</em></h2>
+        <p>Je snit en je kleur stemmen we af op je gezicht, je haar en je seizoentype. Met Redken-verzorging en de tijd die ervoor nodig is.</p>
+        <div class="acts">
+          <a href="tel:+32492164996" class="btn btn-i">Maak een afspraak <svg><use href="#pijl"/></svg></a>
+          <a href="#tarieven" class="btn btn-l">Tarieven</a>
+        </div>
+      </div>
+    </div>
+    <div class="feat" data-r>
+      <div class="it"><span class="ic"><svg><use href="#palet"/></svg></span><div><h3>Gratis seizoentype</h3><p>We bepalen welke kleuren bij je passen.</p></div></div>
+      <div class="it"><span class="ic"><svg><use href="#water"/></svg></span><div><h3>Wastafels met massage</h3><p>Even achterover en loslaten.</p></div></div>
+      <div class="it"><span class="ic"><svg><use href="#laptop"/></svg></span><div><h3>Werktafel en wifi</h3><p>Rustig verder werken tijdens je kleur.</p></div></div>
+      <div class="it"><span class="ic"><svg><use href="#auto"/></svg></span><div><h3>Ruime parking</h3><p>Voor en achter het salon.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="aanpak" id="aanpak">
+  <div class="wrap grid">
+    <div data-r>
+      <span class="lbl"><span class="dot"></span>01 · Onze aanpak</span>
+      <p class="big-q">Bij ons ben je <em>geen nummer</em> <span class="ln"><img src="img/fohnen.webp" alt="" width="1600" height="1068"></span> en geen anoniem hoofd waar een snit op wordt gezet.</p>
+      <p class="sub">Een kappersbezoek is meer dan knippen en drogen. We kijken naar je haar, je hoofdhuid en hoe je het thuis zelf in model wil krijgen. En als er achteraf nog iets beter kan, horen we het graag.</p>
+    </div>
+    <div data-r="2">
+    <ol class="nums">
+      <li><span class="n">01</span><div><h3>Je gezicht</h3><p>De vorm van je gelaat bepaalt welke lengte, lijn en volume je flatteert. Daar begint elke snit.</p></div></li>
+      <li><span class="n">02</span><div><h3>Je kleuren</h3><p>We bepalen gratis je seizoentype. Zo weet je welke tinten je huid laten stralen, ook voor je volgende kleurbeurt.</p></div></li>
+      <li><span class="n">03</span><div><h3>Jij</h3><p>Je stijl, je dag, hoeveel tijd je 's ochtends hebt. Het resultaat moet je zelf ook thuis goed krijgen.</p></div></li>
+      <li><span class="n">04</span><div><h3>Je haar en hoofdhuid</h3><p>Met de verzorging van Redken, van het wassen tot de laatste afwerking.</p></div></li>
+    </ol>
+      <div class="pic">
+        <div class="ph"><img src="img/fohnen.webp" alt="Föhnen in het salon" width="1600" height="1068" loading="lazy"></div>
+        <div class="ph"><img src="img/aan-het-werk.webp" alt="Lang blond haar wordt behandeld" width="435" height="600" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="salon" id="salon">
+  <div class="wrap">
+    <div class="head" data-r>
+      <div><span class="lbl"><span class="dot"></span>02 · Het salon</span><h2>Zo zit je <em>bij ons</em></h2></div>
+      <p>Het salon is grondig vernieuwd en doordacht ingedeeld, met aandacht voor de kleine dingen die je bezoek aangenaam maken.</p>
+    </div>
+    <div class="bento">
+      <div class="b b1 photo ph" data-r><img src="img/wastafel.webp" alt="Haren wassen aan de wastafel" width="1335" height="2000" loading="lazy" style="object-position:50% 62%"><div class="cap"><h3>Wastafels met massage</h3><p>Leun achterover terwijl je haar gewassen en verzorgd wordt.</p></div></div>
+      <div class="b b2" data-r="2"><span class="ic"><svg><use href="#kop"/></svg></span><div><h3>Nespresso en <em>9 soorten thee</em></h3><p>Of water en frisdrank, wat je maar wil.</p></div></div>
+      <div class="b b3 photo ph" data-r="3"><img src="img/redken-rek.webp" alt="Redken-producten op de rekken" width="1600" height="1696" loading="lazy"><div class="cap"><h3>Redken</h3><p>De uitgebreide gamma's, van wassen tot afwerking.</p></div></div>
+      <div class="b b4" data-r="2"><span class="ic"><svg><use href="#laptop"/></svg></span><div><h3>Een rustige werktafel</h3><p>Weg van de haardrogers, met gratis wifi.</p></div></div>
+      <div class="b b5" data-r="2"><span class="big-n">iPad</span><div class="row"><div><h3>Kiezen op <em>de iPad</em></h3><p style="margin-top:8px;max-width:380px">Blader op een van onze iPads door kapsels en info. Zo zie je meteen wat je mooi vindt.</p></div><span class="ic"><svg><use href="#tablet"/></svg></span></div></div>
+      <div class="b b6" data-r="3"><span class="ic"><svg><use href="#auto"/></svg></span><div><h3>Parking voor en achter</h3><p>Geen gezoek, gewoon parkeren.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="tar" id="tarieven">
+  <div class="wrap grid">
+    <div class="col" data-r>
+      <div class="ph p1"><img src="img/heren.webp" alt="Herensnit met föhn" width="1333" height="2000" loading="lazy" style="object-position:50% 30%"></div>
+      <div class="ph p2"><img src="img/kinderen.webp" alt="Jongen bij de kapper" width="1600" height="1066" loading="lazy"></div>
+      <span class="chip"><svg><use href="#schaar"/></svg>Ook voor heren en kinderen</span>
+    </div>
+    <div data-r="2">
+      <span class="lbl"><span class="dot"></span>03 · Tarieven</span>
+      <h2>Wat je <em>betaalt</em></h2>
+      <p class="intro">De menu's voor dames zijn inclusief Redken-verzorging, brushing en afwerking. Zo weet je vooraf waar je aan toe bent.</p>
+      <div class="lst">
+        <h3>Dames</h3>
+        <ul>
+          <li><span>Snit kort haar<small>verzorging, snit, brushing</small></span><i>1 u</i><b>€45</b></li>
+          <li><span>Snit lang haar</span><i>1 u 15</i><b>€60</b></li>
+          <li><span>Brushing kort of lang haar</span><i>40 tot 50 min</i><b>€35 / 40</b></li>
+          <li><span>Snit met kleur<small>uitgroei kleuren, snit, brushing</small></span><i>2 u</i><b>€120</b></li>
+          <li><span>Brushing met kleur</span><i>1 u 30</i><b>€90</b></li>
+          <li><span>Snit en lokken contour</span><i>4 u</i><b>€150</b></li>
+          <li><span>Snit en lokken volledig hoofd</span><i>4 u</i><b>€170</b></li>
+          <li><span>Bond in kleur<small>bescherming bij lokken</small></span><i>1 u</i><b>€40</b></li>
+        </ul>
+        <h3>Heren &amp; kinderen</h3>
+        <ul>
+          <li><span>Snit heren</span><i>40 min</i><b>€35</b></li>
+          <li><span>Baard</span><i>10 min</i><b>€10</b></li>
+          <li><span>Kinderen, meisjes</span><i>1 u</i><b>€35</b></li>
+          <li><span>Kinderen, jongens</span><i>30 min</i><b>€25</b></li>
+        </ul>
+        <h3>Wenkbrauwen</h3>
+        <ul>
+          <li><span>Kleuren of vormen</span><i>10 min</i><b>€10</b></li>
+        </ul>
+      </div>
+      <p class="note"><svg><use href="#palet"/></svg>Je seizoentype bepalen we gratis.</p>
+    </div>
+  </div>
+</section>
+
+<section class="rv">
+  <div class="wrap grid">
+    <div data-r>
+      <span class="lbl"><span class="dot"></span>04 · Wat klanten zeggen</span>
+      <div class="n" style="margin-top:22px">5,0<small>gemiddelde score op Google</small></div>
+      <div class="stars"><svg><use href="#ster"/></svg><svg><use href="#ster"/></svg><svg><use href="#ster"/></svg><svg><use href="#ster"/></svg><svg><use href="#ster"/></svg></div>
+      <p class="t">108 klanten gaven een review, met <em>gemiddeld vijf op vijf.</em> Lees zelf wat ze over hun bezoek schrijven.</p>
+      <a class="lk" href="https://www.google.com/maps?cid=11653057572664544488" target="_blank" rel="noopener">Bekijk de reviews op Google <svg><use href="#pijl"/></svg></a>
+    </div>
+    <div class="pics" data-r="2">
+      <div class="ph q1"><img src="img/salon-zw.webp" alt="Kapsalon met stoelen en spiegels" width="1600" height="1200" loading="lazy"></div>
+      <div class="ph q2"><img src="img/lang-haar.webp" alt="Lang, verzorgd haar" width="1600" height="1068" loading="lazy"></div>
+      <div class="ring"><span>Redken<br>· seizoentype ·<br>snit &amp; kleur</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="ct" id="contact">
+  <span class="ghost" aria-hidden="true">Eco Saloon</span>
+  <div class="wrap grid">
+    <div data-r>
+      <span class="lbl"><span class="dot"></span>05 · Afspraak</span>
+      <h2>Tijd voor <em>een nieuwe snit?</em></h2>
+      <p class="intro">Bel, mail of stuur een berichtje. Voor lokken en kleur trek je best wat tijd uit, dan plannen we je afspraak ruim in.</p>
+      <div class="acts">
+        <a class="btn btn-p" href="tel:+32492164996"><svg><use href="#tel"/></svg>0492 16 49 96</a>
+        <a class="btn btn-w" href="https://wa.me/32492164996" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>WhatsApp</a>
+        <a class="btn btn-o" href="https://www.google.com/maps/dir/?api=1&amp;destination=Genkersteenweg+24A+3500+Hasselt" target="_blank" rel="noopener">Route <svg><use href="#pijl"/></svg></a>
+      </div>
+    </div>
+    <div class="cards" data-r="2">
+      <a class="cc" href="mailto:eco.saloon24@gmail.com"><small>Mail</small><span>eco.saloon24@gmail.com</span></a>
+      <div class="cc"><small>Adres</small><span>Genkersteenweg 24A<br>3500 Hasselt</span></div>
+      <div class="cc uur"><small>Openingsuren</small>
+        <ul class="uren" id="uren">
+          <li data-d="1" class="dicht"><span>Maandag</span><span>gesloten</span></li>
+          <li data-d="2"><span>Dinsdag</span><span>9u tot 18u</span></li>
+          <li data-d="3"><span>Woensdag</span><span>9u tot 18u</span></li>
+          <li data-d="4"><span>Donderdag</span><span>9u tot 18u</span></li>
+          <li data-d="5"><span>Vrijdag</span><span>9u tot 18u</span></li>
+          <li data-d="6"><span>Zaterdag</span><span>8u tot 17u</span></li>
+          <li data-d="0" class="dicht"><span>Zondag</span><span>gesloten</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div><a href="#top" class="logo"><svg><use href="#blad"/></svg>Eco <i>Saloon</i></a><p style="margin-top:14px;max-width:300px">Kapsalon voor dames, heren en kinderen.</p></div>
+      <div class="cols">
+        <div><h4>Salon</h4><a href="#aanpak">Aanpak</a><a href="#salon">Het salon</a><a href="#tarieven">Tarieven</a></div>
+        <div><h4>Contact</h4><a href="tel:+32492164996">0492 16 49 96</a><a href="mailto:eco.saloon24@gmail.com">eco.saloon24@gmail.com</a><span>Genkersteenweg 24A, Hasselt</span></div>
+        <div><h4>Volg</h4><a href="https://www.instagram.com/ecosaloon/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/jawadi.eco" target="_blank" rel="noopener">Facebook</a></div>
+      </div>
+    </div>
+    <div class="bot"><span>© Eco Saloon</span><span>Voorbeeldsite door Digital Impression</span></div>
+  </div>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var n=document.getElementById('nav');addEventListener('scroll',function(){n.classList.toggle('sc',scrollY>10)},{passive:true});
+  var li=document.querySelector('#uren li[data-d="'+new Date().getDay()+'"]');if(li)li.classList.add('nu');
+  var els=document.querySelectorAll('[data-r]');
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e)})}
+  else{els.forEach(function(e){e.classList.add('in')})}
+})();
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
+<style>
+.di,.di *{box-sizing:border-box;margin:0;padding:0;border:0;background:none;box-shadow:none;text-shadow:none;text-transform:none;letter-spacing:normal;float:none;max-width:none;min-height:0;font:inherit;color:inherit;text-decoration:none;opacity:1;transform:none;filter:none;list-style:none}
+.di :is(h2,h3,h4,p,ul,ol,li,details,summary,b,strong,em,small,span,div)::before,.di :is(h2,h3,h4,p,ul,ol,li,details,summary,b,strong,em,small,span,div)::after{content:none!important}
+.di summary::marker{content:""}
+.di{--navy:#0E1C3A;--deep:#0A1530;--goud:#C9A24A;--goud2:#D8BB6A;--bleek:#E8D9A8;--beige:#F1EBDF;--creme:#FBF8F2;
+  --zacht:rgba(241,235,223,.74);--stil:rgba(241,235,223,.5);--lijn:rgba(241,235,223,.12);--ease:cubic-bezier(.16,1,.3,1);
+  position:relative;overflow:clip;background:var(--navy);color:var(--beige);padding:clamp(88px,11vw,136px) 0 56px;
+  font:400 17px/1.65 'Inter',system-ui,sans-serif;text-align:left;-webkit-font-smoothing:antialiased}
+.di::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(760px 480px at 50% -10%,rgba(201,162,74,.14),transparent 66%)}
+.di::after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,162,74,.7) 30%,rgba(232,217,168,.9) 50%,rgba(201,162,74,.7) 70%,transparent)}
+.di .di-wrap{position:relative;max-width:980px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+.di h2,.di h3,.di h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:-.01em;text-transform:none;font-style:normal;color:var(--creme)}
+.di a{color:inherit}
+.di svg{flex:none}
+
+/* boodschap */
+.di .di-kern{text-align:center;max-width:760px;margin:0 auto}
+.di .di-afz{display:inline-flex;align-items:center;gap:12px;margin-bottom:28px;color:var(--goud2);font-size:15px;font-weight:500}
+.di .di-afz i{width:32px;height:32px;border-radius:9px;border:1px solid rgba(201,162,74,.45);display:grid;place-items:center;font:600 15px/1 'Cormorant Garamond',serif;font-style:normal;color:var(--goud);letter-spacing:-.5px}
+.di h2{line-height:1}
+.di .di-voor{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:20px;font:italic 500 clamp(24px,2.5vw,31px)/1.2 'Cormorant Garamond',Georgia,serif;color:var(--goud2);letter-spacing:.005em}
+.di .di-kern .di-voor::before,.di .di-kern .di-voor::after{content:""!important;flex:none;width:clamp(28px,5vw,60px);height:1px;background:linear-gradient(90deg,transparent,var(--goud))}
+.di .di-kern .di-voor::after{background:linear-gradient(270deg,transparent,var(--goud))}
+.di .di-samen{display:block;font:500 clamp(46px,6.2vw,80px)/1.02 'Cormorant Garamond',Georgia,serif;letter-spacing:-.015em;text-wrap:balance;
+  color:var(--creme);background:linear-gradient(180deg,#FBF8F2 35%,#E8D9A8 135%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;padding-bottom:.06em}
+.di .di-lead{text-wrap:pretty;color:var(--zacht);font-size:clamp(17px,1.5vw,19px);margin:24px auto 0;max-width:33em}
+.di .di-knoppen{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:36px}
+.di .di-knoppen a{position:relative;overflow:hidden;display:inline-flex;justify-content:center;align-items:center;gap:10px;border-radius:999px;padding:18px 30px;
+  font:600 17px/1.2 'Inter',sans-serif;text-decoration:none;isolation:isolate;white-space:nowrap;transition:color .5s var(--ease),border-color .5s var(--ease)}
+.di .di-knoppen a svg{width:19px;height:19px}
+.di .di-knoppen a::before{content:"";position:absolute;inset:0;z-index:-1;transform:translateY(101%);transition:transform .55s var(--ease)}
+.di .di-knoppen a:hover::before{transform:translateY(0)}
+.di .di-knoppen .di-cal{background:var(--goud);color:var(--deep);box-shadow:0 18px 44px -18px rgba(201,162,74,.8)}
+.di .di-knoppen .di-cal::before{background:var(--bleek)}
+.di .di-knoppen .di-wa{border:1px solid rgba(241,235,223,.3);color:var(--creme)}
+.di .di-knoppen .di-wa::before{background:var(--creme)}
+.di .di-knoppen .di-wa:hover{color:var(--navy);border-color:var(--creme)}
+.di .di-klein{margin-top:18px;font-size:14.5px;color:var(--stil)}
+
+.di .di-blok{margin-top:clamp(88px,11vw,128px)}
+.di .di-blok>h3{font-size:clamp(30px,3.4vw,40px);line-height:1.05;text-align:center;margin-bottom:44px}
+
+/* prijs */
+.di .di-prijs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);border:1px solid var(--lijn);border-radius:28px;overflow:hidden}
+.di .di-prijs>div{padding:clamp(28px,3.6vw,40px)}
+.di .di-prijs>div+div{border-left:1px solid var(--lijn);background:rgba(241,235,223,.025)}
+.di .di-wat{font-size:15px;font-weight:500;color:var(--goud2)}
+.di .di-getal{font:500 clamp(60px,6.4vw,76px)/1 'Cormorant Garamond',serif;font-variant-numeric:lining-nums;color:var(--creme);margin-top:8px;letter-spacing:-.02em}
+.di .di-getal small{font:500 16px/1 'Inter',sans-serif;color:var(--stil);letter-spacing:0;margin-left:8px}
+.di .di-prijs p{color:var(--zacht);font-size:15.5px;margin-top:14px;max-width:24em}
+.di .di-prijs p b{color:var(--creme);font-weight:500}
+.di .di-opties{margin-top:22px;list-style:none}
+.di .di-opties li{display:grid;grid-template-columns:1fr auto;gap:4px 20px;padding:16px 0;border-top:1px solid var(--lijn)}
+.di .di-opties li:last-child{padding-bottom:0}
+.di .di-opties b{font:500 23px/1.2 'Cormorant Garamond',serif;color:var(--creme);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.di .di-opties b em{font:600 12px/1 'Inter',sans-serif;font-style:normal;color:var(--deep);background:var(--goud);border-radius:999px;padding:4px 10px}
+.di .di-opties .di-pp{font:500 24px/1.2 'Cormorant Garamond',serif;font-variant-numeric:lining-nums;color:var(--creme);text-align:right;white-space:nowrap}
+.di .di-opties .di-pp small{font:500 13.5px/1 'Inter',sans-serif;color:var(--stil);margin-left:4px}
+.di .di-opties .di-ot{grid-column:1/-1;color:var(--zacht);font-size:15px}
+
+/* faq */
+.di .di-faq{max-width:760px;margin:0 auto;border-top:1px solid var(--lijn)}
+.di .di-faq details{border-bottom:1px solid var(--lijn)}
+.di .di-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 2px;
+  font:500 22px/1.25 'Cormorant Garamond',serif;color:var(--creme);transition:color .3s}
+.di .di-faq summary::-webkit-details-marker{display:none}
+.di .di-faq summary:hover{color:var(--goud2)}
+.di .di-faq summary i{flex:none;position:relative;width:30px;height:30px;border-radius:50%;border:1px solid rgba(201,162,74,.5);transition:transform .45s var(--ease),background .3s}
+.di .di-faq summary i::before,.di .di-faq summary i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:var(--goud);transform:translate(-50%,-50%)}
+.di .di-faq summary i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .45s var(--ease)}
+.di .di-faq details[open] summary i{transform:rotate(180deg);background:rgba(201,162,74,.12)}
+.di .di-faq details[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+.di .di-faq .di-antw{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.di .di-faq details[open] .di-antw{grid-template-rows:1fr}
+.di .di-faq .di-antw>div{overflow:hidden}
+.di .di-faq .di-antw p{color:var(--zacht);font-size:16px;padding:0 50px 22px 2px;max-width:38em}
+
+.di .di-faq details,.di .di-faq details[open]{background:none;border-radius:0;box-shadow:none;margin:0;padding:0;border:0;border-bottom:1px solid var(--lijn);display:block}
+.di .di-faq details[open] summary,.di .di-faq summary:hover{background:none;box-shadow:none}
+
+/* afsluiter */
+.di .di-slot{margin-top:clamp(72px,9vw,104px);padding-top:36px;border-top:1px solid var(--lijn);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.di .di-wie{display:flex;align-items:center;gap:16px}
+.di .di-foto{flex:none;display:block;width:60px;height:60px;border-radius:50%;object-fit:cover;object-position:50% 40%;background:#0A1530;box-shadow:0 0 0 1px rgba(201,162,74,.6),0 0 0 4px #0E1C3A,0 0 0 5px rgba(201,162,74,.22)}
+.di .di-wie b{display:block;font:italic 500 26px/1.1 'Cormorant Garamond',serif;color:var(--creme)}
+.di .di-wie .di-lijn{font-size:14.5px;color:var(--stil)}
+.di .di-wie .di-lijn a{text-decoration:none}
+.di .di-wie .di-lijn a:hover{color:var(--creme)}
+.di .di-slot .di-knoppen{margin:0}
+.di .di-slot .di-knoppen a{padding:14px 24px;font-size:15.5px}
+.di :focus-visible{outline:2px solid var(--goud);outline-offset:4px;border-radius:12px}
+
+/* één rustige beweging */
+.di.di-js [data-in]{opacity:0;transform:translateY(16px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0) * 110ms)}
+.di.di-js [data-in].di-zien{opacity:1;transform:none}
+
+@media (max-width:820px){
+  .di .di-prijs{grid-template-columns:1fr}
+  .di .di-prijs>div+div{border-left:0;border-top:1px solid var(--lijn)}
+}
+@media (max-width:720px){
+  .di .di-faq summary{font-size:20px;padding:18px 2px}
+  .di .di-faq .di-antw p{padding-right:10px;font-size:15.5px}
+  .di{font-size:16.5px;padding-bottom:44px}
+  .di .di-voor{font-size:21px;gap:12px;margin-bottom:14px}
+  .di .di-kern .di-voor::before,.di .di-kern .di-voor::after{width:24px}
+  .di .di-samen{font-size:clamp(36px,10vw,46px)}
+  .di .di-lead{font-size:16.5px}
+  .di .di-knoppen{flex-direction:column;margin-top:30px}
+  .di .di-knoppen a{width:100%;padding:17px 18px;font-size:16px}
+  .di .di-blok>h3{margin-bottom:32px}
+  .di .di-prijs{border-radius:24px}
+  .di .di-prijs>div{padding:26px 22px}
+  .di .di-slot{flex-direction:column;align-items:stretch}
+  .di .di-slot .di-knoppen a{width:100%}
+}
+@media (prefers-reduced-motion:reduce){.di.di-js [data-in]{transition:none!important;opacity:1!important;transform:none!important}.di .di-knoppen a,.di .di-knoppen a::before,.di .di-faq summary i,.di .di-faq summary i::after,.di .di-faq .di-antw{transition:none}}
+
+/* kaartje halverwege */
+.di-tip,.di-tip *{box-sizing:border-box;margin:0;padding:0;border:0;background:none;box-shadow:none;text-shadow:none;text-transform:none;letter-spacing:normal;float:none;max-width:none;font:inherit;color:inherit;text-decoration:none;list-style:none}
+.di-tip{--navy:#0E1C3A;--goud:#C9A24A;--goud2:#D8BB6A;--creme:#FBF8F2;--zacht:rgba(241,235,223,.76);--ease:cubic-bezier(.16,1,.3,1);
+  position:fixed;left:20px;bottom:20px;z-index:2147483000;width:340px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+  padding:18px 18px 18px 18px;border-radius:20px;background:var(--navy);color:var(--creme);font:400 15px/1.5 'Inter',system-ui,sans-serif;text-align:left;
+  box-shadow:0 0 0 1px rgba(201,162,74,.4),0 24px 60px -18px rgba(0,0,0,.55);opacity:0;transform:translateY(24px) scale(.98);pointer-events:none;
+  transition:opacity .6s var(--ease),transform .6s var(--ease);-webkit-font-smoothing:antialiased}
+.di-tip.di-tip-aan{opacity:1;transform:none;pointer-events:auto}
+.di-tip .di-tip-s{display:block;width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:50% 40%;background:#0A1530;box-shadow:0 0 0 1px rgba(201,162,74,.6)}
+.di-tip .di-tip-t{font:italic 500 20px/1.2 'Cormorant Garamond',Georgia,serif;color:var(--goud2);padding-right:22px}
+.di-tip .di-tip-p{color:var(--zacht);margin-top:4px;font-size:14.5px}
+.di-tip .di-tip-k{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:10px 18px;border-radius:999px;background:var(--goud);color:#0A1530;font:600 14.5px/1.2 'Inter',sans-serif;cursor:pointer;transition:background .3s}
+.di-tip .di-tip-k:hover{background:#E8D9A8}
+.di-tip .di-tip-k svg{width:16px;height:16px}
+.di-tip .di-tip-x{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:var(--zacht);cursor:pointer;transition:background .3s,color .3s}
+.di-tip .di-tip-x:hover{background:rgba(241,235,223,.08);color:var(--creme)}
+.di-tip .di-tip-x svg{width:14px;height:14px}
+.di-tip :focus-visible{outline:2px solid var(--goud);outline-offset:3px}
+.di-tip :is(p,div,span,a,button)::before,.di-tip :is(p,div,span,a,button)::after{content:none!important}
+@media (max-width:560px){.di-tip{left:12px;right:12px;width:auto;bottom:12px;padding:14px 14px 14px 14px;gap:12px}.di-tip .di-tip-s{width:34px;height:34px;font-size:17px}.di-tip .di-tip-t{font-size:18px}.di-tip .di-tip-p{font-size:14px}}
+@media (prefers-reduced-motion:reduce){.di-tip{transition:none}}
+</style>
+<section aria-labelledby="di-titel" class="di" id="di">
+<div class="di-wrap">
+
+<div class="di-kern">
+<h2 id="di-titel" data-in style="--d:1"><span class="di-voor">Dit is slechts een voorbeeld.</span><span class="di-samen">Samen maken we er jullie nieuwe site van.</span></h2>
+<p class="di-lead" data-in style="--d:2">Ik maakte deze demo voor jullie om te tonen wat er kan. Na een kort gesprek maak ik er iets veel persoonlijkers van, helemaal naar jullie wens.</p>
+<div class="di-knoppen" data-in style="--d:3">
+<a class="di-cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Eco%20Saloon" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Plan een gesprek van 30 min</a>
+<a class="di-wa" href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20Eco%20Saloon" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z"/></svg>Stuur een WhatsApp</a>
+</div>
+<p class="di-klein" data-in style="--d:4">Vrijblijvend. Ik kom langs of we bellen.</p>
+</div>
+
+
+<div class="di-blok">
+<h3 data-in>Wat kost het?</h3>
+<div class="di-prijs" data-in style="--d:1">
+<div>
+<span class="di-wat">De website</span>
+<div class="di-getal">€ 499<small>eenmalig</small></div>
+<p>Op maat, op jullie eigen domein.<br><b>Geen voorschot.</b> Jullie betalen pas als alles klaar is.</p>
+</div>
+<div>
+<span class="di-wat">Daarna het onderhoud</span>
+<p style="margin-top:8px">Hosting, domeinnaam en kleine wijzigingen, zoals nieuwe openingsuren.</p>
+<ul class="di-opties">
+<li><b>Zorgeloos <em>mijn aanrader</em></b><span class="di-pp">€ 19,99<small>/ maand</small></span><span class="di-ot">Alles inbegrepen. Wijzigen kan met een berichtje.</span></li>
+<li><b>Zelf beheren</b><span class="di-pp">€ 0<small>/ maand</small></span><span class="di-ot">Alles op jullie naam. Wijzigingen per keer.</span></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="di-blok">
+<h3 data-in>Goed om te weten</h3>
+<div class="di-faq" data-in style="--d:1">
+<details><summary>Waarom deze demo, zonder dat we iets vroegen?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Omdat een voorbeeld meer zegt dan een mail. Zo zien jullie meteen wat er kan, en het kost jullie niets.</p></div></div></details>
+<details><summary>Zitten we ergens aan vast?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Nee. Het gesprek is vrijblijvend. Vinden jullie het niks, dan is het daarmee gedaan.</p></div></div></details>
+<details><summary>Hoe lang duurt het?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Na ons gesprek staat jullie site binnen 10 tot 14 dagen online.</p></div></div></details>
+<details><summary>We hebben al een website. Kan dat ook?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Zeker. Jullie domeinnaam kan gewoon blijven, de nieuwe site komt in de plaats van de oude.</p></div></div></details>
+<details><summary>Moeten we zelf teksten schrijven?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Nee, dat doe ik op basis van ons gesprek. Eigen foto's zijn mooi meegenomen, maar niet nodig om te starten.</p></div></div></details>
+</div>
+</div>
+
+<div class="di-slot" data-in>
+<div class="di-wie"><img class="di-foto" src="https://digital-impression.be/assets/img/stijn-2.webp" alt="Stijn Vranken" width="60" height="60" loading="lazy" decoding="async"><div><b>Stijn Vranken</b><span class="di-lijn">Digital Impression, <a href="tel:+32496251445">0496 25 14 45</a></span></div></div>
+<div class="di-knoppen"><a class="di-cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Eco%20Saloon" target="_blank" rel="noopener">Plan een gesprek</a></div>
+</div>
+
+</div>
+</section>
+<script>/*di-v13*/(function(){var d=document.getElementById('di');if(!d||!('IntersectionObserver' in window))return;
+var stil=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!stil){d.classList.add('di-js');var io=new IntersectionObserver(function(x){x.forEach(function(e){if(e.isIntersecting){e.target.classList.add('di-zien');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+[].forEach.call(d.querySelectorAll('[data-in]'),function(e){io.observe(e)})}
+var vast=[];function zoek(){vast=[].filter.call(document.body.querySelectorAll('*'),function(e){if(d.contains(e)||e.closest('.di-strook,.demo'))return false;var p=getComputedStyle(e).position;return p==='fixed'||p==='sticky'})}
+new IntersectionObserver(function(x){if(!vast.length)zoek();var aan=x[0].isIntersecting;vast.forEach(function(e){e.style.transition='opacity .35s';e.style.opacity=aan?'0':'';e.style.pointerEvents=aan?'none':''})},{threshold:.05}).observe(d)})();</script>
+<aside class="di-tip" aria-label="Over deze voorbeeldsite" hidden>
+<img class="di-tip-s" src="https://digital-impression.be/assets/img/stijn-2.webp" alt="" width="40" height="40" loading="lazy" decoding="async">
+<div>
+<p class="di-tip-t">Dit is een voorbeeldsite.</p>
+<p class="di-tip-p">Onderaan lees je hoe we er samen jullie site van maken.</p>
+<a class="di-tip-k" href="#di">Lees meer<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+</div>
+<button class="di-tip-x" type="button" aria-label="Sluiten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+</aside>
+<script>/*di-tip*/(function(){var t=document.querySelector('.di-tip'),d=document.getElementById('di');if(!t||!d)return;
+var weg=false;try{weg=sessionStorage.getItem('di-tip')==='weg'}catch(e){}if(weg)return;
+t.hidden=false;var aan=false,diZicht=false;
+function onder(){var m=0;[].forEach.call(document.body.querySelectorAll('*'),function(e){if(e===t||t.contains(e)||d.contains(e))return;var c=getComputedStyle(e);if(c.position!=='fixed'||c.display==='none'||c.visibility==='hidden'||+c.opacity===0)return;var r=e.getBoundingClientRect();if(r.height>0&&r.height<160&&r.bottom>=innerHeight-48&&r.bottom<=innerHeight+2&&r.top>innerHeight-200&&r.width>innerWidth*.4)m=Math.max(m,innerHeight-r.top)});return m}
+function zet(x){if(x===aan)return;aan=x;if(x){t.style.bottom=((innerWidth<=560?12:20)+onder())+'px'}t.classList.toggle('di-tip-aan',x)}
+function sluit(){try{sessionStorage.setItem('di-tip','weg')}catch(e){}zet(false);setTimeout(function(){t.hidden=true},700);window.removeEventListener('scroll',kijk)}
+function held(){var c=document.querySelectorAll('.hero,[class*="hero"],main>section,body>section,body>header,main>header');for(var i=0;i<c.length;i++){var e=c[i];if(d.contains(e)||t.contains(e)||e.closest('.di-strook,.demo,nav'))continue;var r=e.getBoundingClientRect();if(r.height>innerHeight*.35)return r.bottom+scrollY}return innerHeight*.9}
+var hb=0;window.addEventListener('resize',function(){hb=0});function kijk(){var top=d.getBoundingClientRect().top;
+if(top<innerHeight*1.1){if(aan)sluit();return}if(!hb)hb=held();zet(scrollY>hb-innerHeight*.55)}
+t.querySelector('.di-tip-x').addEventListener('click',sluit);
+t.querySelector('.di-tip-k').addEventListener('click',function(){setTimeout(sluit,300)});
+window.addEventListener('scroll',kijk,{passive:true});kijk()})();</script>
+</body>
+</html>
