@@ -509,8 +509,8 @@
       if (num) num.textContent = "0" + (i + 1);
       if (fill) fill.style.transform = "scaleX(" + (0.1 + 0.9 * i / (n - 1)) + ")";
     }
-    function stop() { if (timer) { clearInterval(timer); timer = null; } }
-    function play() { stop(); if (REDUCED || manual || !inView) return; timer = setInterval(function () { setStep(cur + 1); }, 4800); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } sec.classList.remove("is-auto"); }
+    function play() { stop(); if (REDUCED || manual || !inView) return; sec.classList.add("is-auto"); timer = setInterval(function () { setStep(cur + 1); }, 5200); }
     function pick(i) { manual = true; stop(); setStep(i); }
     sec.removeAttribute("data-step");
     stops.forEach(function (o, k) { var b = $(".bp__btn", o) || o; b.addEventListener("click", function () { pick(k); }); });
