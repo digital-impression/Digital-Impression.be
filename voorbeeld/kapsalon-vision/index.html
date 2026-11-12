@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Kapsalon Vision | Scherp geknipt, ook op zondag</title>
+<meta name="description" content="Kapsalon Vision aan de Stationsstraat 20 in Lokeren. Knippen, föhnen en bijwerken, met een afwerking die klopt. Dinsdag tot zaterdag 10u tot 19u, zondag 12u tot 19u.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Inter+Tight:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ink:#170C0E;--ox:#4A141B;--ox2:#6E222B;--wine:#8C3540;--bone:#EFE8DE;--paper:#F8F4EE;--rose:#E7B3A6;--rose2:#F3D3C9;
+  --mute:#8F8079;--line:rgba(23,12,14,.12);--lineL:rgba(239,232,222,.14);--ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16.5px/1.65 "Inter Tight",system-ui,sans-serif;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:min(1280px,100% - 48px);margin-inline:auto}
+.d{font-family:"Bricolage Grotesque",sans-serif;font-variation-settings:"opsz" 96,"wdth" 80;font-weight:700;letter-spacing:-.035em;line-height:.9}
+.lbl{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+.lbl::before{content:"";width:8px;height:8px;border-radius:50%;border:1.5px solid currentColor}
+.demo{background:#0D0607;color:rgba(239,232,222,.72);text-align:center;font-size:13.5px;padding:9px 16px;line-height:1.4}
+.demo a{color:var(--rose);font-weight:600;text-underline-offset:3px}
+
+.nav{position:sticky;top:0;z-index:40;color:var(--bone);transition:background .4s,color .4s,box-shadow .4s}
+.nav.solid{background:rgba(23,12,14,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--lineL)}
+.nav .wrap{height:80px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo .eye{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--rose);display:grid;place-items:center}
+.logo .eye i{width:12px;height:12px;border-radius:50%;background:var(--rose);box-shadow:0 0 0 5px rgba(231,179,166,.18)}
+.logo b{display:block;font:700 23px/1 "Bricolage Grotesque",sans-serif;letter-spacing:-.02em}
+.logo small{display:block;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;opacity:.6;margin-top:3px}
+.links{display:flex;gap:6px;padding:6px;border-radius:999px;background:rgba(239,232,222,.06);border:1px solid var(--lineL)}
+.links a{text-decoration:none;font-size:14.5px;padding:8px 16px;border-radius:999px;transition:background .3s,color .3s}
+.links a:hover{background:var(--bone);color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 26px;border-radius:999px;font-weight:600;font-size:15.5px;text-decoration:none;white-space:nowrap;transition:transform .4s var(--ease),background .4s,color .4s,box-shadow .4s}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-rose{background:var(--rose);color:var(--ink);box-shadow:0 18px 40px -18px rgba(231,179,166,.6)}
+.btn-rose:hover{background:var(--rose2);transform:translateY(-2px)}
+.btn-out{border:1.5px solid rgba(239,232,222,.3);color:var(--bone)}
+.btn-out:hover{border-color:var(--bone);transform:translateY(-2px)}
+.btn-ink{background:var(--ink);color:var(--bone)}
+.btn-ink:hover{background:var(--ox);transform:translateY(-2px)}
+.nav .btn{height:46px;padding:0 20px;font-size:14.5px}
+.burger{display:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--lineL);background:none;color:var(--bone);align-items:center;justify-content:center;cursor:pointer}
+.burger svg{width:20px;height:20px}
+.mmenu{display:none}
+
+/* hero */
+.hero{background:radial-gradient(120% 90% at 50% 40%,var(--ox2) 0%,var(--ox) 38%,var(--ink) 78%);color:var(--bone);margin-top:-80px;padding-top:80px;position:relative;overflow:hidden;isolation:isolate}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.35;background-image:radial-gradient(rgba(239,232,222,.08) 1px,transparent 1px);background-size:22px 22px;mask-image:radial-gradient(70% 70% at 50% 45%,#000,transparent)}
+.stage{position:relative;height:820px;max-width:1280px;margin:0 auto}
+.lens{position:absolute;left:50%;top:50%;width:600px;height:600px;margin:-320px 0 0 -300px}
+.lens .ph{position:absolute;inset:68px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 10px rgba(23,12,14,.6),0 60px 120px -40px rgba(0,0,0,.8)}
+.lens .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;filter:grayscale(1) contrast(1.08) brightness(.95);transform:scale(1.08);transition:filter 1.2s var(--ease)}
+.lens .ph::after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.18),rgba(255,255,255,0) 40%),linear-gradient(180deg,rgba(110,34,43,0) 50%,rgba(110,34,43,.45));mix-blend-mode:screen}
+.lens:hover .ph img{filter:grayscale(.1) contrast(1.02)}
+.lens svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.lens .spin{animation:rot 80s linear infinite;transform-box:view-box;transform-origin:50% 50%}
+@keyframes rot{to{transform:rotate(360deg)}}
+.zoom{position:absolute;right:-6px;top:52px;width:160px;height:160px;border-radius:50%;overflow:hidden;border:3px solid var(--rose);box-shadow:0 30px 60px -20px rgba(0,0,0,.7);z-index:2}
+.zoom img{width:100%;height:100%;object-fit:cover;object-position:62% 45%;filter:grayscale(1) contrast(1.1)}
+.zoom-l{position:absolute;right:140px;top:200px;width:80px;height:1px;background:var(--rose);transform:rotate(35deg);transform-origin:right center;opacity:.7;z-index:2}
+.zoom-t{position:absolute;right:18px;top:224px;z-index:3;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--rose);font-weight:600;white-space:nowrap}
+.h-l,.h-r{position:absolute;z-index:3;font-size:clamp(84px,11vw,176px);margin:0;pointer-events:none}
+.h-l{left:24px;top:100px}
+.h-r{right:24px;bottom:140px;text-align:right}
+.h-r em{font-style:normal;color:var(--rose)}
+.h-intro{position:absolute;left:24px;bottom:56px;max-width:440px;z-index:3}
+.h-intro p{margin:0 0 22px;color:rgba(239,232,222,.78);font-size:17px}
+.h-intro .cta{display:flex;gap:10px;flex-wrap:wrap}
+.h-chips{position:absolute;right:24px;top:140px;display:grid;gap:10px;z-index:3;justify-items:end}
+.chip{display:flex;align-items:center;gap:12px;padding:12px 18px 12px 12px;border-radius:999px;background:rgba(23,12,14,.45);border:1px solid var(--lineL);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);font-size:14px}
+.chip .n{min-width:40px;height:40px;padding:0 8px;border-radius:999px;background:var(--bone);color:var(--ink);display:grid;place-items:center;font:700 16px/1 "Bricolage Grotesque",sans-serif}
+.chip small{display:block;color:rgba(239,232,222,.6);font-size:12.5px;line-height:1.2}
+.chip b{font-weight:600;display:block;line-height:1.2}
+.chip .st{color:var(--rose);letter-spacing:1px}
+.livep{position:absolute;left:50%;bottom:44px;transform:translateX(-50%);z-index:3;display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(239,232,222,.8)}
+.livep i{width:9px;height:9px;border-radius:50%;background:#6FCF97;box-shadow:0 0 0 0 rgba(111,207,151,.6);animation:pl 2.2s infinite}
+.livep i.off{background:var(--rose);animation:none}
+@keyframes pl{70%{box-shadow:0 0 0 10px rgba(111,207,151,0)}100%{box-shadow:0 0 0 0 rgba(111,207,151,0)}}
+
+/* diensten rows */
+.sec{padding:130px 0}
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:50px}
+.top h2{font-size:clamp(54px,7vw,112px);margin:16px 0 0}
+.top h2 em{font-style:normal;color:var(--wine)}
+.top p{max-width:420px;margin:0;color:#5E504B;font-size:17.5px}
+.rows{border-top:1.5px solid var(--ink)}
+.row{position:relative;display:grid;grid-template-columns:80px 1.1fr 1fr 230px;gap:30px;align-items:center;padding:34px 0;border-bottom:1px solid var(--line);transition:padding .5s var(--ease)}
+.row:hover{padding-left:18px}
+.row .no{font:600 14px/1 "Inter Tight",sans-serif;color:var(--mute);letter-spacing:.08em}
+.row h3{font:700 clamp(36px,4vw,60px)/.95 "Bricolage Grotesque",sans-serif;font-variation-settings:"opsz" 96,"wdth" 80;letter-spacing:-.03em;margin:0;transition:color .4s}
+.row:hover h3{color:var(--wine)}
+.row p{margin:0;color:#5E504B;font-size:16px}
+.row .thumb{height:150px;border-radius:999px;overflow:hidden}
+.row .thumb img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:filter .8s var(--ease),transform 1.2s var(--ease)}
+.row:hover .thumb img{filter:none;transform:scale(1.06)}
+
+/* afwerking */
+.finish{background:var(--bone);border-radius:44px;margin:0 16px;padding:120px 0;position:relative;overflow:hidden}
+.fin-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.collage{position:relative;height:640px}
+.collage figure{margin:0;position:absolute;overflow:hidden;border-radius:28px}
+.collage img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.06);transition:filter 1s var(--ease)}
+.collage figure:hover img{filter:none}
+.collage .c1{left:0;top:0;width:62%;height:74%}
+.collage .c2{right:0;bottom:0;width:52%;height:56%;border:8px solid var(--bone);border-radius:34px}
+.collage .c3{right:4%;top:6%;width:120px;height:120px;border-radius:50%}
+.collage .tagq{position:absolute;left:6%;bottom:6%;background:var(--ink);color:var(--bone);border-radius:22px;padding:18px 22px;max-width:270px;font-size:14.5px;line-height:1.45}
+.collage .tagq b{display:block;font:700 22px/1.1 "Bricolage Grotesque",sans-serif;color:var(--rose);margin-bottom:6px}
+.finish h2{font-size:clamp(48px,5.6vw,90px);margin:16px 0 24px}
+.finish h2 em{font-style:normal;color:var(--wine)}
+.finish p{color:#5E504B;font-size:17.5px;margin:0 0 16px;max-width:520px}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:30px}
+.checks div{display:flex;gap:12px;align-items:center;background:var(--paper);border-radius:16px;padding:14px 16px;font-weight:500;font-size:15px}
+.checks svg{width:20px;height:20px;color:var(--wine);flex:none}
+
+/* zondag */
+.sunday{background:var(--ink);color:var(--bone);position:relative;overflow:hidden;isolation:isolate;padding:130px 0;margin-top:130px}
+.sunday::before{content:"";position:absolute;z-index:-1;right:-200px;top:-200px;width:700px;height:700px;border-radius:50%;background:radial-gradient(closest-side,rgba(140,53,64,.55),rgba(140,53,64,0))}
+.sunday .giant{font-size:clamp(110px,19vw,300px);color:transparent;-webkit-text-stroke:1.5px rgba(239,232,222,.22);margin:0 0 -0.12em;white-space:nowrap}
+.sun-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.sun-grid h2{font-size:clamp(44px,5vw,78px);margin:16px 0 20px}
+.sun-grid h2 em{font-style:normal;color:var(--rose)}
+.sun-grid p{color:rgba(239,232,222,.72);font-size:17.5px;margin:0 0 30px;max-width:480px}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.day{border:1px solid var(--lineL);border-radius:18px;padding:16px 10px 18px;text-align:center;transition:background .4s,border-color .4s}
+.day b{display:block;font:700 22px/1 "Bricolage Grotesque",sans-serif;margin-bottom:12px}
+.day span{display:block;font-size:13px;color:rgba(239,232,222,.7);line-height:1.35}
+.day.closed{opacity:.45}
+.day.sun{background:var(--rose);border-color:var(--rose);color:var(--ink)}
+.day.sun span{color:rgba(23,12,14,.75)}
+.day.today{outline:2px solid var(--bone);outline-offset:3px}
+.weeknote{margin-top:18px;color:rgba(239,232,222,.55);font-size:14px}
+
+/* reviews */
+.revs{display:grid;grid-template-columns:1.5fr 1fr;gap:18px}
+.r-big{background:var(--ox);color:var(--bone);border-radius:36px;padding:56px;position:relative;overflow:hidden}
+.r-big::after{content:"”";position:absolute;right:30px;top:-40px;font:700 320px/1 "Bricolage Grotesque",sans-serif;color:rgba(231,179,166,.12)}
+.r-big p{font:600 clamp(28px,3vw,44px)/1.15 "Bricolage Grotesque",sans-serif;letter-spacing:-.02em;margin:22px 0 26px;position:relative;z-index:1}
+.r-big small{color:rgba(239,232,222,.6)}
+.r-big .st{color:var(--rose);letter-spacing:3px}
+.r-side{display:grid;gap:18px}
+.r-score{background:var(--bone);border-radius:36px;padding:40px;display:flex;align-items:center;gap:24px}
+.r-score b{font:700 92px/.9 "Bricolage Grotesque",sans-serif;letter-spacing:-.04em}
+.r-score small{color:var(--mute);display:block}
+.r-score .st{color:var(--wine);letter-spacing:3px}
+.r-mini{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.r-mini div{border:1px solid var(--line);border-radius:28px;padding:28px}
+.r-mini p{font:700 34px/1 "Bricolage Grotesque",sans-serif;margin:10px 0 8px}
+.r-mini small{color:var(--mute)}
+.r-mini .st{color:var(--wine);letter-spacing:2px;font-size:13px}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+.c-main{background:var(--ink);color:var(--bone);border-radius:40px;padding:64px;position:relative;overflow:hidden;isolation:isolate}
+.c-main::before{content:"";position:absolute;z-index:-1;left:-120px;bottom:-200px;width:520px;height:520px;border-radius:50%;border:1px solid var(--lineL);box-shadow:0 0 0 60px rgba(239,232,222,.02),0 0 0 120px rgba(239,232,222,.02)}
+.c-main h2{font-size:clamp(48px,5.4vw,86px);margin:16px 0 20px}
+.c-main h2 em{font-style:normal;color:var(--rose)}
+.c-main p{color:rgba(239,232,222,.72);font-size:17.5px;max-width:460px;margin:0 0 32px}
+.c-main .cta{display:flex;gap:12px;flex-wrap:wrap}
+.c-side{display:grid;gap:18px}
+.c-card{background:var(--bone);border-radius:32px;padding:36px;display:flex;justify-content:space-between;gap:20px;align-items:flex-end;flex-wrap:wrap}
+.c-card small{display:block;color:var(--mute);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px}
+.c-card b{display:block;font:700 30px/1.05 "Bricolage Grotesque",sans-serif;letter-spacing:-.02em}
+.c-card .btn{height:48px}
+.c-photo{border-radius:32px;overflow:hidden;min-height:240px;position:relative}
+.c-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+.c-photo span{position:absolute;left:18px;bottom:18px;background:rgba(23,12,14,.65);color:var(--bone);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:9px 16px;border-radius:999px;font-size:14px}
+
+footer{padding:60px 0 50px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;color:var(--mute);font-size:14px}
+
+.js [data-r]{opacity:0;transform:translateY(26px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+.js [data-r].in{opacity:1;transform:none}
+.js [data-r="2"]{transition-delay:.12s}.js [data-r="3"]{transition-delay:.24s}.js [data-r="4"]{transition-delay:.36s}
+.js .lens[data-r]{transform:scale(.92)}
+.js .lens[data-r].in{transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js [data-r]{opacity:1;transform:none}}
+
+@media (max-width:1100px){
+  .stage{height:auto;display:flex;flex-direction:column;padding:50px 24px 60px}
+  .h-l,.h-r,.h-intro,.h-chips,.livep{position:static;transform:none}
+  .h-l,.h-r{font-size:clamp(70px,13vw,130px);text-align:left}
+  .h-r{margin-bottom:26px}
+  .h-intro{max-width:520px;order:3}
+  .lens{position:relative;left:auto;top:auto;margin:30px auto 10px;order:4;width:440px;height:440px}
+  .lens .ph{inset:50px}
+  .zoom{width:130px;height:130px;right:-20px;top:auto;bottom:20px}
+  .zoom-l{display:none}
+  .zoom-t{right:-14px;top:auto;bottom:-10px}
+  .h-chips{order:5;justify-items:start;grid-template-columns:1fr 1fr;margin-top:20px}
+  .livep{order:2;margin-bottom:20px}
+  .row{grid-template-columns:60px 1fr 180px}
+  .row p{grid-column:2 / 3}
+  .row .thumb{grid-row:1 / span 2;grid-column:3;height:130px}
+  .fin-grid,.sun-grid{grid-template-columns:1fr;gap:50px}
+  .collage{height:560px;order:2}
+  .revs,.contact{grid-template-columns:1fr}
+}
+@media (max-width:860px){
+  .links,.nav .btn{display:none}
+  .burger{display:inline-flex}
+  .mmenu{display:block;position:fixed;inset:0;z-index:35;background:var(--ink);color:var(--bone);padding:120px 24px 40px;opacity:0;pointer-events:none;transition:opacity .4s}
+  .menu-open .mmenu{opacity:1;pointer-events:auto}
+  .mmenu a:not(.btn){display:block;font:700 40px/1.15 "Bricolage Grotesque",sans-serif;text-decoration:none;padding:12px 0;border-bottom:1px solid var(--lineL)}
+  .mmenu .btn{margin-top:26px}
+}
+@media (max-width:640px){
+  .wrap{width:calc(100% - 32px)}
+  body{font-size:16px}
+  .nav .wrap{height:72px}
+  .hero{margin-top:-72px;padding-top:72px}
+  .stage{padding:34px 16px 50px}
+  .h-l,.h-r{font-size:clamp(60px,19vw,84px)}
+  .h-intro .cta .btn{flex:1 1 100%}
+  .lens{width:330px;height:330px;max-width:100%}
+  .lens .ph{inset:38px}
+  .zoom{width:96px;height:96px;right:-4px;top:auto;bottom:6px}
+  .zoom-t{display:none}
+  .h-chips{grid-template-columns:1fr}
+  .sec{padding:90px 0}
+  .row{grid-template-columns:1fr;gap:12px;padding:28px 0}
+  .row:hover{padding-left:0}
+  .row p{grid-column:auto}
+  .row .thumb{grid-row:auto;grid-column:auto;height:170px;border-radius:26px;order:4}
+  .finish{margin:0 8px;border-radius:28px;padding:80px 0}
+  .collage{height:440px}
+  .collage .c3{width:90px;height:90px}
+  .collage .tagq{left:0;bottom:0;max-width:220px}
+  .checks{grid-template-columns:1fr}
+  .sunday{padding:90px 0;margin-top:90px}
+  .week{grid-template-columns:repeat(4,1fr)}
+  .r-big,.c-main{padding:36px 24px;border-radius:28px}
+  .r-mini{grid-template-columns:1fr 1fr}
+  .r-score{padding:28px;border-radius:28px}
+  .r-score b{font-size:72px}
+}
+</style>
+</head>
+<body>
+<div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Kapsalon Vision"><span class="eye"><i></i></span><span><b>Vision</b><small>Kapsalon</small></span></a>
+    <nav class="links" aria-label="Hoofdmenu"><a href="#knippen">Knippen</a><a href="#afwerking">Afwerking</a><a href="#uren">Uren</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></nav>
+    <a class="btn btn-rose" href="https://wa.me/32477791955">WhatsApp</a>
+    <button class="burger" id="burger" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 9h16M4 15h16"/></svg></button>
+  </div>
+</header>
+<div class="mmenu" id="mmenu">
+  <a href="#knippen">Knippen</a><a href="#afwerking">Afwerking</a><a href="#uren">Uren</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+  <a class="btn btn-rose" href="https://wa.me/32477791955">Stuur een WhatsApp</a>
+</div>
+
+<main id="top">
+<section class="hero">
+  <div class="stage">
+    <h1 class="d h-l" data-r>Scherp</h1>
+    <div class="d h-r" data-r="2" aria-hidden="true">geknipt<em>.</em></div>
+    <div class="lens" data-r>
+      <div class="ph"><img src="img/portret.webp" alt="Portret met een verzorgde coupe, in zwart-wit" width="1100" height="1568" fetchpriority="high"></div>
+      <svg viewBox="0 0 520 520" aria-hidden="true">
+        <circle cx="260" cy="260" r="258" fill="none" stroke="rgba(239,232,222,.14)"/>
+        <circle cx="260" cy="260" r="214" fill="none" stroke="rgba(231,179,166,.5)" stroke-width="1"/>
+        <g class="spin"><line x1="504.0" y1="260.0" x2="490.0" y2="260.0" stroke="rgba(239,232,222,.75)" stroke-width="1.2"/><line x1="503.7" y1="272.8" x2="497.7" y2="272.5" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="502.7" y1="285.5" x2="496.7" y2="284.9" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="501.0" y1="298.2" x2="495.1" y2="297.2" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="498.7" y1="310.7" x2="492.8" y2="309.5" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="495.7" y1="323.2" x2="489.9" y2="321.6" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="492.1" y1="335.4" x2="486.4" y2="333.5" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="487.8" y1="347.4" x2="482.2" y2="345.3" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="482.9" y1="359.2" x2="477.4" y2="356.8" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="477.4" y1="370.8" x2="472.1" y2="368.0" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="471.3" y1="382.0" x2="459.2" y2="375.0" stroke="rgba(239,232,222,.75)" stroke-width="1.2"/><line x1="464.6" y1="392.9" x2="459.6" y2="389.6" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="457.4" y1="403.4" x2="452.5" y2="399.9" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="449.6" y1="413.6" x2="445.0" y2="409.8" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="441.3" y1="423.3" x2="436.9" y2="419.3" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="432.5" y1="432.5" x2="428.3" y2="428.3" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="423.3" y1="441.3" x2="419.3" y2="436.9" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="413.6" y1="449.6" x2="409.8" y2="445.0" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="403.4" y1="457.4" x2="399.9" y2="452.5" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="392.9" y1="464.6" x2="389.6" y2="459.6" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="382.0" y1="471.3" x2="375.0" y2="459.2" stroke="rgba(239,232,222,.75)" stroke-width="1.2"/><line x1="370.8" y1="477.4" x2="368.0" y2="472.1" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="359.2" y1="482.9" x2="356.8" y2="477.4" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="347.4" y1="487.8" x2="345.3" y2="482.2" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="335.4" y1="492.1" x2="333.5" y2="486.4" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="323.2" y1="495.7" x2="321.6" y2="489.9" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="310.7" y1="498.7" x2="309.5" y2="492.8" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="298.2" y1="501.0" x2="297.2" y2="495.1" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="285.5" y1="502.7" x2="284.9" y2="496.7" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="272.8" y1="503.7" x2="272.5" y2="497.7" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="260.0" y1="504.0" x2="260.0" y2="490.0" stroke="rgba(239,232,222,.75)" stroke-width="1.2"/><line x1="247.2" y1="503.7" x2="247.5" y2="497.7" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="234.5" y1="502.7" x2="235.1" y2="496.7" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="221.8" y1="501.0" x2="222.8" y2="495.1" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="209.3" y1="498.7" x2="210.5" y2="492.8" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="196.8" y1="495.7" x2="198.4" y2="489.9" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="184.6" y1="492.1" x2="186.5" y2="486.4" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="172.6" y1="487.8" x2="174.7" y2="482.2" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="160.8" y1="482.9" x2="163.2" y2="477.4" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="149.2" y1="477.4" x2="152.0" y2="472.1" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="138.0" y1="471.3" x2="145.0" y2="459.2" stroke="rgba(239,232,222,.75)" stroke-width="1.2"/><line x1="127.1" y1="464.6" x2="130.4" y2="459.6" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="116.6" y1="457.4" x2="120.1" y2="452.5" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="106.4" y1="449.6" x2="110.2" y2="445.0" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="96.7" y1="441.3" x2="100.7" y2="436.9" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="87.5" y1="432.5" x2="91.7" y2="428.3" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="78.7" y1="423.3" x2="83.1" y2="419.3" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="70.4" y1="413.6" x2="75.0" y2="409.8" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="62.6" y1="403.4" x2="67.5" y2="399.9" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="55.4" y1="392.9" x2="60.4" y2="389.6" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="48.7" y1="382.0" x2="60.8" y2="375.0" stroke="rgba(239,232,222,.75)" stroke-width="1.2"/><line x1="42.6" y1="370.8" x2="47.9" y2="368.0" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="37.1" y1="359.2" x2="42.6" y2="356.8" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="32.2" y1="347.4" x2="37.8" y2="345.3" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="27.9" y1="335.4" x2="33.6" y2="333.5" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="24.3" y1="323.2" x2="30.1" y2="321.6" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="21.3" y1="310.7" x2="27.2" y2="309.5" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="19.0" y1="298.2" x2="24.9" y2="297.2" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="17.3" y1="285.5" x2="23.3" y2="284.9" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="16.3" y1="272.8" x2="22.3" y2="272.5" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="16.0" y1="260.0" x2="30.0" y2="260.0" stroke="rgba(239,232,222,.75)" stroke-width="1.2"/><line x1="16.3" y1="247.2" x2="22.3" y2="247.5" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="17.3" y1="234.5" x2="23.3" y2="235.1" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="19.0" y1="221.8" x2="24.9" y2="222.8" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="21.3" y1="209.3" x2="27.2" y2="210.5" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="24.3" y1="196.8" x2="30.1" y2="198.4" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="27.9" y1="184.6" x2="33.6" y2="186.5" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="32.2" y1="172.6" x2="37.8" y2="174.7" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="37.1" y1="160.8" x2="42.6" y2="163.2" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="42.6" y1="149.2" x2="47.9" y2="152.0" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="48.7" y1="138.0" x2="60.8" y2="145.0" stroke="rgba(239,232,222,.75)" stroke-width="1.2"/><line x1="55.4" y1="127.1" x2="60.4" y2="130.4" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="62.6" y1="116.6" x2="67.5" y2="120.1" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="70.4" y1="106.4" x2="75.0" y2="110.2" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="78.7" y1="96.7" x2="83.1" y2="100.7" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="87.5" y1="87.5" x2="91.7" y2="91.7" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="96.7" y1="78.7" x2="100.7" y2="83.1" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="106.4" y1="70.4" x2="110.2" y2="75.0" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="116.6" y1="62.6" x2="120.1" y2="67.5" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="127.1" y1="55.4" x2="130.4" y2="60.4" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="138.0" y1="48.7" x2="145.0" y2="60.8" stroke="rgba(239,232,222,.75)" stroke-width="1.2"/><line x1="149.2" y1="42.6" x2="152.0" y2="47.9" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="160.8" y1="37.1" x2="163.2" y2="42.6" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="172.6" y1="32.2" x2="174.7" y2="37.8" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="184.6" y1="27.9" x2="186.5" y2="33.6" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="196.8" y1="24.3" x2="198.4" y2="30.1" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="209.3" y1="21.3" x2="210.5" y2="27.2" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="221.8" y1="19.0" x2="222.8" y2="24.9" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="234.5" y1="17.3" x2="235.1" y2="23.3" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="247.2" y1="16.3" x2="247.5" y2="22.3" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="260.0" y1="16.0" x2="260.0" y2="30.0" stroke="rgba(239,232,222,.75)" stroke-width="1.2"/><line x1="272.8" y1="16.3" x2="272.5" y2="22.3" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="285.5" y1="17.3" x2="284.9" y2="23.3" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="298.2" y1="19.0" x2="297.2" y2="24.9" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="310.7" y1="21.3" x2="309.5" y2="27.2" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="323.2" y1="24.3" x2="321.6" y2="30.1" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="335.4" y1="27.9" x2="333.5" y2="33.6" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="347.4" y1="32.2" x2="345.3" y2="37.8" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="359.2" y1="37.1" x2="356.8" y2="42.6" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="370.8" y1="42.6" x2="368.0" y2="47.9" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="382.0" y1="48.7" x2="375.0" y2="60.8" stroke="rgba(239,232,222,.75)" stroke-width="1.2"/><line x1="392.9" y1="55.4" x2="389.6" y2="60.4" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="403.4" y1="62.6" x2="399.9" y2="67.5" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="413.6" y1="70.4" x2="409.8" y2="75.0" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="423.3" y1="78.7" x2="419.3" y2="83.1" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="432.5" y1="87.5" x2="428.3" y2="91.7" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="441.3" y1="96.7" x2="436.9" y2="100.7" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="449.6" y1="106.4" x2="445.0" y2="110.2" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="457.4" y1="116.6" x2="452.5" y2="120.1" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="464.6" y1="127.1" x2="459.6" y2="130.4" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="471.3" y1="138.0" x2="459.2" y2="145.0" stroke="rgba(239,232,222,.75)" stroke-width="1.2"/><line x1="477.4" y1="149.2" x2="472.1" y2="152.0" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="482.9" y1="160.8" x2="477.4" y2="163.2" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="487.8" y1="172.6" x2="482.2" y2="174.7" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="492.1" y1="184.6" x2="486.4" y2="186.5" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="495.7" y1="196.8" x2="489.9" y2="198.4" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="498.7" y1="209.3" x2="492.8" y2="210.5" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="501.0" y1="221.8" x2="495.1" y2="222.8" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="502.7" y1="234.5" x2="496.7" y2="235.1" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><line x1="503.7" y1="247.2" x2="497.7" y2="247.5" stroke="rgba(239,232,222,.32)" stroke-width="1.2"/><defs><path id="lp" d="M260,260 m-196,0 a196,196 0 1,1 392,0 a196,196 0 1,1 -392,0"/></defs><text font-family="Inter Tight" font-size="11" font-weight="600" letter-spacing="5" fill="rgba(231,179,166,.85)"><textPath href="#lp">DI TOT ZA 10 TOT 19 • ZONDAG 12 TOT 19 • MAANDAG GESLOTEN • KAPSALON VISION • </textPath></text></g>
+      </svg>
+      <span class="zoom-l" aria-hidden="true"></span>
+      <div class="zoom" data-par="-0.05"><img src="img/bijwerken.webp" alt="Detail van een strak bijgewerkte nek" width="1600" height="1068"></div>
+      <span class="zoom-t" aria-hidden="true">tot in de nek</span>
+    </div>
+    <div class="h-intro" data-r="3">
+      <p>Kort aan de zijkant, wat lengte bovenop of enkel de punten. Je zegt hoe je het wil, en zo wordt het geknipt. Tot in de nek netjes afgewerkt.</p>
+      <div class="cta">
+        <a class="btn btn-rose" href="https://wa.me/32477791955"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/></svg>Stuur een WhatsApp</a>
+        <a class="btn btn-out" href="tel:+32477791955">Bel 0477 79 19 55</a>
+      </div>
+    </div>
+    <div class="h-chips" data-r="4">
+      <div class="chip"><span class="n">4,7</span><div><b><span class="st">★★★★★</span></b><small>35 reviews op Google</small></div></div>
+      <div class="chip"><span class="n">zo</span><div><b>Ook op zondag</b><small>van 12u tot 19u</small></div></div>
+    </div>
+    <div class="livep" data-r="4"><i id="live"></i><span id="now">Dinsdag tot zondag open</span></div>
+  </div>
+</section>
+
+<section class="sec" id="knippen">
+  <div class="wrap">
+    <div class="top">
+      <div><span class="lbl" data-r>Wat we doen</span><h2 class="d" data-r="2">Knippen, <em>en goed.</em></h2></div>
+      <p data-r="3">Geen ellenlange prijslijst. Drie dingen, met dezelfde aandacht: luisteren naar wat jij wil en het netjes afwerken.</p>
+    </div>
+    <div class="rows">
+      <article class="row" data-r><span class="no">01</span><h3>Knippen</h3><p>Kort en strak, of liever wat lengte houden. Neem gerust een foto mee van wat je mooi vindt.</p><div class="thumb"><img src="img/knippen.webp" alt="Haar wordt bovenop met de schaar op lengte geknipt" loading="lazy" width="1600" height="1067" style="object-position:55% 40%"></div></article>
+      <article class="row" data-r><span class="no">02</span><h3>Föhnen en stylen</h3><p>In model gebracht, zodat je meteen klaar bent om verder te gaan.</p><div class="thumb"><img src="img/fohnen.webp" alt="Haar wordt met föhn en borstel in model gebracht" loading="lazy" width="1600" height="1068" style="object-position:55% 35%"></div></article>
+      <article class="row" data-r><span class="no">03</span><h3>Bijwerken</h3><p>Tussen twee knipbeurten de contouren en je nek terug strak.</p><div class="thumb"><img src="img/bijwerken.webp" alt="Contouren in de nek worden bijgewerkt met de tondeuse" loading="lazy" width="1600" height="1068" style="object-position:60% 40%"></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="finish" id="afwerking">
+  <div class="wrap fin-grid">
+    <div class="collage" data-r>
+      <figure class="c1"><img src="img/schaar.webp" alt="Haar wordt op lengte geknipt met de schaar" loading="lazy" width="900" height="1100" data-par="-0.04"></figure>
+      <figure class="c2" data-par="0.05"><img src="img/bijwerken.webp" alt="Strakke nek na het bijwerken" loading="lazy" width="1600" height="1068" style="object-position:70% 50%"></figure>
+      <figure class="c3"><img src="img/krul.webp" alt="Krullen in model gebracht" loading="lazy" width="564" height="640"></figure>
+      <div class="tagq" data-par="-0.06"><b>"High quality of cutting and finishing"</b>uit een review op Google</div>
+    </div>
+    <div>
+      <span class="lbl" data-r>Afwerking</span>
+      <h2 class="d" data-r="2">Het verschil zit <em>in de laatste vijf minuten.</em></h2>
+      <p data-r="3">Een coupe ziet er in de stoel vaak goed uit. Het echte werk zie je pas daarna: als je nek strak blijft, de lijnen kloppen en je het thuis zelf weer in model krijgt.</p>
+      <p data-r="3">Daarom wordt er niet afgeraffeld op het einde. Contouren, nek en de laatste details krijgen dezelfde aandacht als de knipbeurt zelf.</p>
+      <div class="checks" data-r="4">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Strakke contouren</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Netjes in de nek</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Makkelijk in model thuis</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Zoals jij het vroeg</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sunday" id="uren">
+  <div class="wrap">
+    <div class="d giant" aria-hidden="true" data-r>zondag</div>
+    <div class="sun-grid">
+      <div>
+        <span class="lbl" data-r style="color:var(--rose)">Openingsuren</span>
+        <h2 class="d" data-r="2">Lukt het in de week niet? <em>Zondag wel.</em></h2>
+        <p data-r="3">Zes dagen open, zondagnamiddag inbegrepen. Op maandag is het salon dicht. Stuur gerust eerst een berichtje, dan weet je meteen wanneer er plaats is.</p>
+        <a class="btn btn-rose" data-r="4" href="https://wa.me/32477791955">Vraag wanneer het past</a>
+      </div>
+      <div data-r="2">
+        <div class="week" id="week">
+          <div class="day closed" data-d="1"><b>ma</b><span>gesloten</span></div>
+          <div class="day" data-d="2"><b>di</b><span>10u<br>19u</span></div>
+          <div class="day" data-d="3"><b>wo</b><span>10u<br>19u</span></div>
+          <div class="day" data-d="4"><b>do</b><span>10u<br>19u</span></div>
+          <div class="day" data-d="5"><b>vr</b><span>10u<br>19u</span></div>
+          <div class="day" data-d="6"><b>za</b><span>10u<br>19u</span></div>
+          <div class="day sun" data-d="0"><b>zo</b><span>12u<br>19u</span></div>
+        </div>
+        <p class="weeknote">Dinsdag tot zaterdag van 10u tot 19u, zondag van 12u tot 19u.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="reviews">
+  <div class="wrap">
+    <div class="top">
+      <div><span class="lbl" data-r>Reviews</span><h2 class="d" data-r="2">Kort en <em>duidelijk.</em></h2></div>
+      <p data-r="3">Klanten van Vision houden het kort. Maar het zegt genoeg.</p>
+    </div>
+    <div class="revs">
+      <article class="r-big" data-r><span class="st">★★★★★</span><p>"Friendly hairdresser... high quality of cutting and finishing... highly recommended"</p><small>Review op Google</small></article>
+      <div class="r-side">
+        <div class="r-score" data-r="2"><b>4,7</b><div><span class="st">★★★★★</span><small>gemiddeld uit 35 reviews op Google</small></div></div>
+        <div class="r-mini">
+          <div data-r="3"><span class="st">★★★★★</span><p>"Perfect!"</p><small>Google-review</small></div>
+          <div data-r="4"><span class="st">★★★★★</span><p>"Top"</p><small>Google-review</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="contact" style="padding-top:20px">
+  <div class="wrap contact">
+    <div class="c-main" data-r>
+      <span class="lbl" style="color:var(--rose)">Langskomen</span>
+      <h2 class="d">Tijd voor een <em>frisse coupe?</em></h2>
+      <p>Stuur een WhatsApp of bel even. Dan weet je meteen wanneer je terecht kan, ook voor zondag.</p>
+      <div class="cta">
+        <a class="btn btn-rose" href="https://wa.me/32477791955">WhatsApp ons</a>
+        <a class="btn btn-out" href="tel:+32477791955">Bel 0477 79 19 55</a>
+      </div>
+    </div>
+    <div class="c-side">
+      <div class="c-card" data-r="2"><div><small>Adres</small><b>Stationsstraat 20<br>9160 Lokeren</b></div><a class="btn btn-ink" href="https://www.google.com/maps/dir/?api=1&destination=Kapsalon+Vision+Stationsstraat+20+9160+Lokeren" target="_blank" rel="noopener">Route plannen</a></div>
+      <div class="c-photo" data-r="3"><img src="img/fohnen.webp" alt="Föhnen en stylen in het salon" loading="lazy" width="1600" height="1068" style="object-position:50% 35%"><span>Di tot za 10u tot 19u · zo 12u tot 19u</span></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Kapsalon Vision · Stationsstraat 20, 9160 Lokeren · <a href="tel:+32477791955">0477 79 19 55</a></span>
+    <span>Voorbeeldsite door Digital Impression</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var nav=document.getElementById('nav');
+  document.getElementById('burger').addEventListener('click',function(){document.body.classList.toggle('menu-open')});
+  document.querySelectorAll('#mmenu a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('menu-open')})});
+  var par=[].slice.call(document.querySelectorAll('[data-par]')),rv=[].slice.call(document.querySelectorAll('[data-r]'));
+  function rev(){var lim=innerHeight*.92;rv=rv.filter(function(e){if(e.getBoundingClientRect().top<lim){e.classList.add('in');return false}return true})}
+  function sc(){nav.classList.toggle('solid',scrollY>30);rev();
+    if(innerWidth>860){par.forEach(function(e){var r=e.parentElement.getBoundingClientRect();var c=r.top+r.height/2-innerHeight/2;e.style.translate='0 '+Math.max(-50,Math.min(50,c*parseFloat(e.dataset.par)))+'px'})}}
+  addEventListener('scroll',sc,{passive:true});addEventListener('resize',sc);sc();setTimeout(rev,300);
+  var H={0:[12,19],2:[10,19],3:[10,19],4:[10,19],5:[10,19],6:[10,19]};
+  var n=new Date(),d=n.getDay(),h=n.getHours()+n.getMinutes()/60,t=H[d];
+  var dd=document.querySelector('#week [data-d="'+d+'"]');if(dd)dd.classList.add('today');
+  var s=document.getElementById('now'),l=document.getElementById('live');
+  if(t&&h>=t[0]&&h<t[1]){s.textContent='Nu open, tot 19u'}
+  else{l.classList.add('off');if(t&&h<t[0]){s.textContent='Vandaag open vanaf '+t[0]+'u'}
+    else{var nx=(d+1)%7;if(!H[nx])nx=(nx+1)%7;s.textContent=(nx===(d+1)%7?'Morgen':'Dinsdag')+' open vanaf '+H[nx][0]+'u'}}
+})();
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
+<style>
+.di,.di *{box-sizing:border-box;margin:0;padding:0;border:0;background:none;box-shadow:none;text-shadow:none;text-transform:none;letter-spacing:normal;float:none;max-width:none;min-height:0;font:inherit;color:inherit;text-decoration:none;opacity:1;transform:none;filter:none;list-style:none}
+.di :is(h2,h3,h4,p,ul,ol,li,details,summary,b,strong,em,small,span,div)::before,.di :is(h2,h3,h4,p,ul,ol,li,details,summary,b,strong,em,small,span,div)::after{content:none!important}
+.di summary::marker{content:""}
+.di{--navy:#0E1C3A;--deep:#0A1530;--goud:#C9A24A;--goud2:#D8BB6A;--bleek:#E8D9A8;--beige:#F1EBDF;--creme:#FBF8F2;
+  --zacht:rgba(241,235,223,.74);--stil:rgba(241,235,223,.5);--lijn:rgba(241,235,223,.12);--ease:cubic-bezier(.16,1,.3,1);
+  position:relative;overflow:clip;background:var(--navy);color:var(--beige);padding:clamp(88px,11vw,136px) 0 56px;
+  font:400 17px/1.65 'Inter',system-ui,sans-serif;text-align:left;-webkit-font-smoothing:antialiased}
+.di::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(760px 480px at 50% -10%,rgba(201,162,74,.14),transparent 66%)}
+.di::after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,162,74,.7) 30%,rgba(232,217,168,.9) 50%,rgba(201,162,74,.7) 70%,transparent)}
+.di .di-wrap{position:relative;max-width:980px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+.di h2,.di h3,.di h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:-.01em;text-transform:none;font-style:normal;color:var(--creme)}
+.di a{color:inherit}
+.di svg{flex:none}
+
+/* boodschap */
+.di .di-kern{text-align:center;max-width:760px;margin:0 auto}
+.di .di-afz{display:inline-flex;align-items:center;gap:12px;margin-bottom:28px;color:var(--goud2);font-size:15px;font-weight:500}
+.di .di-afz i{width:32px;height:32px;border-radius:9px;border:1px solid rgba(201,162,74,.45);display:grid;place-items:center;font:600 15px/1 'Cormorant Garamond',serif;font-style:normal;color:var(--goud);letter-spacing:-.5px}
+.di h2{line-height:1}
+.di .di-voor{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:20px;font:italic 500 clamp(24px,2.5vw,31px)/1.2 'Cormorant Garamond',Georgia,serif;color:var(--goud2);letter-spacing:.005em}
+.di .di-kern .di-voor::before,.di .di-kern .di-voor::after{content:""!important;flex:none;width:clamp(28px,5vw,60px);height:1px;background:linear-gradient(90deg,transparent,var(--goud))}
+.di .di-kern .di-voor::after{background:linear-gradient(270deg,transparent,var(--goud))}
+.di .di-samen{display:block;font:500 clamp(46px,6.2vw,80px)/1.02 'Cormorant Garamond',Georgia,serif;letter-spacing:-.015em;text-wrap:balance;
+  color:var(--creme);background:linear-gradient(180deg,#FBF8F2 35%,#E8D9A8 135%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;padding-bottom:.06em}
+.di .di-lead{text-wrap:pretty;color:var(--zacht);font-size:clamp(17px,1.5vw,19px);margin:24px auto 0;max-width:33em}
+.di .di-knoppen{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:36px}
+.di .di-knoppen a{position:relative;overflow:hidden;display:inline-flex;justify-content:center;align-items:center;gap:10px;border-radius:999px;padding:18px 30px;
+  font:600 17px/1.2 'Inter',sans-serif;text-decoration:none;isolation:isolate;white-space:nowrap;transition:color .5s var(--ease),border-color .5s var(--ease)}
+.di .di-knoppen a svg{width:19px;height:19px}
+.di .di-knoppen a::before{content:"";position:absolute;inset:0;z-index:-1;transform:translateY(101%);transition:transform .55s var(--ease)}
+.di .di-knoppen a:hover::before{transform:translateY(0)}
+.di .di-knoppen .di-cal{background:var(--goud);color:var(--deep);box-shadow:0 18px 44px -18px rgba(201,162,74,.8)}
+.di .di-knoppen .di-cal::before{background:var(--bleek)}
+.di .di-knoppen .di-wa{border:1px solid rgba(241,235,223,.3);color:var(--creme)}
+.di .di-knoppen .di-wa::before{background:var(--creme)}
+.di .di-knoppen .di-wa:hover{color:var(--navy);border-color:var(--creme)}
+.di .di-klein{margin-top:18px;font-size:14.5px;color:var(--stil)}
+
+.di .di-blok{margin-top:clamp(88px,11vw,128px)}
+.di .di-blok>h3{font-size:clamp(30px,3.4vw,40px);line-height:1.05;text-align:center;margin-bottom:44px}
+
+/* prijs */
+.di .di-prijs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);border:1px solid var(--lijn);border-radius:28px;overflow:hidden}
+.di .di-prijs>div{padding:clamp(28px,3.6vw,40px)}
+.di .di-prijs>div+div{border-left:1px solid var(--lijn);background:rgba(241,235,223,.025)}
+.di .di-wat{font-size:15px;font-weight:500;color:var(--goud2)}
+.di .di-getal{font:500 clamp(60px,6.4vw,76px)/1 'Cormorant Garamond',serif;font-variant-numeric:lining-nums;color:var(--creme);margin-top:8px;letter-spacing:-.02em}
+.di .di-getal small{font:500 16px/1 'Inter',sans-serif;color:var(--stil);letter-spacing:0;margin-left:8px}
+.di .di-prijs p{color:var(--zacht);font-size:15.5px;margin-top:14px;max-width:24em}
+.di .di-prijs p b{color:var(--creme);font-weight:500}
+.di .di-opties{margin-top:22px;list-style:none}
+.di .di-opties li{display:grid;grid-template-columns:1fr auto;gap:4px 20px;padding:16px 0;border-top:1px solid var(--lijn)}
+.di .di-opties li:last-child{padding-bottom:0}
+.di .di-opties b{font:500 23px/1.2 'Cormorant Garamond',serif;color:var(--creme);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.di .di-opties b em{font:600 12px/1 'Inter',sans-serif;font-style:normal;color:var(--deep);background:var(--goud);border-radius:999px;padding:4px 10px}
+.di .di-opties .di-pp{font:500 24px/1.2 'Cormorant Garamond',serif;font-variant-numeric:lining-nums;color:var(--creme);text-align:right;white-space:nowrap}
+.di .di-opties .di-pp small{font:500 13.5px/1 'Inter',sans-serif;color:var(--stil);margin-left:4px}
+.di .di-opties .di-ot{grid-column:1/-1;color:var(--zacht);font-size:15px}
+
+/* faq */
+.di .di-faq{max-width:760px;margin:0 auto;border-top:1px solid var(--lijn)}
+.di .di-faq details{border-bottom:1px solid var(--lijn)}
+.di .di-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 2px;
+  font:500 22px/1.25 'Cormorant Garamond',serif;color:var(--creme);transition:color .3s}
+.di .di-faq summary::-webkit-details-marker{display:none}
+.di .di-faq summary:hover{color:var(--goud2)}
+.di .di-faq summary i{flex:none;position:relative;width:30px;height:30px;border-radius:50%;border:1px solid rgba(201,162,74,.5);transition:transform .45s var(--ease),background .3s}
+.di .di-faq summary i::before,.di .di-faq summary i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:var(--goud);transform:translate(-50%,-50%)}
+.di .di-faq summary i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .45s var(--ease)}
+.di .di-faq details[open] summary i{transform:rotate(180deg);background:rgba(201,162,74,.12)}
+.di .di-faq details[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+.di .di-faq .di-antw{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.di .di-faq details[open] .di-antw{grid-template-rows:1fr}
+.di .di-faq .di-antw>div{overflow:hidden}
+.di .di-faq .di-antw p{color:var(--zacht);font-size:16px;padding:0 50px 22px 2px;max-width:38em}
+
+.di .di-faq details,.di .di-faq details[open]{background:none;border-radius:0;box-shadow:none;margin:0;padding:0;border:0;border-bottom:1px solid var(--lijn);display:block}
+.di .di-faq details[open] summary,.di .di-faq summary:hover{background:none;box-shadow:none}
+
+/* afsluiter */
+.di .di-slot{margin-top:clamp(72px,9vw,104px);padding-top:36px;border-top:1px solid var(--lijn);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.di .di-wie{display:flex;align-items:center;gap:16px}
+.di .di-foto{flex:none;display:block;width:60px;height:60px;border-radius:50%;object-fit:cover;object-position:50% 40%;background:#0A1530;box-shadow:0 0 0 1px rgba(201,162,74,.6),0 0 0 4px #0E1C3A,0 0 0 5px rgba(201,162,74,.22)}
+.di .di-wie b{display:block;font:italic 500 26px/1.1 'Cormorant Garamond',serif;color:var(--creme)}
+.di .di-wie .di-lijn{font-size:14.5px;color:var(--stil)}
+.di .di-wie .di-lijn a{text-decoration:none}
+.di .di-wie .di-lijn a:hover{color:var(--creme)}
+.di .di-slot .di-knoppen{margin:0}
+.di .di-slot .di-knoppen a{padding:14px 24px;font-size:15.5px}
+.di :focus-visible{outline:2px solid var(--goud);outline-offset:4px;border-radius:12px}
+
+/* één rustige beweging */
+.di.di-js [data-in]{opacity:0;transform:translateY(16px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0) * 110ms)}
+.di.di-js [data-in].di-zien{opacity:1;transform:none}
+
+@media (max-width:820px){
+  .di .di-prijs{grid-template-columns:1fr}
+  .di .di-prijs>div+div{border-left:0;border-top:1px solid var(--lijn)}
+}
+@media (max-width:720px){
+  .di .di-faq summary{font-size:20px;padding:18px 2px}
+  .di .di-faq .di-antw p{padding-right:10px;font-size:15.5px}
+  .di{font-size:16.5px;padding-bottom:44px}
+  .di .di-voor{font-size:21px;gap:12px;margin-bottom:14px}
+  .di .di-kern .di-voor::before,.di .di-kern .di-voor::after{width:24px}
+  .di .di-samen{font-size:clamp(36px,10vw,46px)}
+  .di .di-lead{font-size:16.5px}
+  .di .di-knoppen{flex-direction:column;margin-top:30px}
+  .di .di-knoppen a{width:100%;padding:17px 18px;font-size:16px}
+  .di .di-blok>h3{margin-bottom:32px}
+  .di .di-prijs{border-radius:24px}
+  .di .di-prijs>div{padding:26px 22px}
+  .di .di-slot{flex-direction:column;align-items:stretch}
+  .di .di-slot .di-knoppen a{width:100%}
+}
+@media (prefers-reduced-motion:reduce){.di.di-js [data-in]{transition:none!important;opacity:1!important;transform:none!important}.di .di-knoppen a,.di .di-knoppen a::before,.di .di-faq summary i,.di .di-faq summary i::after,.di .di-faq .di-antw{transition:none}}
+
+/* kaartje halverwege */
+.di-tip,.di-tip *{box-sizing:border-box;margin:0;padding:0;border:0;background:none;box-shadow:none;text-shadow:none;text-transform:none;letter-spacing:normal;float:none;max-width:none;font:inherit;color:inherit;text-decoration:none;list-style:none}
+.di-tip{--navy:#0E1C3A;--goud:#C9A24A;--goud2:#D8BB6A;--creme:#FBF8F2;--zacht:rgba(241,235,223,.76);--ease:cubic-bezier(.16,1,.3,1);
+  position:fixed;left:20px;bottom:20px;z-index:2147483000;width:340px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+  padding:18px 18px 18px 18px;border-radius:20px;background:var(--navy);color:var(--creme);font:400 15px/1.5 'Inter',system-ui,sans-serif;text-align:left;
+  box-shadow:0 0 0 1px rgba(201,162,74,.4),0 24px 60px -18px rgba(0,0,0,.55);opacity:0;transform:translateY(24px) scale(.98);pointer-events:none;
+  transition:opacity .6s var(--ease),transform .6s var(--ease);-webkit-font-smoothing:antialiased}
+.di-tip.di-tip-aan{opacity:1;transform:none;pointer-events:auto}
+.di-tip .di-tip-s{display:block;width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:50% 40%;background:#0A1530;box-shadow:0 0 0 1px rgba(201,162,74,.6)}
+.di-tip .di-tip-t{font:italic 500 20px/1.2 'Cormorant Garamond',Georgia,serif;color:var(--goud2);padding-right:22px}
+.di-tip .di-tip-p{color:var(--zacht);margin-top:4px;font-size:14.5px}
+.di-tip .di-tip-k{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:10px 18px;border-radius:999px;background:var(--goud);color:#0A1530;font:600 14.5px/1.2 'Inter',sans-serif;cursor:pointer;transition:background .3s}
+.di-tip .di-tip-k:hover{background:#E8D9A8}
+.di-tip .di-tip-k svg{width:16px;height:16px}
+.di-tip .di-tip-x{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:var(--zacht);cursor:pointer;transition:background .3s,color .3s}
+.di-tip .di-tip-x:hover{background:rgba(241,235,223,.08);color:var(--creme)}
+.di-tip .di-tip-x svg{width:14px;height:14px}
+.di-tip :focus-visible{outline:2px solid var(--goud);outline-offset:3px}
+.di-tip :is(p,div,span,a,button)::before,.di-tip :is(p,div,span,a,button)::after{content:none!important}
+@media (max-width:560px){.di-tip{left:12px;right:12px;width:auto;bottom:12px;padding:14px 14px 14px 14px;gap:12px}.di-tip .di-tip-s{width:34px;height:34px;font-size:17px}.di-tip .di-tip-t{font-size:18px}.di-tip .di-tip-p{font-size:14px}}
+@media (prefers-reduced-motion:reduce){.di-tip{transition:none}}
+</style>
+<section aria-labelledby="di-titel" class="di" id="di">
+<div class="di-wrap">
+
+<div class="di-kern">
+<h2 id="di-titel" data-in style="--d:1"><span class="di-voor">Dit is slechts een voorbeeld.</span><span class="di-samen">Samen maken we er jullie nieuwe site van.</span></h2>
+<p class="di-lead" data-in style="--d:2">Ik maakte deze demo voor jullie om te tonen wat er kan. Na een kort gesprek maak ik er iets veel persoonlijkers van, helemaal naar jullie wens.</p>
+<div class="di-knoppen" data-in style="--d:3">
+<a class="di-cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Kapsalon%20Vision" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Plan een gesprek van 30 min</a>
+<a class="di-wa" href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20Kapsalon%20Vision" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z"/></svg>Stuur een WhatsApp</a>
+</div>
+<p class="di-klein" data-in style="--d:4">Vrijblijvend. Ik kom langs of we bellen.</p>
+</div>
+
+
+<div class="di-blok">
+<h3 data-in>Wat kost het?</h3>
+<div class="di-prijs" data-in style="--d:1">
+<div>
+<span class="di-wat">De website</span>
+<div class="di-getal">€ 499<small>eenmalig</small></div>
+<p>Op maat, op jullie eigen domein.<br><b>Geen voorschot.</b> Jullie betalen pas als alles klaar is.</p>
+</div>
+<div>
+<span class="di-wat">Daarna het onderhoud</span>
+<p style="margin-top:8px">Hosting, domeinnaam en kleine wijzigingen, zoals nieuwe openingsuren.</p>
+<ul class="di-opties">
+<li><b>Zorgeloos <em>mijn aanrader</em></b><span class="di-pp">€ 19,99<small>/ maand</small></span><span class="di-ot">Alles inbegrepen. Wijzigen kan met een berichtje.</span></li>
+<li><b>Zelf beheren</b><span class="di-pp">€ 0<small>/ maand</small></span><span class="di-ot">Alles op jullie naam. Wijzigingen per keer.</span></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="di-blok">
+<h3 data-in>Goed om te weten</h3>
+<div class="di-faq" data-in style="--d:1">
+<details><summary>Waarom deze demo, zonder dat we iets vroegen?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Omdat een voorbeeld meer zegt dan een mail. Zo zien jullie meteen wat er kan, en het kost jullie niets.</p></div></div></details>
+<details><summary>Zitten we ergens aan vast?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Nee. Het gesprek is vrijblijvend. Vinden jullie het niks, dan is het daarmee gedaan.</p></div></div></details>
+<details><summary>Hoe lang duurt het?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Na ons gesprek staat jullie site binnen 10 tot 14 dagen online.</p></div></div></details>
+<details><summary>We hebben al een website. Kan dat ook?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Zeker. Jullie domeinnaam kan gewoon blijven, de nieuwe site komt in de plaats van de oude.</p></div></div></details>
+<details><summary>Moeten we zelf teksten schrijven?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Nee, dat doe ik op basis van ons gesprek. Eigen foto's zijn mooi meegenomen, maar niet nodig om te starten.</p></div></div></details>
+</div>
+</div>
+
+<div class="di-slot" data-in>
+<div class="di-wie"><img class="di-foto" src="https://digital-impression.be/assets/img/stijn-2.webp" alt="Stijn Vranken" width="60" height="60" loading="lazy" decoding="async"><div><b>Stijn Vranken</b><span class="di-lijn">Digital Impression, <a href="tel:+32496251445">0496 25 14 45</a></span></div></div>
+<div class="di-knoppen"><a class="di-cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Kapsalon%20Vision" target="_blank" rel="noopener">Plan een gesprek</a></div>
+</div>
+
+</div>
+</section>
+<script>/*di-v13*/(function(){var d=document.getElementById('di');if(!d||!('IntersectionObserver' in window))return;
+var stil=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!stil){d.classList.add('di-js');var io=new IntersectionObserver(function(x){x.forEach(function(e){if(e.isIntersecting){e.target.classList.add('di-zien');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+[].forEach.call(d.querySelectorAll('[data-in]'),function(e){io.observe(e)})}
+var vast=[];function zoek(){vast=[].filter.call(document.body.querySelectorAll('*'),function(e){if(d.contains(e)||e.closest('.di-strook,.demo'))return false;var p=getComputedStyle(e).position;return p==='fixed'||p==='sticky'})}
+new IntersectionObserver(function(x){if(!vast.length)zoek();var aan=x[0].isIntersecting;vast.forEach(function(e){e.style.transition='opacity .35s';e.style.opacity=aan?'0':'';e.style.pointerEvents=aan?'none':''})},{threshold:.05}).observe(d)})();</script>
+<aside class="di-tip" aria-label="Over deze voorbeeldsite" hidden>
+<img class="di-tip-s" src="https://digital-impression.be/assets/img/stijn-2.webp" alt="" width="40" height="40" loading="lazy" decoding="async">
+<div>
+<p class="di-tip-t">Dit is een voorbeeldsite.</p>
+<p class="di-tip-p">Onderaan lees je hoe we er samen jullie site van maken.</p>
+<a class="di-tip-k" href="#di">Lees meer<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+</div>
+<button class="di-tip-x" type="button" aria-label="Sluiten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+</aside>
+<script>/*di-tip*/(function(){var t=document.querySelector('.di-tip'),d=document.getElementById('di');if(!t||!d)return;
+var weg=false;try{weg=sessionStorage.getItem('di-tip')==='weg'}catch(e){}if(weg)return;
+t.hidden=false;var aan=false,diZicht=false;
+function onder(){var m=0;[].forEach.call(document.body.querySelectorAll('*'),function(e){if(e===t||t.contains(e)||d.contains(e))return;var c=getComputedStyle(e);if(c.position!=='fixed'||c.display==='none'||c.visibility==='hidden'||+c.opacity===0)return;var r=e.getBoundingClientRect();if(r.height>0&&r.height<160&&r.bottom>=innerHeight-48&&r.bottom<=innerHeight+2&&r.top>innerHeight-200&&r.width>innerWidth*.4)m=Math.max(m,innerHeight-r.top)});return m}
+function zet(x){if(x===aan)return;aan=x;if(x){t.style.bottom=((innerWidth<=560?12:20)+onder())+'px'}t.classList.toggle('di-tip-aan',x)}
+function sluit(){try{sessionStorage.setItem('di-tip','weg')}catch(e){}zet(false);setTimeout(function(){t.hidden=true},700);window.removeEventListener('scroll',kijk)}
+function held(){var c=document.querySelectorAll('.hero,[class*="hero"],main>section,body>section,body>header,main>header');for(var i=0;i<c.length;i++){var e=c[i];if(d.contains(e)||t.contains(e)||e.closest('.di-strook,.demo,nav'))continue;var r=e.getBoundingClientRect();if(r.height>innerHeight*.35)return r.bottom+scrollY}return innerHeight*.9}
+var hb=0;window.addEventListener('resize',function(){hb=0});function kijk(){var top=d.getBoundingClientRect().top;
+if(top<innerHeight*1.1){if(aan)sluit();return}if(!hb)hb=held();zet(scrollY>hb-innerHeight*.55)}
+t.querySelector('.di-tip-x').addEventListener('click',sluit);
+t.querySelector('.di-tip-k').addEventListener('click',function(){setTimeout(sluit,300)});
+window.addEventListener('scroll',kijk,{passive:true});kijk()})();</script>
+
+</body>
+</html>
