@@ -1,0 +1,1112 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ciao Bella | Huidscan, gelaatsverzorging en me-time in Lokeren</title>
+<meta name="description" content="Ciao Bella is een warm skincare- en beautysalon in Lokeren. Eerst een huidscan met de RS LightSkin, dan een verzorging die echt bij je huid past. Enkel op afspraak.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+:root{
+  --bone:#F4F0EA;--paper:#FAF7F3;--linen:#EAE2D8;--sand:#D8CCBE;
+  --ink:#211B18;--ink2:#2D2521;--ink3:#3B312C;--soft:#6E625B;--mute:#958880;
+  --petal:#E2A09E;--petal2:#EDBFB9;--blush:#F3DFD9;--clay:#B06A57;--clay2:#9A5A49;
+  --line:rgba(33,27,24,.12);--line2:rgba(244,240,234,.14);
+  --ease:cubic-bezier(.2,.8,.2,1);--r:26px;
+  --serif:'Instrument Serif',Georgia,serif;--sans:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+body{margin:0;background:var(--bone);color:var(--ink);font:400 16.5px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,p,ul,ol,figure,blockquote{margin:0;padding:0}
+ul,ol{list-style:none}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{width:min(1240px,100% - 64px);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* demo strook */
+.demo{background:var(--ink);color:rgba(244,240,234,.78);font:500 13.5px/1.4 var(--sans);text-align:center;padding:9px 16px;position:relative;z-index:60}
+.demo a{color:var(--petal2);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+
+/* labels */
+.kicker{display:inline-flex;align-items:center;gap:10px;font:600 11.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--clay)}
+.kicker::before{content:"";width:22px;height:1px;background:currentColor;opacity:.7}
+.kicker.l{color:var(--petal2)}
+.num{font:400 15px/1 var(--serif);font-style:italic;color:var(--clay);letter-spacing:0}
+h2{font:400 clamp(40px,5.2vw,70px)/.98 var(--serif);letter-spacing:-.015em}
+h2 em,h1 em{font-style:italic}
+.lead{font-size:17.5px;color:var(--soft);max-width:46ch}
+
+/* knoppen */
+.btn{display:inline-flex;align-items:center;gap:10px;white-space:nowrap;height:52px;padding:0 24px;border-radius:99px;font:600 15px/1 var(--sans);transition:background .35s var(--ease),color .35s var(--ease),transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);cursor:pointer;border:0}
+.btn svg{width:18px;height:18px;transition:transform .35s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn-ink{background:var(--ink);color:var(--bone)}
+.btn-ink:hover{background:var(--clay);transform:translateY(-2px);box-shadow:0 14px 30px -14px rgba(176,106,87,.7)}
+.btn-line{border:1px solid var(--line);background:transparent;color:var(--ink)}
+.btn-line:hover{border-color:var(--ink);background:var(--paper)}
+.btn-petal{background:var(--petal);color:var(--ink)}
+.btn-petal:hover{background:var(--petal2);transform:translateY(-2px)}
+.btn-ghost{border:1px solid var(--line2);color:var(--bone);background:transparent}
+.btn-ghost:hover{background:rgba(244,240,234,.08);border-color:rgba(244,240,234,.4)}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:50;transition:background .4s var(--ease),box-shadow .4s var(--ease)}
+.hdr .wrap{display:flex;align-items:center;gap:28px;height:92px;transition:height .4s var(--ease)}
+.hdr.sc{background:rgba(244,240,234,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+.hdr.sc .wrap{height:70px}
+.logo img{height:64px;width:auto;transition:height .4s var(--ease)}
+.hdr.sc .logo img{height:44px}
+.nav{display:flex;gap:30px;margin-left:auto}
+.nav a{font:500 14.5px/1 var(--sans);color:var(--ink2);position:relative;padding:6px 0}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--clay);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
+.nav a:hover::after{transform:scaleX(1);transform-origin:left}
+.hdr .btn{height:44px;padding:0 20px;font-size:14px}
+.burger{display:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--paper);align-items:center;justify-content:center;cursor:pointer;margin-left:auto}
+.burger span{display:block;width:18px;height:1.5px;background:var(--ink);position:relative;transition:background .3s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:var(--ink);transition:transform .4s var(--ease)}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.open .burger span{background:transparent}
+.open .burger span::before{transform:translateY(6px) rotate(45deg)}
+.open .burger span::after{transform:translateY(-6px) rotate(-45deg)}
+.mnav{position:fixed;inset:0;z-index:45;background:var(--ink);color:var(--bone);padding:120px 28px 40px;display:flex;flex-direction:column;gap:6px;clip-path:inset(0 0 100% 0);transition:clip-path .6s var(--ease);visibility:hidden}
+.open .mnav{clip-path:inset(0 0 0 0);visibility:visible}
+.mnav a{font:400 40px/1.25 var(--serif);border-bottom:1px solid var(--line2);padding:8px 0;display:flex;justify-content:space-between;align-items:center}
+.mnav a span{font:500 12px/1 var(--sans);letter-spacing:.14em;color:var(--petal2)}
+.mnav .btn{margin-top:28px;justify-content:center;font:600 15px/1 var(--sans);border-bottom:0}
+
+/* hero */
+.hero{position:relative;padding:20px 0 0;overflow:clip}
+.hero-top{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.hero-meta{display:flex;align-items:center;gap:10px;font:500 13.5px/1.3 var(--sans);color:var(--soft)}
+.hero-meta i{width:8px;height:8px;border-radius:50%;background:#7DA37A;box-shadow:0 0 0 4px rgba(125,163,122,.18);display:block}
+.hero h1{font:400 clamp(92px,15.4vw,222px)/.84 var(--serif);letter-spacing:-.035em;margin:22px 0 0 -.04em;display:flex;align-items:flex-end;gap:.18em;flex-wrap:wrap}
+.hero h1 em{color:var(--clay)}
+.hero h1 .seal{width:clamp(96px,9vw,128px);height:clamp(96px,9vw,128px);margin:0 0 .16em auto;flex:none}
+.seal text{font:600 10.4px var(--sans);letter-spacing:.22em;fill:var(--ink2);text-transform:uppercase}
+.seal .rot{transform-origin:64px 64px;animation:draai 40s linear infinite}
+@keyframes draai{to{transform:rotate(360deg)}}
+.hero-grid{display:grid;grid-template-columns:4fr 8fr;gap:56px;margin-top:38px;align-items:start}
+.hero-copy{padding-top:14px}
+.hero-copy p{font-size:18px;line-height:1.62;color:var(--ink3);max-width:34ch}
+.hero-copy .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.proof{display:flex;align-items:center;gap:14px;margin-top:38px;padding-top:24px;border-top:1px solid var(--line)}
+.proof b{font:400 44px/1 var(--serif)}
+.stars{display:flex;gap:2px;color:var(--clay)}
+.stars svg{width:14px;height:14px;fill:currentColor;stroke:none}
+.proof small{display:block;font-size:13.5px;color:var(--soft);line-height:1.4;margin-top:4px}
+.hero-vis{position:relative;padding:0 0 64px 0}
+.hv-main{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:16/10.6;box-shadow:0 40px 80px -50px rgba(33,27,24,.6)}
+.hv-main img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scale(1.04);transition:transform 1.6s var(--ease)}
+.hero-vis:hover .hv-main img{transform:scale(1)}
+.finder::before,.finder::after{content:"";position:absolute;width:34px;height:34px;z-index:2;pointer-events:none;border:1.5px solid rgba(244,240,234,.85)}
+.finder::before{top:18px;left:18px;border-right:0;border-bottom:0;border-top-left-radius:10px}
+.finder::after{bottom:18px;right:18px;border-left:0;border-top:0;border-bottom-right-radius:10px}
+.hv-small{position:absolute;left:-46px;bottom:0;width:31%;aspect-ratio:4/5;border-radius:20px;overflow:hidden;border:7px solid var(--bone);box-shadow:0 30px 60px -30px rgba(33,27,24,.55);z-index:3}
+.hv-small img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.hv-card{position:absolute;right:22px;top:22px;z-index:3;background:rgba(250,247,243,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:18px;padding:16px 18px;display:flex;gap:14px;align-items:center;box-shadow:0 20px 40px -24px rgba(33,27,24,.5);max-width:270px}
+.hv-card .ic{width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--petal2);display:grid;place-items:center;flex:none}
+.hv-card b{display:block;font:600 14.5px/1.3 var(--sans)}
+.hv-card span{display:block;font-size:13px;color:var(--soft);line-height:1.35;margin-top:2px}
+.hv-tag{position:absolute;right:22px;bottom:86px;z-index:3;background:var(--ink);color:var(--bone);border-radius:99px;padding:10px 16px;font:500 13px/1 var(--sans);display:flex;align-items:center;gap:8px}
+.hv-tag svg{width:16px;height:16px;color:var(--petal2)}
+.rings{position:absolute;right:-120px;top:-150px;width:440px;height:440px;z-index:-1;color:var(--sand);opacity:.9}
+.feat{display:grid;grid-template-columns:repeat(4,1fr);background:var(--paper);border-radius:22px;margin-top:22px;box-shadow:0 1px 0 var(--line),0 24px 50px -40px rgba(33,27,24,.35);position:relative;z-index:2}
+.feat li{display:flex;gap:14px;padding:26px 24px;position:relative;transition:background .35s var(--ease)}
+.feat li+li::before{content:"";position:absolute;left:0;top:24px;bottom:24px;width:1px;background:var(--line)}
+.feat a{display:contents}
+.feat li:hover{background:#fff}
+.feat li:first-child{border-radius:22px 0 0 22px}.feat li:last-child{border-radius:0 22px 22px 0}
+.feat .ic{width:42px;height:42px;border-radius:12px;background:var(--blush);color:var(--clay2);display:grid;place-items:center;flex:none}
+.feat b{display:block;font:600 15px/1.25 var(--sans)}
+.feat span{display:block;font-size:13.5px;color:var(--soft);line-height:1.45;margin-top:4px}
+
+/* sectie basis */
+.sec{padding:clamp(72px,8vw,112px) 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:52px}
+.sec-head h2{margin-top:18px;max-width:14ch}
+.sec-head .lead{margin-bottom:6px}
+
+/* huidscan */
+.scan{padding:28px 0 0}
+.scan-box{background:var(--ink);color:var(--bone);border-radius:40px;padding:clamp(56px,6vw,88px) clamp(28px,5vw,80px) clamp(28px,4vw,48px);position:relative;overflow:hidden;isolation:isolate}
+.scan-box::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(700px 520px at 85% 15%,rgba(226,160,158,.18),transparent 65%),radial-gradient(600px 500px at 0% 100%,rgba(176,106,87,.16),transparent 60%)}
+.scan-box::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.scan-grid{display:grid;grid-template-columns:5fr 6fr;gap:clamp(40px,6vw,96px);align-items:center}
+.scan h2{margin:20px 0 22px}
+.scan h2 em{color:var(--petal)}
+.scan .lead{color:rgba(244,240,234,.7)}
+.stats{display:flex;gap:0;margin-top:36px;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)}
+.stats div{flex:1;padding:20px 0}
+.stats div+div{padding-left:22px;border-left:1px solid var(--line2)}
+.stats b{display:block;font:400 48px/1 var(--serif);color:var(--bone)}
+.stats b sup{font-size:.42em;vertical-align:top;margin-left:3px;color:var(--petal2);font-family:var(--sans);font-weight:500;position:relative;top:.35em}
+.stats span{display:block;font-size:13px;color:rgba(244,240,234,.6);margin-top:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.chips li{font:500 13px/1 var(--sans);padding:9px 13px;border-radius:99px;border:1px solid var(--line2);color:rgba(244,240,234,.82);transition:border-color .3s,background .3s}
+.chips li:hover{border-color:var(--petal);background:rgba(226,160,158,.08)}
+.scan-vis{position:relative;height:640px}
+.sv-a{position:absolute;right:0;top:0;width:62%;height:88%;border-radius:200px 200px 26px 26px;overflow:hidden}
+.sv-a img{width:100%;height:100%;object-fit:cover}
+.sv-b{position:absolute;left:0;bottom:0;width:44%;aspect-ratio:9/12.5;border-radius:24px;overflow:hidden;border:6px solid var(--ink);box-shadow:0 40px 60px -30px rgba(0,0,0,.6)}
+.sv-b img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.sv-rings{position:absolute;left:4%;top:2%;width:300px;height:300px;color:rgba(226,160,158,.35)}
+.sv-note{position:absolute;left:6%;top:30%;background:rgba(244,240,234,.08);border:1px solid var(--line2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:16px;padding:14px 16px;max-width:210px;font-size:13.5px;line-height:1.45;color:rgba(244,240,234,.85)}
+.sv-note b{display:block;font:400 22px/1.1 var(--serif);color:var(--bone);margin-bottom:4px}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(48px,5vw,72px);border:1px solid var(--line2);border-radius:24px}
+.opt:first-child{border-radius:23px 0 0 23px}.opt:last-child{border-radius:0 23px 23px 0}
+.opt{padding:28px 28px 30px;position:relative;transition:background .35s var(--ease)}
+.opt+.opt{border-left:1px solid var(--line2)}
+.opt:hover{background:rgba(244,240,234,.04)}
+.opt.hl{background:rgba(226,160,158,.1)}
+.opt-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.opt-top small{font:500 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:rgba(244,240,234,.55)}
+.opt-top b{font:400 40px/1 var(--serif);color:var(--bone)}
+.opt h3{font:600 17px/1.3 var(--sans);margin:22px 0 8px}
+.opt p{font-size:14.5px;color:rgba(244,240,234,.66);line-height:1.55}
+.opt .pill{position:absolute;top:-1px;left:28px;transform:translateY(-50%);background:var(--petal);color:var(--ink);font:600 11px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;padding:7px 10px;border-radius:99px}
+.scan-foot{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:28px;font-size:14px;color:rgba(244,240,234,.6)}
+.scan-foot .btn{height:48px}
+
+/* traject */
+.traj-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(40px,6vw,100px)}
+.traj h2{margin:18px 0 22px}
+.traj h2 em{color:var(--clay)}
+.price-card{margin-top:34px;background:var(--paper);border-radius:24px;padding:26px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;box-shadow:0 1px 0 var(--line),0 30px 50px -40px rgba(33,27,24,.4);position:relative;overflow:hidden}
+.price-card::after{content:"";position:absolute;right:-40px;top:-40px;width:140px;height:140px;border-radius:50%;border:1px solid var(--petal2);box-shadow:0 0 0 18px rgba(237,191,185,.18)}
+.price-card small{display:block;font:600 11.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--clay)}
+.price-card b{display:block;font:400 64px/1 var(--serif);margin-top:10px}
+.price-card s{font-size:15px;color:var(--mute);margin-left:8px;font-family:var(--sans)}
+.price-card span{display:block;font-size:14px;color:var(--soft);margin-top:6px}
+.price-card .btn{position:relative;z-index:1}
+.steps{position:relative;padding-left:0}
+.step{display:grid;grid-template-columns:76px 1fr;gap:22px;padding:26px 0;border-bottom:1px solid var(--line);position:relative}
+.step:first-child{padding-top:6px}
+.step .n{width:56px;height:56px;border-radius:50%;border:1px solid var(--sand);display:grid;place-items:center;font:400 22px/1 var(--serif);font-style:italic;color:var(--clay);background:var(--bone);position:relative;z-index:1;transition:background .35s var(--ease),color .35s var(--ease),border-color .35s}
+.step:hover .n{background:var(--ink);color:var(--petal2);border-color:var(--ink)}
+.steps::before{content:"";position:absolute;left:28px;top:30px;bottom:60px;width:1px;background:repeating-linear-gradient(to bottom,var(--sand) 0 4px,transparent 4px 9px)}
+.step small{font:600 11.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.step h3{font:400 30px/1.1 var(--serif);margin:8px 0 6px}
+.step p{color:var(--soft);font-size:15.5px;max-width:48ch}
+.voor{margin-top:56px;display:grid;grid-template-columns:auto 1fr;gap:0;background:var(--blush);border-radius:28px;overflow:hidden}
+.voor figure{width:300px;position:relative}
+.voor figure img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.voor-in{padding:36px 40px;display:grid;grid-template-columns:auto 1fr;gap:12px 40px;align-items:start}
+.voor-in h3{font:400 34px/1.05 var(--serif);max-width:9ch}
+.voor-in ul{display:grid;gap:12px}
+.voor-in li{display:flex;gap:12px;font-size:15.5px;line-height:1.5;color:var(--ink3)}
+.voor-in li svg{color:var(--clay);margin-top:2px}
+
+/* behandelingen bento */
+.beh{background:var(--linen);position:relative}
+.beh::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(900px 400px at 100% 0%,rgba(255,255,255,.5),transparent 70%)}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(0,auto);gap:16px;position:relative}
+.tile{border-radius:var(--r);overflow:hidden;position:relative;background:var(--paper);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.tile:hover{transform:translateY(-4px);box-shadow:0 30px 60px -40px rgba(33,27,24,.5)}
+.tile .ph{position:relative;overflow:hidden}
+.tile .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.tile:hover .ph img{transform:scale(1.05)}
+.t-hd{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.t-hd h3{font:400 32px/1.05 var(--serif)}
+.t-hd .num{font-size:17px}
+.plist{margin-top:16px}
+.plist li{display:flex;align-items:baseline;gap:10px;padding:10px 0;border-top:1px solid var(--line);font-size:15px}
+.plist li span{flex:1;min-width:0}
+.plist li small{color:var(--mute);font-size:13px;white-space:nowrap}
+.plist li b{font:600 15px/1 var(--sans);white-space:nowrap}
+.t-gel{grid-column:1/7;grid-row:span 2;color:var(--bone);min-height:720px;display:flex;flex-direction:column;justify-content:flex-end;background:var(--ink)}
+.t-gel .ph{position:absolute;inset:0}
+.t-gel .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(33,27,24,0) 30%,rgba(33,27,24,.55) 58%,rgba(33,27,24,.92) 100%)}
+.t-gel .body{position:relative;padding:32px}
+.t-gel p{color:rgba(244,240,234,.75);font-size:15px;margin-top:8px;max-width:40ch}
+.t-gel .plist li{border-top-color:var(--line2)}
+.t-gel .plist li small{color:rgba(244,240,234,.55)}
+.t-gel .tag{position:absolute;top:24px;left:24px;z-index:2;background:rgba(250,247,243,.92);color:var(--ink);font:600 12px/1 var(--sans);padding:9px 12px;border-radius:99px;display:flex;gap:7px;align-items:center}
+.t-gel .tag svg{width:15px;height:15px;color:var(--clay)}
+.t-wim{grid-column:7/13;display:grid;grid-template-columns:44% 1fr}
+.t-wim .ph{min-height:100%}
+.t-wim .ph img{position:absolute;inset:0}
+.t-wim .body{padding:28px 28px 24px}
+.t-wim .note{font-size:13.5px;color:var(--soft);margin-top:12px}
+.t-nag{grid-column:7/10;display:flex;flex-direction:column}
+.t-nag .ph{height:170px}
+.t-nag .body{padding:22px 22px 18px}
+.t-nag .t-hd h3{font-size:27px}
+.t-wax{grid-column:10/13;background:var(--ink2);color:var(--bone);display:flex;flex-direction:column}
+.t-wax .body{padding:22px 22px 18px;flex:1}
+.t-wax .t-hd h3{font-size:27px}
+.t-wax .plist li{border-top-color:var(--line2)}
+.t-wax .circ{width:86px;height:86px;border-radius:50%;overflow:hidden;margin:22px 22px 0;border:1px solid var(--line2)}
+.t-wax .circ img{width:100%;height:100%;object-fit:cover}
+.t-rug{grid-column:1/13;display:grid;grid-template-columns:34% 1fr;background:var(--blush)}
+.t-rug .ph img{position:absolute;inset:0}
+.t-rug .body{padding:30px 36px;display:grid;grid-template-columns:auto 1fr;gap:10px 48px;align-items:center}
+.t-rug .plist{display:grid;grid-template-columns:repeat(3,1fr);gap:0 26px;margin:0}
+.t-rug .plist li{flex-direction:column;align-items:flex-start;gap:6px;border-top:1px solid rgba(33,27,24,.15);padding:14px 0 0}
+.t-rug .plist li b{font:400 30px/1 var(--serif)}
+.beh-foot{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:26px;font-size:14.5px;color:var(--soft)}
+.beh-foot a{font-weight:600;color:var(--ink);border-bottom:1px solid var(--clay);padding-bottom:2px}
+
+/* arrangementen */
+.arr{position:relative;overflow:hidden}
+.motto{text-align:center;max-width:980px;margin:0 auto}
+.motto q{display:block;font:400 clamp(44px,6.4vw,92px)/.98 var(--serif);letter-spacing:-.02em;quotes:none}
+.motto q em{color:var(--clay)}
+.motto small{display:inline-flex;gap:10px;align-items:center;margin-top:22px;font:500 13.5px/1 var(--sans);color:var(--soft)}
+.motto small::before,.motto small::after{content:"";width:28px;height:1px;background:var(--sand)}
+.arr-grid{display:grid;grid-template-columns:7fr 5fr;gap:20px;margin-top:64px;align-items:stretch}
+.ac{position:relative;border-radius:30px;overflow:hidden;display:grid;min-height:440px}
+.ac .ph{position:absolute;inset:0}
+.ac .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.ac:hover .ph img{transform:scale(1.04)}
+.ac-a .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(33,27,24,.82) 0%,rgba(33,27,24,.5) 45%,rgba(33,27,24,0) 75%)}
+.ac-body{position:relative;z-index:1;padding:36px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;color:var(--bone);max-width:430px}
+.ac-meta{display:flex;gap:8px;flex-wrap:wrap}
+.ac-meta span{font:500 12.5px/1 var(--sans);padding:8px 12px;border-radius:99px;background:rgba(244,240,234,.14);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.ac h3{font:400 54px/1 var(--serif);margin-bottom:12px}
+.ac p{font-size:15.5px;color:rgba(244,240,234,.82);line-height:1.6}
+.ac .price{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:20px;border-top:1px solid rgba(244,240,234,.22)}
+.ac .price b{font:400 44px/1 var(--serif)}
+.ac .price a{width:50px;height:50px;border-radius:50%;background:var(--bone);color:var(--ink);display:grid;place-items:center;transition:background .3s,transform .4s var(--ease)}
+.ac .price a:hover{background:var(--petal);transform:rotate(-45deg)}
+.ac-b{background:var(--ink);grid-template-rows:auto 1fr}
+.ac-b .ph{position:relative;height:210px}
+.ac-b .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(33,27,24,0) 40%,var(--ink))}
+.ac-b .ac-body{padding:4px 36px 36px;max-width:none}
+.bon{display:flex;align-items:center;gap:24px;margin-top:20px;background:var(--paper);border-radius:22px;padding:14px 14px 14px 14px;box-shadow:0 1px 0 var(--line)}
+.bon figure{width:96px;height:72px;border-radius:14px;overflow:hidden;flex:none}
+.bon figure img{width:100%;height:100%;object-fit:cover}
+.bon p{flex:1;font-size:15px;color:var(--soft)}
+.bon p b{color:var(--ink);font-weight:600}
+
+/* reviews */
+.rev{background:var(--paper)}
+.rev-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(40px,6vw,96px);align-items:center}
+.mos{position:relative;height:620px}
+.mos figure{position:absolute;overflow:hidden;border-radius:24px}
+.mos img{width:100%;height:100%;object-fit:cover}
+.mos .m1{left:0;top:0;width:70%;height:78%}
+.mos .m2{right:0;bottom:0;width:48%;height:52%;border:7px solid var(--paper);border-radius:28px;box-shadow:0 30px 60px -36px rgba(33,27,24,.5)}
+.mos .m3{left:6%;bottom:2%;background:var(--ink);color:var(--bone);border-radius:18px;padding:16px 18px;display:flex;gap:12px;align-items:center;font-size:13.5px;line-height:1.35;max-width:230px}
+.mos .m3 svg{color:var(--petal2)}
+.rev h2{margin:18px 0 0;font-size:clamp(40px,4.6vw,62px)}
+.rev h2 em{color:var(--clay)}
+.score{display:flex;gap:28px;margin:28px 0 8px;flex-wrap:wrap}
+.score div{display:flex;align-items:center;gap:12px}
+.score b{font:400 40px/1 var(--serif)}
+.score small{display:block;font-size:13px;color:var(--soft);line-height:1.35}
+.quotes{margin-top:22px}
+.quotes li{padding:24px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:44px 1fr;gap:16px}
+.quotes .av{width:44px;height:44px;border-radius:50%;background:var(--blush);color:var(--clay2);display:grid;place-items:center;font:400 21px/1 var(--serif)}
+.quotes p{font:400 21px/1.42 var(--serif);color:var(--ink2)}
+.quotes cite{display:block;font:500 13.5px/1 var(--sans);font-style:normal;color:var(--soft);margin-top:10px}
+
+/* voor thuis */
+.thuis-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;align-items:end}
+.th-txt{grid-column:1/5;align-self:center;padding-right:20px}
+.th-txt h2{margin:18px 0 18px;font-size:clamp(38px,4.4vw,58px)}
+.th-txt .brands{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 26px}
+.th-txt .brands span{font:600 12.5px/1 var(--sans);padding:9px 12px;border-radius:99px;background:var(--linen)}
+.th{border-radius:22px;overflow:hidden;position:relative}
+.th img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.th:hover img{transform:scale(1.05)}
+.th figcaption{position:absolute;left:12px;bottom:12px;background:rgba(250,247,243,.92);border-radius:99px;padding:7px 11px;font:600 12px/1 var(--sans)}
+.th1{grid-column:5/8;height:420px}
+.th2{grid-column:8/10;height:300px}
+.th3{grid-column:10/13;height:380px}
+.link{display:inline-flex;align-items:center;gap:8px;font-weight:600;border-bottom:1px solid var(--clay);padding-bottom:3px;transition:gap .3s var(--ease)}
+.link:hover{gap:12px}
+.link svg{width:16px;height:16px}
+
+/* contact */
+.con{padding:0 0 28px}
+.con-box{background:var(--ink);color:var(--bone);border-radius:40px;padding:clamp(56px,6vw,88px) clamp(28px,5vw,80px);position:relative;overflow:hidden;isolation:isolate}
+.con-box::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(800px 500px at 0% 0%,rgba(226,160,158,.16),transparent 60%)}
+.con-grid{display:grid;grid-template-columns:6fr 5fr;gap:clamp(40px,6vw,90px)}
+.con h2{margin:18px 0 18px}
+.con h2 em{color:var(--petal)}
+.con .lead{color:rgba(244,240,234,.7)}
+.clist{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.clist a,.clist div{display:flex;gap:14px;align-items:center;padding:16px 0;border-top:1px solid var(--line2);transition:color .3s}
+.clist a:hover{color:var(--petal2)}
+.clist .ic{width:40px;height:40px;border-radius:50%;border:1px solid var(--line2);display:grid;place-items:center;flex:none;color:var(--petal2)}
+.clist small{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,240,234,.5)}
+.clist b{display:block;font-weight:500;font-size:15px;word-break:break-word}
+.hours{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(4,auto);grid-auto-flow:column;gap:0 28px}
+.hours li{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px dashed var(--line2);font-size:15px}
+.hours li span:last-child{color:rgba(244,240,234,.7)}
+.hours li.dicht span:last-child{color:rgba(244,240,234,.4)}
+.hours li.nu{color:var(--petal2)}
+.small-note{margin-top:22px;font-size:14px;color:rgba(244,240,234,.6);display:flex;gap:10px;align-items:flex-start}
+.small-note svg{color:var(--petal2);margin-top:1px}
+.form{background:var(--bone);color:var(--ink);border-radius:28px;padding:34px;align-self:start;position:relative}
+.form h3{font:400 34px/1.05 var(--serif)}
+.form > p{font-size:14.5px;color:var(--soft);margin:8px 0 22px}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fld{display:block;margin-bottom:12px}
+.fld span{display:block;font:600 12px/1 var(--sans);letter-spacing:.06em;color:var(--soft);margin-bottom:7px}
+.fld input,.fld select,.fld textarea{width:100%;border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:13px 14px;font-size:15px;outline:none;transition:border-color .3s,box-shadow .3s}
+.fld textarea{min-height:104px;resize:vertical}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--clay);box-shadow:0 0 0 4px rgba(176,106,87,.12)}
+.form .btn{width:100%;justify-content:center;margin-top:6px}
+.form .alt{display:flex;gap:10px;margin-top:12px}
+.form .alt a{flex:1;justify-content:center;height:46px;font-size:14px}
+
+/* footer */
+.ftr{padding:46px 0 40px}
+.ftr .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.ftr img{height:52px;width:auto}
+.ftr nav{display:flex;gap:22px;flex-wrap:wrap;font-size:14px;color:var(--soft)}
+.ftr nav a:hover{color:var(--ink)}
+.ftr small{font-size:13px;color:var(--mute)}
+
+/* reveal */
+.js [data-r]{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js [data-r].in{opacity:1;transform:none}
+.js [data-r="2"]{transition-delay:.1s}.js [data-r="3"]{transition-delay:.2s}.js [data-r="4"]{transition-delay:.3s}
+@media (prefers-reduced-motion:reduce){.js [data-r]{opacity:1;transform:none;transition:none}.seal .rot{animation:none}html{scroll-behavior:auto}}
+
+/* responsive */
+@media (max-width:1100px){
+  .nav{gap:22px}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-copy p{max-width:52ch}
+  .hero-vis{margin-left:40px}
+  .scan-grid,.traj-grid,.rev-grid,.con-grid{grid-template-columns:1fr}
+  .scan-vis{height:560px;max-width:620px;margin-inline:auto;width:100%}
+  .t-gel{grid-column:1/13;grid-row:auto;min-height:620px}
+  .t-wim{grid-column:1/13}
+  .t-nag{grid-column:1/7}.t-wax{grid-column:7/13}
+  .arr-grid{grid-template-columns:1fr}
+  .mos{height:520px;max-width:640px}
+  .thuis-grid{grid-template-columns:repeat(6,1fr)}
+  .th-txt{grid-column:1/7;padding:0 0 18px}
+  .th1{grid-column:1/3;height:320px}.th2{grid-column:3/5;height:260px}.th3{grid-column:5/7;height:300px}
+}
+@media (max-width:900px){
+  .nav,.hdr .wrap > .btn{display:none}
+  .burger{display:flex}
+  .feat{grid-template-columns:1fr 1fr}
+  .feat li:nth-child(3)::before{display:none}
+  .feat li:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .feat li:first-child{border-radius:22px 0 0 0}.feat li:nth-child(2){border-radius:0 22px 0 0}.feat li:nth-child(3){border-radius:0 0 0 22px}
+  .opts{grid-template-columns:1fr}
+  .opt+.opt{border-left:0;border-top:1px solid var(--line2)}
+  .voor{grid-template-columns:1fr}
+  .voor figure{width:100%;height:220px;order:2}
+  .voor-in{grid-template-columns:1fr}
+  .voor-in h3{max-width:none}
+  .t-rug{grid-template-columns:1fr}
+  .t-rug .ph{height:220px}
+  .t-rug .body{grid-template-columns:1fr}
+  .sec-head{flex-direction:column;align-items:flex-start;gap:16px}
+  .clist,.hours{grid-template-columns:1fr}
+  .hours{grid-template-rows:none;grid-auto-flow:row}
+}
+@media (max-width:640px){
+  .wrap{width:calc(100% - 40px)}
+  body{font-size:16px}
+  .hdr .wrap{height:76px}
+  .logo img{height:46px}
+  .hdr.sc .wrap{height:64px}.hdr.sc .logo img{height:38px}
+  .hero{padding-top:10px}
+  .hero-top .hero-meta{display:none}
+  .hero h1{font-size:clamp(80px,25vw,112px);line-height:.86;margin-top:18px;flex-direction:column;align-items:flex-start;gap:0}
+  .hero h1 .seal{position:absolute;right:8px;top:118px;width:88px;height:88px;margin:0}
+  .hero{position:relative}
+  .hero-grid{margin-top:24px;gap:30px}
+  .hero-copy{padding-top:0}
+  .hero-copy p{font-size:17px}
+  .hero-copy .btns{flex-direction:column}
+  .hero-copy .btns .btn{justify-content:center}
+  .opt:first-child{border-radius:23px 23px 0 0}.opt:last-child{border-radius:0 0 23px 23px}
+  .proof{margin-top:28px}
+  .hero-vis{margin-left:0;padding-bottom:0}
+  .hv-main{aspect-ratio:4/4.3;border-radius:22px}
+  .hv-small{left:auto;right:14px;bottom:-26px;width:38%;border-width:5px}
+  .hv-card{left:14px;right:auto;top:auto;bottom:14px;max-width:62%;padding:12px 14px;gap:10px}
+  .hv-card .ic{width:36px;height:36px}
+  .hv-card b{font-size:13.5px}.hv-card span{font-size:12px}
+  .hv-tag{display:none}
+  .rings{display:none}
+  .feat{margin-top:46px;grid-template-columns:1fr 1fr}
+  .feat li{flex-direction:column;gap:12px;padding:20px 18px}
+  .feat span{font-size:13px}
+  .scan{padding-top:16px}
+  .scan-box,.con-box{border-radius:28px;padding:48px 22px 22px}
+  .con-box{padding-bottom:28px}
+  .scan-vis{height:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:12px;margin-top:6px}
+  .sv-a,.sv-b{position:relative;width:auto;height:auto}
+  .sv-a{aspect-ratio:3/4.2;border-radius:140px 140px 20px 20px}
+  .sv-b{aspect-ratio:3/4.2;align-self:end;border:0;border-radius:20px}
+  .sv-rings,.sv-note{display:none}
+  .stats b{font-size:40px}
+  .stats div+div{padding-left:14px}
+  .opt{padding:26px 22px}
+  .scan-foot{flex-direction:column;align-items:flex-start}
+  .step{grid-template-columns:56px 1fr;gap:16px}
+  .step .n{width:46px;height:46px;font-size:19px}
+  .steps::before{left:23px}
+  .step h3{font-size:26px}
+  .price-card{flex-direction:column;align-items:flex-start;padding:24px}
+  .price-card b{font-size:56px}
+  .voor-in{padding:28px 24px}
+  .voor-in h3{font-size:30px}
+  .bento{gap:12px}
+  .t-gel{min-height:600px}
+  .t-gel .body{padding:24px}
+  .t-wim{grid-template-columns:1fr}
+  .t-wim .ph{height:240px}
+  .t-wim .body,.t-nag .body,.t-wax .body{padding:22px}
+  .t-nag,.t-wax{grid-column:1/13}
+  .t-rug .body{padding:24px 22px}
+  .t-rug .plist{grid-template-columns:1fr;gap:0}
+  .t-rug .plist li{flex-direction:row;align-items:baseline;gap:16px;padding:12px 0}
+  .t-rug .plist li b{font-size:26px;min-width:58px}
+  .t-rug .plist li span{font-size:14.5px}
+  .beh-foot{flex-direction:column;align-items:flex-start}
+  .motto q{font-size:44px}
+  .ac{min-height:0}
+  .ac-a{min-height:520px;align-items:end}
+  .ac-a .ph::after{background:linear-gradient(180deg,rgba(33,27,24,.1) 20%,rgba(33,27,24,.88) 75%)}
+  .ac-body{padding:26px}
+  .ac-b .ac-body{padding:0 26px 26px}
+  .ac h3{font-size:44px}
+  .bon{flex-wrap:wrap;gap:14px;padding:16px}
+  .bon p{flex-basis:calc(100% - 120px)}
+  .bon .btn{width:100%;justify-content:center}
+  .mos{height:420px}
+  .mos .m1{width:76%;height:80%}
+  .mos .m3{display:none}
+  .mos{order:2;margin-top:8px}
+  .score{gap:20px}
+  .quotes p{font-size:19px}
+  .thuis-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .th-txt{grid-column:1/3}
+  .th1{grid-column:1/2;height:260px;grid-row:span 2}
+  .th2{grid-column:2/3;height:124px}.th3{grid-column:2/3;height:124px}
+  .th figcaption{display:none}
+  .form{padding:26px 20px}
+  .fr{grid-template-columns:1fr;gap:0}
+  .ftr .wrap{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-pijl" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-lens" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.2"/><path d="M12 1.5v2M12 20.5v2M1.5 12h2M20.5 12h2"/></symbol>
+  <symbol id="i-pad" viewBox="0 0 24 24"><circle cx="5" cy="18" r="2"/><circle cx="19" cy="6" r="2"/><path d="M7 18h6a3 3 0 0 0 0-6h-2a3 3 0 0 1 0-6h6"/></symbol>
+  <symbol id="i-blad" viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14"/><path d="M5 19l7-7"/></symbol>
+  <symbol id="i-cadeau" viewBox="0 0 24 24"><rect x="3.5" y="9" width="17" height="11.5" rx="2"/><path d="M2.5 9h19M12 9v11.5M12 9c-1.8-3.6-6.5-4.2-6.5-1.4C5.5 9 8.5 9 12 9zm0 0c1.8-3.6 6.5-4.2 6.5-1.4C18.5 9 15.5 9 12 9z"/></symbol>
+  <symbol id="i-fles" viewBox="0 0 24 24"><path d="M9.5 3h5v3.5l1.8 2.2c.5.6.7 1.3.7 2V19a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-8.3c0-.7.2-1.4.7-2L9.5 6.5z"/><path d="M7 13h10"/></symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M6.6 3.5h2.6l1.5 4.2-2 1.4a12 12 0 0 0 6.2 6.2l1.4-2 4.2 1.5v2.6a2 2 0 0 1-2.2 2A17 17 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M4 20l1.2-3.6A8.5 8.5 0 1 1 8 19z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .8c-1-.5-2-1.5-2.5-2.5l.8-1-1-2z"/></symbol>
+  <symbol id="i-klok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.2l2.7 2.7L16 9.5"/></symbol>
+  <symbol id="i-ster" viewBox="0 0 24 24"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5V4a1.5 1.5 0 0 1 3 0v6m0-4.5a1.5 1.5 0 0 1 3 0V12m0-3.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-1.5a6 6 0 0 1-4.8-2.4L4.3 15a1.6 1.6 0 0 1 2.4-2z"/></symbol>
+  <symbol id="i-euro" viewBox="0 0 24 24"><path d="M17.5 6.5A6.5 6.5 0 0 0 7 12a6.5 6.5 0 0 0 10.5 5.5M4.5 10h9M4.5 14h8"/></symbol>
+</svg>
+
+<header class="hdr" id="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Ciao Bella, naar boven"><img src="img/logo.webp" alt="Ciao Bella, skincare &amp; beauty" width="458" height="258"></a>
+    <nav class="nav" aria-label="Hoofdmenu">
+      <a href="#huidscan">Huidscan</a>
+      <a href="#huidtraject">Huidtraject</a>
+      <a href="#behandelingen">Behandelingen</a>
+      <a href="#arrangementen">Arrangementen</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-ink" href="https://ciao-bella.salonized.com/widget_bookings/new" target="_blank" rel="noopener">Afspraak maken <svg class="i"><use href="#i-pijl"/></svg></a>
+    <button class="burger" aria-label="Menu openen" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+<nav class="mnav" aria-label="Mobiel menu">
+  <a href="#huidscan">Huidscan <span>01</span></a>
+  <a href="#huidtraject">Huidtraject <span>02</span></a>
+  <a href="#behandelingen">Behandelingen <span>03</span></a>
+  <a href="#arrangementen">Arrangementen <span>04</span></a>
+  <a href="#contact">Contact <span>05</span></a>
+  <a class="btn btn-petal" href="https://ciao-bella.salonized.com/widget_bookings/new" target="_blank" rel="noopener">Afspraak maken</a>
+</nav>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <span class="kicker">Skincare &amp; beauty · enkel op afspraak</span>
+      <span class="hero-meta"><i></i>Dinsdag en donderdag tot 19u, ook op zaterdag</span>
+    </div>
+    <h1>Ciao, <em>bella.</em>
+      <svg class="seal" viewBox="0 0 128 128" aria-hidden="true"><g class="rot"><defs><path id="cirkel" d="M64 64m-50 0a50 50 0 1 1 100 0a50 50 0 1 1-100 0"/></defs><text><textPath href="#cirkel">eerst je huid · dan de verzorging ·</textPath></text></g><circle cx="64" cy="64" r="26" fill="#211B18"/><g transform="translate(52 52)" fill="none" stroke="#EDBFB9" stroke-width="1.4"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.2"/></g></svg>
+    </h1>
+    <div class="hero-grid">
+      <div class="hero-copy" data-r>
+        <p>Zo zeggen we hier goeiedag. Daarna kijken we eerst samen naar je huid, en pas dan beginnen we eraan. Zonder haast, en met tips die je thuis ook echt volhoudt.</p>
+        <div class="btns">
+          <a class="btn btn-ink" href="https://ciao-bella.salonized.com/widget_bookings/new" target="_blank" rel="noopener">Boek je afspraak <svg class="i"><use href="#i-pijl"/></svg></a>
+          <a class="btn btn-line" href="#huidscan">Wat is een huidscan?</a>
+        </div>
+        <div class="proof">
+          <b>5,0</b>
+          <div><div class="stars"><svg><use href="#i-ster"/></svg><svg><use href="#i-ster"/></svg><svg><use href="#i-ster"/></svg><svg><use href="#i-ster"/></svg><svg><use href="#i-ster"/></svg></div><small>25 beoordelingen na een afspraak<br>en 4,5 op Google</small></div>
+        </div>
+      </div>
+      <div class="hero-vis" data-r="2">
+        <svg class="rings" viewBox="0 0 440 440" aria-hidden="true" fill="none" stroke="currentColor"><circle cx="220" cy="220" r="219"/><circle cx="220" cy="220" r="176"/><circle cx="220" cy="220" r="133"/><circle cx="220" cy="220" r="90" stroke-dasharray="2 6"/></svg>
+        <figure class="hv-main finder"><img src="img/gelaat2.webp" alt="Gelaatsverzorging bij Ciao Bella" width="1600" height="1068" fetchpriority="high"></figure>
+        <figure class="hv-small"><img src="img/wimpers.webp" alt="Wimperlift met kleur, voor en na" width="1125" height="1106"></figure>
+        <div class="hv-card"><span class="ic"><svg class="i"><use href="#i-lens"/></svg></span><div><b>Huidscan in 20 seconden</b><span>Tien beelden van je huid, ook onder het oppervlak</span></div></div>
+        <div class="hv-tag"><svg class="i"><use href="#i-klok"/></svg>Enkel op afspraak</div>
+      </div>
+    </div>
+    <ul class="feat" data-r>
+      <li><a href="#huidscan"><span class="ic"><svg class="i"><use href="#i-lens"/></svg></span><div><b>Huidscan</b><span>Weten wat je huid nodig heeft, met beelden erbij</span></div></a></li>
+      <li><a href="#huidtraject"><span class="ic"><svg class="i"><use href="#i-pad"/></svg></span><div><b>Huidtraject</b><span>Drie maanden gericht werken aan je huid</span></div></a></li>
+      <li><a href="#arrangementen"><span class="ic"><svg class="i"><use href="#i-blad"/></svg></span><div><b>Arrangementen</b><span>Tot twee uur helemaal niets moeten</span></div></a></li>
+      <li><a href="#thuis"><span class="ic"><svg class="i"><use href="#i-fles"/></svg></span><div><b>Voor thuis</b><span>Body &amp; Bess, Heliocare en Helioux</span></div></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="scan" id="huidscan">
+  <div class="wrap">
+    <div class="scan-box">
+      <div class="scan-grid">
+        <div>
+          <span class="kicker l" data-r>01 · Huidscan met de RS LightSkin</span>
+          <h2 data-r>Wat de spiegel <em>niet</em> laat zien.</h2>
+          <p class="lead" data-r>De RS LightSkin fotografeert je huid met daglicht, gepolariseerd licht en UV. Na twintig seconden zie je in tien beelden wat er onder het oppervlak gebeurt. Zo weten we welke behandeling en welke producten bij jouw huid passen, welk merk je thuis ook gebruikt.</p>
+          <div class="stats" data-r>
+            <div><b>20<sup>sec</sup></b><span>voor de volledige scan</span></div>
+            <div><b>10</b><span>beelden van je huid</span></div>
+            <div><b>3</b><span>soorten licht</span></div>
+          </div>
+          <ul class="chips" data-r>
+            <li>Poriën</li><li>Fijne lijntjes</li><li>Pigment</li><li>Zonschade</li><li>Vocht</li><li>Huidtextuur</li><li>Huidbacterie</li><li>Gevoelige zones</li><li>Herstel</li><li>Huidleeftijd</li>
+          </ul>
+        </div>
+        <div class="scan-vis" data-r="2">
+          <svg class="sv-rings" viewBox="0 0 300 300" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="150" cy="150" r="149"/><circle cx="150" cy="150" r="112"/><circle cx="150" cy="150" r="75" stroke-dasharray="2 6"/><path d="M150 0v300M0 150h300" stroke-dasharray="1 7"/></svg>
+          <figure class="sv-a"><img src="img/scan.webp" alt="Klant aan de RS LightSkin huidscanner" width="900" height="1600" loading="lazy"></figure>
+          <figure class="sv-b finder"><img src="img/scan-scherm.webp" alt="Het scherm van de huidscanner toont de beelden van de huid" width="900" height="1600" loading="lazy"></figure>
+          <div class="sv-note"><b>Elk seizoen opnieuw</b>We bewaren je beelden en leggen ze naast elkaar. Zo zie je wat er beter gaat.</div>
+        </div>
+      </div>
+      <div class="opts" data-r>
+        <div class="opt">
+          <div class="opt-top"><small>45 min</small><b>€ 45</b></div>
+          <h3>Huidscan, nieuwe klant</h3>
+          <p>Je gaat naar huis met persoonlijke tips, een paar weetjes en een stappenplan voor thuis.</p>
+        </div>
+        <div class="opt hl">
+          <span class="pill">Vaste klant</span>
+          <div class="opt-top"><small>45 min</small><b>Gratis</b></div>
+          <h3>Huidscan, opvolging</h3>
+          <p>Om de vier à vijf maanden opnieuw: wat is al verbeterd, en wat vraagt nog aandacht?</p>
+        </div>
+        <div class="opt">
+          <div class="opt-top"><small>90 min</small><b>€ 95</b></div>
+          <h3>Meet &amp; Treat</h3>
+          <p>Eerst de scan, daarna meteen een verzorging op maat van wat we zagen. Ideaal als je hier nog nooit was.</p>
+        </div>
+      </div>
+      <div class="scan-foot"><span>De scan is voor iedereen zinvol, ook als je nu weinig of geen producten gebruikt.</span><a class="btn btn-petal" href="https://ciao-bella.salonized.com/widget_bookings/new" target="_blank" rel="noopener">Plan je huidscan <svg class="i"><use href="#i-pijl"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec traj" id="huidtraject">
+  <div class="wrap">
+    <div class="traj-grid">
+      <div>
+        <span class="kicker" data-r>02 · Huidtraject</span>
+        <h2 data-r>Drie maanden.<br>Eén <em>plan</em> voor je huid.</h2>
+        <p class="lead" data-r>Vanaf je dertigste vraagt je huid net dat tikkeltje meer. Een doffere teint, fijne lijntjes, pigmentvlekjes of dat trekkerige gevoel. Met een losse verzorging kom je dan niet ver. In dit traject werken we elke maand gericht naar iets toe.</p>
+        <div class="price-card" data-r>
+          <div><small>Volledig traject</small><b>€ 300<s>€ 378</s></b><span>voor drie maanden, alles inbegrepen</span></div>
+          <a class="btn btn-ink" href="#contact">Ik wil starten <svg class="i"><use href="#i-pijl"/></svg></a>
+        </div>
+      </div>
+      <ol class="steps">
+        <li class="step" data-r><span class="n">01</span><div><small>Bij de start</small><h3>Huidscan en eerlijk advies</h3><p>We kijken waar je huid nu staat en spreken af waar we samen naartoe werken. Rimpeltjes, stevigheid, pigment, glow of onzuiverheden.</p></div></li>
+        <li class="step" data-r><span class="n">02</span><div><small>Elke maand</small><h3>Een uur voor jou</h3><p>Een behandeling op maat van hoe je huid er die maand bij ligt. Even alle drukte loslaten, terwijl je huid een boost krijgt.</p></div></li>
+        <li class="step" data-r><span class="n">03</span><div><small>Thuis</small><h3>Reiniging, dagcrème en een goodiebag</h3><p>Afgestemd op jouw huidtype, met een stappenplan dat ook op een drukke ochtend lukt.</p></div></li>
+        <li class="step" data-r><span class="n">04</span><div><small>Tussendoor</small><h3>Vragen? Gewoon sturen.</h3><p>Je krijgt persoonlijke opvolging via WhatsApp of mail. Het advies groeit mee met je huid.</p></div></li>
+      </ol>
+    </div>
+    <div class="voor" data-r>
+      <figure><img src="img/spiegel.webp" alt="Klant die na de verzorging in de spiegel kijkt" width="1600" height="1066" loading="lazy"></figure>
+      <div class="voor-in">
+        <h3>Herken je jezelf hierin?</h3>
+        <ul>
+          <li><svg class="i"><use href="#i-check"/></svg>Je huid ziet er de laatste maanden anders uit, of voelt anders aan.</li>
+          <li><svg class="i"><use href="#i-check"/></svg>Je routine voor thuis is er wat bij ingeschoten.</li>
+          <li><svg class="i"><use href="#i-check"/></svg>Je denkt al een tijdje: mijn huid heeft meer nodig dan wat ik nu doe.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec beh" id="behandelingen">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="kicker" data-r>03 · Behandelingen &amp; prijzen</span><h2 data-r>Waarvoor kom je <em>langs?</em></h2></div>
+      <p class="lead" data-r>Alles gebeurt op afspraak en in alle rust. Twijfel je wat bij je past? Stuur een berichtje, dan zoeken we het samen uit.</p>
+    </div>
+    <div class="bento">
+      <article class="tile t-gel" data-r>
+        <div class="ph"><img src="img/gelaat.webp" alt="Ontspannende gelaatsverzorging" width="1067" height="1600" loading="lazy"></div>
+        <span class="tag"><svg class="i"><use href="#i-lens"/></svg>Start bij voorkeur met een huidscan</span>
+        <div class="body">
+          <div class="t-hd"><h3>Gelaatsverzorging</h3><span class="num">01</span></div>
+          <p>Een verzorging die we afstemmen op wat je huid op dat moment vraagt. Je kiest gewoon hoe lang je wil blijven liggen.</p>
+          <ul class="plist">
+            <li><span>Verzorging op maat</span><small>1 uur</small><b>€ 85</b></li>
+            <li><span>Verzorging op maat</span><small>1u30</small><b>€ 125</b></li>
+            <li><span>Verzorging op maat</span><small>2 uur</small><b>€ 160</b></li>
+            <li><span>Jeugdverzorging, tot 18 jaar</span><small></small><b>€ 55</b></li>
+          </ul>
+        </div>
+      </article>
+      <article class="tile t-wim" data-r="2">
+        <div class="ph"><img src="img/wimpers.webp" alt="Wimperlift voor en na" width="1125" height="1106" loading="lazy"></div>
+        <div class="body">
+          <div class="t-hd"><h3>Wimpers &amp; brows</h3><span class="num">02</span></div>
+          <ul class="plist">
+            <li><span>Wimperlift met kleur</span><small>60 min</small><b>€ 70</b></li>
+            <li><span>Henna brows</span><small>35 min</small><b>€ 40</b></li>
+          </ul>
+          <p class="note">Een lift blijft zes à acht weken mooi. Je wordt wakker met een open blik, alsof je al mascara draagt.</p>
+        </div>
+      </article>
+      <article class="tile t-nag" data-r>
+        <div class="ph"><img src="img/nagels.webp" alt="Nagels vijlen tijdens een manicure" width="730" height="730" loading="lazy"></div>
+        <div class="body">
+          <div class="t-hd"><h3>Handen &amp; nagels</h3><span class="num">03</span></div>
+          <ul class="plist">
+            <li><span>Manicure</span><b>€ 30</b></li>
+            <li><span>Spa-manicure</span><b>€ 50</b></li>
+            <li><span>BIAB</span><b>€ 58</b></li>
+            <li><span>BIAB van ander salon</span><b>€ 68</b></li>
+          </ul>
+        </div>
+      </article>
+      <article class="tile t-wax" data-r="2">
+        <div class="circ"><img src="img/wax.webp" alt="Wenkbrauwen in vorm met wax" width="1024" height="684" loading="lazy"></div>
+        <div class="body">
+          <div class="t-hd"><h3>Ontharing</h3><span class="num" style="color:var(--petal2)">04</span></div>
+          <ul class="plist">
+            <li><span>Wenkbrauwen</span><b>€ 15</b></li>
+            <li><span>Oksels</span><b>€ 25</b></li>
+            <li><span>Onderbenen + knie</span><b>€ 30</b></li>
+            <li><span>Volledige benen</span><b>€ 40</b></li>
+          </ul>
+        </div>
+      </article>
+      <article class="tile t-rug" data-r>
+        <div class="ph"><img src="img/scrub.webp" alt="Scrub en pakking van de rug" width="700" height="424" loading="lazy"></div>
+        <div class="body">
+          <div class="t-hd" style="display:block"><span class="num">05</span><h3 style="margin-top:6px">Rug &amp; massage</h3></div>
+          <ul class="plist">
+            <li><b>€ 65</b><span>Rugpakking met scrub en massage, 60 min</span></li>
+            <li><b>€ 40</b><span>Nek, schouders en rug, 30 min</span></li>
+            <li><b>€ 70</b><span>Ontspanningsmassage, heel het lichaam</span></li>
+          </ul>
+        </div>
+      </article>
+    </div>
+    <div class="beh-foot"><span>Ook bovenlip en kin waxen we. Vraag gerust naar de prijs.</span><a href="https://ciao-bella.salonized.com/widget_bookings/new" target="_blank" rel="noopener">Bekijk de vrije momenten</a></div>
+  </div>
+</section>
+
+<section class="sec arr" id="arrangementen">
+  <div class="wrap">
+    <div class="motto" data-r>
+      <span class="kicker">04 · Arrangementen</span>
+      <q style="margin-top:22px">Self care is a priority,<br><em>not a luxury.</em></q>
+      <small>Het motto van het salon</small>
+    </div>
+    <div class="arr-grid">
+      <article class="ac ac-a" data-r>
+        <div class="ph"><img src="img/behandeling.webp" alt="Verzorging onder het licht van de ringlamp" width="1066" height="1600" loading="lazy" style="object-position:50% 35%"></div>
+        <div class="ac-body">
+          <div class="ac-meta"><span>120 min</span><span>Handen, rug en gelaat</span></div>
+          <div>
+            <h3>Total Zen</h3>
+            <p>Je handen krijgen een scrub, een masker en een warm paraffinebad. Daarna je rug: scrub, pakking en massage. En we sluiten af met een gelaatsverzorging op maat. Twee uur waarin je nergens naartoe moet.</p>
+          </div>
+          <div class="price"><b>€ 145</b><a href="https://ciao-bella.salonized.com/widget_bookings/new" target="_blank" rel="noopener" aria-label="Total Zen boeken"><svg class="i"><use href="#i-pijl"/></svg></a></div>
+        </div>
+      </article>
+      <article class="ac ac-b" data-r="2">
+        <div class="ph"><img src="img/verzorging.webp" alt="Ontspannen tijdens een gelaatsverzorging" width="1600" height="1051" loading="lazy" style="object-position:50% 30%"></div>
+        <div class="ac-body">
+          <div class="ac-meta"><span>90 min</span><span>Handen en gelaat</span></div>
+          <div>
+            <h3>Me-Time</h3>
+            <p>Scrub en masker voor je handen in een warm paraffinebad. Daarna lig je verder te genieten terwijl je huid een boost krijgt.</p>
+          </div>
+          <div class="price"><b>€ 110</b><a href="https://ciao-bella.salonized.com/widget_bookings/new" target="_blank" rel="noopener" aria-label="Me-Time boeken"><svg class="i"><use href="#i-pijl"/></svg></a></div>
+        </div>
+      </article>
+    </div>
+    <div class="bon" data-r>
+      <figure><img src="img/cadeaubon.webp" alt="Cadeaubon van Ciao Bella" width="1512" height="1600" loading="lazy"></figure>
+      <p><b>Iemand die het al te lang uitstelt?</b> Geef een digitale cadeaubon, van € 15 tot € 250.</p>
+      <a class="btn btn-ink" href="https://www.beauty-ciaobella.be/gift-card" target="_blank" rel="noopener">Cadeaubon kopen <svg class="i"><use href="#i-cadeau"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec rev" id="reviews">
+  <div class="wrap">
+    <div class="rev-grid">
+      <div class="mos" data-r>
+        <figure class="m1"><img src="img/salon.webp" alt="Het salon van Ciao Bella met het logo op de muur" width="1125" height="1295" loading="lazy"></figure>
+        <figure class="m2"><img src="img/gevel.webp" alt="De gevel van Ciao Bella in de Knokkestraat" width="1125" height="1500" loading="lazy" style="object-position:50% 60%"></figure>
+        <a class="m3" href="https://www.google.com/maps/dir/?api=1&amp;destination=Knokkestraat+2+9160+Lokeren" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg><span>Knokkestraat 2, Lokeren<br>Route plannen</span></a>
+      </div>
+      <div>
+        <span class="kicker" data-r>Wat klanten zeggen</span>
+        <h2 data-r>“Altijd thuiskomen <em>bij Lien.</em>”</h2>
+        <div class="score" data-r>
+          <div><b>5,0</b><small><span class="stars"><svg><use href="#i-ster"/></svg><svg><use href="#i-ster"/></svg><svg><use href="#i-ster"/></svg><svg><use href="#i-ster"/></svg><svg><use href="#i-ster"/></svg></span>25 beoordelingen na een afspraak</small></div>
+          <div><b>4,5</b><small><span class="stars"><svg><use href="#i-ster"/></svg><svg><use href="#i-ster"/></svg><svg><use href="#i-ster"/></svg><svg><use href="#i-ster"/></svg><svg><use href="#i-ster"/></svg></span>op Google</small></div>
+        </div>
+        <ul class="quotes">
+          <li data-r><span class="av">E</span><div><p>Super ontspannend, Lien neemt echt haar tijd voor elke klant.</p><cite>Elena</cite></div></li>
+          <li data-r><span class="av">K</span><div><p>Heel ontspannende verzorging, met aangename aanpak. Ik heb vertrouwen in het advies en de gebruikte producten. Heeft enorm deugd gedaan, precies wat ik nodig had!</p><cite>Kimberly</cite></div></li>
+          <li data-r><span class="av">C</span><div><p>Heel sympathieke dame, heel rustig, je voelt je meteen op je gemak. Prachtig resultaat! Ik heb m’n adresje gevonden!</p><cite>Cindy</cite></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="thuis">
+  <div class="wrap">
+    <div class="thuis-grid">
+      <div class="th-txt">
+        <span class="kicker" data-r>Voor thuis</span>
+        <h2 data-r>Wat je huid hier krijgt, neem je <em>mee.</em></h2>
+        <p class="lead" data-r>De producten die we in het salon gebruiken, vind je ook in onze webshop. Na je huidscan weet je meteen welke bij jou passen.</p>
+        <div class="brands" data-r><span>Body &amp; Bess</span><span>Heliocare</span><span>Helioux</span></div>
+        <a class="link" href="https://www.beauty-ciaobella.be/shop" target="_blank" rel="noopener" data-r>Naar de webshop <svg class="i"><use href="#i-pijl"/></svg></a>
+      </div>
+      <figure class="th th1" data-r><img src="img/serum.webp" alt="Serum op de hand" width="1600" height="1599" loading="lazy"><figcaption>Gelaat</figcaption></figure>
+      <figure class="th th2" data-r="2"><img src="img/oogpads.webp" alt="Oogpads in een doosje" width="1600" height="1600" loading="lazy"><figcaption>Oogpads</figcaption></figure>
+      <figure class="th th3" data-r="3"><img src="img/helioux2.webp" alt="Helioux zelfbruinende druppels" width="1102" height="1102" loading="lazy"><figcaption>Helioux</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="con" id="contact">
+  <div class="wrap">
+    <div class="con-box">
+      <div class="con-grid">
+        <div>
+          <span class="kicker l" data-r>05 · Afspraak &amp; contact</span>
+          <h2 data-r>Zeg maar <em>wanneer.</em></h2>
+          <p class="lead" data-r>Boek online wanneer het jou past, of stuur een berichtje. We werken enkel op afspraak, zo heb jij het salon voor jezelf.</p>
+          <div class="clist" data-r>
+            <a href="tel:+32488247978"><span class="ic"><svg class="i"><use href="#i-tel"/></svg></span><span><small>Bellen</small><b>0488 24 79 78</b></span></a>
+            <a href="https://wa.me/32488247978" target="_blank" rel="noopener"><span class="ic"><svg class="i"><use href="#i-wa"/></svg></span><span><small>WhatsApp</small><b>Stuur een berichtje</b></span></a>
+            <a href="mailto:beauty-ciaobella@hotmail.com" style="grid-column:1/-1"><span class="ic"><svg class="i"><use href="#i-mail"/></svg></span><span><small>Mail</small><b>beauty-ciaobella@hotmail.com</b></span></a>
+            <a href="https://www.instagram.com/ciao_bella_lokeren/" target="_blank" rel="noopener"><span class="ic"><svg class="i"><use href="#i-insta"/></svg></span><span><small>Instagram</small><b>@ciao_bella_lokeren</b></span></a>
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Knokkestraat+2+9160+Lokeren" target="_blank" rel="noopener" style="grid-column:1/-1"><span class="ic"><svg class="i"><use href="#i-pin"/></svg></span><span><small>Adres · route plannen</small><b>Knokkestraat 2, 9160 Lokeren</b></span></a>
+          </div>
+          <ul class="hours" data-r aria-label="Openingsuren">
+            <li data-d="1" class="dicht"><span>Maandag</span><span>Gesloten</span></li>
+            <li data-d="2"><span>Dinsdag</span><span>9u tot 19u</span></li>
+            <li data-d="3"><span>Woensdag</span><span>9u tot 18u</span></li>
+            <li data-d="4"><span>Donderdag</span><span>9u tot 19u</span></li>
+            <li data-d="5"><span>Vrijdag</span><span>9u tot 18u</span></li>
+            <li data-d="6"><span>Zaterdag</span><span>9u tot 18u</span></li>
+            <li data-d="0" class="dicht"><span>Zon- en feestdagen</span><span>Gesloten</span></li>
+          </ul>
+          <p class="small-note" data-r><svg class="i"><use href="#i-euro"/></svg><span>Betalen kan cash of met je bankapp via QR-code. Lukt je afspraak niet? Bel ons minstens drie dagen op voorhand.</span></p>
+        </div>
+        <form class="form" id="form" data-r="2" action="mailto:beauty-ciaobella@hotmail.com" method="post" enctype="text/plain">
+          <h3>Stuur ons een berichtje</h3>
+          <p>We laten je zo snel mogelijk iets weten, met een voorstel van moment.</p>
+          <div class="fr">
+            <label class="fld"><span>Naam</span><input name="naam" required autocomplete="name"></label>
+            <label class="fld"><span>Gsm</span><input name="gsm" type="tel" autocomplete="tel"></label>
+          </div>
+          <label class="fld"><span>Waarvoor wil je komen?</span>
+            <select name="behandeling">
+              <option>Huidscan</option><option>Meet &amp; Treat</option><option>Huidtraject</option><option>Gelaatsverzorging</option><option>Wimpers of brows</option><option>Handen en nagels</option><option>Ontharing</option><option>Rug of massage</option><option>Arrangement</option><option>Cadeaubon</option>
+            </select></label>
+          <label class="fld"><span>Bericht</span><textarea name="bericht" placeholder="Bijvoorbeeld: liefst op een zaterdagvoormiddag"></textarea></label>
+          <button class="btn btn-ink" type="submit">Verstuur <svg class="i"><use href="#i-pijl"/></svg></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <img src="img/logo.webp" alt="Ciao Bella" width="458" height="258" loading="lazy">
+    <nav aria-label="Footer"><a href="#huidscan">Huidscan</a><a href="#behandelingen">Prijzen</a><a href="https://www.beauty-ciaobella.be/shop" target="_blank" rel="noopener">Webshop</a><a href="https://www.facebook.com/Beauty-Studio-Ciao-Bella-1339503269491687/" target="_blank" rel="noopener">Facebook</a><a href="https://www.instagram.com/ciao_bella_lokeren/" target="_blank" rel="noopener">Instagram</a></nav>
+    <small>Ciao Bella · Knokkestraat 2, 9160 Lokeren · Voorbeeldsite door Digital Impression</small>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var d=document.documentElement;d.classList.add('js');
+  var h=document.querySelector('.hdr');
+  function sc(){h.classList.toggle('sc',window.scrollY>40)}sc();window.addEventListener('scroll',sc,{passive:true});
+  var b=document.querySelector('.burger');
+  function zet(o){document.body.classList.toggle('open',o);b.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''}
+  b.addEventListener('click',function(){zet(!document.body.classList.contains('open'))});
+  document.querySelectorAll('.mnav a').forEach(function(a){a.addEventListener('click',function(){zet(false)})});
+  var els=document.querySelectorAll('[data-r]');
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e)})}else{els.forEach(function(e){e.classList.add('in')})}
+  var dag=new Date().getDay();var li=document.querySelector('.hours li[data-d="'+dag+'"]');if(li&&!li.classList.contains('dicht'))li.classList.add('nu');
+  var f=document.getElementById('form');
+  f.addEventListener('submit',function(e){e.preventDefault();var x=f.elements;
+    var body='Naam: '+x.naam.value+'\nGsm: '+x.gsm.value+'\nBehandeling: '+x.behandeling.value+'\n\n'+x.bericht.value;
+    location.href='mailto:beauty-ciaobella@hotmail.com?subject='+encodeURIComponent('Afspraak: '+x.behandeling.value)+'&body='+encodeURIComponent(body)});
+})();
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
+<style>
+.di,.di *{box-sizing:border-box;margin:0;padding:0;border:0;background:none;box-shadow:none;text-shadow:none;text-transform:none;letter-spacing:normal;float:none;max-width:none;min-height:0;font:inherit;color:inherit;text-decoration:none;opacity:1;transform:none;filter:none;list-style:none}
+.di :is(h2,h3,h4,p,ul,ol,li,details,summary,b,strong,em,small,span,div)::before,.di :is(h2,h3,h4,p,ul,ol,li,details,summary,b,strong,em,small,span,div)::after{content:none!important}
+.di summary::marker{content:""}
+.di{--navy:#0E1C3A;--deep:#0A1530;--goud:#C9A24A;--goud2:#D8BB6A;--bleek:#E8D9A8;--beige:#F1EBDF;--creme:#FBF8F2;
+  --zacht:rgba(241,235,223,.74);--stil:rgba(241,235,223,.5);--lijn:rgba(241,235,223,.12);--ease:cubic-bezier(.16,1,.3,1);
+  position:relative;overflow:clip;background:var(--navy);color:var(--beige);padding:clamp(88px,11vw,136px) 0 56px;
+  font:400 17px/1.65 'Inter',system-ui,sans-serif;text-align:left;-webkit-font-smoothing:antialiased}
+.di::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(760px 480px at 50% -10%,rgba(201,162,74,.14),transparent 66%)}
+.di::after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,162,74,.7) 30%,rgba(232,217,168,.9) 50%,rgba(201,162,74,.7) 70%,transparent)}
+.di .di-wrap{position:relative;max-width:980px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+.di h2,.di h3,.di h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:-.01em;text-transform:none;font-style:normal;color:var(--creme)}
+.di a{color:inherit}
+.di svg{flex:none}
+
+/* boodschap */
+.di .di-kern{text-align:center;max-width:760px;margin:0 auto}
+.di .di-afz{display:inline-flex;align-items:center;gap:12px;margin-bottom:28px;color:var(--goud2);font-size:15px;font-weight:500}
+.di .di-afz i{width:32px;height:32px;border-radius:9px;border:1px solid rgba(201,162,74,.45);display:grid;place-items:center;font:600 15px/1 'Cormorant Garamond',serif;font-style:normal;color:var(--goud);letter-spacing:-.5px}
+.di h2{line-height:1}
+.di .di-voor{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:20px;font:italic 500 clamp(24px,2.5vw,31px)/1.2 'Cormorant Garamond',Georgia,serif;color:var(--goud2);letter-spacing:.005em}
+.di .di-kern .di-voor::before,.di .di-kern .di-voor::after{content:""!important;flex:none;width:clamp(28px,5vw,60px);height:1px;background:linear-gradient(90deg,transparent,var(--goud))}
+.di .di-kern .di-voor::after{background:linear-gradient(270deg,transparent,var(--goud))}
+.di .di-samen{display:block;font:500 clamp(46px,6.2vw,80px)/1.02 'Cormorant Garamond',Georgia,serif;letter-spacing:-.015em;text-wrap:balance;
+  color:var(--creme);background:linear-gradient(180deg,#FBF8F2 35%,#E8D9A8 135%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;padding-bottom:.06em}
+.di .di-lead{text-wrap:pretty;color:var(--zacht);font-size:clamp(17px,1.5vw,19px);margin:24px auto 0;max-width:33em}
+.di .di-knoppen{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:36px}
+.di .di-knoppen a{position:relative;overflow:hidden;display:inline-flex;justify-content:center;align-items:center;gap:10px;border-radius:999px;padding:18px 30px;
+  font:600 17px/1.2 'Inter',sans-serif;text-decoration:none;isolation:isolate;white-space:nowrap;transition:color .5s var(--ease),border-color .5s var(--ease)}
+.di .di-knoppen a svg{width:19px;height:19px}
+.di .di-knoppen a::before{content:"";position:absolute;inset:0;z-index:-1;transform:translateY(101%);transition:transform .55s var(--ease)}
+.di .di-knoppen a:hover::before{transform:translateY(0)}
+.di .di-knoppen .di-cal{background:var(--goud);color:var(--deep);box-shadow:0 18px 44px -18px rgba(201,162,74,.8)}
+.di .di-knoppen .di-cal::before{background:var(--bleek)}
+.di .di-knoppen .di-wa{border:1px solid rgba(241,235,223,.3);color:var(--creme)}
+.di .di-knoppen .di-wa::before{background:var(--creme)}
+.di .di-knoppen .di-wa:hover{color:var(--navy);border-color:var(--creme)}
+.di .di-klein{margin-top:18px;font-size:14.5px;color:var(--stil)}
+
+.di .di-blok{margin-top:clamp(88px,11vw,128px)}
+.di .di-blok>h3{font-size:clamp(30px,3.4vw,40px);line-height:1.05;text-align:center;margin-bottom:44px}
+
+/* prijs */
+.di .di-prijs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);border:1px solid var(--lijn);border-radius:28px;overflow:hidden}
+.di .di-prijs>div{padding:clamp(28px,3.6vw,40px)}
+.di .di-prijs>div+div{border-left:1px solid var(--lijn);background:rgba(241,235,223,.025)}
+.di .di-wat{font-size:15px;font-weight:500;color:var(--goud2)}
+.di .di-getal{font:500 clamp(60px,6.4vw,76px)/1 'Cormorant Garamond',serif;font-variant-numeric:lining-nums;color:var(--creme);margin-top:8px;letter-spacing:-.02em}
+.di .di-getal small{font:500 16px/1 'Inter',sans-serif;color:var(--stil);letter-spacing:0;margin-left:8px}
+.di .di-prijs p{color:var(--zacht);font-size:15.5px;margin-top:14px;max-width:24em}
+.di .di-prijs p b{color:var(--creme);font-weight:500}
+.di .di-opties{margin-top:22px;list-style:none}
+.di .di-opties li{display:grid;grid-template-columns:1fr auto;gap:4px 20px;padding:16px 0;border-top:1px solid var(--lijn)}
+.di .di-opties li:last-child{padding-bottom:0}
+.di .di-opties b{font:500 23px/1.2 'Cormorant Garamond',serif;color:var(--creme);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.di .di-opties b em{font:600 12px/1 'Inter',sans-serif;font-style:normal;color:var(--deep);background:var(--goud);border-radius:999px;padding:4px 10px}
+.di .di-opties .di-pp{font:500 24px/1.2 'Cormorant Garamond',serif;font-variant-numeric:lining-nums;color:var(--creme);text-align:right;white-space:nowrap}
+.di .di-opties .di-pp small{font:500 13.5px/1 'Inter',sans-serif;color:var(--stil);margin-left:4px}
+.di .di-opties .di-ot{grid-column:1/-1;color:var(--zacht);font-size:15px}
+
+/* faq */
+.di .di-faq{max-width:760px;margin:0 auto;border-top:1px solid var(--lijn)}
+.di .di-faq details{border-bottom:1px solid var(--lijn)}
+.di .di-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 2px;
+  font:500 22px/1.25 'Cormorant Garamond',serif;color:var(--creme);transition:color .3s}
+.di .di-faq summary::-webkit-details-marker{display:none}
+.di .di-faq summary:hover{color:var(--goud2)}
+.di .di-faq summary i{flex:none;position:relative;width:30px;height:30px;border-radius:50%;border:1px solid rgba(201,162,74,.5);transition:transform .45s var(--ease),background .3s}
+.di .di-faq summary i::before,.di .di-faq summary i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:var(--goud);transform:translate(-50%,-50%)}
+.di .di-faq summary i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .45s var(--ease)}
+.di .di-faq details[open] summary i{transform:rotate(180deg);background:rgba(201,162,74,.12)}
+.di .di-faq details[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+.di .di-faq .di-antw{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.di .di-faq details[open] .di-antw{grid-template-rows:1fr}
+.di .di-faq .di-antw>div{overflow:hidden}
+.di .di-faq .di-antw p{color:var(--zacht);font-size:16px;padding:0 50px 22px 2px;max-width:38em}
+
+.di .di-faq details,.di .di-faq details[open]{background:none;border-radius:0;box-shadow:none;margin:0;padding:0;border:0;border-bottom:1px solid var(--lijn);display:block}
+.di .di-faq details[open] summary,.di .di-faq summary:hover{background:none;box-shadow:none}
+
+/* afsluiter */
+.di .di-slot{margin-top:clamp(72px,9vw,104px);padding-top:36px;border-top:1px solid var(--lijn);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.di .di-wie{display:flex;align-items:center;gap:16px}
+.di .di-foto{flex:none;display:block;width:60px;height:60px;border-radius:50%;object-fit:cover;object-position:50% 40%;background:#0A1530;box-shadow:0 0 0 1px rgba(201,162,74,.6),0 0 0 4px #0E1C3A,0 0 0 5px rgba(201,162,74,.22)}
+.di .di-wie b{display:block;font:italic 500 26px/1.1 'Cormorant Garamond',serif;color:var(--creme)}
+.di .di-wie .di-lijn{font-size:14.5px;color:var(--stil)}
+.di .di-wie .di-lijn a{text-decoration:none}
+.di .di-wie .di-lijn a:hover{color:var(--creme)}
+.di .di-slot .di-knoppen{margin:0}
+.di .di-slot .di-knoppen a{padding:14px 24px;font-size:15.5px}
+.di :focus-visible{outline:2px solid var(--goud);outline-offset:4px;border-radius:12px}
+
+/* één rustige beweging */
+.di.di-js [data-in]{opacity:0;transform:translateY(16px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0) * 110ms)}
+.di.di-js [data-in].di-zien{opacity:1;transform:none}
+
+@media (max-width:820px){
+  .di .di-prijs{grid-template-columns:1fr}
+  .di .di-prijs>div+div{border-left:0;border-top:1px solid var(--lijn)}
+}
+@media (max-width:720px){
+  .di .di-faq summary{font-size:20px;padding:18px 2px}
+  .di .di-faq .di-antw p{padding-right:10px;font-size:15.5px}
+  .di{font-size:16.5px;padding-bottom:44px}
+  .di .di-voor{font-size:21px;gap:12px;margin-bottom:14px}
+  .di .di-kern .di-voor::before,.di .di-kern .di-voor::after{width:24px}
+  .di .di-samen{font-size:clamp(36px,10vw,46px)}
+  .di .di-lead{font-size:16.5px}
+  .di .di-knoppen{flex-direction:column;margin-top:30px}
+  .di .di-knoppen a{width:100%;padding:17px 18px;font-size:16px}
+  .di .di-blok>h3{margin-bottom:32px}
+  .di .di-prijs{border-radius:24px}
+  .di .di-prijs>div{padding:26px 22px}
+  .di .di-slot{flex-direction:column;align-items:stretch}
+  .di .di-slot .di-knoppen a{width:100%}
+}
+@media (prefers-reduced-motion:reduce){.di.di-js [data-in]{transition:none!important;opacity:1!important;transform:none!important}.di .di-knoppen a,.di .di-knoppen a::before,.di .di-faq summary i,.di .di-faq summary i::after,.di .di-faq .di-antw{transition:none}}
+
+/* kaartje halverwege */
+.di-tip,.di-tip *{box-sizing:border-box;margin:0;padding:0;border:0;background:none;box-shadow:none;text-shadow:none;text-transform:none;letter-spacing:normal;float:none;max-width:none;font:inherit;color:inherit;text-decoration:none;list-style:none}
+.di-tip{--navy:#0E1C3A;--goud:#C9A24A;--goud2:#D8BB6A;--creme:#FBF8F2;--zacht:rgba(241,235,223,.76);--ease:cubic-bezier(.16,1,.3,1);
+  position:fixed;left:20px;bottom:20px;z-index:2147483000;width:340px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+  padding:18px 18px 18px 18px;border-radius:20px;background:var(--navy);color:var(--creme);font:400 15px/1.5 'Inter',system-ui,sans-serif;text-align:left;
+  box-shadow:0 0 0 1px rgba(201,162,74,.4),0 24px 60px -18px rgba(0,0,0,.55);opacity:0;transform:translateY(24px) scale(.98);pointer-events:none;
+  transition:opacity .6s var(--ease),transform .6s var(--ease);-webkit-font-smoothing:antialiased}
+.di-tip.di-tip-aan{opacity:1;transform:none;pointer-events:auto}
+.di-tip .di-tip-s{display:block;width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:50% 40%;background:#0A1530;box-shadow:0 0 0 1px rgba(201,162,74,.6)}
+.di-tip .di-tip-t{font:italic 500 20px/1.2 'Cormorant Garamond',Georgia,serif;color:var(--goud2);padding-right:22px}
+.di-tip .di-tip-p{color:var(--zacht);margin-top:4px;font-size:14.5px}
+.di-tip .di-tip-k{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:10px 18px;border-radius:999px;background:var(--goud);color:#0A1530;font:600 14.5px/1.2 'Inter',sans-serif;cursor:pointer;transition:background .3s}
+.di-tip .di-tip-k:hover{background:#E8D9A8}
+.di-tip .di-tip-k svg{width:16px;height:16px}
+.di-tip .di-tip-x{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:var(--zacht);cursor:pointer;transition:background .3s,color .3s}
+.di-tip .di-tip-x:hover{background:rgba(241,235,223,.08);color:var(--creme)}
+.di-tip .di-tip-x svg{width:14px;height:14px}
+.di-tip :focus-visible{outline:2px solid var(--goud);outline-offset:3px}
+.di-tip :is(p,div,span,a,button)::before,.di-tip :is(p,div,span,a,button)::after{content:none!important}
+@media (max-width:560px){.di-tip{left:12px;right:12px;width:auto;bottom:12px;padding:14px 14px 14px 14px;gap:12px}.di-tip .di-tip-s{width:34px;height:34px;font-size:17px}.di-tip .di-tip-t{font-size:18px}.di-tip .di-tip-p{font-size:14px}}
+@media (prefers-reduced-motion:reduce){.di-tip{transition:none}}
+</style>
+<section aria-labelledby="di-titel" class="di" id="di">
+<div class="di-wrap">
+
+<div class="di-kern">
+<h2 id="di-titel" data-in style="--d:1"><span class="di-voor">Dit is slechts een voorbeeld.</span><span class="di-samen">Samen maken we er jullie nieuwe site van.</span></h2>
+<p class="di-lead" data-in style="--d:2">Ik maakte deze demo voor jullie om te tonen wat er kan. Na een kort gesprek maak ik er iets veel persoonlijkers van, helemaal naar jullie wens.</p>
+<div class="di-knoppen" data-in style="--d:3">
+<a class="di-cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Ciao%20Bella" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Plan een gesprek van 30 min</a>
+<a class="di-wa" href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20Ciao%20Bella" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z"/></svg>Stuur een WhatsApp</a>
+</div>
+<p class="di-klein" data-in style="--d:4">Vrijblijvend. Ik kom langs of we bellen.</p>
+</div>
+
+
+<div class="di-blok">
+<h3 data-in>Wat kost het?</h3>
+<div class="di-prijs" data-in style="--d:1">
+<div>
+<span class="di-wat">De website</span>
+<div class="di-getal">€ 499<small>eenmalig</small></div>
+<p>Op maat, op jullie eigen domein.<br><b>Geen voorschot.</b> Jullie betalen pas als alles klaar is.</p>
+</div>
+<div>
+<span class="di-wat">Daarna het onderhoud</span>
+<p style="margin-top:8px">Hosting, domeinnaam en kleine wijzigingen, zoals nieuwe openingsuren.</p>
+<ul class="di-opties">
+<li><b>Zorgeloos <em>mijn aanrader</em></b><span class="di-pp">€ 19,99<small>/ maand</small></span><span class="di-ot">Alles inbegrepen. Wijzigen kan met een berichtje.</span></li>
+<li><b>Zelf beheren</b><span class="di-pp">€ 0<small>/ maand</small></span><span class="di-ot">Alles op jullie naam. Wijzigingen per keer.</span></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="di-blok">
+<h3 data-in>Goed om te weten</h3>
+<div class="di-faq" data-in style="--d:1">
+<details><summary>Waarom deze demo, zonder dat we iets vroegen?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Omdat een voorbeeld meer zegt dan een mail. Zo zien jullie meteen wat er kan, en het kost jullie niets.</p></div></div></details>
+<details><summary>Zitten we ergens aan vast?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Nee. Het gesprek is vrijblijvend. Vinden jullie het niks, dan is het daarmee gedaan.</p></div></div></details>
+<details><summary>Hoe lang duurt het?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Na ons gesprek staat jullie site binnen 10 tot 14 dagen online.</p></div></div></details>
+<details><summary>We hebben al een website. Kan dat ook?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Zeker. Jullie domeinnaam kan gewoon blijven, de nieuwe site komt in de plaats van de oude.</p></div></div></details>
+<details><summary>Moeten we zelf teksten schrijven?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Nee, dat doe ik op basis van ons gesprek. Eigen foto's zijn mooi meegenomen, maar niet nodig om te starten.</p></div></div></details>
+</div>
+</div>
+
+<div class="di-slot" data-in>
+<div class="di-wie"><img class="di-foto" src="https://digital-impression.be/assets/img/stijn-2.webp" alt="Stijn Vranken" width="60" height="60" loading="lazy" decoding="async"><div><b>Stijn Vranken</b><span class="di-lijn">Digital Impression, <a href="tel:+32496251445">0496 25 14 45</a></span></div></div>
+<div class="di-knoppen"><a class="di-cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Ciao%20Bella" target="_blank" rel="noopener">Plan een gesprek</a></div>
+</div>
+
+</div>
+</section>
+<script>/*di-v13*/(function(){var d=document.getElementById('di');if(!d||!('IntersectionObserver' in window))return;
+var stil=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!stil){d.classList.add('di-js');var io=new IntersectionObserver(function(x){x.forEach(function(e){if(e.isIntersecting){e.target.classList.add('di-zien');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+[].forEach.call(d.querySelectorAll('[data-in]'),function(e){io.observe(e)})}
+var vast=[];function zoek(){vast=[].filter.call(document.body.querySelectorAll('*'),function(e){if(d.contains(e)||e.closest('.di-strook,.demo'))return false;var p=getComputedStyle(e).position;return p==='fixed'||p==='sticky'})}
+new IntersectionObserver(function(x){if(!vast.length)zoek();var aan=x[0].isIntersecting;vast.forEach(function(e){e.style.transition='opacity .35s';e.style.opacity=aan?'0':'';e.style.pointerEvents=aan?'none':''})},{threshold:.05}).observe(d)})();</script>
+<aside class="di-tip" aria-label="Over deze voorbeeldsite" hidden>
+<img class="di-tip-s" src="https://digital-impression.be/assets/img/stijn-2.webp" alt="" width="40" height="40" loading="lazy" decoding="async">
+<div>
+<p class="di-tip-t">Dit is een voorbeeldsite.</p>
+<p class="di-tip-p">Onderaan lees je hoe we er samen jullie site van maken.</p>
+<a class="di-tip-k" href="#di">Lees meer<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+</div>
+<button class="di-tip-x" type="button" aria-label="Sluiten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+</aside>
+<script>/*di-tip*/(function(){var t=document.querySelector('.di-tip'),d=document.getElementById('di');if(!t||!d)return;
+var weg=false;try{weg=sessionStorage.getItem('di-tip')==='weg'}catch(e){}if(weg)return;
+t.hidden=false;var aan=false,diZicht=false;
+function onder(){var m=0;[].forEach.call(document.body.querySelectorAll('*'),function(e){if(e===t||t.contains(e)||d.contains(e))return;var c=getComputedStyle(e);if(c.position!=='fixed'||c.display==='none'||c.visibility==='hidden'||+c.opacity===0)return;var r=e.getBoundingClientRect();if(r.height>0&&r.height<160&&r.bottom>=innerHeight-48&&r.bottom<=innerHeight+2&&r.top>innerHeight-200&&r.width>innerWidth*.4)m=Math.max(m,innerHeight-r.top)});return m}
+function zet(x){if(x===aan)return;aan=x;if(x){t.style.bottom=((innerWidth<=560?12:20)+onder())+'px'}t.classList.toggle('di-tip-aan',x)}
+function sluit(){try{sessionStorage.setItem('di-tip','weg')}catch(e){}zet(false);setTimeout(function(){t.hidden=true},700);window.removeEventListener('scroll',kijk)}
+function held(){var c=document.querySelectorAll('.hero,[class*="hero"],main>section,body>section,body>header,main>header');for(var i=0;i<c.length;i++){var e=c[i];if(d.contains(e)||t.contains(e)||e.closest('.di-strook,.demo,nav'))continue;var r=e.getBoundingClientRect();if(r.height>innerHeight*.35)return r.bottom+scrollY}return innerHeight*.9}
+var hb=0;window.addEventListener('resize',function(){hb=0});function kijk(){var top=d.getBoundingClientRect().top;
+if(top<innerHeight*1.1){if(aan)sluit();return}if(!hb)hb=held();zet(scrollY>hb-innerHeight*.55)}
+t.querySelector('.di-tip-x').addEventListener('click',sluit);
+t.querySelector('.di-tip-k').addEventListener('click',function(){setTimeout(sluit,300)});
+window.addEventListener('scroll',kijk,{passive:true});kijk()})();</script>
+
+
+</body>
+</html>
