@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Jonas Tattoo Draws · Tattoo en ontwerp op maat</title>
+<meta name="description" content="Jonas Tattoo Draws: elke tattoo begint op papier. Ontwerp op maat, fijne lijnen, single needle en een prijs die vooraf vastligt.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Caveat+Brush&family=Caveat:wght@500;600&display=swap">
+<style>
+:root{
+  --paper:#F5F1E8;--paper-2:#EEE8DB;--card:#FFFDF7;--ink:#1A1916;--ink-2:#55514A;--ink-3:#8A857B;
+  --orange:#F27A12;--orange-2:#FF9A45;--teal:#2E9A95;--teal-d:#1F6F6B;--teal-l:#D6ECE8;
+  --line:rgba(26,25,22,.14);
+  --disp:'Bricolage Grotesque',system-ui,sans-serif;--sans:'Instrument Sans',system-ui,sans-serif;--hand:'Caveat',cursive;--brush:'Caveat Brush',cursive;
+  --ease:cubic-bezier(.2,.9,.25,1)
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1240px,100% - 48px);margin-inline:auto}
+.dots{background-image:radial-gradient(rgba(26,25,22,.13) 1px,transparent 1.2px);background-size:22px 22px}
+
+.demo{background:var(--ink);color:rgba(245,241,232,.78);font:400 13.5px/1.4 var(--sans);text-align:center;padding:9px 16px;position:relative;z-index:60}
+.demo a{color:var(--orange-2);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+
+/* nav */
+.nav{padding:20px 0;position:relative;z-index:20}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font:400 30px/.9 var(--brush);display:flex;gap:8px;align-items:baseline}
+.logo .o{color:var(--orange)}.logo .t{color:var(--teal)}
+.menu{display:flex;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:99px;padding:5px}
+.menu a{font:500 14px/1 var(--sans);padding:10px 16px;border-radius:99px;transition:background .3s,color .3s}
+.menu a:hover{background:var(--ink);color:var(--paper)}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:14px;font:600 15px/1 var(--sans);padding:16px 22px;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .3s;border:0;cursor:pointer}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-or{background:var(--orange);color:#fff;box-shadow:4px 4px 0 var(--ink)}
+.btn-or:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn-ink{background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 var(--teal)}
+.btn-ink:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--teal)}
+.btn-ghost{border:1.5px solid var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+
+/* hero */
+.hero{position:relative;padding:46px 0 0}
+.hero-top{display:grid;grid-template-columns:1.45fr .8fr;gap:50px;align-items:end}
+.tag{display:inline-flex;align-items:center;gap:10px;font:500 13px/1 var(--sans);background:var(--card);border:1px solid var(--line);border-radius:99px;padding:8px 14px 8px 8px}
+.tag i{width:22px;height:22px;border-radius:50%;background:var(--teal);display:grid;place-items:center;color:#fff}
+.tag i svg{width:12px;height:12px}
+.hero h1{font:800 clamp(56px,8.4vw,128px)/.9 var(--disp);letter-spacing:-.045em;margin-top:22px}
+.hero h1 .u{position:relative;white-space:nowrap;color:var(--orange)}
+.hero h1 .u svg{position:absolute;left:-2%;bottom:-.12em;width:104%;height:.32em;color:var(--teal)}
+.note{font:600 26px/1.05 var(--hand);color:var(--teal-d);display:inline-flex;align-items:flex-start;gap:6px;transform:rotate(-4deg)}
+.note svg{width:46px;height:40px;flex:none;margin-top:-6px}
+.hero-side p{color:var(--ink-2);font-size:17px;margin:14px 0 26px}
+.hero-side .ctas{display:flex;flex-wrap:wrap;gap:12px}
+
+.board{position:relative;height:440px;margin-top:56px}
+.pin{position:absolute;transition:transform .6s var(--ease)}
+.pin:hover{transform:rotate(0) translateY(-6px)!important;z-index:9}
+.paper{background:var(--card);padding:14px;box-shadow:0 2px 0 rgba(0,0,0,.04),0 22px 40px -22px rgba(26,25,22,.45);border-radius:6px}
+.paper img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
+.tape::before{content:"";position:absolute;top:-12px;left:50%;width:96px;height:26px;margin-left:-48px;background:rgba(214,236,232,.85);transform:rotate(-3deg);box-shadow:0 1px 2px rgba(0,0,0,.08);z-index:2}
+.tape.or::before{background:rgba(255,190,130,.8)}
+.p1{left:0;top:30px;width:270px;height:330px;transform:rotate(-5deg)}
+.p2{left:230px;top:0;width:290px;transform:rotate(3deg);background:var(--card);padding:12px 12px 14px;box-shadow:0 26px 46px -24px rgba(26,25,22,.55);border-radius:6px}
+.p2 img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:3px}
+.p2 span{display:block;font:600 24px/1.1 var(--hand);text-align:center;margin-top:10px}
+.p3{left:525px;top:70px;width:230px;height:300px;border-radius:16px;overflow:hidden;transform:rotate(-2.5deg);box-shadow:0 26px 46px -24px rgba(26,25,22,.55)}
+.p3 img{width:100%;height:100%;object-fit:cover}
+.p3 b{position:absolute;left:10px;bottom:10px;background:var(--card);font:600 12px/1 var(--sans);padding:7px 10px;border-radius:99px}
+.p4{left:760px;top:12px;width:220px;height:210px;background:var(--teal);color:#fff;padding:22px;transform:rotate(4deg);box-shadow:0 24px 40px -22px rgba(31,111,107,.7);border-radius:4px}
+.p4 strong{display:block;font:800 64px/.9 var(--disp);letter-spacing:-.04em}
+.p4 .st{display:flex;gap:3px;margin:8px 0 10px;color:#FFD08A}
+.p4 .st svg{width:16px;height:16px}
+.p4 span{font:600 24px/1 var(--hand)}
+.p5{right:0;top:40px;width:250px;height:320px;transform:rotate(5deg)}
+.badge{position:absolute;left:880px;top:250px;width:170px;height:170px;z-index:5}
+.badge .ring{position:absolute;inset:0;animation:spin 22s linear infinite}
+.badge .core{position:absolute;inset:28px;border-radius:50%;background:var(--orange);display:grid;place-items:center;box-shadow:4px 4px 0 var(--ink)}
+.badge .core svg{width:62px;color:var(--ink)}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.perks{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px;position:relative;z-index:6}
+.perk{background:var(--card);border:1.5px solid var(--ink);border-radius:18px;padding:20px 20px 18px;display:flex;gap:14px;align-items:flex-start;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.perk:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink)}
+.perk .ic{width:44px;height:44px;flex:none;border-radius:12px;display:grid;place-items:center;background:var(--teal-l);color:var(--teal-d)}
+.perk:nth-child(even) .ic{background:#FFE6CF;color:#B25500}
+.perk .ic svg{width:24px;height:24px}
+.perk b{display:block;font:700 16px/1.25 var(--disp);letter-spacing:-.01em}
+.perk span{font-size:13.5px;color:var(--ink-2)}
+
+/* marquee */
+.band{margin:70px 0 0;position:relative;height:150px;overflow:hidden;padding:0}
+.strip{position:absolute;left:-2%;right:-2%;overflow:hidden;white-space:nowrap;padding:16px 0;font:800 30px/1 var(--disp);letter-spacing:-.02em}
+.strip.a{top:30px;background:var(--orange);color:var(--ink);transform:rotate(-2deg);z-index:2}
+.strip.b{top:52px;background:var(--ink);color:var(--paper);transform:rotate(1.6deg)}
+.strip .track{display:inline-flex;gap:28px;animation:mq 34s linear infinite}
+.strip.b .track{animation-direction:reverse}
+.strip .track span{display:inline-flex;align-items:center;gap:28px}
+.strip svg{width:22px;height:22px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* sections */
+.sec{padding:100px 0;position:relative}
+.eyebrow{font:600 24px/1 var(--hand);color:var(--teal-d);display:inline-block;transform:rotate(-2deg)}
+h2{font:800 clamp(40px,5.2vw,74px)/.95 var(--disp);letter-spacing:-.04em;margin-top:10px}
+h2 .o{color:var(--orange)}h2 .t{color:var(--teal)}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:50px}
+.head p{max-width:400px;color:var(--ink-2)}
+
+/* triad */
+.triad{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+.tri{background:var(--card);border-radius:22px;border:1.5px solid var(--ink);overflow:hidden;transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.tri:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--ink)}
+.tri:nth-child(2){margin-top:46px}
+.tri .ph{height:250px;position:relative;overflow:hidden;border-bottom:1.5px solid var(--ink)}
+.tri .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.tri:hover .ph img{transform:scale(1.04)}
+.tri .ph.pp{background:var(--card);padding:18px}
+.tri .ph.pp img{object-fit:contain;mix-blend-mode:multiply}
+.tri .tx{padding:22px 24px 26px}
+.tri .w{font:400 58px/.9 var(--brush)}
+.tri:nth-child(1) .w{color:var(--orange)}.tri:nth-child(2) .w{color:var(--teal)}.tri:nth-child(3) .w{color:var(--ink)}
+.tri ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tri li{font:600 13px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;padding:9px 12px;border-radius:99px;background:var(--paper)}
+.tri p{color:var(--ink-2);font-size:14.5px;margin-top:14px}
+
+/* process */
+.process{background:var(--paper-2)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
+.steps .path{position:absolute;left:6%;right:6%;top:-34px;height:60px;color:var(--orange);pointer-events:none}
+.st-card{position:relative;background:var(--card);border-radius:20px;padding:26px 22px 24px;box-shadow:0 18px 40px -26px rgba(26,25,22,.4)}
+.st-card .n{font:800 66px/.8 var(--disp);letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px var(--ink)}
+.st-card:nth-child(odd) .n{-webkit-text-stroke-color:var(--orange)}
+.st-card:nth-child(even) .n{-webkit-text-stroke-color:var(--teal)}
+.st-card h3{font:700 21px/1.15 var(--disp);letter-spacing:-.02em;margin:18px 0 8px}
+.st-card p{font-size:14.5px;color:var(--ink-2)}
+.st-card .sk{height:120px;margin:18px -6px 0;border-radius:12px;background:var(--paper);overflow:hidden;display:grid;place-items:center}
+.st-card .sk img{height:100%;width:100%;object-fit:contain;mix-blend-mode:multiply;padding:8px}
+.st-card .sk.ph img{object-fit:cover;padding:0;mix-blend-mode:normal}
+.promise{margin-top:34px;display:flex;align-items:center;gap:18px;padding:20px 24px;border-radius:18px;background:var(--ink);color:var(--paper)}
+.promise svg{width:30px;height:30px;color:var(--orange-2);flex:none}
+.promise b{font:700 18px/1.3 var(--disp)}
+.promise span{color:rgba(245,241,232,.7);font-size:14.5px}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;grid-auto-rows:210px;gap:14px}
+.g{position:relative;border-radius:16px;overflow:hidden;background:var(--card)}
+.g img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.g:hover img{transform:scale(1.05)}
+.g.pp{padding:18px;border:1.5px dashed rgba(26,25,22,.25)}
+.g.pp img{object-fit:contain;mix-blend-mode:multiply}
+.g .lb{position:absolute;left:10px;top:10px;font:600 20px/1 var(--hand);background:var(--card);padding:4px 10px 6px;border-radius:8px;transform:rotate(-3deg)}
+.g.pp .lb{background:var(--teal);color:#fff}
+.gal{grid-template-areas:"a b c d" "a e f d" "g g h i" "j j h i"}
+.g1{grid-area:a}.g2{grid-area:b}.g3{grid-area:c}.g4{grid-area:d}.g5{grid-area:e}.g7{grid-area:f}.g6{grid-area:g}.g8{grid-area:h}.g10{grid-area:i}.g9{grid-area:j}
+.gal-foot{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:30px}
+.gal-foot p{font:600 26px/1.1 var(--hand);color:var(--ink-2)}
+
+/* about */
+.about{background:var(--ink);color:var(--paper);overflow:hidden}
+.about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:70px;align-items:center}
+.ab-photo{position:relative}
+.ab-photo .main{border-radius:24px;overflow:hidden;transform:rotate(-2deg);border:10px solid var(--card)}
+.ab-photo .main img{width:100%;aspect-ratio:1.1;object-fit:cover}
+.ab-photo .small{position:absolute;right:-24px;bottom:-34px;width:46%;border-radius:16px;overflow:hidden;border:8px solid var(--card);transform:rotate(4deg);box-shadow:0 30px 50px -20px rgba(0,0,0,.6)}
+.ab-photo .small img{width:100%;aspect-ratio:1;object-fit:contain;mix-blend-mode:multiply}
+.ab-photo .small.paper{background:var(--card);padding:10px;width:34%}
+.ab-photo .hand{position:absolute;left:-10px;top:-40px;font:600 30px/1 var(--hand);color:var(--orange-2);transform:rotate(-6deg)}
+.about .eyebrow{color:var(--orange-2)}
+.about h2 .t{color:#5CC3BC}
+.about p.lead{color:rgba(245,241,232,.75);font-size:17.5px;margin:22px 0 28px;max-width:520px}
+.likes{display:flex;flex-wrap:wrap;gap:10px;max-width:560px}
+.likes span{font:600 14px/1 var(--sans);padding:11px 16px;border-radius:99px;border:1.5px solid rgba(245,241,232,.22);transition:all .3s var(--ease)}
+.likes span:nth-child(3n+1){transform:rotate(-2deg)}.likes span:nth-child(3n+2){transform:rotate(1.5deg)}
+.likes span:hover{background:var(--orange);border-color:var(--orange);color:var(--ink)}
+.likes span.f{background:var(--teal);border-color:var(--teal);color:#fff}
+.sig{margin-top:30px;font:400 46px/1 var(--brush);color:var(--paper)}
+.sig small{display:block;font:500 13px/1.4 var(--sans);color:rgba(245,241,232,.5);margin-top:6px}
+
+/* voucher */
+.vouch{padding:100px 0 50px}
+.vbox{display:grid;grid-template-columns:1fr 1fr 300px;gap:0;background:var(--teal);color:#fff;border-radius:30px;overflow:hidden;border:1.5px solid var(--ink);box-shadow:8px 8px 0 var(--ink)}
+.vbox .tx{padding:50px 46px}
+.vbox h2{font-size:clamp(36px,3.8vw,54px)}
+.vbox p{color:rgba(255,255,255,.85);margin:16px 0 26px;max-width:420px}
+.vbox .img{display:grid;place-items:center;padding:30px;background:rgba(255,255,255,.08)}
+.vbox .img img{width:100%;transform:rotate(-5deg);filter:drop-shadow(0 20px 26px rgba(0,0,0,.25))}
+.vbox .rate{background:var(--card);color:var(--ink);padding:40px 30px;display:flex;flex-direction:column;justify-content:center;border-left:1.5px solid var(--ink)}
+.vbox .rate strong{font:800 96px/.85 var(--disp);letter-spacing:-.05em}
+.vbox .rate .st{display:flex;gap:4px;color:var(--orange);margin:14px 0 8px}
+.vbox .rate .st svg{width:20px;height:20px}
+.vbox .rate span{font:600 26px/1.05 var(--hand);color:var(--ink-2)}
+.vbox .btn-ink{box-shadow:4px 4px 0 var(--orange)}
+
+/* contact */
+.contact{padding:60px 0 110px}
+.c-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:24px;align-items:stretch}
+.c-info{background:var(--card);border-radius:24px;padding:38px 34px;border:1.5px solid var(--ink);display:flex;flex-direction:column;gap:6px;position:relative;overflow:hidden}
+.c-info h2{font-size:clamp(38px,4vw,56px)}
+.c-info>p{color:var(--ink-2);margin:12px 0 18px}
+.row{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center;padding:14px 0;border-top:1px dashed var(--line)}
+.row .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--paper)}
+.row .ic svg{width:20px;height:20px}
+.row b{display:block;font-weight:600}
+.row span{font-size:14px;color:var(--ink-2)}
+a.row:hover b{color:var(--orange)}
+.c-info .mascot{position:absolute;right:26px;top:24px;width:96px;transform:rotate(8deg);mix-blend-mode:multiply}
+form{background:var(--paper-2);border-radius:24px;padding:34px;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:start;position:relative}
+form .t{grid-column:span 2;display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:6px}
+form .t h3{font:800 30px/1 var(--disp);letter-spacing:-.03em}
+form .t span{font:600 22px/1 var(--hand);color:var(--teal-d);transform:rotate(-3deg)}
+label{display:flex;flex-direction:column;gap:7px;font:600 13px/1 var(--sans)}
+label.full{grid-column:span 2}
+input,textarea,select{font:400 15px/1.4 var(--sans);color:var(--ink);background:var(--card);border:1.5px solid rgba(26,25,22,.2);border-radius:12px;padding:13px 14px;outline:none;transition:border-color .3s,box-shadow .3s;width:100%}
+input:focus,textarea:focus{border-color:var(--teal);box-shadow:0 0 0 4px rgba(46,154,149,.18)}
+textarea{min-height:110px;resize:vertical}
+form .send{grid-column:span 2;display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:6px}
+form .send small{color:var(--ink-3);font-size:13px}
+
+footer{border-top:1.5px solid var(--ink);padding:34px 0;font-size:14px;color:var(--ink-2)}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer .logo{font-size:26px}
+footer nav{display:flex;gap:20px}
+footer nav a:hover{color:var(--orange)}
+
+.js [data-r]{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js [data-r].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js [data-r]{opacity:1;transform:none;transition:none}.strip .track,.badge .ring{animation:none}html{scroll-behavior:auto}}
+
+@media (max-width:1180px){
+  .menu{display:none}
+  .board{transform:scale(.82);transform-origin:left top;height:370px;width:122%}
+}
+@media (max-width:980px){
+  .hero-top{grid-template-columns:1fr;gap:26px}
+  .board{transform:none;width:auto;height:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;align-items:start}
+  .pin{position:relative;left:auto!important;right:auto!important;top:auto!important;width:auto!important}
+  .p1,.p5{height:280px!important}
+  .p3{height:300px!important}
+  .p4{height:auto!important}
+  .p5,.p1{display:none}
+  .badge{display:none}
+  .perks{grid-template-columns:1fr 1fr}
+  .triad{grid-template-columns:1fr 1fr}
+  .tri:nth-child(2){margin-top:0}
+  .tri:nth-child(3){grid-column:span 2}
+  .tri:nth-child(3) .ph{height:220px}
+  .steps{grid-template-columns:1fr 1fr}
+  .steps .path{display:none}
+  .gal{grid-template-columns:1fr 1fr;grid-template-areas:"a b" "a e" "c d" "f d" "g g" "h i" "h i" "j j"}
+  .about-grid{grid-template-columns:1fr;gap:70px}
+  .vbox{grid-template-columns:1fr 1fr}
+  .vbox .rate{grid-column:span 2;border-left:0;border-top:1.5px solid var(--ink);flex-direction:row;align-items:center;gap:24px}
+  .c-grid{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 32px)}
+  .nav{padding:16px 0}
+  .logo{font-size:25px;gap:5px}
+  .nav .btn{padding:12px 14px;font-size:13.5px}
+  .hero{padding:20px 0 0}
+  .hero h1{font-size:54px;margin-top:18px}
+  .note{font-size:22px}
+  .hero-side p{font-size:16px;margin:10px 0 22px}
+  .hero-side .ctas{flex-direction:column}
+  .hero-side .ctas .btn{justify-content:center}
+  .board{grid-template-columns:1fr 1fr;gap:14px 12px;margin-top:34px}
+  .p1{display:none}
+  .p2{grid-column:span 2;width:78%!important;justify-self:center}
+  .p3{height:220px!important}
+  .p4{padding:16px}
+  .p4 strong{font-size:48px}
+  .p4 span{font-size:20px}
+  .perks{grid-template-columns:1fr 1fr;gap:10px}
+  .perk{flex-direction:column;padding:16px 14px;gap:10px}
+  .perk b{font-size:14.5px}
+  .perk span{font-size:12.5px}
+  .band{margin-top:60px;height:120px}
+  .strip{font-size:22px;padding:12px 0}
+  .sec{padding:70px 0}
+  .head{flex-direction:column;align-items:flex-start;gap:12px;margin-bottom:32px}
+  h2{font-size:42px}
+  .triad{grid-template-columns:1fr;gap:14px}
+  .tri:nth-child(3){grid-column:auto}
+  .tri{display:grid;grid-template-columns:120px 1fr}
+  .tri .ph,.tri:nth-child(3) .ph{height:auto;min-height:100%;border-bottom:0;border-right:1.5px solid var(--ink)}
+  .tri .tx{padding:16px 16px 18px}
+  .tri .w{font-size:42px}
+  .tri ul{gap:5px;margin-top:10px}
+  .tri li{font-size:10.5px;padding:7px 9px}
+  .tri p{display:none}
+  .steps{grid-template-columns:1fr;gap:12px}
+  .st-card{display:grid;grid-template-columns:78px 1fr;column-gap:14px;padding:20px 18px}
+  .st-card .n{font-size:54px;grid-row:span 2}
+  .st-card h3{margin:2px 0 6px;font-size:19px}
+  .st-card .sk{display:none}
+  .promise{align-items:flex-start;padding:18px}
+  .gal{grid-auto-rows:170px;gap:10px}
+  .g .lb{font-size:17px}
+  .gal-foot{flex-direction:column;align-items:flex-start}
+  .gal-foot p{font-size:22px}
+  .about-grid{gap:56px}
+  .ab-photo .small{right:-6px;bottom:-28px}
+  .ab-photo .hand{font-size:24px;top:-34px;left:0}
+  .about p.lead{font-size:16px}
+  .likes span{font-size:13px;padding:9px 13px}
+  .vouch{padding:60px 0 30px}
+  .vbox{grid-template-columns:1fr;border-radius:22px;box-shadow:5px 5px 0 var(--ink)}
+  .vbox .tx{padding:32px 22px 10px}
+  .vbox .img{padding:10px 30px 26px;background:none}
+  .vbox .rate{grid-column:auto;padding:24px 22px;gap:18px}
+  .vbox .rate strong{font-size:68px}
+  .contact{padding:40px 0 70px}
+  .c-info{padding:28px 20px 20px}
+  .c-info .mascot{width:54px;right:12px;top:54px}
+  .c-info h2{max-width:78%}
+  form{grid-template-columns:1fr;padding:24px 18px}
+  form .t,label.full,form .send{grid-column:auto}
+  form .send{flex-direction:column;align-items:stretch}
+  form .send .btn{justify-content:center}
+  footer .wrap{flex-direction:column;align-items:flex-start}
+}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="star" viewBox="0 0 20 20"><path fill="currentColor" d="M10 1.6l2.5 5.3 5.8.7-4.3 4 1.1 5.7L10 14.5l-5.1 2.8 1.1-5.7-4.3-4 5.8-.7z"/></symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="insta" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4 20l1.2-3.6A8 8 0 1 1 8.4 19z"/><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M9.2 8.6c0 3 2.6 6 6 6.2l1-1.4-1.9-1-.9.8a4.2 4.2 0 0 1-2.6-2.6l.8-.9-1-1.9z"/></symbol>
+  <symbol id="mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M4 7.5l8 6 8-6"/></symbol>
+  <symbol id="pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 21s7-6.2 7-11.5a7 7 0 1 0-14 0C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="tel" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></symbol>
+  <symbol id="fb" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M14 21v-7.5h2.6l.4-3H14V8.7c0-.9.3-1.5 1.6-1.5H17V4.5a19 19 0 0 0-2.2-.1c-2.3 0-3.8 1.4-3.8 3.9v2.2H8.5v3H11V21"/></symbol>
+  <symbol id="spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1.5l1.6 7.1 6.9-2.9-5.4 5.3 5.4 5.3-6.9-2.9L12 20.5l-1.6-7.1-6.9 2.9 5.4-5.3-5.4-5.3 6.9 2.9z"/></symbol>
+  <symbol id="stache" viewBox="0 0 64 24"><path fill="currentColor" d="M32 9c3-5 9-7 14-5 4 1.6 6 5.4 10 6 2.4.4 4.6-.6 6-2.6.6 4.6-2.4 9.2-7.8 10.4C46 19.6 38 16 32 13c-6 3-14 6.6-22.2 4.8C4.4 16.6 1.4 12 2 7.4 3.4 9.4 5.6 10.4 8 10c4-.6 6-4.4 10-6 5-2 11 0 14 5z"/></symbol>
+</defs></svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="o">Jonas</span><span class="t">Tattoo</span><span>Draws</span></a>
+    <nav class="menu"><a href="#wie">Wie</a><a href="#werkwijze">Werkwijze</a><a href="#werk">Werk</a><a href="#cadeaubon">Cadeaubon</a><a href="#contact">Contact</a></nav>
+    <a class="btn btn-ink" href="#contact">Vertel je idee</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div data-r>
+        <span class="tag"><i><svg><use href="#spark"/></svg></i>Tattoo · ontwerp op maat · flash</span>
+        <h1>Elke tattoo begint <span class="u">op papier.<svg viewBox="0 0 300 30" preserveAspectRatio="none"><path d="M3 20C60 8 140 6 297 14M30 26c70-8 150-10 240-6" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></span></h1>
+      </div>
+      <div class="hero-side" data-r>
+        <span class="note"><svg viewBox="0 0 46 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M42 36C30 34 12 26 8 6"/><path d="M2 13l6-8 7 7"/></svg>echt waar</span>
+        <p>Jonas Van Cauteren tekent je ontwerp eerst helemaal uit, samen met jou. Pas als het klopt, gaat de naald erin. Fijne lijnen, veel detail en een prijs die vooraf vastligt.</p>
+        <div class="ctas">
+          <a class="btn btn-or" href="#contact">Vertel je idee<svg><use href="#arrow"/></svg></a>
+          <a class="btn btn-ghost" href="https://www.instagram.com/jonastattoodraws/"><svg><use href="#insta"/></svg>Bekijk Instagram</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="board" data-r>
+      <div class="pin paper tape p1"><img src="img/boek.webp" alt="Tekening van een boek met bomen en een rivier"></div>
+      <figure class="pin p2 tape or"><img src="img/jonas.webp" alt="Jonas met zijn bekende snor"><span>Jonas, de snor achter de naald</span></figure>
+      <figure class="pin p3"><img src="img/zwaluwen.webp" alt="Tattoo van twee zwaluwen"><b>Fineline</b></figure>
+      <div class="pin p4"><strong>5,0</strong><div class="st"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></div><span>140 reviews op Google</span></div>
+      <div class="pin paper tape p5"><img src="img/oog.webp" alt="Tekening van een oog in een berglandschap"></div>
+      <div class="badge" aria-hidden="true">
+        <svg class="ring" viewBox="0 0 170 170"><defs><path id="c" d="M85 85m-70 0a70 70 0 1 1 140 0a70 70 0 1 1-140 0"/></defs><circle cx="85" cy="85" r="84" fill="#FFFDF7" stroke="#1A1916" stroke-width="1.5"/><text font-family="Instrument Sans" font-weight="600" font-size="13.5" fill="#1A1916"><textPath href="#c" textLength="432" lengthAdjust="spacing">JONAS ✦ TATTOO ✦ DRAWS ✦ OP MAAT ✦</textPath></text></svg>
+        <div class="core"><svg viewBox="0 0 64 24"><use href="#stache"/></svg></div>
+      </div>
+    </div>
+
+    <div class="perks" data-r>
+      <div class="perk"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l3.5-1 11-11a2.1 2.1 0 0 0-3-3l-11 11z"/><path d="M14 6.5l3 3"/></svg></span><div><b>Ontwerp op maat</b><span>Getekend rond jouw idee</span></div></div>
+      <div class="perk"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2.5v13"/><path d="M9.5 6.5h5M9.5 10h5"/><path d="M12 15.5l-1.2 3.5L12 21.5l1.2-2.5z"/></svg></span><div><b>Single needle</b><span>Fijne lijnen en dotwork</span></div></div>
+      <div class="perk"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.4-3 7.6-7 9.5-4-1.9-7-5.1-7-9.5V6z"/><path d="M8.8 12l2.3 2.3 4.2-4.6"/></svg></span><div><b>Prijs vooraf vast</b><span>Nooit bijbetalen achteraf</span></div></div>
+      <div class="perk"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M3 12h18M12 8v12"/><path d="M12 8c-1.5-3-5-3.5-5-1.5S10 8 12 8zM12 8c1.5-3 5-3.5 5-1.5S14 8 12 8z"/></svg></span><div><b>Cadeaubon</b><span>Bedrag kies je zelf</span></div></div>
+    </div>
+  </div>
+
+  <div class="band" aria-hidden="true">
+    <div class="strip b"><div class="track"><span>Warmte <svg><use href="#spark"/></svg> Verbinding <svg><use href="#spark"/></svg> Intentie <svg><use href="#spark"/></svg> Techniek <svg><use href="#spark"/></svg> Contrast <svg><use href="#spark"/></svg> Precisie <svg><use href="#spark"/></svg></span><span>Warmte <svg><use href="#spark"/></svg> Verbinding <svg><use href="#spark"/></svg> Intentie <svg><use href="#spark"/></svg> Techniek <svg><use href="#spark"/></svg> Contrast <svg><use href="#spark"/></svg> Precisie <svg><use href="#spark"/></svg></span></div></div>
+    <div class="strip a"><div class="track"><span>Tekeningen <svg><use href="#spark"/></svg> Ontwerpen <svg><use href="#spark"/></svg> Flash <svg><use href="#spark"/></svg> Single needle <svg><use href="#spark"/></svg> Handpoke <svg><use href="#spark"/></svg> Cadeaubonnen <svg><use href="#spark"/></svg></span><span>Tekeningen <svg><use href="#spark"/></svg> Ontwerpen <svg><use href="#spark"/></svg> Flash <svg><use href="#spark"/></svg> Single needle <svg><use href="#spark"/></svg> Handpoke <svg><use href="#spark"/></svg> Cadeaubonnen <svg><use href="#spark"/></svg></span></div></div>
+  </div>
+</section>
+
+<section class="sec" id="wie">
+  <div class="wrap">
+    <div class="head" data-r>
+      <div><span class="eyebrow">drie woorden, drie keer drie</span><h2><span class="o">Jonas.</span> <span class="t">Tattoo.</span> Draws.</h2></div>
+      <p>De naam zegt eigenlijk alles. Een mens die tijd voor je maakt, een tattoo die technisch klopt en een tekening die er eerst helemaal staat.</p>
+    </div>
+    <div class="triad">
+      <article class="tri" data-r>
+        <div class="ph"><img src="img/studio.webp" alt="De lichte tattoostudio van Jonas" loading="lazy" style="object-position:50% 50%"></div>
+        <div class="tx"><div class="w">Jonas</div><ul><li>Warmte</li><li>Verbinding</li><li>Intentie</li></ul><p>Een babbel over alles en niets hoort erbij. Je zit hier niet aan een lopende band.</p></div>
+      </article>
+      <article class="tri" data-r>
+        <div class="ph"><img src="img/tijger.webp" alt="Tattoo van een tijger in black and grey" loading="lazy" style="object-position:50% 35%"></div>
+        <div class="tx"><div class="w">Tattoo</div><ul><li>Techniek</li><li>Contrast</li><li>Precisie</li></ul><p>Fijne naald, strakke lijnen en schaduw die zacht verloopt. Gemaakt om mooi te blijven.</p></div>
+      </article>
+      <article class="tri" data-r>
+        <div class="ph pp"><img src="img/cirkel.webp" alt="Pentekening van een landschap in een cirkel" loading="lazy"></div>
+        <div class="tx"><div class="w">Draws</div><ul><li>Vorm</li><li>Diepte</li><li>Expressie</li></ul><p>Elk ontwerp wordt met de hand getekend. Soms wordt het een tattoo, soms gewoon kunst aan de muur.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec process dots" id="werkwijze">
+  <div class="wrap">
+    <div class="head" data-r>
+      <div><span class="eyebrow">zo gaat het in zijn werk</span><h2>Van schets <span class="o">tot huid</span></h2></div>
+      <p>Geen verrassingen onderweg. Je weet op voorhand wat je krijgt, wanneer het gebeurt en wat het kost.</p>
+    </div>
+    <div class="steps">
+      <svg class="path" viewBox="0 0 1000 60" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="2.4" stroke-dasharray="2 9" stroke-linecap="round"><path d="M10 40C150 0 260 0 330 30s200 30 340 0 220-20 320 10"/></svg>
+      <div class="st-card" data-r><span class="n">01</span><h3>Vertel je idee</h3><p>Hoe groot, waar op je lichaam en welke stijlen je mooi vindt. Links naar voorbeelden helpen altijd.</p><div class="sk"><img src="img/hand-slang.webp" alt="" loading="lazy"></div></div>
+      <div class="st-card" data-r><span class="n">02</span><h3>Jonas tekent</h3><p>Je krijgt een ontwerp op maat om samen te bespreken. Bijsturen hoort erbij, tot het helemaal van jou is.</p><div class="sk"><img src="img/gezicht.webp" alt="" loading="lazy"></div></div>
+      <div class="st-card" data-r><span class="n">03</span><h3>Datum vastleggen</h3><p>Je afspraak staat vast in de planning zodra het voorschot betaald is. Zo weten jullie allebei waar je aan toe bent.</p><div class="sk ph"><img src="img/bankje.webp" alt="" loading="lazy"></div></div>
+      <div class="st-card" data-r><span class="n">04</span><h3>De naald erin</h3><p>Rustig zetten, op het afgesproken uur. Loopt het onderweg wat later? Laat het dan gewoon even weten.</p><div class="sk ph"><img src="img/vogel.webp" alt="" loading="lazy"></div></div>
+    </div>
+    <div class="promise" data-r><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.4-3 7.6-7 9.5-4-1.9-7-5.1-7-9.5V6z"/><path d="M8.8 12l2.3 2.3 4.2-4.6"/></svg><div><b>De prijs spreken we vooraf af, en die gaat niet meer omhoog.</b><br><span>Duurt je tattoo toch wat langer, dan betaal je niets bij. Gaat het sneller, dan is dat in jouw voordeel.</span></div></div>
+  </div>
+</section>
+
+<section class="sec" id="werk">
+  <div class="wrap">
+    <div class="head" data-r>
+      <div><span class="eyebrow">uit het schetsboek en van de huid</span><h2>Op papier, <span class="t">op de huid</span></h2></div>
+      <p>Tekeningen en tattoos door elkaar, want bij Jonas lopen die gewoon in elkaar over.</p>
+    </div>
+    <div class="gal" data-r>
+      <figure class="g g1"><img src="img/kapitein.webp" alt="Tattoo van een kapitein met baard" loading="lazy"><span class="lb">op de huid</span></figure>
+      <figure class="g g2 pp"><img src="img/stad.webp" alt="Tekening van een zwevende stad" loading="lazy"><span class="lb">op papier</span></figure>
+      <figure class="g g3"><img src="img/muizen.webp" alt="Tattoo van twee muisjes met kaas" loading="lazy"></figure>
+      <figure class="g g4"><img src="img/kaders.webp" alt="Tattoo met kleine kadertjes" loading="lazy"></figure>
+      <figure class="g g5"><img src="img/hart.webp" alt="Anatomisch hart in een geometrische vorm" loading="lazy"></figure>
+      <figure class="g g6 pp"><img src="img/springtouw.webp" alt="Tekening van een meisje dat touwtje springt" loading="lazy"><span class="lb">op papier</span></figure>
+      <figure class="g g7"><img src="img/hond-kat.webp" alt="Hond en kat in een ijshoorntje" loading="lazy"></figure>
+      <figure class="g g8"><img src="img/schorpioen.webp" alt="Schorpioen in black and grey" loading="lazy"></figure>
+      <figure class="g g9 pp"><img src="img/deur.webp" alt="Tekening van een deur met trap naar de sterren" loading="lazy"></figure>
+      <figure class="g g10"><img src="img/raam.webp" alt="Tattoo van een open raam" loading="lazy"></figure>
+    </div>
+    <div class="gal-foot" data-r>
+      <p>Nog meer werk? Dat staat op Instagram.</p>
+      <a class="btn btn-ink" href="https://www.instagram.com/jonastattoodraws/"><svg><use href="#insta"/></svg>@jonastattoodraws</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec about">
+  <div class="wrap about-grid">
+    <div class="ab-photo" data-r>
+      <span class="hand">dat is hem!</span>
+      <div class="main"><img src="img/jonas-studio.webp" alt="Jonas Van Cauteren in zijn studio" loading="lazy"></div>
+      <div class="small paper"><img src="img/schedel-lijnen.webp" alt="Pentekening van een schedel" loading="lazy"></div>
+    </div>
+    <div data-r>
+      <span class="eyebrow">wie zet hier eigenlijk je tattoo?</span>
+      <h2>De man <span class="t">met de snor</span></h2>
+      <p class="lead">Jonas is een sociale gast die graag over alles en niets babbelt. Je leert hem pas echt kennen terwijl hij je tattoo zet. Naast tekenen en tatoeëren zit zijn hoofd vol met dit:</p>
+      <div class="likes"><span class="f">Tekenen</span><span>Drum</span><span>Ska</span><span>Gitaren</span><span class="f">Bikepacking</span><span>Snorren</span><span>Whiskey</span><span>Vissen</span><span class="f">Sushi</span><span>Katten</span><span>Darts</span></div>
+      <div class="sig">Jonas<small>Jonas Van Cauteren, Jonas Tattoo Draws</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="vouch" id="cadeaubon">
+  <div class="wrap">
+    <div class="vbox" data-r>
+      <div class="tx">
+        <span class="eyebrow" style="color:#fff">voor wie al alles heeft</span>
+        <h2>Iemand een tattoo cadeau doen?</h2>
+        <p>Met een cadeaubon van Jonas Tattoo Draws kies je zelf het bedrag. Je krijgt de bon via mail, of op papier als je dat liever hebt.</p>
+        <a class="btn btn-ink" href="mailto:jonastattoodraws@hotmail.com?subject=Cadeaubon">Bestel een cadeaubon<svg><use href="#arrow"/></svg></a>
+      </div>
+      <div class="img"><img src="img/cadeaubon.webp" alt="Cadeaubonnen van Jonas Tattoo Draws" loading="lazy"></div>
+      <div class="rate">
+        <strong>5,0</strong>
+        <div><div class="st"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></div><span>gemiddeld uit 140 reviews op Google</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap c-grid">
+    <div class="c-info" data-r>
+      <span class="eyebrow">langskomen of eerst even mailen</span>
+      <h2>Zeg het <span class="o">maar</span></h2>
+      <p>Tattoos enkel op afspraak. Een bericht of mail met je idee is altijd de beste eerste stap.</p>
+      <a class="row" href="https://www.google.com/maps/dir/?api=1&amp;destination=Ter+Gaeverlaan+3+9120+Beveren"><span class="ic"><svg><use href="#pin"/></svg></span><div><b>Ter Gaeverlaan 3 B02</b><span>9120 Beveren · plan je route</span></div></a>
+      <a class="row" href="tel:+32470205006"><span class="ic"><svg><use href="#tel"/></svg></span><div><b>0470 20 50 06</b><span>Bellen of sms'en</span></div></a>
+      <a class="row" href="https://wa.me/32470205006"><span class="ic"><svg><use href="#wa"/></svg></span><div><b>WhatsApp</b><span>Stuur gerust een foto van je idee mee</span></div></a>
+      <a class="row" href="mailto:jonastattoodraws@hotmail.com"><span class="ic"><svg><use href="#mail"/></svg></span><div><b>jonastattoodraws@hotmail.com</b><span>Voor ontwerpen en cadeaubonnen</span></div></a>
+      <a class="row" href="https://www.instagram.com/jonastattoodraws/"><span class="ic"><svg><use href="#insta"/></svg></span><div><b>@jonastattoodraws</b><span>Nieuw werk en flash</span></div></a>
+      <img class="mascot" src="img/mascotte.webp" alt="" loading="lazy">
+    </div>
+    <form action="mailto:jonastattoodraws@hotmail.com" method="post" enctype="text/plain" data-r>
+      <div class="t"><h3>Je ontwerp-aanvraag</h3><span>hoe meer je vertelt, hoe beter</span></div>
+      <label>Voornaam<input name="voornaam" autocomplete="given-name" required></label>
+      <label>Achternaam<input name="achternaam" autocomplete="family-name"></label>
+      <label>E-mail<input type="email" name="email" autocomplete="email" required></label>
+      <label>Telefoon<input type="tel" name="telefoon" autocomplete="tel"></label>
+      <label class="full">Omschrijf je tattoo-idee<textarea name="idee" placeholder="Wat wil je, wat betekent het voor jou, ..."></textarea></label>
+      <label>Hoe groot en waar?<input name="plaats" placeholder="bv. 10 cm, binnenkant onderarm"></label>
+      <label>Welke stijlen vind je mooi?<input name="stijl" placeholder="bv. fijne lijnen, dotwork"></label>
+      <label class="full">Links naar voorbeelden<input name="links" placeholder="Pinterest, Instagram, ..."></label>
+      <div class="send"><small>Je bericht opent in je mailprogramma.</small><button class="btn btn-or" type="submit">Verstuur je idee<svg><use href="#arrow"/></svg></button></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="o">Jonas</span><span class="t">Tattoo</span><span>Draws</span></a>
+    <nav><a href="#werkwijze">Werkwijze</a><a href="#werk">Werk</a><a href="#cadeaubon">Cadeaubon</a><a href="https://www.facebook.com/Jonas-Tattoo-Draws-100771775490525">Facebook</a></nav>
+    <span>© Jonas Tattoo Draws · Voorbeeldsite door Digital Impression</span>
+  </div>
+</footer>
+
+<script>
+(function(){var els=document.querySelectorAll('[data-r]');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
+els.forEach(function(e){io.observe(e)});setTimeout(function(){els.forEach(function(e){if(e.getBoundingClientRect().top<innerHeight)e.classList.add('in')})},60)})();
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
+<style>
+.di,.di *{box-sizing:border-box;margin:0;padding:0;border:0;background:none;box-shadow:none;text-shadow:none;text-transform:none;letter-spacing:normal;float:none;max-width:none;min-height:0;font:inherit;color:inherit;text-decoration:none;opacity:1;transform:none;filter:none;list-style:none}
+.di :is(h2,h3,h4,p,ul,ol,li,details,summary,b,strong,em,small,span,div)::before,.di :is(h2,h3,h4,p,ul,ol,li,details,summary,b,strong,em,small,span,div)::after{content:none!important}
+.di summary::marker{content:""}
+.di{--navy:#0E1C3A;--deep:#0A1530;--goud:#C9A24A;--goud2:#D8BB6A;--bleek:#E8D9A8;--beige:#F1EBDF;--creme:#FBF8F2;
+  --zacht:rgba(241,235,223,.74);--stil:rgba(241,235,223,.5);--lijn:rgba(241,235,223,.12);--ease:cubic-bezier(.16,1,.3,1);
+  position:relative;overflow:clip;background:var(--navy);color:var(--beige);padding:clamp(88px,11vw,136px) 0 56px;
+  font:400 17px/1.65 'Inter',system-ui,sans-serif;text-align:left;-webkit-font-smoothing:antialiased}
+.di::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(760px 480px at 50% -10%,rgba(201,162,74,.14),transparent 66%)}
+.di::after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,162,74,.7) 30%,rgba(232,217,168,.9) 50%,rgba(201,162,74,.7) 70%,transparent)}
+.di .di-wrap{position:relative;max-width:980px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+.di h2,.di h3,.di h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:-.01em;text-transform:none;font-style:normal;color:var(--creme)}
+.di a{color:inherit}
+.di svg{flex:none}
+
+/* boodschap */
+.di .di-kern{text-align:center;max-width:760px;margin:0 auto}
+.di .di-afz{display:inline-flex;align-items:center;gap:12px;margin-bottom:28px;color:var(--goud2);font-size:15px;font-weight:500}
+.di .di-afz i{width:32px;height:32px;border-radius:9px;border:1px solid rgba(201,162,74,.45);display:grid;place-items:center;font:600 15px/1 'Cormorant Garamond',serif;font-style:normal;color:var(--goud);letter-spacing:-.5px}
+.di h2{line-height:1}
+.di .di-voor{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:20px;font:italic 500 clamp(24px,2.5vw,31px)/1.2 'Cormorant Garamond',Georgia,serif;color:var(--goud2);letter-spacing:.005em}
+.di .di-kern .di-voor::before,.di .di-kern .di-voor::after{content:""!important;flex:none;width:clamp(28px,5vw,60px);height:1px;background:linear-gradient(90deg,transparent,var(--goud))}
+.di .di-kern .di-voor::after{background:linear-gradient(270deg,transparent,var(--goud))}
+.di .di-samen{display:block;font:500 clamp(46px,6.2vw,80px)/1.02 'Cormorant Garamond',Georgia,serif;letter-spacing:-.015em;text-wrap:balance;
+  color:var(--creme);background:linear-gradient(180deg,#FBF8F2 35%,#E8D9A8 135%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;padding-bottom:.06em}
+.di .di-lead{text-wrap:pretty;color:var(--zacht);font-size:clamp(17px,1.5vw,19px);margin:24px auto 0;max-width:33em}
+.di .di-knoppen{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:36px}
+.di .di-knoppen a{position:relative;overflow:hidden;display:inline-flex;justify-content:center;align-items:center;gap:10px;border-radius:999px;padding:18px 30px;
+  font:600 17px/1.2 'Inter',sans-serif;text-decoration:none;isolation:isolate;white-space:nowrap;transition:color .5s var(--ease),border-color .5s var(--ease)}
+.di .di-knoppen a svg{width:19px;height:19px}
+.di .di-knoppen a::before{content:"";position:absolute;inset:0;z-index:-1;transform:translateY(101%);transition:transform .55s var(--ease)}
+.di .di-knoppen a:hover::before{transform:translateY(0)}
+.di .di-knoppen .di-cal{background:var(--goud);color:var(--deep);box-shadow:0 18px 44px -18px rgba(201,162,74,.8)}
+.di .di-knoppen .di-cal::before{background:var(--bleek)}
+.di .di-knoppen .di-wa{border:1px solid rgba(241,235,223,.3);color:var(--creme)}
+.di .di-knoppen .di-wa::before{background:var(--creme)}
+.di .di-knoppen .di-wa:hover{color:var(--navy);border-color:var(--creme)}
+.di .di-klein{margin-top:18px;font-size:14.5px;color:var(--stil)}
+
+.di .di-blok{margin-top:clamp(88px,11vw,128px)}
+.di .di-blok>h3{font-size:clamp(30px,3.4vw,40px);line-height:1.05;text-align:center;margin-bottom:44px}
+
+/* prijs */
+.di .di-prijs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);border:1px solid var(--lijn);border-radius:28px;overflow:hidden}
+.di .di-prijs>div{padding:clamp(28px,3.6vw,40px)}
+.di .di-prijs>div+div{border-left:1px solid var(--lijn);background:rgba(241,235,223,.025)}
+.di .di-wat{font-size:15px;font-weight:500;color:var(--goud2)}
+.di .di-getal{font:500 clamp(60px,6.4vw,76px)/1 'Cormorant Garamond',serif;font-variant-numeric:lining-nums;color:var(--creme);margin-top:8px;letter-spacing:-.02em}
+.di .di-getal small{font:500 16px/1 'Inter',sans-serif;color:var(--stil);letter-spacing:0;margin-left:8px}
+.di .di-prijs p{color:var(--zacht);font-size:15.5px;margin-top:14px;max-width:24em}
+.di .di-prijs p b{color:var(--creme);font-weight:500}
+.di .di-opties{margin-top:22px;list-style:none}
+.di .di-opties li{display:grid;grid-template-columns:1fr auto;gap:4px 20px;padding:16px 0;border-top:1px solid var(--lijn)}
+.di .di-opties li:last-child{padding-bottom:0}
+.di .di-opties b{font:500 23px/1.2 'Cormorant Garamond',serif;color:var(--creme);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.di .di-opties b em{font:600 12px/1 'Inter',sans-serif;font-style:normal;color:var(--deep);background:var(--goud);border-radius:999px;padding:4px 10px}
+.di .di-opties .di-pp{font:500 24px/1.2 'Cormorant Garamond',serif;font-variant-numeric:lining-nums;color:var(--creme);text-align:right;white-space:nowrap}
+.di .di-opties .di-pp small{font:500 13.5px/1 'Inter',sans-serif;color:var(--stil);margin-left:4px}
+.di .di-opties .di-ot{grid-column:1/-1;color:var(--zacht);font-size:15px}
+
+/* faq */
+.di .di-faq{max-width:760px;margin:0 auto;border-top:1px solid var(--lijn)}
+.di .di-faq details{border-bottom:1px solid var(--lijn)}
+.di .di-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 2px;
+  font:500 22px/1.25 'Cormorant Garamond',serif;color:var(--creme);transition:color .3s}
+.di .di-faq summary::-webkit-details-marker{display:none}
+.di .di-faq summary:hover{color:var(--goud2)}
+.di .di-faq summary i{flex:none;position:relative;width:30px;height:30px;border-radius:50%;border:1px solid rgba(201,162,74,.5);transition:transform .45s var(--ease),background .3s}
+.di .di-faq summary i::before,.di .di-faq summary i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:var(--goud);transform:translate(-50%,-50%)}
+.di .di-faq summary i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .45s var(--ease)}
+.di .di-faq details[open] summary i{transform:rotate(180deg);background:rgba(201,162,74,.12)}
+.di .di-faq details[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+.di .di-faq .di-antw{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.di .di-faq details[open] .di-antw{grid-template-rows:1fr}
+.di .di-faq .di-antw>div{overflow:hidden}
+.di .di-faq .di-antw p{color:var(--zacht);font-size:16px;padding:0 50px 22px 2px;max-width:38em}
+
+.di .di-faq details,.di .di-faq details[open]{background:none;border-radius:0;box-shadow:none;margin:0;padding:0;border:0;border-bottom:1px solid var(--lijn);display:block}
+.di .di-faq details[open] summary,.di .di-faq summary:hover{background:none;box-shadow:none}
+
+/* afsluiter */
+.di .di-slot{margin-top:clamp(72px,9vw,104px);padding-top:36px;border-top:1px solid var(--lijn);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.di .di-wie{display:flex;align-items:center;gap:16px}
+.di .di-foto{flex:none;display:block;width:60px;height:60px;border-radius:50%;object-fit:cover;object-position:50% 40%;background:#0A1530;box-shadow:0 0 0 1px rgba(201,162,74,.6),0 0 0 4px #0E1C3A,0 0 0 5px rgba(201,162,74,.22)}
+.di .di-wie b{display:block;font:italic 500 26px/1.1 'Cormorant Garamond',serif;color:var(--creme)}
+.di .di-wie .di-lijn{font-size:14.5px;color:var(--stil)}
+.di .di-wie .di-lijn a{text-decoration:none}
+.di .di-wie .di-lijn a:hover{color:var(--creme)}
+.di .di-slot .di-knoppen{margin:0}
+.di .di-slot .di-knoppen a{padding:14px 24px;font-size:15.5px}
+.di :focus-visible{outline:2px solid var(--goud);outline-offset:4px;border-radius:12px}
+
+/* één rustige beweging */
+.di.di-js [data-in]{opacity:0;transform:translateY(16px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0) * 110ms)}
+.di.di-js [data-in].di-zien{opacity:1;transform:none}
+
+@media (max-width:820px){
+  .di .di-prijs{grid-template-columns:1fr}
+  .di .di-prijs>div+div{border-left:0;border-top:1px solid var(--lijn)}
+}
+@media (max-width:720px){
+  .di .di-faq summary{font-size:20px;padding:18px 2px}
+  .di .di-faq .di-antw p{padding-right:10px;font-size:15.5px}
+  .di{font-size:16.5px;padding-bottom:44px}
+  .di .di-voor{font-size:21px;gap:12px;margin-bottom:14px}
+  .di .di-kern .di-voor::before,.di .di-kern .di-voor::after{width:24px}
+  .di .di-samen{font-size:clamp(36px,10vw,46px)}
+  .di .di-lead{font-size:16.5px}
+  .di .di-knoppen{flex-direction:column;margin-top:30px}
+  .di .di-knoppen a{width:100%;padding:17px 18px;font-size:16px}
+  .di .di-blok>h3{margin-bottom:32px}
+  .di .di-prijs{border-radius:24px}
+  .di .di-prijs>div{padding:26px 22px}
+  .di .di-slot{flex-direction:column;align-items:stretch}
+  .di .di-slot .di-knoppen a{width:100%}
+}
+@media (prefers-reduced-motion:reduce){.di.di-js [data-in]{transition:none!important;opacity:1!important;transform:none!important}.di .di-knoppen a,.di .di-knoppen a::before,.di .di-faq summary i,.di .di-faq summary i::after,.di .di-faq .di-antw{transition:none}}
+
+/* kaartje halverwege */
+.di-tip,.di-tip *{box-sizing:border-box;margin:0;padding:0;border:0;background:none;box-shadow:none;text-shadow:none;text-transform:none;letter-spacing:normal;float:none;max-width:none;font:inherit;color:inherit;text-decoration:none;list-style:none}
+.di-tip{--navy:#0E1C3A;--goud:#C9A24A;--goud2:#D8BB6A;--creme:#FBF8F2;--zacht:rgba(241,235,223,.76);--ease:cubic-bezier(.16,1,.3,1);
+  position:fixed;left:20px;bottom:20px;z-index:2147483000;width:340px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+  padding:18px 18px 18px 18px;border-radius:20px;background:var(--navy);color:var(--creme);font:400 15px/1.5 'Inter',system-ui,sans-serif;text-align:left;
+  box-shadow:0 0 0 1px rgba(201,162,74,.4),0 24px 60px -18px rgba(0,0,0,.55);opacity:0;transform:translateY(24px) scale(.98);pointer-events:none;
+  transition:opacity .6s var(--ease),transform .6s var(--ease);-webkit-font-smoothing:antialiased}
+.di-tip.di-tip-aan{opacity:1;transform:none;pointer-events:auto}
+.di-tip .di-tip-s{display:block;width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:50% 40%;background:#0A1530;box-shadow:0 0 0 1px rgba(201,162,74,.6)}
+.di-tip .di-tip-t{font:italic 500 20px/1.2 'Cormorant Garamond',Georgia,serif;color:var(--goud2);padding-right:22px}
+.di-tip .di-tip-p{color:var(--zacht);margin-top:4px;font-size:14.5px}
+.di-tip .di-tip-k{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:10px 18px;border-radius:999px;background:var(--goud);color:#0A1530;font:600 14.5px/1.2 'Inter',sans-serif;cursor:pointer;transition:background .3s}
+.di-tip .di-tip-k:hover{background:#E8D9A8}
+.di-tip .di-tip-k svg{width:16px;height:16px}
+.di-tip .di-tip-x{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:var(--zacht);cursor:pointer;transition:background .3s,color .3s}
+.di-tip .di-tip-x:hover{background:rgba(241,235,223,.08);color:var(--creme)}
+.di-tip .di-tip-x svg{width:14px;height:14px}
+.di-tip :focus-visible{outline:2px solid var(--goud);outline-offset:3px}
+.di-tip :is(p,div,span,a,button)::before,.di-tip :is(p,div,span,a,button)::after{content:none!important}
+@media (max-width:560px){.di-tip{left:12px;right:12px;width:auto;bottom:12px;padding:14px 14px 14px 14px;gap:12px}.di-tip .di-tip-s{width:34px;height:34px;font-size:17px}.di-tip .di-tip-t{font-size:18px}.di-tip .di-tip-p{font-size:14px}}
+@media (prefers-reduced-motion:reduce){.di-tip{transition:none}}
+</style>
+<section aria-labelledby="di-titel" class="di" id="di">
+<div class="di-wrap">
+
+<div class="di-kern">
+<h2 id="di-titel" data-in style="--d:1"><span class="di-voor">Dit is slechts een voorbeeld.</span><span class="di-samen">Samen maken we er jullie nieuwe site van.</span></h2>
+<p class="di-lead" data-in style="--d:2">Ik maakte deze demo voor jullie om te tonen wat er kan. Na een kort gesprek maak ik er iets veel persoonlijkers van, helemaal naar jullie wens.</p>
+<div class="di-knoppen" data-in style="--d:3">
+<a class="di-cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Jonas%20Tattoo%20Draws" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Plan een gesprek van 30 min</a>
+<a class="di-wa" href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20Jonas%20Tattoo%20Draws" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z"/></svg>Stuur een WhatsApp</a>
+</div>
+<p class="di-klein" data-in style="--d:4">Vrijblijvend. Ik kom langs of we bellen.</p>
+</div>
+
+
+<div class="di-blok">
+<h3 data-in>Wat kost het?</h3>
+<div class="di-prijs" data-in style="--d:1">
+<div>
+<span class="di-wat">De website</span>
+<div class="di-getal">€ 499<small>eenmalig</small></div>
+<p>Op maat, op jullie eigen domein.<br><b>Geen voorschot.</b> Jullie betalen pas als alles klaar is.</p>
+</div>
+<div>
+<span class="di-wat">Daarna het onderhoud</span>
+<p style="margin-top:8px">Hosting, domeinnaam en kleine wijzigingen, zoals nieuwe openingsuren.</p>
+<ul class="di-opties">
+<li><b>Zorgeloos <em>mijn aanrader</em></b><span class="di-pp">€ 19,99<small>/ maand</small></span><span class="di-ot">Alles inbegrepen. Wijzigen kan met een berichtje.</span></li>
+<li><b>Zelf beheren</b><span class="di-pp">€ 0<small>/ maand</small></span><span class="di-ot">Alles op jullie naam. Wijzigingen per keer.</span></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="di-blok">
+<h3 data-in>Goed om te weten</h3>
+<div class="di-faq" data-in style="--d:1">
+<details><summary>Waarom deze demo, zonder dat we iets vroegen?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Omdat een voorbeeld meer zegt dan een mail. Zo zien jullie meteen wat er kan, en het kost jullie niets.</p></div></div></details>
+<details><summary>Zitten we ergens aan vast?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Nee. Het gesprek is vrijblijvend. Vinden jullie het niks, dan is het daarmee gedaan.</p></div></div></details>
+<details><summary>Hoe lang duurt het?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Na ons gesprek staat jullie site binnen 10 tot 14 dagen online.</p></div></div></details>
+<details><summary>We hebben al een website. Kan dat ook?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Zeker. Jullie domeinnaam kan gewoon blijven, de nieuwe site komt in de plaats van de oude.</p></div></div></details>
+<details><summary>Moeten we zelf teksten schrijven?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Nee, dat doe ik op basis van ons gesprek. Eigen foto's zijn mooi meegenomen, maar niet nodig om te starten.</p></div></div></details>
+</div>
+</div>
+
+<div class="di-slot" data-in>
+<div class="di-wie"><img class="di-foto" src="https://digital-impression.be/assets/img/stijn-2.webp" alt="Stijn Vranken" width="60" height="60" loading="lazy" decoding="async"><div><b>Stijn Vranken</b><span class="di-lijn">Digital Impression, <a href="tel:+32496251445">0496 25 14 45</a></span></div></div>
+<div class="di-knoppen"><a class="di-cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Jonas%20Tattoo%20Draws" target="_blank" rel="noopener">Plan een gesprek</a></div>
+</div>
+
+</div>
+</section>
+<script>/*di-v13*/(function(){var d=document.getElementById('di');if(!d||!('IntersectionObserver' in window))return;
+var stil=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!stil){d.classList.add('di-js');var io=new IntersectionObserver(function(x){x.forEach(function(e){if(e.isIntersecting){e.target.classList.add('di-zien');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+[].forEach.call(d.querySelectorAll('[data-in]'),function(e){io.observe(e)})}
+var vast=[];function zoek(){vast=[].filter.call(document.body.querySelectorAll('*'),function(e){if(d.contains(e)||e.closest('.di-strook,.demo'))return false;var p=getComputedStyle(e).position;return p==='fixed'||p==='sticky'})}
+new IntersectionObserver(function(x){if(!vast.length)zoek();var aan=x[0].isIntersecting;vast.forEach(function(e){e.style.transition='opacity .35s';e.style.opacity=aan?'0':'';e.style.pointerEvents=aan?'none':''})},{threshold:.05}).observe(d)})();</script>
+<aside class="di-tip" aria-label="Over deze voorbeeldsite" hidden>
+<img class="di-tip-s" src="https://digital-impression.be/assets/img/stijn-2.webp" alt="" width="40" height="40" loading="lazy" decoding="async">
+<div>
+<p class="di-tip-t">Dit is een voorbeeldsite.</p>
+<p class="di-tip-p">Onderaan lees je hoe we er samen jullie site van maken.</p>
+<a class="di-tip-k" href="#di">Lees meer<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+</div>
+<button class="di-tip-x" type="button" aria-label="Sluiten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+</aside>
+<script>/*di-tip*/(function(){var t=document.querySelector('.di-tip'),d=document.getElementById('di');if(!t||!d)return;
+var weg=false;try{weg=sessionStorage.getItem('di-tip')==='weg'}catch(e){}if(weg)return;
+t.hidden=false;var aan=false,diZicht=false;
+function onder(){var m=0;[].forEach.call(document.body.querySelectorAll('*'),function(e){if(e===t||t.contains(e)||d.contains(e))return;var c=getComputedStyle(e);if(c.position!=='fixed'||c.display==='none'||c.visibility==='hidden'||+c.opacity===0)return;var r=e.getBoundingClientRect();if(r.height>0&&r.height<160&&r.bottom>=innerHeight-48&&r.bottom<=innerHeight+2&&r.top>innerHeight-200&&r.width>innerWidth*.4)m=Math.max(m,innerHeight-r.top)});return m}
+function zet(x){if(x===aan)return;aan=x;if(x){t.style.bottom=((innerWidth<=560?12:20)+onder())+'px'}t.classList.toggle('di-tip-aan',x)}
+function sluit(){try{sessionStorage.setItem('di-tip','weg')}catch(e){}zet(false);setTimeout(function(){t.hidden=true},700);window.removeEventListener('scroll',kijk)}
+function held(){var c=document.querySelectorAll('.hero,[class*="hero"],main>section,body>section,body>header,main>header');for(var i=0;i<c.length;i++){var e=c[i];if(d.contains(e)||t.contains(e)||e.closest('.di-strook,.demo,nav'))continue;var r=e.getBoundingClientRect();if(r.height>innerHeight*.35)return r.bottom+scrollY}return innerHeight*.9}
+var hb=0;window.addEventListener('resize',function(){hb=0});function kijk(){var top=d.getBoundingClientRect().top;
+if(top<innerHeight*1.1){if(aan)sluit();return}if(!hb)hb=held();zet(scrollY>hb-innerHeight*.55)}
+t.querySelector('.di-tip-x').addEventListener('click',sluit);
+t.querySelector('.di-tip-k').addEventListener('click',function(){setTimeout(sluit,300)});
+window.addEventListener('scroll',kijk,{passive:true});kijk()})();</script>
+</body>
+</html>
