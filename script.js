@@ -52,8 +52,9 @@
       .fromTo("#brandTag .bw", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 1.1, stagger: 0.08, ease: "power3.out" }, 0.9)
       .fromTo("#brandTag", { "--ul": 0 }, { "--ul": 1, duration: 1.1, ease: "power2.inOut" }, 1.6)
       .add(function () { hero.classList.add("is-loaded-ui"); heroPlayed = true; }, 1.1)
-      .fromTo(".brand__sub, .brand__cta, .brand__facts", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 1.1, stagger: 0.12, ease: "power3.out" }, 1.2);
-    if (REDUCED) { tl.progress(1); hero.classList.add("is-loaded-ui"); gsap.set("#brandTag .bw, .brand__sub, .brand__cta, .brand__facts", { opacity: 1, y: 0 }); }
+      .fromTo(".hx__k, .hx__sub, .hx__cta, .hx__facts", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 1.1, stagger: 0.1, ease: "power3.out" }, 0.7)
+      .fromTo(".hx__show", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1.6, ease: "power3.out", clearProps: "transform" }, 0.5);
+    if (REDUCED) { tl.progress(1); hero.classList.add("is-loaded-ui"); gsap.set("#brandTag .bw, .hx__k, .hx__sub, .hx__cta, .hx__facts, .hx__show", { opacity: 1, y: 0 }); }
     if (window.__glEnter) window.__glEnter();
   }
 
@@ -297,7 +298,8 @@
     var tag = $("#brandTag"), tagWords = $$(".bw", tag);
     if (REDUCED) { gsap.set(tagWords, { opacity: 1 }); return; }
     if (!heroPlayed) gsap.set(tagWords, { opacity: 0, y: 30 });
-    // the brand recedes as the hero scrolls away
+    // v25: the hero stays calm while scrolling (no recede, no blur)
+    return;
     var out = gsap.to(brand, { scale: 0.95, y: -40, opacity: 0, filter: "blur(4px)", transformOrigin: "50% 50%", ease: "power1.in", scrollTrigger: { trigger: hero, start: "top top", end: "75% top", scrub: 1 } });
     var outC = gsap.to(".hero__corner", { opacity: 0, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "30% top", scrub: true } });
     storyKill = function () { out.scrollTrigger && out.scrollTrigger.kill(); out.kill(); outC.scrollTrigger && outC.scrollTrigger.kill(); outC.kill(); gsap.set([brand, tag].concat(tagWords), { clearProps: "all" }); if (tag) tag.style.removeProperty("--ul"); };
@@ -479,6 +481,17 @@
       var ph = $(".wcase__phone", c);
       if (ph) gsap.fromTo(ph, { yPercent: 14 }, { yPercent: -6, ease: "none", scrollTrigger: { trigger: c, start: "top bottom", end: "bottom top", scrub: 1 } });
     });
+  }
+
+  function initHeroShow() {
+    var show = $("#heroShow"); if (!show) return;
+    var groups = [$$(".hs__screen .hs__img", show), $$(".hs__pscreen .hs__img", show), $$(".hs__cap", show), $$(".hs__url", show)];
+    var n = groups[0].length, cur = 0, timer = null, vis = true;
+    function go(i) { cur = (i + n) % n; groups.forEach(function (g) { g.forEach(function (el, k) { el.classList.toggle("is-on", k === cur); }); }); }
+    function play() { if (timer || REDUCED) return; timer = setInterval(function () { go(cur + 1); }, 5000); }
+    function stop() { clearInterval(timer); timer = null; }
+    new IntersectionObserver(function (en) { vis = en[0].isIntersecting; if (vis && !document.hidden) play(); else stop(); }, { threshold: 0.2 }).observe(show);
+    document.addEventListener("visibilitychange", function () { if (document.hidden) stop(); else if (vis) play(); });
   }
 
   /* ---------------- FAQ accordion ---------------- */
@@ -977,6 +990,7 @@
       mk_g_t: ["Your Business · Town", "Votre entreprise · Commune"], mk_g_p: ["Opening hours, prices and booking right away. See our work and get in touch.", "Horaires, prix et prise de rendez-vous immédiate. Découvrez notre travail et contactez-nous."], mk_gsm: ["Phone", "Mobile"],
       mk_c1: ["Can you add the holiday opening hours?", "Vous pouvez ajouter les horaires des fêtes ?"], mk_c2: ["Done. Have a look.", "C'est fait. Jetez un œil."], mk_c3: ["Carefree · €19.99 a month", "Sans souci · 19,99 € par mois"],
       ch_design: ["Design", "Design"], ch_build: ["Build", "Développement"], ch_care: ["Aftercare", "Suivi"],
+      hero_k: ["Web design from Leuven", "Webdesign depuis Louvain"],
       work_lead: ["Every site starts with the business itself. Click a design to see the full page.", "Chaque site part de l'entreprise elle-même. Cliquez sur un design pour voir la page entière."],
       mob_k: ["On a phone", "Sur mobile"], wall_t2: ["This is how it looks <em>on a phone.</em>", "Voici le rendu <em>sur mobile.</em>"],
       mob_p: ["Most people look up a business on their phone. That small screen gets as much attention as the laptop.", "La plupart des gens cherchent une entreprise sur leur téléphone. Ce petit écran reçoit autant d'attention que l'ordinateur."],
@@ -1023,7 +1037,7 @@
   }
   function init() {
     initVW();
-    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initStory(); initIntro(); initWork(); initFAQ(); initTilt(); initProcess(); initReveals(); initForm(); initViewer(); initCompare(); initDepth(); initDock(); initPre();
+    initI18n(); initLenis(); initMenu(); initCursor(); initTheme(); initGL(); initStory(); initIntro(); initWork(); initFAQ(); initHeroShow(); initTilt(); initProcess(); initReveals(); initForm(); initViewer(); initCompare(); initDepth(); initDock(); initPre();
     window.addEventListener("load", function () { ScrollTrigger.refresh(); });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
