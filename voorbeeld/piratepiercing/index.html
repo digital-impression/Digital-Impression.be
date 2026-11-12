@@ -69,8 +69,9 @@ h1 em,h2 em{font-style:normal;color:var(--messing)}
 .compo .chip{position:absolute;right:-14px;bottom:110px;background:var(--wit);border-radius:18px;padding:14px 18px;box-shadow:0 24px 50px -24px rgba(23,58,49,.5);font-size:14px;line-height:1.35;display:flex;gap:12px;align-items:center}
 .compo .chip b{display:block;color:var(--groen);font-size:15.5px}
 .compo .chip .bol{width:38px;height:38px;border-radius:50%;background:var(--groen);color:var(--messing2);display:grid;place-items:center;flex:none}
-.ring{position:absolute;right:-30px;top:-26px;width:138px;height:138px}
-.ring svg{width:100%;height:100%;animation:draai 26s linear infinite}
+.ring{position:absolute;right:-30px;top:-26px;width:138px;height:138px;z-index:3}
+.ring::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--wit);box-shadow:0 20px 40px -20px rgba(23,58,49,.45)}
+.ring svg{position:relative;width:100%;height:100%;animation:draai 26s linear infinite}
 .ring text{font:700 11.5px 'Hanken Grotesk';letter-spacing:.24em;fill:var(--groen);text-transform:uppercase}
 .ring .mono{position:absolute;inset:0;margin:auto;width:58px;height:58px;color:var(--messing)}
 @keyframes draai{to{transform:rotate(360deg)}}
@@ -271,7 +272,7 @@ html.js .bento [data-r]:nth-child(2){transition-delay:.08s}html.js .bento [data-
       <div class="hoofd"><img src="img/winkel.webp" alt="De shop in Turnhout met vitrinekasten en houten toog" width="1200" height="1600" fetchpriority="high"></div>
       <div class="klein"><img src="img/oor.webp" alt="Daith-piercing met een fijn juweel" width="1100" height="1466"></div>
       <div class="chip"><span class="bol"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 4v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V7z"/><path d="M9 12l2 2 4-4"/></svg></span><span><b>Steriel en proper</b>dat zeggen onze klanten</span></div>
-      <div class="ring"><svg viewBox="0 0 140 140"><defs><path id="cirkel" d="M70,70 m-56,0 a56,56 0 1,1 112,0 a56,56 0 1,1 -112,0"/></defs><text><textPath href="#cirkel">Pirate Piercing · sinds 2006 · </textPath></text></svg><img class="mono" src="img/logo-messing.webp" alt="" width="223" height="225"></div>
+      <div class="ring"><svg viewBox="0 0 140 140"><defs><path id="cirkel" d="M70,70 m-56,0 a56,56 0 1,1 112,0 a56,56 0 1,1 -112,0"/></defs><text><textPath href="#cirkel" textLength="348" lengthAdjust="spacing">Pirate Piercing · sinds 2006 · </textPath></text></svg><img class="mono" src="img/logo-messing.webp" alt="" width="223" height="225"></div>
       <img class="heinz" src="img/heinz.webp" alt="" width="190" height="180">
     </div>
   </div>
