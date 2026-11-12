@@ -13,7 +13,7 @@
   /* ---------------- smooth scroll ---------------- */
   function initLenis() {
     if (REDUCED || typeof Lenis === "undefined") return;
-    lenis = new Lenis({ lerp: 0.11, wheelMultiplier: 1, smoothWheel: true });
+    lenis = new Lenis({ lerp: 0.09, wheelMultiplier: 1, smoothWheel: true });
     lenis.on("scroll", ScrollTrigger.update);
     gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
     gsap.ticker.lagSmoothing(0);
@@ -45,13 +45,14 @@
     splitLetters($("#brandName"));
     var letters = $$("#brandName .bl");
     var tl = gsap.timeline();
+    // v24: the letters rise softly into place, one after the other (no scatter, no jumps on small screens)
     tl.fromTo(letters,
-      { x: function () { return gsap.utils.random(-260, 260); }, y: function () { return gsap.utils.random(-180, 180); }, scale: function () { return gsap.utils.random(1.6, 3); }, rotation: function () { return gsap.utils.random(-35, 35); }, opacity: 0, filter: "blur(10px)" },
-      { x: 0, y: 0, scale: 1, rotation: 0, opacity: 1, filter: "blur(0px)", duration: 1.7, stagger: { each: 0.045, from: "center" }, ease: "expo.out", clearProps: "filter" }, 0.1)
-      .fromTo("#brandTag .bw", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1.2, stagger: 0.09, ease: "expo.out" }, 1.25)
-      .fromTo("#brandTag", { "--ul": 0 }, { "--ul": 1, duration: 0.9, ease: "power3.inOut" }, 2.1)
-      .add(function () { hero.classList.add("is-loaded-ui"); heroPlayed = true; }, 1.4)
-      .fromTo(".brand__sub, .brand__cta, .brand__facts", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 1, stagger: 0.12, ease: "expo.out" }, 1.55);
+      { yPercent: 60, opacity: 0, filter: "blur(6px)" },
+      { yPercent: 0, opacity: 1, filter: "blur(0px)", duration: 1.5, stagger: { each: 0.04, from: "start" }, ease: "power3.out", clearProps: "filter,transform" }, 0.15)
+      .fromTo("#brandTag .bw", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 1.1, stagger: 0.08, ease: "power3.out" }, 0.9)
+      .fromTo("#brandTag", { "--ul": 0 }, { "--ul": 1, duration: 1.1, ease: "power2.inOut" }, 1.6)
+      .add(function () { hero.classList.add("is-loaded-ui"); heroPlayed = true; }, 1.1)
+      .fromTo(".brand__sub, .brand__cta, .brand__facts", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 1.1, stagger: 0.12, ease: "power3.out" }, 1.2);
     if (REDUCED) { tl.progress(1); hero.classList.add("is-loaded-ui"); gsap.set("#brandTag .bw, .brand__sub, .brand__cta, .brand__facts", { opacity: 1, y: 0 }); }
     if (window.__glEnter) window.__glEnter();
   }
@@ -165,7 +166,7 @@
     }
     var entered = false;
     // burst: every card starts in the centre and shoots out to its place on the ring
-    window.__glEnter = function () { cards.forEach(function (c, i) { gsap.to(c.userData, { enter: 0, duration: 1.7, delay: 0.05 + (i % 14) * 0.035 + Math.floor(i / 14) * 0.12, ease: "expo.out", onComplete: function () { if (i === cards.length - 1) entered = true; } }); }); };
+    window.__glEnter = function () { cards.forEach(function (c, i) { gsap.to(c.userData, { enter: 0, duration: 2.4, delay: 0.1 + (i % 14) * 0.04 + Math.floor(i / 14) * 0.14, ease: "power3.out", onComplete: function () { if (i === cards.length - 1) entered = true; } }); }); };
     var worldDir = new THREE.Vector3();
     function focus(card) {
       focused = card; focusProg = prog;
@@ -213,20 +214,21 @@
     function kf(pts, x) { if (x <= pts[0][0]) return pts[0][1]; for (var i = 1; i < pts.length; i++) { if (x <= pts[i][0]) { var a = pts[i - 1], b = pts[i], k = (x - a[0]) / (b[0] - a[0]); k = k * k * (3 - 2 * k); return a[1] + (b[1] - a[1]) * k; } } return pts[pts.length - 1][1]; }
     var bell = function (x, c, wdt) { var q = (x - c) / wdt; return Math.exp(-q * q); };
     // ring radius, card scale, alpha and depth offset along the scroll: breathe → explode outwards → re-form around the brand → gather and vanish
-    var KR = [[0, 0.80], [0.12, 0.86], [0.55, 2.1], [0.85, 2.6]];
-    var KS = [[0, 1], [0.2, 1.08], [0.55, 1.45], [0.85, 1.6]];
-    var KA = [[0, 1], [0.25, 1], [0.6, 0.55], [0.85, 0]];
-    var KZ = [[0, 0], [0.2, 0.4], [0.55, 3.8], [0.85, 6]];
+    // v24: calmer: the ring opens up and fades instead of exploding
+    var KR = [[0, 0.80], [0.15, 0.84], [0.6, 1.45], [0.9, 1.75]];
+    var KS = [[0, 1], [0.25, 1.04], [0.6, 1.2], [0.9, 1.3]];
+    var KA = [[0, 1], [0.3, 1], [0.65, 0.5], [0.9, 0]];
+    var KZ = [[0, 0], [0.25, 0.3], [0.6, 2.2], [0.9, 3.4]];
     var clock = new THREE.Clock(), visible = true, stageEl = $("#hero");
     new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }, { threshold: 0 }).observe(stageEl || hero);
     function tick() {
       requestAnimationFrame(tick);
       if (!visible) return;
       var dt = Math.min(clock.getDelta(), 0.05), t = clock.getElapsedTime(), now = performance.now();
-      mx += (tx - mx) * 0.05; my += (ty - my) * 0.05;
-      sp += (prog - sp) * 0.12;
+      mx += (tx - mx) * 0.035; my += (ty - my) * 0.035;
+      sp += (prog - sp) * 0.075;
       if (FINE && sp < 0.3) { hero.style.setProperty("--px", (mx * -10) + "px"); hero.style.setProperty("--py", (my * -8) + "px"); }
-      var Rr = kf(KR, sp), Ss = kf(KS, sp), Aa = kf(KA, sp), Zo = kf(KZ, sp), burst = bell(sp, 0.45, 0.14);
+      var Rr = kf(KR, sp), Ss = kf(KS, sp), Aa = kf(KA, sp), Zo = kf(KZ, sp), burst = bell(sp, 0.45, 0.14) * 0.35;
       if (Aa <= 0.001 && !focused) { renderer.render(scene, cam); return; }
       cam.position.z = 6 - sp * 1.6;
       cam.position.x = mx * 0.5 + Math.sin(t * 0.2) * 0.18; cam.position.y = -my * 0.35 + Math.cos(t * 0.16) * 0.1;
@@ -296,7 +298,7 @@
     if (REDUCED) { gsap.set(tagWords, { opacity: 1 }); return; }
     if (!heroPlayed) gsap.set(tagWords, { opacity: 0, y: 30 });
     // the brand recedes as the hero scrolls away
-    var out = gsap.to(brand, { scale: 0.9, y: -60, opacity: 0, filter: "blur(10px)", transformOrigin: "50% 50%", ease: "power1.in", scrollTrigger: { trigger: hero, start: "top top", end: "70% top", scrub: 0.5 } });
+    var out = gsap.to(brand, { scale: 0.95, y: -40, opacity: 0, filter: "blur(4px)", transformOrigin: "50% 50%", ease: "power1.in", scrollTrigger: { trigger: hero, start: "top top", end: "75% top", scrub: 1 } });
     var outC = gsap.to(".hero__corner", { opacity: 0, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "30% top", scrub: true } });
     storyKill = function () { out.scrollTrigger && out.scrollTrigger.kill(); out.kill(); outC.scrollTrigger && outC.scrollTrigger.kill(); outC.kill(); gsap.set([brand, tag].concat(tagWords), { clearProps: "all" }); if (tag) tag.style.removeProperty("--ul"); };
   }
@@ -444,48 +446,38 @@
 
   /* ---------------- work: horizontal pin, three first, the rest on request ---------------- */
   function initWork() {
-    var pin = $("#workPin"), track = $("#workTrack"), count = $("#workCount"), bar = $("#workBar");
-    if (!pin || !track) return;
+    // v24: a plain grid, no pin and no horizontal scroll
+    var grid = $("#workGrid"); if (!grid) return;
     var more = $("#workMore"), moreBtn = $("#workMoreBtn");
-    var cases = $$(".story", track).filter(function (p) { return p !== more; });
-    var slots = function () { return $$(".story", track).filter(function (p) { return !p.hidden; }); };
-    var shown = function () { return cases.filter(function (p) { return !p.hidden; }); };
-    var pad = function (i) { return (i < 10 ? "0" : "") + i; };
-    var setCount = function (i) { var n = shown().length; count.textContent = pad(Math.min(i, n)) + " / " + pad(n); };
+    var cases = $$(".wcase", grid);
     function reveal() {
       if (!more || more.hidden) return;
-      cases.forEach(function (p) { p.hidden = false; });
+      var extra = $$("[data-more]", grid);
+      extra.forEach(function (p) { p.hidden = false; });
       more.hidden = true;
+      if (!REDUCED) gsap.fromTo(extra, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1, stagger: 0.12, ease: "power3.out", clearProps: "transform" });
       ScrollTrigger.refresh();
-      setCount(4);
-      var first = $("[data-more] .story__open", track); if (first) first.focus({ preventScroll: true });
+      var first = $("[data-more] .story__open", grid); if (first) first.focus({ preventScroll: true });
     }
     if (moreBtn) moreBtn.addEventListener("click", reveal);
     window.__gotoWork = function (i) {
       if (i > 3) reveal();
-      var target = cases[i - 1], list = slots(), k = Math.max(0, list.indexOf(target));
-      var st = ScrollTrigger.getById("workST");
-      var y = st ? st.start + (st.end - st.start) * (k / Math.max(1, list.length - 1)) : (target.getBoundingClientRect().top + window.scrollY - 80);
-      if (lenis) lenis.scrollTo(y, { duration: 1.6 }); else window.scrollTo({ top: y, behavior: "smooth" });
+      var map = { 1: 0, 2: 1, 3: 2, 4: 5, 5: 3, 6: 4 }, target = cases[map[i] != null ? map[i] : 0];
+      if (!target) return;
+      if (lenis) lenis.scrollTo(target, { offset: -90, duration: 1.4 }); else window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 90, behavior: "smooth" });
     };
-    setCount(1);
-    ScrollTrigger.matchMedia({
-      "(min-width: 900px)": function () {
-        var dist = function () { return track.scrollWidth - document.documentElement.clientWidth; };
-        var tween = gsap.to(track, { x: function () { return -dist(); }, ease: "none",
-          scrollTrigger: { id: "workST", trigger: pin, start: "top top", end: function () { return "+=" + dist(); }, pin: true, scrub: 0.35, invalidateOnRefresh: true, anticipatePin: 1,
-            onUpdate: function (st) { var n = slots().length; setCount(Math.min(n, Math.floor(st.progress * n) + 1)); if (bar) bar.style.transform = "scaleX(" + st.progress + ")"; } } });
-        cases.forEach(function (p) {
-          var img = $("img", p);
-          gsap.fromTo(img, { xPercent: -6 }, { xPercent: 6, ease: "none", scrollTrigger: { trigger: p, containerAnimation: tween, start: "left right", end: "right left", scrub: true } });
-        });
-      },
-      "(max-width: 899px)": function () {
-        cases.forEach(function (p, i) {
-          ScrollTrigger.create({ trigger: p, start: "top 60%", onEnter: function () { setCount(i + 1); }, onEnterBack: function () { setCount(i + 1); } });
-          gsap.fromTo($("img", p), { yPercent: -6 }, { yPercent: 6, ease: "none", scrollTrigger: { trigger: p, start: "top bottom", end: "bottom top", scrub: true } });
-        });
-      }
+    // on hover the window scrolls slowly through the whole homepage (the long image loads only then)
+    if (FINE) $$(".wcase__full", grid).forEach(function (im) {
+      var vis = im.closest(".wcase__vis");
+      vis.addEventListener("pointerenter", function () {
+        if (im.getAttribute("src")) return;
+        im.addEventListener("load", function () { vis.classList.add("has-full"); }, { once: true });
+        im.src = im.getAttribute("data-src");
+      });
+    });
+    if (!REDUCED) cases.forEach(function (c) {
+      var ph = $(".wcase__phone", c);
+      if (ph) gsap.fromTo(ph, { yPercent: 14 }, { yPercent: -6, ease: "none", scrollTrigger: { trigger: c, start: "top bottom", end: "bottom top", scrub: 1 } });
     });
   }
 
@@ -504,42 +496,35 @@
 
   /* ---------------- process: sticky number ---------------- */
   function initProcess() {
-    // het bouwplan: the section pins and one website gets built in five steps (wireframe, design, feedback, online, aftercare)
-    var sec = $("#werkwijze"), pin = $("#bpPin"); if (!sec || !pin) return;
+    // v24: one website gets built in five steps. Steps change by click, arrows or a calm autoplay, never by scrolling.
+    var sec = $("#werkwijze"); if (!sec) return;
     document.documentElement.classList.add("bp-js");
-    var stops = $$(".bp__stop", sec), txts = $$(".bp__txt", sec), num = $("#bpNum"), fill = $("#bpFill"), n = txts.length, cur = -1;
+    sec.classList.add("bp--free");
+    var stops = $$(".bp__stop", sec), txts = $$(".bp__txt", sec), num = $("#bpNum"), fill = $("#bpFill"), n = txts.length, cur = -1, timer = null, inView = false, manual = false;
     function setStep(i) {
+      i = (i + n) % n;
       if (i === cur) return; cur = i; sec.setAttribute("data-step", i);
-      stops.forEach(function (o, k) { o.classList.toggle("is-on", k === i); o.classList.toggle("is-past", k < i); });
+      stops.forEach(function (o, k) { o.classList.toggle("is-on", k === i); o.classList.toggle("is-past", k < i); var b = $(".bp__btn", o); if (b) b.setAttribute("aria-current", k === i ? "step" : "false"); });
       txts.forEach(function (o, k) { o.classList.toggle("is-on", k === i); });
       if (num) num.textContent = "0" + (i + 1);
+      if (fill) fill.style.transform = "scaleX(" + (0.1 + 0.9 * i / (n - 1)) + ")";
     }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function play() { stop(); if (REDUCED || manual || !inView) return; timer = setInterval(function () { setStep(cur + 1); }, 4800); }
+    function pick(i) { manual = true; stop(); setStep(i); }
     sec.removeAttribute("data-step");
-    ScrollTrigger.create({ trigger: sec, start: "top 70%", once: true, onEnter: function () { setStep(0); } });
-    if (REDUCED) { setStep(0); return; }
-    var done = false;
-    var st = ScrollTrigger.create({
-      trigger: sec, start: "top top", end: "+=" + (n * 70) + "%", pin: pin, pinSpacing: true, anticipatePin: 1,
-      snap: { snapTo: 1 / (n - 1), duration: { min: 0.2, max: 0.6 }, ease: "power2.inOut", delay: 0.05 },
-      onUpdate: function (t) { setStep(Math.min(n - 1, Math.round(t.progress * (n - 1)))); if (fill) fill.style.transform = "scaleX(" + (0.1 + 0.9 * t.progress) + ")"; },
-      // once the five steps have been scrolled through, release the section: no pin, no snapping, the last step stays
-      onLeave: function () { release(); }
-    });
-    function release() {
-      if (done) return; done = true;
-      var dist = st.end - st.start, y = window.scrollY;
-      st.kill(true);
-      sec.classList.add("bp--free");
-      setStep(n - 1); if (fill) fill.style.transform = "scaleX(1)";
-      ScrollTrigger.refresh();
-      // the pin spacer is gone, so everything below moved up by its height: keep the view where it was
-      var to = Math.max(0, y - dist);
-      if (lenis) lenis.scrollTo(to, { immediate: true, force: true }); else window.scrollTo(0, to);
-    }
-    stops.forEach(function (o, k) { o.style.cursor = "pointer"; o.addEventListener("click", function () {
-      if (done) { setStep(k); if (fill) fill.style.transform = "scaleX(" + (0.1 + 0.9 * k / (n - 1)) + ")"; return; }
-      var y = st.start + (st.end - st.start) * (k / (n - 1)); if (lenis) lenis.scrollTo(y, { duration: 1.2 }); else window.scrollTo({ top: y, behavior: "smooth" });
-    }); });
+    stops.forEach(function (o, k) { var b = $(".bp__btn", o) || o; b.addEventListener("click", function () { pick(k); }); });
+    var prev = $("#bpPrev"), next = $("#bpNext");
+    if (prev) prev.addEventListener("click", function () { pick(cur - 1); });
+    if (next) next.addEventListener("click", function () { pick(cur + 1); });
+    new IntersectionObserver(function (en) {
+      inView = en[0].isIntersecting;
+      if (inView && cur < 0) setStep(0);
+      if (inView) play(); else stop();
+    }, { threshold: 0.45 }).observe(sec);
+    sec.addEventListener("pointerenter", stop);
+    sec.addEventListener("pointerleave", play);
+    if (REDUCED) setStep(0);
   }
 
   /* ---------------- pricing tilt ---------------- */
@@ -571,7 +556,9 @@
       walk(el);
       gsap.from($$(".wi", el), { yPercent: 110, rotate: 3, duration: 1.15, stagger: 0.045, ease: "expo.out", scrollTrigger: { trigger: el, start: "top 88%", once: true } });
     });
-    $$(".case__voor, .case__na, .story__vis, .portret__arch").forEach(function (el) {
+    $$(".wcase").forEach(function (el, i) { if (el.hidden) return; gsap.from(el, { opacity: 0, y: 50, duration: 1.2, delay: (i % 2) * 0.1, ease: "power3.out", clearProps: "transform", scrollTrigger: { trigger: el, start: "top 88%", once: true } }); });
+    $$(".mob__copy, .band__side, .contact__card, .about__p, .about__acts").forEach(function (el) { gsap.from(el, { opacity: 0, y: 26, duration: 1.1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 90%", once: true } }); });
+    $$(".case__voor, .case__na, .story__vis, .portret__arch, .me__arch").forEach(function (el) {
       gsap.fromTo(el, { clipPath: "inset(18% 6% 18% 6% round 18px)", opacity: 0 }, { clipPath: "inset(0% 0% 0% 0% round 0px)", opacity: 1, duration: 1.4, ease: "expo.out", clearProps: "clipPath", scrollTrigger: { trigger: el, start: "top 85%", once: true } });
     });
     $$(".eyebrow, .h-m, .lead, .sig, .letter, .contact__copy > p, .contact__person, .checks, .form, .faq__list").forEach(function (el) {
@@ -663,7 +650,7 @@
     }
     btns.forEach(function (b, i) {
       b.addEventListener("click", function () { open(i); });
-      var shot = b.closest(".story") && $(".story__shot", b.closest(".story"));
+      var shot = b.closest(".story") && $(".story__shot, .wcase__vis", b.closest(".story"));
       if (shot) { shot.style.cursor = "zoom-in"; shot.setAttribute("data-cursor", lang === "en" ? "View" : lang === "fr" ? "Voir" : "Bekijk"); shot.addEventListener("click", function () { open(i); }); }
     });
     $$("[data-close]", v).forEach(function (b) { b.addEventListener("click", close); });
@@ -688,7 +675,8 @@
     var showErr = function (m) { err.textContent = m; err.hidden = false; };
     btn.addEventListener("click", function () {
       var v = {}; ids.forEach(function (id) { v[id] = ($("#" + id).value || "").trim(); });
-      if (!v.naam || !v.email || !v.bericht) { showErr(msg("Vul a.u.b. uw naam, e-mailadres en bericht in.", "Please fill in your name, email and message.", "Veuillez indiquer votre nom, votre e-mail et votre message.")); return; }
+      if (!v.naam || !v.email) { showErr(msg("Vul a.u.b. uw naam en e-mailadres in.", "Please fill in your name and email.", "Veuillez indiquer votre nom et votre e-mail.")); return; }
+      if (!v.website && !v.bericht) { showErr(msg("Geef uw website of Instagram, of vertel kort wat u doet.", "Share your website or Instagram, or tell us briefly what you do.", "Indiquez votre site ou Instagram, ou décrivez brièvement votre activité.")); return; }
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email)) { showErr(msg("Vul a.u.b. een geldig e-mailadres in.", "Please enter a valid email address.", "Veuillez saisir une adresse e-mail valide.")); return; }
       err.hidden = true; v._subject = "Nieuwe aanvraag via digital-impression.be van " + v.naam;
       var original = btn.innerHTML; btn.disabled = true; btn.textContent = msg("Verzenden…", "Sending…", "Envoi…");
@@ -696,6 +684,14 @@
         .then(function (r) { if (!r.ok) throw new Error("bad"); fields.hidden = true; ok.hidden = false; ScrollTrigger.refresh(); })
         .catch(function () { showErr(msg("Er ging iets mis. Probeer opnieuw of mail ons rechtstreeks.", "Something went wrong. Please try again or email us directly.", "Une erreur s'est produite. Réessayez ou écrivez-nous directement.")); })
         .finally(function () { btn.disabled = false; btn.innerHTML = original; });
+    });
+    var bandForm = $("#bandForm");
+    if (bandForm) bandForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var val = ($("#bandSite").value || "").trim(), site = $("#website"), target = $("#contact");
+      if (site && val) site.value = val;
+      var focusName = function () { var nm = $("#naam"); if (nm) nm.focus({ preventScroll: true }); };
+      if (lenis) lenis.scrollTo(target, { duration: 1.3, onComplete: focusName }); else { target.scrollIntoView({ behavior: "smooth" }); setTimeout(focusName, 700); }
     });
     if (reset) reset.addEventListener("click", function () { ids.forEach(function (id) { $("#" + id).value = ""; }); ok.hidden = true; fields.hidden = false; ScrollTrigger.refresh(); });
   }
@@ -980,7 +976,17 @@
       mk_l_h: ["Changes", "Modifications"], mk_l1: ["Top photo replaced", "Photo principale remplacée"], mk_l2: ["Price list added", "Tarifs ajoutés"], mk_l3: ["Opening hours corrected", "Horaires corrigés"],
       mk_g_t: ["Your Business · Town", "Votre entreprise · Commune"], mk_g_p: ["Opening hours, prices and booking right away. See our work and get in touch.", "Horaires, prix et prise de rendez-vous immédiate. Découvrez notre travail et contactez-nous."], mk_gsm: ["Phone", "Mobile"],
       mk_c1: ["Can you add the holiday opening hours?", "Vous pouvez ajouter les horaires des fêtes ?"], mk_c2: ["Done. Have a look.", "C'est fait. Jetez un œil."], mk_c3: ["Carefree · €19.99 a month", "Sans souci · 19,99 € par mois"],
-      ch_design: ["Design", "Design"], ch_build: ["Build", "Développement"], ch_care: ["Aftercare", "Suivi"]
+      ch_design: ["Design", "Design"], ch_build: ["Build", "Développement"], ch_care: ["Aftercare", "Suivi"],
+      work_lead: ["Every site starts with the business itself. Click a design to see the full page.", "Chaque site part de l'entreprise elle-même. Cliquez sur un design pour voir la page entière."],
+      mob_k: ["On a phone", "Sur mobile"], wall_t2: ["This is how it looks <em>on a phone.</em>", "Voici le rendu <em>sur mobile.</em>"],
+      mob_p: ["Most people look up a business on their phone. That small screen gets as much attention as the laptop.", "La plupart des gens cherchent une entreprise sur leur téléphone. Ce petit écran reçoit autant d'attention que l'ordinateur."],
+      band_p: ["Share your website or Instagram. Within five working days your example is ready, free of charge.", "Indiquez votre site ou votre Instagram. Sous cinq jours ouvrables, votre exemple est prêt, gratuitement."],
+      band_lbl: ["Your website or Instagram", "Votre site ou Instagram"], band_ph: ["www.yourbusiness.com or @yourbusiness", "www.votreentreprise.be ou @votreentreprise"], band_go: ["Make my example", "Créer mon exemple"],
+      ab_p: ["I design and build every website myself. So you always talk to the person working on your site, also after launch.", "Je conçois et construis chaque site moi-même. Vous parlez donc toujours à la personne qui travaille sur votre site, aussi après la mise en ligne."],
+      c_lead2: ["In your inbox within five working days. Free, no deposit.", "Dans votre boîte mail sous cinq jours ouvrables. Gratuit, sans acompte."],
+      c_alt: ["Rather call? <a href=\"tel:+32496251445\">+32 496 25 14 45</a>", "Vous préférez appeler ? <a href=\"tel:+32496251445\">+32 496 25 14 45</a>"],
+      f_site2: ["Website or Instagram", "Site web ou Instagram"], f_site_ph2: ["www.yourbusiness.com or @yourbusiness", "www.votreentreprise.be ou @votreentreprise"],
+      f_msg2: ["Anything I should know? <small>optional</small>", "Quelque chose à savoir ? <small>facultatif</small>"], f_msg_ph2: ["E.g. what you do or what the site should do", "P. ex. votre activité ou ce que le site doit pouvoir faire"]
     };
     Object.keys(T).forEach(function (k) { I18N_UP.en[k] = T[k][0]; I18N_UP.fr[k] = T[k][1]; });
   })();
