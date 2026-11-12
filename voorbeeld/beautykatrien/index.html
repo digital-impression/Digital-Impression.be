@@ -74,6 +74,17 @@ h1 em,h2 em{font-style:italic;color:var(--hemel2)}
 /* behandelingen */
 .raster{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,26px)}
 .beh{background:#fff;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.beh{position:relative}
+.beh .nr{position:absolute;top:16px;left:16px;z-index:2;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-radius:999px;padding:7px 12px;font:600 11.5px/1 'DM Sans',sans-serif;letter-spacing:.16em;color:var(--leisteen)}
+.beh.groot{grid-column:span 2;grid-row:span 2;display:block;min-height:560px;background:var(--leisteen)}
+.beh.groot figure{position:absolute;inset:0;aspect-ratio:auto;height:100%}
+.beh.groot .t{position:absolute;left:clamp(16px,2vw,26px);bottom:clamp(16px,2vw,26px);width:min(430px,calc(100% - 32px));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-radius:20px;display:flex;flex-direction:column;padding:clamp(24px,2.6vw,34px);box-shadow:0 30px 60px -30px rgba(20,35,45,.5)}
+.beh.groot h3{font-size:clamp(32px,3vw,44px);font-weight:300}
+.beh.groot p{font-size:16.5px}
+.beh.groot .lijst{list-style:none;margin:22px 0 0;padding:0;border-top:1px solid var(--lijn)}
+.beh.groot .lijst li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--lijn);font-size:15px;color:var(--inkt)}
+.beh.groot .lijst li span{color:var(--stil);font-size:13px}
+.beh.groot .meer{margin-top:24px;font-weight:600;font-size:15px;color:var(--hemel2);text-decoration:none}
 .beh:hover{transform:translateY(-5px);box-shadow:0 30px 60px -36px rgba(45,67,82,.4)}
 .beh figure{margin:0;aspect-ratio:4/3;overflow:hidden;background:var(--zand)}
 .beh img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
@@ -179,6 +190,7 @@ footer a:hover{color:#fff}
   .kop.open .nav a{width:100%;padding:14px 0;border-bottom:1px solid var(--lijn);font-size:17px}
   .kop.open .nav .knop{width:auto;border:0;margin-top:18px;padding:14px 22px}
   .raster{grid-template-columns:1fr 1fr}
+  .beh.groot{grid-column:span 2;grid-row:auto;min-height:620px}
   .troeven ul{grid-template-columns:1fr 1fr}
   .troeven li:nth-child(3){border-left:0}
   .troeven li:nth-child(n+3){border-top:1px solid var(--lijn)}
@@ -194,6 +206,9 @@ footer a:hover{color:#fff}
   body{font-size:16px}
   .kop .logo img{height:42px}
   .raster{grid-template-columns:1fr}
+  .beh.groot{grid-column:auto;min-height:0;background:#fff}
+  .beh.groot figure{position:relative;aspect-ratio:4/3;height:auto}
+  .beh.groot .t{position:static;width:auto;box-shadow:none;border-radius:0;background:#fff}
   .troeven ul{grid-template-columns:1fr}
   .troeven li{border-left:0!important;border-top:1px solid var(--lijn);padding:20px 0}
   .troeven li:first-child{border-top:0}
@@ -263,12 +278,12 @@ footer a:hover{color:#fff}
       <p>Bij Katrien kun je voor veel terecht, maar huidverbetering en permanente make-up zijn haar sterkste kant.</p>
     </div>
     <div class="raster">
-      <article class="beh" data-r><figure><img src="img/masker.webp" alt="Gezichtsbehandeling met masker" width="1100" height="733" loading="lazy"></figure><div class="t"><h3>Huidverbetering</h3><p>Gezichtsbehandelingen met Kalahari, aangepast aan jouw huidtype. Van een eerste kennismaking tot een kuur.</p><div class="tags"><span>Vitamine C</span><span>Honeybush</span><span>Clear skin</span></div></div></article>
-      <article class="beh" data-r><figure><img src="img/rust.webp" alt="Natuurlijk ogende wenkbrauwen en oogopslag" width="1000" height="666" loading="lazy"></figure><div class="t"><h3>Permanente make-up</h3><p>Wenkbrauwen, eyeliner of deepliner. Geen bijtekenen meer, geen panda-ogen na het sporten.</p><div class="tags"><span>Microblading</span><span>Ombré brows</span><span>Eyeliner</span></div></div></article>
-      <article class="beh" data-r><figure><img src="img/nagels.webp" alt="Verzorgde gelnagels in zachte kleuren" width="1000" height="1000" loading="lazy"></figure><div class="t"><h3>Gelnagels</h3><p>Je handen zijn je visitekaartje. Keuze uit meer dan 140 kleuren van Pronails en Abstract.</p><div class="tags"><span>Nieuwe set</span><span>Bijwerken</span><span>Brush 'N Color</span></div></div></article>
-      <article class="beh" data-r><figure><img src="img/kleimasker.webp" alt="Open blik met verzorgd oog" width="600" height="700" loading="lazy"></figure><div class="t"><h3>Lashlift &amp; henna brows</h3><p>Een open blik zonder wimperkruller en wenkbrauwen die strak en vol in shape staan.</p><div class="tags"><span>Lash volume lift</span><span>Henna brows</span></div></div></article>
-      <article class="beh" data-r><figure><img src="img/handen.webp" alt="Zachte, gladde huid na het ontharen" width="1000" height="562" loading="lazy"></figure><div class="t"><h3>Ontharen</h3><p>Klassiek met hars of met suiker van Royx Pro. Suiker is zachter voor je huid en geeft er meteen een peeling bij.</p><div class="tags"><span>Hars</span><span>Suikerontharing</span></div></div></article>
-      <article class="beh" data-r><figure><img src="img/massage.webp" alt="Lichaamsbehandeling" width="1000" height="1500" loading="lazy"></figure><div class="t"><h3>Figuurcorrectie</h3><p>LPG endermologie, BodyBooster en Flabélos. Voor een stevigere huid, minder cellulitis en lichtere benen.</p><div class="tags"><span>LPG</span><span>BodyBooster</span><span>Flabélos</span></div></div></article>
+      <article class="beh groot" data-r><span class="nr">01 · SPECIALITEIT</span><figure><img src="img/masker.webp" alt="Gezichtsbehandeling met masker" width="1100" height="733" loading="lazy"></figure><div class="t"><h3>Huidverbetering</h3><p>Gezichtsbehandelingen met Kalahari, aangepast aan jouw huidtype. Van een eerste kennismaking tot een volledige kuur.</p><ul class="lijst"><li>Vitamine C Treatment<span>populair</span></li><li>Honeybush Treatment<span>kennismaking</span></li><li>Phyto Enzyme Compound<span>diepe reiniging</span></li><li>Clear skin treatment<span>jonge huid</span></li></ul><a class="meer" href="#kalahari">Meer over Kalahari →</a></div></article>
+      <article class="beh" data-r><span class="nr">02</span><figure><img src="img/rust.webp" alt="Natuurlijk ogende wenkbrauwen en oogopslag" width="1000" height="666" loading="lazy"></figure><div class="t"><h3>Permanente make-up</h3><p>Wenkbrauwen, eyeliner of deepliner. Geen bijtekenen meer, geen panda-ogen na het sporten.</p><div class="tags"><span>Microblading</span><span>Ombré brows</span><span>Eyeliner</span></div></div></article>
+      <article class="beh" data-r><span class="nr">03</span><figure><img src="img/nagels.webp" alt="Verzorgde gelnagels in zachte kleuren" width="1000" height="1000" loading="lazy"></figure><div class="t"><h3>Gelnagels</h3><p>Je handen zijn je visitekaartje. Keuze uit meer dan 140 kleuren van Pronails en Abstract.</p><div class="tags"><span>Nieuwe set</span><span>Bijwerken</span><span>Brush 'N Color</span></div></div></article>
+      <article class="beh" data-r><span class="nr">04</span><figure><img src="img/kleimasker.webp" alt="Open blik met verzorgd oog" width="600" height="700" loading="lazy"></figure><div class="t"><h3>Lashlift &amp; henna brows</h3><p>Een open blik zonder wimperkruller en wenkbrauwen die strak en vol in shape staan.</p><div class="tags"><span>Lash volume lift</span><span>Henna brows</span></div></div></article>
+      <article class="beh" data-r><span class="nr">05</span><figure><img src="img/handen.webp" alt="Zachte, gladde huid na het ontharen" width="1000" height="562" loading="lazy"></figure><div class="t"><h3>Ontharen</h3><p>Klassiek met hars of met suiker van Royx Pro. Suiker is zachter voor je huid en geeft er meteen een peeling bij.</p><div class="tags"><span>Hars</span><span>Suikerontharing</span></div></div></article>
+      <article class="beh" data-r><span class="nr">06</span><figure><img src="img/massage.webp" alt="Lichaamsbehandeling" width="1000" height="1500" loading="lazy"></figure><div class="t"><h3>Figuurcorrectie</h3><p>LPG endermologie, BodyBooster en Flabélos. Voor een stevigere huid, minder cellulitis en lichtere benen.</p><div class="tags"><span>LPG</span><span>BodyBooster</span><span>Flabélos</span></div></div></article>
     </div>
   </div>
 </section>
@@ -296,7 +311,7 @@ footer a:hover{color:#fff}
   </div>
 </section>
 
-<section class="blok kala">
+<section class="blok kala" id="kalahari">
   <div class="wrap">
     <div class="beelden" data-r>
       <img src="img/kalahari-reiniging.webp" alt="Kalahari reinigingsproducten" width="600" height="700" loading="lazy">

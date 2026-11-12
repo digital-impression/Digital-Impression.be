@@ -113,11 +113,15 @@ h1,h2,h3{font-family:'Sora',sans-serif;font-weight:600;letter-spacing:-.025em;li
 .werkplaats .tekst h3{font-size:clamp(26px,2.6vw,34px)}
 
 /* stappen */
-.stappen{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.stappen article{background:var(--wit);border:1px solid var(--lijn);border-radius:20px;padding:30px 28px 32px}
-.stappen .nr{width:44px;height:44px;border-radius:12px;background:var(--tekst);color:#fff;display:grid;place-items:center;font:600 17px/1 'Sora',sans-serif}
-.stappen h3{font-size:22px;margin:22px 0 10px}
-.stappen p{color:var(--grijs);font-size:15.5px}
+.stappen{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,44px);position:relative;counter-reset:s}
+.stappen::before{content:"";position:absolute;left:22px;right:22px;top:22px;height:2px;background:linear-gradient(90deg,var(--amber),rgba(238,138,34,.15))}
+.stappen article{position:relative;padding-top:78px}
+.stappen .nr{position:absolute;top:0;left:0;width:46px;height:46px;border-radius:50%;background:var(--licht);border:2px solid var(--amber);color:var(--tekst);display:grid;place-items:center;font:600 16px/1 'Sora',sans-serif;box-shadow:0 0 0 8px var(--licht)}
+.stappen article:first-child .nr{background:var(--amber);color:#1a1004}
+.stappen .groot-nr{position:absolute;right:0;top:-6px;font:700 96px/1 'Sora',sans-serif;color:rgba(20,23,26,.05);letter-spacing:-.04em;pointer-events:none}
+.stappen h3{font-size:24px;margin:0 0 10px}
+.stappen p{color:var(--grijs);font-size:15.5px;max-width:320px}
+.stappen .duur{display:inline-block;margin-top:16px;font:600 12px/1 'Sora',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#c96a0c;background:rgba(238,138,34,.12);padding:7px 11px;border-radius:999px}
 
 /* reviews */
 .reviews{background:var(--asfalt);color:#fff}
@@ -186,7 +190,9 @@ footer a:hover{color:#fff}
   .mozaiek figure{aspect-ratio:4/3}
   .mozaiek .hoog{grid-row:auto;grid-column:span 2;aspect-ratio:16/10}
   .werkplaats .tekst,.contact .wrap{grid-template-columns:1fr}
-  .stappen{grid-template-columns:1fr}
+  .stappen{grid-template-columns:1fr;gap:40px}
+  .stappen::before{left:22px;right:auto;top:22px;bottom:22px;width:2px;height:auto;background:linear-gradient(180deg,var(--amber),rgba(238,138,34,.15))}
+  .stappen article{padding:0 0 0 78px}
 }
 @media (max-width:600px){
   body{font-size:16px}
@@ -341,9 +347,9 @@ footer a:hover{color:#fff}
       <div><span class="oog">Zo gaat het</span><h2>In drie stappen weer blinken.</h2></div>
     </div>
     <div class="stappen">
-      <article data-r><span class="nr">1</span><h3>Afspraak maken</h3><p>Bel, stuur een WhatsApp of mail. Zeg kort wat voor wagen het is en wat je wil laten doen.</p></article>
-      <article data-r><span class="nr">2</span><h3>Eerlijk advies</h3><p>We kijken samen wat zinvol is. Geen extra's die je niet nodig hebt, wel een duidelijke prijs vooraf.</p></article>
-      <article data-r><span class="nr">3</span><h3>Klaar om te blinken</h3><p>Je wagen staat op tijd klaar, binnen en buiten verzorgd. Instappen en genieten.</p></article>
+      <article data-r><span class="nr">1</span><span class="groot-nr">01</span><h3>Afspraak maken</h3><p>Bel, stuur een WhatsApp of mail. Zeg kort wat voor wagen het is en wat je wil laten doen.</p><span class="duur">Ma tot za, 9u tot 20u</span></article>
+      <article data-r><span class="nr">2</span><span class="groot-nr">02</span><h3>Eerlijk advies</h3><p>We kijken samen wat zinvol is. Geen extra's die je niet nodig hebt, wel een duidelijke prijs vooraf.</p><span class="duur">Prijs vooraf</span></article>
+      <article data-r><span class="nr">3</span><span class="groot-nr">03</span><h3>Klaar om te blinken</h3><p>Je wagen staat op tijd klaar, binnen en buiten verzorgd. Instappen en genieten.</p><span class="duur">Op tijd klaar</span></article>
     </div>
   </div>
 </section>

@@ -99,7 +99,12 @@ p{margin:0}
 .stijlen h2{font-size:clamp(34px,4vw,56px);margin:20px 0 24px}
 .stijlen .links p{color:var(--grijs);max-width:380px}
 .lijst{list-style:none;margin:0;padding:0;border-top:1px solid var(--lijn)}
-.lijst li{display:grid;grid-template-columns:56px 1fr;gap:18px;padding:24px 0;border-bottom:1px solid var(--lijn);align-items:baseline}
+.lijst li{display:grid;grid-template-columns:56px 1fr 84px;gap:18px;padding:22px 0;border-bottom:1px solid var(--lijn);align-items:center;position:relative;transition:padding .5s var(--ease)}
+.lijst li:hover{padding-left:12px}
+.lijst li::after{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:var(--messing);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
+.lijst li:hover::after{transform:scaleX(1)}
+.lijst li img{width:84px;height:84px;object-fit:cover;border-radius:3px;filter:grayscale(1) contrast(1.05);opacity:.75;transition:filter .5s,opacity .5s}
+.lijst li:hover img{filter:none;opacity:1}
 .lijst .nr{font:500 13px/1 'Manrope',sans-serif;color:var(--messing);letter-spacing:.1em}
 .lijst h3{font-size:clamp(24px,2.4vw,32px)}
 .lijst p{color:var(--grijs);font-size:15px;margin-top:6px}
@@ -193,6 +198,8 @@ footer a:hover{color:var(--been)}
   body{font-size:16px}
   .merk img{width:140px}
   .galerij{columns:1}
+  .lijst li{grid-template-columns:40px 1fr 60px}
+  .lijst li img{width:60px;height:60px}
   .stap{grid-template-columns:1fr}
   .strook li+li::before{display:none}
   .strook ul{gap:6px 22px}
@@ -297,12 +304,12 @@ footer a:hover{color:var(--been)}
       <p>Bij Blacksmith kun je voor alle stijlen terecht. Weet je al precies wat je wil, top. Weet je het nog niet, dan zoeken jullie het samen uit aan de hand van voorbeelden.</p>
     </div>
     <ul class="lijst" data-r>
-      <li><span class="nr">01</span><div><h3>Blackwork</h3><p>Volle zwarte vlakken en sterke contrasten, van kleine stukken tot een hele sleeve.</p></div></li>
-      <li><span class="nr">02</span><div><h3>Dotwork &amp; Geometric</h3><p>Mandala's en patronen die punt per punt opgebouwd worden.</p></div></li>
-      <li><span class="nr">03</span><div><h3>Ornamental</h3><p>Sierlijke lijnen die de vorm van je lichaam volgen.</p></div></li>
-      <li><span class="nr">04</span><div><h3>Black &amp; Grey</h3><p>Zachte overgangen en diepte, zonder kleur.</p></div></li>
-      <li><span class="nr">05</span><div><h3>Fineline</h3><p>Fijne, ingetogen lijnen voor wie het subtiel houdt.</p></div></li>
-      <li><span class="nr">06</span><div><h3>American Traditional</h3><p>Dikke lijnen en klassieke beelden die jaren mooi blijven.</p></div></li>
+      <li><span class="nr">01</span><div><h3>Blackwork</h3><p>Volle zwarte vlakken en sterke contrasten, van kleine stukken tot een hele sleeve.</p></div><img src="img/zeis.webp" alt="" width="1000" height="1250" loading="lazy"></li>
+      <li><span class="nr">02</span><div><h3>Dotwork &amp; Geometric</h3><p>Mandala's en patronen die punt per punt opgebouwd worden.</p></div><img src="img/geometrisch.webp" alt="" width="1000" height="1250" loading="lazy"></li>
+      <li><span class="nr">03</span><div><h3>Ornamental</h3><p>Sierlijke lijnen die de vorm van je lichaam volgen.</p></div><img src="img/borststuk.webp" alt="" width="1000" height="1250" loading="lazy"></li>
+      <li><span class="nr">04</span><div><h3>Black &amp; Grey</h3><p>Zachte overgangen en diepte, zonder kleur.</p></div><img src="img/schip.webp" alt="" width="1000" height="1250" loading="lazy"></li>
+      <li><span class="nr">05</span><div><h3>Fineline</h3><p>Fijne, ingetogen lijnen voor wie het subtiel houdt.</p></div><img src="img/roos.webp" alt="" width="1000" height="1250" loading="lazy"></li>
+      <li><span class="nr">06</span><div><h3>American Traditional</h3><p>Dikke lijnen en klassieke beelden die jaren mooi blijven.</p></div><img src="img/slang.webp" alt="" width="1000" height="1250" loading="lazy"></li>
     </ul>
   </div>
 </section>
