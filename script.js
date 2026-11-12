@@ -991,6 +991,7 @@
       mk_c1: ["Can you add the holiday opening hours?", "Vous pouvez ajouter les horaires des fêtes ?"], mk_c2: ["Done. Have a look.", "C'est fait. Jetez un œil."], mk_c3: ["Carefree · €19.99 a month", "Sans souci · 19,99 € par mois"],
       ch_design: ["Design", "Design"], ch_build: ["Build", "Développement"], ch_care: ["Aftercare", "Suivi"],
       hero_k: ["Web design from Leuven", "Webdesign depuis Louvain"],
+      hs_live: ["Diepenbeek · live", "Diepenbeek · en ligne"],
       work_lead: ["Every site starts with the business itself. Click a design to see the full page.", "Chaque site part de l'entreprise elle-même. Cliquez sur un design pour voir la page entière."],
       mob_k: ["On a phone", "Sur mobile"], wall_t2: ["This is how it looks <em>on a phone.</em>", "Voici le rendu <em>sur mobile.</em>"],
       mob_p: ["Most people look up a business on their phone. That small screen gets as much attention as the laptop.", "La plupart des gens cherchent une entreprise sur leur téléphone. Ce petit écran reçoit autant d'attention que l'ordinateur."],
