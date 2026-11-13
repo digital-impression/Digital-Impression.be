@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Kate Beauty Studio | Semi-permanente make-up, nagels en wimpers</title>
+<meta name="description" content="Kate zet powder brows, hair strokes, lip blush en eyeliner, en doet nagels, wimperextensions en waxing. Afspraak via WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="preload" as="image" href="img/kate.webp">
+<style>
+:root{
+  --paper:#FBF9F6;--ivory:#F5F0E9;--sand:#ECE4D9;--sand2:#E2D8CB;--greige:#C6BDB1;--greige2:#B4AA9D;
+  --ink:#1B1715;--ink2:#2A2421;--text:#3B342F;--muted:#776D64;--red:#B3241C;--red2:#CF3B2C;--champ:#B39970;
+  --line:rgba(27,23,21,.12);--line-l:rgba(245,240,233,.16);
+  --serif:'Bodoni Moda',Didot,'Times New Roman',serif;--sans:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);--r:22px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--text);font:400 16.5px/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{width:min(1320px,100% - 80px);margin-inline:auto}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font:600 11.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.eyebrow svg{width:30px;height:14px;flex:none;color:var(--red)}
+.h2{font:500 clamp(36px,4.4vw,62px)/1.04 var(--serif);letter-spacing:-.015em;color:var(--ink);margin:18px 0 0;font-variation-settings:"opsz" 96}
+.h2 em{font-style:italic;font-weight:400}
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 24px;border-radius:999px;font:600 15px/1 var(--sans);text-decoration:none;transition:transform .35s var(--ease),background .3s,color .3s,box-shadow .35s var(--ease);white-space:nowrap}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-ink{background:var(--ink);color:var(--ivory);box-shadow:0 10px 24px -14px rgba(27,23,21,.7)}
+.btn-ink:hover{background:var(--red);transform:translateY(-2px);box-shadow:0 16px 30px -14px rgba(179,36,28,.65)}
+.btn-line{border:1px solid rgba(27,23,21,.28);color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
+.btn-ivory{background:var(--ivory);color:var(--ink)}
+.btn-ivory:hover{background:var(--red);color:#fff;transform:translateY(-2px)}
+
+/* demo-balk */
+.demo{position:relative;z-index:60;background:var(--ink);color:rgba(245,240,233,.82);text-align:center;font:500 13px/1.4 var(--sans);padding:9px 16px}
+.demo a{color:#fff;text-decoration:underline;text-decoration-color:var(--red2);text-underline-offset:3px}
+
+/* header */
+.top{position:sticky;top:0;z-index:50;transition:background .4s,box-shadow .4s,backdrop-filter .4s}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:84px;transition:height .4s var(--ease)}
+.top.klein{background:rgba(251,249,246,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+.top.klein .wrap{height:66px}
+.logo{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--ink)}
+.logo b{font:italic 500 32px/1 var(--serif);letter-spacing:-.01em}
+.logo span{font:600 10.5px/1 var(--sans);letter-spacing:.26em;text-transform:uppercase;padding-left:10px;border-left:1px solid rgba(27,23,21,.25)}
+.nav{display:flex;align-items:center;gap:34px}
+.nav a.l{position:relative;font:500 14.5px/1 var(--sans);color:var(--ink);text-decoration:none}
+.nav a.l::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:1px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.nav a.l:hover::after{transform:scaleX(1)}
+.nav .btn{height:44px;padding:0 20px;font-size:14px}
+.burger{display:none;width:46px;height:46px;border-radius:50%;border:1px solid rgba(27,23,21,.2);background:transparent;cursor:pointer;position:relative}
+.burger i{position:absolute;left:14px;right:14px;height:1.5px;background:var(--ink);transition:transform .4s var(--ease),top .4s var(--ease)}
+.burger i:first-child{top:19px}.burger i:last-child{top:26px}
+.open .burger i:first-child{top:22.5px;transform:rotate(45deg)}
+.open .burger i:last-child{top:22.5px;transform:rotate(-45deg)}
+.menu{position:fixed;inset:0;z-index:45;background:var(--ivory);padding:120px 28px 40px;display:flex;flex-direction:column;gap:6px;clip-path:inset(0 0 100% 0);transition:clip-path .6s var(--ease);visibility:hidden}
+.open .menu{clip-path:inset(0 0 0 0);visibility:visible}
+.menu a.m{font:500 36px/1.25 var(--serif);color:var(--ink);text-decoration:none;padding:10px 0;border-bottom:1px solid var(--line)}
+.menu .btn{margin-top:26px;justify-content:center}
+
+/* hero */
+.hero{position:relative;margin-top:-84px;padding-top:84px;background:radial-gradient(70% 80% at 50% 38%,#D4CCC2 0%,#C5BCB0 55%,#B6AC9F 100%);overflow:hidden;isolation:isolate}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.35;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .45 0 0 0 0 .4 0 0 0 .25 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero-in{position:relative;min-height:clamp(700px,calc(100vh - 40px),900px)}
+.woord{position:absolute;left:50%;top:clamp(64px,8vw,112px);transform:translateX(-50%);margin:0;font:400 clamp(200px,31vw,470px)/.8 var(--serif);font-variation-settings:"opsz" 96;letter-spacing:-.035em;color:var(--ivory);white-space:nowrap;pointer-events:none;user-select:none;z-index:0}
+.portret{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:clamp(400px,38vw,580px);z-index:1;filter:drop-shadow(0 30px 40px rgba(60,45,35,.18))}
+.portret img{width:100%;height:auto}
+.hero-tekst{position:absolute;left:0;bottom:64px;width:min(370px,30%);z-index:2}
+.hero h1{font:500 clamp(42px,4.3vw,64px)/1.02 var(--serif);font-variation-settings:"opsz" 96;letter-spacing:-.02em;color:var(--ink);margin:18px 0 18px}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--red)}
+.hero p.lead{margin:0 0 26px;color:#3E3631;font-size:16.5px}
+.hero .knoppen{display:flex;flex-wrap:wrap;gap:10px}
+.hero .noot{margin:16px 0 0;font-size:13px;color:#5E554D;display:flex;gap:8px;align-items:center}
+.hero .noot i{width:7px;height:7px;border-radius:50%;background:#2E8B57;box-shadow:0 0 0 4px rgba(46,139,87,.16);flex:none}
+.kaarten{position:absolute;right:0;bottom:64px;width:290px;display:grid;gap:12px;z-index:2}
+.kaart{background:rgba(251,249,246,.78);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.6);border-radius:18px;padding:16px 18px;box-shadow:0 20px 40px -24px rgba(50,38,30,.45);transition:transform .45s var(--ease)}
+.kaart:hover{transform:translateY(-4px)}
+.k-award{display:flex;gap:14px;align-items:center}
+.k-award img{width:62px;height:62px;border-radius:12px;object-fit:cover;flex:none}
+.k-award small,.k-score small{display:block;font:600 10.5px/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.k-award b{display:block;font:500 19px/1.2 var(--serif);color:var(--ink);margin-top:4px}
+.k-award span{font-size:13px;color:var(--muted)}
+.k-rij{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.k-score b{display:block;font:500 40px/1 var(--serif);color:var(--ink);margin:6px 0 4px}
+.k-score .st{color:var(--red);letter-spacing:2px;font-size:12px}
+.k-score span{display:block;font-size:12.5px;color:var(--muted);line-height:1.35}
+.k-uur b{display:block;font:500 18px/1.2 var(--serif);color:var(--ink);margin:6px 0 4px}
+.zij{position:absolute;left:0;top:50%;transform:translateY(-50%) rotate(-90deg);transform-origin:left top;font:600 10.5px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:rgba(27,23,21,.45);z-index:2;display:none}
+
+/* band */
+.band{background:var(--ink);color:var(--ivory)}
+.band ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.band li{position:relative}
+.band a{display:flex;gap:16px;align-items:center;padding:28px 26px;text-decoration:none;transition:background .35s}
+.band a:hover{background:var(--ink2)}
+.band li+li::before{content:"";position:absolute;left:0;top:26px;bottom:26px;width:1px;background:var(--line-l)}
+.band svg{width:34px;height:34px;flex:none;color:var(--champ)}
+.band b{display:block;font:500 17px/1.2 var(--serif);letter-spacing:.005em}
+.band span{display:block;font-size:13px;color:rgba(245,240,233,.6);margin-top:3px}
+.band em{font:italic 400 13px/1 var(--serif);color:var(--red2);margin-right:-4px;align-self:flex-start;margin-top:2px}
+
+/* sectie algemeen */
+section{position:relative;overflow-x:clip}
+.pad{padding:clamp(80px,9vw,128px) 0}
+
+/* PMU index */
+.pmu-kop{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:end;margin-bottom:56px}
+.pmu-kop p{margin:0;color:var(--muted);max-width:440px}
+.rijen{border-top:1px solid var(--line)}
+.rij{display:grid;grid-template-columns:90px 1.05fr 1.25fr 250px;gap:36px;align-items:center;padding:34px 22px;border-bottom:1px solid var(--line);position:relative;transition:background .45s var(--ease)}
+.rij::before{content:"";position:absolute;inset:0;background:var(--ivory);opacity:0;transition:opacity .45s var(--ease);z-index:-1;border-radius:18px}
+.rij:hover::before{opacity:1}
+.rij .nr{font:italic 400 44px/1 var(--serif);color:var(--red)}
+.rij h3{font:500 clamp(30px,3vw,42px)/1.05 var(--serif);color:var(--ink);margin:0;letter-spacing:-.01em}
+.rij .soort{display:block;margin-top:10px;font-size:13.5px;color:var(--muted);letter-spacing:.01em}
+.rij p{margin:0 0 14px;font-size:15.5px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:7px;font:500 12.5px/1 var(--sans);padding:8px 12px;border-radius:999px;background:var(--sand);color:var(--ink2)}
+.chip svg{width:13px;height:13px;color:var(--red)}
+.rij figure{margin:0;position:relative;height:170px;border-radius:16px;overflow:hidden}
+.rij figure img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.rij:hover figure img{transform:scale(1.06)}
+.rij figure figcaption{position:absolute;left:10px;bottom:10px;font:600 10.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;background:rgba(251,249,246,.9);color:var(--ink);padding:7px 10px;border-radius:999px}
+.pmu-noot{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
+.pmu-noot div{display:flex;gap:14px;align-items:flex-start;padding:20px 22px;border-radius:18px;border:1px solid var(--line);font-size:14.5px;color:var(--text)}
+.pmu-noot svg{width:24px;height:24px;flex:none;color:var(--red);margin-top:1px}
+.pmu-noot b{color:var(--ink);font-weight:600}
+.streep-deco{position:absolute;right:-60px;top:60px;width:420px;color:rgba(179,36,28,.07);pointer-events:none}
+
+/* over kate */
+.over{background:var(--ink);color:var(--ivory);overflow:hidden}
+.over .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(48px,7vw,110px);align-items:center}
+.over-beeld{position:relative;padding:0 60px 60px 0}
+.over-beeld .groot{border-radius:220px 220px 22px 22px;overflow:hidden;aspect-ratio:4/6.2;position:relative}
+.over-beeld .groot img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.over-beeld .klein{position:absolute;right:0;bottom:0;width:46%;border-radius:18px;overflow:hidden;border:6px solid var(--ink);box-shadow:0 30px 50px -20px rgba(0,0,0,.6)}
+.over-beeld .klein img{aspect-ratio:1/1.1;object-fit:cover;width:100%}
+.stempel{position:absolute;left:-34px;top:38%;width:128px;height:128px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;text-align:center;box-shadow:0 20px 40px -16px rgba(0,0,0,.55)}
+.stempel svg{position:absolute;inset:0;width:100%;height:100%;animation:draai 22s linear infinite}
+.stempel b{font:500 34px/1 var(--serif)}
+.stempel b sup{font-size:.45em;vertical-align:top;margin-left:1px}
+@keyframes draai{to{transform:rotate(360deg)}}
+.over .eyebrow{color:rgba(245,240,233,.6)}
+.citaat{font:italic 400 clamp(30px,3.4vw,48px)/1.16 var(--serif);margin:22px 0 28px;color:var(--ivory);letter-spacing:-.01em}
+.over p.verhaal{color:rgba(245,240,233,.72);max-width:560px;margin:0 0 34px}
+.pad-lijst{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-l)}
+.pad-lijst li{padding:20px 18px 0 0;position:relative}
+.pad-lijst li::before{content:"";position:absolute;left:0;top:-4px;width:7px;height:7px;border-radius:50%;background:var(--champ)}
+.pad-lijst li:last-child::before{background:var(--red2);box-shadow:0 0 0 5px rgba(207,59,44,.2)}
+.pad-lijst b{display:block;font:500 22px/1.1 var(--serif);color:var(--ivory)}
+.pad-lijst span{display:block;font-size:13.5px;color:rgba(245,240,233,.6);margin-top:6px;line-height:1.45}
+.handtek{margin-top:34px;display:flex;align-items:center;gap:16px}
+.handtek b{font:italic 400 44px/1 var(--serif);color:var(--ivory)}
+.handtek span{font-size:13px;color:rgba(245,240,233,.55);line-height:1.4}
+
+/* genezing */
+.genees{background:var(--paper)}
+.genees-box{background:var(--sand);border-radius:32px;padding:clamp(28px,4vw,56px);display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,5vw,70px);align-items:center;position:relative;overflow:hidden}
+.genees-foto{position:relative;height:100%;min-height:440px}
+.genees-foto .f1{position:absolute;left:0;top:0;width:78%;height:76%;border-radius:20px;overflow:hidden}
+.genees-foto .f2{position:absolute;right:0;bottom:0;width:58%;height:44%;border-radius:20px;overflow:hidden;border:6px solid var(--sand)}
+.genees-foto img{width:100%;height:100%;object-fit:cover}
+.genees-foto .tag{position:absolute;left:14px;top:14px;z-index:2;background:var(--paper);border-radius:999px;padding:8px 13px;font:600 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.genees p.intro{margin:18px 0 0;max-width:520px;color:var(--text)}
+.tijdlijn{margin-top:38px}
+.balk{height:12px;border-radius:999px;background:linear-gradient(90deg,#5C120E 0%,#8E1F17 12%,#C77B6E 26%,#E6D3C8 34%,#EADBD1 56%,#D99A8C 70%,#C4473A 88%,#B3241C 100%);box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}
+.fases{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.fases li{position:relative;padding-top:22px}
+.fases li::before{content:"";position:absolute;left:0;top:-17px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:2px solid var(--ink)}
+.fases li:last-child::before{background:var(--red);border-color:var(--red)}
+.fases small{display:block;font:600 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.fases b{display:block;font:500 19px/1.15 var(--serif);color:var(--ink);margin:8px 0 6px}
+.fases span{display:block;font-size:13.5px;line-height:1.45;color:var(--muted)}
+.tip{margin-top:34px;display:flex;gap:14px;align-items:flex-start;background:var(--paper);border-radius:18px;padding:18px 20px;font-size:14.5px}
+.tip svg{width:22px;height:22px;color:var(--red);flex:none;margin-top:2px}
+
+/* mozaiek */
+.rest{background:var(--ivory)}
+.rest-kop{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:44px}
+.rest-kop p{max-width:400px;margin:0;color:var(--muted)}
+.moza{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:14px;grid-template-areas:"a b c c" "a d c c" "e f g h" "e i i h"}
+.tegel{position:relative;border-radius:20px;overflow:hidden;margin:0}
+.tegel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.tegel:hover img{transform:scale(1.05)}
+.tegel figcaption{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(251,249,246,.92);backdrop-filter:blur(6px);border-radius:14px;padding:12px 14px;font-size:13.5px;line-height:1.35;color:var(--ink)}
+.tegel figcaption b{display:block;font:500 17px/1.2 var(--serif);margin-bottom:2px}
+.t-a{grid-area:a}.t-b{grid-area:b}.t-c{grid-area:c}.t-d{grid-area:d}.t-e{grid-area:e}.t-f{grid-area:f}.t-g{grid-area:g}.t-h{grid-area:h}.t-i{grid-area:i}
+.blok{border-radius:20px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.blok b{font:500 23px/1.15 var(--serif);display:block}
+.blok p{margin:8px 0 0;font-size:14.5px;line-height:1.5}
+.blok .ic{width:40px;height:40px;border-radius:50%;display:grid;place-items:center}
+.blok .ic svg{width:20px;height:20px}
+.b-rood{background:var(--red);color:#fff}
+.b-rood .ic{background:rgba(255,255,255,.16)}
+.b-rood p{color:rgba(255,255,255,.85)}
+.b-papier{background:var(--paper);border:1px solid var(--line);color:var(--ink)}
+.b-papier .ic{background:var(--sand);color:var(--red)}
+.b-papier p{color:var(--muted)}
+.b-ink{background:var(--ink);color:var(--ivory)}
+.b-ink .ic{background:rgba(245,240,233,.1);color:var(--champ)}
+.b-ink p{color:rgba(245,240,233,.68)}
+.b-ink ul{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:9px;font-size:14px}
+.b-ink li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line-l);padding-bottom:9px;color:rgba(245,240,233,.85)}
+.b-ink li span{color:rgba(245,240,233,.5)}
+.b-zand{background:var(--sand2);color:var(--ink);flex-direction:row;align-items:center;gap:24px}
+.b-zand p{color:var(--text)}
+.b-zand .groot{font:italic 400 64px/1 var(--serif);color:var(--red);flex:none}
+
+/* kom binnen */
+.binnen{background:linear-gradient(180deg,var(--ivory) 0,var(--ivory) 120px,var(--greige) 120px)}
+.binnen-in{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,4vw,60px);align-items:stretch}
+.collage{position:sticky;top:100px;height:680px;align-self:start}
+.collage figure{margin:0;position:absolute;border-radius:22px;overflow:hidden;box-shadow:0 30px 50px -30px rgba(40,30,25,.55)}
+.collage img{width:100%;height:100%;object-fit:cover}
+.c1{left:0;top:0;width:60%;height:74%}
+.c2{right:0;top:7%;width:44%;height:42%}
+.c3{right:5%;bottom:0;width:54%;height:44%;border:6px solid var(--greige)}
+.collage figcaption{position:absolute;left:10px;bottom:10px;background:rgba(251,249,246,.9);border-radius:999px;padding:7px 12px;font:600 10.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.afspraak{background:var(--paper);border-radius:28px;padding:clamp(28px,3.4vw,46px);box-shadow:0 30px 60px -36px rgba(40,30,25,.5);align-self:center}
+.afspraak .h2{font-size:clamp(34px,3.4vw,50px)}
+.afspraak p.lead{margin:16px 0 26px;color:var(--text)}
+.stappen{list-style:none;margin:0 0 28px;padding:0;display:grid;gap:14px;counter-reset:s}
+.stappen li{display:grid;grid-template-columns:34px 1fr;gap:14px;font-size:15px;line-height:1.5;counter-increment:s}
+.stappen li::before{content:counter(s);width:34px;height:34px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font:italic 500 17px/1 var(--serif);color:var(--red)}
+.stappen b{color:var(--ink);font-weight:600}
+.uren{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:24px}
+.uren h3{margin:0 0 12px;font:600 11px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.uren table{border-collapse:collapse;width:100%;font-size:14px}
+.uren td{padding:4px 0}
+.uren td:last-child{text-align:right;color:var(--ink);font-weight:500}
+.uren tr.dicht td:last-child{color:var(--muted);font-weight:400}
+.uren tr.nu td{color:var(--red);font-weight:600}
+.uren address{font-style:normal;font-size:14.5px;line-height:1.6;color:var(--text)}
+.uren address a{display:inline-flex;align-items:center;gap:6px;margin-top:10px;color:var(--red);font-weight:600;text-decoration:none;font-size:14px}
+.uren address a:hover{text-decoration:underline}
+.contact-knoppen{display:flex;flex-wrap:wrap;gap:10px}
+.mini{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 16px;border-radius:999px;border:1px solid var(--line);font:500 14px/1 var(--sans);text-decoration:none;color:var(--ink);transition:background .3s,border-color .3s}
+.mini:hover{background:var(--sand);border-color:transparent}
+.mini svg{width:16px;height:16px;color:var(--red)}
+.cadeau{margin-top:22px;display:flex;align-items:center;gap:16px;padding:16px 18px;border-radius:16px;background:var(--ink);color:var(--ivory);font-size:14px;line-height:1.45}
+.cadeau svg{width:28px;height:28px;color:var(--champ);flex:none}
+.cadeau b{font:500 17px/1.2 var(--serif);display:block;margin-bottom:2px}
+
+/* footer */
+.voet{background:var(--ink);color:rgba(245,240,233,.7);padding:70px 0 34px;overflow:hidden;position:relative}
+.voet .groot-woord{font:italic 400 clamp(120px,20vw,300px)/.8 var(--serif);color:transparent;-webkit-text-stroke:1px rgba(245,240,233,.16);letter-spacing:-.03em;margin:0 0 30px;white-space:nowrap}
+.voet-rij{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:30px;font-size:14px;line-height:1.7}
+.voet h4{margin:0 0 10px;font:600 11px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--champ)}
+.voet a{text-decoration:none}
+.voet a:hover{color:#fff}
+.voet .onder{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:44px;padding-top:22px;border-top:1px solid var(--line-l);font-size:12.5px;color:rgba(245,240,233,.45)}
+
+/* reveal */
+.js [data-r]{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js [data-r].in{opacity:1;transform:none}
+.js [data-r="2"]{transition-delay:.12s}.js [data-r="3"]{transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.js [data-r]{opacity:1;transform:none}}
+
+/* responsive */
+@media (max-width:1180px){
+  .wrap{width:min(1320px,100% - 56px)}
+  .hero-tekst{width:min(330px,30%)}
+  .kaarten{width:250px}
+  .rij{grid-template-columns:70px 1fr 1.2fr 200px;gap:26px}
+  .band a{padding:24px 18px}
+}
+@media (max-width:980px){
+  .nav a.l,.nav .btn{display:none}
+  .burger{display:block}
+  .hero-in{min-height:0;display:flex;flex-direction:column}
+  .hero-tekst{position:relative;left:auto;bottom:auto;width:auto;max-width:600px;padding:36px 0 0}
+  .beeld{position:relative;margin-top:24px;padding-top:9%;display:flex;flex-direction:column}
+  .woord{top:3%;font-size:clamp(170px,40vw,380px)}
+  .portret{position:relative;left:auto;bottom:auto;transform:none;margin:0 auto;width:min(520px,70%)}
+  .kaarten{position:relative;right:auto;bottom:auto;width:auto;margin:-90px 0 28px;grid-template-columns:1.1fr 1fr;align-items:stretch;z-index:3}
+  .k-rij{grid-template-columns:1fr 1fr}
+  .band ul{grid-template-columns:1fr 1fr}
+  .band li:nth-child(3)::before{display:none}
+  .band li:nth-child(n+3){border-top:1px solid var(--line-l)}
+  .pmu-kop{grid-template-columns:1fr;gap:18px}
+  .rij{grid-template-columns:56px 1fr 180px;grid-template-areas:"nr t f" "nr p f";gap:6px 24px;align-items:start}
+  .rij .nr{grid-area:nr}.rij .rt{grid-area:t}.rij .rp{grid-area:p}.rij figure{grid-area:f;height:100%;min-height:160px}
+  .rij .rp{margin-top:14px}
+  .pmu-noot{grid-template-columns:1fr}
+  .over .wrap{grid-template-columns:1fr}
+  .over-beeld{max-width:520px}
+  .pad-lijst{grid-template-columns:1fr 1fr;row-gap:26px}
+  .genees-box{grid-template-columns:1fr}
+  .genees-foto{min-height:380px;order:2}
+  .fases{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .moza{grid-template-columns:repeat(2,1fr);grid-auto-rows:minmax(210px,auto);grid-template-areas:"a c" "a c" "b d" "f e" "g e" "h h" "i i"}
+  .binnen-in{grid-template-columns:1fr}
+  .collage{position:relative;top:auto;height:560px}
+  .voet-rij{grid-template-columns:1fr 1fr}
+}
+@media (min-width:981px){.beeld{position:absolute;inset:0;pointer-events:none}.beeld .kaarten{pointer-events:auto}}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 40px)}
+  .demo{font-size:12px;padding:8px 14px}
+  .top .wrap{height:70px}
+  .hero{margin-top:-70px;padding-top:70px}
+  .logo b{font-size:28px}
+  .logo span{font-size:9.5px;letter-spacing:.22em}
+  .hero-tekst{padding-top:26px}
+  .hero h1{font-size:44px;margin:14px 0 14px}
+  .hero p.lead{font-size:15.5px;margin-bottom:22px}
+  .hero .knoppen .btn{flex:1 1 auto;justify-content:center}
+  .beeld{margin-top:26px;padding-top:12%}
+  .woord{top:4%;font-size:45vw}
+  .portret{width:86%}
+  .kaarten{margin:-70px 0 20px;grid-template-columns:1fr}
+  .k-rij{grid-template-columns:1fr 1fr}
+  .k-score b{font-size:34px}
+  .band ul{grid-template-columns:1fr 1fr}
+  .band a{flex-direction:column;align-items:flex-start;gap:10px;padding:22px 16px}
+  .band em{display:none}
+  .band svg{width:28px;height:28px}
+  .band b{font-size:16px}
+  .pad{padding:72px 0}
+  .h2{font-size:36px}
+  .rij{grid-template-columns:1fr;grid-template-areas:"f" "t" "p";padding:26px 0;gap:0}
+  .rij .nr{position:absolute;left:12px;top:38px;z-index:2;font-size:30px;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.35)}
+  .rij figure{height:200px;margin-bottom:18px}
+  .rij h3{font-size:32px}
+  .rij:hover::before{opacity:0}
+  .streep-deco{display:none}
+  .over-beeld{padding:0 30px 40px 0}
+  .stempel{left:-10px;width:104px;height:104px}
+  .stempel b{font-size:28px}
+  .pad-lijst{grid-template-columns:1fr 1fr}
+  .pad-lijst b{font-size:19px}
+  .genees-box{border-radius:24px;padding:26px 20px}
+  .fases{grid-template-columns:1fr;gap:0;position:relative;padding-left:28px}
+  .tijdlijn{display:flex;gap:0;position:relative}
+  .balk{position:absolute;left:5px;top:6px;bottom:6px;width:10px;height:auto;background:linear-gradient(180deg,#5C120E 0%,#8E1F17 12%,#C77B6E 26%,#E6D3C8 34%,#EADBD1 56%,#D99A8C 70%,#C4473A 88%,#B3241C 100%)}
+  .tijdlijn .fases{flex:1}
+  .fases li{padding:0 0 20px 6px}
+  .fases li::before{left:-28px;top:3px}
+  .genees-foto{min-height:300px}
+  .rest-kop{flex-direction:column;align-items:flex-start;gap:14px}
+  .moza{grid-auto-rows:minmax(150px,auto);gap:10px;grid-template-areas:"a c" "a c" "b b" "d e" "d e" "f f" "h h" "i i"}
+  .t-g{display:none}
+  .blok{padding:20px}
+  .blok b{font-size:21px}
+  .b-zand{flex-direction:column;align-items:flex-start;gap:8px}
+  .b-zand .groot{font-size:48px}
+  .tegel figcaption{left:8px;right:8px;bottom:8px;padding:10px 12px;font-size:12.5px}
+  .tegel figcaption b{font-size:15px}
+  .binnen{background:linear-gradient(180deg,var(--ivory) 0,var(--ivory) 80px,var(--greige) 80px)}
+  .collage{height:430px}
+  .afspraak{border-radius:22px;padding:26px 20px}
+  .uren{grid-template-columns:1fr;gap:22px}
+  .voet-rij{grid-template-columns:1fr;gap:24px}
+}
+</style>
+</head>
+<body>
+<div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="Kate Beauty Studio, naar boven"><b>Kate</b><span>Beauty Studio</span></a>
+    <nav class="nav" aria-label="Hoofdmenu">
+      <a class="l" href="#pmu">Permanente make-up</a>
+      <a class="l" href="#rest">Nagels &amp; wimpers</a>
+      <a class="l" href="#over">Over Kate</a>
+      <a class="l" href="#afspraak">Afspraak</a>
+      <a class="btn btn-ink" href="https://wa.me/32460979414" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.6-.3Z"/></svg>WhatsApp Kate</a>
+    </nav>
+    <button class="burger" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+  </div>
+</header>
+<div class="menu" id="menu">
+  <a class="m" href="#pmu">Permanente make-up</a>
+  <a class="m" href="#rest">Nagels &amp; wimpers</a>
+  <a class="m" href="#over">Over Kate</a>
+  <a class="m" href="#afspraak">Afspraak</a>
+  <a class="btn btn-ink" href="https://wa.me/32460979414" target="_blank" rel="noopener">WhatsApp Kate</a>
+</div>
+
+<main>
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap hero-in">
+    <div class="hero-tekst" data-r>
+      <span class="eyebrow"><svg viewBox="0 0 60 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 24c3-6 6-10 10-13M11 25c3-7 7-12 12-15M19 24c4-7 8-11 14-14M28 23c4-6 9-10 15-12M37 22c5-5 10-8 17-9"/></svg>Beauty studio van Kate</span>
+      <h1 id="h1">Mooi, ook <em>van dichtbij.</em></h1>
+      <p class="lead">Ik ben Kate. Ik zet semi-permanente make-up, doe nagels en wimpers en help je aan een gladde huid. Elke behandeling doe ik zelf, van je eerste berichtje tot de laatste touch-up.</p>
+      <div class="knoppen">
+        <a class="btn btn-ink" href="https://wa.me/32460979414" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.6-.3Z"/></svg>Afspraak via WhatsApp</a>
+        <a class="btn btn-line" href="#pmu">Bekijk mijn werk</a>
+      </div>
+      <p class="noot"><i aria-hidden="true"></i><span id="nuOpen">Ma, di, do, vr en za van 9u tot 18u</span></p>
+    </div>
+    <div class="beeld">
+      <p class="woord" aria-hidden="true">Kate</p>
+      <div class="portret"><img src="img/kate.webp" width="900" height="1200" alt="Kate, zaakvoerder van Kate Beauty Studio, in een witte blazer"></div>
+      <div class="kaarten" data-r="2">
+        <div class="kaart k-award">
+          <img src="img/plaket.webp" alt="De plaket van WULOP Belgium 2024, tweede plaats hair strokes" width="900" height="746" loading="lazy">
+          <div><small>WULOP Belgium 2024</small><b>2e plaats hair strokes</b></div>
+        </div>
+        <div class="k-rij">
+          <div class="kaart k-score"><small>Google</small><b>5,0</b><span class="st" aria-hidden="true">★★★★★</span><span>uit 24 reviews</span></div>
+          <div class="kaart k-uur"><small style="display:block;font:600 10.5px/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--red)">Werkwijze</small><b>Alles eerst uitgetekend</b><span style="font-size:12.5px;color:var(--muted);line-height:1.35;display:block">Pas als jij ja zegt, begin ik.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<nav class="band" aria-label="Behandelingen">
+  <ul class="wrap">
+    <li><a href="#pmu"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><path d="M5 22c6-7 15-10 30-8"/><path d="M9 20l2-4M13 18l2-5M17 17l2-5M21 16l2-5M25 15.5l2-4.5M29 15l2-4"/><path d="M8 29c4 2 9 3 12 3s8-1 12-3"/></svg><div><b>Permanente make-up</b><span>Brows, lippen en eyeliner</span></div></a></li>
+    <li><a href="#rest"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><path d="M14 34V16a6 6 0 0 1 12 0v18"/><path d="M16 15a4 4 0 0 1 8 0v4h-8z"/><path d="M11 34h18"/></svg><div><b>Nagels</b><span>BIAB, gel, acryl en nail art</span></div></a></li>
+    <li><a href="#rest"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><path d="M5 20c5 6 10 8 15 8s10-2 15-8"/><path d="M8 23l-2 4M12 26l-1 4M17 27.5l-.5 4.5M23 27.5l.5 4.5M28 26l1 4M32 23l2 4"/><circle cx="20" cy="19" r="3"/></svg><div><b>Wimperextensions</b><span>Classic tot Russian volume</span></div></a></li>
+    <li><a href="#rest"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" aria-hidden="true"><path d="M13 8h14l-2 6H15z"/><path d="M15 14c-3 3-4 7-4 11a9 9 0 0 0 18 0c0-4-1-8-4-11"/><path d="M15 25c2 2 8 2 10 0"/></svg><div><b>Waxing</b><span>Ook Brazilian en Hollywood</span></div></a></li>
+  </ul>
+</nav>
+
+<section class="pad" id="pmu" aria-labelledby="pmu-t">
+  <svg class="streep-deco" viewBox="0 0 400 200" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" aria-hidden="true"><path d="M20 170c20-40 40-70 70-95M60 178c22-45 48-80 85-105M105 176c26-46 56-78 95-100M152 170c28-42 62-70 104-86M200 160c30-36 66-58 110-68M250 148c30-28 64-44 104-50"/></svg>
+  <div class="wrap">
+    <div class="pmu-kop">
+      <div data-r>
+        <span class="eyebrow"><svg viewBox="0 0 60 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 24c3-6 6-10 10-13M11 25c3-7 7-12 12-15M19 24c4-7 8-11 14-14M28 23c4-6 9-10 15-12M37 22c5-5 10-8 17-9"/></svg>Semi-permanente make-up</span>
+        <h2 class="h2" id="pmu-t">Geen potlood meer, <em>geen uitgelopen eyeliner.</em></h2>
+      </div>
+      <p data-r="2">Hier ben ik het liefst mee bezig. Elke vorm teken ik eerst op je huid en we bekijken ze samen in de spiegel. Neem gerust foto's mee van wat je mooi vindt, dan zoeken we wat bij jouw gezicht past.</p>
+    </div>
+    <div class="rijen">
+      <article class="rij" data-r>
+        <span class="nr">01</span>
+        <div class="rt"><h3>Wenkbrauwen</h3><span class="soort">Powder brows · Hair strokes · Microblading · Combo</span></div>
+        <div class="rp"><p>Powder brows geven een zacht poedereffect, zoals brows die je net hebt opgemaakt. Hair strokes en microblading tekenen haartjes na, voor wie het nog natuurlijker wil. Na 4 à 6 weken volgt een touch-up.</p>
+          <div class="chips"><span class="chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 4.5V8l2.5 1.5" stroke-linecap="round"/></svg>1 à 2 jaar mooi</span><span class="chip">Ook cover van oude brows</span></div></div>
+        <figure><img src="img/hairstroke.webp" alt="Hair stroke wenkbrauwen gezet door Kate" width="900" height="915" loading="lazy"><figcaption>Hair strokes</figcaption></figure>
+      </article>
+      <article class="rij" data-r>
+        <span class="nr">02</span>
+        <div class="rt"><h3>Lippen</h3><span class="soort">Lip blush · Matte lips · Baby lips · Clear dark lips</span></div>
+        <div class="rp"><p>Een frisse kleur die je eigen lipvorm terug aflijnt en je lippen voller laat lijken. Ook mooi als je lippen bleek zijn geworden na fillers, of als ze van nature wat donker zijn.</p>
+          <div class="chips"><span class="chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 4.5V8l2.5 1.5" stroke-linecap="round"/></svg>2 à 5 jaar mooi</span><span class="chip">Na fillers: 4 weken wachten</span></div></div>
+        <figure><img src="img/lips-baby.webp" alt="Baby lips, semi-permanente lipkleur" width="715" height="700" loading="lazy"><figcaption>Baby lips</figcaption></figure>
+      </article>
+      <article class="rij" data-r>
+        <span class="nr">03</span>
+        <div class="rt"><h3>Eyeliner</h3><span class="soort">Eyeliner · Deepliner · Onderliner</span></div>
+        <div class="rp"><p>Een deepliner zet ik net tegen je wimperrand. Je ziet geen streep, wel vollere wimpers en een open blik. Mag het wat meer zijn? Dan wordt het een echte eyeliner, zonder ooit nog uit te lopen.</p>
+          <div class="chips"><span class="chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 4.5V8l2.5 1.5" stroke-linecap="round"/></svg>1 à 2 jaar mooi</span><span class="chip">Lenzen? Breng een doosje mee</span></div></div>
+        <figure><img src="img/eyeliner.webp" alt="Semi-permanente eyeliner met een fijne vleugel" width="720" height="619" loading="lazy"><figcaption>Eyeliner</figcaption></figure>
+      </article>
+    </div>
+    <div class="pmu-noot">
+      <div data-r><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg><span><b>Pigmenten volgens de EU-wetgeving.</b> Zonder AZO, nikkel of zware metalen.</span></div>
+      <div data-r="2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5v.1"/></svg><span><b>Niet als je zwanger bent</b>, diabetes of kanker hebt, of Roaccutane neemt. Na Roaccutane wacht je minstens zes maanden.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="over pad" id="over" aria-labelledby="over-t">
+  <div class="wrap">
+    <div class="over-beeld" data-r>
+      <div class="groot"><img src="img/wulop-podium.webp" alt="Kate met haar trofee en plaket op WULOP Belgium 2024" width="570" height="1320" loading="lazy"></div>
+      <div class="klein"><img src="img/trofee.webp" alt="De WULOP-trofee in de studio" width="800" height="966" loading="lazy"></div>
+      <div class="stempel" aria-label="Tweede plaats WULOP Belgium 2024">
+        <svg viewBox="0 0 128 128" aria-hidden="true"><defs><path id="cirkel" d="M64 64m-50 0a50 50 0 1 1 100 0a50 50 0 1 1-100 0"/></defs><text font-family="Instrument Sans,sans-serif" font-size="9.5" font-weight="600" letter-spacing="3.2" fill="rgba(255,255,255,.85)"><textPath href="#cirkel">HAIR STROKES · WULOP BELGIUM 2024 · </textPath></text></svg>
+        <b>2<sup>e</sup></b>
+      </div>
+    </div>
+    <div>
+      <span class="eyebrow" data-r><svg viewBox="0 0 60 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 24c3-6 6-10 10-13M11 25c3-7 7-12 12-15M19 24c4-7 8-11 14-14M28 23c4-6 9-10 15-12M37 22c5-5 10-8 17-9"/></svg>Over Kate</span>
+      <h2 class="citaat" id="over-t" data-r>Ik ben elke keer blij als ik mensen mooier en zelfverzekerder kan maken.</h2>
+      <p class="verhaal" data-r>Op mijn achttiende stond ik al tussen de schoonheidsproducten, op de beautyafdeling van een supermarkt. Daarna leerde ik knippen en manicuren, en in 2014 opende ik mijn eerste eigen salon in Thailand. Semi-permanente make-up, wimpers en wax kwamen er later bij. Hier wilde ik gewoon blijven doen wat ik graag doe, en zo is deze studio er gekomen.</p>
+      <ol class="pad-lijst" data-r>
+        <li><b>18 jaar</b><span>Beautyafdeling, mijn eerste job</span></li>
+        <li><b>2014</b><span>Eigen salon in Thailand</span></li>
+        <li><b>Daarna</b><span>PMU, wimpers en wax bijgeleerd</span></li>
+        <li><b>2024</b><span>2e plaats hair strokes op WULOP Belgium</span></li>
+      </ol>
+      <div class="handtek" data-r><b>Kate</b><span>Ik werk alleen, dus je ziet bij elke afspraak hetzelfde gezicht.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="genees pad" aria-labelledby="gen-t">
+  <div class="wrap">
+    <div class="genees-box" data-r>
+      <div class="genees-foto">
+        <div class="f1"><span class="tag">Baby lips</span><img src="img/lips-oranje.webp" alt="Baby lips in een warme tint, na genezing" width="995" height="570" loading="lazy" style="object-position:45% 50%"></div>
+        <div class="f2"><img src="img/lips-mat.webp" alt="Matte lips" width="430" height="425" loading="lazy"></div>
+      </div>
+      <div>
+        <span class="eyebrow"><svg viewBox="0 0 60 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 24c3-6 6-10 10-13M11 25c3-7 7-12 12-15M19 24c4-7 8-11 14-14M28 23c4-6 9-10 15-12M37 22c5-5 10-8 17-9"/></svg>Lippen, de weken erna</span>
+        <h2 class="h2" id="gen-t">Schrik niet <em>op dag veertien.</em></h2>
+        <p class="intro">Je lippen gaan door een paar fases voor de kleur echt zichtbaar wordt. Dat hoort erbij. Zo weet je op voorhand wat je mag verwachten.</p>
+        <div class="tijdlijn" aria-label="Genezing van lippigmentatie">
+          <div class="balk" aria-hidden="true"></div>
+          <ol class="fases">
+            <li><small>Dag 1 tot 3</small><b>Heel donker</b><span>Feller dan het eindresultaat.</span></li>
+            <li><small>Dag 4 tot 10</small><b>Barstjes</b><span>Er komen schilfers los. Niet aan krabben.</span></li>
+            <li><small>Dag 11 tot 28</small><b>Kleur lijkt weg</b><span>Geen paniek, ze zit eronder.</span></li>
+            <li><small>Dag 29 tot 55</small><b>Ze komt terug</b><span>Kleur en vorm worden zichtbaar.</span></li>
+            <li><small>Dag 60</small><b>Klaar</b><span>Je ziet het echte resultaat.</span></li>
+          </ol>
+        </div>
+        <div class="tip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg><span>Scrub je lippen de week ervoor om de dag zachtjes met wat honing en suiker en hou ze goed vet. Op droge, kapotte lippen kan ik niet werken.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rest pad" id="rest" aria-labelledby="rest-t">
+  <div class="wrap">
+    <div class="rest-kop">
+      <div data-r>
+        <span class="eyebrow"><svg viewBox="0 0 60 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 24c3-6 6-10 10-13M11 25c3-7 7-12 12-15M19 24c4-7 8-11 14-14M28 23c4-6 9-10 15-12M37 22c5-5 10-8 17-9"/></svg>Nagels · Wimpers · Waxing</span>
+        <h2 class="h2" id="rest-t">En voor de rest <em>van je lijstje.</em></h2>
+      </div>
+      <p data-r="2">Kom je voor je brows en wil je meteen je nagels laten doen? Dat kan gewoon. Alles gebeurt in dezelfde studio, door mij.</p>
+    </div>
+    <div class="moza">
+      <figure class="tegel t-a" data-r><img src="img/nagels-lila.webp" alt="Lila amandelnagels met glitteraccent" width="900" height="1199" loading="lazy"><figcaption><b>Nagels</b>BIAB, gel, acryl of gellak op je eigen nagels.</figcaption></figure>
+      <div class="blok b-rood t-b" data-r="2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg></span><div><b>Binnen de week een nagel kwijt?</b><p>Dan herstel ik hem gratis.</p></div></div>
+      <figure class="tegel t-c" data-r><img src="img/wimpers-werk.webp" alt="Kate zet wimperextensions, met een spiegeltje om te controleren" width="900" height="1199" loading="lazy" style="object-position:50% 60%"><figcaption><b>Wimperextensions</b>Classic één voor één, light volume, Russian of hybrid. Bijwerken om de 2 à 3 weken.</figcaption></figure>
+      <figure class="tegel t-d" data-r><img src="img/nagels-neon.webp" alt="Neon nagels in verschillende kleuren" width="900" height="1199" loading="lazy"></figure>
+      <figure class="tegel t-e" data-r><img src="img/wimpers-sproetjes.webp" alt="Natuurlijke wimperextensions" width="900" height="1012" loading="lazy" style="object-position:50% 30%"></figure>
+      <div class="blok b-papier t-f" data-r="2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="11" r="2"/><path d="M21 16l-5-5-8 8"/></svg></span><div><b>Nail art van je eigen foto</b><p>Stuur me het voorbeeld, ik zet het op je nagels.</p></div></div>
+      <figure class="tegel t-g" data-r><img src="img/nagels-bordeaux.webp" alt="Bordeaux nagels met nail art" width="900" height="1199" loading="lazy"></figure>
+      <div class="blok b-ink t-h" data-r="2"><div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M8 4h8l-1 4H9z"/><path d="M9 8c-2 2-3 5-3 8a6 6 0 0 0 12 0c0-3-1-6-3-8"/></svg></span><b style="margin-top:16px">Waxing</b><p>Van een bovenlip tot je volledige benen. Voor vrouwen en mannen.</p></div>
+        <ul><li>Gezicht<span>wenkbrauwen, lip, kin</span></li><li>Lichaam<span>benen, armen, rug</span></li><li>Intiem<span>bikini, Brazilian</span></li><li>Hollywood<span>alles weg</span></li></ul></div>
+      <div class="blok b-zand t-i" data-r><span class="groot">10'</span><div><b>Manicure en pedicure</b><p>Met scrub, masker en tien minuten hand- of voetmassage als je er een verwenmoment van wil maken.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="binnen pad" id="afspraak" aria-labelledby="af-t">
+  <div class="wrap binnen-in">
+    <div class="collage" data-r>
+      <figure class="c1"><img src="img/nageltafel.webp" alt="De nageltafel in Kate Beauty Studio met zwart-witte vloer" width="1000" height="1333" loading="lazy"><figcaption>De studio</figcaption></figure>
+      <figure class="c2"><img src="img/gevel.webp" alt="De etalage van Kate Beauty Studio" width="1000" height="1333" loading="lazy" style="object-position:50% 40%"></figure>
+      <figure class="c3"><img src="img/behandelkamer.webp" alt="De behandelkamer voor brows en lashes" width="1000" height="1333" loading="lazy" style="object-position:50% 45%"></figure>
+    </div>
+    <div class="afspraak" data-r="2">
+      <span class="eyebrow"><svg viewBox="0 0 60 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 24c3-6 6-10 10-13M11 25c3-7 7-12 12-15M19 24c4-7 8-11 14-14M28 23c4-6 9-10 15-12M37 22c5-5 10-8 17-9"/></svg>Afspraak maken</span>
+      <h2 class="h2" id="af-t">Stuur me gewoon <em>een berichtje.</em></h2>
+      <p class="lead">Omdat ik alleen werk, neem ik niet altijd op als ik met iemand bezig ben. Via WhatsApp lukt het het snelst, ik antwoord zodra ik kan.</p>
+      <ol class="stappen">
+        <li><span><b>Zeg wat je wil laten doen</b> en wanneer het jou past. Een foto als voorbeeld mag altijd.</span></li>
+        <li><span><b>Voor afspraken vanaf € 25 vraag ik een voorschot van 50%.</b> Zo blijft je plekje echt voor jou.</span></li>
+        <li><span><b>Toch verhinderd?</b> Laat het minstens 24 uur op voorhand weten, dan krijg je je voorschot volledig terug.</span></li>
+      </ol>
+      <div class="uren">
+        <div>
+          <h3>Openingsuren</h3>
+          <table id="uren">
+            <tr data-d="1"><td>Maandag</td><td>9u tot 18u</td></tr>
+            <tr data-d="2"><td>Dinsdag</td><td>9u tot 18u</td></tr>
+            <tr data-d="3" class="dicht"><td>Woensdag</td><td>gesloten</td></tr>
+            <tr data-d="4"><td>Donderdag</td><td>9u tot 18u</td></tr>
+            <tr data-d="5"><td>Vrijdag</td><td>9u tot 18u</td></tr>
+            <tr data-d="6"><td>Zaterdag</td><td>9u tot 18u</td></tr>
+            <tr data-d="0" class="dicht"><td>Zondag en feestdagen</td><td>gesloten</td></tr>
+          </table>
+        </div>
+        <div>
+          <h3>Adres</h3>
+          <address>Kate Beauty Studio<br>Zandstraat 84<br>2200 Herentals<br><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Zandstraat%2084%2C%202200%20Herentals" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Plan je route</a></address>
+        </div>
+      </div>
+      <div class="contact-knoppen">
+        <a class="btn btn-ink" href="https://wa.me/32460979414" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.6-.3Z"/></svg>WhatsApp Kate</a>
+        <a class="mini" href="tel:+32460979414"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>0460 97 94 14</a>
+        <a class="mini" href="mailto:info@beautystudiobykate.be"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Mail</a>
+        <a class="mini" href="https://www.instagram.com/katebeautystudio.be/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>Instagram</a>
+      </div>
+      <div class="cadeau"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 12h18M12 8v13M12 8c-2-4-6-4-6-1.5S9 8 12 8c3 0 6-.5 6-1.5S14 4 12 8"/></svg><span><b>Cadeaubon nodig?</b>Jij kiest het bedrag. Geldig voor alle behandelingen, zonder vervaldatum.</span></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="voet">
+  <div class="wrap">
+    <p class="groot-woord" aria-hidden="true">Kate</p>
+    <div class="voet-rij">
+      <div><h4>Kate Beauty Studio</h4>Semi-permanente make-up, nagels, wimperextensions en waxing. Afspraken via WhatsApp.</div>
+      <div><h4>Adres</h4>Zandstraat 84<br>2200 Herentals</div>
+      <div><h4>Contact</h4><a href="https://wa.me/32460979414">WhatsApp</a><br><a href="tel:+32460979414">0460 97 94 14</a><br><a href="mailto:info@beautystudiobykate.be">info@beautystudiobykate.be</a></div>
+      <div><h4>Open</h4>Ma, di, do, vr, za<br>9u tot 18u<br><a href="https://www.instagram.com/katebeautystudio.be/" target="_blank" rel="noopener">Instagram</a></div>
+    </div>
+    <div class="onder"><span>© Kate Beauty Studio · BTW BE0790 239 895</span><span>Voorbeeldsite door Digital Impression</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var d=document.documentElement; d.classList.add('js');
+  var top=document.getElementById('top');
+  function sc(){ top.classList.toggle('klein', window.scrollY>30); }
+  sc(); addEventListener('scroll',sc,{passive:true});
+  var b=document.querySelector('.burger'), body=document.body;
+  b.addEventListener('click',function(){ var o=body.classList.toggle('open'); b.setAttribute('aria-expanded',o); b.setAttribute('aria-label',o?'Menu sluiten':'Menu openen'); });
+  document.querySelectorAll('.menu a').forEach(function(a){ a.addEventListener('click',function(){ body.classList.remove('open'); b.setAttribute('aria-expanded',false); }); });
+  var els=document.querySelectorAll('[data-r]');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }); },{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){ io.observe(e); });
+  } else els.forEach(function(e){ e.classList.add('in'); });
+  // vandaag open
+  try{
+    var n=new Date(), dag=n.getDay(), u=n.getHours()+n.getMinutes()/60, open=[1,2,4,5,6].indexOf(dag)>-1;
+    var t=document.getElementById('nuOpen');
+    if(open && u>=9 && u<18) t.textContent='Vandaag open tot 18u';
+    else if(open && u<9) t.textContent='Vandaag open vanaf 9u';
+    else { t.textContent='Nu gesloten. Een WhatsApp sturen kan altijd'; t.previousElementSibling.style.background='#B3241C'; t.previousElementSibling.style.boxShadow='0 0 0 4px rgba(179,36,28,.16)'; }
+    var r=document.querySelector('#uren tr[data-d="'+dag+'"]'); if(r) r.classList.add('nu');
+  }catch(e){}
+})();
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
+<style>
+.di,.di *{box-sizing:border-box;margin:0;padding:0;border:0;background:none;box-shadow:none;text-shadow:none;text-transform:none;letter-spacing:normal;float:none;max-width:none;min-height:0;font:inherit;color:inherit;text-decoration:none;opacity:1;transform:none;filter:none;list-style:none}
+.di :is(h2,h3,h4,p,ul,ol,li,details,summary,b,strong,em,small,span,div)::before,.di :is(h2,h3,h4,p,ul,ol,li,details,summary,b,strong,em,small,span,div)::after{content:none!important}
+.di summary::marker{content:""}
+.di{--navy:#0E1C3A;--deep:#0A1530;--goud:#C9A24A;--goud2:#D8BB6A;--bleek:#E8D9A8;--beige:#F1EBDF;--creme:#FBF8F2;
+  --zacht:rgba(241,235,223,.74);--stil:rgba(241,235,223,.5);--lijn:rgba(241,235,223,.12);--ease:cubic-bezier(.16,1,.3,1);
+  position:relative;overflow:clip;background:var(--navy);color:var(--beige);padding:clamp(88px,11vw,136px) 0 56px;
+  font:400 17px/1.65 'Inter',system-ui,sans-serif;text-align:left;-webkit-font-smoothing:antialiased}
+.di::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(760px 480px at 50% -10%,rgba(201,162,74,.14),transparent 66%)}
+.di::after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,162,74,.7) 30%,rgba(232,217,168,.9) 50%,rgba(201,162,74,.7) 70%,transparent)}
+.di .di-wrap{position:relative;max-width:980px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+.di h2,.di h3,.di h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:-.01em;text-transform:none;font-style:normal;color:var(--creme)}
+.di a{color:inherit}
+.di svg{flex:none}
+
+/* boodschap */
+.di .di-kern{text-align:center;max-width:760px;margin:0 auto}
+.di .di-afz{display:inline-flex;align-items:center;gap:12px;margin-bottom:28px;color:var(--goud2);font-size:15px;font-weight:500}
+.di .di-afz i{width:32px;height:32px;border-radius:9px;border:1px solid rgba(201,162,74,.45);display:grid;place-items:center;font:600 15px/1 'Cormorant Garamond',serif;font-style:normal;color:var(--goud);letter-spacing:-.5px}
+.di h2{line-height:1}
+.di .di-voor{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:20px;font:italic 500 clamp(24px,2.5vw,31px)/1.2 'Cormorant Garamond',Georgia,serif;color:var(--goud2);letter-spacing:.005em}
+.di .di-kern .di-voor::before,.di .di-kern .di-voor::after{content:""!important;flex:none;width:clamp(28px,5vw,60px);height:1px;background:linear-gradient(90deg,transparent,var(--goud))}
+.di .di-kern .di-voor::after{background:linear-gradient(270deg,transparent,var(--goud))}
+.di .di-samen{display:block;font:500 clamp(46px,6.2vw,80px)/1.02 'Cormorant Garamond',Georgia,serif;letter-spacing:-.015em;text-wrap:balance;
+  color:var(--creme);background:linear-gradient(180deg,#FBF8F2 35%,#E8D9A8 135%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;padding-bottom:.06em}
+.di .di-lead{text-wrap:pretty;color:var(--zacht);font-size:clamp(17px,1.5vw,19px);margin:24px auto 0;max-width:33em}
+.di .di-knoppen{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:36px}
+.di .di-knoppen a{position:relative;overflow:hidden;display:inline-flex;justify-content:center;align-items:center;gap:10px;border-radius:999px;padding:18px 30px;
+  font:600 17px/1.2 'Inter',sans-serif;text-decoration:none;isolation:isolate;white-space:nowrap;transition:color .5s var(--ease),border-color .5s var(--ease)}
+.di .di-knoppen a svg{width:19px;height:19px}
+.di .di-knoppen a::before{content:"";position:absolute;inset:0;z-index:-1;transform:translateY(101%);transition:transform .55s var(--ease)}
+.di .di-knoppen a:hover::before{transform:translateY(0)}
+.di .di-knoppen .di-cal{background:var(--goud);color:var(--deep);box-shadow:0 18px 44px -18px rgba(201,162,74,.8)}
+.di .di-knoppen .di-cal::before{background:var(--bleek)}
+.di .di-knoppen .di-wa{border:1px solid rgba(241,235,223,.3);color:var(--creme)}
+.di .di-knoppen .di-wa::before{background:var(--creme)}
+.di .di-knoppen .di-wa:hover{color:var(--navy);border-color:var(--creme)}
+.di .di-klein{margin-top:18px;font-size:14.5px;color:var(--stil)}
+
+.di .di-blok{margin-top:clamp(88px,11vw,128px)}
+.di .di-blok>h3{font-size:clamp(30px,3.4vw,40px);line-height:1.05;text-align:center;margin-bottom:44px}
+
+/* prijs */
+.di .di-prijs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);border:1px solid var(--lijn);border-radius:28px;overflow:hidden}
+.di .di-prijs>div{padding:clamp(28px,3.6vw,40px)}
+.di .di-prijs>div+div{border-left:1px solid var(--lijn);background:rgba(241,235,223,.025)}
+.di .di-wat{font-size:15px;font-weight:500;color:var(--goud2)}
+.di .di-getal{font:500 clamp(60px,6.4vw,76px)/1 'Cormorant Garamond',serif;font-variant-numeric:lining-nums;color:var(--creme);margin-top:8px;letter-spacing:-.02em}
+.di .di-getal small{font:500 16px/1 'Inter',sans-serif;color:var(--stil);letter-spacing:0;margin-left:8px}
+.di .di-prijs p{color:var(--zacht);font-size:15.5px;margin-top:14px;max-width:24em}
+.di .di-prijs p b{color:var(--creme);font-weight:500}
+.di .di-opties{margin-top:22px;list-style:none}
+.di .di-opties li{display:grid;grid-template-columns:1fr auto;gap:4px 20px;padding:16px 0;border-top:1px solid var(--lijn)}
+.di .di-opties li:last-child{padding-bottom:0}
+.di .di-opties b{font:500 23px/1.2 'Cormorant Garamond',serif;color:var(--creme);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.di .di-opties b em{font:600 12px/1 'Inter',sans-serif;font-style:normal;color:var(--deep);background:var(--goud);border-radius:999px;padding:4px 10px}
+.di .di-opties .di-pp{font:500 24px/1.2 'Cormorant Garamond',serif;font-variant-numeric:lining-nums;color:var(--creme);text-align:right;white-space:nowrap}
+.di .di-opties .di-pp small{font:500 13.5px/1 'Inter',sans-serif;color:var(--stil);margin-left:4px}
+.di .di-opties .di-ot{grid-column:1/-1;color:var(--zacht);font-size:15px}
+
+/* faq */
+.di .di-faq{max-width:760px;margin:0 auto;border-top:1px solid var(--lijn)}
+.di .di-faq details{border-bottom:1px solid var(--lijn)}
+.di .di-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 2px;
+  font:500 22px/1.25 'Cormorant Garamond',serif;color:var(--creme);transition:color .3s}
+.di .di-faq summary::-webkit-details-marker{display:none}
+.di .di-faq summary:hover{color:var(--goud2)}
+.di .di-faq summary i{flex:none;position:relative;width:30px;height:30px;border-radius:50%;border:1px solid rgba(201,162,74,.5);transition:transform .45s var(--ease),background .3s}
+.di .di-faq summary i::before,.di .di-faq summary i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:var(--goud);transform:translate(-50%,-50%)}
+.di .di-faq summary i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .45s var(--ease)}
+.di .di-faq details[open] summary i{transform:rotate(180deg);background:rgba(201,162,74,.12)}
+.di .di-faq details[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+.di .di-faq .di-antw{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.di .di-faq details[open] .di-antw{grid-template-rows:1fr}
+.di .di-faq .di-antw>div{overflow:hidden}
+.di .di-faq .di-antw p{color:var(--zacht);font-size:16px;padding:0 50px 22px 2px;max-width:38em}
+
+.di .di-faq details,.di .di-faq details[open]{background:none;border-radius:0;box-shadow:none;margin:0;padding:0;border:0;border-bottom:1px solid var(--lijn);display:block}
+.di .di-faq details[open] summary,.di .di-faq summary:hover{background:none;box-shadow:none}
+
+/* afsluiter */
+.di .di-slot{margin-top:clamp(72px,9vw,104px);padding-top:36px;border-top:1px solid var(--lijn);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.di .di-wie{display:flex;align-items:center;gap:16px}
+.di .di-foto{flex:none;display:block;width:60px;height:60px;border-radius:50%;object-fit:cover;object-position:50% 40%;background:#0A1530;box-shadow:0 0 0 1px rgba(201,162,74,.6),0 0 0 4px #0E1C3A,0 0 0 5px rgba(201,162,74,.22)}
+.di .di-wie b{display:block;font:italic 500 26px/1.1 'Cormorant Garamond',serif;color:var(--creme)}
+.di .di-wie .di-lijn{font-size:14.5px;color:var(--stil)}
+.di .di-wie .di-lijn a{text-decoration:none}
+.di .di-wie .di-lijn a:hover{color:var(--creme)}
+.di .di-slot .di-knoppen{margin:0}
+.di .di-slot .di-knoppen a{padding:14px 24px;font-size:15.5px}
+.di :focus-visible{outline:2px solid var(--goud);outline-offset:4px;border-radius:12px}
+
+/* één rustige beweging */
+.di.di-js [data-in]{opacity:0;transform:translateY(16px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0) * 110ms)}
+.di.di-js [data-in].di-zien{opacity:1;transform:none}
+
+@media (max-width:820px){
+  .di .di-prijs{grid-template-columns:1fr}
+  .di .di-prijs>div+div{border-left:0;border-top:1px solid var(--lijn)}
+}
+@media (max-width:720px){
+  .di .di-faq summary{font-size:20px;padding:18px 2px}
+  .di .di-faq .di-antw p{padding-right:10px;font-size:15.5px}
+  .di{font-size:16.5px;padding-bottom:44px}
+  .di .di-voor{font-size:21px;gap:12px;margin-bottom:14px}
+  .di .di-kern .di-voor::before,.di .di-kern .di-voor::after{width:24px}
+  .di .di-samen{font-size:clamp(36px,10vw,46px)}
+  .di .di-lead{font-size:16.5px}
+  .di .di-knoppen{flex-direction:column;margin-top:30px}
+  .di .di-knoppen a{width:100%;padding:17px 18px;font-size:16px}
+  .di .di-blok>h3{margin-bottom:32px}
+  .di .di-prijs{border-radius:24px}
+  .di .di-prijs>div{padding:26px 22px}
+  .di .di-slot{flex-direction:column;align-items:stretch}
+  .di .di-slot .di-knoppen a{width:100%}
+}
+@media (prefers-reduced-motion:reduce){.di.di-js [data-in]{transition:none!important;opacity:1!important;transform:none!important}.di .di-knoppen a,.di .di-knoppen a::before,.di .di-faq summary i,.di .di-faq summary i::after,.di .di-faq .di-antw{transition:none}}
+
+/* kaartje halverwege */
+.di-tip,.di-tip *{box-sizing:border-box;margin:0;padding:0;border:0;background:none;box-shadow:none;text-shadow:none;text-transform:none;letter-spacing:normal;float:none;max-width:none;font:inherit;color:inherit;text-decoration:none;list-style:none}
+.di-tip{--navy:#0E1C3A;--goud:#C9A24A;--goud2:#D8BB6A;--creme:#FBF8F2;--zacht:rgba(241,235,223,.76);--ease:cubic-bezier(.16,1,.3,1);
+  position:fixed;left:20px;bottom:20px;z-index:2147483000;width:340px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+  padding:18px 18px 18px 18px;border-radius:20px;background:var(--navy);color:var(--creme);font:400 15px/1.5 'Inter',system-ui,sans-serif;text-align:left;
+  box-shadow:0 0 0 1px rgba(201,162,74,.4),0 24px 60px -18px rgba(0,0,0,.55);opacity:0;transform:translateY(24px) scale(.98);pointer-events:none;
+  transition:opacity .6s var(--ease),transform .6s var(--ease);-webkit-font-smoothing:antialiased}
+.di-tip.di-tip-aan{opacity:1;transform:none;pointer-events:auto}
+.di-tip .di-tip-s{display:block;width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:50% 40%;background:#0A1530;box-shadow:0 0 0 1px rgba(201,162,74,.6)}
+.di-tip .di-tip-t{font:italic 500 20px/1.2 'Cormorant Garamond',Georgia,serif;color:var(--goud2);padding-right:22px}
+.di-tip .di-tip-p{color:var(--zacht);margin-top:4px;font-size:14.5px}
+.di-tip .di-tip-k{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:10px 18px;border-radius:999px;background:var(--goud);color:#0A1530;font:600 14.5px/1.2 'Inter',sans-serif;cursor:pointer;transition:background .3s}
+.di-tip .di-tip-k:hover{background:#E8D9A8}
+.di-tip .di-tip-k svg{width:16px;height:16px}
+.di-tip .di-tip-x{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:var(--zacht);cursor:pointer;transition:background .3s,color .3s}
+.di-tip .di-tip-x:hover{background:rgba(241,235,223,.08);color:var(--creme)}
+.di-tip .di-tip-x svg{width:14px;height:14px}
+.di-tip :focus-visible{outline:2px solid var(--goud);outline-offset:3px}
+.di-tip :is(p,div,span,a,button)::before,.di-tip :is(p,div,span,a,button)::after{content:none!important}
+@media (max-width:560px){.di-tip{left:12px;right:12px;width:auto;bottom:12px;padding:14px 14px 14px 14px;gap:12px}.di-tip .di-tip-s{width:34px;height:34px;font-size:17px}.di-tip .di-tip-t{font-size:18px}.di-tip .di-tip-p{font-size:14px}}
+@media (prefers-reduced-motion:reduce){.di-tip{transition:none}}
+</style>
+<section aria-labelledby="di-titel" class="di" id="di">
+<div class="di-wrap">
+
+<div class="di-kern">
+<h2 id="di-titel" data-in style="--d:1"><span class="di-voor">Dit is slechts een voorbeeld.</span><span class="di-samen">Samen maken we er jullie nieuwe site van.</span></h2>
+<p class="di-lead" data-in style="--d:2">Ik maakte deze demo voor jullie om te tonen wat er kan. Na een kort gesprek maak ik er iets veel persoonlijkers van, helemaal naar jullie wens.</p>
+<div class="di-knoppen" data-in style="--d:3">
+<a class="di-cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Kate%20Beauty%20Studio" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Plan een gesprek van 30 min</a>
+<a class="di-wa" href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20Kate%20Beauty%20Studio" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z"/></svg>Stuur een WhatsApp</a>
+</div>
+<p class="di-klein" data-in style="--d:4">Vrijblijvend. Ik kom langs of we bellen.</p>
+</div>
+
+
+<div class="di-blok">
+<h3 data-in>Wat kost het?</h3>
+<div class="di-prijs" data-in style="--d:1">
+<div>
+<span class="di-wat">De website</span>
+<div class="di-getal">€ 499<small>eenmalig</small></div>
+<p>Op maat, op jullie eigen domein.<br><b>Geen voorschot.</b> Jullie betalen pas als alles klaar is.</p>
+</div>
+<div>
+<span class="di-wat">Daarna het onderhoud</span>
+<p style="margin-top:8px">Hosting, domeinnaam en kleine wijzigingen, zoals nieuwe openingsuren.</p>
+<ul class="di-opties">
+<li><b>Zorgeloos <em>mijn aanrader</em></b><span class="di-pp">€ 19,99<small>/ maand</small></span><span class="di-ot">Alles inbegrepen. Wijzigen kan met een berichtje.</span></li>
+<li><b>Zelf beheren</b><span class="di-pp">€ 0<small>/ maand</small></span><span class="di-ot">Alles op jullie naam. Wijzigingen per keer.</span></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="di-blok">
+<h3 data-in>Goed om te weten</h3>
+<div class="di-faq" data-in style="--d:1">
+<details><summary>Waarom deze demo, zonder dat we iets vroegen?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Omdat een voorbeeld meer zegt dan een mail. Zo zien jullie meteen wat er kan, en het kost jullie niets.</p></div></div></details>
+<details><summary>Zitten we ergens aan vast?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Nee. Het gesprek is vrijblijvend. Vinden jullie het niks, dan is het daarmee gedaan.</p></div></div></details>
+<details><summary>Hoe lang duurt het?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Na ons gesprek staat jullie site binnen 10 tot 14 dagen online.</p></div></div></details>
+<details><summary>We hebben al een website. Kan dat ook?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Zeker. Jullie domeinnaam kan gewoon blijven, de nieuwe site komt in de plaats van de oude.</p></div></div></details>
+<details><summary>Moeten we zelf teksten schrijven?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Nee, dat doe ik op basis van ons gesprek. Eigen foto's zijn mooi meegenomen, maar niet nodig om te starten.</p></div></div></details>
+</div>
+</div>
+
+<div class="di-slot" data-in>
+<div class="di-wie"><img class="di-foto" src="https://digital-impression.be/assets/img/stijn-2.webp" alt="Stijn Vranken" width="60" height="60" loading="lazy" decoding="async"><div><b>Stijn Vranken</b><span class="di-lijn">Digital Impression, <a href="tel:+32496251445">0496 25 14 45</a></span></div></div>
+<div class="di-knoppen"><a class="di-cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Kate%20Beauty%20Studio" target="_blank" rel="noopener">Plan een gesprek</a></div>
+</div>
+
+</div>
+</section>
+<script>/*di-v13*/(function(){var d=document.getElementById('di');if(!d||!('IntersectionObserver' in window))return;
+var stil=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!stil){d.classList.add('di-js');var io=new IntersectionObserver(function(x){x.forEach(function(e){if(e.isIntersecting){e.target.classList.add('di-zien');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+[].forEach.call(d.querySelectorAll('[data-in]'),function(e){io.observe(e)})}
+var vast=[];function zoek(){vast=[].filter.call(document.body.querySelectorAll('*'),function(e){if(d.contains(e)||e.closest('.di-strook,.demo'))return false;var p=getComputedStyle(e).position;return p==='fixed'||p==='sticky'})}
+new IntersectionObserver(function(x){if(!vast.length)zoek();var aan=x[0].isIntersecting;vast.forEach(function(e){e.style.transition='opacity .35s';e.style.opacity=aan?'0':'';e.style.pointerEvents=aan?'none':''})},{threshold:.05}).observe(d)})();</script>
+<aside class="di-tip" aria-label="Over deze voorbeeldsite" hidden>
+<img class="di-tip-s" src="https://digital-impression.be/assets/img/stijn-2.webp" alt="" width="40" height="40" loading="lazy" decoding="async">
+<div>
+<p class="di-tip-t">Dit is een voorbeeldsite.</p>
+<p class="di-tip-p">Onderaan lees je hoe we er samen jullie site van maken.</p>
+<a class="di-tip-k" href="#di">Lees meer<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+</div>
+<button class="di-tip-x" type="button" aria-label="Sluiten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+</aside>
+<script>/*di-tip*/(function(){var t=document.querySelector('.di-tip'),d=document.getElementById('di');if(!t||!d)return;
+var weg=false;try{weg=sessionStorage.getItem('di-tip')==='weg'}catch(e){}if(weg)return;
+t.hidden=false;var aan=false,diZicht=false;
+function onder(){var m=0;[].forEach.call(document.body.querySelectorAll('*'),function(e){if(e===t||t.contains(e)||d.contains(e))return;var c=getComputedStyle(e);if(c.position!=='fixed'||c.display==='none'||c.visibility==='hidden'||+c.opacity===0)return;var r=e.getBoundingClientRect();if(r.height>0&&r.height<160&&r.bottom>=innerHeight-48&&r.bottom<=innerHeight+2&&r.top>innerHeight-200&&r.width>innerWidth*.4)m=Math.max(m,innerHeight-r.top)});return m}
+function zet(x){if(x===aan)return;aan=x;if(x){t.style.bottom=((innerWidth<=560?12:20)+onder())+'px'}t.classList.toggle('di-tip-aan',x)}
+function sluit(){try{sessionStorage.setItem('di-tip','weg')}catch(e){}zet(false);setTimeout(function(){t.hidden=true},700);window.removeEventListener('scroll',kijk)}
+function held(){var c=document.querySelectorAll('.hero,[class*="hero"],main>section,body>section,body>header,main>header');for(var i=0;i<c.length;i++){var e=c[i];if(d.contains(e)||t.contains(e)||e.closest('.di-strook,.demo,nav'))continue;var r=e.getBoundingClientRect();if(r.height>innerHeight*.35)return r.bottom+scrollY}return innerHeight*.9}
+var hb=0;window.addEventListener('resize',function(){hb=0});function kijk(){var top=d.getBoundingClientRect().top;
+if(top<innerHeight*1.1){if(aan)sluit();return}if(!hb)hb=held();zet(scrollY>hb-innerHeight*.55)}
+t.querySelector('.di-tip-x').addEventListener('click',sluit);
+t.querySelector('.di-tip-k').addEventListener('click',function(){setTimeout(sluit,300)});
+window.addEventListener('scroll',kijk,{passive:true});kijk()})();</script>
+</body>
+</html>
