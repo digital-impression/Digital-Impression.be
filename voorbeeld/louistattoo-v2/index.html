@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Louis' Tattoo Boutique | Tattoos, piercings en laser in Kortrijk</title>
+<meta name="description" content="Zes artiesten onder één dak aan de Steenpoort in Kortrijk. Tattoos in elke stijl, piercings zonder afspraak en laserbehandelingen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Hanken+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="preload" as="image" href="img/louis.webp">
+<style>
+:root{
+  --paper:#EEEAE3;--paper2:#E4DDD1;--card:#F7F4EF;--ink:#141414;--ink2:#262523;--ink3:#3B3936;
+  --red:#C5301F;--red2:#A82616;--mute:#6C665F;--line:rgba(20,20,20,.13);--line2:rgba(238,234,227,.14);
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --display:'Bricolage Grotesque',system-ui,sans-serif;--serif:'Instrument Serif',Georgia,serif;--body:'Hanken Grotesk',system-ui,sans-serif;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  --dots:radial-gradient(circle,rgba(20,20,20,.28) 1px,transparent 1.4px) 0 50%/7px 7px repeat-x;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);background-image:var(--grain);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{width:min(1260px,100% - 48px);margin-inline:auto}
+.spark{display:inline-block;width:14px;height:14px;color:var(--red);flex:none}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font:600 12.5px/1 var(--body);letter-spacing:.16em;text-transform:uppercase}
+.eyebrow .spark{width:13px;height:13px}
+.h2{margin:18px 0 0;font:800 clamp(40px,5.4vw,78px)/.92 var(--display);font-stretch:78%;letter-spacing:-.01em;text-transform:uppercase}
+.h2 em,.h1 em{font:400 italic 1.08em/0.8 var(--serif);text-transform:none;letter-spacing:-.01em;color:var(--red)}
+.lead{color:var(--mute);font-size:18px;max-width:44ch}
+.dotline{height:7px;background:var(--dots)}
+
+.demo{position:relative;z-index:60;background:var(--ink);color:#EDE8E0;text-align:center;font:500 13px/1.4 var(--body);padding:9px 16px}
+.demo a{color:#fff;text-decoration:underline;text-decoration-color:var(--red);text-underline-offset:3px}
+
+.btn{display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 26px;border-radius:999px;font:600 16px/1 var(--body);text-decoration:none;border:0;cursor:pointer;transition:transform .35s var(--ease),background-color .35s var(--ease),color .35s,box-shadow .35s}
+.btn svg{width:18px;height:18px;transition:transform .35s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 14px 30px -14px rgba(197,48,31,.8)}
+.btn-red:hover{background:var(--red2);transform:translateY(-2px)}
+.btn-line{color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+
+/* header */
+.top{position:sticky;top:0;z-index:50;transition:background-color .4s var(--ease),box-shadow .4s var(--ease)}
+.top-in{display:flex;align-items:center;gap:24px;height:84px;transition:height .4s var(--ease)}
+.scrolled .top{background:rgba(238,234,227,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+.scrolled .top-in{height:66px}
+.logo{display:flex;align-items:baseline;gap:8px;text-decoration:none;margin-right:auto;line-height:1}
+.logo i{font:400 italic 32px/1 var(--serif);letter-spacing:-.01em}
+.logo b{font:800 15px/1 var(--display);font-stretch:80%;letter-spacing:.06em;text-transform:uppercase}
+.logo .spark{width:12px;height:12px;align-self:center}
+.nav{display:flex;gap:2px}
+.nav a{padding:10px 14px;border-radius:999px;text-decoration:none;font:500 15.5px/1 var(--body);transition:background-color .3s var(--ease)}
+.nav a:hover{background:rgba(20,20,20,.07)}
+.top .btn{height:46px;padding:0 20px;font-size:15px}
+.burger{display:none;width:46px;height:46px;border-radius:50%;border:0;background:var(--ink);cursor:pointer;place-items:center}
+.burger span{display:block;width:18px;height:2px;background:#fff;border-radius:2px;transition:transform .4s var(--ease)}
+.burger span+span{margin-top:5px}
+.menu-open .burger span:first-child{transform:translateY(3.5px) rotate(45deg)}
+.menu-open .burger span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+.sheet{position:absolute;left:12px;right:12px;top:calc(100% + 6px);background:var(--ink);color:var(--paper);border-radius:24px;padding:12px;opacity:0;transform:translateY(-8px);pointer-events:none;transition:opacity .35s var(--ease),transform .45s var(--ease);box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
+.sheet a{display:flex;justify-content:space-between;align-items:baseline;padding:14px 14px;border-radius:14px;text-decoration:none;font:800 30px/1 var(--display);font-stretch:78%;text-transform:uppercase}
+.sheet a small{font:400 italic 17px/1 var(--serif);text-transform:none;color:rgba(238,234,227,.55)}
+.sheet a:hover{background:rgba(255,255,255,.06)}
+.sheet .btn{width:100%;justify-content:center;margin-top:8px;font:600 16px/1 var(--body);text-transform:none;display:flex}
+.menu-open .sheet{opacity:1;transform:none;pointer-events:auto}
+
+/* hero */
+.hero{padding:34px 0 0;position:relative}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:56px;align-items:center}
+.h1{margin:22px 0 26px;font:800 clamp(58px,8vw,124px)/.86 var(--display);font-stretch:76%;letter-spacing:-.012em;text-transform:uppercase}
+.h1 em{display:inline-block;font-size:1.1em;line-height:.7;margin-right:.08em;transform:translateY(.03em)}
+.h1 .l{display:block}
+.hero p.sub{font-size:19px;line-height:1.55;color:var(--ink3);max-width:470px;margin:0 0 32px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.rate{display:flex;align-items:center;gap:14px;margin-top:34px;padding-top:26px;border-top:1px solid var(--line);max-width:470px}
+.rate b{font:800 44px/1 var(--display);font-stretch:80%}
+.stars{display:inline-flex;gap:2px;color:var(--red)}
+.stars svg{width:15px;height:15px}
+.rate small{display:block;color:var(--mute);font-size:14px;margin-top:4px}
+.h-vis{position:relative;height:640px}
+.h-red{position:absolute;right:0;top:56px;width:74%;height:80%;border-radius:30px;background:var(--red);overflow:hidden}
+.h-red::before{content:"";position:absolute;inset:0;background:radial-gradient(circle,rgba(255,255,255,.22) 1.2px,transparent 1.6px) 0 0/16px 16px}
+.h-photo{position:absolute;left:0;top:0;width:68%;height:88%;border-radius:28px;overflow:hidden;box-shadow:0 40px 70px -40px rgba(0,0,0,.6)}
+.h-photo img{width:100%;height:100%;object-fit:cover;object-position:32% 50%;transform:scale(1.06);animation:settle 2.2s var(--ease) forwards}
+@keyframes settle{to{transform:scale(1)}}
+.h-name{position:absolute;left:16px;bottom:16px;display:flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:999px;background:rgba(247,244,239,.94);font:500 14px/1.2 var(--body);box-shadow:0 10px 24px -12px rgba(0,0,0,.5)}
+.h-name img{width:34px;height:34px;border-radius:50%;object-fit:cover}
+.h-name b{font-weight:600}
+.flash{position:absolute;right:4%;bottom:0;width:40%;padding:10px 10px 40px;background:#FBF9F5;border-radius:6px;transform:rotate(5deg);box-shadow:0 30px 60px -30px rgba(0,0,0,.65);transition:transform .6s var(--ease)}
+.flash:hover{transform:rotate(2deg) translateY(-6px)}
+.flash img{aspect-ratio:1/1;object-fit:cover;width:100%;border-radius:2px}
+.flash span{position:absolute;left:14px;bottom:12px;font:400 italic 19px/1 var(--serif);color:var(--ink2)}
+.flash::before{content:"";position:absolute;left:50%;top:-14px;width:96px;height:28px;margin-left:-48px;background:rgba(228,221,209,.82);transform:rotate(-4deg);box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.award{position:absolute;right:6%;top:0;width:132px;height:132px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)}
+.award svg.ring{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);animation:spin 24s linear infinite}
+.award svg.ring text{font:600 10.6px var(--body);letter-spacing:.26em;text-transform:uppercase;fill:var(--paper)}
+.award .spark{width:30px;height:30px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.feats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:64px;border-top:1.5px solid var(--ink)}
+.feat{display:flex;gap:14px;align-items:flex-start;padding:24px 20px 30px 0;position:relative}
+.feat+.feat{padding-left:22px}
+.feat+.feat::before{content:"";position:absolute;left:0;top:24px;bottom:26px;width:1px;background:var(--line)}
+.ico{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 1.5px var(--ink);color:var(--ink);transition:background-color .35s var(--ease),color .35s}
+.ico svg{width:22px;height:22px}
+.feat:hover .ico{background:var(--ink);color:var(--paper)}
+.feat b{display:block;font:800 21px/1.05 var(--display);font-stretch:80%;text-transform:uppercase;letter-spacing:.01em;margin-top:2px}
+.feat div>span{display:block;color:var(--mute);font-size:14.5px;line-height:1.45;margin-top:5px}
+
+/* tape */
+.tape{position:relative;height:150px;margin:20px 0 0;overflow:hidden}
+.tape .band{position:absolute;left:-5%;width:110%;display:flex;overflow:hidden;white-space:nowrap}
+.tape .b1{top:46px;background:var(--ink);color:var(--paper);transform:rotate(-2.2deg);z-index:2;padding:16px 0}
+.tape .b2{top:52px;background:var(--red);transform:rotate(2deg);height:58px}
+.tape .run{display:flex;align-items:center;gap:30px;padding-right:30px;animation:run 38s linear infinite;flex:none}
+.tape .run span{font:800 30px/1 var(--display);font-stretch:78%;text-transform:uppercase;letter-spacing:.02em}
+.tape .run span.s{font:400 italic 33px/1 var(--serif);text-transform:none;color:#E9B3A9}
+.tape .run .spark{width:20px;height:20px}
+@keyframes run{to{transform:translateX(-100%)}}
+
+/* artiesten */
+.art{padding:110px 0 120px}
+.art-head{display:grid;grid-template-columns:1fr .8fr;gap:40px;align-items:end;margin-bottom:46px}
+.art-head .lead{justify-self:end}
+.roster{border-top:1.5px solid var(--ink)}
+.row{display:grid;grid-template-columns:54px 96px minmax(0,1fr) minmax(0,.9fr) 318px;gap:26px;align-items:center;padding:22px 18px 22px 10px;border-bottom:1px solid var(--line);border-radius:0;position:relative;transition:background-color .45s var(--ease),border-radius .45s var(--ease)}
+.row:hover{background:var(--card);border-radius:22px}
+.row .no{font:400 italic 22px/1 var(--serif);color:var(--mute)}
+.row .pf{width:96px;height:96px;border-radius:50%;overflow:hidden;filter:grayscale(1);transition:filter .5s var(--ease),transform .5s var(--ease)}
+.row:hover .pf{filter:none;transform:scale(1.04)}
+.row .pf img{width:100%;height:100%;object-fit:cover}
+.row h3{margin:0;font:800 clamp(30px,3vw,44px)/.95 var(--display);font-stretch:78%;text-transform:uppercase;letter-spacing:.005em}
+.row p{margin:8px 0 0;color:var(--mute);font-size:15.5px;line-height:1.5;max-width:40ch}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{padding:7px 12px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line);font:500 13px/1 var(--body);background:rgba(255,255,255,.35)}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.thumbs img{aspect-ratio:1/1;width:100%;object-fit:cover;border-radius:14px;transition:transform .5s var(--ease)}
+.row:hover .thumbs img:nth-child(1){transform:rotate(-3deg) translateY(-4px)}
+.row:hover .thumbs img:nth-child(2){transform:translateY(-8px)}
+.row:hover .thumbs img:nth-child(3){transform:rotate(3deg) translateY(-4px)}
+.art-foot{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:30px;color:var(--mute)}
+.art-foot a{color:var(--ink);font-weight:600;text-decoration-color:var(--red);text-underline-offset:4px}
+
+/* werk */
+.werk{padding:0 0 120px}
+.werk-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:40px}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:230px;gap:12px}
+.g{position:relative;margin:0;border-radius:22px;overflow:hidden;background:var(--paper2)}
+.g img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.g:hover img{transform:scale(1.05)}
+.g figcaption{position:absolute;left:12px;bottom:12px;padding:7px 12px;border-radius:999px;background:rgba(20,20,20,.72);color:#fff;font:500 12.5px/1 var(--body);backdrop-filter:blur(4px);transform:translateY(4px);opacity:.92;transition:transform .4s var(--ease),opacity .4s}
+.g:hover figcaption{transform:none;opacity:1}
+.g1{grid-column:1/3;grid-row:1/3}.g2{grid-column:3;grid-row:1/3}.g3{grid-column:4;grid-row:1}
+.g4{grid-column:4;grid-row:2/4}.g5{grid-column:1;grid-row:3}.g6{grid-column:2/4;grid-row:3}
+.g7{grid-column:1/3;grid-row:4}.g8{grid-column:3;grid-row:4}.g9{grid-column:4;grid-row:4}
+.g-ig{background:var(--ink);color:var(--paper);padding:24px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;transition:background-color .4s var(--ease)}
+.g-ig:hover{background:var(--red)}
+.g-ig b{font:800 30px/.95 var(--display);font-stretch:78%;text-transform:uppercase}
+.g-ig b em{font:400 italic 1.1em/1 var(--serif);text-transform:none}
+.g-ig span{display:flex;align-items:center;justify-content:space-between;font:500 15px/1 var(--body)}
+.g-ig svg{width:22px;height:22px}
+
+/* shop */
+.shop{padding:0 24px}
+.shop-in{position:relative;max-width:1400px;margin:0 auto;background:var(--ink);color:var(--paper);border-radius:40px;padding:90px 0;overflow:hidden;background-image:var(--grain)}
+.shop-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:70px;align-items:center}
+.shop-vis{position:relative;padding-bottom:70px}
+.shop-vis .main{border-radius:26px;overflow:hidden;aspect-ratio:1/0.92}
+.shop-vis .main img{width:100%;height:100%;object-fit:cover}
+.shop-vis .sm{position:absolute;right:-30px;bottom:0;width:40%;border-radius:20px;overflow:hidden;border:8px solid var(--ink);aspect-ratio:3/4}
+.shop-vis .sm img{width:100%;height:100%;object-fit:cover}
+.shop .eyebrow{color:#E9B3A9}
+.shop .h2 em{color:#F08A78}
+.shop p{color:rgba(238,234,227,.75);font-size:18px;max-width:44ch;margin:26px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.chips span{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(238,234,227,.25);font:500 14.5px/1 var(--body)}
+.chips span:nth-child(1){transform:rotate(-2deg);background:var(--red);box-shadow:none}
+.chips span:nth-child(3){transform:rotate(1.5deg)}
+.chips .spark{width:12px;height:12px;color:inherit}
+
+/* extra */
+.extra{padding:120px 0}
+.ex-grid{display:grid;grid-template-columns:1.25fr 1fr;grid-template-rows:auto auto;gap:16px;margin-top:44px}
+.card{border-radius:30px;padding:36px;position:relative;overflow:hidden}
+.c-pi{grid-row:1/3;background:var(--paper2);display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
+.c-pi h3,.c-la h3,.c-gift h3{margin:0;font:800 clamp(30px,2.8vw,40px)/.95 var(--display);font-stretch:78%;text-transform:uppercase}
+.c-pi p,.c-la p,.c-gift p{margin:14px 0 0;font-size:16px;line-height:1.55;color:var(--ink3)}
+.c-pi ul{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:10px}
+.c-pi li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px}
+.c-pi li .spark{margin-top:5px;width:12px;height:12px}
+.fan{position:relative;height:420px}
+.fan img{position:absolute;width:62%;aspect-ratio:3/4;object-fit:cover;border-radius:18px;border:6px solid var(--card);box-shadow:0 24px 40px -24px rgba(0,0,0,.5);transition:transform .6s var(--ease)}
+.fan img:nth-child(1){left:0;top:40px;transform:rotate(-8deg)}
+.fan img:nth-child(2){left:22%;top:10px;transform:rotate(2deg);z-index:2}
+.fan img:nth-child(3){right:0;top:70px;transform:rotate(9deg)}
+.c-pi:hover .fan img:nth-child(1){transform:rotate(-11deg) translateX(-8px)}
+.c-pi:hover .fan img:nth-child(3){transform:rotate(12deg) translateX(8px)}
+.stamp{position:absolute;right:20px;bottom:6px;z-index:3;width:118px;height:118px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;text-align:center;font:800 19px/.95 var(--display);font-stretch:78%;text-transform:uppercase;transform:rotate(-10deg);box-shadow:0 0 0 6px var(--paper2),0 0 0 7.5px var(--red)}
+.c-la{background:var(--ink);color:var(--paper);display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.c-la p{color:rgba(238,234,227,.72)}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:6px;border-radius:18px;overflow:hidden}
+.ba figure{margin:0;position:relative}
+.ba img{width:100%;aspect-ratio:3/4.2;object-fit:cover}
+.ba figcaption{position:absolute;left:8px;top:8px;padding:6px 10px;border-radius:999px;background:var(--paper);color:var(--ink);font:600 11.5px/1 var(--body);letter-spacing:.06em;text-transform:uppercase}
+.ba figure+figure figcaption{background:var(--red);color:#fff}
+.c-gift{background:var(--red);color:#fff;display:flex;justify-content:space-between;align-items:center;gap:24px;text-decoration:none;transition:background-color .4s var(--ease)}
+.c-gift:hover{background:var(--red2)}
+.c-gift p{color:rgba(255,255,255,.86);margin-top:10px}
+.c-gift .arrow{flex:none;width:58px;height:58px;border-radius:50%;background:#fff;color:var(--red);display:grid;place-items:center;transition:transform .4s var(--ease)}
+.c-gift:hover .arrow{transform:rotate(-45deg)}
+.c-gift .arrow svg{width:22px;height:22px}
+
+/* reviews */
+.rev{padding:0 0 130px}
+.rev-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:center}
+.big{font:800 clamp(140px,17vw,250px)/.8 var(--display);font-stretch:75%;letter-spacing:-.02em;margin:18px 0 10px}
+.big small{font:400 italic .34em/1 var(--serif);color:var(--red);letter-spacing:0;margin-left:.06em}
+.rev .stars svg{width:22px;height:22px}
+.rev .meta{margin-top:12px;color:var(--mute);font-size:16px}
+.notes{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.note{margin:0;background:var(--card);border-radius:24px;padding:28px 26px 24px;box-shadow:0 24px 50px -36px rgba(0,0,0,.45);position:relative;transition:transform .5s var(--ease)}
+.note:nth-child(1){transform:rotate(-1.5deg)}
+.note:nth-child(2){transform:rotate(1.2deg);margin-top:60px}
+.note:nth-child(3){grid-column:1/3;width:78%;justify-self:center;transform:rotate(-.6deg);margin-top:-20px;background:var(--ink);color:var(--paper)}
+.note:hover{transform:rotate(0) translateY(-4px)}
+.note blockquote{margin:0;font:400 23px/1.25 var(--serif)}
+.note figcaption{display:flex;align-items:center;gap:10px;margin-top:18px;font:600 14px/1.2 var(--body)}
+.note figcaption i{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--red);color:#fff;font:800 14px/1 var(--display);font-style:normal}
+.note figcaption small{display:block;font-weight:400;color:var(--mute);font-size:12.5px}
+.note:nth-child(3) figcaption small{color:rgba(238,234,227,.6)}
+
+/* bezoek */
+.visit{background:var(--ink);color:var(--paper);padding:120px 0;background-image:var(--grain);position:relative}
+.vi-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:70px;align-items:start}
+.visit .eyebrow{color:#E9B3A9}
+.visit .h2 em{color:#F08A78}
+.visit .intro{color:rgba(238,234,227,.74);font-size:18px;max-width:44ch;margin:24px 0 34px}
+.hours{border-top:1px solid var(--line2)}
+.hours div{display:flex;justify-content:space-between;align-items:center;padding:15px 4px;border-bottom:1px solid var(--line2);font-size:16px}
+.hours div span:last-child{color:rgba(238,234,227,.75)}
+.hours div.today{color:#fff}
+.hours div.today span:first-child::after{content:"vandaag";margin-left:10px;padding:4px 9px;border-radius:999px;background:var(--red);font:600 11px/1 var(--body);letter-spacing:.06em;text-transform:uppercase;vertical-align:2px}
+.hours small{display:block;padding:12px 4px 0;color:rgba(238,234,227,.55);font-size:14px}
+.links{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.lk{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:18px;box-shadow:inset 0 0 0 1px var(--line2);text-decoration:none;transition:background-color .3s var(--ease)}
+.lk:hover{background:rgba(238,234,227,.07)}
+.lk .ic{width:40px;height:40px;border-radius:50%;background:rgba(238,234,227,.1);display:grid;place-items:center;flex:none}
+.lk .ic svg{width:19px;height:19px}
+.lk small{display:block;color:rgba(238,234,227,.55);font-size:12.5px;margin-bottom:3px}
+.lk b{font:600 15.5px/1.2 var(--body)}
+.form{background:var(--card);color:var(--ink);border-radius:30px;padding:36px;box-shadow:0 40px 80px -40px rgba(0,0,0,.7)}
+.form h3{margin:0;font:800 34px/.95 var(--display);font-stretch:78%;text-transform:uppercase}
+.form h3 em{font:400 italic 1.1em/1 var(--serif);text-transform:none;color:var(--red)}
+.form>p{margin:10px 0 24px;color:var(--mute);font-size:15px}
+.fld{display:block;margin-bottom:14px}
+.fld>span,.pick legend{display:block;font:600 12px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin:0 0 8px 2px}
+.fld input,.fld textarea{width:100%;border:0;border-radius:14px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);padding:15px 16px;font:400 16px/1.4 var(--body);color:var(--ink);transition:box-shadow .3s var(--ease)}
+.fld textarea{min-height:110px;resize:vertical}
+.fld input:focus,.fld textarea:focus{outline:0;box-shadow:inset 0 0 0 2px var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pick{border:0;margin:0 0 14px;padding:0}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills label{position:relative;cursor:pointer}
+.pills input{position:absolute;opacity:0;pointer-events:none}
+.pills span{display:inline-block;padding:10px 14px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);font:500 14px/1 var(--body);transition:background-color .3s var(--ease),color .3s,box-shadow .3s}
+.pills label:hover span{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.pills input:checked+span{background:var(--ink);color:var(--paper);box-shadow:none}
+.pills input:focus-visible+span{outline:2px solid var(--red);outline-offset:2px}
+.form .btn{width:100%;justify-content:center;margin-top:6px}
+.form .note2{display:block;text-align:center;margin-top:12px;color:var(--mute);font-size:13px}
+
+.foot{background:#0C0C0C;color:rgba(238,234,227,.68);padding:60px 0 34px;font-size:14.5px}
+.ft{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid var(--line2)}
+.foot .logo{color:var(--paper)}
+.foot h4{margin:0 0 14px;font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:rgba(238,234,227,.42)}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.foot a{text-decoration:none;transition:color .3s}
+.foot a:hover{color:#fff}
+.fb{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-top:24px;font-size:13px;color:rgba(238,234,227,.45)}
+.fb a{color:rgba(238,234,227,.82)}
+
+.js [data-r]{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js [data-r].in{opacity:1;transform:none}
+.js [data-r="2"]{transition-delay:.08s}.js [data-r="3"]{transition-delay:.16s}.js [data-r="4"]{transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js [data-r]{opacity:1;transform:none}}
+
+@media (max-width:1100px){
+  .nav,.top .btn{display:none}
+  .burger{display:grid}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .h-vis{height:600px;max-width:640px}
+  .feats{grid-template-columns:1fr 1fr}
+  .feat:nth-child(3){padding-left:0}
+  .feat:nth-child(3)::before{display:none}
+  .feat:nth-child(n+3){border-top:1px solid var(--line)}
+  .art-head{grid-template-columns:1fr}
+  .art-head .lead{justify-self:start}
+  .row{grid-template-columns:40px 84px minmax(0,1fr) 240px;row-gap:14px}
+  .row .pf{width:84px;height:84px}
+  .row .tags{grid-column:3}
+  .row .thumbs{grid-column:4;grid-row:1/3}
+  .werk-head{flex-direction:column;align-items:flex-start;gap:16px}
+  .gal{grid-template-columns:1fr 1fr;grid-auto-rows:220px}
+  .g1{grid-column:1/3;grid-row:auto/span 2}.g2{grid-column:1;grid-row:auto/span 2}.g3{grid-column:2;grid-row:auto}
+  .g4{grid-column:2;grid-row:auto}.g5{grid-column:1;grid-row:auto}.g6{grid-column:2;grid-row:auto}
+  .g7{grid-column:1/3;grid-row:auto}.g8{grid-column:1;grid-row:auto}.g9{grid-column:2;grid-row:auto}
+  .shop-grid{grid-template-columns:1fr;gap:50px}
+  .shop-vis{max-width:600px}
+  .ex-grid{grid-template-columns:1fr}
+  .c-pi{grid-row:auto}
+  .rev-grid{grid-template-columns:1fr;gap:40px}
+  .vi-grid{grid-template-columns:1fr;gap:50px}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 32px)}
+  .top-in{height:70px}
+  .logo i{font-size:27px}
+  .logo b{font-size:13px}
+  .hero{padding-top:18px}
+  .h1{font-size:clamp(54px,17vw,74px);margin:16px 0 20px}
+  .hero p.sub{font-size:17px;margin-bottom:26px}
+  .ctas .btn{flex:1 1 100%;justify-content:center}
+  .rate{margin-top:26px;padding-top:20px}
+  .h-vis{height:440px}
+  .h-red{top:40px;border-radius:22px}
+  .h-photo{width:74%;height:86%;border-radius:22px}
+  .flash{width:44%;padding:7px 7px 30px}
+  .flash span{font-size:15px;left:10px;bottom:9px}
+  .flash::before{width:70px;height:22px;margin-left:-35px;top:-11px}
+  .award{width:98px;height:98px;right:2%}
+  .award svg.ring text{font-size:10px}
+  .award .spark{width:22px;height:22px}
+  .h-name{left:10px;bottom:10px;font-size:12.5px;padding:6px 12px 6px 6px}
+  .h-name img{width:28px;height:28px}
+  .feats{grid-template-columns:1fr;margin-top:44px}
+  .feat,.feat+.feat{padding:18px 0}
+  .feat+.feat::before{display:none}
+  .feat+.feat{border-top:1px solid var(--line)}
+  .tape{height:110px;margin-top:10px}
+  .tape .b1{top:30px;padding:12px 0}
+  .tape .b2{top:36px;height:46px}
+  .tape .run span{font-size:23px}
+  .tape .run span.s{font-size:25px}
+  .art{padding:70px 0 80px}
+  .h2{font-size:clamp(40px,12vw,54px)}
+  .lead{font-size:16.5px}
+  .row{grid-template-columns:72px minmax(0,1fr);gap:12px 16px;padding:22px 0}
+  .row:hover{border-radius:0;background:transparent}
+  .row .no{position:absolute;right:0;top:24px}
+  .row .pf{width:72px;height:72px;filter:none}
+  .row .pf{grid-column:1;grid-row:1}
+  .row .who{grid-column:2;grid-row:1}
+  .row .tags{grid-column:1/3}
+  .row .thumbs{grid-column:1/3;grid-row:auto}
+  .row h3{font-size:32px;padding-right:30px}
+  .row p{font-size:15px}
+  .art-foot{flex-direction:column;align-items:flex-start}
+  .werk{padding-bottom:80px}
+  .gal{grid-auto-rows:170px;gap:8px}
+  .g{border-radius:16px}
+  .g-ig{padding:18px}
+  .g-ig b{font-size:24px}
+  .shop{padding:0 10px}
+  .shop-in{border-radius:28px;padding:60px 0}
+  .shop-vis{padding-bottom:50px}
+  .shop-vis .sm{right:-6px;border-width:6px}
+  .extra{padding:80px 0}
+  .card{padding:24px;border-radius:24px}
+  .c-pi,.c-la{grid-template-columns:1fr}
+  .fan{height:300px;margin-top:6px}
+  .stamp{width:96px;height:96px;font-size:16px;right:6px}
+  .c-gift{flex-direction:column;align-items:flex-start}
+  .rev{padding-bottom:90px}
+  .notes{grid-template-columns:1fr;gap:14px}
+  .note:nth-child(2){margin-top:0}
+  .note:nth-child(3){grid-column:auto;width:100%;margin-top:0}
+  .note blockquote{font-size:21px}
+  .visit{padding:80px 0}
+  .links{grid-template-columns:1fr}
+  .form{padding:26px 18px;border-radius:24px}
+  .two{grid-template-columns:1fr;gap:0}
+  .ft{grid-template-columns:1fr 1fr;gap:30px}
+  .ft>div:first-child{grid-column:1/-1}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="sp" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.8 6.6 5.4 11.2 12 12-6.6.8-11.2 5.4-12 12-.8-6.6-5.4-11.2-12-12C6.6 11.2 11.2 6.6 12 0z"/></symbol></svg>
+<div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="logo" href="#" aria-label="Louis' Tattoo Boutique, naar boven"><i>Louis'</i><svg class="spark"><use href="#sp"/></svg><b>Tattoo Boutique</b></a>
+    <nav class="nav" aria-label="Hoofdmenu"><a href="#artiesten">Artiesten</a><a href="#werk">Werk</a><a href="#shop">De shop</a><a href="#piercings">Piercings &amp; laser</a><a href="#bezoek">Bezoek</a></nav>
+    <a class="btn btn-red" href="#bezoek">Plan je tattoo</a>
+    <button class="burger" aria-label="Menu openen" aria-expanded="false"><span></span><span></span></button>
+  </div>
+  <div class="sheet">
+    <a href="#artiesten">Artiesten <small>zes stijlen</small></a>
+    <a href="#werk">Werk <small>recent gezet</small></a>
+    <a href="#shop">De shop <small>Steenpoort 28</small></a>
+    <a href="#piercings">Piercings &amp; laser <small>zonder afspraak</small></a>
+    <a href="#bezoek">Bezoek <small>uren en contact</small></a>
+    <a class="btn btn-red" href="tel:+3256905760">Bel 056 90 57 60</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow" data-r><svg class="spark"><use href="#sp"/></svg>Tattoos · piercings · laser</span>
+        <h1 class="h1" data-r="2"><span class="l">Goed getekend,</span><span class="l"><em>strak</em>gezet.</span></h1>
+        <p class="sub" data-r="3">Bij LTB werken zes artiesten, elk met een eigen hand. Je komt met een idee en we werken het samen uit tot het klopt. Voor een piercing loop je gewoon binnen.</p>
+        <div class="ctas" data-r="4">
+          <a class="btn btn-red" href="#bezoek">Plan je tattoo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-line" href="#artiesten">Bekijk de artiesten</a>
+        </div>
+        <div class="rate" data-r="4"><b>4,7</b><div><span class="stars" aria-label="4,7 op 5"><svg viewBox="0 0 24 24"><use href="#st"/></svg><svg viewBox="0 0 24 24"><use href="#st"/></svg><svg viewBox="0 0 24 24"><use href="#st"/></svg><svg viewBox="0 0 24 24"><use href="#st"/></svg><svg viewBox="0 0 24 24"><use href="#st"/></svg></span><small>uit 203 reviews op Google</small></div></div>
+      </div>
+      <div class="h-vis" data-r="2">
+        <div class="h-red"></div>
+        <div class="h-photo"><img src="img/louis.webp" alt="Louis aan het werk aan een rugstuk in de studio" width="1200" height="1200" fetchpriority="high">
+          <span class="h-name"><img src="img/p-louis.webp" alt="" width="520" height="520"><span><b>Tattoo Louis</b> · oprichter</span></span></div>
+        <div class="award" aria-label="Winnaar Commerce Design Award">
+          <svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="circ" d="M60 60m-48 0a48 48 0 1 1 96 0a48 48 0 1 1-96 0"/></defs><text><textPath href="#circ">Commerce Design Award · Winnaar · </textPath></text></svg>
+          <svg class="spark"><use href="#sp"/></svg>
+        </div>
+        <figure class="flash" style="margin:0"><img src="img/flash.webp" alt="Traditionele kleurentattoo van een vis met rode golven" width="800" height="800"><span>traditional, door Louis</span></figure>
+      </div>
+    </div>
+    <div class="feats" data-r>
+      <div class="feat"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 15 9"/><path d="m13 7 4-4 4 4-4 4z"/><path d="m3 21 1.5-.5L5 19"/><path d="m9 15-2-2"/></svg></span><div><b>Zes artiesten</b><span>Elk met een eigen stijl</span></div></div>
+      <div class="feat"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="15" r="5"/><path d="M12 10V3"/><circle cx="12" cy="3" r="1"/></svg></span><div><b>Piercings</b><span>Altijd zonder afspraak</span></div></div>
+      <div class="feat"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><div><b>Laser</b><span>Tattoo verwijderen met Dr. Laser</span></div></div>
+      <div class="feat"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18"/><path d="M12 8c-2-4-6-4-6-1.5S9 8 12 8c3 0 6 1 6-1.5S14 4 12 8z"/></svg></span><div><b>Cadeaubon</b><span>Ook digitaal te koop</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="tape" aria-hidden="true">
+  <div class="band b2"></div>
+  <div class="band b1">
+    <div class="run"><span>Black &amp; grey</span><svg class="spark"><use href="#sp"/></svg><span class="s">traditional</span><svg class="spark"><use href="#sp"/></svg><span>Fineline</span><svg class="spark"><use href="#sp"/></svg><span class="s">realisme</span><svg class="spark"><use href="#sp"/></svg><span>Dotwork</span><svg class="spark"><use href="#sp"/></svg><span class="s">ornamental</span><svg class="spark"><use href="#sp"/></svg><span>Sketch</span><svg class="spark"><use href="#sp"/></svg><span class="s">portretten</span><svg class="spark"><use href="#sp"/></svg><span>Lijnwerk</span><svg class="spark"><use href="#sp"/></svg></div>
+    <div class="run"><span>Black &amp; grey</span><svg class="spark"><use href="#sp"/></svg><span class="s">traditional</span><svg class="spark"><use href="#sp"/></svg><span>Fineline</span><svg class="spark"><use href="#sp"/></svg><span class="s">realisme</span><svg class="spark"><use href="#sp"/></svg><span>Dotwork</span><svg class="spark"><use href="#sp"/></svg><span class="s">ornamental</span><svg class="spark"><use href="#sp"/></svg><span>Sketch</span><svg class="spark"><use href="#sp"/></svg><span class="s">portretten</span><svg class="spark"><use href="#sp"/></svg><span>Lijnwerk</span><svg class="spark"><use href="#sp"/></svg></div>
+  </div>
+</div>
+
+<section class="art" id="artiesten">
+  <div class="wrap">
+    <div class="art-head">
+      <div><span class="eyebrow" data-r><svg class="spark"><use href="#sp"/></svg>De artiesten</span><h2 class="h2" data-r="2">Wie zet <em>jouw</em><br>tattoo?</h2></div>
+      <p class="lead" data-r="3">Elke artiest heeft een eigen hand. Kijk naar hun werk en kies wie bij jouw idee past. Geen idee? Vraag het ons gerust, we zeggen het eerlijk.</p>
+    </div>
+    <div class="roster">
+      <article class="row" data-r><span class="no">01</span><div class="pf"><img src="img/p-louis.webp" alt="Tattoo Louis" width="520" height="520" loading="lazy"></div><div class="who"><h3>Tattoo Louis</h3><p>Oprichter en eigenaar. Al meer dan veertien jaar aan het tatoeëren, en thuis in zowat elke stijl.</p></div><div class="tags"><span>Black &amp; grey</span><span>Traditional</span><span>Ornamental</span></div><div class="thumbs"><img src="img/t-louis1.webp" alt="Ornamentaal rugstuk door Louis" width="560" height="560" loading="lazy"><img src="img/t-louis2.webp" alt="Traditionele kleurentattoo van een vrouw met tooi door Louis" width="560" height="560" loading="lazy"><img src="img/t-louis3.webp" alt="Bokkenkop op de borst door Louis" width="560" height="560" loading="lazy"></div></article>
+      <article class="row" data-r><span class="no">02</span><div class="pf"><img src="img/p-jessy.webp" alt="Jessy Von D." width="520" height="520" loading="lazy"></div><div class="who"><h3>Jessy Von D.</h3><p>Vloeiende, schetsachtige lijnen. Naast tatoeëren schildert ze ook.</p></div><div class="tags"><span>Sketch</span><span>Freehand</span></div><div class="thumbs"><img src="img/t-jessy1.webp" alt="Octopus freehand op de rug door Jessy" width="560" height="560" loading="lazy"><img src="img/t-jessy2.webp" alt="Konijn in schetsstijl door Jessy" width="560" height="560" loading="lazy"><img src="img/t-jessy3.webp" alt="Lynx in schetsstijl door Jessy" width="560" height="560" loading="lazy"></div></article>
+      <article class="row" data-r><span class="no">03</span><div class="pf"><img src="img/p-missmort.webp" alt="Miss Mort" width="520" height="520" loading="lazy"></div><div class="who"><h3>Miss Mort</h3><p>Een natuurtalent in portretten en realisme. Ook van je hond, als je dat wil.</p></div><div class="tags"><span>Portret</span><span>Realisme</span></div><div class="thumbs"><img src="img/t-mort1.webp" alt="Portret van een hondje met naam door Miss Mort" width="560" height="560" loading="lazy"><img src="img/t-mort2.webp" alt="Realistische rottweiler door Miss Mort" width="560" height="560" loading="lazy"><img src="img/t-mort3.webp" alt="Olifant met om-teken door Miss Mort" width="560" height="560" loading="lazy"></div></article>
+      <article class="row" data-r><span class="no">04</span><div class="pf"><img src="img/p-maity.webp" alt="Maity" width="520" height="520" loading="lazy"></div><div class="who"><h3>Maity</h3><p>Kleinere tattoos en fineline. Voor wie het fijn en subtiel wil.</p></div><div class="tags"><span>Fineline</span><span>Klein werk</span></div><div class="thumbs"><img src="img/t-maity1.webp" alt="Fineline eend met pet door Maity" width="560" height="560" loading="lazy"><img src="img/t-maity2.webp" alt="Postzegel met golf in fineline door Maity" width="560" height="560" loading="lazy"><img src="img/t-maity3.webp" alt="Twee palmbomen in fineline door Maity" width="560" height="560" loading="lazy"></div></article>
+      <article class="row" data-r><span class="no">05</span><div class="pf"><img src="img/p-lordshader.webp" alt="Lord Shader" width="520" height="520" loading="lazy"></div><div class="who"><h3>Lord Shader</h3><p>Helemaal uit Polen. Herkenbaar aan zijn zachte schaduwen en dotwork.</p></div><div class="tags"><span>Soft shading</span><span>Dotwork</span></div><div class="thumbs"><img src="img/t-lord1.webp" alt="Mot in dotwork door Lord Shader" width="560" height="560" loading="lazy"><img src="img/t-lord2.webp" alt="Vrouw met vlinder en bloemen door Lord Shader" width="560" height="560" loading="lazy"><img src="img/t-lord3.webp" alt="Ramsschedel op de borst door Lord Shader" width="560" height="560" loading="lazy"></div></article>
+      <article class="row" data-r><span class="no">06</span><div class="pf"><img src="img/p-jns.webp" alt="JNS Tattoos" width="520" height="520" loading="lazy"></div><div class="who"><h3>JNS Tattoos</h3><p>Ervaren in verschillende stijlen, met een voorliefde voor stip en lijn.</p></div><div class="tags"><span>Dotwork</span><span>Black &amp; grey</span><span>Lijnwerk</span></div><div class="thumbs"><img src="img/t-jns1.webp" alt="Anubis in black and grey door JNS" width="560" height="560" loading="lazy"><img src="img/t-jns2.webp" alt="Vitruviusman in lijnwerk door JNS" width="560" height="560" loading="lazy"><img src="img/t-jns3.webp" alt="Rokende jongen in lijnwerk door JNS" width="560" height="560" loading="lazy"></div></article>
+    </div>
+    <div class="art-foot" data-r><span>Twijfel je tussen twee artiesten? Vraag gerust raad aan de toog.</span><a href="#bezoek">Plan een gesprek</a></div>
+  </div>
+</section>
+
+<section class="werk" id="werk">
+  <div class="wrap">
+    <div class="werk-head">
+      <div><span class="eyebrow" data-r><svg class="spark"><use href="#sp"/></svg>Recent werk</span><h2 class="h2" data-r="2">Gezet aan de<br><em>Steenpoort.</em></h2></div>
+      <p class="lead" data-r="3">Kleur en black &amp; grey, een klein werkje op de enkel of een volledige rug. Een greep uit wat de zes artiesten de voorbije tijd zetten.</p>
+    </div>
+    <div class="gal">
+      <figure class="g g1" data-r><img src="img/g-sleeves.webp" alt="Twee volledige kleurensleeves in Japanse stijl door Louis" width="1200" height="1200" loading="lazy"><figcaption>Louis · kleursleeves</figcaption></figure>
+      <figure class="g g2" data-r="2"><img src="img/g-rug.webp" alt="Volledig rugstuk in black and grey door Louis" width="1100" height="1100" loading="lazy" style="object-position:50% 40%"><figcaption>Louis · rugstuk</figcaption></figure>
+      <a class="g g-ig g3" href="https://instagram.com/tattoolouis" target="_blank" rel="noopener" data-r="3"><b>Meer werk zie je op <em>Instagram</em></b><span>@tattoolouis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+      <figure class="g g4" data-r="3"><img src="img/g-viking.webp" alt="Viking met raven in black and grey door Lord Shader" width="900" height="1162" loading="lazy"><figcaption>Lord Shader</figcaption></figure>
+      <figure class="g g5" data-r><img src="img/g-portret.webp" alt="Realistisch portret op de kuit door Miss Mort" width="900" height="1117" loading="lazy" style="object-position:50% 30%"><figcaption>Miss Mort</figcaption></figure>
+      <figure class="g g6" data-r="2"><img src="img/g-japans.webp" alt="Kleurrijk Japans beenstuk met pioenen door Louis" width="1100" height="1100" loading="lazy" style="object-position:50% 60%"><figcaption>Louis · Japans</figcaption></figure>
+      <figure class="g g7" data-r><img src="img/g-slang.webp" alt="Slang op de schouder in black and grey door JNS" width="900" height="1100" loading="lazy" style="object-position:50% 35%"><figcaption>JNS Tattoos</figcaption></figure>
+      <figure class="g g8" data-r="2"><img src="img/g-dolk.webp" alt="Fineline dolk op de enkel door Maity" width="900" height="890" loading="lazy"><figcaption>Maity</figcaption></figure>
+      <figure class="g g9" data-r="3"><img src="img/g-jessy.webp" alt="Schetsmatig rugstuk met figuren en vlinder door Jessy Von D." width="900" height="785" loading="lazy"><figcaption>Jessy Von D.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="shop" id="shop">
+  <div class="shop-in">
+    <div class="wrap shop-grid">
+      <div class="shop-vis" data-r>
+        <div class="main"><img src="img/shop.webp" alt="De studio met groene tegels, verlichte letters LTB en een chesterfield" width="1242" height="1197" loading="lazy"></div>
+        <div class="sm"><img src="img/gevel.webp" alt="De zwarte gevel van Louis' Tattoo Boutique aan de Steenpoort" width="1100" height="1359" loading="lazy"></div>
+      </div>
+      <div>
+        <span class="eyebrow" data-r><svg class="spark"><use href="#sp"/></svg>De shop</span>
+        <h2 class="h2" data-r="2">Een van de <em>mooiste</em> winkels van Kortrijk.</h2>
+        <p data-r="3">De studio werd ontworpen door interieurarchitect Henryk Virabian en won een Commerce Design Award. Groene tegels, de grote letters aan de muur, een chesterfield om op te wachten. Binnenspringen om rond te kijken mag altijd.</p>
+        <div class="chips" data-r="4"><span><svg class="spark"><use href="#sp"/></svg>Commerce Design Award</span><span>Henryk Virabian</span><span>Sinds 2013</span><span>Steenpoort 28</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="extra" id="piercings">
+  <div class="wrap">
+    <span class="eyebrow" data-r><svg class="spark"><use href="#sp"/></svg>Ook bij LTB</span>
+    <h2 class="h2" data-r="2">Piercings, laser<br>en <em>cadeaubonnen.</em></h2>
+    <div class="ex-grid">
+      <article class="card c-pi" data-r>
+        <div>
+          <h3>Piercings, zonder afspraak</h3>
+          <p>Van een gaatje in je oorlel tot een intieme piercing. Kom gewoon binnen tijdens de openingsuren.</p>
+          <ul><li><svg class="spark"><use href="#sp"/></svg>Veertien jaar ervaring in het zetten van piercings</li><li><svg class="spark"><use href="#sp"/></svg>De prijs is altijd met standaard juweel</li><li><svg class="spark"><use href="#sp"/></svg>Mooiere juwelen vind je in onze webshop</li></ul>
+        </div>
+        <div class="fan"><img src="img/pi-1.webp" alt="Helix piercing met hanger" width="800" height="1067" loading="lazy"><img src="img/pi-2.webp" alt="Oor met meerdere ringen en piercings" width="800" height="1067" loading="lazy"><img src="img/pi-3.webp" alt="Oor met twee kraakbeenpiercings en een gouden ring" width="800" height="1067" loading="lazy"><span class="stamp">Zonder<br>afspraak</span></div>
+      </article>
+      <article class="card c-la" data-r="2">
+        <div><h3>Een oude tattoo laten vervagen</h3><p>Dr. Laser heeft meer dan zeven jaar ervaring met tattooverwijdering en werkt met Q-switched lasertechnologie. De behandeling gebeurt bij ons in de zaak.</p></div>
+        <div class="ba"><figure><img src="img/laser-voor.webp" alt="Donkere tattoo op het onderbeen voor de laserbehandeling" width="900" height="1225" loading="lazy"><figcaption>Voor</figcaption></figure><figure><img src="img/laser-na.webp" alt="Dezelfde tattoo na één lasersessie, duidelijk vervaagd" width="900" height="988" loading="lazy"><figcaption>Na 1 sessie</figcaption></figure></div>
+      </article>
+      <a class="card c-gift" href="https://www.louistattooboutique.be/webshop/giftcard" target="_blank" rel="noopener" data-r="3">
+        <div><h3>Een tattoo cadeau doen?</h3><p>Met een cadeaubon van LTB. Op papier of digitaal, meteen in de mailbox.</p></div>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="rev">
+  <div class="wrap rev-grid">
+    <div>
+      <span class="eyebrow" data-r><svg class="spark"><use href="#sp"/></svg>Reviews</span>
+      <div class="big" data-r="2">4,7<small>/5</small></div>
+      <span class="stars" data-r="3" aria-label="4,7 op 5"><svg viewBox="0 0 24 24"><use href="#st"/></svg><svg viewBox="0 0 24 24"><use href="#st"/></svg><svg viewBox="0 0 24 24"><use href="#st"/></svg><svg viewBox="0 0 24 24"><use href="#st"/></svg><svg viewBox="0 0 24 24"><use href="#st"/></svg></span>
+      <p class="meta" data-r="3">Gemiddelde uit 203 reviews op Google.</p>
+    </div>
+    <div class="notes">
+      <figure class="note" data-r><blockquote>“Superblij met mijn tattoo van Maity. Ze heeft een prachtig ontwerp gemaakt, helemaal naar mijn wens, en het resultaat is echt af. Vakwerk, oog voor detail en een fijne babbel erbij.”</blockquote><figcaption><i>M</i><span>Maarten Mareels<small>Review op Google</small></span></figcaption></figure>
+      <figure class="note" data-r="2"><blockquote>“Snelle service , super vriendelijk en kwalitatieve tattoo’s een echte aanrader zowel voor eerste tattoo als voor prachtige werken !”</blockquote><figcaption><i>J</i><span>JM Vlogs<small>Review op Google</small></span></figcaption></figure>
+      <figure class="note" data-r="3"><blockquote>“Tattoo louis en zijn mensen zijn de beste van kortrijk al altijd naar daar geweest en nog nooit een probleem gehad of zo”</blockquote><figcaption><i>A</i><span>anoeska van geert<small>Review op Google</small></span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="bezoek">
+  <div class="wrap vi-grid">
+    <div>
+      <span class="eyebrow" data-r><svg class="spark"><use href="#sp"/></svg>Bezoek ons</span>
+      <h2 class="h2" data-r="2">Kom binnen aan de <em>Steenpoort.</em></h2>
+      <p class="intro" data-r="3">Bel, stuur een bericht of loop binnen tijdens de openingsuren. Voor een tattoo plannen we samen een moment. Piercings zetten we zonder afspraak.</p>
+      <div class="hours" data-r="3" id="uren">
+        <div data-d="1"><span>Maandag</span><span>Gesloten</span></div>
+        <div data-d="2"><span>Dinsdag</span><span>10u tot 18u30</span></div>
+        <div data-d="3"><span>Woensdag</span><span>10u tot 18u30</span></div>
+        <div data-d="4"><span>Donderdag</span><span>10u tot 18u30</span></div>
+        <div data-d="5"><span>Vrijdag</span><span>10u tot 18u30</span></div>
+        <div data-d="6"><span>Zaterdag</span><span>10u tot 18u30</span></div>
+        <div data-d="0"><span>Zondag</span><span>Gesloten</span></div>
+        <small>De eerste tattoo-afspraak start om 9u, de shop gaat open om 10u.</small>
+      </div>
+    </div>
+    <div class="vi-right">
+    <form class="form" id="form" action="mailto:stab.kortrijk@gmail.com" method="post" enctype="text/plain" data-r="2">
+      <h3>Je idee, in <em>een paar</em> zinnen</h3>
+      <p>We lezen alles en laten snel iets weten.</p>
+      <div class="two">
+        <label class="fld"><span>Naam</span><input name="naam" autocomplete="name" required></label>
+        <label class="fld"><span>E-mail of gsm</span><input name="contact" required></label>
+      </div>
+      <fieldset class="pick"><legend>Bij wie?</legend>
+        <div class="pills">
+          <label><input type="radio" name="artiest" value="Maakt niet uit" checked><span>Maakt niet uit</span></label>
+          <label><input type="radio" name="artiest" value="Louis"><span>Louis</span></label>
+          <label><input type="radio" name="artiest" value="Jessy Von D."><span>Jessy</span></label>
+          <label><input type="radio" name="artiest" value="Miss Mort"><span>Miss Mort</span></label>
+          <label><input type="radio" name="artiest" value="Maity"><span>Maity</span></label>
+          <label><input type="radio" name="artiest" value="Lord Shader"><span>Lord Shader</span></label>
+          <label><input type="radio" name="artiest" value="JNS"><span>JNS</span></label>
+        </div>
+      </fieldset>
+      <label class="fld"><span>Wat wil je laten zetten?</span><textarea name="idee" placeholder="Bv. een kleine fineline bloem op mijn pols, ongeveer 5 cm"></textarea></label>
+      <button class="btn btn-red" type="submit">Verstuur je idee <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <small class="note2">Je bericht gaat rechtstreeks naar stab.kortrijk@gmail.com</small>
+    </form>
+      <div class="links" data-r="3">
+        <a class="lk" href="tel:+3256905760"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><span><small>Bellen</small><b>056 90 57 60</b></span></a>
+        <a class="lk" href="https://wa.me/32493083536" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.8-1.8l.8-1-1-2z"/></svg></span><span><small>WhatsApp</small><b>0493 08 35 36</b></span></a>
+        <a class="lk" href="mailto:stab.kortrijk@gmail.com"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg></span><span><small>Mailen</small><b>stab.kortrijk@gmail.com</b></span></a>
+        <a class="lk" href="https://www.google.com/maps/dir/?api=1&amp;destination=Steenpoort+28,+8500+Kortrijk" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg></span><span><small>Route</small><b>Steenpoort 28, Kortrijk</b></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="ft">
+      <div><a class="logo" href="#"><i>Louis'</i><svg class="spark"><use href="#sp"/></svg><b>Tattoo Boutique</b></a><p style="margin:18px 0 0;max-width:34ch">Tattoos, piercings en laser. Zes artiesten onder één dak, sinds 2013.</p></div>
+      <div><h4>Contact</h4><ul><li><a href="tel:+3256905760">056 90 57 60</a></li><li><a href="mailto:stab.kortrijk@gmail.com">stab.kortrijk@gmail.com</a></li><li>Steenpoort 28<br>8500 Kortrijk</li></ul></div>
+      <div><h4>Volg ons</h4><ul><li><a href="https://instagram.com/tattoolouis" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://facebook.com/tattoolouis" target="_blank" rel="noopener">Facebook</a></li><li><a href="#artiesten">De artiesten</a></li></ul></div>
+    </div>
+    <div class="fb"><span>Louis' Tattoo Boutique · Steenpoort 28, 8500 Kortrijk</span><span>Voorbeeldsite door <a href="#di">Digital Impression</a></span></div>
+  </div>
+</footer>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="st" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3-4.6-4.4 6.3-.9z"/></symbol></svg>
+
+<script>
+(function(){
+  var d=document.documentElement; d.classList.add('js');
+  var onS=function(){d.classList.toggle('scrolled',window.scrollY>30)}; onS(); window.addEventListener('scroll',onS,{passive:true});
+  var b=document.querySelector('.burger');
+  b.addEventListener('click',function(){var o=d.classList.toggle('menu-open');b.setAttribute('aria-expanded',o)});
+  document.querySelectorAll('.sheet a').forEach(function(a){a.addEventListener('click',function(){d.classList.remove('menu-open');b.setAttribute('aria-expanded','false')})});
+  var t=document.querySelector('#uren [data-d="'+new Date().getDay()+'"]'); if(t) t.classList.add('today');
+  var els=[].slice.call(document.querySelectorAll('[data-r]'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
+    els.forEach(function(e){io.observe(e)});
+  } else els.forEach(function(e){e.classList.add('in')});
+  var f=document.getElementById('form');
+  f.addEventListener('submit',function(ev){ev.preventDefault();var g=function(n){var e=f.elements[n];return (e&&e.value)||''};
+    var body='Naam: '+g('naam')+'\nContact: '+g('contact')+'\nArtiest: '+g('artiest')+'\n\n'+g('idee');
+    location.href='mailto:stab.kortrijk@gmail.com?subject='+encodeURIComponent('Tattoo-idee via de website')+'&body='+encodeURIComponent(body);});
+})();
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
+<style>
+.di,.di *{box-sizing:border-box;margin:0;padding:0;border:0;background:none;box-shadow:none;text-shadow:none;text-transform:none;letter-spacing:normal;float:none;max-width:none;min-height:0;font:inherit;color:inherit;text-decoration:none;opacity:1;transform:none;filter:none;list-style:none}
+.di :is(h2,h3,h4,p,ul,ol,li,details,summary,b,strong,em,small,span,div)::before,.di :is(h2,h3,h4,p,ul,ol,li,details,summary,b,strong,em,small,span,div)::after{content:none!important}
+.di summary::marker{content:""}
+.di{--navy:#0E1C3A;--deep:#0A1530;--goud:#C9A24A;--goud2:#D8BB6A;--bleek:#E8D9A8;--beige:#F1EBDF;--creme:#FBF8F2;
+  --zacht:rgba(241,235,223,.74);--stil:rgba(241,235,223,.5);--lijn:rgba(241,235,223,.12);--ease:cubic-bezier(.16,1,.3,1);
+  position:relative;overflow:clip;background:var(--navy);color:var(--beige);padding:clamp(88px,11vw,136px) 0 56px;
+  font:400 17px/1.65 'Inter',system-ui,sans-serif;text-align:left;-webkit-font-smoothing:antialiased}
+.di::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(760px 480px at 50% -10%,rgba(201,162,74,.14),transparent 66%)}
+.di::after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,162,74,.7) 30%,rgba(232,217,168,.9) 50%,rgba(201,162,74,.7) 70%,transparent)}
+.di .di-wrap{position:relative;max-width:980px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+.di h2,.di h3,.di h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:-.01em;text-transform:none;font-style:normal;color:var(--creme)}
+.di a{color:inherit}
+.di svg{flex:none}
+
+/* boodschap */
+.di .di-kern{text-align:center;max-width:760px;margin:0 auto}
+.di .di-afz{display:inline-flex;align-items:center;gap:12px;margin-bottom:28px;color:var(--goud2);font-size:15px;font-weight:500}
+.di .di-afz i{width:32px;height:32px;border-radius:9px;border:1px solid rgba(201,162,74,.45);display:grid;place-items:center;font:600 15px/1 'Cormorant Garamond',serif;font-style:normal;color:var(--goud);letter-spacing:-.5px}
+.di h2{line-height:1}
+.di .di-voor{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:20px;font:italic 500 clamp(24px,2.5vw,31px)/1.2 'Cormorant Garamond',Georgia,serif;color:var(--goud2);letter-spacing:.005em}
+.di .di-kern .di-voor::before,.di .di-kern .di-voor::after{content:""!important;flex:none;width:clamp(28px,5vw,60px);height:1px;background:linear-gradient(90deg,transparent,var(--goud))}
+.di .di-kern .di-voor::after{background:linear-gradient(270deg,transparent,var(--goud))}
+.di .di-samen{display:block;font:500 clamp(46px,6.2vw,80px)/1.02 'Cormorant Garamond',Georgia,serif;letter-spacing:-.015em;text-wrap:balance;
+  color:var(--creme);background:linear-gradient(180deg,#FBF8F2 35%,#E8D9A8 135%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;padding-bottom:.06em}
+.di .di-lead{text-wrap:pretty;color:var(--zacht);font-size:clamp(17px,1.5vw,19px);margin:24px auto 0;max-width:33em}
+.di .di-knoppen{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:36px}
+.di .di-knoppen a{position:relative;overflow:hidden;display:inline-flex;justify-content:center;align-items:center;gap:10px;border-radius:999px;padding:18px 30px;
+  font:600 17px/1.2 'Inter',sans-serif;text-decoration:none;isolation:isolate;white-space:nowrap;transition:color .5s var(--ease),border-color .5s var(--ease)}
+.di .di-knoppen a svg{width:19px;height:19px}
+.di .di-knoppen a::before{content:"";position:absolute;inset:0;z-index:-1;transform:translateY(101%);transition:transform .55s var(--ease)}
+.di .di-knoppen a:hover::before{transform:translateY(0)}
+.di .di-knoppen .di-cal{background:var(--goud);color:var(--deep);box-shadow:0 18px 44px -18px rgba(201,162,74,.8)}
+.di .di-knoppen .di-cal::before{background:var(--bleek)}
+.di .di-knoppen .di-wa{border:1px solid rgba(241,235,223,.3);color:var(--creme)}
+.di .di-knoppen .di-wa::before{background:var(--creme)}
+.di .di-knoppen .di-wa:hover{color:var(--navy);border-color:var(--creme)}
+.di .di-klein{margin-top:18px;font-size:14.5px;color:var(--stil)}
+
+.di .di-blok{margin-top:clamp(88px,11vw,128px)}
+.di .di-blok>h3{font-size:clamp(30px,3.4vw,40px);line-height:1.05;text-align:center;margin-bottom:44px}
+
+/* prijs */
+.di .di-prijs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);border:1px solid var(--lijn);border-radius:28px;overflow:hidden}
+.di .di-prijs>div{padding:clamp(28px,3.6vw,40px)}
+.di .di-prijs>div+div{border-left:1px solid var(--lijn);background:rgba(241,235,223,.025)}
+.di .di-wat{font-size:15px;font-weight:500;color:var(--goud2)}
+.di .di-getal{font:500 clamp(60px,6.4vw,76px)/1 'Cormorant Garamond',serif;font-variant-numeric:lining-nums;color:var(--creme);margin-top:8px;letter-spacing:-.02em}
+.di .di-getal small{font:500 16px/1 'Inter',sans-serif;color:var(--stil);letter-spacing:0;margin-left:8px}
+.di .di-prijs p{color:var(--zacht);font-size:15.5px;margin-top:14px;max-width:24em}
+.di .di-prijs p b{color:var(--creme);font-weight:500}
+.di .di-opties{margin-top:22px;list-style:none}
+.di .di-opties li{display:grid;grid-template-columns:1fr auto;gap:4px 20px;padding:16px 0;border-top:1px solid var(--lijn)}
+.di .di-opties li:last-child{padding-bottom:0}
+.di .di-opties b{font:500 23px/1.2 'Cormorant Garamond',serif;color:var(--creme);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.di .di-opties b em{font:600 12px/1 'Inter',sans-serif;font-style:normal;color:var(--deep);background:var(--goud);border-radius:999px;padding:4px 10px}
+.di .di-opties .di-pp{font:500 24px/1.2 'Cormorant Garamond',serif;font-variant-numeric:lining-nums;color:var(--creme);text-align:right;white-space:nowrap}
+.di .di-opties .di-pp small{font:500 13.5px/1 'Inter',sans-serif;color:var(--stil);margin-left:4px}
+.di .di-opties .di-ot{grid-column:1/-1;color:var(--zacht);font-size:15px}
+
+/* faq */
+.di .di-faq{max-width:760px;margin:0 auto;border-top:1px solid var(--lijn)}
+.di .di-faq details{border-bottom:1px solid var(--lijn)}
+.di .di-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 2px;
+  font:500 22px/1.25 'Cormorant Garamond',serif;color:var(--creme);transition:color .3s}
+.di .di-faq summary::-webkit-details-marker{display:none}
+.di .di-faq summary:hover{color:var(--goud2)}
+.di .di-faq summary i{flex:none;position:relative;width:30px;height:30px;border-radius:50%;border:1px solid rgba(201,162,74,.5);transition:transform .45s var(--ease),background .3s}
+.di .di-faq summary i::before,.di .di-faq summary i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:var(--goud);transform:translate(-50%,-50%)}
+.di .di-faq summary i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .45s var(--ease)}
+.di .di-faq details[open] summary i{transform:rotate(180deg);background:rgba(201,162,74,.12)}
+.di .di-faq details[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+.di .di-faq .di-antw{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.di .di-faq details[open] .di-antw{grid-template-rows:1fr}
+.di .di-faq .di-antw>div{overflow:hidden}
+.di .di-faq .di-antw p{color:var(--zacht);font-size:16px;padding:0 50px 22px 2px;max-width:38em}
+
+.di .di-faq details,.di .di-faq details[open]{background:none;border-radius:0;box-shadow:none;margin:0;padding:0;border:0;border-bottom:1px solid var(--lijn);display:block}
+.di .di-faq details[open] summary,.di .di-faq summary:hover{background:none;box-shadow:none}
+
+/* afsluiter */
+.di .di-slot{margin-top:clamp(72px,9vw,104px);padding-top:36px;border-top:1px solid var(--lijn);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.di .di-wie{display:flex;align-items:center;gap:16px}
+.di .di-foto{flex:none;display:block;width:60px;height:60px;border-radius:50%;object-fit:cover;object-position:50% 40%;background:#0A1530;box-shadow:0 0 0 1px rgba(201,162,74,.6),0 0 0 4px #0E1C3A,0 0 0 5px rgba(201,162,74,.22)}
+.di .di-wie b{display:block;font:italic 500 26px/1.1 'Cormorant Garamond',serif;color:var(--creme)}
+.di .di-wie .di-lijn{font-size:14.5px;color:var(--stil)}
+.di .di-wie .di-lijn a{text-decoration:none}
+.di .di-wie .di-lijn a:hover{color:var(--creme)}
+.di .di-slot .di-knoppen{margin:0}
+.di .di-slot .di-knoppen a{padding:14px 24px;font-size:15.5px}
+.di :focus-visible{outline:2px solid var(--goud);outline-offset:4px;border-radius:12px}
+
+/* één rustige beweging */
+.di.di-js [data-in]{opacity:0;transform:translateY(16px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0) * 110ms)}
+.di.di-js [data-in].di-zien{opacity:1;transform:none}
+
+@media (max-width:820px){
+  .di .di-prijs{grid-template-columns:1fr}
+  .di .di-prijs>div+div{border-left:0;border-top:1px solid var(--lijn)}
+}
+@media (max-width:720px){
+  .di .di-faq summary{font-size:20px;padding:18px 2px}
+  .di .di-faq .di-antw p{padding-right:10px;font-size:15.5px}
+  .di{font-size:16.5px;padding-bottom:44px}
+  .di .di-voor{font-size:21px;gap:12px;margin-bottom:14px}
+  .di .di-kern .di-voor::before,.di .di-kern .di-voor::after{width:24px}
+  .di .di-samen{font-size:clamp(36px,10vw,46px)}
+  .di .di-lead{font-size:16.5px}
+  .di .di-knoppen{flex-direction:column;margin-top:30px}
+  .di .di-knoppen a{width:100%;padding:17px 18px;font-size:16px}
+  .di .di-blok>h3{margin-bottom:32px}
+  .di .di-prijs{border-radius:24px}
+  .di .di-prijs>div{padding:26px 22px}
+  .di .di-slot{flex-direction:column;align-items:stretch}
+  .di .di-slot .di-knoppen a{width:100%}
+}
+@media (prefers-reduced-motion:reduce){.di.di-js [data-in]{transition:none!important;opacity:1!important;transform:none!important}.di .di-knoppen a,.di .di-knoppen a::before,.di .di-faq summary i,.di .di-faq summary i::after,.di .di-faq .di-antw{transition:none}}
+
+/* kaartje halverwege */
+.di-tip,.di-tip *{box-sizing:border-box;margin:0;padding:0;border:0;background:none;box-shadow:none;text-shadow:none;text-transform:none;letter-spacing:normal;float:none;max-width:none;font:inherit;color:inherit;text-decoration:none;list-style:none}
+.di-tip{--navy:#0E1C3A;--goud:#C9A24A;--goud2:#D8BB6A;--creme:#FBF8F2;--zacht:rgba(241,235,223,.76);--ease:cubic-bezier(.16,1,.3,1);
+  position:fixed;left:20px;bottom:20px;z-index:2147483000;width:340px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+  padding:18px 18px 18px 18px;border-radius:20px;background:var(--navy);color:var(--creme);font:400 15px/1.5 'Inter',system-ui,sans-serif;text-align:left;
+  box-shadow:0 0 0 1px rgba(201,162,74,.4),0 24px 60px -18px rgba(0,0,0,.55);opacity:0;transform:translateY(24px) scale(.98);pointer-events:none;
+  transition:opacity .6s var(--ease),transform .6s var(--ease);-webkit-font-smoothing:antialiased}
+.di-tip.di-tip-aan{opacity:1;transform:none;pointer-events:auto}
+.di-tip .di-tip-s{display:block;width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:50% 40%;background:#0A1530;box-shadow:0 0 0 1px rgba(201,162,74,.6)}
+.di-tip .di-tip-t{font:italic 500 20px/1.2 'Cormorant Garamond',Georgia,serif;color:var(--goud2);padding-right:22px}
+.di-tip .di-tip-p{color:var(--zacht);margin-top:4px;font-size:14.5px}
+.di-tip .di-tip-k{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:10px 18px;border-radius:999px;background:var(--goud);color:#0A1530;font:600 14.5px/1.2 'Inter',sans-serif;cursor:pointer;transition:background .3s}
+.di-tip .di-tip-k:hover{background:#E8D9A8}
+.di-tip .di-tip-k svg{width:16px;height:16px}
+.di-tip .di-tip-x{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:var(--zacht);cursor:pointer;transition:background .3s,color .3s}
+.di-tip .di-tip-x:hover{background:rgba(241,235,223,.08);color:var(--creme)}
+.di-tip .di-tip-x svg{width:14px;height:14px}
+.di-tip :focus-visible{outline:2px solid var(--goud);outline-offset:3px}
+.di-tip :is(p,div,span,a,button)::before,.di-tip :is(p,div,span,a,button)::after{content:none!important}
+@media (max-width:560px){.di-tip{left:12px;right:12px;width:auto;bottom:12px;padding:14px 14px 14px 14px;gap:12px}.di-tip .di-tip-s{width:34px;height:34px;font-size:17px}.di-tip .di-tip-t{font-size:18px}.di-tip .di-tip-p{font-size:14px}}
+@media (prefers-reduced-motion:reduce){.di-tip{transition:none}}
+</style>
+<section aria-labelledby="di-titel" class="di" id="di">
+<div class="di-wrap">
+
+<div class="di-kern">
+<h2 id="di-titel" data-in style="--d:1"><span class="di-voor">Dit is slechts een voorbeeld.</span><span class="di-samen">Samen maken we er jullie nieuwe site van.</span></h2>
+<p class="di-lead" data-in style="--d:2">Ik maakte deze demo voor jullie om te tonen wat er kan. Na een kort gesprek maak ik er iets veel persoonlijkers van, helemaal naar jullie wens.</p>
+<div class="di-knoppen" data-in style="--d:3">
+<a class="di-cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Louis%27%20Tattoo%20Boutique" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Plan een gesprek van 30 min</a>
+<a class="di-wa" href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20Louis%27%20Tattoo%20Boutique" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z"/></svg>Stuur een WhatsApp</a>
+</div>
+<p class="di-klein" data-in style="--d:4">Vrijblijvend. Ik kom langs of we bellen.</p>
+</div>
+
+
+<div class="di-blok">
+<h3 data-in>Wat kost het?</h3>
+<div class="di-prijs" data-in style="--d:1">
+<div>
+<span class="di-wat">De website</span>
+<div class="di-getal">€ 499<small>eenmalig</small></div>
+<p>Op maat, op jullie eigen domein.<br><b>Geen voorschot.</b> Jullie betalen pas als alles klaar is.</p>
+</div>
+<div>
+<span class="di-wat">Daarna het onderhoud</span>
+<p style="margin-top:8px">Hosting, domeinnaam en kleine wijzigingen, zoals nieuwe openingsuren.</p>
+<ul class="di-opties">
+<li><b>Zorgeloos <em>mijn aanrader</em></b><span class="di-pp">€ 19,99<small>/ maand</small></span><span class="di-ot">Alles inbegrepen. Wijzigen kan met een berichtje.</span></li>
+<li><b>Zelf beheren</b><span class="di-pp">€ 0<small>/ maand</small></span><span class="di-ot">Alles op jullie naam. Wijzigingen per keer.</span></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="di-blok">
+<h3 data-in>Goed om te weten</h3>
+<div class="di-faq" data-in style="--d:1">
+<details><summary>Waarom deze demo, zonder dat we iets vroegen?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Omdat een voorbeeld meer zegt dan een mail. Zo zien jullie meteen wat er kan, en het kost jullie niets.</p></div></div></details>
+<details><summary>Zitten we ergens aan vast?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Nee. Het gesprek is vrijblijvend. Vinden jullie het niks, dan is het daarmee gedaan.</p></div></div></details>
+<details><summary>Hoe lang duurt het?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Na ons gesprek staat jullie site binnen 10 tot 14 dagen online.</p></div></div></details>
+<details><summary>We hebben al een website. Kan dat ook?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Zeker. Jullie domeinnaam kan gewoon blijven, de nieuwe site komt in de plaats van de oude.</p></div></div></details>
+<details><summary>Moeten we zelf teksten schrijven?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Nee, dat doe ik op basis van ons gesprek. Eigen foto's zijn mooi meegenomen, maar niet nodig om te starten.</p></div></div></details>
+</div>
+</div>
+
+<div class="di-slot" data-in>
+<div class="di-wie"><img class="di-foto" src="https://digital-impression.be/assets/img/stijn-2.webp" alt="Stijn Vranken" width="60" height="60" loading="lazy" decoding="async"><div><b>Stijn Vranken</b><span class="di-lijn">Digital Impression, <a href="tel:+32496251445">0496 25 14 45</a></span></div></div>
+<div class="di-knoppen"><a class="di-cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Louis%27%20Tattoo%20Boutique" target="_blank" rel="noopener">Plan een gesprek</a></div>
+</div>
+
+</div>
+</section>
+<script>/*di-v13*/(function(){var d=document.getElementById('di');if(!d||!('IntersectionObserver' in window))return;
+var stil=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!stil){d.classList.add('di-js');var io=new IntersectionObserver(function(x){x.forEach(function(e){if(e.isIntersecting){e.target.classList.add('di-zien');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+[].forEach.call(d.querySelectorAll('[data-in]'),function(e){io.observe(e)})}
+var vast=[];function zoek(){vast=[].filter.call(document.body.querySelectorAll('*'),function(e){if(d.contains(e)||e.closest('.di-strook,.demo'))return false;var p=getComputedStyle(e).position;return p==='fixed'||p==='sticky'})}
+new IntersectionObserver(function(x){if(!vast.length)zoek();var aan=x[0].isIntersecting;vast.forEach(function(e){e.style.transition='opacity .35s';e.style.opacity=aan?'0':'';e.style.pointerEvents=aan?'none':''})},{threshold:.05}).observe(d)})();</script>
+<aside class="di-tip" aria-label="Over deze voorbeeldsite" hidden>
+<img class="di-tip-s" src="https://digital-impression.be/assets/img/stijn-2.webp" alt="" width="40" height="40" loading="lazy" decoding="async">
+<div>
+<p class="di-tip-t">Dit is een voorbeeldsite.</p>
+<p class="di-tip-p">Onderaan lees je hoe we er samen jullie site van maken.</p>
+<a class="di-tip-k" href="#di">Lees meer<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+</div>
+<button class="di-tip-x" type="button" aria-label="Sluiten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+</aside>
+<script>/*di-tip*/(function(){var t=document.querySelector('.di-tip'),d=document.getElementById('di');if(!t||!d)return;
+var weg=false;try{weg=sessionStorage.getItem('di-tip')==='weg'}catch(e){}if(weg)return;
+t.hidden=false;var aan=false,diZicht=false;
+function onder(){var m=0;[].forEach.call(document.body.querySelectorAll('*'),function(e){if(e===t||t.contains(e)||d.contains(e))return;var c=getComputedStyle(e);if(c.position!=='fixed'||c.display==='none'||c.visibility==='hidden'||+c.opacity===0)return;var r=e.getBoundingClientRect();if(r.height>0&&r.height<160&&r.bottom>=innerHeight-48&&r.bottom<=innerHeight+2&&r.top>innerHeight-200&&r.width>innerWidth*.4)m=Math.max(m,innerHeight-r.top)});return m}
+function zet(x){if(x===aan)return;aan=x;if(x){t.style.bottom=((innerWidth<=560?12:20)+onder())+'px'}t.classList.toggle('di-tip-aan',x)}
+function sluit(){try{sessionStorage.setItem('di-tip','weg')}catch(e){}zet(false);setTimeout(function(){t.hidden=true},700);window.removeEventListener('scroll',kijk)}
+function held(){var c=document.querySelectorAll('.hero,[class*="hero"],main>section,body>section,body>header,main>header');for(var i=0;i<c.length;i++){var e=c[i];if(d.contains(e)||t.contains(e)||e.closest('.di-strook,.demo,nav'))continue;var r=e.getBoundingClientRect();if(r.height>innerHeight*.35)return r.bottom+scrollY}return innerHeight*.9}
+var hb=0;window.addEventListener('resize',function(){hb=0});function kijk(){var top=d.getBoundingClientRect().top;
+if(top<innerHeight*1.1){if(aan)sluit();return}if(!hb)hb=held();zet(scrollY>hb-innerHeight*.55)}
+t.querySelector('.di-tip-x').addEventListener('click',sluit);
+t.querySelector('.di-tip-k').addEventListener('click',function(){setTimeout(sluit,300)});
+window.addEventListener('scroll',kijk,{passive:true});kijk()})();</script>
+
+
+</body>
+</html>
