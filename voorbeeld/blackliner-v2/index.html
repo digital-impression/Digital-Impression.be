@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Blackliner Tattoo Studio | Fineline en micro realisme door Antoon De Grom</title>
+<meta name="description" content="Private tattoostudio van Antoon De Grom. Fineline, micro realisme en dotwork, elk ontwerp zelf getekend. Enkel op afspraak.">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,200..800&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ink:#0D0D0C;--ink2:#131312;--graph:#191918;--card:#1D1D1B;
+  --bone:#ECE6DB;--paper:#F2EDE4;--paper2:#E7E0D3;--txt:#171614;
+  --mute:rgba(236,230,219,.62);--mute2:rgba(236,230,219,.42);--line:rgba(236,230,219,.14);--line2:rgba(236,230,219,.26);
+  --pmute:#5E5951;--pline:rgba(23,22,20,.14);
+  --teal:#2BB3BC;--tealD:#098D96;--tealS:rgba(43,179,188,.14);
+  --ease:cubic-bezier(.2,.7,.1,1);
+  --wrap:1320px;--gut:clamp(20px,4vw,48px);
+  --fx:'Archivo',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--bone);font:400 16.5px/1.65 var(--fx);font-stretch:100%;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.lbl{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.lbl::before{content:"";width:28px;height:1px;background:currentColor;opacity:.7}
+.lbl b{font-weight:500;color:var(--teal)}
+.h2{font-family:var(--fx);font-stretch:118%;font-weight:300;font-size:clamp(34px,4.6vw,64px);line-height:1.02;letter-spacing:-.025em;margin:18px 0 0}
+.h2 strong{font-weight:700}
+.grain{position:relative;isolation:isolate}
+.grain::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* demo-balk */
+.demo{position:relative;z-index:60;background:var(--tealD);color:#F4FBFB;text-align:center;font:500 13px/1.4 var(--fx);padding:9px 16px}
+.demo a{color:#fff;font-weight:600;text-underline-offset:3px}
+
+/* header */
+.top{position:sticky;top:0;z-index:50;transition:background .4s var(--ease),border-color .4s,padding .4s var(--ease);border-bottom:1px solid transparent}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:20px;padding-bottom:20px;transition:padding .4s var(--ease)}
+.top.klein{background:rgba(13,13,12,.86);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-color:var(--line)}
+.top.klein .wrap{padding-top:11px;padding-bottom:11px}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+.logo svg{width:132px;height:auto;color:var(--teal);transition:width .4s var(--ease)}
+.top.klein .logo svg{width:114px}
+.logo span{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);border-left:1px solid var(--line2);padding-left:14px;line-height:1.3}
+.nav{display:flex;align-items:center;gap:34px}
+.nav a{text-decoration:none;font-size:14.5px;color:var(--mute);position:relative;transition:color .25s}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.nav a:hover{color:var(--bone)}.nav a:hover::after{transform:scaleX(1)}
+.btn{display:inline-flex;align-items:center;gap:12px;text-decoration:none;font:500 14.5px/1 var(--fx);padding:15px 22px;border-radius:999px;border:1px solid transparent;cursor:pointer;transition:background .3s,color .3s,border-color .3s,transform .3s var(--ease)}
+.btn svg{width:16px;height:16px;transition:transform .35s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn-t{background:var(--teal);color:#071415}
+.btn-t:hover{background:#4CC6CE}
+.btn-o{border-color:var(--line2);color:var(--bone)}
+.btn-o:hover{border-color:var(--bone);background:rgba(236,230,219,.06)}
+.btn-d{background:var(--txt);color:var(--paper)}
+.btn-d:hover{background:#000}
+.btn-p{border-color:var(--pline);color:var(--txt)}
+.btn-p:hover{border-color:var(--txt)}
+.top .btn{padding:12px 18px;font-size:14px}
+.burger{display:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--line2);background:none;cursor:pointer;position:relative}
+.burger i{position:absolute;left:14px;right:14px;height:1.5px;background:var(--bone);transition:transform .4s var(--ease),top .4s var(--ease),opacity .2s}
+.burger i:nth-child(1){top:18px}.burger i:nth-child(2){top:26px}
+.menu-open .burger i:nth-child(1){top:22px;transform:rotate(45deg)}
+.menu-open .burger i:nth-child(2){top:22px;transform:rotate(-45deg)}
+.mnav{position:fixed;inset:0;z-index:45;background:var(--ink);padding:150px var(--gut) 40px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;clip-path:inset(0 0 100% 0);transition:clip-path .6s var(--ease);visibility:hidden}
+.menu-open .mnav{clip-path:inset(0 0 0 0);visibility:visible}
+.mnav a{text-decoration:none;font-stretch:120%;font-weight:300;font-size:34px;letter-spacing:-.02em;padding:10px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline}
+.mnav a small{font-family:var(--mono);font-size:11px;color:var(--mute2)}
+.mnav .btn{margin-top:26px;justify-content:center;font-size:16px;font-stretch:100%;font-weight:500;border:0}
+
+/* hero */
+.hero{position:relative;padding:clamp(34px,5vw,64px) 0 0;overflow:hidden}
+.hero-g{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:clamp(30px,4vw,64px);align-items:center}
+.hero h1{font-family:var(--fx);font-stretch:125%;font-weight:200;font-size:clamp(50px,7.4vw,112px);line-height:.94;letter-spacing:-.045em;margin:26px 0 0}
+.hero h1 span{display:block}
+.hero h1 strong{font-weight:780;letter-spacing:-.05em}
+.hero h1 .t{color:var(--teal)}
+.hero .lead{max-width:470px;margin:28px 0 0;color:var(--mute);font-size:17.5px;line-height:1.62}
+.hero .lead b{color:var(--bone);font-weight:500}
+.knoppen{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.comp{position:relative;height:clamp(520px,46vw,640px)}
+.ring{position:absolute;right:-14%;top:4%;width:118%;aspect-ratio:1;pointer-events:none;color:var(--line2)}
+.ring circle{fill:none;stroke:currentColor;stroke-width:.6}
+.ring .tick{stroke:currentColor;stroke-width:.6}
+.f-main{position:absolute;right:0;top:0;width:76%;height:88%}
+.frame{position:relative}
+.frame>img{width:100%;height:100%!important;object-fit:cover}
+.marks::before,.marks::after,.marks>i::before,.marks>i::after{content:"";position:absolute;width:16px;height:16px;border-color:var(--line2);border-style:solid;pointer-events:none}
+.marks::before{left:-10px;top:-10px;border-width:1px 0 0 1px}
+.marks::after{right:-10px;top:-10px;border-width:1px 1px 0 0}
+.marks>i::before{left:-10px;bottom:-10px;border-width:0 0 1px 1px}
+.marks>i::after{right:-10px;bottom:-10px;border-width:0 1px 1px 0}
+.f-main img{object-position:46% 50%;filter:contrast(1.05)}
+.f-main .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,12,0) 55%,rgba(13,13,12,.55))}
+.f-card{position:absolute;left:0;bottom:2%;width:40%;background:var(--paper);padding:10px 10px 0;box-shadow:0 30px 60px -20px rgba(0,0,0,.7);transform:rotate(-2.5deg);transition:transform .6s var(--ease)}
+.f-card:hover{transform:rotate(0) translateY(-4px)}
+.f-card img{aspect-ratio:1/1;object-fit:cover;width:100%}
+.f-card p{margin:0;padding:10px 4px 12px;color:var(--txt);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}
+.f-card p span{color:var(--tealD)}
+.score{position:absolute;right:-2%;top:62%;background:rgba(19,19,18,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line2);border-radius:18px;padding:16px 20px;display:flex;align-items:center;gap:16px;box-shadow:0 24px 50px -24px rgba(0,0,0,.8)}
+.score b{font-stretch:125%;font-weight:300;font-size:44px;line-height:1;letter-spacing:-.04em}
+.score .st{color:var(--teal);font-size:13px;letter-spacing:2px}
+.score small{display:block;font-size:12.5px;color:var(--mute);line-height:1.35;margin-top:3px}
+.stamp{position:absolute;right:-5%;top:-7%;width:clamp(96px,9vw,128px);transform:rotate(9deg);opacity:.92;filter:drop-shadow(0 10px 18px rgba(0,0,0,.6));pointer-events:none}
+.anno{position:absolute;left:3%;top:18%;display:flex;align-items:center;gap:0;pointer-events:none}
+.anno .tx{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--bone);background:var(--ink);border:1px solid var(--line2);padding:7px 10px;border-radius:6px;white-space:nowrap}
+.anno .ln{width:clamp(60px,9vw,130px);height:1px;background:var(--teal)}
+.anno .dt{width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 5px var(--tealS)}
+.feat{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(46px,6vw,80px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.feat div{padding:24px 26px 24px 0;display:flex;gap:16px;align-items:flex-start}
+.feat div+div{padding-left:26px;border-left:1px solid var(--line)}
+.feat svg{flex:none;width:30px;height:30px;color:var(--teal)}
+.feat strong{display:block;font-weight:500;font-size:15px;line-height:1.3}
+.feat span{display:block;color:var(--mute);font-size:13.5px;line-height:1.45;margin-top:4px}
+.drawline{position:absolute;left:0;right:0;bottom:120px;width:100%;height:260px;pointer-events:none;color:var(--teal);opacity:.55}
+.drawline path{fill:none;stroke:currentColor;stroke-width:1;stroke-dasharray:2600;stroke-dashoffset:2600;animation:teken 3.4s .5s var(--ease) forwards}
+@keyframes teken{to{stroke-dashoffset:0}}
+
+/* antoon */
+.paper{background:var(--paper);color:var(--txt)}
+.paper .lbl{color:var(--pmute)}
+.paper .lbl b{color:var(--tealD)}
+.raster{background-image:linear-gradient(var(--pline) 1px,transparent 1px),linear-gradient(90deg,var(--pline) 1px,transparent 1px);background-size:32px 32px;background-position:-1px -1px}
+.antoon{padding:clamp(80px,10vw,140px) 0;position:relative}
+.antoon::before{content:"";position:absolute;inset:0;opacity:.35;background-image:linear-gradient(var(--pline) 1px,transparent 1px),linear-gradient(90deg,var(--pline) 1px,transparent 1px);background-size:32px 32px;pointer-events:none;-webkit-mask:linear-gradient(90deg,#000,transparent 55%);mask:linear-gradient(90deg,#000,transparent 55%)}
+.a-g{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(40px,6vw,96px);align-items:center}
+.a-beeld{position:relative;padding:0 12% 14% 0}
+.a-por{aspect-ratio:5/6;box-shadow:0 40px 70px -40px rgba(23,22,20,.6)}
+.a-por>img{filter:grayscale(1) contrast(1.05)}
+.paper .marks::before,.paper .marks::after,.paper .marks>i::before,.paper .marks>i::after{border-color:rgba(23,22,20,.35)}
+.schets{position:absolute;background:#FBF8F2;padding:12px;box-shadow:0 26px 50px -24px rgba(23,22,20,.55);transition:transform .6s var(--ease)}
+.schets img{width:100%;aspect-ratio:1;object-fit:cover;mix-blend-mode:multiply}
+.schets figcaption{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--pmute);padding-top:9px}
+.s1{right:0;bottom:0;width:46%;transform:rotate(3deg)}
+.s2{left:-7%;top:8%;width:30%;transform:rotate(-4deg)}
+.schets:hover{transform:rotate(0) scale(1.03)}
+.a-txt p{color:var(--pmute);font-size:17px;max-width:540px;margin:22px 0 0}
+.a-txt p b{color:var(--txt);font-weight:500}
+.cv{list-style:none;padding:0;margin:34px 0 0;border-top:1px solid var(--pline);max-width:560px}
+.cv li{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:13px 0;border-bottom:1px solid var(--pline);font-size:15px}
+.cv li span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--pmute);padding-top:3px}
+.citaat{margin:38px 0 0;padding:24px 26px;background:var(--txt);color:var(--paper);border-radius:4px 22px 22px 22px;max-width:560px;position:relative}
+.citaat p{margin:0;color:var(--paper);font-stretch:110%;font-weight:300;font-size:19px;line-height:1.45;max-width:none}
+.citaat footer{margin-top:14px;display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(242,237,228,.6)}
+.citaat footer svg{width:66px;color:var(--teal)}
+
+/* werk */
+.werk{padding:clamp(80px,10vw,140px) 0}
+.kop{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+.kop p{max-width:360px;color:var(--mute);margin:0;font-size:15.5px}
+.kop p a{color:var(--teal);text-underline-offset:4px}
+.mos{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:clamp(90px,8.4vw,122px);gap:14px;margin-top:clamp(40px,5vw,64px)}
+.tile{position:relative;overflow:hidden;border-radius:4px;background:var(--card);margin:0}
+.tile img{width:100%;height:100%!important;object-fit:cover;transition:transform 1s var(--ease),filter .6s}
+.tile figcaption{position:absolute;left:12px;bottom:12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;background:rgba(13,13,12,.78);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:7px 10px;border-radius:5px;transform:translateY(6px);opacity:0;transition:.45s var(--ease)}
+.tile:hover img{transform:scale(1.045)}
+.tile:hover figcaption{transform:none;opacity:1}
+.t1{grid-column:1/5;grid-row:1/6}
+.t2{grid-column:5/10;grid-row:1/4}
+.t3{grid-column:10/13;grid-row:1/4}
+.t4{grid-column:5/8;grid-row:4/7}
+.t5{grid-column:8/10;grid-row:4/6}
+.t6{grid-column:10/13;grid-row:4/9}
+.t7{grid-column:1/3;grid-row:6/9}
+.t8{grid-column:3/5;grid-row:6/9}
+.t9{grid-column:5/8;grid-row:7/9}
+.tinfo{grid-column:8/10;grid-row:6/9;background:var(--tealD);border-radius:4px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:#F2FBFB;transition:background .3s}
+.tinfo:hover{background:#0aa0aa}
+.tinfo svg{width:26px;height:26px}
+.tinfo b{font-stretch:115%;font-weight:500;font-size:17px;line-height:1.2}
+.tinfo small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;opacity:.8;margin-top:6px;word-break:break-all}
+
+/* stijlen */
+.stijl{padding:clamp(80px,10vw,130px) 0;background:var(--ink2);border-top:1px solid var(--line)}
+.st-g{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(40px,6vw,90px)}
+.st-l{position:sticky;top:110px;align-self:start}
+.st-l p{color:var(--mute);margin:22px 0 0;max-width:380px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.chips span{font-size:13px;border:1px solid var(--line2);border-radius:999px;padding:7px 13px;color:var(--mute)}
+.rij{display:grid;grid-template-columns:38px 1fr 132px;gap:22px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line);text-decoration:none;position:relative}
+.rij:first-child{border-top:1px solid var(--line)}
+.rij .n{font-family:var(--mono);font-size:12px;color:var(--teal);align-self:start;padding-top:12px}
+.rij h3{margin:0;font-stretch:122%;font-weight:300;font-size:clamp(30px,3.4vw,48px);line-height:1;letter-spacing:-.03em;transition:transform .5s var(--ease),color .3s}
+.rij p{margin:10px 0 0;color:var(--mute);font-size:15px;max-width:420px}
+.rij .th{width:132px;aspect-ratio:4/5;overflow:hidden;border-radius:3px;filter:grayscale(.6);transition:filter .5s,transform .6s var(--ease)}
+.rij .th img{width:100%;height:100%!important;object-fit:cover}
+.rij:hover h3{transform:translateX(10px);color:#fff}
+.rij:hover .th{filter:none;transform:scale(1.04) rotate(-1.5deg)}
+
+/* werkwijze */
+.wijze{padding:clamp(80px,10vw,140px) 0}
+.wijze .kop p{color:var(--pmute)}
+.stappen{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:clamp(46px,6vw,72px);position:relative}
+.stappen::before{content:"";position:absolute;left:0;right:0;top:9px;height:1px;background:var(--pline)}
+.stap{position:relative;padding:44px 28px 0 0}
+.stap::before{content:"";position:absolute;left:0;top:4px;width:11px;height:11px;border-radius:50%;background:var(--paper);border:1px solid var(--txt)}
+.stap:first-child::before{background:var(--tealD);border-color:var(--tealD)}
+.stap .big{font-stretch:125%;font-weight:200;font-size:86px;line-height:.8;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1px rgba(23,22,20,.38)}
+.stap h3{margin:20px 0 0;font-stretch:112%;font-weight:600;font-size:21px;letter-spacing:-.01em}
+.stap p{margin:10px 0 0;color:var(--pmute);font-size:15px;line-height:1.6}
+.stap .chip{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--tealD);color:#fff;padding:6px 10px;border-radius:5px}
+.curve{margin-top:clamp(50px,6vw,80px);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(30px,5vw,70px);align-items:center;background:var(--txt);color:var(--paper);border-radius:26px;padding:clamp(28px,4vw,54px);position:relative;overflow:hidden}
+.curve h3{margin:16px 0 0;font-stretch:118%;font-weight:300;font-size:clamp(28px,3vw,40px);line-height:1.08;letter-spacing:-.025em}
+.curve p{margin:16px 0 0;color:rgba(242,237,228,.68);font-size:16px;max-width:440px}
+.curve .lbl{color:rgba(242,237,228,.55)}
+.curve svg{width:100%;height:auto;overflow:visible}
+.curve .ax{stroke:rgba(242,237,228,.25);stroke-width:1}
+.curve .gr{stroke:rgba(242,237,228,.07);stroke-width:1}
+.curve .cv1{fill:none;stroke:var(--teal);stroke-width:2;stroke-dasharray:900;stroke-dashoffset:900;transition:stroke-dashoffset 2.2s var(--ease) .2s}
+.curve .area{fill:url(#gl);opacity:0;transition:opacity 1.2s .9s}
+.curve.in .cv1{stroke-dashoffset:0}.curve.in .area{opacity:1}
+.curve text{font-family:var(--mono);font-size:11px;fill:rgba(242,237,228,.5);letter-spacing:.06em}
+.curve .tk{fill:var(--paper);font-size:12px}
+
+/* weten */
+.weten{padding:clamp(80px,10vw,140px) 0}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(170px,auto);gap:14px;margin-top:clamp(40px,5vw,64px)}
+.b{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px;position:relative;overflow:hidden;transition:border-color .3s,transform .5s var(--ease)}
+.b:hover{border-color:var(--line2);transform:translateY(-3px)}
+.b h3{margin:0;font-stretch:112%;font-weight:500;font-size:20px;line-height:1.2;letter-spacing:-.01em}
+.b p{margin:10px 0 0;color:var(--mute);font-size:15px;line-height:1.6}
+.b .ic{width:40px;height:40px;border-radius:12px;border:1px solid var(--line2);display:grid;place-items:center;margin-bottom:22px;color:var(--teal)}
+.b .ic svg{width:21px;height:21px}
+.b-vinger{grid-column:span 2;grid-row:span 2;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(160deg,#1F1F1D,#141413)}
+.b-vinger .num{font-stretch:125%;font-weight:200;font-size:clamp(90px,10vw,150px);line-height:.85;letter-spacing:-.06em}
+.b-vinger .num small{font-size:.28em;letter-spacing:-.01em;font-weight:400;color:var(--mute);margin-left:8px}
+.b-vinger h3{font-size:26px;font-stretch:118%;font-weight:300}
+.b-vinger .lijn{height:1px;background:var(--line);margin:22px 0}
+.b-bon{background:var(--tealD);border-color:transparent;color:#F2FBFB}
+.b-bon p{color:rgba(242,251,251,.82)}
+.b-bon .ic{border-color:rgba(255,255,255,.35);color:#fff}
+.b-zorg{grid-column:span 2}
+.b-regels{grid-column:span 2}
+.zorg{list-style:none;padding:0;margin:16px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.zorg li{border-top:1px solid var(--line2);padding-top:12px;font-size:14px;color:var(--mute);line-height:1.5}
+.zorg li b{display:block;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+.b-regels .chips{margin-top:16px}
+
+/* contact */
+.contact{padding:clamp(80px,10vw,130px) 0}
+.rate{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;padding-bottom:clamp(40px,5vw,60px);border-bottom:1px solid var(--pline)}
+.rate .nr{display:flex;align-items:flex-end;gap:22px}
+.rate .nr b{font-stretch:125%;font-weight:200;font-size:clamp(84px,10vw,150px);line-height:.8;letter-spacing:-.06em}
+.rate .nr div{padding-bottom:8px}
+.rate .st{color:var(--tealD);letter-spacing:4px;font-size:18px}
+.rate .nr small{display:block;color:var(--pmute);font-size:15px;margin-top:6px}
+.rate p{max-width:420px;margin:0;color:var(--pmute);font-size:16px}
+.c-g{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(40px,6vw,90px);margin-top:clamp(50px,6vw,80px)}
+.c-l .h2{font-size:clamp(34px,3.9vw,56px)}
+.c-l p{color:var(--pmute);margin:20px 0 0;max-width:420px}
+.gegevens{list-style:none;padding:0;margin:32px 0 0;border-top:1px solid var(--pline)}
+.gegevens li{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:center;padding:15px 0;border-bottom:1px solid var(--pline);font-size:15.5px}
+.gegevens li svg{width:20px;height:20px;color:var(--tealD)}
+.gegevens li a{text-decoration:none}
+.gegevens li a:hover{color:var(--tealD)}
+.gegevens small{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--pmute)}
+.c-l .knoppen{margin-top:28px}
+.form{position:relative;background:#FBF9F5;border-radius:6px;padding:clamp(26px,3.6vw,44px);box-shadow:0 40px 80px -50px rgba(23,22,20,.55)}
+.form h3{margin:0;font-stretch:115%;font-weight:400;font-size:26px;letter-spacing:-.02em}
+.form .sub{margin:6px 0 24px;color:var(--pmute);font-size:14.5px}
+.vv{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
+.vv .vol{grid-column:1/-1}
+.vv label{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--pmute);margin-bottom:7px}
+.vv input,.vv select,.vv textarea{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(23,22,20,.22);padding:9px 0 10px;font-size:16px;color:var(--txt);border-radius:0;outline:none;transition:border-color .3s}
+.vv input:focus,.vv select:focus,.vv textarea:focus{border-color:var(--tealD)}
+.vv textarea{min-height:92px;resize:vertical}
+.keus{display:flex;flex-wrap:wrap;gap:8px}
+.keus label{margin:0;cursor:pointer}
+.keus input{position:absolute;opacity:0;width:1px;height:1px}
+.keus span{display:inline-block;border:1px solid rgba(23,22,20,.2);border-radius:999px;padding:9px 14px;font-family:var(--fx);font-size:14px;letter-spacing:0;text-transform:none;color:var(--txt);transition:.25s}
+.keus input:checked+span{background:var(--txt);color:var(--paper);border-color:var(--txt)}
+.keus input:focus-visible+span{outline:2px solid var(--tealD);outline-offset:2px}
+.form .btn{margin-top:26px}
+.form .klein{font-size:12.5px;color:var(--pmute);margin:14px 0 0}
+
+/* footer */
+.voet{background:var(--ink);border-top:1px solid var(--line);padding:46px 0 40px}
+.voet .wrap{display:flex;justify-content:space-between;align-items:center;gap:26px;flex-wrap:wrap}
+.voet svg.lg{width:120px;color:var(--teal)}
+.voet p{margin:0;color:var(--mute2);font-size:13.5px}
+.voet nav{display:flex;gap:22px;flex-wrap:wrap}
+.voet nav a{color:var(--mute);text-decoration:none;font-size:13.5px}
+.voet nav a:hover{color:var(--bone)}
+
+/* reveal */
+.js [data-r]{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.js [data-r].in{opacity:1;transform:none}
+.js [data-r="2"]{transition-delay:.12s}.js [data-r="3"]{transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js [data-r]{opacity:1;transform:none}.drawline path{stroke-dashoffset:0}.curve .cv1{stroke-dashoffset:0}.curve .area{opacity:1}}
+
+/* responsive */
+@media (max-width:1080px){
+  .nav{display:none}.burger{display:block}.top .btn{display:none}
+  .hero-g{grid-template-columns:1fr}
+  .comp{height:clamp(440px,74vw,600px);max-width:720px}
+  .feat{grid-template-columns:1fr 1fr}
+  .feat div:nth-child(3){border-left:0;padding-left:0}
+  .feat div:nth-child(n+3){border-top:1px solid var(--line)}
+  .a-g,.st-g,.c-g{grid-template-columns:1fr}
+  .a-beeld{max-width:560px}
+  .ring{display:none}
+  .s2{left:-2%}
+  .st-l{position:static}
+  .mos{grid-template-columns:repeat(6,1fr);grid-auto-rows:clamp(80px,13vw,120px)}
+  .t1{grid-column:1/4;grid-row:1/5}.t2{grid-column:4/7;grid-row:1/3}.t3{grid-column:4/7;grid-row:3/5}
+  .t4{grid-column:1/3;grid-row:5/8}.t5{grid-column:3/5;grid-row:5/7}.t6{grid-column:5/7;grid-row:5/8}
+  .tinfo{grid-column:3/5;grid-row:7/8}
+  .t7{grid-column:1/3;grid-row:8/10}.t8{grid-column:3/5;grid-row:8/10}.t9{grid-column:5/7;grid-row:8/10}
+  .stappen{grid-template-columns:1fr 1fr;row-gap:44px}
+  .curve{grid-template-columns:1fr}
+  .bento{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .logo span{display:none}
+  .logo svg{width:112px}
+  .hero{padding-top:26px}
+  .hero h1{font-size:clamp(46px,14.2vw,64px);margin-top:20px}
+  .hero .lead{font-size:16.5px;margin-top:22px}
+  .knoppen .btn{flex:1 1 auto;justify-content:center}
+  .comp{height:auto;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+  .ring{display:none}
+  .f-main{position:relative;grid-column:1/-1;width:100%;height:auto;aspect-ratio:4/3.4}
+  .f-card{position:relative;width:auto;transform:rotate(-2deg);left:auto;bottom:auto;margin:-46px 0 0 8px;z-index:2}
+  .score{position:relative;right:auto;top:auto;flex-direction:column;align-items:flex-start;gap:6px;margin:16px 4px 0 0;border-radius:16px;padding:14px 16px}
+  .score b{font-size:40px}
+  .anno{left:5%;right:auto;top:auto;bottom:34%}
+  .stamp{width:84px;right:-2%;top:-5%}
+  .anno .ln{width:44px}
+  .feat{grid-template-columns:1fr;margin-top:40px}
+  .feat div,.feat div+div{padding:18px 0;border-left:0}
+  .feat div+div{border-top:1px solid var(--line)}
+  .drawline{display:none}
+  .a-beeld{padding:0 8% 18% 0}
+  .s2{left:auto;right:-2%;top:-4%;width:32%}
+  .cv li{grid-template-columns:1fr;gap:2px}
+  .citaat p{font-size:17.5px}
+  .mos{grid-template-columns:1fr 1fr;grid-auto-rows:auto;gap:10px}
+  .mos .tile{grid-column:auto!important;grid-row:auto!important;aspect-ratio:4/5}
+  .mos .t1,.mos .t2{grid-column:1/-1!important;aspect-ratio:4/3.6}
+  .tinfo{grid-column:auto!important;grid-row:auto!important;aspect-ratio:4/5}
+  .mos .t5,.mos .t9{display:none}
+  .tile figcaption{opacity:1;transform:none;font-size:9.5px;left:8px;bottom:8px;padding:5px 7px}
+  .rij{grid-template-columns:1fr 92px;gap:14px;padding:20px 0}
+  .rij .n{grid-column:1/-1;padding:0}
+  .rij .th{width:92px}
+  .rij h3{font-size:30px}
+  .rij p{font-size:14.5px}
+  .stappen{grid-template-columns:1fr;row-gap:0}
+  .stappen::before{left:5px;right:auto;top:0;bottom:0;width:1px;height:auto}
+  .stap{padding:0 0 34px 34px}
+  .stap::before{top:6px}
+  .stap .big{font-size:58px}
+  .stap h3{margin-top:12px}
+  .curve{border-radius:20px}
+  .bento{grid-template-columns:1fr}
+  .b-vinger,.b-zorg,.b-regels{grid-column:auto;grid-row:auto}
+  .zorg{grid-template-columns:1fr}
+  .b{padding:24px;border-radius:18px}
+  .rate .nr b{font-size:92px}
+  .vv{grid-template-columns:1fr}
+  .form{padding:24px 20px}
+  .form .btn{width:100%;justify-content:center}
+  .voet .wrap{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="logo" viewBox="0 0 1688.19 517.24"><g fill="currentColor"><path d="M50.68,296.19q6.65,8,19.11,12.35t19.11,4.38q4.14,0,8.31-8a118,118,0,0,0,7.47-18.31q3.31-10.33,5.82-20.3t3.32-13.94q15-46.17,27.83-75.24T164.09,131q9.54-17.11,15.37-25.08t5.81-12q0-4.77-2.49-6a11.52,11.52,0,0,0-5-1.19q-12.45,0-19.93,2a41.41,41.41,0,0,0-11.22,4.38,20.08,20.08,0,0,0-6.23,6.37,224.72,224.72,0,0,0-24.1,30.25,454.22,454.22,0,0,0-23.67,39q-11.22,20.72-20.77,41.8T56.5,248.42c-1.67,4.26-3.33,8.76-5,13.54a94.86,94.86,0,0,0-3.74,13.93q-1.25,6.78-1.66,11.15c-.28,2.92.13,4.65,1.25,5.17Z"/><path d="M252.15,213.39q-11.21-8.76-21.18-12.34c-6.65-2.39-10.26-3.59-10.8-3.59q34.89-8,56.08-21.89t32.81-28.27a99.44,99.44,0,0,0,19.11-35,102.49,102.49,0,0,0,3.33-15.93,120.76,120.76,0,0,0,.83-13.53q0-26.28-12.05-42.6a82.09,82.09,0,0,0-29.49-25.08,128.31,128.31,0,0,0-36.56-12A207.45,207.45,0,0,0,221,0q-48.19,0-81.84,11.94T83.91,37.82Q62.3,51.76,52.34,63.7T41.54,75.64a32.29,32.29,0,0,0-3.32,15.13,61.8,61.8,0,0,0,5.4,25.08,126.65,126.65,0,0,0,12.05,21.9,99.26,99.26,0,0,0,12.46,15.12q5.81,5.58,7.47,5.58,5,0,10-8.76a18.39,18.39,0,0,0,3.33-8.76q6.63-21.5,23.26-41.8A228.22,228.22,0,0,1,148.72,63.3a193.09,193.09,0,0,1,40.71-24.68q20.74-9.15,36.55-9.16,44.86,0,44.87,36.63A84.3,84.3,0,0,1,258,111.47a193,193,0,0,1-28.25,35.83,190.17,190.17,0,0,1-29.49,24.28q-14.14,9.16-16.62,10.75c-2.78-.52-5.54-.92-8.31-1.19s-5.54-.4-8.31-.4q-11.64,0-17.44,5.58t-5.82,9.55q0,11.16,27.42,11.15h6.64a39.54,39.54,0,0,0,7.48-.8q9.14,3.19,16.62,16.32T209.37,254q0,15.13-7.48,35a135.3,135.3,0,0,1-21.6,37.42A111.22,111.22,0,0,1,145,355.11q-21.19,11.14-48.6,8.76-24.93-1.61-39.88-16.32T40.71,311.32v-4q0-7.95-6.23-9.55a27.11,27.11,0,0,0-13.71.39,39.54,39.54,0,0,0-14.12,7.17Q0,310.54,0,315.3,0,328.05,2.49,336c1.11,3.19,2.21,6.11,3.33,8.76q8.29,18.32,21.6,30.26a113.14,113.14,0,0,0,27.83,18.71,110.67,110.67,0,0,0,29.91,9.16,187.56,187.56,0,0,0,28.66,2.39,217.16,217.16,0,0,0,64.81-9.56q30.72-9.56,53.58-27.07a132.35,132.35,0,0,0,36.14-41.8q13.29-24.28,13.3-53.75,0-22.28-9.14-36.62A90.84,90.84,0,0,0,252.15,213.39Z"/><path d="M1113.07,134a51.13,51.13,0,0,0,12.67,5.78,41.11,41.11,0,0,0,11.63,2,16.2,16.2,0,0,0,8.1-1.79,5.53,5.53,0,0,0,3.11-5c0-1.33.76-3.58,2.29-6.77a74.82,74.82,0,0,1,5.19-9.15q2.49-4.38,4.78-8.76t2.28-7.17A24.53,24.53,0,0,0,1159,88.78,35.16,35.16,0,0,0,1148.79,79a51.8,51.8,0,0,0-12.67-5.77,40.64,40.64,0,0,0-11.22-2q-10.38,0-10.38,6.37c0,.8-.77,2.46-2.29,5s-3.11,5.24-4.77,8.16q-3.33,5.58-6.23,10.55t-2.91,8.56a23.62,23.62,0,0,0,4.36,14.33A37.43,37.43,0,0,0,1113.07,134Z"/><path d="M1684.66,219.16a13.41,13.41,0,0,0-8.1-2.59q-7.47,0-10.39,7.17a148.18,148.18,0,0,1-8.72,17.32q-5.82,10.14-13.08,21.1T1629,283.65q-8.1,10.56-15.79,19.11a136.69,136.69,0,0,1-13.92,13.74q-6.22,5.17-9.55,5.17c-1.94,0-2.91-.79-2.91-2.39q0-6,7.06-19.15t15.79-28.34q6.22-10.77,12.88-22.55t12.25-23.75a196,196,0,0,0,9.14-23,65.33,65.33,0,0,0,3.53-19.76q0-9.57-3.32-16a28.79,28.79,0,0,0-8.52-10.16,30.68,30.68,0,0,0-11.21-5.18,49.17,49.17,0,0,0-11-1.39,25,25,0,0,0-10,1.79c-2.77,1.19-5.54,2.46-8.31,3.78v-.4q-4.16,2.4-8.93,4.58t-13.5,2.19a44.12,44.12,0,0,1-8.31-.79,90.34,90.34,0,0,0,1.66-13.43c.27-5,.42-9.09.42-12.25a23.87,23.87,0,0,0-7.69-18q-7.69-7.31-17.24-7.3-15.79,0-23.26,9.75a36.53,36.53,0,0,0-7.48,22.89q0,9.17,6.65,18.51a53.35,53.35,0,0,0,15.78,14.93,149.3,149.3,0,0,1-5.4,13.94q-3.33,7.56-6.64,15.12l-6.68,14.94a10.79,10.79,0,0,0-1.63,3q-5.82,13.54-17.45,30.65a265.77,265.77,0,0,1-26,32.45,169.38,169.38,0,0,1-29.91,25.68q-15.57,10.35-28.45,10.35c-5.55,0-9.42-1.92-11.64-5.77s-3.32-9.49-3.32-16.92a89.58,89.58,0,0,1,1-13.54,125.61,125.61,0,0,1,3.13-14.33,137.85,137.85,0,0,0,39.42-16.72A156.32,156.32,0,0,0,1470,230.9a105.6,105.6,0,0,0,19.19-27.07q6.67-13.94,6.68-25.48,0-12.73-8.13-20.7t-26-8q-30.42,0-59.77,21.89-23.43,17.47-41.41,49.64a12.77,12.77,0,0,0-1,1.71q-4.07,7.4-7.83,15.54l-.3.77c-.12.21-.23.41-.36.62q-5.61,9.76-12.67,20.7t-15.16,21.7q-8.1,10.75-15.58,19.51a133.92,133.92,0,0,1-13.91,14.33q-6.45,5.58-9.77,5.57c-3.32,0-5-1.32-5-4q0-5.56,4.78-15.52t11.42-22.3q4.56-8.75,9.55-18.71t9.35-19.91a163.75,163.75,0,0,0,7.27-19.9,100.9,100.9,0,0,0,3.74-19.11c.27-1.85.48-3.58.62-5.18s.21-3.44.21-5.57q0-19.11-9.14-30.06t-24.92-10.94q-14.13,0-28.67,9.75a217.66,217.66,0,0,0-29.07,23.69v-2q0-9.16-3.33-15.33a28.15,28.15,0,0,0-8.31-9.75,30.51,30.51,0,0,0-10.8-5,46.44,46.44,0,0,0-10.8-1.39,38.11,38.11,0,0,0-16.61,3.38q-7.08,3.39-7.07,7.76a5.15,5.15,0,0,0,.42,2.59,9,9,0,0,0,1.25,1.39,6,6,0,0,1,.83,2.39q0,6.78-6.65,21.7-6.45,14.48-14.85,32.15a14.44,14.44,0,0,0-.93,1.89l0,0q-4.1,7.89-8.11,16.22c-.2.35-.39.7-.6,1.06q-5.82,10.14-13.08,21.1t-15.37,21.49q-8.1,10.56-15.79,19.11a137.74,137.74,0,0,1-13.91,13.74q-6.24,5.17-9.56,5.17c-1.94,0-2.91-.79-2.91-2.39q0-6,7.07-19.11t15.78-28.26q6.23-10.76,12.88-22.49t12.25-23.69a193.53,193.53,0,0,0,9.14-22.89,65.09,65.09,0,0,0,3.53-19.71q0-9.56-3.32-15.92a27.88,27.88,0,0,0-8.31-10,33.63,33.63,0,0,0-10.8-5.17,42.53,42.53,0,0,0-11.22-1.59,36.77,36.77,0,0,0-16.4,3.38q-6.86,3.39-6.86,7.76a5.15,5.15,0,0,0,.42,2.59,9.35,9.35,0,0,0,1.24,1.39,5.88,5.88,0,0,1,.83,2.39q0,5.58-5.4,17.92t-12,26.67q-5.4,11.15-11,23.69l-.6,1.37c-.47.85-1,1.72-1.48,2.61q-5.61,9.77-12.87,20.7t-15.37,21.7q-8.1,10.74-15.58,19.51a132.32,132.32,0,0,1-13.71,14.13q-6.23,5.37-10,5.37c-.83,0-1.25-1.05-1.25-3.18q0-6,4.17-16.92t10.85-25.28q6.66-14.34,15.21-31.05T1032.87,211q11.25-21.1,22.3-43.2t20.22-42.2a384.27,384.27,0,0,0,14.81-36.82q5.63-16.73,5.63-27.07,0-8.76-3.35-14.53a27.36,27.36,0,0,0-8.37-9.16,33.19,33.19,0,0,0-10.88-4.78,47.71,47.71,0,0,0-10.88-1.39,37.32,37.32,0,0,0-16.53,3.38c-4.61,2.26-6.9,4.85-6.9,7.77a4.56,4.56,0,0,0,1.66,4v.4q0,4.77-3.53,14.92t-9.56,24.29q-6,14.13-13.71,31.05t-16,34.84q-9.13,19.91-18.48,41t-17.24,40.61q-7.89,19.51-13.92,35.83T940.05,297q-.4,2.38-.62,5.38t-.21,5.37q0,13.62,4.55,23.09-12.15-16.2-23.45-34-14.75-23.3-26-42.4-5.82-9.15-9.35-15.92a121.6,121.6,0,0,0-8.93-14.33q16.2-6.37,33.44-14.14a289.4,289.4,0,0,0,31.36-16.32,105.42,105.42,0,0,0,23.27-18.51q9.14-9.94,9.14-21.1A24.67,24.67,0,0,0,970,141.53a37.85,37.85,0,0,0-17.44-15.93,21.91,21.91,0,0,0-8.31-2.19q-7.49,0-7.48,6,0,4-8.1,12.14T908.07,160q-12.47,10.36-27.21,21.5t-28,21.1q11.29-21.49,21.75-42.8t18.83-40a357.7,357.7,0,0,0,13.38-34q5-15.32,5-24.88a27.77,27.77,0,0,0-3.35-14.13,25.62,25.62,0,0,0-8.38-9,35.64,35.64,0,0,0-10.87-4.58,46.33,46.33,0,0,0-10.46-1.39A38.68,38.68,0,0,0,862,35.23q-7.12,3.39-7.12,7.77c0,1.86.42,3,1.25,3.58a1.61,1.61,0,0,1,.42,1.19q0,4.4-3.74,14.93t-10,24.88q-6.24,14.34-14.33,31.46t-16.41,35q-11.22,23.49-22.64,48.37-5.93,12.92-11.35,25.29A204.08,204.08,0,0,1,762.68,254a267.69,267.69,0,0,1-26,32.45,170.1,170.1,0,0,1-29.91,25.68q-15.59,10.35-28.46,10.35-8.31,0-11.42-5.77t-3.12-17.32a109.86,109.86,0,0,1,3.53-26.48,132.8,132.8,0,0,1,9.35-26.07q17-35,32.61-54.14t26-19.11h.83q-5,4-5,11.14a12.83,12.83,0,0,0,5.19,10.75,18.91,18.91,0,0,0,11.84,4A18.36,18.36,0,0,0,760,195.27q5.19-4.17,5.19-14.53,0-9.56-4.36-15.52a34,34,0,0,0-10.59-9.56,39.92,39.92,0,0,0-13.09-4.78,70.93,70.93,0,0,0-11.84-1.19q-29.91,0-57.86,21.1t-48.16,67.68a212.79,212.79,0,0,0-8.66,25.68c0,.1-.05.21-.08.32q-6.57,9.75-13.8,19.18-8.1,10.56-15.79,19.11A137.74,137.74,0,0,1,567,316.5q-6.24,5.17-9.56,5.17c-1.94,0-2.91-.79-2.91-2.39q0-6,7.06-19.11t15.79-28.26q6.23-10.76,12.88-22.49t12.25-23.69a193.53,193.53,0,0,0,9.14-22.89,65.09,65.09,0,0,0,3.53-19.71q0-9.56-3.32-15.92a27.88,27.88,0,0,0-8.31-10,33.63,33.63,0,0,0-10.8-5.17,42.53,42.53,0,0,0-11.22-1.59,36.77,36.77,0,0,0-16.4,3.38q-6.85,3.39-6.86,7.76a5.15,5.15,0,0,0,.42,2.59,9.35,9.35,0,0,0,1.24,1.39,6,6,0,0,1,.83,2.39,26.86,26.86,0,0,1-1.66,8.16,115.54,115.54,0,0,1-4.57,11.35,24.45,24.45,0,0,0,.83-6.77q0-9.56-4.36-15.52a34,34,0,0,0-10.59-9.56,39.83,39.83,0,0,0-13.09-4.78,70.93,70.93,0,0,0-11.84-1.19q-29.89,0-57.95,21.1t-48.39,67.68c-.31.74-.6,1.51-.9,2.26q-5.52,9.56-12.6,20.23-7.28,10.95-15.37,21.7t-15.58,19.51A130.41,130.41,0,0,1,351,316.3q-6.22,5.37-10,5.37c-.83,0-1.24-1.05-1.24-3.18q0-6,4.17-16.92t10.84-25.28Q361.49,262,370,245.24T387.75,211q11.26-21.1,22.3-43.2t20.23-42.2a386.63,386.63,0,0,0,14.8-36.82q5.64-16.73,5.63-27.07,0-8.76-3.35-14.53A27.36,27.36,0,0,0,439,38a33.1,33.1,0,0,0-10.88-4.78,47.71,47.71,0,0,0-10.88-1.39,37.28,37.28,0,0,0-16.52,3.38Q393.8,38.62,393.8,43a4.56,4.56,0,0,0,1.66,4v.4q0,4.77-3.53,14.92t-9.55,24.29q-6,14.13-13.71,31.05t-16,34.84q-9.15,19.91-18.49,41T317,234.09q-7.89,19.51-13.91,35.83T294.93,297c-.27,1.59-.48,3.38-.62,5.38s-.21,3.78-.21,5.37q0,19.11,8.94,30.06t25.13,10.95q10.38,0,21.6-7A125.58,125.58,0,0,0,372,323.86a255.83,255.83,0,0,0,21.4-24.28c1.18-1.52,2.33-3,3.48-4.56a71.58,71.58,0,0,0,2.95,15.9,53.65,53.65,0,0,0,10,18.72,52,52,0,0,0,18.07,13.73q11.22,5.37,27,5.38A53.17,53.17,0,0,0,486,339.19a115.52,115.52,0,0,0,25.34-24.68Q513,330.44,522,339.59t23.47,9.16q10,0,20.77-6.57a122.48,122.48,0,0,0,21.61-17.12A229.18,229.18,0,0,0,608,302.39a77.35,77.35,0,0,0,2,8.53,54,54,0,0,0,9.9,18.72,51.64,51.64,0,0,0,17.94,13.73q11.14,5.37,27.23,5.38,20.34,0,40.92-11.55a183.71,183.71,0,0,0,38.63-29.26c1.69-1.65,3.34-3.33,5-5q-2.7,10.5-2.7,17.16a32.38,32.38,0,0,0,.21,3.78,14.1,14.1,0,0,0,1,3.78l-.41-.39q4.57,12.74,12.46,17.51A30.26,30.26,0,0,0,776,349.54,25.64,25.64,0,0,0,789.68,346q5.8-3.58,5.81-8.36a5.53,5.53,0,0,0-.83-3.19v.4c-.28-.26-.41-1.32-.41-3.18q0-10.35,10.8-34t26.58-54.34a41.41,41.41,0,0,1,6.23-4c2.5-1.32,5.26-2.65,8.31-4q5.82,4,12.46,20.51t15,38.81q5.38,14.73,11.63,30.66t13.29,31.25a268.47,268.47,0,0,0,15.58,29.06,150.45,150.45,0,0,0,18.28,24.09,84.21,84.21,0,0,0,21.18,16.52,51.27,51.27,0,0,0,24.72,6.17,47,47,0,0,0,19.53-3.78,52.83,52.83,0,0,0,13.91-9,40.09,40.09,0,0,0,8.52-10.75c1.93-3.72,2.91-6.77,2.91-9.16a6.85,6.85,0,0,0-2.08-5.17,9.1,9.1,0,0,0-5.4-2.39q-15-1.59-31.57-16.32a271.29,271.29,0,0,1-31.56-33.67q8.19,6.59,20.75,6.6,10.38,0,21.6-7a125.63,125.63,0,0,0,22.23-17.92,248.66,248.66,0,0,0,17.75-19.72c-.06,1.22-.1,2.42-.1,3.6q0,19.11,8.93,30.06t25.13,10.95q10.38,0,21.61-7a125.94,125.94,0,0,0,22.22-17.92q5.46-5.42,10.76-11.44c-.11,1.4-.17,2.76-.17,4.08q0,9.56,3.32,15.92a32.35,32.35,0,0,0,7.9,10.15,28.14,28.14,0,0,0,9.76,5.38,31.28,31.28,0,0,0,8.93,1.59,25.61,25.61,0,0,0,13.71-3.58q5.81-3.58,5.81-8.36a6.75,6.75,0,0,0-.41-2.79c-.28-.8-.56-1.52-.83-2.19A6.7,6.7,0,0,1,1171,330q0-8.75,7.69-24.28t18.48-33.84q4.15-7.17,8.31-14.73t7.89-15.13l-.41.4a260.3,260.3,0,0,1,17.86-23.09q10-11.55,19.53-20.9a163.06,163.06,0,0,1,17.44-15.13q7.89-5.76,11.63-5.77,4.58,0,4.57,3.18,0,4.39-4.36,12.74L1269.46,213q-5,9.56-10.8,20.5a244.81,244.81,0,0,0-10.59,22.69,179,179,0,0,0-7.89,24.29,102.78,102.78,0,0,0-3.12,24.88,60,60,0,0,0,2.29,16.72,46.4,46.4,0,0,0,6.44,13.93,28.94,28.94,0,0,0,24.92,12.75q10,0,20.77-6.57a122.07,122.07,0,0,0,21.6-17.12,229.72,229.72,0,0,0,21-23.69q2.68-3.47,5.29-6.94a69.35,69.35,0,0,0,3,17.09,51.61,51.61,0,0,0,10,18.31,50.94,50.94,0,0,0,18.07,13.34q11.21,5.18,27.41,5.18,20.78,0,40.92-11.15a182.76,182.76,0,0,0,38-28.27,265.81,265.81,0,0,0,32.4-37.42,316.06,316.06,0,0,0,22.35-35.68,13.1,13.1,0,0,0,.91-1.34v.39c1.39-2.38,3.18-5.83,5.4-10.35s4.5-9.28,6.86-14.33,4.57-9.88,6.64-14.53,3.67-8.42,4.78-11.34a98.12,98.12,0,0,0,15.37,1.19,88.56,88.56,0,0,0,17.45-1.59,66.67,66.67,0,0,1-5,12.14q-2.91,5.37-7.89,15.72-5.4,11.57-11,23.89t-10.38,24.88a233.23,233.23,0,0,0-7.89,24.49,89.79,89.79,0,0,0-3.12,22.69q0,19.11,8.93,30.06t25.13,10.95q10,0,20.77-6.57a122.07,122.07,0,0,0,21.6-17.12,229.72,229.72,0,0,0,21-23.69q10.18-13.14,19.11-26.28t15.79-24.88q6.86-11.73,11-19.7a13.63,13.63,0,0,0,.83-2.19,8.47,8.47,0,0,0,.41-2.19A8.22,8.22,0,0,0,1684.66,219.16Zm-243.13-25.68q15.72-19.11,26.09-19.9,3.32,1.59,3.31,6,0,6-3.72,14.93A77.6,77.6,0,0,1,1456,212.79a110.91,110.91,0,0,1-19,18.31,114.93,114.93,0,0,1-27.34,15.33Q1425.78,212.61,1441.53,193.48ZM542.93,213,535,229.71v-.4q-2.49,4.4-5,9t-5,9.35v-.39Q518,260,510.53,273.5T495.58,298A121.84,121.84,0,0,1,481,315.9c-4.72,4.65-9.14,7-13.3,7q-7.07,0-10.18-7.77A48.5,48.5,0,0,1,454.45,297a105.5,105.5,0,0,1,3.32-25.08,118.41,118.41,0,0,1,9.14-25.08q17-35,32.61-54.14t26-19.11h.84q-5,4-5,11.14a12.83,12.83,0,0,0,5.19,10.75,18.91,18.91,0,0,0,11.84,4,20.31,20.31,0,0,0,8.52-1.79,12.16,12.16,0,0,0,6-6.17Z"/><path d="M364.5,460.67a3,3,0,0,0-1.19-.51,5.9,5.9,0,0,1-1.19,0h-1.28c-.42,0-.93-.09-1.44-.09s-1,.17-1.53.17-1-.17-1.44-.17-1,.09-1.53.09H352c-.43,0-.94-.09-1.36-.09s-.94.09-1.44.09-.85.08-1.36.08-.94-.08-1.36-.08h-1.44c-.43,0-.85-.09-1.36-.09s-.94.09-1.36.09-.93.08-1.36.08-.93-.17-1.44-.17a6.91,6.91,0,0,1-1.36.09c-.42,0-.93.08-1.36.08h-1.36c-.5,0-.93-.08-1.35-.08-.68,0-1.36.08-2,.08a2.35,2.35,0,0,0-1.7.86,2.26,2.26,0,0,0-.51,1.36c0,.51.09.94.09,1.37a6.85,6.85,0,0,0,0,1.36,2.53,2.53,0,0,0,.17.69,1.9,1.9,0,0,0,.51,1,1.84,1.84,0,0,0,1,.51,3.33,3.33,0,0,0,1.28.17H334c.43,0,.77.09,1.19.09s.85-.09,1.27-.09.94.09,1.36.09.93-.09,1.36-.09.76.09,1.1.09h1.11c.17,0,.34.08.51.08a2,2,0,0,1,1.35.6,2.13,2.13,0,0,1,.51,1.28A8,8,0,0,1,344,471v1.36c0,.43.09.85.09,1.28s-.09.85-.09,1.28.09.77.09,1.2-.09,1-.09,1.53a8,8,0,0,0,.17,1.37c0,.51-.08,1-.08,1.45s-.09.94-.09,1.45v1.45c0,.42.09.85.09,1.28s-.09.77-.09,1.19.09.86.09,1.28-.09,1-.09,1.54v3.24c0,.43.09.94.09,1.37v1.62c0,.51-.09,1-.09,1.53s.09,1.11.09,1.62-.09,1-.09,1.54.09,1,.09,1.62v1.54c0,.51-.09,1-.09,1.53v4.18c0,.43.09.94.09,1.37s-.09.94-.09,1.36.09.86.09,1.2v1.28a2.45,2.45,0,0,0,.34,1.11,2.7,2.7,0,0,0,.76.94,4.38,4.38,0,0,0,1.11.34h1.52a10,10,0,0,0,1.53-.17,3.32,3.32,0,0,0,1.27-.34,2.43,2.43,0,0,0,.68-1.11,2.45,2.45,0,0,0,.17-.69c0-.59-.08-1.11-.08-1.7,0-.43.08-.86.08-1.37V508c0-.51.09-.94.09-1.37s-.09-.94-.09-1.36v-2.73c0-.43.09-.94.09-1.37s-.09-.85-.09-1.36v-2.65c0-.51-.08-.94-.08-1.36s.08-.94.08-1.37v-1.37a6,6,0,0,1,.09-1.27c0-.43-.09-.86-.09-1.28v-7.26c0-.51.09-1,.09-1.45v-2.9c0-.43-.09-.85-.09-1.36a7.82,7.82,0,0,1,0-1.37v-1.37c0-.42-.08-.85-.08-1.36s.08-.85.08-1.37v-1.36a3.92,3.92,0,0,1,.09-1,2.51,2.51,0,0,1,1.95-2h.76c.51,0,1.11-.08,1.62-.08s.93-.09,1.36-.09h4c.51,0,.94-.08,1.36-.08.26,0,.51.08.77.08a2.28,2.28,0,0,0,1.44-.68,2.42,2.42,0,0,0,.76-1.54v-1.53a7.8,7.8,0,0,0,0-1.45A2.26,2.26,0,0,0,364.5,460.67Z"/><path d="M471.37,511.87l-.51-1.28a6.94,6.94,0,0,1-.34-1.28,8.38,8.38,0,0,1-.43-1.28l-.51-1.28a6.84,6.84,0,0,0-.42-1.28,6.84,6.84,0,0,0-.42-1.28c-.17-.43-.26-.86-.43-1.28s-.25-.94-.34-1.37l-.51-1.28A7.35,7.35,0,0,0,467,499c-.17-.42-.26-.85-.43-1.28s-.25-.85-.42-1.28a8.38,8.38,0,0,0-.43-1.28c-.16-.42-.25-.94-.42-1.36a12.34,12.34,0,0,1-.42-1.45c-.17-.51-.26-.94-.43-1.45a6.17,6.17,0,0,0-.51-1.37c-.17-.51-.34-.94-.51-1.45a7.61,7.61,0,0,0-.42-1.36,10.33,10.33,0,0,1-.43-1.45c-.17-.43-.17-.86-.33-1.29s-.43-.85-.6-1.28-.25-.85-.34-1.27-.25-.86-.42-1.29-.26-.85-.34-1.27-.26-.94-.43-1.37a7.09,7.09,0,0,0-.42-1.28,7.23,7.23,0,0,0-.51-1.19c-.17-.43-.26-.86-.43-1.28s-.17-.94-.34-1.37-.34-.77-.5-1.19-.26-.77-.34-1.2-.26-.85-.43-1.19a6.84,6.84,0,0,0-.42-1.28c-.09-.43-.26-.77-.34-1.2s-.17-.85-.34-1.28a6.34,6.34,0,0,0-.43-1.11,8.93,8.93,0,0,0-.42-1.11,11.37,11.37,0,0,1-.42-1.11,2.75,2.75,0,0,0-.85-.85,2.24,2.24,0,0,0-1.11-.51,4,4,0,0,0-1-.17h-1.35c-.43,0-.85.08-1.28.08s-.68.09-1,.09a4.81,4.81,0,0,0-1,.34,3,3,0,0,0-.6.85c-.17.35-.42.6-.51.86a4.78,4.78,0,0,1-.42,1.19,5.31,5.31,0,0,1-.43,1.2c-.08.42-.25.85-.34,1.28s-.17.85-.34,1.28a7.93,7.93,0,0,1-.51,1.28,6.89,6.89,0,0,1-.33,1.28c-.09.42-.34.85-.43,1.28s-.17.93-.34,1.36a7.09,7.09,0,0,1-.42,1.28,8,8,0,0,1-.43,1.28,7.09,7.09,0,0,1-.42,1.28c-.09.43-.17.85-.26,1.28s-.42.94-.51,1.37-.25.93-.42,1.36-.26.94-.43,1.37a7.86,7.86,0,0,1-.5,1.28c-.17.51-.17.93-.34,1.45l-.51,1.28a6.6,6.6,0,0,1-.34,1.36,9.74,9.74,0,0,0-.34,1.37,7.71,7.71,0,0,0-.43,1.28l-.51,1.28c-.08.42-.25.85-.34,1.28s-.25.85-.42,1.28-.25.85-.34,1.28l-.51,1.28a7.35,7.35,0,0,1-.42,1.28c-.09.42-.26.94-.34,1.36a7.62,7.62,0,0,0-.34,1.37c-.17.42-.43.85-.6,1.36a7.62,7.62,0,0,1-.34,1.37,6,6,0,0,1-.42,1.36c-.17.52-.25.94-.42,1.37s-.34.94-.43,1.36-.25.94-.42,1.45-.34.86-.51,1.37-.17,1-.34,1.53-.43,1-.6,1.54a4.77,4.77,0,0,0-.17,1.54,1.55,1.55,0,0,0,1.11,1.36c.25.09.59.09.93.17.51,0,.93.09,1.44.09H435a3.71,3.71,0,0,0,1.61-.6,2.59,2.59,0,0,0,1-1.28c.17-.34.26-.77.43-1.19s.34-.77.42-1.2.26-.85.43-1.28a6.94,6.94,0,0,1,.34-1.28,10.88,10.88,0,0,1,.51-1.19c.17-.51.17-1.11.42-1.71a4.09,4.09,0,0,1,1-1.45,2.53,2.53,0,0,1,1.36-.6c.42,0,.85-.08,1.36-.08h1.35c.51,0,.94-.09,1.45-.09H448c.51,0,1,.09,1.45.09h1.44c.42,0,.93-.09,1.36-.09s.93.09,1.44.09.94-.09,1.36-.09h1.44c.43,0,.94.09,1.36.09h1.19a2.64,2.64,0,0,1,1.44.6,2.17,2.17,0,0,1,.94,1.19,14,14,0,0,1,.68,1.62,6.11,6.11,0,0,1,.33,1.37l.51,1.28a7.32,7.32,0,0,1,.34,1.36c.17.43.34.85.51,1.37a5.23,5.23,0,0,0,.43,1.19,3,3,0,0,0,1,1.28,4.27,4.27,0,0,0,1.44.6c.59,0,1.1.08,1.7.08A9.78,9.78,0,0,0,470,516a1.66,1.66,0,0,0,.93-.17,1.32,1.32,0,0,0,.77-1.28,6.13,6.13,0,0,0-.09-1.28A7.22,7.22,0,0,1,471.37,511.87ZM456.6,496.34a2.73,2.73,0,0,1-1.19.25h-1.53c-.51,0-1,.09-1.53.09h-1.52v-.09c-.43,0-.94.09-1.36.09s-.94.08-1.45.08c-.68,0-1.35-.17-2-.17a5.24,5.24,0,0,1-1.11-.34,1.66,1.66,0,0,1-.93-1.7,3.9,3.9,0,0,1,.25-1.37c.17-.43.26-.94.43-1.36s.34-.94.51-1.37a7,7,0,0,1,.34-1.45,8,8,0,0,0,.42-1.37,9.6,9.6,0,0,0,.43-1.45c.17-.42.34-.85.51-1.36s.25-.94.42-1.37a9.51,9.51,0,0,0,.34-1.45c.17-.42.42-.85.59-1.36s.17-.94.34-1.37.34-.94.43-1.36a6.48,6.48,0,0,1,.68-1.37,1.29,1.29,0,0,1,.51-.68.7.7,0,0,1,1-.09c.16.17.42.35.5.52a4,4,0,0,1,.43.85c.17.51.25,1,.42,1.45s.34.94.51,1.45a6.17,6.17,0,0,1,.51,1.37c.17.42.26.93.43,1.45s.34.93.51,1.36.34.94.5,1.45.26.94.43,1.37.25.94.42,1.45.26.85.43,1.28.34.94.51,1.36a10.91,10.91,0,0,0,.42,1.37,7.83,7.83,0,0,0,.34,1.28,3.45,3.45,0,0,1,.17.94A1.75,1.75,0,0,1,456.6,496.34Z"/><path d="M569.84,460.67a3,3,0,0,0-1.19-.51,5.9,5.9,0,0,1-1.19,0h-1.27c-.43,0-.94-.09-1.44-.09s-1,.17-1.53.17-1-.17-1.45-.17-1,.09-1.52.09h-2.89c-.42,0-.93-.09-1.36-.09s-.93.09-1.44.09-.85.08-1.36.08-.93-.08-1.36-.08H550.4c-.43,0-.85-.09-1.36-.09s-.93.09-1.36.09-.93.08-1.36.08-.93-.17-1.44-.17a6.86,6.86,0,0,1-1.36.09c-.42,0-.93.08-1.35.08h-1.36c-.51,0-.94-.08-1.36-.08-.68,0-1.36.08-2,.08a2.35,2.35,0,0,0-1.7.86,2.31,2.31,0,0,0-.5,1.36c0,.51.08.94.08,1.37a7.7,7.7,0,0,0,0,1.36,3,3,0,0,0,.17.69,1.9,1.9,0,0,0,.51,1,1.84,1.84,0,0,0,1,.51,3.28,3.28,0,0,0,1.27.17h1.1c.43,0,.77.09,1.19.09s.85-.09,1.28-.09.93.09,1.35.09.94-.09,1.36-.09.77.09,1.11.09h1.1c.17,0,.34.08.51.08a2,2,0,0,1,1.36.6,2.2,2.2,0,0,1,.51,1.28,9.13,9.13,0,0,1,.17,1.37v1.36c0,.43.08.85.08,1.28s-.08.85-.08,1.28.08.77.08,1.2-.08,1-.08,1.53a7.13,7.13,0,0,0,.17,1.37c0,.51-.09,1-.09,1.45s-.08.94-.08,1.45v1.45c0,.42.08.85.08,1.28s-.08.77-.08,1.19.08.86.08,1.28-.08,1-.08,1.54v3.24c0,.43.08.94.08,1.37v1.62c0,.51-.08,1-.08,1.53s.08,1.11.08,1.62-.08,1-.08,1.54.08,1,.08,1.62v1.54c0,.51-.08,1-.08,1.53v4.18c0,.43.08.94.08,1.37s-.08.94-.08,1.36.08.86.08,1.2v1.28a2.45,2.45,0,0,0,.34,1.11,2.7,2.7,0,0,0,.76.94,4.38,4.38,0,0,0,1.11.34h1.53a10,10,0,0,0,1.52-.17,3.32,3.32,0,0,0,1.28-.34,2.61,2.61,0,0,0,.68-1.11,2.86,2.86,0,0,0,.17-.69c0-.59-.09-1.11-.09-1.7,0-.43.09-.86.09-1.37V508c0-.51.08-.94.08-1.37s-.08-.94-.08-1.36v-2.73c0-.43.08-.94.08-1.37s-.08-.85-.08-1.36v-2.65c0-.51-.09-.94-.09-1.36s.09-.94.09-1.37v-1.37a6.78,6.78,0,0,1,.08-1.27c0-.43-.08-.86-.08-1.28v-7.26c0-.51.08-1,.08-1.45v-2.9c0-.43-.08-.85-.08-1.36a7,7,0,0,1,0-1.37v-1.37c0-.42-.09-.85-.09-1.36s.09-.85.09-1.37v-1.36a4.39,4.39,0,0,1,.08-1,2.35,2.35,0,0,1,.68-1.28,2.31,2.31,0,0,1,1.27-.69h.77c.51,0,1.1-.08,1.61-.08s.93-.09,1.36-.09h4c.51,0,.93-.08,1.36-.08.25,0,.5.08.76.08a2.28,2.28,0,0,0,1.44-.68,2.43,2.43,0,0,0,.77-1.54v-1.53a8.78,8.78,0,0,0,0-1.45A2.3,2.3,0,0,0,569.84,460.67Z"/><path d="M676.63,460.67a3,3,0,0,0-1.19-.51,5.9,5.9,0,0,1-1.19,0H673c-.43,0-.94-.09-1.45-.09s-1,.17-1.53.17-1-.17-1.44-.17-1,.09-1.53.09h-2.88c-.43,0-.94-.09-1.36-.09s-.93.09-1.44.09-.85.08-1.36.08-.94-.08-1.36-.08h-1.44c-.43,0-.85-.09-1.36-.09s-.93.09-1.36.09-.93.08-1.36.08-.93-.17-1.44-.17a6.86,6.86,0,0,1-1.36.09c-.42,0-.93.08-1.36.08H647.6c-.51,0-.94-.08-1.36-.08-.68,0-1.36.08-2,.08a2.35,2.35,0,0,0-1.7.86,2.26,2.26,0,0,0-.51,1.36c0,.51.09.94.09,1.37a6.85,6.85,0,0,0,0,1.36,2.53,2.53,0,0,0,.17.69,1.9,1.9,0,0,0,.51,1,1.84,1.84,0,0,0,1,.51,3.25,3.25,0,0,0,1.27.17h1.1c.43,0,.77.09,1.19.09s.85-.09,1.27-.09.94.09,1.36.09.94-.09,1.36-.09.76.09,1.1.09h1.11c.17,0,.34.08.51.08a2,2,0,0,1,1.35.6,2.13,2.13,0,0,1,.51,1.28,8,8,0,0,1,.17,1.37v1.36c0,.43.09.85.09,1.28s-.09.85-.09,1.28.09.77.09,1.2-.09,1-.09,1.53a8,8,0,0,0,.17,1.37c0,.51-.08,1-.08,1.45s-.09.94-.09,1.45v1.45c0,.42.09.85.09,1.28s-.09.77-.09,1.19.09.86.09,1.28-.09,1-.09,1.54v3.24c0,.43.09.94.09,1.37v1.62c0,.51-.09,1-.09,1.53s.09,1.11.09,1.62-.09,1-.09,1.54.09,1,.09,1.62v1.54c0,.51-.09,1-.09,1.53v4.18c0,.43.09.94.09,1.37s-.09.94-.09,1.36.09.86.09,1.2v1.28a2.45,2.45,0,0,0,.34,1.11,2.7,2.7,0,0,0,.76.94,4.38,4.38,0,0,0,1.11.34h1.52a10,10,0,0,0,1.53-.17,3.32,3.32,0,0,0,1.28-.34,2.5,2.5,0,0,0,.67-1.11,2.45,2.45,0,0,0,.17-.69c0-.59-.08-1.11-.08-1.7,0-.43.08-.86.08-1.37V508c0-.51.09-.94.09-1.37s-.09-.94-.09-1.36v-2.73c0-.43.09-.94.09-1.37s-.09-.85-.09-1.36v-2.65c0-.51-.08-.94-.08-1.36s.08-.94.08-1.37v-1.37a6,6,0,0,1,.09-1.27c0-.43-.09-.86-.09-1.28v-7.26c0-.51.09-1,.09-1.45v-2.9c0-.43-.09-.85-.09-1.36a7.82,7.82,0,0,1,0-1.37v-1.37c0-.42-.08-.85-.08-1.36s.08-.85.08-1.37v-1.36a3.92,3.92,0,0,1,.09-1,2.51,2.51,0,0,1,2-2h.76c.51,0,1.11-.08,1.62-.08s.93-.09,1.36-.09h4c.5,0,.93-.08,1.35-.08.26,0,.51.08.77.08a2.28,2.28,0,0,0,1.44-.68,2.42,2.42,0,0,0,.76-1.54v-1.53a7.8,7.8,0,0,0,0-1.45A2.26,2.26,0,0,0,676.63,460.67Z"/><path d="M788,486.27c-.09-.51.08-1,0-1.54-.09-.68-.09-1.28-.17-2-.09-.51-.26-1-.34-1.45l-.26-1.54c-.08-.51-.34-1-.42-1.45a14.11,14.11,0,0,1-.43-1.45c-.17-.51-.34-1-.5-1.53l-.51-1.28c-.17-.43-.43-.86-.6-1.28s-.51-.86-.68-1.28-.42-.86-.68-1.28-.42-.77-.68-1.2a5.83,5.83,0,0,0-.93-1.11,12.9,12.9,0,0,0-.85-1.11c-.34-.34-.59-.76-.93-1.1l-1-1c-.34-.26-.68-.6-1.1-.94A11.44,11.44,0,0,0,777,463l-1-.76c-.34-.17-.76-.43-1.1-.6a4.75,4.75,0,0,0-1.19-.51c-.34-.17-.76-.34-1.1-.52s-.85-.34-1.36-.51a7,7,0,0,0-1.27-.42,8,8,0,0,0-1.45-.17,6,6,0,0,0-1.27-.09c-.51,0-.93.09-1.36.09a7.33,7.33,0,0,0-1.36-.09c-.51,0-.93.17-1.35.17s-.94.26-1.45.34a13.76,13.76,0,0,0-1.36.43,11.42,11.42,0,0,0-1.35.43l-1.28.51c-.42.25-.76.6-1.19.85s-.84.43-1.18.68-.77.6-1.19.86l-1,1a10.9,10.9,0,0,0-1,.94l-1,1c-.25.35-.51.86-.76,1.2s-.68.68-.94,1.11-.42.85-.67,1.28a6,6,0,0,0-.77,1.28,6.72,6.72,0,0,0-.59,1.36c-.26.43-.51.86-.77,1.28s-.25,1-.42,1.45a9.66,9.66,0,0,0-.51,1.45,4.68,4.68,0,0,0-.34,1.2c-.09.42-.34.85-.42,1.19s-.17.86-.26,1.28l-.25,1.28c0,.43-.09.86-.09,1.28a7.14,7.14,0,0,0-.17,1.28,6.84,6.84,0,0,0,0,1.28,7.14,7.14,0,0,0-.17,1.28c0,.43.09.86.09,1.28v2.39a7.12,7.12,0,0,0,.17,1.45,9.94,9.94,0,0,0,.08,1.54c.09.51.17,1,.26,1.53a9.22,9.22,0,0,0,.34,1.54,7,7,0,0,0,.33,1.45c.17.51.43.94.6,1.45a7.62,7.62,0,0,0,.34,1.37c.17.51.42.85.59,1.28a9.86,9.86,0,0,0,.51,1.36c.17.43.43.85.6,1.28a9.15,9.15,0,0,1,.76,1.11c.26.43.43.85.68,1.28s.59.77.93,1.11a10.4,10.4,0,0,1,.85,1.11c.34.34.6.68.94,1a9,9,0,0,0,.84,1.11c.34.34.77.6,1.11.94a10.18,10.18,0,0,1,1.1.85c.43.26.77.51,1.19.77s.85.43,1.19.68c.51.26.93.52,1.36.69a7.39,7.39,0,0,0,1.44.51,9.83,9.83,0,0,0,1.44.43c.43.08.94.25,1.45.34a9.69,9.69,0,0,0,1.52.17c.43,0,.94.08,1.45.08h1.44l1.36-.25a6.76,6.76,0,0,0,1.36-.34l1.35-.26,1.28-.51a5.37,5.37,0,0,0,1.19-.69l1.27-.51c.42-.25.85-.6,1.19-.85s.85-.6,1.19-.85.76-.69,1.1-1l1-1a12.44,12.44,0,0,0,1-1.11c.34-.34.68-.68,1-1s.6-.85.85-1.27.43-.94.68-1.37.6-.85.85-1.28.51-.94.68-1.37a9.45,9.45,0,0,0,.6-1.45c.17-.42.34-.85.5-1.28s.26-.93.43-1.36a10.09,10.09,0,0,1,.34-1.37c.08-.42.34-.85.42-1.28s.17-.93.26-1.36a7.88,7.88,0,0,0,.08-1.37,8.92,8.92,0,0,0,.26-1.36c.08-.51.08-.94.17-1.37a20.53,20.53,0,0,1,.08-2.56,5.49,5.49,0,0,0,.09-1.19C788.17,487.12,788,486.7,788,486.27Zm-7.3,3.33a6.92,6.92,0,0,1-.17,1.36c0,.43-.09.86-.09,1.37s-.08.85-.17,1.28-.25.85-.34,1.28-.17.94-.25,1.36-.26.86-.43,1.28-.17.86-.34,1.2-.34.85-.5,1.19a13.37,13.37,0,0,0-.6,1.2c-.17.42-.51.76-.68,1.1s-.51.77-.76,1.11-.43.86-.68,1.2a10.9,10.9,0,0,1-1,1,5.07,5.07,0,0,1-1,.94,10.9,10.9,0,0,1-1,.94c-.42.26-.76.51-1.1.68s-.76.51-1.1.68-.85.35-1.19.52-.85.08-1.28.17a8.89,8.89,0,0,1-1.35.17c-.43,0-.85.17-1.28.17l-1.36-.26a7.26,7.26,0,0,1-1.27-.42,3.75,3.75,0,0,1-1.27-.43,6.71,6.71,0,0,1-1.11-.6,7,7,0,0,1-.93-.77c-.34-.25-.76-.42-1.1-.68l-.77-1a4.76,4.76,0,0,1-.85-.94c-.25-.34-.59-.6-.84-.94a7.81,7.81,0,0,1-.6-1.19,9.35,9.35,0,0,1-.76-1,13.31,13.31,0,0,1-.6-1.19c-.17-.43-.34-.86-.51-1.2s-.25-.85-.42-1.28a6.57,6.57,0,0,1-.43-1.36,6.67,6.67,0,0,1-.42-1.37c-.08-.42-.17-.94-.25-1.36s-.09-1-.17-1.45a8,8,0,0,1-.17-1.45c0-.43-.09-.94-.09-1.37a6.85,6.85,0,0,0,0-1.36v-1.37a8.29,8.29,0,0,0,.09-1.45,8,8,0,0,1,.17-1.45c.08-.43.08-.94.17-1.37s.25-.93.34-1.36a6.85,6.85,0,0,1,.33-1.45,10,10,0,0,1,.43-1.45c.17-.43.42-.86.59-1.37a10.34,10.34,0,0,1,.77-1.28,6.4,6.4,0,0,1,.68-1.36l.76-1.28c.34-.34.51-.86.85-1.2a12.26,12.26,0,0,1,1-1,5,5,0,0,1,.93-1,9.24,9.24,0,0,1,1.11-.86,4.66,4.66,0,0,1,1.18-.77c.43-.25.85-.34,1.19-.51s.85-.25,1.27-.42.85-.26,1.28-.35a6.74,6.74,0,0,1,1.27,0,7.33,7.33,0,0,1,1.36.09,6.92,6.92,0,0,1,1.27.17,6.8,6.8,0,0,1,1.19.43c.43.17.77.34,1.19.51a13.16,13.16,0,0,1,1.19.6,27.09,27.09,0,0,0,2,1.62c.34.34.59.68.93,1a10.68,10.68,0,0,0,.93,1c.26.42.43.85.68,1.27s.51.69.77,1.11a9.68,9.68,0,0,1,.59,1.28c.17.43.51.77.68,1.28s.17.86.34,1.28.34.94.51,1.37.17.94.34,1.36l.25,1.37c.09.43.17.94.26,1.36s.17.94.25,1.46v1.45a7.86,7.86,0,0,1,.17,1.45A6.94,6.94,0,0,1,780.7,489.6Zm.42,7.51H781V497c.08,0,.08.09.08.09s.17,0,.17.08A.32.32,0,0,1,781.12,497.11Z"/><path d="M902.6,486.27c-.09-.51.08-1,0-1.54-.09-.68-.09-1.28-.17-2-.09-.51-.26-1-.34-1.45l-.26-1.54c-.08-.51-.34-1-.42-1.45a14.11,14.11,0,0,1-.43-1.45l-.51-1.53-.51-1.28c-.17-.43-.42-.86-.59-1.28s-.51-.86-.68-1.28-.42-.86-.68-1.28-.42-.77-.68-1.2a5.83,5.83,0,0,0-.93-1.11c-.26-.42-.6-.76-.85-1.11s-.59-.76-.93-1.1l-1-1c-.34-.26-.68-.6-1.11-.94a9.77,9.77,0,0,0-.93-.77l-1-.76c-.34-.17-.76-.43-1.1-.6a4.91,4.91,0,0,0-1.19-.51c-.34-.17-.76-.34-1.1-.52s-.85-.34-1.36-.51a7.09,7.09,0,0,0-1.28-.42,7.76,7.76,0,0,0-1.44-.17,6,6,0,0,0-1.27-.09c-.51,0-.93.09-1.36.09a7.33,7.33,0,0,0-1.36-.09c-.51,0-.93.17-1.36.17s-.93.26-1.44.34a13.76,13.76,0,0,0-1.36.43,11.53,11.53,0,0,0-1.36.43l-1.27.51c-.42.25-.76.6-1.19.85s-.85.43-1.18.68-.77.6-1.19.86l-1,1a10.9,10.9,0,0,0-1,.94l-1,1c-.25.35-.51.86-.76,1.2s-.68.68-.94,1.11-.42.85-.68,1.28a6.46,6.46,0,0,0-.76,1.28,6.72,6.72,0,0,0-.59,1.36c-.26.43-.51.86-.77,1.28s-.25,1-.42,1.45a9.66,9.66,0,0,0-.51,1.45,4.68,4.68,0,0,0-.34,1.2c-.09.42-.34.85-.43,1.19s-.17.86-.25,1.28L859,482c0,.43-.08.86-.08,1.28a6.34,6.34,0,0,0-.17,1.28,6.08,6.08,0,0,0,0,1.28,6.34,6.34,0,0,0-.17,1.28c0,.43.08.86.08,1.28v2.39a7.9,7.9,0,0,0,.17,1.45,8.85,8.85,0,0,0,.09,1.54c.08.51.17,1,.25,1.53a10.34,10.34,0,0,0,.34,1.54,7.7,7.7,0,0,0,.34,1.45c.17.51.43.94.6,1.45a7.62,7.62,0,0,0,.34,1.37c.17.51.42.85.59,1.28a9.86,9.86,0,0,0,.51,1.36c.17.43.43.85.6,1.28a9.15,9.15,0,0,1,.76,1.11c.25.43.42.85.68,1.28s.59.77.93,1.11a10.4,10.4,0,0,1,.85,1.11c.34.34.59.68.93,1a10.26,10.26,0,0,0,.85,1.11c.34.34.77.6,1.11.94a10.18,10.18,0,0,1,1.1.85c.42.26.76.51,1.19.77s.85.43,1.19.68c.51.26.93.52,1.36.69a7.39,7.39,0,0,0,1.44.51,9.83,9.83,0,0,0,1.44.43c.43.08.93.25,1.44.34a10,10,0,0,0,1.53.17c.43,0,.94.08,1.45.08h1.44l1.36-.25a6.5,6.5,0,0,0,1.35-.34l1.36-.26,1.28-.51a5.3,5.3,0,0,0,1.18-.69l1.28-.51c.42-.25.85-.6,1.19-.85s.84-.6,1.18-.85a14.18,14.18,0,0,0,1.11-1l1-1a11,11,0,0,0,1-1.11l1-1c.26-.42.6-.85.85-1.27s.43-.94.68-1.37.6-.85.85-1.28.51-.94.68-1.37a10.5,10.5,0,0,0,.59-1.45l.51-1.28c.17-.42.26-.93.43-1.36a10.09,10.09,0,0,1,.34-1.37c.08-.42.34-.85.42-1.28s.17-.93.26-1.36a7.88,7.88,0,0,0,.08-1.37,8.92,8.92,0,0,0,.26-1.36c.08-.51.08-.94.17-1.37a20.53,20.53,0,0,1,.08-2.56,5.49,5.49,0,0,0,.09-1.19C902.77,487.12,902.6,486.7,902.6,486.27Zm-7.31,3.33a7,7,0,0,1-.16,1.36c0,.43-.09.86-.09,1.37s-.08.85-.17,1.28-.25.85-.34,1.28-.17.94-.25,1.36-.26.86-.43,1.28-.17.86-.34,1.2-.34.85-.51,1.19-.42.85-.59,1.2-.51.76-.68,1.1-.51.77-.76,1.11-.43.86-.68,1.2a10.9,10.9,0,0,1-1,1,5.35,5.35,0,0,1-1,.94,10.9,10.9,0,0,1-1,.94c-.42.26-.76.51-1.1.68s-.77.51-1.11.68-.84.35-1.18.52-.85.08-1.28.17a9,9,0,0,1-1.36.17c-.42,0-.84.17-1.27.17l-1.36-.26a7,7,0,0,1-1.27-.42,3.75,3.75,0,0,1-1.27-.43,6.71,6.71,0,0,1-1.11-.6,7,7,0,0,1-.93-.77c-.34-.25-.76-.42-1.1-.68l-.77-1a4.76,4.76,0,0,1-.85-.94c-.25-.34-.59-.6-.85-.94a8.75,8.75,0,0,1-.59-1.19,9.35,9.35,0,0,1-.76-1,13.31,13.31,0,0,1-.6-1.19c-.17-.43-.34-.86-.51-1.2s-.25-.85-.42-1.28a6.57,6.57,0,0,1-.43-1.36,6.1,6.1,0,0,1-.42-1.37c-.09-.42-.17-.94-.26-1.36s-.08-1-.17-1.45a9,9,0,0,1-.17-1.45c0-.43-.08-.94-.08-1.37a7.7,7.7,0,0,0,0-1.36v-1.37a9.31,9.31,0,0,0,.08-1.45,9,9,0,0,1,.17-1.45c.09-.43.09-.94.17-1.37s.26-.93.34-1.36a7.52,7.52,0,0,1,.34-1.45,10,10,0,0,1,.43-1.45c.17-.43.42-.86.59-1.37a10.34,10.34,0,0,1,.77-1.28,6.4,6.4,0,0,1,.68-1.36c.25-.43.5-.86.76-1.28s.51-.86.85-1.2a12.26,12.26,0,0,1,1-1,5,5,0,0,1,.93-1,9.17,9.17,0,0,1,1.1-.86,4.89,4.89,0,0,1,1.19-.77c.43-.25.85-.34,1.19-.51s.85-.25,1.27-.42.85-.26,1.28-.35a6.74,6.74,0,0,1,1.27,0,7.33,7.33,0,0,1,1.36.09,6.92,6.92,0,0,1,1.27.17,6.8,6.8,0,0,1,1.19.43c.42.17.76.34,1.19.51a13.16,13.16,0,0,1,1.19.6,30,30,0,0,0,2,1.62c.34.34.6.68.94,1a10.68,10.68,0,0,0,.93,1c.26.42.43.85.68,1.27a12.62,12.62,0,0,1,.76,1.11,8.63,8.63,0,0,1,.6,1.28c.17.43.51.77.68,1.28s.17.86.34,1.28.34.94.51,1.37.17.94.34,1.36l.25,1.37c.09.43.17.94.26,1.36s.17.94.25,1.46v1.45a8.83,8.83,0,0,1,.17,1.45A6.18,6.18,0,0,1,895.29,489.6Z"/><path d="M1091.13,497.28a6.32,6.32,0,0,0-.26-1.28c-.16-.34-.16-.77-.33-1.2a6.34,6.34,0,0,1-.43-1.11c-.17-.42-.42-.77-.59-1.11s-.34-.76-.6-1.11-.68-.76-.93-1.19l-1.11-1.11a12.26,12.26,0,0,0-1.1-1,13.55,13.55,0,0,1-1.19-.94c-.51-.26-.93-.43-1.44-.69s-.93-.42-1.36-.68-.93-.51-1.44-.68a12,12,0,0,0-1.61-.43l-1.53-.51c-.51-.08-1-.34-1.53-.43s-1-.25-1.53-.42l-1.53-.51a13.07,13.07,0,0,1-1.61-.52,5.66,5.66,0,0,1-1.61-.76,7.46,7.46,0,0,1-1.11-.69,4.87,4.87,0,0,1-.93-.94,4.58,4.58,0,0,1-1-1.19,7.85,7.85,0,0,1-.59-1.45,5,5,0,0,1-.34-1.54,9.81,9.81,0,0,1,.08-1.53,5.33,5.33,0,0,1,.34-1.54,9,9,0,0,1,.6-1.36c.25-.43.59-.77.85-1.2a12.21,12.21,0,0,1,1-1,6.87,6.87,0,0,1,2.38-1.62,2.87,2.87,0,0,1,1.19-.51c.43-.09.85-.26,1.27-.35h1.28c.42,0,.85.09,1.27.09s.76.17,1.19.26a7,7,0,0,1,1.27.42c.43.17.85.26,1.19.43a9.71,9.71,0,0,1,2.29,1.36,8.26,8.26,0,0,1,.85.77c.34.26.6.43.93.68a2.43,2.43,0,0,0,1.36.77,2.1,2.1,0,0,0,1.53-.34h.09c.5-.26.93-.51,1.35-.77a8.42,8.42,0,0,0,1.28-1,2.1,2.1,0,0,0,.42-.51,1.76,1.76,0,0,0,.26-1.71,2.47,2.47,0,0,0-.6-1c-.34-.34-.68-.6-1-.94a7.29,7.29,0,0,0-.85-.94,9.34,9.34,0,0,0-1-.77,8.53,8.53,0,0,0-1-.77c-.51-.34-.85-.68-1.28-.94a10.92,10.92,0,0,0-1.44-.59,8.22,8.22,0,0,0-1.36-.68c-.51-.18-.93-.35-1.44-.52s-.85-.17-1.27-.34l-1.28-.25a6.17,6.17,0,0,1-1.27-.18h-1.36a7.74,7.74,0,0,0-1.44.09c-.43,0-.93.17-1.36.17a10.19,10.19,0,0,1-1.53.26c-.42.17-.93.25-1.36.42s-.93.35-1.35.51-.94.52-1.36.77a5.22,5.22,0,0,0-1.11.77c-.33.26-.76.51-1.1.77s-.68.6-1,.85-.59.68-.85,1a9.55,9.55,0,0,0-.93,1,11.85,11.85,0,0,1-.76,1.11c-.26.43-.43.85-.6,1.19s-.42.86-.59,1.28a7.93,7.93,0,0,0-.51,1.28,6.94,6.94,0,0,0-.34,1.28,3.59,3.59,0,0,0-.26,1.37,7.71,7.71,0,0,0,0,1.36,7.43,7.43,0,0,0-.08,1.37c.08.43.08.85.17,1.36a7.13,7.13,0,0,0,.17,1.37,11.33,11.33,0,0,1,.42,1.36c.17.43.34.94.51,1.37a5.4,5.4,0,0,0,.77,1.19,5.83,5.83,0,0,0,.76,1.2,5.53,5.53,0,0,0,.85,1.11l1,1c.42.34.85.51,1.19.77a3.54,3.54,0,0,0,1.1.85,5.71,5.71,0,0,0,1.27.6,5.11,5.11,0,0,0,1.19.6,4.33,4.33,0,0,0,1.27.51,7.44,7.44,0,0,0,1.19.43c.34.17.68.25,1.11.42a5.19,5.19,0,0,1,1.1.35c.51.08.93.25,1.36.34s.85.34,1.36.51a7.23,7.23,0,0,0,1.27.34,9.63,9.63,0,0,0,1.36.34,8.09,8.09,0,0,1,1.27.6,10.88,10.88,0,0,1,1.19.51,8.2,8.2,0,0,1,1.1.68,11.44,11.44,0,0,1,.94.77,7,7,0,0,1,.68,1,6.9,6.9,0,0,1,.84,1.36c.17.43.17.94.34,1.45a8.85,8.85,0,0,1,.17,1.54,6.94,6.94,0,0,1-.08,1.28c-.09.42-.26.85-.34,1.28s-.34.76-.51,1.11a5,5,0,0,1-.68,1.11,5.77,5.77,0,0,1-.93,1.1c-.34.35-.6.77-.94,1.11l-1.27.77a5.93,5.93,0,0,1-1.27.68c-.43.17-.94.26-1.36.43a7.35,7.35,0,0,1-1.27.26,5.47,5.47,0,0,1-2.64.17l-1.27-.26a7,7,0,0,1-1.27-.43c-.43-.17-.77-.42-1.19-.59l-1-.77a5.41,5.41,0,0,1-1.1-.77c-.34-.25-.6-.6-.94-.85a9.11,9.11,0,0,0-.93-.94l-.76-1a7.18,7.18,0,0,0-.85-.77,2.34,2.34,0,0,0-1.11-.77,2.22,2.22,0,0,0-1.44.26,10.15,10.15,0,0,0-1.36.68,7.24,7.24,0,0,0-1.36.85,2.24,2.24,0,0,0-.59.34,1.93,1.93,0,0,0-.34,1.79,3.89,3.89,0,0,0,.68,1.63,5.77,5.77,0,0,0,.93,1.1,5.94,5.94,0,0,0,.94,1.11,9.28,9.28,0,0,0,.93,1.11c.34.34.76.6,1.1.94s.68.6,1.11.94a13.68,13.68,0,0,0,1.19.77,8.79,8.79,0,0,0,1.18.77c.43.25.85.51,1.36.76s.85.35,1.36.52.93.25,1.44.42.94.34,1.36.43,1,.17,1.45.26h1.52c.43,0,.85-.09,1.19-.09s.85,0,1.27-.08a5.09,5.09,0,0,0,1.19-.26c.43-.09.94-.17,1.28-.26a7,7,0,0,1,1.27-.42c.42-.17.85-.26,1.27-.43s.77-.43,1.11-.68a5.08,5.08,0,0,0,1.1-.68,5.41,5.41,0,0,0,1.1-.77l1-.77a8.5,8.5,0,0,1,1-.85,12.44,12.44,0,0,1,1-1.11,12.88,12.88,0,0,0,.85-1.28,10.81,10.81,0,0,0,.93-1.2,6.4,6.4,0,0,0,.68-1.36,7.93,7.93,0,0,0,.51-1.28,8.26,8.26,0,0,0,.26-1.37,3.79,3.79,0,0,0,.33-1.28c.09-.43.09-.94.17-1.36s.09-.94.09-1.37-.09-.85-.09-1.28A7.27,7.27,0,0,0,1091.13,497.28Z"/><path d="M1194,460.67a3,3,0,0,0-1.19-.51,5.9,5.9,0,0,1-1.19,0h-1.27c-.42,0-.93-.09-1.44-.09s-1,.17-1.53.17-1-.17-1.44-.17-1,.09-1.53.09h-2.89c-.42,0-.93-.09-1.35-.09s-.94.09-1.45.09-.85.08-1.36.08-.93-.08-1.35-.08h-1.45c-.42,0-.85-.09-1.36-.09s-.93.09-1.35.09-.94.08-1.36.08-.94-.17-1.44-.17a7,7,0,0,1-1.36.09c-.43,0-.94.08-1.36.08H1165c-.51,0-.93-.08-1.36-.08-.68,0-1.36.08-2,.08a2.35,2.35,0,0,0-1.7.86,2.26,2.26,0,0,0-.51,1.36c0,.51.08.94.08,1.37a7.7,7.7,0,0,0,0,1.36,3,3,0,0,0,.17.69,2.06,2.06,0,0,0,.51,1,1.9,1.9,0,0,0,1,.51,3.3,3.3,0,0,0,1.27.17h1.11c.42,0,.76.09,1.19.09s.85-.09,1.27-.09.93.09,1.36.09.93-.09,1.36-.09.76.09,1.1.09h1.1c.17,0,.34.08.51.08a2,2,0,0,1,1.36.6,2.2,2.2,0,0,1,.51,1.28,9.13,9.13,0,0,1,.17,1.37v1.36c0,.43.08.85.08,1.28s-.08.85-.08,1.28.08.77.08,1.2-.08,1-.08,1.53a7.13,7.13,0,0,0,.17,1.37c0,.51-.09,1-.09,1.45s-.08.94-.08,1.45v1.45c0,.42.08.85.08,1.28s-.08.77-.08,1.19.08.86.08,1.28-.08,1-.08,1.54v3.24c0,.43.08.94.08,1.37v1.62c0,.51-.08,1-.08,1.53s.08,1.11.08,1.62-.08,1-.08,1.54.08,1,.08,1.62v1.54c0,.51-.08,1-.08,1.53v4.18c0,.43.08.94.08,1.37s-.08.94-.08,1.36.08.86.08,1.2v1.28a2.45,2.45,0,0,0,.34,1.11,2.73,2.73,0,0,0,.77.94,4.43,4.43,0,0,0,1.1.34h1.53a10,10,0,0,0,1.53-.17,3.32,3.32,0,0,0,1.27-.34,2.61,2.61,0,0,0,.68-1.11,2.86,2.86,0,0,0,.17-.69c0-.59-.09-1.11-.09-1.7,0-.43.09-.86.09-1.37V508c0-.51.08-.94.08-1.37s-.08-.94-.08-1.36v-2.73c0-.43.08-.94.08-1.37s-.08-.85-.08-1.36v-2.65c0-.51-.09-.94-.09-1.36s.09-.94.09-1.37v-1.37a6.78,6.78,0,0,1,.08-1.27c0-.43-.08-.86-.08-1.28v-7.26c0-.51.08-1,.08-1.45v-2.9c0-.43-.08-.85-.08-1.36a7,7,0,0,1,0-1.37v-1.37c0-.42-.09-.85-.09-1.36s.09-.85.09-1.37v-1.36a4.39,4.39,0,0,1,.08-1,2.5,2.5,0,0,1,2-2h.76c.51,0,1.1-.08,1.61-.08s.94-.09,1.36-.09h4c.51,0,.93-.08,1.36-.08.25,0,.51.08.76.08a2.3,2.3,0,0,0,1.45-.68,2.42,2.42,0,0,0,.76-1.54v-1.53a7.8,7.8,0,0,0,0-1.45A2.25,2.25,0,0,0,1194,460.67Z"/><path d="M1306.23,471.93c0-.42-.17-.93-.17-1.36s.09-.94.09-1.37-.09-.85-.09-1.36.09-.85.09-1.37-.09-.85-.09-1.28.09-.94.09-1.36a9.78,9.78,0,0,0-.09-1.62,2.18,2.18,0,0,0-.59-1.28,2.31,2.31,0,0,0-1.27-.69,6,6,0,0,0-1.19-.08,5,5,0,0,0-1.19.08c-.43,0-.85.09-1.19.09a2.22,2.22,0,0,0-1.19.51,1.8,1.8,0,0,0-.59,1.11,3.92,3.92,0,0,0-.09,1c0,.52-.08,1-.08,1.63s.08,1,.08,1.53-.08.94-.08,1.37v4.09c0,.43.08.86.08,1.37s-.08.85-.08,1.28v5.12c0,.51.08,1,.08,1.53v1.45c0,.43-.17.94-.17,1.45s.09.94.09,1.37v4.18c0,.43.08.85.08,1.28s-.17.85-.17,1.28a8.8,8.8,0,0,1,0,1.54,9.81,9.81,0,0,1-.08,1.53c-.09.51-.17,1-.26,1.54s-.25.94-.34,1.36-.33.94-.5,1.37-.34.94-.51,1.36l-.51,1.28c-.26.43-.43.86-.68,1.28a13.93,13.93,0,0,1-.77,1.2,13.71,13.71,0,0,1-.93,1.19,11.4,11.4,0,0,1-.93,1.11c-.34.34-.77.6-1.11.94s-.85.6-1.27.85-1,.52-1.44.69-1,.17-1.62.25a4.88,4.88,0,0,0-1.1.09h-2.29a8,8,0,0,1-1.28-.43,3.29,3.29,0,0,1-1.1-.51c-.42-.17-.85-.34-1.19-.51-.42-.34-.76-.69-1.1-.94a12.44,12.44,0,0,1-1-1.11,12.09,12.09,0,0,1-.93-1.11,10,10,0,0,1-.85-1,7.87,7.87,0,0,1-1.19-2.39c-.17-.34-.42-.77-.59-1.2s-.17-.85-.34-1.28-.34-.77-.43-1.19a9.82,9.82,0,0,1-.25-1.45,8.18,8.18,0,0,1-.26-1.45c-.08-.43-.08-.94-.17-1.45s-.08-.94-.08-1.45v-1.54c0-.43-.09-.94-.09-1.37s.09-.93.09-1.36-.09-.94-.09-1.37.09-.93.09-1.36-.09-.94-.09-1.45.09-.86.09-1.37v-2.73c0-.51-.09-.94-.09-1.36v-2.73c0-.52.09-.94.09-1.37s-.09-.94-.09-1.45.09-.85.09-1.36-.09-.86-.09-1.37.09-.85.09-1.36v-2.73c0-.43-.09-.86-.09-1.37a17.57,17.57,0,0,0-.08-2,3.34,3.34,0,0,0-.51-1.45,2.48,2.48,0,0,0-1.44-.51,10.83,10.83,0,0,0-1.7-.09,11.28,11.28,0,0,0-1.7.09,1.41,1.41,0,0,0-1,.43,1.21,1.21,0,0,0-.59.93,4.05,4.05,0,0,0-.34,1.37c0,.43.08.85.08,1.28s-.08.85-.08,1.28v5.63c0,.43.08.94.08,1.37v1.45c0,.42-.08.85-.08,1.36v8.36c0,.52.08.94.08,1.46v1.36A7.88,7.88,0,0,0,1266,488v1.45a7.27,7.27,0,0,1,.08,1.36c0,.43-.08.94-.08,1.37s.08.93.08,1.45.17.94.17,1.45.09,1,.17,1.45.26,1,.34,1.53a9.69,9.69,0,0,1,.34,1.54c.17.51.26,1,.43,1.54s.34.93.51,1.45.17.85.34,1.28.5.76.67,1.19a5.42,5.42,0,0,0,.51,1.2,5,5,0,0,0,.77,1.1,4.59,4.59,0,0,0,.68,1.11,11.85,11.85,0,0,0,.76,1.11l.76,1c.34.34.6.76.94,1.11a10.18,10.18,0,0,0,1.1.85,11.92,11.92,0,0,0,.93,1c.43.26.85.43,1.19.69a13.71,13.71,0,0,1,1.19.76,8.19,8.19,0,0,0,1.28.6,8.84,8.84,0,0,0,1.44.51,10.4,10.4,0,0,0,1.44.52,10.16,10.16,0,0,0,1.53.25,8.69,8.69,0,0,0,1.53,0c.34,0,.76.09,1.1.09a4.54,4.54,0,0,0,1.1-.09c.34,0,.77-.08,1.11-.08s.68-.17,1.1-.17.93-.26,1.44-.35.94-.25,1.45-.42.93-.34,1.35-.51l1.28-.77a11.12,11.12,0,0,1,1.19-.94,6.07,6.07,0,0,0,1.19-.77l1-1a11.06,11.06,0,0,0,1-1,8.53,8.53,0,0,0,.77-1.11,9.28,9.28,0,0,0,.93-1.11c.25-.42.51-.76.76-1.19a5.11,5.11,0,0,0,.6-1.19,16.68,16.68,0,0,0,1.27-2.48l.51-1.28a8,8,0,0,0,.43-1.28,7.68,7.68,0,0,0,.33-1.36c.09-.43.17-.94.26-1.37a8.72,8.72,0,0,0,.34-1.36c.08-.52.17-.94.25-1.37s.09-.94.17-1.45a7.84,7.84,0,0,1,0-1.37c0-.51.09-.93.09-1.36v-5.89c0-.42-.09-.94-.09-1.45s.09-.94.09-1.45v-1.45c0-.43-.09-.94-.09-1.45s.09-.94.09-1.45h.08c0-.34-.17-.77-.17-1.11s.17-.85.17-1.37-.17-.85-.17-1.36V473.3C1306.06,472.79,1306.23,472.36,1306.23,471.93Z"/><path d="M1417.69,485.84a9,9,0,0,0-.17-1.45,7.78,7.78,0,0,0-.17-1.36c-.09-.43-.09-.86-.17-1.37a10,10,0,0,0-.26-1.36,6.55,6.55,0,0,0-.34-1.28c-.08-.43-.25-.86-.33-1.28s-.26-.94-.43-1.37-.42-.77-.59-1.19-.43-.86-.6-1.28a7.83,7.83,0,0,0-.59-1.2c-.17-.42-.51-.77-.68-1.19a16.06,16.06,0,0,0-1.44-2.31,10.9,10.9,0,0,1-.94-1,9.57,9.57,0,0,1-.85-1l-1-1a10.9,10.9,0,0,0-1-.94,5.94,5.94,0,0,0-1.11-.94c-.34-.25-.76-.59-1.1-.85s-.85-.34-1.27-.6a9.71,9.71,0,0,0-1.19-.68,9.21,9.21,0,0,0-1.28-.6c-.42-.17-.93-.34-1.35-.51a7.37,7.37,0,0,0-1.36-.25,8.24,8.24,0,0,0-1.44-.26c-.43-.08-.85-.26-1.36-.34a8.29,8.29,0,0,1-1.45-.09c-.42,0-.93.17-1.35.17s-.94-.08-1.45-.08h-2.8c-.42,0-.85.08-1.36.08s-.85-.08-1.35-.08h-2.64c-.51,0-.93.08-1.35.08a5.26,5.26,0,0,0-1.19.09,1.74,1.74,0,0,0-.85.51,2,2,0,0,0-.6.85,3.78,3.78,0,0,0-.08.94,4.63,4.63,0,0,0-.09,1.11,11,11,0,0,0-.08,1.62,11.13,11.13,0,0,0-.08,1.63c0,.51.16.93.16,1.45s-.08.93-.08,1.45v1.45c0,.42.08.94.08,1.36s-.08,1-.08,1.45v1.45c0,.52-.08.94-.08,1.45v4.27c0,.51.08,1,.08,1.45v2.9a8.76,8.76,0,0,0,0,1.45v4.35c0,.52-.08,1-.08,1.45s.08,1,.08,1.46v1.53c0,.43-.08.94-.08,1.45s.08.94.08,1.45v1.37c0,.51.08.94.08,1.45s-.08.94-.08,1.36a7.43,7.43,0,0,1-.08,1.37c0,.51.08.94.08,1.45s-.08.94-.08,1.36.08.94.08,1.37.08.94.08,1.45a6.86,6.86,0,0,0,.09,1.36v1.2c0,.43.08.85.08,1.28a2.35,2.35,0,0,0,.34,1.36,2.87,2.87,0,0,0,1.36.69c.17,0,.34.08.51.08.51,0,.94.09,1.44.09h1.45c.51,0,1-.09,1.44-.09h1.53c.42,0,.93.17,1.44.17s.94-.08,1.44-.08h4.5c.51-.09,1-.09,1.53-.17s.94-.09,1.36-.17a7.92,7.92,0,0,0,1.27-.43,7.58,7.58,0,0,0,1.28-.34c.42-.17.76-.34,1.18-.51s.85-.35,1.28-.51a13,13,0,0,0,2.12-1.29,11,11,0,0,0,1.1-.68c.34-.25.77-.51,1.11-.77a9.06,9.06,0,0,0,.93-.93,10.9,10.9,0,0,0,1-.94,13.93,13.93,0,0,0,.93-1.2,12.44,12.44,0,0,0,1-1.11,13.68,13.68,0,0,0,.77-1.19,13.12,13.12,0,0,1,.76-1.2l.76-1.28c.26-.42.43-.85.68-1.36s.43-.77.6-1.2.25-.85.42-1.36l.51-1.28c.09-.43.17-.85.25-1.37a6.55,6.55,0,0,0,.34-1.28c.09-.42.34-.85.43-1.28a7.32,7.32,0,0,1,.08-1.36,6.33,6.33,0,0,0,.17-1.37c.09-.42,0-.85.09-1.28s.08-1,.08-1.45a3.92,3.92,0,0,0,0-1.45A8.34,8.34,0,0,0,1417.69,485.84Zm-7.3,2.56v1.54c-.09.51-.17,1-.26,1.45a10.16,10.16,0,0,1-.25,1.53,13,13,0,0,1-.34,1.46,8.81,8.81,0,0,1-.25,1.36,8.53,8.53,0,0,1-.51,1.28c-.17.43-.34.77-.51,1.19s-.43.86-.6,1.28-.34.86-.59,1.28-.51.69-.77,1.11a9.61,9.61,0,0,1-.93,1c-.25.34-.51.59-.76.94s-.51.68-.85.94a7.48,7.48,0,0,1-1,.76c-.34.26-.6.6-.93.86s-.85.42-1.19.59a8.91,8.91,0,0,1-1.28.69c-.42.17-.85.25-1.27.42l-1.36.26c-.42.08-.85.08-1.36.17s-.76.08-1.18.08-.85-.08-1.28-.08-.85.08-1.27.08-.76-.08-1.19-.08a5.33,5.33,0,0,1-1.19-.17,2.09,2.09,0,0,1-1-.6,2.75,2.75,0,0,1-.51-1.11,4.24,4.24,0,0,1-.17-1.45c0-.42-.17-.85-.17-1.28v-7c0-.42.09-.85.09-1.19v-4c0-.51-.09-.94-.09-1.45,0-.34.09-.77.09-1.11v-2.56c0-.51-.09-.94-.09-1.45s.09-.94.09-1.45v-4.27c0-.42-.09-.94-.09-1.36s.09-.94.09-1.45v-1.45c0-.43-.09-.94-.09-1.37s.09-.94.09-1.45V471a6.68,6.68,0,0,1,.25-1.88,2.24,2.24,0,0,1,.6-.86,1.58,1.58,0,0,1,.93-.42,4.72,4.72,0,0,1,1.19-.26h1.36c.51,0,.93.09,1.44.09s.94-.09,1.44-.09.94.09,1.36.09,1.11.08,1.62.17,1,.42,1.52.6c.34.17.77.34,1.19.51s.77.42,1.11.68a5.08,5.08,0,0,1,1.1.68,8.63,8.63,0,0,1,1,.86,4.55,4.55,0,0,1,.93.93,10,10,0,0,1,.85,1.11,10.26,10.26,0,0,1,.85,1.11c.34.43.59.86.85,1.2a8.63,8.63,0,0,1,.59,1.28c.26.42.51.85.77,1.28l.51,1.28a11.72,11.72,0,0,1,.34,1.36,10.22,10.22,0,0,1,.5,1.54c.09.51.09,1,.17,1.53s.17.94.26,1.46a10,10,0,0,1,.17,1.62Z"/><path d="M1498.33,470.74v-8.45a3,3,0,0,0-.59-1.28,2.45,2.45,0,0,0-1.36-.77,17.32,17.32,0,0,0-3.48.18c-.42.08-.85.08-1.1.34a3.24,3.24,0,0,0-.6,1.11l-.25,1.62c0,.51.08,1,.08,1.53a9.94,9.94,0,0,1-.08,1.54c0,.43.08.94.08,1.45s-.17.94-.17,1.45.17.94.17,1.36v1.37c0,.51-.17.94-.17,1.45s.09.94.09,1.37-.09.93-.09,1.45v1.36c0,.51.17.94.17,1.45v1.37c0,.42-.17.94-.17,1.36s.09.94.09,1.45v1.37c0,.51-.09.94-.09,1.45s.09.94.09,1.36-.09.94-.09,1.37.09.94.09,1.45-.09.94-.09,1.37.17.93.17,1.45v1.36c0,.43-.08.94-.08,1.37s-.09.93-.09,1.45.17.94.17,1.36-.08.94-.08,1.37.08.94.08,1.45-.17.94-.17,1.45.09,1,.09,1.53v3c0,.51-.09,1-.09,1.45v1.54c0,.17.09.34.09.51a21.42,21.42,0,0,0,.25,2.64,2.5,2.5,0,0,0,.43,1.54,2.62,2.62,0,0,0,1.44.77c.17,0,.25.08.34.08a7.31,7.31,0,0,0,1.36-.08c.42,0,.85.08,1.35.08a2.36,2.36,0,0,0,1.45-.76,1.74,1.74,0,0,0,.68-1.45,8.4,8.4,0,0,0,.08-1.37c0-.43.09-.85.09-1.37s-.09-.93-.09-1.45v-2.81c0-.51.09-1,.09-1.45V504c0-.52-.09-.94-.09-1.45s.09-.94.09-1.45v-2.91c0-.42-.09-.93-.09-1.45V495.4c0-.51.09-1,.09-1.45V492.5c0-.51-.09-1-.09-1.45V489.6c0-.52.09-.94.09-1.45h-.09c0-.52.09-1,.09-1.45v-3c0-.51-.09-1-.09-1.54s.09-.94.09-1.45-.09-1-.09-1.53v-1.45c0-.52.09-.94.09-1.37v-2.82c0-.51-.09-.93-.09-1.45Z"/><path d="M1617.68,487.55c0-.43-.17-.85-.17-1.28s.09-1,0-1.54c-.08-.68-.08-1.28-.17-2-.08-.51-.25-1-.34-1.45l-.25-1.54c-.09-.51-.34-1-.43-1.45a11.82,11.82,0,0,1-.42-1.45l-.51-1.53-.51-1.28c-.17-.43-.42-.86-.59-1.28s-.51-.86-.68-1.28-.43-.86-.68-1.28a11.94,11.94,0,0,1-.68-1.2,5.83,5.83,0,0,0-.93-1.11c-.26-.42-.6-.76-.85-1.11s-.6-.76-.94-1.1l-1-1c-.34-.26-.67-.6-1.1-.94a9.77,9.77,0,0,0-.93-.77l-1-.76c-.34-.17-.77-.43-1.1-.6a4.91,4.91,0,0,0-1.19-.51c-.34-.17-.77-.34-1.11-.52s-.85-.34-1.35-.51a7.09,7.09,0,0,0-1.28-.42,7.86,7.86,0,0,0-1.44-.17,6.08,6.08,0,0,0-1.27-.09c-.51,0-.94.09-1.36.09a7.38,7.38,0,0,0-1.36-.09c-.51,0-.93.17-1.36.17s-.93.26-1.44.34a13,13,0,0,0-1.36.43,11.53,11.53,0,0,0-1.36.43l-1.27.51c-.43.25-.77.6-1.19.85s-.85.43-1.19.68-.76.6-1.19.86l-1,1a12.26,12.26,0,0,0-1,.94l-1,1c-.26.35-.51.86-.77,1.2s-.68.68-.93,1.11-.42.85-.68,1.28a6.46,6.46,0,0,0-.76,1.28,6.23,6.23,0,0,0-.6,1.36l-.76,1.28c-.17.51-.26,1-.43,1.45a9.6,9.6,0,0,0-.5,1.45,4.68,4.68,0,0,0-.34,1.2c-.09.42-.34.85-.43,1.19s-.17.86-.25,1.28l-.26,1.28c0,.43-.08.86-.08,1.28a6.34,6.34,0,0,0-.17,1.28,6.08,6.08,0,0,0,0,1.28,6.34,6.34,0,0,0-.17,1.28c0,.43.08.86.08,1.28v2.39a7.9,7.9,0,0,0,.17,1.45,8.85,8.85,0,0,0,.09,1.54c.08.51.17,1,.25,1.53a10.34,10.34,0,0,0,.34,1.54,7.7,7.7,0,0,0,.34,1.45c.17.51.43.94.6,1.45a7.58,7.58,0,0,0,.33,1.37c.17.51.43.85.6,1.28a8.72,8.72,0,0,0,.51,1.36c.17.43.42.85.59,1.28a8.23,8.23,0,0,1,.77,1.11c.25.43.42.85.67,1.28s.6.77.94,1.11a13.91,13.91,0,0,1,.85,1.11c.34.34.59.68.93,1a10.26,10.26,0,0,0,.85,1.11c.34.34.76.6,1.1.94a10.26,10.26,0,0,1,1.11.85c.42.26.76.51,1.19.77s.84.43,1.18.68c.51.26.94.52,1.36.69a7.89,7.89,0,0,0,1.44.51,10,10,0,0,0,1.45.43c.42.08.93.25,1.44.34a10,10,0,0,0,1.53.17c.42,0,.93.08,1.44.08h1.45l1.35-.25a6.6,6.6,0,0,0,1.36-.34l1.36-.26,1.27-.51a5.15,5.15,0,0,0,1.19-.69l1.27-.51a13.62,13.62,0,0,0,1.19-.85c.43-.26.85-.6,1.19-.85a14,14,0,0,0,1.1-1l1-1a12.44,12.44,0,0,0,1-1.11l1-1c.26-.42.6-.85.85-1.27s.42-.94.68-1.37.59-.85.85-1.28.51-.94.68-1.37a10.5,10.5,0,0,0,.59-1.45l.51-1.28c.17-.42.25-.93.42-1.36a11.84,11.84,0,0,1,.34-1.37c.09-.42.34-.85.43-1.28s.17-.93.25-1.36a7,7,0,0,0,.09-1.37,10.19,10.19,0,0,0,.25-1.36c.09-.51.09-.94.17-1.37a18.26,18.26,0,0,1,.09-2.56A5,5,0,0,0,1617.68,487.55Zm-7.47,2.05A6.24,6.24,0,0,1,1610,491c0,.43-.08.86-.08,1.37s-.09.85-.17,1.28-.26.85-.34,1.28-.17.94-.26,1.36-.25.86-.42,1.28-.17.86-.34,1.2-.34.85-.51,1.19-.42.85-.59,1.2-.51.76-.68,1.1-.51.77-.77,1.11a11.94,11.94,0,0,1-.68,1.2,10.85,10.85,0,0,1-1,1,5.35,5.35,0,0,1-1,.94,10.9,10.9,0,0,1-1,.94c-.43.26-.77.51-1.11.68s-.76.51-1.1.68-.85.35-1.19.52-.85.08-1.27.17a9,9,0,0,1-1.36.17c-.42,0-.85.17-1.27.17l-1.36-.26a7,7,0,0,1-1.27-.42,3.8,3.8,0,0,1-1.28-.43,6.63,6.63,0,0,1-1.1-.6,7,7,0,0,1-.93-.77c-.34-.25-.77-.42-1.11-.68l-.76-1a4.47,4.47,0,0,1-.85-.94c-.25-.34-.59-.6-.85-.94a8.75,8.75,0,0,1-.59-1.19,8.34,8.34,0,0,1-.77-1c-.25-.42-.42-.85-.59-1.19s-.34-.86-.51-1.2-.26-.85-.42-1.28a6.57,6.57,0,0,1-.43-1.36,6.1,6.1,0,0,1-.42-1.37c-.09-.42-.17-.94-.26-1.36s-.08-1-.17-1.45a9,9,0,0,1-.17-1.45c0-.43-.08-.94-.08-1.37a7.7,7.7,0,0,0,0-1.36v-1.37a9.31,9.31,0,0,0,.08-1.45,9,9,0,0,1,.17-1.45c.09-.43.09-.94.17-1.37s.26-.93.34-1.36a7.52,7.52,0,0,1,.34-1.45,10,10,0,0,1,.43-1.45c.16-.43.42-.86.59-1.37a11.6,11.6,0,0,1,.76-1.28,6.91,6.91,0,0,1,.68-1.36c.26-.43.51-.86.77-1.28s.51-.86.85-1.2a10.84,10.84,0,0,1,1-1,5.37,5.37,0,0,1,.94-1,9.17,9.17,0,0,1,1.1-.86,4.54,4.54,0,0,1,1.19-.77c.42-.25.85-.34,1.19-.51s.85-.25,1.27-.42.85-.26,1.27-.35a6.84,6.84,0,0,1,1.28,0,7.38,7.38,0,0,1,1.36.09,7,7,0,0,1,1.27.17,7.44,7.44,0,0,1,1.19.43c.42.17.76.34,1.19.51a12.92,12.92,0,0,1,1.18.6,27.09,27.09,0,0,0,2,1.62c.34.34.6.68.94,1a10.68,10.68,0,0,0,.93,1c.25.42.42.85.68,1.27s.51.69.76,1.11a8.63,8.63,0,0,1,.6,1.28c.17.43.5.77.67,1.28s.17.86.34,1.28.34.94.51,1.37.17.94.34,1.36.17.94.26,1.37.17.94.25,1.36.17.94.26,1.46v1.45a8.83,8.83,0,0,1,.17,1.45A6.18,6.18,0,0,1,1610.21,489.6Z"/></g></symbol>
+    <symbol id="pijl" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="Blackliner Tattoo Studio"><svg viewBox="0 0 1688.19 517.24" aria-hidden="true"><use href="#logo"/></svg></a>
+    <nav class="nav" aria-label="Hoofdmenu">
+      <a href="#werk">Werk</a><a href="#antoon">Antoon</a><a href="#werkwijze">Werkwijze</a><a href="#weten">Goed om te weten</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-t" href="#contact">Gesprek aanvragen <svg><use href="#pijl"/></svg></a>
+    <button class="burger" aria-label="Menu openen" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
+<nav class="mnav" aria-label="Mobiel menu">
+  <a href="#werk">Werk <small>01</small></a><a href="#antoon">Antoon <small>02</small></a><a href="#stijlen">Stijlen <small>03</small></a><a href="#werkwijze">Werkwijze <small>04</small></a><a href="#weten">Goed om te weten <small>05</small></a><a href="#contact">Contact <small>06</small></a>
+  <a class="btn btn-t" href="#contact">Plan een gratis gesprek</a>
+</nav>
+
+<main>
+<section class="hero grain">
+  <div class="wrap">
+    <div class="hero-g">
+      <div>
+        <span class="lbl" data-r>Fineline <b>·</b> micro realisme <b>·</b> dotwork</span>
+        <h1 data-r="2"><span>Eén naald.</span><span><strong>Eén kans.</strong></span></h1>
+        <p class="lead" data-r="3">Bij fijne lijnen is er geen ruimte voor een tweede poging. Daarom tekent <b>Antoon De Grom</b> elk ontwerp zelf, op maat van je idee en je huid, en zet hij het in alle rust. Een private studio, enkel op afspraak.</p>
+        <div class="knoppen" data-r="3">
+          <a class="btn btn-t" href="#contact">Plan een gratis gesprek <svg><use href="#pijl"/></svg></a>
+          <a class="btn btn-o" href="#werk">Bekijk recent werk</a>
+        </div>
+      </div>
+      <div class="comp" data-r="2">
+        <svg class="ring" viewBox="0 0 600 600" aria-hidden="true">
+          <circle cx="300" cy="300" r="296"/><circle cx="300" cy="300" r="230"/>
+          <g class="tick" id="tk"></g>
+        </svg>
+        <div class="frame marks f-main"><i></i><img src="img/studio-werk.webp" alt="Antoon zet een fijne lijn op een onderarm" width="1384" height="841" fetchpriority="high"><span class="shade"></span></div>
+        <img class="stamp" src="img/badge.webp" alt="" width="320" height="317">
+        <div class="anno" aria-hidden="true"><span class="tx">1 à 1,5 mm diep</span><span class="ln"></span><span class="dt"></span></div>
+        <figure class="f-card" style="margin:0"><img src="img/lotus-fijn.webp" alt="Fineline lotus op een onderarm" width="900" height="899" loading="lazy"><p>Lotus <span>fineline</span></p></figure>
+        <div class="score"><b>4,9</b><div><span class="st">★★★★★</span><small>72 reviews<br>op Google</small></div></div>
+      </div>
+    </div>
+    <div class="feat" data-r>
+      <div><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8.5A3.5 3.5 0 0 1 8.5 5h15A3.5 3.5 0 0 1 27 8.5v9a3.5 3.5 0 0 1-3.5 3.5H14l-6 5v-5h0A3 3 0 0 1 5 18z"/><path d="M11 12h10M11 16h6"/></svg><p style="margin:0"><strong>Eerste gesprek gratis</strong><span>Een halfuurtje, vrijblijvend</span></p></div>
+      <div><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 5.5l5 5L12 25l-6.5 1.5L7 20z"/><path d="M18.5 8.5l5 5M7 20l5 5"/></svg><p style="margin:0"><strong>Zelf getekend</strong><span>Elk ontwerp op maat</span></p></div>
+      <div><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="17" r="10"/><path d="M16 11v6l4 2.5M13 4h6"/></svg><p style="margin:0"><strong>Sessies van twee uur</strong><span>Groter werk in delen</span></p></div>
+      <div><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4l10 4v7c0 6.5-4.3 11-10 13C10.3 26 6 21.5 6 15V8z"/><path d="M11.5 16l3 3 6-6.5"/></svg><p style="margin:0"><strong>FOD-normen</strong><span>Reg. nr. Volksgezondheid 1434</span></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="antoon paper" id="antoon">
+  <div class="wrap a-g">
+    <div class="a-beeld" data-r>
+      <div class="frame marks a-por"><i></i><img src="img/antoon.webp" alt="Antoon De Grom, tatoeëerder bij Blackliner" width="900" height="1080" loading="lazy"></div>
+      <figure class="schets s1" style="margin:0"><img src="img/schets-haas.webp" alt="Potloodschets van een haas door Antoon" width="800" height="799" loading="lazy"><figcaption>Schets · haas</figcaption></figure>
+      <figure class="schets s2" style="margin:0"><img src="img/schets-kat.webp" alt="Tekening van een kat door Antoon" width="800" height="877" loading="lazy"><figcaption>Schets · kat</figcaption></figure>
+    </div>
+    <div class="a-txt">
+      <span class="lbl" data-r>De tatoeëerder</span>
+      <h2 class="h2" data-r="2">Eerst tekenaar.<br><strong>Dan tatoeëerder.</strong></h2>
+      <p data-r="2">Antoon studeerde teken- en schilderkunst in Aalst en animatiefilm in Gent. Daarna tekende hij jarenlang voor anderen, en vandaag ontwerpt hij nog altijd educatieve spelletjes. <b>Die tekenhand zie je in elke lijn die hij zet.</b></p>
+      <ul class="cv" data-r="3">
+        <li><span>Opleiding</span>Teken- en schilderkunst, animatiefilm</li>
+        <li><span>Tekenwerk</span>Websites en spelletjes voor o.a. Studio 100</li>
+        <li><span>Vandaag</span>Ontwerper en animator bij uitgeverij die Keure</li>
+        <li><span>Passies</span>Tatoeëren en oude motoren. Allebei zitten ze in het logo.</li>
+      </ul>
+      <blockquote class="citaat" data-r="3">
+        <p>“Bij ons ben je geen nummer en vind je geen standaardpakketten. Ik geloof dat een tattoo een persoonlijke reis is, geen massaproduct.”</p>
+        <footer><svg viewBox="0 0 1688.19 517.24" aria-hidden="true"><use href="#logo"/></svg> Antoon De Grom</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="werk grain" id="werk">
+  <div class="wrap">
+    <div class="kop">
+      <div><span class="lbl" data-r>Recent werk</span><h2 class="h2" data-r="2">Gezet in de studio,<br><strong>getekend voor één huid.</strong></h2></div>
+      <p data-r="3">Geen flash van de muur. Elk stuk hieronder begon als een gesprek en een tekening. Het nieuwste werk staat op <a href="https://www.instagram.com/blackliner_tattoo_studio/" target="_blank" rel="noopener">Instagram</a>.</p>
+    </div>
+    <div class="mos">
+      <figure class="tile t1" data-r><img src="img/feniks.webp" alt="Feniks in black and grey op een bovenarm" width="1000" height="1128" loading="lazy"><figcaption>Feniks · bovenarm</figcaption></figure>
+      <figure class="tile t2" data-r="2"><img src="img/kwal.webp" alt="Kwal in fijne lijnen op een zij" width="1200" height="1005" loading="lazy" style="object-position:50% 40%"><figcaption>Kwal · zij</figcaption></figure>
+      <figure class="tile t3" data-r="3"><img src="img/lotus-arm.webp" alt="Fineline lotus op een bovenarm" width="900" height="900" loading="lazy"><figcaption>Lotus · fineline</figcaption></figure>
+      <figure class="tile t4" data-r><img src="img/rank-schouder.webp" alt="Rank met blaadjes over een schouder" width="1000" height="1248" loading="lazy"><figcaption>Rank · schouder</figcaption></figure>
+      <figure class="tile t5" data-r="2"><img src="img/vlinder.webp" alt="Vlinder op een schouderblad" width="800" height="761" loading="lazy"><figcaption>Vlinder · micro</figcaption></figure>
+      <figure class="tile t6" data-r="3"><img src="img/draak.webp" alt="Draak met rode zon op een onderarm" width="750" height="1000" loading="lazy"><figcaption>Draak · onderarm</figcaption></figure>
+      <figure class="tile t7" data-r><img src="img/leeuw.webp" alt="Leeuw in dotwork" width="793" height="795" loading="lazy"><figcaption>Leeuw · dotwork</figcaption></figure>
+      <figure class="tile t8" data-r="2"><img src="img/roos-sleutelbeen.webp" alt="Fijne roos bij het sleutelbeen" width="800" height="799" loading="lazy"><figcaption>Roos · sleutelbeen</figcaption></figure>
+      <figure class="tile t9" data-r="2"><img src="img/vleugel.webp" alt="Vleugel over een onderarm" width="1000" height="1000" loading="lazy"><figcaption>Vleugel · onderarm</figcaption></figure>
+      <a class="tinfo" href="https://www.instagram.com/blackliner_tattoo_studio/" target="_blank" rel="noopener" data-r="3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8" fill="currentColor"/></svg><span><b>Meer op Instagram</b><small>@blackliner_tattoo_studio</small></span></a>
+    </div>
+  </div>
+</section>
+
+<section class="stijl" id="stijlen">
+  <div class="wrap st-g">
+    <div class="st-l">
+      <span class="lbl" data-r>Stijlen</span>
+      <h2 class="h2" data-r="2">Klein, fijn<br><strong>en vol detail.</strong></h2>
+      <p data-r="3">Voor fineline houdt Antoon van organische tekeningen: bloemen, dieren, sierlijke symbolen. Maar ook van strakke geometrie, kleine namen en pootjes.</p>
+      <div class="chips" data-r="3"><span>Black &amp; grey</span><span>Whip shading</span><span>Stippling</span><span>Tekst</span></div>
+    </div>
+    <div class="lijst">
+      <a class="rij" href="#werk" data-r><span class="n">01</span><div><h3>Fineline</h3><p>Gezet met één naald. Dat vraagt meer tijd en stilte, en dat zie je aan het resultaat.</p></div><span class="th"><img src="img/roos-hand.webp" alt="Fineline roos op een hand" width="800" height="998" loading="lazy"></span></a>
+      <a class="rij" href="#werk" data-r><span class="n">02</span><div><h3>Micro realisme</h3><p>Veel detail op een kleine oppervlakte, zonder dat het druk wordt.</p></div><span class="th"><img src="img/joker.webp" alt="Realistisch portret in black and grey" width="850" height="967" loading="lazy"></span></a>
+      <a class="rij" href="#werk" data-r><span class="n">03</span><div><h3>Dotwork</h3><p>Schaduw en diepte, punt per punt opgebouwd.</p></div><span class="th"><img src="img/ruggengraat.webp" alt="Mandala in dotwork langs de ruggengraat" width="900" height="1125" loading="lazy"></span></a>
+      <a class="rij" href="#werk" data-r><span class="n">04</span><div><h3>Grafisch &amp; old school</h3><p>Geometrie, symbolen en klassieke beelden met een strakke lijn.</p></div><span class="th"><img src="img/kompas.webp" alt="Grafische tattoo met kompas en pijlen" width="792" height="894" loading="lazy"></span></a>
+    </div>
+  </div>
+</section>
+
+<section class="wijze paper" id="werkwijze">
+  <div class="wrap">
+    <div class="kop">
+      <div><span class="lbl" data-r>Werkwijze</span><h2 class="h2" data-r="2">Van een idee<br><strong>tot de laatste lijn.</strong></h2></div>
+      <p data-r="3">Een tattoo draag je een leven lang. Daarom gaat er bij Antoon geen naald in je huid voor het ontwerp helemaal klopt.</p>
+    </div>
+    <div class="stappen">
+      <div class="stap" data-r><div class="big">01</div><h3>Het gesprek</h3><p>Je komt langs met voorbeelden, of je vertelt gewoon wat je in gedachten hebt. Een halfuurtje, gratis en vrijblijvend voor ons allebei.</p></div>
+      <div class="stap" data-r="2"><div class="big">02</div><h3>Het ontwerp</h3><p>Ga je verder, dan betaal je meestal een voorschot dat later van de prijs afgaat. Antoon tekent je idee uit en stuurt het door. Rustig over nadenken mag, bijsturen ook.</p></div>
+      <div class="stap" data-r="3"><div class="big">03</div><h3>Prijs en datum</h3><p>Ligt het ontwerp vast, dan weet je wat het kost en hoeveel sessies nodig zijn. Dan prikken we een datum.</p><span class="chip">Startprijs € 50</span></div>
+      <div class="stap" data-r="3"><div class="big">04</div><h3>De sessie</h3><p>Je betaalt per uur, vanaf de eerste lijn. Na afloop overlopen we samen hoe je je tattoo verzorgt.</p></div>
+    </div>
+    <div class="curve" data-r>
+      <div>
+        <span class="lbl">Waarom twee uur?</span>
+        <h3>Je lichaam helpt een handje. Maar niet onbeperkt.</h3>
+        <p>Tijdens het tatoeëren maakt je lichaam endorfine aan, en die dempt de pijn. Na gemiddeld twee uur stopt dat, en vanaf dan voel je elk uur wat meer. Grotere stukken splitsen we daarom op in sessies van twee uur. Dat is veel draaglijker.</p>
+      </div>
+      <svg viewBox="0 0 520 280" role="img" aria-label="Pijn blijft laag tot ongeveer twee uur en stijgt daarna">
+        <defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2BB3BC" stop-opacity=".28"/><stop offset="1" stop-color="#2BB3BC" stop-opacity="0"/></linearGradient></defs>
+        <g class="gr"><line x1="40" y1="60" x2="510" y2="60"/><line x1="40" y1="120" x2="510" y2="120"/><line x1="40" y1="180" x2="510" y2="180"/><line x1="157" y1="20" x2="157" y2="240"/><line x1="392" y1="20" x2="392" y2="240"/></g>
+        <line class="ax" x1="40" y1="240" x2="510" y2="240"/><line class="ax" x1="40" y1="20" x2="40" y2="240"/>
+        <path class="area" d="M40 196 C 120 200 200 200 275 194 C 340 186 400 120 510 34 L510 240 L40 240 Z"/>
+        <path class="cv1" d="M40 196 C 120 200 200 200 275 194 C 340 186 400 120 510 34"/>
+        <line x1="275" y1="20" x2="275" y2="240" stroke="#2BB3BC" stroke-dasharray="3 5" stroke-width="1"/>
+        <circle cx="275" cy="194" r="6" fill="#2BB3BC"/><circle cx="275" cy="194" r="13" fill="none" stroke="#2BB3BC" stroke-opacity=".35"/>
+        <text x="286" y="40" class="tk">endorfine stopt</text>
+        <text x="40" y="262">0 u</text><text x="150" y="262">1 u</text><text x="266" y="262">2 u</text><text x="384" y="262">3 u</text><text x="488" y="262">4 u</text>
+        <text x="0" y="14" style="text-transform:uppercase">pijn</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="weten grain" id="weten">
+  <div class="wrap">
+    <div class="kop">
+      <div><span class="lbl" data-r>Goed om te weten</span><h2 class="h2" data-r="2">Eerlijk advies,<br><strong>ook als het nee is.</strong></h2></div>
+      <p data-r="3">Antoon zegt je liever vooraf wat werkt en wat niet. Zo heb je jaren plezier van je tattoo.</p>
+    </div>
+    <div class="bento">
+      <div class="b b-vinger" data-r>
+        <div><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5V4.5a1.5 1.5 0 0 1 3 0V11m0-4.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-.5a6 6 0 0 1-4.6-2.2L3.5 15a1.6 1.6 0 0 1 2.4-2.1L9 15.5"/></svg></div>
+        <h3>Een vingertattoo? Liever niet.</h3></div>
+        <div><div class="num">3<small>jaar, hooguit</small></div><div class="lijn"></div>
+        <p>Je vingers werk je de hele dag en de huid vernieuwt er snel. Een kleine tattoo is daar na hooguit drie jaar vervaagd tot een vlek. Antoon toont je graag een plek waar het wél mooi blijft.</p></div>
+      </div>
+      <div class="b" data-r="2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg></div><h3>Kom alleen</h3><p>Laat vrienden, kinderen en huisdieren thuis. Een fijne lijn vraagt stilte, en jij hebt er ook deugd van.</p></div>
+      <div class="b b-bon" data-r="3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M12 8v12M3 12h18M12 8c-1.5-3.5-5.5-3.5-5.5-1S10 8 12 8zm0 0c1.5-3.5 5.5-3.5 5.5-1S14 8 12 8z"/></svg></div><h3>Cadeaubon</h3><p>Een jaar geldig, met het bedrag dat jij kiest. Leuker dan geld in een envelop.</p></div>
+      <div class="b b-zorg" data-r><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 5.5 6.8 5.5 10a5.5 5.5 0 0 1-11 0C6.5 9.8 9 7 12 3z"/></svg></div><h3>Nazorg, kort samengevat</h3>
+        <ul class="zorg"><li><b>Twee weken</b>Drie keer per dag deppen met ontsmetting en een dun laagje zalf.</li><li><b>Drie nachten</b>Huishoudfolie erover, zo kleeft niets aan je lakens.</li><li><b>Zes weken</b>Geen bad, zwembad, sauna of zon.</li></ul></div>
+      <div class="b b-regels" data-r="2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3.2V12c0 4.6-3.3 8-8 9-4.7-1-8-4.4-8-9V6.2z"/><path d="M8.8 12l2.3 2.3 4.3-4.6"/></svg></div><h3>Netjes volgens de regels</h3><div class="chips"><span>Vanaf 18 jaar</span><span>FOD Volksgezondheid</span><span>REACH-inkten</span></div></div>
+      <div class="b" data-r="3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M9.5 17V7.5h3.3a2.8 2.8 0 0 1 0 5.6H9.5"/></svg></div><h3>Parkeren</h3><p>Dat kan gewoon op de oprit.</p></div>
+      <div class="b" data-r="3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4M9 14.5l2 2 4-4"/></svg></div><h3>Enkel op afspraak</h3><p>Antoon werkt alleen en op afspraak. Zo krijg je zijn volle aandacht, van de eerste tot de laatste lijn.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact paper" id="contact">
+  <div class="wrap">
+    <div class="rate" data-r>
+      <div class="nr"><b>4,9</b><div><span class="st">★★★★★</span><small>uit 72 reviews op Google</small></div></div>
+      <p>Wat klanten over hun tattoo schrijven, lees je op Google. Die score bouwde Antoon op met één tattoo tegelijk.</p>
+    </div>
+    <div class="c-g">
+      <div class="c-l">
+        <span class="lbl" data-r>Contact</span>
+        <h2 class="h2" data-r="2">Een idee?<br><strong>Schrijf het neer.</strong></h2>
+        <p data-r="2">Vertel kort wat je wil, waar en hoe groot. Antoon neemt contact op voor een eerste gesprek in de studio.</p>
+        <ul class="gegevens" data-r="3">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span><small>Studio</small>Dokstraat 24, 9402 Meerbeke (Ninove)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h3l1.5 4-2 1.5a11 11 0 0 0 6 6l1.5-2 4 1.5v3a2 2 0 0 1-2 2A16 16 0 0 1 4.5 5.5a2 2 0 0 1 2-2z"/></svg><span><small>Bellen</small><a href="tel:+32475208503">0475 20 85 03</a></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M4 7l8 6 8-6"/></svg><span><small>Mailen</small><a href="mailto:info@blackliner.be">info@blackliner.be</a></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><small>Openingsuren</small>Enkel op afspraak</span></li>
+        </ul>
+        <div class="knoppen" data-r="3">
+          <a class="btn btn-d" href="https://wa.me/32475208503" target="_blank" rel="noopener">WhatsApp <svg><use href="#pijl"/></svg></a>
+          <a class="btn btn-p" href="https://www.google.com/maps/search/?api=1&amp;query=Blackliner+Tattoo+Studio+Dokstraat+24+9402+Ninove" target="_blank" rel="noopener">Route</a>
+        </div>
+      </div>
+      <form class="form marks" action="mailto:info@blackliner.be" method="post" enctype="text/plain" data-r="2">
+        <i></i>
+        <h3>Afspraak aanvragen</h3>
+        <p class="sub">Hoe beter je het omschrijft, hoe vlotter het eerste gesprek.</p>
+        <div class="vv">
+          <div><label for="f-naam">Voornaam en naam</label><input id="f-naam" name="naam" autocomplete="name" required></div>
+          <div><label for="f-gsm">Gsm</label><input id="f-gsm" name="gsm" type="tel" autocomplete="tel" required></div>
+          <div class="vol"><label for="f-mail">E-mail</label><input id="f-mail" name="email" type="email" autocomplete="email" required></div>
+          <div><label for="f-plek">Plaats op je lichaam</label><input id="f-plek" name="plaats" placeholder="bv. binnenkant onderarm"></div>
+          <div><label for="f-groot">Ongeveer hoe groot?</label><select id="f-groot" name="grootte"><option>0 tot 6 cm</option><option>7 tot 10 cm</option><option>11 tot 15 cm</option><option>Meer dan 15 cm</option></select></div>
+          <div class="vol"><label>Ontwerp</label><div class="keus"><label><input type="radio" name="ontwerp" value="Ontwerp op basis van idee" checked><span>Teken iets op basis van mijn idee</span></label><label><input type="radio" name="ontwerp" value="Eigen ontwerp"><span>Ik heb al een ontwerp</span></label></div></div>
+          <div class="vol"><label for="f-idee">Beschrijf kort je idee</label><textarea id="f-idee" name="idee"></textarea></div>
+        </div>
+        <button class="btn btn-d" type="submit">Verstuur aanvraag <svg><use href="#pijl"/></svg></button>
+        <p class="klein">Liever eerst iets vragen? Bellen of een berichtje mag ook.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="voet">
+  <div class="wrap">
+    <svg class="lg" viewBox="0 0 1688.19 517.24" aria-hidden="true"><use href="#logo"/></svg>
+    <nav><a href="#werk">Werk</a><a href="#antoon">Antoon</a><a href="#werkwijze">Werkwijze</a><a href="https://www.instagram.com/blackliner_tattoo_studio/" target="_blank" rel="noopener">Instagram</a></nav>
+    <p>Blackliner Tattoo Studio · Dokstraat 24, 9402 Ninove · Voorbeeldsite door Digital Impression</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var top=document.getElementById('top');
+  function sc(){top.classList.toggle('klein',window.scrollY>30)}
+  sc();window.addEventListener('scroll',sc,{passive:true});
+  var b=document.querySelector('.burger');
+  function zet(o){document.body.classList.toggle('menu-open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Menu sluiten':'Menu openen');document.body.style.overflow=o?'hidden':''}
+  b.addEventListener('click',function(){zet(!document.body.classList.contains('menu-open'))});
+  document.querySelectorAll('.mnav a').forEach(function(a){a.addEventListener('click',function(){zet(false)})});
+  var g=document.getElementById('tk');
+  if(g){var s='';for(var i=0;i<120;i++){var a=i*3*Math.PI/180,r1=296,r2=i%10?288:276;s+='<line x1="'+(300+r1*Math.cos(a)).toFixed(1)+'" y1="'+(300+r1*Math.sin(a)).toFixed(1)+'" x2="'+(300+r2*Math.cos(a)).toFixed(1)+'" y2="'+(300+r2*Math.sin(a)).toFixed(1)+'"/>'}g.innerHTML=s}
+  var els=document.querySelectorAll('[data-r]');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    els.forEach(function(e){io.observe(e)});
+  } else els.forEach(function(e){e.classList.add('in')});
+})();
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
+<style>
+.di,.di *{box-sizing:border-box;margin:0;padding:0;border:0;background:none;box-shadow:none;text-shadow:none;text-transform:none;letter-spacing:normal;float:none;max-width:none;min-height:0;font:inherit;color:inherit;text-decoration:none;opacity:1;transform:none;filter:none;list-style:none}
+.di :is(h2,h3,h4,p,ul,ol,li,details,summary,b,strong,em,small,span,div)::before,.di :is(h2,h3,h4,p,ul,ol,li,details,summary,b,strong,em,small,span,div)::after{content:none!important}
+.di summary::marker{content:""}
+.di{--navy:#0E1C3A;--deep:#0A1530;--goud:#C9A24A;--goud2:#D8BB6A;--bleek:#E8D9A8;--beige:#F1EBDF;--creme:#FBF8F2;
+  --zacht:rgba(241,235,223,.74);--stil:rgba(241,235,223,.5);--lijn:rgba(241,235,223,.12);--ease:cubic-bezier(.16,1,.3,1);
+  position:relative;overflow:clip;background:var(--navy);color:var(--beige);padding:clamp(88px,11vw,136px) 0 56px;
+  font:400 17px/1.65 'Inter',system-ui,sans-serif;text-align:left;-webkit-font-smoothing:antialiased}
+.di::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(760px 480px at 50% -10%,rgba(201,162,74,.14),transparent 66%)}
+.di::after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,162,74,.7) 30%,rgba(232,217,168,.9) 50%,rgba(201,162,74,.7) 70%,transparent)}
+.di .di-wrap{position:relative;max-width:980px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+.di h2,.di h3,.di h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:-.01em;text-transform:none;font-style:normal;color:var(--creme)}
+.di a{color:inherit}
+.di svg{flex:none}
+
+/* boodschap */
+.di .di-kern{text-align:center;max-width:760px;margin:0 auto}
+.di .di-afz{display:inline-flex;align-items:center;gap:12px;margin-bottom:28px;color:var(--goud2);font-size:15px;font-weight:500}
+.di .di-afz i{width:32px;height:32px;border-radius:9px;border:1px solid rgba(201,162,74,.45);display:grid;place-items:center;font:600 15px/1 'Cormorant Garamond',serif;font-style:normal;color:var(--goud);letter-spacing:-.5px}
+.di h2{line-height:1}
+.di .di-voor{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:20px;font:italic 500 clamp(24px,2.5vw,31px)/1.2 'Cormorant Garamond',Georgia,serif;color:var(--goud2);letter-spacing:.005em}
+.di .di-kern .di-voor::before,.di .di-kern .di-voor::after{content:""!important;flex:none;width:clamp(28px,5vw,60px);height:1px;background:linear-gradient(90deg,transparent,var(--goud))}
+.di .di-kern .di-voor::after{background:linear-gradient(270deg,transparent,var(--goud))}
+.di .di-samen{display:block;font:500 clamp(46px,6.2vw,80px)/1.02 'Cormorant Garamond',Georgia,serif;letter-spacing:-.015em;text-wrap:balance;
+  color:var(--creme);background:linear-gradient(180deg,#FBF8F2 35%,#E8D9A8 135%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;padding-bottom:.06em}
+.di .di-lead{text-wrap:pretty;color:var(--zacht);font-size:clamp(17px,1.5vw,19px);margin:24px auto 0;max-width:33em}
+.di .di-knoppen{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:36px}
+.di .di-knoppen a{position:relative;overflow:hidden;display:inline-flex;justify-content:center;align-items:center;gap:10px;border-radius:999px;padding:18px 30px;
+  font:600 17px/1.2 'Inter',sans-serif;text-decoration:none;isolation:isolate;white-space:nowrap;transition:color .5s var(--ease),border-color .5s var(--ease)}
+.di .di-knoppen a svg{width:19px;height:19px}
+.di .di-knoppen a::before{content:"";position:absolute;inset:0;z-index:-1;transform:translateY(101%);transition:transform .55s var(--ease)}
+.di .di-knoppen a:hover::before{transform:translateY(0)}
+.di .di-knoppen .di-cal{background:var(--goud);color:var(--deep);box-shadow:0 18px 44px -18px rgba(201,162,74,.8)}
+.di .di-knoppen .di-cal::before{background:var(--bleek)}
+.di .di-knoppen .di-wa{border:1px solid rgba(241,235,223,.3);color:var(--creme)}
+.di .di-knoppen .di-wa::before{background:var(--creme)}
+.di .di-knoppen .di-wa:hover{color:var(--navy);border-color:var(--creme)}
+.di .di-klein{margin-top:18px;font-size:14.5px;color:var(--stil)}
+
+.di .di-blok{margin-top:clamp(88px,11vw,128px)}
+.di .di-blok>h3{font-size:clamp(30px,3.4vw,40px);line-height:1.05;text-align:center;margin-bottom:44px}
+
+/* prijs */
+.di .di-prijs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);border:1px solid var(--lijn);border-radius:28px;overflow:hidden}
+.di .di-prijs>div{padding:clamp(28px,3.6vw,40px)}
+.di .di-prijs>div+div{border-left:1px solid var(--lijn);background:rgba(241,235,223,.025)}
+.di .di-wat{font-size:15px;font-weight:500;color:var(--goud2)}
+.di .di-getal{font:500 clamp(60px,6.4vw,76px)/1 'Cormorant Garamond',serif;font-variant-numeric:lining-nums;color:var(--creme);margin-top:8px;letter-spacing:-.02em}
+.di .di-getal small{font:500 16px/1 'Inter',sans-serif;color:var(--stil);letter-spacing:0;margin-left:8px}
+.di .di-prijs p{color:var(--zacht);font-size:15.5px;margin-top:14px;max-width:24em}
+.di .di-prijs p b{color:var(--creme);font-weight:500}
+.di .di-opties{margin-top:22px;list-style:none}
+.di .di-opties li{display:grid;grid-template-columns:1fr auto;gap:4px 20px;padding:16px 0;border-top:1px solid var(--lijn)}
+.di .di-opties li:last-child{padding-bottom:0}
+.di .di-opties b{font:500 23px/1.2 'Cormorant Garamond',serif;color:var(--creme);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.di .di-opties b em{font:600 12px/1 'Inter',sans-serif;font-style:normal;color:var(--deep);background:var(--goud);border-radius:999px;padding:4px 10px}
+.di .di-opties .di-pp{font:500 24px/1.2 'Cormorant Garamond',serif;font-variant-numeric:lining-nums;color:var(--creme);text-align:right;white-space:nowrap}
+.di .di-opties .di-pp small{font:500 13.5px/1 'Inter',sans-serif;color:var(--stil);margin-left:4px}
+.di .di-opties .di-ot{grid-column:1/-1;color:var(--zacht);font-size:15px}
+
+/* faq */
+.di .di-faq{max-width:760px;margin:0 auto;border-top:1px solid var(--lijn)}
+.di .di-faq details{border-bottom:1px solid var(--lijn)}
+.di .di-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 2px;
+  font:500 22px/1.25 'Cormorant Garamond',serif;color:var(--creme);transition:color .3s}
+.di .di-faq summary::-webkit-details-marker{display:none}
+.di .di-faq summary:hover{color:var(--goud2)}
+.di .di-faq summary i{flex:none;position:relative;width:30px;height:30px;border-radius:50%;border:1px solid rgba(201,162,74,.5);transition:transform .45s var(--ease),background .3s}
+.di .di-faq summary i::before,.di .di-faq summary i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:var(--goud);transform:translate(-50%,-50%)}
+.di .di-faq summary i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .45s var(--ease)}
+.di .di-faq details[open] summary i{transform:rotate(180deg);background:rgba(201,162,74,.12)}
+.di .di-faq details[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+.di .di-faq .di-antw{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.di .di-faq details[open] .di-antw{grid-template-rows:1fr}
+.di .di-faq .di-antw>div{overflow:hidden}
+.di .di-faq .di-antw p{color:var(--zacht);font-size:16px;padding:0 50px 22px 2px;max-width:38em}
+
+.di .di-faq details,.di .di-faq details[open]{background:none;border-radius:0;box-shadow:none;margin:0;padding:0;border:0;border-bottom:1px solid var(--lijn);display:block}
+.di .di-faq details[open] summary,.di .di-faq summary:hover{background:none;box-shadow:none}
+
+/* afsluiter */
+.di .di-slot{margin-top:clamp(72px,9vw,104px);padding-top:36px;border-top:1px solid var(--lijn);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.di .di-wie{display:flex;align-items:center;gap:16px}
+.di .di-foto{flex:none;display:block;width:60px;height:60px;border-radius:50%;object-fit:cover;object-position:50% 40%;background:#0A1530;box-shadow:0 0 0 1px rgba(201,162,74,.6),0 0 0 4px #0E1C3A,0 0 0 5px rgba(201,162,74,.22)}
+.di .di-wie b{display:block;font:italic 500 26px/1.1 'Cormorant Garamond',serif;color:var(--creme)}
+.di .di-wie .di-lijn{font-size:14.5px;color:var(--stil)}
+.di .di-wie .di-lijn a{text-decoration:none}
+.di .di-wie .di-lijn a:hover{color:var(--creme)}
+.di .di-slot .di-knoppen{margin:0}
+.di .di-slot .di-knoppen a{padding:14px 24px;font-size:15.5px}
+.di :focus-visible{outline:2px solid var(--goud);outline-offset:4px;border-radius:12px}
+
+/* één rustige beweging */
+.di.di-js [data-in]{opacity:0;transform:translateY(16px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0) * 110ms)}
+.di.di-js [data-in].di-zien{opacity:1;transform:none}
+
+@media (max-width:820px){
+  .di .di-prijs{grid-template-columns:1fr}
+  .di .di-prijs>div+div{border-left:0;border-top:1px solid var(--lijn)}
+}
+@media (max-width:720px){
+  .di .di-faq summary{font-size:20px;padding:18px 2px}
+  .di .di-faq .di-antw p{padding-right:10px;font-size:15.5px}
+  .di{font-size:16.5px;padding-bottom:44px}
+  .di .di-voor{font-size:21px;gap:12px;margin-bottom:14px}
+  .di .di-kern .di-voor::before,.di .di-kern .di-voor::after{width:24px}
+  .di .di-samen{font-size:clamp(36px,10vw,46px)}
+  .di .di-lead{font-size:16.5px}
+  .di .di-knoppen{flex-direction:column;margin-top:30px}
+  .di .di-knoppen a{width:100%;padding:17px 18px;font-size:16px}
+  .di .di-blok>h3{margin-bottom:32px}
+  .di .di-prijs{border-radius:24px}
+  .di .di-prijs>div{padding:26px 22px}
+  .di .di-slot{flex-direction:column;align-items:stretch}
+  .di .di-slot .di-knoppen a{width:100%}
+}
+@media (prefers-reduced-motion:reduce){.di.di-js [data-in]{transition:none!important;opacity:1!important;transform:none!important}.di .di-knoppen a,.di .di-knoppen a::before,.di .di-faq summary i,.di .di-faq summary i::after,.di .di-faq .di-antw{transition:none}}
+
+/* kaartje halverwege */
+.di-tip,.di-tip *{box-sizing:border-box;margin:0;padding:0;border:0;background:none;box-shadow:none;text-shadow:none;text-transform:none;letter-spacing:normal;float:none;max-width:none;font:inherit;color:inherit;text-decoration:none;list-style:none}
+.di-tip{--navy:#0E1C3A;--goud:#C9A24A;--goud2:#D8BB6A;--creme:#FBF8F2;--zacht:rgba(241,235,223,.76);--ease:cubic-bezier(.16,1,.3,1);
+  position:fixed;left:20px;bottom:20px;z-index:2147483000;width:340px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+  padding:18px 18px 18px 18px;border-radius:20px;background:var(--navy);color:var(--creme);font:400 15px/1.5 'Inter',system-ui,sans-serif;text-align:left;
+  box-shadow:0 0 0 1px rgba(201,162,74,.4),0 24px 60px -18px rgba(0,0,0,.55);opacity:0;transform:translateY(24px) scale(.98);pointer-events:none;
+  transition:opacity .6s var(--ease),transform .6s var(--ease);-webkit-font-smoothing:antialiased}
+.di-tip.di-tip-aan{opacity:1;transform:none;pointer-events:auto}
+.di-tip .di-tip-s{display:block;width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:50% 40%;background:#0A1530;box-shadow:0 0 0 1px rgba(201,162,74,.6)}
+.di-tip .di-tip-t{font:italic 500 20px/1.2 'Cormorant Garamond',Georgia,serif;color:var(--goud2);padding-right:22px}
+.di-tip .di-tip-p{color:var(--zacht);margin-top:4px;font-size:14.5px}
+.di-tip .di-tip-k{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:10px 18px;border-radius:999px;background:var(--goud);color:#0A1530;font:600 14.5px/1.2 'Inter',sans-serif;cursor:pointer;transition:background .3s}
+.di-tip .di-tip-k:hover{background:#E8D9A8}
+.di-tip .di-tip-k svg{width:16px;height:16px}
+.di-tip .di-tip-x{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:var(--zacht);cursor:pointer;transition:background .3s,color .3s}
+.di-tip .di-tip-x:hover{background:rgba(241,235,223,.08);color:var(--creme)}
+.di-tip .di-tip-x svg{width:14px;height:14px}
+.di-tip :focus-visible{outline:2px solid var(--goud);outline-offset:3px}
+.di-tip :is(p,div,span,a,button)::before,.di-tip :is(p,div,span,a,button)::after{content:none!important}
+@media (max-width:560px){.di-tip{left:12px;right:12px;width:auto;bottom:12px;padding:14px 14px 14px 14px;gap:12px}.di-tip .di-tip-s{width:34px;height:34px;font-size:17px}.di-tip .di-tip-t{font-size:18px}.di-tip .di-tip-p{font-size:14px}}
+@media (prefers-reduced-motion:reduce){.di-tip{transition:none}}
+</style>
+<section aria-labelledby="di-titel" class="di" id="di">
+<div class="di-wrap">
+
+<div class="di-kern">
+<h2 id="di-titel" data-in style="--d:1"><span class="di-voor">Dit is slechts een voorbeeld.</span><span class="di-samen">Samen maken we er jullie nieuwe site van.</span></h2>
+<p class="di-lead" data-in style="--d:2">Ik maakte deze demo voor jullie om te tonen wat er kan. Na een kort gesprek maak ik er iets veel persoonlijkers van, helemaal naar jullie wens.</p>
+<div class="di-knoppen" data-in style="--d:3">
+<a class="di-cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Blackliner" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Plan een gesprek van 30 min</a>
+<a class="di-wa" href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20Blackliner" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z"/></svg>Stuur een WhatsApp</a>
+</div>
+<p class="di-klein" data-in style="--d:4">Vrijblijvend. Ik kom langs of we bellen.</p>
+</div>
+
+
+<div class="di-blok">
+<h3 data-in>Wat kost het?</h3>
+<div class="di-prijs" data-in style="--d:1">
+<div>
+<span class="di-wat">De website</span>
+<div class="di-getal">€ 499<small>eenmalig</small></div>
+<p>Op maat, op jullie eigen domein.<br><b>Geen voorschot.</b> Jullie betalen pas als alles klaar is.</p>
+</div>
+<div>
+<span class="di-wat">Daarna het onderhoud</span>
+<p style="margin-top:8px">Hosting, domeinnaam en kleine wijzigingen, zoals nieuwe openingsuren.</p>
+<ul class="di-opties">
+<li><b>Zorgeloos <em>mijn aanrader</em></b><span class="di-pp">€ 19,99<small>/ maand</small></span><span class="di-ot">Alles inbegrepen. Wijzigen kan met een berichtje.</span></li>
+<li><b>Zelf beheren</b><span class="di-pp">€ 0<small>/ maand</small></span><span class="di-ot">Alles op jullie naam. Wijzigingen per keer.</span></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="di-blok">
+<h3 data-in>Goed om te weten</h3>
+<div class="di-faq" data-in style="--d:1">
+<details><summary>Waarom deze demo, zonder dat we iets vroegen?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Omdat een voorbeeld meer zegt dan een mail. Zo zien jullie meteen wat er kan, en het kost jullie niets.</p></div></div></details>
+<details><summary>Zitten we ergens aan vast?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Nee. Het gesprek is vrijblijvend. Vinden jullie het niks, dan is het daarmee gedaan.</p></div></div></details>
+<details><summary>Hoe lang duurt het?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Na ons gesprek staat jullie site binnen 10 tot 14 dagen online.</p></div></div></details>
+<details><summary>We hebben al een website. Kan dat ook?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Zeker. Jullie domeinnaam kan gewoon blijven, de nieuwe site komt in de plaats van de oude.</p></div></div></details>
+<details><summary>Moeten we zelf teksten schrijven?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Nee, dat doe ik op basis van ons gesprek. Eigen foto's zijn mooi meegenomen, maar niet nodig om te starten.</p></div></div></details>
+</div>
+</div>
+
+<div class="di-slot" data-in>
+<div class="di-wie"><img class="di-foto" src="https://digital-impression.be/assets/img/stijn-2.webp" alt="Stijn Vranken" width="60" height="60" loading="lazy" decoding="async"><div><b>Stijn Vranken</b><span class="di-lijn">Digital Impression, <a href="tel:+32496251445">0496 25 14 45</a></span></div></div>
+<div class="di-knoppen"><a class="di-cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Blackliner" target="_blank" rel="noopener">Plan een gesprek</a></div>
+</div>
+
+</div>
+</section>
+<script>/*di-v13*/(function(){var d=document.getElementById('di');if(!d||!('IntersectionObserver' in window))return;
+var stil=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!stil){d.classList.add('di-js');var io=new IntersectionObserver(function(x){x.forEach(function(e){if(e.isIntersecting){e.target.classList.add('di-zien');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+[].forEach.call(d.querySelectorAll('[data-in]'),function(e){io.observe(e)})}
+var vast=[];function zoek(){vast=[].filter.call(document.body.querySelectorAll('*'),function(e){if(d.contains(e)||e.closest('.di-strook,.demo'))return false;var p=getComputedStyle(e).position;return p==='fixed'||p==='sticky'})}
+new IntersectionObserver(function(x){if(!vast.length)zoek();var aan=x[0].isIntersecting;vast.forEach(function(e){e.style.transition='opacity .35s';e.style.opacity=aan?'0':'';e.style.pointerEvents=aan?'none':''})},{threshold:.05}).observe(d)})();</script>
+<aside class="di-tip" aria-label="Over deze voorbeeldsite" hidden>
+<img class="di-tip-s" src="https://digital-impression.be/assets/img/stijn-2.webp" alt="" width="40" height="40" loading="lazy" decoding="async">
+<div>
+<p class="di-tip-t">Dit is een voorbeeldsite.</p>
+<p class="di-tip-p">Onderaan lees je hoe we er samen jullie site van maken.</p>
+<a class="di-tip-k" href="#di">Lees meer<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+</div>
+<button class="di-tip-x" type="button" aria-label="Sluiten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+</aside>
+<script>/*di-tip*/(function(){var t=document.querySelector('.di-tip'),d=document.getElementById('di');if(!t||!d)return;
+var weg=false;try{weg=sessionStorage.getItem('di-tip')==='weg'}catch(e){}if(weg)return;
+t.hidden=false;var aan=false,diZicht=false;
+function onder(){var m=0;[].forEach.call(document.body.querySelectorAll('*'),function(e){if(e===t||t.contains(e)||d.contains(e))return;var c=getComputedStyle(e);if(c.position!=='fixed'||c.display==='none'||c.visibility==='hidden'||+c.opacity===0)return;var r=e.getBoundingClientRect();if(r.height>0&&r.height<160&&r.bottom>=innerHeight-48&&r.bottom<=innerHeight+2&&r.top>innerHeight-200&&r.width>innerWidth*.4)m=Math.max(m,innerHeight-r.top)});return m}
+function zet(x){if(x===aan)return;aan=x;if(x){t.style.bottom=((innerWidth<=560?12:20)+onder())+'px'}t.classList.toggle('di-tip-aan',x)}
+function sluit(){try{sessionStorage.setItem('di-tip','weg')}catch(e){}zet(false);setTimeout(function(){t.hidden=true},700);window.removeEventListener('scroll',kijk)}
+function held(){var c=document.querySelectorAll('.hero,[class*="hero"],main>section,body>section,body>header,main>header');for(var i=0;i<c.length;i++){var e=c[i];if(d.contains(e)||t.contains(e)||e.closest('.di-strook,.demo,nav'))continue;var r=e.getBoundingClientRect();if(r.height>innerHeight*.35)return r.bottom+scrollY}return innerHeight*.9}
+var hb=0;window.addEventListener('resize',function(){hb=0});function kijk(){var top=d.getBoundingClientRect().top;
+if(top<innerHeight*1.1){if(aan)sluit();return}if(!hb)hb=held();zet(scrollY>hb-innerHeight*.55)}
+t.querySelector('.di-tip-x').addEventListener('click',sluit);
+t.querySelector('.di-tip-k').addEventListener('click',function(){setTimeout(sluit,300)});
+window.addEventListener('scroll',kijk,{passive:true});kijk()})();</script>
+</body>
+</html>
