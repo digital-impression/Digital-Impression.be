@@ -128,6 +128,72 @@ h2 em{font-style:italic;color:var(--terra)}
 .voet .merk{display:flex;align-items:center;gap:10px;color:var(--houts);font-weight:600;letter-spacing:.2em}
 .voet .merk img{width:30px}
 
+
+/* volledige site */
+.passie{padding:clamp(90px,10vw,130px) 0 0}
+.passie-g{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,5vw,80px);align-items:start}
+.passie p.groot{font:400 clamp(28px,3vw,44px)/1.2 'Fraunces';letter-spacing:-.025em}
+.passie p.groot em{color:var(--terra)}
+.passie .rechts p{color:var(--grijs);margin-top:4px}
+.passie .handt{display:flex;align-items:center;gap:14px;margin-top:28px}
+.passie .handt span{width:52px;height:52px;border-radius:50%;background:var(--houts);color:#fff;display:grid;place-items:center;font:500 22px/1 'Fraunces'}
+.passie .handt b{display:block;font-weight:600}
+.passie .handt small{color:var(--grijs)}
+.diensten{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.dienst{background:var(--steen);border-radius:28px;padding:26px;display:flex;flex-direction:column;gap:14px;min-height:260px;transition:transform .5s var(--ease),background .4s}
+.dienst:hover{transform:translateY(-6px);background:#E6DFD6}
+.dienst .staal{width:64px;height:64px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06),0 10px 20px -12px rgba(0,0,0,.4)}
+.s1{background:radial-gradient(circle at 30% 30%,#fff 0,#E9E5DF 60%,#D9D3CA)}
+.s2{background:radial-gradient(#7d6a58 1.5px,transparent 1.6px) 0 0/7px 7px,radial-gradient(#b9a58f 1.5px,transparent 1.6px) 3px 3px/7px 7px,#cdbba4}
+.s3{background:linear-gradient(135deg,#9AA0A6,#6C7378)}
+.s4{background:radial-gradient(circle at 70% 30%,#E8C3AE 0,#C27B5D 70%)}
+.s5{background:linear-gradient(160deg,#EFE9E1 0,#D8CFC3 50%,#BFB4A6)}
+.s6{background:radial-gradient(circle at 35% 30%,#8E8A85 0,#5A5753 70%),#5A5753}
+.dienst h3{font:500 26px/1.1 'Fraunces';letter-spacing:-.02em}
+.dienst p{color:var(--grijs);font-size:15.5px}
+.dienst .tag2{margin-top:auto;font-size:13px;font-weight:600;color:var(--terra)}
+.voordelen{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:30px}
+.voordelen span{background:#fff;border:1px solid var(--lijn);border-radius:999px;padding:11px 18px;font-weight:500;font-size:14.5px;display:flex;align-items:center;gap:8px}
+.voordelen span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--terra)}
+.stappen{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+.stap{border-top:1px solid var(--houts);padding-top:22px}
+.stap::before{counter-increment:s;content:"0" counter(s);font:400 italic 44px/1 'Fraunces';color:var(--terra);display:block;margin-bottom:16px}
+.stap h3{font:500 23px/1.15 'Fraunces'}
+.stap p{color:var(--grijs);margin-top:8px;font-size:15.5px}
+.galerij{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:260px 260px;gap:14px}
+.galerij figure{border-radius:24px;overflow:hidden;position:relative}
+.galerij img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.galerij figure:hover img{transform:scale(1.05)}
+.galerij .gr{grid-row:span 2}
+.gebied{background:var(--houts);color:var(--licht);border-radius:28px;padding:clamp(26px,3vw,40px);display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.gebied h3{font:400 30px/1.1 'Fraunces'}
+.gebied div{display:flex;flex-wrap:wrap;gap:8px}
+.gebied div span{border:1px solid rgba(248,245,240,.25);border-radius:999px;padding:8px 14px;font-size:14px}
+.vragen{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,70px)}
+.vragen details{border-bottom:1px solid var(--lijn)}
+.vragen summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0;font:500 21px/1.25 'Fraunces'}
+.vragen summary::-webkit-details-marker{display:none}
+.vragen summary i{width:36px;height:36px;border-radius:50%;border:1px solid var(--lijn);display:grid;place-items:center;flex:none;transition:transform .4s var(--ease),background .3s,color .3s}
+.vragen summary i svg{width:15px;height:15px}
+.vragen details[open] summary i{transform:rotate(45deg);background:var(--terra);color:#fff;border-color:var(--terra)}
+.vragen details p{color:var(--grijs);padding:0 40px 22px 0}
+@media (max-width:1060px){
+  .passie-g,.vragen{grid-template-columns:1fr}
+  .diensten{grid-template-columns:1fr 1fr}
+  .stappen{grid-template-columns:1fr 1fr}
+  .galerij{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .galerij figure{aspect-ratio:4/5}
+  .galerij .gr{grid-row:auto;grid-column:span 2;aspect-ratio:16/10}
+}
+@media (max-width:640px){
+  .diensten{grid-template-columns:1fr}
+  .dienst{min-height:0}
+  .stappen{grid-template-columns:1fr}
+  .galerij{gap:10px}
+  .gebied{grid-column:span 2}
+  .vragen details p{padding-right:0}
+}
+
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.hero-k>img{animation:none;transform:none}}
@@ -180,7 +246,7 @@ h2 em{font-style:italic;color:var(--terra)}
     <img src="img/hero.webp" alt="Lavasteen gietvloer in een lichte leefruimte met eettafel" width="2000" height="1500" fetchpriority="high">
     <header class="kop-bar">
       <a class="logo" href="#top"><img src="img/logo-wit.png" alt="" width="400" height="400"><span>ATLASTIC</span></a>
-      <nav class="nav" aria-label="Menu"><a href="#materialen">Materialen</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></nav>
+      <nav class="nav" aria-label="Menu"><a href="#diensten">Diensten</a><a href="#projecten">Projecten</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></nav>
       <a class="knop k-licht" href="tel:+32484815093">Bel ons<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
     </header>
     <div class="hero-in">
@@ -208,6 +274,37 @@ h2 em{font-style:italic;color:var(--terra)}
   </div>
 </section>
 
+
+<section class="passie" id="over">
+  <div class="wrap passie-g">
+    <div>
+      <span class="oog rv">Knappe vloeren, onze passie</span>
+      <p class="groot rv" style="--d:1;margin-top:18px">Wij werken vloeren, wanden en trappen <em>naadloos</em> af. In woningen, maar net zo goed in een groot magazijn.</p>
+    </div>
+    <div class="rechts rv" style="--d:2">
+      <p>Atlastic is gespecialiseerd in gietvloeren, steentapijt, mortex en lavasteen. We onderscheiden ons in kwaliteit en een uitstekende klantenservice, en nemen onze klanten nooit als vanzelfsprekend aan. Zo realiseerden we al heel wat vloeren in Bilzen-Hoeselt, Tongeren, Genk, Sint-Truiden en verder.</p>
+      <div class="handt"><span>A</span><div><b>Anass</b><small>Zaakvoerder van Atlastic</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="diensten" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="kop">
+      <div><span class="oog rv">Wat we leggen</span><h2 class="rv" style="--d:1">Zes afwerkingen, <em>één aanpak</em></h2></div>
+      <p class="rv" style="--d:2">Elk materiaal heeft zijn eigen karakter. We helpen je kiezen wat past bij je ruimte, je stijl en hoe je leeft.</p>
+    </div>
+    <div class="diensten">
+      <article class="dienst rv"><span class="staal s1"></span><h3>Gietvloeren</h3><p>Een strakke, slijtvaste vloer zonder voegen, te combineren met vloerverwarming.</p><span class="tag2">Woning en bedrijf</span></article>
+      <article class="dienst rv" style="--d:1"><span class="staal s6"></span><h3>Lavasteen gietvloer</h3><p>Naadloos en uiterst kras- en slijtvast, met een matte stone- of betonlook.</p><span class="tag2">Natuurlijke look</span></article>
+      <article class="dienst rv" style="--d:2"><span class="staal s4"></span><h3>Mortex</h3><p>Een waterafstotende en waterdichte pleister. Bijna elke ondergrond kan.</p><span class="tag2">Ideaal voor badkamers</span></article>
+      <article class="dienst rv"><span class="staal s5"></span><h3>Muren, wanden en trappen</h3><p>Onze materialen werken ook verticaal. Dezelfde look van vloer tot plafond.</p><span class="tag2">Eén geheel</span></article>
+      <article class="dienst rv" style="--d:1"><span class="staal s2"></span><h3>Steentapijt</h3><p>Een naadloze korrelvloer, ook op een bestaande vloer of trap.</p><span class="tag2">Binnen en buiten</span></article>
+      <article class="dienst rv" style="--d:2"><span class="staal s3"></span><h3>Industriële vloeren</h3><p>Duurzaam, naadloos en zwaar belastbaar. Voor werkplaats, garage of magazijn.</p><span class="tag2">Epoxy en PU</span></article>
+    </div>
+    <div class="voordelen rv"><span>Naadloos</span><span>Combineerbaar met vloerverwarming</span><span>Kras- en slijtvast</span><span>Makkelijk in onderhoud</span><span>Waterdicht met mortex</span></div>
+  </div>
+</section>
 <section class="s" id="materialen">
   <div class="wrap">
     <div class="kop">
@@ -219,11 +316,47 @@ h2 em{font-style:italic;color:var(--terra)}
       <figure class="tegel rv" style="--d:1"><img src="img/badkamer.webp" alt="Badkamer afgewerkt in microcement" loading="lazy" width="1300" height="1625"><figcaption class="tag"><span>Microcement badkamer</span></figcaption></figure>
       <figure class="tegel rv" style="--d:2"><img src="img/terracotta.webp" alt="Terracotta microcement aan de wand" loading="lazy" width="1200" height="1600"><figcaption class="tag"><span>Warme tinten</span></figcaption></figure>
       <figure class="tegel rv" style="--d:1"><img src="img/terras.webp" alt="Steentapijt op een overdekt terras" loading="lazy" width="1170" height="861"><figcaption class="tag"><span>Steentapijt buiten</span></figcaption></figure>
-      <div class="tegel terra rv" style="--d:2"><p>Twijfel je tussen lavasteen en microcement? We bekijken het samen bij jou thuis.</p><a href="#contact">Plan een afspraak<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <div class="tegel terra rv" style="--d:2"><p>Twijfel je tussen lavasteen en microcement? We denken graag met je mee.</p><a href="#contact">Plan een afspraak<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     </div>
   </div>
 </section>
 
+
+<section class="s" id="werkwijze" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="kop"><div><span class="oog rv">Zo werken we</span><h2 class="rv" style="--d:1">Van eerste foto tot <em>nieuwe vloer</em></h2></div></div>
+    <div class="stappen">
+      <div class="stap rv"><h3>Contact</h3><p>Stuur een paar foto's en de oppervlakte via WhatsApp, mail of telefoon.</p></div>
+      <div class="stap rv" style="--d:1"><h3>Advies en prijs</h3><p>Eerlijk advies over het materiaal dat bij je past, en een prijs op maat.</p></div>
+      <div class="stap rv" style="--d:2"><h3>Uitvoering</h3><p>We houden je op de hoogte en betrekken je bij elke stap van het project.</p></div>
+      <div class="stap rv" style="--d:3"><h3>Oplevering</h3><p>Je krijgt uitleg over het onderhoud. Ook daarna blijven we bereikbaar.</p></div>
+    </div>
+  </div>
+</section>
+<section class="s" id="projecten" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="kop"><div><span class="oog rv">Projecten</span><h2 class="rv" style="--d:1">Recent <em>afgewerkt</em></h2></div><p class="rv" style="--d:2">Meer projecten vind je op onze Instagram.</p></div>
+    <div class="galerij">
+      <figure class="gr rv"><img src="img/lamellen.webp" alt="Gietvloer in een ruimte met houten lamellen" loading="lazy" width="1170" height="1560"></figure>
+      <figure class="rv" style="--d:1"><img src="img/gang.webp" alt="Gietvloer in een gang met terracotta muur" loading="lazy" width="1200" height="1600" style="object-position:50% 60%"></figure>
+      <figure class="rv" style="--d:2"><img src="img/werf2.webp" alt="Badkamer met naadloze vloer en wanden" loading="lazy" width="1200" height="1600"></figure>
+      <figure class="rv" style="--d:1"><img src="img/werf3.webp" alt="Lichtgrijze gietvloer in een hal" loading="lazy" width="1200" height="1600" style="object-position:50% 70%"></figure>
+      <div class="gebied rv" style="--d:2"><h3>Actief in heel Limburg</h3><div><span>Bilzen-Hoeselt</span><span>Tongeren</span><span>Genk</span><span>Sint-Truiden</span><span>en verder</span></div></div>
+    </div>
+  </div>
+</section>
+<section class="s" id="vragen" style="padding-bottom:0">
+  <div class="wrap vragen">
+    <div><span class="oog rv">Goed om te weten</span><h2 class="rv" style="--d:1">Vaak <em>gevraagd</em></h2></div>
+    <div class="rv" style="--d:2">
+      <details open><summary>Kan een gietvloer op vloerverwarming?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Ja. Een gietvloer is perfect te combineren met vloerverwarming.</p></details>
+      <details><summary>Moet mijn oude vloer eruit?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Niet altijd. Steentapijt kan bijvoorbeeld op een bestaande vloer of trap. We bekijken het per project.</p></details>
+      <details><summary>Kan het in een badkamer of douche?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Zeker. Mortex is waterafstotend en waterdicht, en dus ideaal voor badkamers.</p></details>
+      <details><summary>Werken jullie ook voor bedrijven?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Ja. Van een garage tot een groot magazijn, we leggen ook zwaar belastbare industriële vloeren.</p></details>
+    </div>
+  </div>
+</section>
+<div style="height:clamp(80px,10vw,130px)"></div>
 <section class="blok" id="reviews">
   <div class="wrap b-g">
     <div class="rv">
@@ -253,7 +386,7 @@ h2 em{font-style:italic;color:var(--terra)}
           <a class="knop k-lijn" href="tel:+32484815093">0484 81 50 93</a>
         </div>
       </div>
-      <div class="adres"><span><b>Lochtstraat 22</b>3740 Bilzen-Hoeselt</span><a href="https://www.google.com/maps/dir/?api=1&destination=Atlastic+Epoxyvloeren+Lochtstraat+22+Bilzen" target="_blank" rel="noopener">Route plannen</a></div>
+      <div class="adres"><span><b>Lochtstraat 22a</b>3740 Bilzen-Hoeselt<br><a href="mailto:atlastic@outlook.be" style="color:var(--grijs);text-decoration:none">atlastic@outlook.be</a></span><a href="https://www.google.com/maps/dir/?api=1&destination=Atlastic+Epoxyvloeren+Lochtstraat+22+Bilzen" target="_blank" rel="noopener">Route plannen</a></div>
     </div>
     <div class="c-f rv" style="--d:1"><img src="img/ivory.webp" alt="Badkamermeubel met microcement in ivory" loading="lazy" width="1200" height="1600"><div class="stempel"><img src="img/logo.png" alt="" width="400" height="400"><div><b>5,0 ★</b>17 Google-reviews</div></div></div>
   </div>

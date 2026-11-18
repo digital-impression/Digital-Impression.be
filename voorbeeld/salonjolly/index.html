@@ -136,6 +136,70 @@ h2 em{font:400 1.05em/1 'Pinyon Script',cursive;text-transform:none;color:var(--
 .voet .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;border-top:1px solid var(--lijn);padding-top:26px;align-items:center}
 .voet b{font:400 22px/1 'Italiana';letter-spacing:.18em;color:var(--espresso)}
 
+
+/* volledige site */
+.over{padding:clamp(90px,10vw,140px) 0 0}
+.over-g{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,90px);align-items:center}
+.portret{position:relative}
+.portret .p1{border-radius:30px 220px 30px 30px;overflow:hidden;aspect-ratio:1;box-shadow:0 40px 80px -40px rgba(43,33,28,.55)}
+.portret img{width:100%;height:100%;object-fit:cover}
+.portret .sign{position:absolute;right:-4%;bottom:-6%;background:#fff;border-radius:22px;padding:16px 22px;box-shadow:0 26px 50px -24px rgba(43,33,28,.5);font:400 38px/1 'Pinyon Script';color:var(--rose)}
+.portret .sign small{display:block;font:500 11.5px/1 'Jost';letter-spacing:.24em;text-transform:uppercase;color:var(--mute);margin-top:6px}
+.over p.lead2{color:var(--mute);font-weight:300;margin-top:20px;max-width:32em}
+.over .getal{display:flex;gap:28px;margin-top:30px;flex-wrap:wrap}
+.over .getal div b{display:block;font:400 54px/1 'Italiana'}
+.over .getal div span{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.behandel{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.beh{background:#fff;border-radius:28px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:transform .5s var(--ease),box-shadow .5s}
+.beh:hover{transform:translateY(-6px);box-shadow:0 30px 60px -40px rgba(43,33,28,.5)}
+.beh .ic{width:56px;height:56px;border-radius:50%;background:var(--champ);display:grid;place-items:center;color:var(--rose)}
+.beh .ic svg{width:26px;height:26px}
+.beh h3{font:400 26px/1.05 'Italiana';text-transform:uppercase;letter-spacing:.02em}
+.beh p{color:var(--mute);font-weight:300;font-size:15.5px}
+.beh ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.beh li{background:var(--champ);border-radius:999px;padding:6px 12px;font-size:13px}
+.beh.donker{background:var(--espresso);color:var(--champ)}
+.beh.donker p{color:rgba(244,237,228,.7)}
+.beh.donker .ic{background:rgba(244,237,228,.1);color:var(--rose2)}
+.beh.donker li{background:rgba(244,237,228,.1)}
+.kera{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch}
+.kera-t{background:linear-gradient(160deg,#fff 0,var(--latte) 100%);border-radius:32px;padding:clamp(30px,4vw,56px)}
+.kera-t p{color:var(--mute);font-weight:300;margin-top:16px;max-width:30em}
+.kera-t .stap{display:flex;gap:16px;margin-top:22px;align-items:flex-start}
+.kera-t .stap b{font:400 30px/1 'Italiana';color:var(--rose);min-width:44px}
+.kera-t .stap span{display:block;font-weight:500}
+.kera-t .stap small{color:var(--mute);font-weight:300;font-size:15px}
+.kera-f{border-radius:32px;overflow:hidden;position:relative;min-height:440px}
+.kera-f img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.kera-f .chip{left:18px;top:18px;animation:none}
+.prakt{display:grid;grid-template-columns:.85fr 1.15fr;gap:16px}
+.uren{background:var(--espresso);color:var(--champ);border-radius:32px;padding:clamp(28px,3.4vw,44px)}
+.uren h3{font:400 36px/1 'Italiana';text-transform:uppercase;margin:14px 0 22px}
+.uren ul{list-style:none}
+.uren li{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(244,237,228,.12);font-weight:300}
+.uren li span:last-child{color:var(--rose2);font-weight:400}
+.uren li.dicht span:last-child{color:rgba(244,237,228,.45)}
+.faq{background:#fff;border-radius:32px;padding:clamp(20px,3vw,40px)}
+.faq details{border-bottom:1px solid var(--lijn)}
+.faq details:last-child{border-bottom:0}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 2px;font-size:17px;font-weight:500}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{width:34px;height:34px;border-radius:50%;border:1px solid var(--lijn);display:grid;place-items:center;flex:none;transition:transform .4s var(--ease),background .3s}
+.faq summary i svg{width:14px;height:14px}
+.faq details[open] summary i{transform:rotate(45deg);background:var(--rose2);border-color:var(--rose2)}
+.faq details p{color:var(--mute);font-weight:300;padding:0 44px 20px 2px}
+@media (max-width:1060px){
+  .over-g,.kera,.prakt{grid-template-columns:1fr}
+  .portret{width:min(80%,440px);margin:0 auto}
+  .behandel{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .behandel{grid-template-columns:1fr}
+  .over .getal div b{font-size:42px}
+  .kera-f{min-height:320px}
+  .faq details p{padding-right:0}
+}
+
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.chip{animation:none!important}}
@@ -187,7 +251,7 @@ h2 em{font:400 1.05em/1 'Pinyon Script',cursive;text-transform:none;color:var(--
 <section class="kader">
   <header class="top">
     <a class="merk" href="#top"><img src="img/icon.png" alt="" width="200" height="200"><span><b>JOLLY</b><small>Kapsalon</small></span></a>
-    <nav class="nav" aria-label="Menu"><a href="#werk">Ons werk</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></nav>
+    <nav class="nav" aria-label="Menu"><a href="#over">Over</a><a href="#behandelingen">Behandelingen</a><a href="#werk">Ons werk</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></nav>
     <a class="knop k-esp" href="https://client.optios.net/online_booking.html?/884" target="_blank" rel="noopener">Boek online</a>
   </header>
   <div class="hero-g">
@@ -205,7 +269,7 @@ h2 em{font:400 1.05em/1 'Pinyon Script',cursive;text-transform:none;color:var(--
       <div class="boog"><img src="img/sunkissed.webp" alt="Zacht blond met sun kissed highlights bij Kapsalon Jolly" width="1300" height="1490" fetchpriority="high"></div>
       <span class="hand" aria-hidden="true">uw haar, mijn passie</span>
       <div class="chip c1"><i>K</i><div><b>Kérastase-salon</b>wassen en verzorgen met Kérastase</div></div>
-      <div class="chip c2"><img src="img/teasy.webp" alt="" width="1440" height="1440"><div><b>Voor &amp; na</b>teasy techniek</div></div>
+      <div class="chip c2"><img src="img/stoelen.webp" alt="" width="600" height="600"><div><b>Massagezetels</b>bij elke wasbeurt</div></div>
     </div>
   </div>
   <div class="balk rv">
@@ -216,6 +280,30 @@ h2 em{font:400 1.05em/1 'Pinyon Script',cursive;text-transform:none;color:var(--
   </div>
 </section>
 
+
+<section class="over" id="over">
+  <div class="wrap over-g">
+    <div class="portret rv"><div class="p1"><img src="img/lyncey2.webp" alt="Lyncey Bruyneel, zaakvoerster van Kapsalon Jolly" loading="lazy" width="900" height="896" style="object-position:50% 30%"></div><div class="sign">Lyncey<small>Zaakvoerster</small></div></div>
+    <div>
+      <span class="oog rv">Over Jolly</span>
+      <h2 class="rv" style="--d:1;text-align:left">Al 20 jaar <em>verwennen</em></h2>
+      <p class="lead2 rv" style="--d:2">Kapsalon Jolly staat al twintig jaar voor verwennerij en beleving. Bij ons kom je even tot rust, ver weg van alle stress. Tijdens een gesprek luisteren we naar je wensen, en daarna kiezen we samen de beste snit of kleur voor jouw haar.</p>
+      <div class="getal rv" style="--d:3"><div><b>20</b><span>jaar ervaring</span></div><div><b>4,8</b><span>op Google</span></div><div><b>1</b><span>gecertificeerd kleurspecialist</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="behandelingen" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="kop"><span class="oog rv">Behandelingen</span><h2 class="rv" style="--d:1">Waarvoor je bij ons <em>komt</em></h2></div>
+    <div class="behandel">
+      <article class="beh rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16M8 7c2 3 2 7 0 10"/></svg></span><h3>Kleuren</h3><p>Onze specialiteit. Zachte overgangen en een kleur die mooi uitgroeit.</p><ul><li>Babylights</li><li>Teasy</li><li>Foilyage</li><li>Balayage</li></ul></article>
+      <article class="beh donker rv" style="--d:1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M8.2 8.2 20 20M8.2 15.8 20 4"/></svg></span><h3>Knippen</h3><p>Een snit die bij je past, na een persoonlijk advies.</p><ul><li>Dames</li><li>Heren</li></ul></article>
+      <article class="beh rv" style="--d:2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 6 6.5 6 10a6 6 0 0 1-12 0c0-3.5 3-6 6-10Z"/></svg></span><h3>Verzorging</h3><p>We wassen en verzorgen uitsluitend met Kérastase, in onze massagezetels.</p><ul><li>Kérastase</li><li>Hoofdmassage</li></ul></article>
+      <article class="beh rv" style="--d:3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 16l10-10 2 2-10 10H6v-2Z"/></svg></span><h3>Advies</h3><p>Je krijgt tips mee voor thuis, zodat je kapsel altijd tiptop blijft.</p><ul><li>Persoonlijk</li><li>Voor thuis</li></ul></article>
+    </div>
+  </div>
+</section>
 <section class="s" id="werk">
   <div class="wrap">
     <div class="kop">
@@ -236,6 +324,46 @@ h2 em{font:400 1.05em/1 'Pinyon Script',cursive;text-transform:none;color:var(--
   </div>
 </section>
 
+
+<section class="s" id="kerastase" style="padding-bottom:0">
+  <div class="wrap kera">
+    <div class="kera-t rv">
+      <span class="oog">Kérastase-salon</span>
+      <h2 style="text-align:left;margin-top:14px">Verwennen tot in de <em>hoofdhuid</em></h2>
+      <p>Kérastase stelt hoge eisen aan de salons die met hun producten mogen werken. Jolly werd uitgekozen, en volgt daarvoor regelmatig opleidingen.</p>
+      <div class="stap"><b>01</b><div><span>Het gesprek</span><small>We luisteren naar je wensen en bekijken wat kan.</small></div></div>
+      <div class="stap"><b>02</b><div><span>De wasbeurt</span><small>Met een intensieve Kérastase-massage van de hoofdhuid.</small></div></div>
+      <div class="stap"><b>03</b><div><span>De behandeling</span><small>Snit of kleur, met de tijd die het nodig heeft.</small></div></div>
+      <div class="stap"><b>04</b><div><span>Advies voor thuis</span><small>Zodat je kapsel ook thuis mooi blijft.</small></div></div>
+    </div>
+    <div class="kera-f rv" style="--d:1"><img src="img/kerastase.webp" alt="Kérastase-producten bij Kapsalon Jolly" loading="lazy" width="640" height="852"><div class="chip"><i style="width:36px;height:36px;border-radius:50%;background:var(--espresso);color:var(--champ);display:grid;place-items:center;font:400 16px/1 'Italiana';font-style:normal">K</i><div><b>Uitgekozen door Kérastase</b>met vaste opleidingen</div></div></div>
+  </div>
+</section>
+<section class="s" id="praktisch" style="padding-bottom:0">
+  <div class="wrap prakt">
+    <div class="uren rv">
+      <span class="oog" style="color:var(--rose2)">Openingsuren</span>
+      <h3>Altijd op afspraak</h3>
+      <ul>
+        <li class="dicht"><span>Maandag</span><span>Gesloten</span></li>
+        <li><span>Dinsdag</span><span>9u tot 17u</span></li>
+        <li><span>Woensdag</span><span>8u30 tot 18u</span></li>
+        <li><span>Donderdag</span><span>8u30 tot 18u</span></li>
+        <li><span>Vrijdag</span><span>8u30 tot 18u</span></li>
+        <li><span>Zaterdag</span><span>8u tot 15u</span></li>
+        <li class="dicht"><span>Zondag</span><span>Gesloten</span></li>
+      </ul>
+    </div>
+    <div class="faq rv" style="--d:1">
+      <details open><summary>Moet ik een afspraak maken?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Ja, we werken altijd op afspraak. Je boekt online of je belt naar 051 48 72 18.</p></details>
+      <details><summary>Hoe lang duren babylights?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Reken op vier tot vijf uur. Het resultaat groeit heel zacht uit, zodat je haar maanden mooi blijft.</p></details>
+      <details><summary>Wat is de teasy techniek?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Zachte highlights met natuurlijke overgangen, zonder harde uitgroei. Ideaal als je weinig onderhoud wil.</p></details>
+      <details><summary>Kan ik Kérastase-producten kopen?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Zeker. We gebruiken en verkopen Kérastase, en geven je graag advies over wat bij jouw haar past.</p></details>
+      <details><summary>Knippen jullie ook heren?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Ja, ook heren zijn welkom voor een frisse snit.</p></details>
+    </div>
+  </div>
+</section>
+<div style="height:clamp(90px,10vw,140px)"></div>
 <section class="blok" id="reviews">
   <div class="wrap b-g">
     <div class="rv">
