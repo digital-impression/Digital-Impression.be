@@ -104,7 +104,7 @@ h2 em{font-style:italic;color:var(--terra)}
 .cit{border-top:1px solid rgba(248,245,240,.14);padding-top:26px}
 .cit:first-child{border-top:0;padding-top:0}
 .cit p{font:400 clamp(21px,1.9vw,27px)/1.35 'Fraunces';letter-spacing:-.015em}
-.cit:first-child p{font-size:clamp(25px,2.4vw,34px);font-style:italic}
+.cit p{font-style:italic}
 .cit footer{margin-top:14px;font-size:14px;color:rgba(248,245,240,.6);display:flex;gap:10px;align-items:center}
 .cit footer b{color:var(--licht);font-weight:600}
 .cit footer .st{color:#F3C7A8;letter-spacing:1px}
@@ -187,7 +187,9 @@ h2 em{font-style:italic;color:var(--terra)}
 }
 @media (max-width:640px){
   .diensten{grid-template-columns:1fr}
-  .dienst{min-height:0}
+  .dienst{min-height:0;display:grid;grid-template-columns:48px 1fr;column-gap:16px;row-gap:6px;padding:22px}
+  .dienst .staal{width:48px;height:48px;grid-row:span 3}
+  .dienst h3{font-size:22px}
   .stappen{grid-template-columns:1fr}
   .galerij{gap:10px}
   .gebied{grid-column:span 2}
@@ -302,22 +304,6 @@ h2 em{font-style:italic;color:var(--terra)}
       <article class="dienst rv" style="--d:1"><span class="staal s2"></span><h3>Steentapijt</h3><p>Een naadloze korrelvloer, ook op een bestaande vloer of trap.</p><span class="tag2">Binnen en buiten</span></article>
       <article class="dienst rv" style="--d:2"><span class="staal s3"></span><h3>Industriële vloeren</h3><p>Duurzaam, naadloos en zwaar belastbaar. Voor werkplaats, garage of magazijn.</p><span class="tag2">Epoxy en PU</span></article>
     </div>
-    <div class="voordelen rv"><span>Naadloos</span><span>Combineerbaar met vloerverwarming</span><span>Kras- en slijtvast</span><span>Makkelijk in onderhoud</span><span>Waterdicht met mortex</span></div>
-  </div>
-</section>
-<section class="s" id="materialen">
-  <div class="wrap">
-    <div class="kop">
-      <div><span class="oog rv">Materialen</span><h2 class="rv" style="--d:1">Kies je sfeer, <em>wij doen de rest</em></h2></div>
-      <p class="rv" style="--d:2">Van een warme microcement in de badkamer tot een stevige steentapijt op het terras. Elk project op maat, in de kleur die bij je interieur past.</p>
-    </div>
-    <div class="raster">
-      <figure class="tegel t1 rv"><img src="img/living.webp" alt="PU-gietvloer in een woonkamer met zetel" loading="lazy" width="1176" height="1462"><figcaption class="tag"><span>PU-gietvloer</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></i></figcaption></figure>
-      <figure class="tegel rv" style="--d:1"><img src="img/badkamer.webp" alt="Badkamer afgewerkt in microcement" loading="lazy" width="1300" height="1625"><figcaption class="tag"><span>Microcement badkamer</span></figcaption></figure>
-      <figure class="tegel rv" style="--d:2"><img src="img/terracotta.webp" alt="Terracotta microcement aan de wand" loading="lazy" width="1200" height="1600"><figcaption class="tag"><span>Warme tinten</span></figcaption></figure>
-      <figure class="tegel rv" style="--d:1"><img src="img/terras.webp" alt="Steentapijt op een overdekt terras" loading="lazy" width="1170" height="861"><figcaption class="tag"><span>Steentapijt buiten</span></figcaption></figure>
-      <div class="tegel terra rv" style="--d:2"><p>Twijfel je tussen lavasteen en microcement? We denken graag met je mee.</p><a href="#contact">Plan een afspraak<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-    </div>
   </div>
 </section>
 
@@ -333,26 +319,15 @@ h2 em{font-style:italic;color:var(--terra)}
     </div>
   </div>
 </section>
-<section class="s" id="projecten" style="padding-bottom:0">
+<section class="s" id="projecten">
   <div class="wrap">
     <div class="kop"><div><span class="oog rv">Projecten</span><h2 class="rv" style="--d:1">Recent <em>afgewerkt</em></h2></div><p class="rv" style="--d:2">Meer projecten vind je op onze Instagram.</p></div>
     <div class="galerij">
       <figure class="gr rv"><img src="img/lamellen.webp" alt="Gietvloer in een ruimte met houten lamellen" loading="lazy" width="1170" height="1560"></figure>
-      <figure class="rv" style="--d:1"><img src="img/gang.webp" alt="Gietvloer in een gang met terracotta muur" loading="lazy" width="1200" height="1600" style="object-position:50% 60%"></figure>
-      <figure class="rv" style="--d:2"><img src="img/werf2.webp" alt="Badkamer met naadloze vloer en wanden" loading="lazy" width="1200" height="1600"></figure>
-      <figure class="rv" style="--d:1"><img src="img/werf3.webp" alt="Lichtgrijze gietvloer in een hal" loading="lazy" width="1200" height="1600" style="object-position:50% 70%"></figure>
+      <figure class="rv" style="--d:1"><img src="img/living.webp" alt="Lichte gietvloer in een woonkamer" loading="lazy" width="1176" height="1462" style="object-position:50% 60%"></figure>
+      <figure class="rv" style="--d:2"><img src="img/badkamer.webp" alt="Badkamer afgewerkt in microcement" loading="lazy" width="1300" height="1625" style="object-position:50% 40%"></figure>
+      <figure class="rv" style="--d:1"><img src="img/terras.webp" alt="Steentapijt op een overdekt terras" loading="lazy" width="1170" height="861"></figure>
       <div class="gebied rv" style="--d:2"><h3>Actief in heel Limburg</h3><div><span>Bilzen-Hoeselt</span><span>Tongeren</span><span>Genk</span><span>Sint-Truiden</span><span>en verder</span></div></div>
-    </div>
-  </div>
-</section>
-<section class="s" id="vragen" style="padding-bottom:0">
-  <div class="wrap vragen">
-    <div><span class="oog rv">Goed om te weten</span><h2 class="rv" style="--d:1">Vaak <em>gevraagd</em></h2></div>
-    <div class="rv" style="--d:2">
-      <details open><summary>Kan een gietvloer op vloerverwarming?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Ja. Een gietvloer is perfect te combineren met vloerverwarming.</p></details>
-      <details><summary>Moet mijn oude vloer eruit?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Niet altijd. Steentapijt kan bijvoorbeeld op een bestaande vloer of trap. We bekijken het per project.</p></details>
-      <details><summary>Kan het in een badkamer of douche?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Zeker. Mortex is waterafstotend en waterdicht, en dus ideaal voor badkamers.</p></details>
-      <details><summary>Werken jullie ook voor bedrijven?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Ja. Van een garage tot een groot magazijn, we leggen ook zwaar belastbare industriële vloeren.</p></details>
     </div>
   </div>
 </section>

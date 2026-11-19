@@ -82,12 +82,12 @@ h2 mark{background:none;color:var(--blauw)}
 .aanbod{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto;gap:16px}
 .cursus{border-radius:28px;padding:26px;display:flex;flex-direction:column;gap:16px;min-height:250px;position:relative;overflow:hidden;transition:transform .5s var(--ease)}
 .cursus:hover{transform:translateY(-6px)}
-.cursus .ic{width:52px;height:52px;border-radius:16px;background:#fff;display:grid;place-items:center;box-shadow:0 10px 20px -14px rgba(14,26,61,.5)}
+.cursus .ic{width:52px;height:52px;border-radius:16px;background:var(--ijs);color:var(--blauw);display:grid;place-items:center;box-shadow:0 10px 20px -14px rgba(14,26,61,.5)}
 .cursus .ic svg{width:24px;height:24px}
 .cursus h3{font:700 21px/1.15 'Unbounded';letter-spacing:-.02em}
 .cursus p{font-size:15px;color:rgba(14,26,61,.72);margin-top:auto}
-.cursus .duur{position:absolute;top:24px;right:24px;background:rgba(255,255,255,.7);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:800}
-.c1{background:var(--geel)}.c2{background:var(--munt)}.c3{background:var(--lila)}.c4{background:var(--roze)}
+.cursus .duur{position:absolute;top:24px;right:24px;background:var(--ijs);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:800}
+.c1,.c2,.c3,.c4{background:#fff}
 .fotokaart{grid-column:span 2;border-radius:28px;overflow:hidden;position:relative;min-height:320px;background:#cdd5e6}
 .fotokaart img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .fotokaart::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(14,26,61,.75))}
@@ -151,8 +151,8 @@ h2 mark{background:none;color:var(--blauw)}
 .tegel{border-radius:28px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;min-height:180px}
 .tegel b{font:800 clamp(38px,4vw,54px)/1 'Unbounded';letter-spacing:-.05em}
 .tegel span{font-weight:600;font-size:14.5px}
-.t-a{background:var(--nacht);color:#fff}.t-b{background:var(--geel)}.t-c{background:var(--munt)}.t-d{background:var(--blauw);color:#fff}
-.prijs{display:inline-flex;align-items:baseline;gap:6px;background:#fff;border-radius:12px;padding:8px 12px;font:800 18px/1 'Unbounded';letter-spacing:-.03em;align-self:flex-start;margin-top:4px}
+.t-a{background:var(--nacht);color:#fff}.t-b{background:var(--geel)}.t-c,.t-d{background:#fff}
+.prijs{display:inline-flex;align-items:baseline;gap:6px;background:var(--geel);border-radius:12px;padding:8px 12px;font:800 18px/1 'Unbounded';letter-spacing:-.03em;align-self:flex-start;margin-top:4px}
 .prijs small{font:600 12.5px/1 'Plus Jakarta Sans';color:var(--mute);letter-spacing:0}
 .leer{background:#fff;border-radius:32px;padding:clamp(28px,4vw,48px);display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,4vw,56px);align-items:center;margin-top:16px}
 .leer h3{font:800 clamp(26px,2.6vw,36px)/1.08 'Unbounded';letter-spacing:-.03em}
@@ -199,6 +199,11 @@ h2 mark{background:none;color:var(--blauw)}
   .rij-gsm .gsm::before{top:12px;height:12px}
 }
 
+.hfoto{position:relative;max-width:520px;margin-left:auto;width:100%}
+.hfoto .hf{border-radius:36px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 50px 90px -40px rgba(14,26,61,.55)}
+.hfoto .hf img{width:100%;height:100%;object-fit:cover;object-position:40% 50%}
+.hfoto .z2{right:-6%;top:8%}
+@media (max-width:1060px){.hfoto{margin:0 auto}.hfoto .z2{right:-2%}}
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.zweef{animation:none!important}}
@@ -268,14 +273,10 @@ h2 mark{background:none;color:var(--blauw)}
         <div><b>23K+</b><span>volgers op<br>TikTok</span></div>
       </div>
     </div>
-    <div class="toestel rv" style="--d:2">
-      <div class="gsm g2"><div><img src="img/zebrapad.webp" alt="Video van RijExpert: geen zebrapad" width="700" height="1244"></div></div>
-      <div class="gsm g3"><div><img src="img/snapt.webp" alt="Video van RijExpert: uitleg tijdens de les" width="700" height="1244"></div></div>
-      <div class="gsm g1"><div><img src="img/snelweg.webp" alt="Video van RijExpert: eerste keer op de snelweg" width="700" height="1244" fetchpriority="high"></div></div>
-      <div class="zweef z1"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4c.5 2 2 3.5 5 4"/></svg></i><div><b>23,5K volgers</b>leren mee op TikTok</div></div>
+    <div class="hfoto rv" style="--d:2">
+      <div class="hf"><img src="img/s-les2.webp" alt="Lesgever geeft uitleg aan een leerling achter het stuur" width="1067" height="1600" fetchpriority="high"></div>
       <div class="zweef z2"><i><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7.2.8-5.4 4.9 1.5 7.1L12 17.8 5.7 21.4l1.5-7.1L1.8 9.4 9 8.6z"/></svg></i><div><b>4,8 / 5</b>158 reviews</div></div>
-      <div class="zweef z3"><div><b>"Vandaag geslaagd!"</b>fama, via Google</div></div>
-    </div>
+    </div></div>
   </div>
 </section>
 
@@ -307,13 +308,8 @@ h2 mark{background:none;color:var(--blauw)}
       <article class="cursus c2 rv" style="--d:1"><span class="duur">2 uur</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M9 3v18M15 8h2M15 13h2"/></svg></span><h3>Spoedcursus manoeuvres</h3><span class="prijs">€ 100<small>2 uur</small></span><p>Vakparkeren, fileparkeren, keren en de autosnelweg op.</p></article>
       <article class="cursus c3 rv" style="--d:2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Examen&shy;begeleiding</h3><span class="prijs">€ 150<small>met uur les</small></span><p>Geen gestresseerde papa naast je, wel iemand die het examen kent. Zonder les: € 100.</p></article>
       <article class="cursus c4 rv" style="--d:3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><path d="M12 3v6.5M4.5 16.5 10 13.5M19.5 16.5 14 13.5"/></svg></span><h3>Rijvaardigheids&shy;training</h3><span class="prijs">€ 100<small>2 uur</small></span><p>Ongevallen herkennen en vermijden, op jouw tempo.</p></article>
-      <figure class="fotokaart rv"><img src="img/dashboard.webp" alt="Zicht vanuit de lesauto tijdens een les" loading="lazy" width="1000" height="853"><span>Vanuit de lesauto, elke dag op TikTok</span></figure>
+      <figure class="fotokaart rv"><img src="img/s-stuur.webp" alt="Handen aan het stuur tijdens een rijles" loading="lazy" width="1600" height="1065" style="object-position:50% 55%"><span>Je oefent in je eigen wagen</span></figure>
       <div class="blauwkaart rv" style="--d:1"><p>Twijfel je welke cursus je nodig hebt? Stuur je examendatum, dan zeggen we het je.</p><a class="knop k-geel" href="https://wa.me/32483007728" target="_blank" rel="noopener">Stuur een bericht</a></div>
-    </div>
-
-    <div class="leer rv">
-      <div><span class="oog">Rijvaardigheidstraining</span><h3>Wat je leert in twee uur</h3><p>Een les voor wie zekerder wil rijden in het dagelijkse verkeer, ook na het examen.</p></div>
-      <ul><li><i>🛑</i>Je remafstand verbeteren</li><li><i>⚡</i>Sneller reageren</li><li><i>↩️</i>Beter manoeuvreren</li><li><i>🌀</i>Controle terugwinnen</li><li><i>⛽</i>Zuiniger rijden</li><li><i>🎯</i>Speciale stuurtechnieken</li></ul>
     </div>
   </div>
 </section>
@@ -338,28 +334,11 @@ h2 mark{background:none;color:var(--blauw)}
 
 <section class="s" id="werkwijze">
   <div class="wrap">
-    <div class="kop"><div><span class="oog rv">Zo gaat het</span><h2 class="rv" style="--d:1">Van inschrijven tot <mark>geslaagd</mark></h2></div><p class="rv" style="--d:2">Je rijdt altijd met je eigen voertuig. Zo oefen je meteen in de wagen waarmee je examen doet.</p></div>
+    <div class="kop"><div><span class="oog rv">Zo gaat het</span><h2 class="rv" style="--d:1">Van inschrijven tot <mark>geslaagd</mark></h2></div><p class="rv" style="--d:2">Geen lange trajecten. Je stuurt je datum door en we werken gericht naar die dag toe.</p></div>
     <div class="pad">
       <div class="stap rv"><span class="nr">1</span><h3>Stuur je examendatum</h3><p>Laat via WhatsApp of mail weten wanneer en waar je examen aflegt.</p></div>
       <div class="stap rv" style="--d:1"><span class="nr">2</span><h3>Volg een spoedcursus</h3><p>Twee uur op de echte route, met alle kruispunten en manoeuvres die je moet kennen.</p></div>
       <div class="stap rv" style="--d:2"><span class="nr">3</span><h3>Examen met begeleiding</h3><p>Op de dag zelf rijd je je in met een uur les en overlopen we alles nog eens.</p></div>
-    </div>
-  </div>
-</section>
-<section class="tiktok" id="tiktok">
-  <div class="wrap tt-g">
-    <div class="rv">
-      <span class="oog">Gratis meeleren</span>
-      <h2 style="color:#fff">Elke dag een les <mark style="color:var(--geel)">op TikTok</mark></h2>
-      <p>Van de lastigste voorrangsregels tot de fouten die je examen kosten. Duizenden leerlingen leren elke dag mee vanuit de lesauto.</p>
-      <div class="tt-stats"><span><b>23,5K</b>volgers op TikTok</span><span><b>137K</b>likes</span><span><b>7,3K</b>op Instagram</span></div>
-      <a class="knop k-geel" style="margin-top:28px" href="https://www.tiktok.com/@rijexpertt" target="_blank" rel="noopener">Volg @rijexpertt</a>
-    </div>
-    <div class="rij-gsm rv" style="--d:1">
-      <div class="gsm"><div><img src="img/clip4.webp" alt="TikTok van RijExpert over boetes" loading="lazy" width="640" height="1136"></div></div>
-      <div class="gsm"><div><img src="img/clip5.webp" alt="TikTok van RijExpert met extra uitleg" loading="lazy" width="700" height="1244"></div></div>
-      <div class="gsm"><div><img src="img/clip6.webp" alt="TikTok van RijExpert over spookrijden" loading="lazy" width="700" height="1244"></div></div>
-      <div class="gsm"><div><img src="img/paniek.webp" alt="TikTok van RijExpert tijdens een les" loading="lazy" width="700" height="1244"></div></div>
     </div>
   </div>
 </section>
@@ -391,7 +370,7 @@ h2 mark{background:none;color:var(--blauw)}
         <a href="https://www.google.com/maps/dir/?api=1&destination=Rijexpert+Auwersstraat+2600+Antwerpen" target="_blank" rel="noopener" style="margin-left:auto;align-self:center;font-weight:700;font-size:14.5px;color:var(--blauw);text-decoration:underline;text-underline-offset:3px">Route plannen</a>
       </div>
     </div>
-    <div class="c-f rv" style="--d:1"><img src="img/kruispunt.webp" alt="Kruispunt gezien vanuit de lesauto" loading="lazy" width="700" height="1244" style="object-position:50% 70%"><div class="zweef"><i style="background:var(--geel);color:var(--nacht)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7.2.8-5.4 4.9 1.5 7.1L12 17.8 5.7 21.4l1.5-7.1L1.8 9.4 9 8.6z"/></svg></i><div><b>4,8 / 5</b>158 Google-reviews</div></div></div>
+    <div class="c-f rv" style="--d:1"><img src="img/s-stuur2.webp" alt="Handen aan het stuur in de wagen" loading="lazy" width="1067" height="1600" style="object-position:50% 50%"><div class="zweef"><i style="background:var(--geel);color:var(--nacht)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7.2.8-5.4 4.9 1.5 7.1L12 17.8 5.7 21.4l1.5-7.1L1.8 9.4 9 8.6z"/></svg></i><div><b>4,8 / 5</b>158 Google-reviews</div></div></div>
   </div>
 </section>
 </main>

@@ -84,10 +84,10 @@ h2 em{font:400 1.05em/1 'Pinyon Script',cursive;text-transform:none;color:var(--
 .foto img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
 .foto:hover img{transform:scale(1.05)}
 .f1{grid-column:1/6;grid-row:1/5}
-.f2{grid-column:6/9;grid-row:1/4}
-.f3{grid-column:9/13;grid-row:1/3}
+.f2{grid-column:6/9;grid-row:1/5}
+.f3{grid-column:1/9;grid-row:5/7}
 .f4{grid-column:9/13;grid-row:3/5}
-.f5{grid-column:6/9;grid-row:4/6}
+.f5{grid-column:9/13;grid-row:1/5}
 .f6{grid-column:1/6;grid-row:5/7}
 .kaart{grid-column:9/13;grid-row:5/7;background:var(--espresso);color:var(--champ);border-radius:28px;padding:clamp(22px,2.4vw,32px);display:flex;flex-direction:column;justify-content:space-between}
 .kaart p{font:400 clamp(24px,2.1vw,30px)/1.15 'Italiana';text-transform:uppercase;letter-spacing:.02em}
@@ -213,7 +213,10 @@ h2 em{font:400 1.05em/1 'Pinyon Script',cursive;text-transform:none;color:var(--
   .mood{grid-template-columns:1fr 1fr;grid-auto-rows:auto}
   .f1,.f2,.f3,.f4,.f5,.f6,.f7,.kaart{grid-column:auto;grid-row:auto;aspect-ratio:4/5}
   .f1{grid-column:span 2;aspect-ratio:1}
-  .f6{grid-column:span 2;aspect-ratio:16/10}
+  .f3{grid-column:span 2;aspect-ratio:16/10;order:3}
+  .f5{order:2}.f2{order:1}
+  .mood .kaart{grid-column:span 2;order:4}
+  .portret{order:2}
   .kaart{aspect-ratio:auto;min-height:220px}
   .b-g{grid-template-columns:1fr}
   .c-g{grid-template-columns:1fr}
@@ -267,9 +270,7 @@ h2 em{font:400 1.05em/1 'Pinyon Script',cursive;text-transform:none;color:var(--
     </div>
     <div class="boog-w rv" style="--d:2">
       <div class="boog"><img src="img/sunkissed.webp" alt="Zacht blond met sun kissed highlights bij Kapsalon Jolly" width="1300" height="1490" fetchpriority="high"></div>
-      <span class="hand" aria-hidden="true">uw haar, mijn passie</span>
       <div class="chip c1"><i>K</i><div><b>Kérastase-salon</b>wassen en verzorgen met Kérastase</div></div>
-      <div class="chip c2"><img src="img/stoelen.webp" alt="" width="600" height="600"><div><b>Massagezetels</b>bij elke wasbeurt</div></div>
     </div>
   </div>
   <div class="balk rv">
@@ -283,11 +284,11 @@ h2 em{font:400 1.05em/1 'Pinyon Script',cursive;text-transform:none;color:var(--
 
 <section class="over" id="over">
   <div class="wrap over-g">
-    <div class="portret rv"><div class="p1"><img src="img/lyncey2.webp" alt="Lyncey Bruyneel, zaakvoerster van Kapsalon Jolly" loading="lazy" width="900" height="896" style="object-position:50% 30%"></div><div class="sign">Lyncey<small>Zaakvoerster</small></div></div>
+    <div class="portret rv"><div class="p1"><img src="img/lyncey.webp" alt="Lyncey aan de toonbank van Kapsalon Jolly" loading="lazy" width="1024" height="624" style="object-position:78% 40%"></div><div class="sign">Lyncey<small>Zaakvoerster</small></div></div>
     <div>
       <span class="oog rv">Over Jolly</span>
       <h2 class="rv" style="--d:1;text-align:left">Al 20 jaar <em>verwennen</em></h2>
-      <p class="lead2 rv" style="--d:2">Kapsalon Jolly staat al twintig jaar voor verwennerij en beleving. Bij ons kom je even tot rust, ver weg van alle stress. Tijdens een gesprek luisteren we naar je wensen, en daarna kiezen we samen de beste snit of kleur voor jouw haar.</p>
+      <p class="lead2 rv" style="--d:2">Kapsalon Jolly staat al twintig jaar voor verwennerij en beleving. Bij ons kom je even tot rust, ver weg van alle stress. Tijdens een gesprek luisteren we naar je wensen, en daarna kiezen we samen de beste snit of kleur voor jouw haar. Kérastase koos Jolly uit als salon, en daar volgen we regelmatig opleidingen voor.</p>
       <div class="getal rv" style="--d:3"><div><b>20</b><span>jaar ervaring</span></div><div><b>4,8</b><span>op Google</span></div><div><b>1</b><span>gecertificeerd kleurspecialist</span></div></div>
     </div>
   </div>
@@ -315,31 +316,14 @@ h2 em{font:400 1.05em/1 'Pinyon Script',cursive;text-transform:none;color:var(--
       <figure class="foto f1 rv"><img src="img/teasy.webp" alt="Voor en na een kleuring met de teasy techniek" loading="lazy" width="1440" height="1440"><div class="vn"><span>Voor</span><span>Na</span></div><figcaption class="lbl">Teasy techniek</figcaption></figure>
       <figure class="foto f2 rv" style="--d:1"><img src="img/babylights.webp" alt="Babylights in blond haar" loading="lazy" width="1000" height="1262"><figcaption class="lbl">Babylights</figcaption></figure>
       <figure class="foto f3 rv" style="--d:2"><img src="img/salon.webp" alt="Het lichte salon met spiegels en stoelen" loading="lazy" width="1024" height="624"><figcaption class="lbl">Ons salon</figcaption></figure>
-      <figure class="foto f4 rv" style="--d:3"><img src="img/wassen.webp" alt="Wasstoelen met massage in een rustige ruimte" loading="lazy" width="1024" height="642"><figcaption class="lbl">Wassen met hoofdmassage</figcaption></figure>
       <figure class="foto f5 rv" style="--d:2"><img src="img/foilyage.webp" alt="Foilyage in lang blond haar" loading="lazy" width="1000" height="978"><figcaption class="lbl">Foilyage</figcaption></figure>
-      <figure class="foto f6 rv" style="--d:1"><img src="img/lyncey.webp" alt="Lyncey aan de toonbank met verzorgingsproducten" loading="lazy" width="1024" height="624" style="object-position:50% 40%"><figcaption class="lbl">Lyncey, zaakvoerster</figcaption></figure>
-      <figure class="foto f7 rv" style="--d:3"><img src="img/cactus.webp" alt="Detail in het salon" loading="lazy" width="768" height="1024" style="object-position:50% 30%"></figure>
       <div class="kaart rv" style="--d:3"><p>Twijfel je over je kleur? Je krijgt eerlijk advies.</p><a href="#contact">Maak een afspraak<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     </div>
   </div>
 </section>
 
 
-<section class="s" id="kerastase" style="padding-bottom:0">
-  <div class="wrap kera">
-    <div class="kera-t rv">
-      <span class="oog">Kérastase-salon</span>
-      <h2 style="text-align:left;margin-top:14px">Verwennen tot in de <em>hoofdhuid</em></h2>
-      <p>Kérastase stelt hoge eisen aan de salons die met hun producten mogen werken. Jolly werd uitgekozen, en volgt daarvoor regelmatig opleidingen.</p>
-      <div class="stap"><b>01</b><div><span>Het gesprek</span><small>We luisteren naar je wensen en bekijken wat kan.</small></div></div>
-      <div class="stap"><b>02</b><div><span>De wasbeurt</span><small>Met een intensieve Kérastase-massage van de hoofdhuid.</small></div></div>
-      <div class="stap"><b>03</b><div><span>De behandeling</span><small>Snit of kleur, met de tijd die het nodig heeft.</small></div></div>
-      <div class="stap"><b>04</b><div><span>Advies voor thuis</span><small>Zodat je kapsel ook thuis mooi blijft.</small></div></div>
-    </div>
-    <div class="kera-f rv" style="--d:1"><img src="img/kerastase.webp" alt="Kérastase-producten bij Kapsalon Jolly" loading="lazy" width="640" height="852"><div class="chip"><i style="width:36px;height:36px;border-radius:50%;background:var(--espresso);color:var(--champ);display:grid;place-items:center;font:400 16px/1 'Italiana';font-style:normal">K</i><div><b>Uitgekozen door Kérastase</b>met vaste opleidingen</div></div></div>
-  </div>
-</section>
-<section class="s" id="praktisch" style="padding-bottom:0">
+<section class="s" id="praktisch" style="padding-top:0;padding-bottom:0">
   <div class="wrap prakt">
     <div class="uren rv">
       <span class="oog" style="color:var(--rose2)">Openingsuren</span>

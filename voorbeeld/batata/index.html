@@ -104,7 +104,7 @@ h2 .script{font:400 1.05em/1 'Yellowtail',cursive;color:var(--goud);letter-spaci
 
 /* reviews */
 .rv-blok{background:var(--zwart);color:var(--creme);border-radius:clamp(28px,3.4vw,48px);margin:0 clamp(10px,1.4vw,18px);padding:clamp(70px,8vw,110px) 0;position:relative;overflow:hidden}
-.rv-blok::after{content:"BATATA";position:absolute;left:50%;bottom:-.18em;transform:translateX(-50%);font:700 clamp(120px,22vw,320px)/1 'Cinzel',serif;color:rgba(226,174,69,.06);letter-spacing:.05em;pointer-events:none;white-space:nowrap}
+.rv-blok::after{content:none;--x:"BATATA";position:absolute;left:50%;bottom:-.18em;transform:translateX(-50%);font:700 clamp(120px,22vw,320px)/1 'Cinzel',serif;color:rgba(226,174,69,.06);letter-spacing:.05em;pointer-events:none;white-space:nowrap}
 .rv-g{position:relative;z-index:1;display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,5vw,80px);align-items:center}
 .cijfer{font:800 clamp(130px,15vw,220px)/.8 'Bricolage Grotesque';letter-spacing:-.05em;color:var(--goud)}
 .cijfer small{font-size:.28em;color:rgba(247,239,223,.5);letter-spacing:0;margin-left:6px}
@@ -113,7 +113,7 @@ h2 .script{font:400 1.05em/1 'Yellowtail',cursive;color:var(--goud);letter-spaci
 .feit span{border:1px solid rgba(247,239,223,.18);border-radius:999px;padding:10px 16px;font-size:14px;font-weight:600}
 .quotes{display:grid;gap:16px}
 .q{background:var(--creme);color:var(--zwart);border-radius:26px;padding:28px 30px;position:relative;box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
-.q:nth-child(2){margin-left:clamp(0px,5vw,70px);background:var(--goud)}
+.q:nth-child(2){background:var(--goud)}
 .q p{font:700 clamp(19px,1.7vw,23px)/1.35 'Bricolage Grotesque';letter-spacing:-.01em}
 .q footer{margin-top:16px;display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:rgba(12,11,9,.65)}
 .q footer b{color:var(--zwart)}
@@ -201,7 +201,7 @@ h2 .script{font:400 1.05em/1 'Yellowtail',cursive;color:var(--goud);letter-spaci
 .vragen details p{color:var(--mute);padding-bottom:22px;max-width:40em}
 @media (max-width:1060px){
   .over-g,.ml-g{grid-template-columns:1fr}
-  .over-f{width:min(80%,420px);margin:0 auto}
+  .over-f{width:min(80%,420px);margin:0 auto;order:2}
   .manieren{grid-template-columns:1fr}
   .galerij{grid-template-columns:1fr 1fr}
 }
@@ -283,12 +283,10 @@ h2 .script{font:400 1.05em/1 'Yellowtail',cursive;color:var(--goud);letter-spaci
     <div class="bord rv" style="--d:2">
       <div class="ring"></div>
       <div class="foto"><img src="img/stoofvlees.webp" alt="Friet met stoofvlees en een shawarma wrap van BATATA" width="1400" height="1400" fetchpriority="high"></div>
-      <img class="zoet" src="img/sweet-cut.webp" alt="" width="900" height="578">
       <div class="stempel" aria-hidden="true">
         <svg viewBox="0 0 200 200"><defs><path id="cirkel" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><text><textPath href="#cirkel">NOT YOUR REGULAR FRIES · BERCHEM ·</textPath></text></svg>
         <b>yum!</b>
       </div>
-      <div class="kaartje"><img src="img/gevel.webp" alt="" width="1200" height="1600"><div><b>4,5 <span class="st">★★★★★</span></b><span>367 Google-reviews</span></div></div>
     </div>
   </div>
   <div class="ticker" aria-hidden="true"><div>
@@ -302,7 +300,6 @@ h2 .script{font:400 1.05em/1 'Yellowtail',cursive;color:var(--goud);letter-spaci
   <div class="wrap over-g">
     <div class="over-f rv">
       <div class="hoofd"><img src="img/kok.webp" alt="Een kok van BATATA in de open keuken" loading="lazy" width="720" height="1280" style="object-position:50% 30%"></div>
-      <div class="klein"><img src="img/pita.webp" alt="Shawarma in vers Libanees brood" loading="lazy" width="900" height="1600"></div>
       <div class="datum"><b>Sinds</b>februari 2026</div>
     </div>
     <div>
@@ -325,9 +322,6 @@ h2 .script{font:400 1.05em/1 'Yellowtail',cursive;color:var(--goud);letter-spaci
       <figure class="bord2 m2 rv" style="--d:1"><img src="img/wrap.webp" alt="Shawarma wrap in de hand" loading="lazy" width="1200" height="1600"><figcaption class="sticker zw">Shawarma wrap</figcaption></figure>
       <figure class="bord2 rv" style="--d:2"><img src="img/sweet.webp" alt="Zoete aardappelfrietjes" loading="lazy" width="1255" height="937"><figcaption class="sticker">Iets nieuws proberen</figcaption></figure>
       <div class="bord2 honger rv" style="--d:3"><b>Honger?</b><p>Bestel online en haal het warm op.</p><a href="https://www.takeaway.com/be/menu/batata-antwerpen" target="_blank" rel="noopener">Naar bestellen<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-      <figure class="bord2 m4 rv" style="--d:1"><img src="img/interieur.webp" alt="Het interieur van BATATA met rieten stoelen en koperen lampen" loading="lazy" width="1200" height="1600"><figcaption class="sticker">Binnen zitten</figcaption></figure>
-      <figure class="bord2 rv" style="--d:2"><img src="img/wraps.webp" alt="Wraps en friet op een dienblad" loading="lazy" width="1200" height="1600" style="object-position:50% 40%"><figcaption class="sticker">Voor twee</figcaption></figure>
-      <figure class="bord2 rv" style="--d:3"><img src="img/keuken.webp" alt="Zicht op de keuken door het raam" loading="lazy" width="900" height="1600" style="object-position:50% 45%"><figcaption class="sticker zw">Vers gebakken</figcaption></figure>
     </div>
   </div>
 </section>
@@ -353,6 +347,20 @@ h2 .script{font:400 1.05em/1 'Yellowtail',cursive;color:var(--goud);letter-spaci
   </div>
 </section>
 <div style="height:clamp(80px,9vw,120px)"></div>
+<section class="s" id="bestellen">
+  <div class="wrap">
+    <div class="kop">
+      <span class="slogan rv" style="color:var(--bruin)">Zo eet je BATATA</span>
+      <h2 class="rv" style="--d:1">Hier, thuis of <span class="script">onderweg</span></h2>
+    </div>
+    <div class="manieren">
+      <div class="manier rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16M6 11V7a6 6 0 0 1 12 0v4M5 11l1 9h12l1-9"/></svg></span><h3>Aan tafel</h3><p>Schuif aan in de zaak, tussen de rieten stoelen en koperen lampen.</p><a href="#contact">Route<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <div class="manier goud rv" style="--d:1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><h3>Afhalen</h3><p>Bel even op voorhand en haal je bestelling warm op.</p><a href="tel:+3236667200">03 666 72 00<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <div class="manier rv" style="--d:2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17h6l3-7h3M9 7h4l2 3"/></svg></span><h3>Laten bezorgen</h3><p>Bestel online via Takeaway en wij bezorgen het bij je thuis.</p><a href="https://www.takeaway.com/be/menu/batata-antwerpen" target="_blank" rel="noopener">Bestellen<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
 <section class="rv-blok" id="reviews">
   <div class="wrap rv-g">
     <div class="rv">
@@ -369,44 +377,6 @@ h2 .script{font:400 1.05em/1 'Yellowtail',cursive;color:var(--goud);letter-spaci
 </section>
 
 
-<section class="s" id="bestellen" style="padding-bottom:0">
-  <div class="wrap">
-    <div class="kop">
-      <span class="slogan rv" style="color:var(--bruin)">Zo eet je BATATA</span>
-      <h2 class="rv" style="--d:1">Hier, thuis of <span class="script">onderweg</span></h2>
-    </div>
-    <div class="manieren">
-      <div class="manier rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16M6 11V7a6 6 0 0 1 12 0v4M5 11l1 9h12l1-9"/></svg></span><h3>Aan tafel</h3><p>Schuif aan in de zaak, tussen de rieten stoelen en koperen lampen.</p><a href="#contact">Route<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-      <div class="manier goud rv" style="--d:1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><h3>Afhalen</h3><p>Bel even op voorhand en haal je bestelling warm op.</p><a href="tel:+3236667200">03 666 72 00<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-      <div class="manier rv" style="--d:2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17h6l3-7h3M9 7h4l2 3"/></svg></span><h3>Laten bezorgen</h3><p>Bestel online via Takeaway en wij bezorgen het bij je thuis.</p><a href="https://www.takeaway.com/be/menu/batata-antwerpen" target="_blank" rel="noopener">Bestellen<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-    </div>
-  </div>
-</section>
-<section class="s" id="sfeer" style="padding-bottom:0">
-  <div class="wrap">
-    <div class="kop">
-      <span class="slogan rv" style="color:var(--bruin)">@batata.antwerp</span>
-      <h2 class="rv" style="--d:1">Zo ziet het <span class="script">eruit</span></h2>
-    </div>
-    <div class="galerij">
-      <figure class="rv"><img src="img/zaal.webp" alt="De zaal met rieten stoelen en koperen lampen" loading="lazy" width="1000" height="1333"></figure>
-      <figure class="rv" style="--d:1"><img src="img/loaded.webp" alt="Friet met kaas en saus" loading="lazy" width="1400" height="1400"></figure>
-      <figure class="rv" style="--d:2"><img src="img/tray.webp" alt="Dienblad met friet, stoofvlees en wrap" loading="lazy" width="900" height="1600" style="object-position:50% 40%"></figure>
-      <figure class="rv" style="--d:3"><img src="img/handen.webp" alt="Samen eten met wraps en friet" loading="lazy" width="1000" height="1333"></figure>
-    </div>
-  </div>
-</section>
-<section class="s" id="vragen">
-  <div class="wrap">
-    <div class="kop"><span class="slogan rv" style="color:var(--bruin)">Goed om te weten</span><h2 class="rv" style="--d:1">Vragen?</h2></div>
-    <div class="vragen rv" style="--d:2">
-      <details open><summary>Kan ik ter plaatse eten?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Zeker. Binnen eet je aan tafel of aan de hoge tafels bij het raam.</p></details>
-      <details><summary>Kan ik online bestellen?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Ja, via Takeaway.com. Daar zie je ook de volledige kaart en de prijzen.</p></details>
-      <details><summary>Hebben jullie iets zonder vlees?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>De falafel wrap is een favoriet, en natuurlijk de frieten met een van onze sauzen.</p></details>
-      <details><summary>Waar vind ik jullie?<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></i></summary><p>Op de Kardinaal Mercierlei 94 in Berchem. Bel 03 666 72 00 als je vragen hebt.</p></details>
-    </div>
-  </div>
-</section>
 <section class="s" id="contact">
   <div class="wrap c-g">
     <div class="c-kaart rv">
@@ -419,7 +389,7 @@ h2 .script{font:400 1.05em/1 'Yellowtail',cursive;color:var(--goud);letter-spaci
       </div>
       <div class="c-acts"><a class="knop k-zwart" href="https://www.takeaway.com/be/menu/batata-antwerpen" target="_blank" rel="noopener">Bestel online</a></div>
     </div>
-    <div class="c-foto rv" style="--d:1"><img src="img/bank.webp" alt="Bank in de zaak met een bord friet en stoofvlees" loading="lazy" width="900" height="1600"><span class="sticker zw">Tot straks!</span></div>
+    <div class="c-foto rv" style="--d:1"><img src="img/interieur.webp" alt="De zaak met rieten stoelen en koperen lampen" loading="lazy" width="1200" height="1600"><span class="sticker zw">Tot straks!</span></div>
   </div>
 </section>
 </main>
