@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Motostudio · Motorzaak op mensenmaat in Beernem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+:root{--geel:#FFC21A;--geel2:#FFD34F;--geelz:#FFF1C7;--bg:#F7F3EB;--paneel:#EEE8DC;--wit:#fff;--ink:#161513;--ink2:#24221F;--grijs:#6A665E;--lijn:rgba(22,21,19,.11);--ease:cubic-bezier(.16,1,.3,1);--r:26px;--sch:0 30px 60px -34px rgba(22,21,19,.45)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.65 'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1320px;margin:0 auto;padding:0 clamp(16px,3.4vw,40px)}
+.demo{background:var(--ink);color:rgba(255,255,255,.72);font:500 13.5px/1.4 'Manrope',sans-serif;text-align:center;padding:9px 16px;position:relative;z-index:60}
+.demo a{color:var(--geel);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+
+h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.04em;line-height:.98}
+h2{font-size:clamp(38px,4.6vw,64px)}
+h1 em,h2 em{font-style:normal;position:relative;white-space:nowrap;z-index:0}
+h1 em::after,h2 em::after{content:"";position:absolute;left:-.08em;right:-.1em;bottom:.04em;height:.42em;background:var(--geel);border-radius:.12em .3em .18em .25em;transform:rotate(-1.4deg);z-index:-1}
+.tag{display:inline-flex;align-items:center;gap:10px;font:800 13px/1 'Manrope';letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.tag::before{content:"";width:26px;height:4px;border-radius:4px;background:var(--geel)}
+.knop{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:17px 26px;border-radius:14px;font:800 16px/1 'Manrope';transition:transform .4s var(--ease),background .3s,box-shadow .4s;white-space:nowrap}
+.knop svg{width:18px;height:18px;transition:transform .4s var(--ease)}
+.knop:hover{transform:translateY(-2px)}
+.knop:hover svg{transform:translateX(3px)}
+.k-geel{background:var(--geel);color:var(--ink);box-shadow:0 14px 30px -14px rgba(214,150,0,.8)}
+.k-geel:hover{background:var(--geel2)}
+.k-ink{background:var(--ink);color:var(--wit)}
+.k-ink:hover{background:var(--ink2)}
+.k-lijn{border:2px solid var(--ink);color:var(--ink)}
+.k-lijn:hover{background:var(--ink);color:var(--wit)}
+
+/* kop */
+.kop{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0}
+.merk img{height:46px;width:auto}
+.nav{display:flex;gap:30px;font:700 15.5px/1 'Manrope'}
+.nav a{position:relative;padding:6px 0}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:3px;border-radius:3px;background:var(--geel);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.nav a:hover::after{transform:none}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(30px,4vw,64px);align-items:center;padding:clamp(24px,4vw,54px) 0 clamp(40px,5vw,70px)}
+.hero h1{font-size:clamp(46px,6.2vw,92px);margin:22px 0 24px}
+.lead{font-size:clamp(17px,1.35vw,19.5px);color:var(--grijs);max-width:540px}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.score{display:flex;align-items:center;gap:14px;margin-top:34px;padding-top:26px;border-top:1px solid var(--lijn)}
+.score .g{width:46px;height:46px;border-radius:50%;background:var(--wit);display:grid;place-items:center;font:800 20px/1 'Manrope';color:#4285F4;box-shadow:0 8px 18px -10px rgba(0,0,0,.3)}
+.score b{display:block;font:800 18px/1.2 'Manrope'}
+.score b span{color:#E8A500;letter-spacing:2px;margin-left:6px}
+.score small{color:var(--grijs);font-size:14.5px}
+.hero-f{position:relative}
+.hero-f .foto{border-radius:var(--r);overflow:hidden;aspect-ratio:4/4.6;box-shadow:var(--sch)}
+.hero-f .foto img{width:100%;height:100%;object-fit:cover;object-position:50% 62%}
+.sticker{position:absolute;left:-34px;bottom:44px;background:var(--geel);color:var(--ink);border-radius:18px;padding:18px 22px;transform:rotate(-4deg);box-shadow:0 20px 40px -20px rgba(22,21,19,.5);max-width:250px}
+.sticker small{display:block;font:800 12px/1 'Manrope';letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.sticker b{font:800 22px/1.05 'Bricolage Grotesque';letter-spacing:-.02em}
+.badge{position:absolute;right:-18px;top:34px;width:128px;height:128px;border-radius:50%;background:var(--ink);color:var(--wit);display:grid;place-items:center;text-align:center;box-shadow:0 18px 36px -18px rgba(0,0,0,.6)}
+.badge b{display:block;font:800 38px/1 'Bricolage Grotesque';color:var(--geel)}
+.badge small{font:700 12.5px/1.25 'Manrope';letter-spacing:.04em}
+
+.band-w{overflow:hidden;padding:14px 0}
+.band{background:var(--ink);color:var(--wit);overflow:hidden;padding:20px 0;transform:rotate(-1.2deg);margin:10px -20px 0}
+.band-in{display:flex;gap:46px;width:max-content;animation:rol 38s linear infinite;font:800 clamp(22px,2.4vw,32px)/1 'Bricolage Grotesque';letter-spacing:-.01em;text-transform:uppercase}
+.band-in span{display:flex;align-items:center;gap:46px}
+.band-in span::after{content:"";width:12px;height:12px;border-radius:50%;background:var(--geel)}
+@keyframes rol{to{transform:translateX(-50%)}}
+
+section.blok{padding:clamp(80px,9vw,130px) 0}
+.kopje{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(36px,4vw,56px)}
+.kopje h2{margin-top:18px}
+.kopje p{color:var(--grijs);max-width:520px;justify-self:end}
+
+/* motoren */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.mk{background:var(--wit);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 0 var(--lijn)}
+.mk figure{aspect-ratio:16/11;overflow:hidden}
+.mk figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.mk:hover figure img{transform:scale(1.04)}
+.mk-t{padding:30px 32px 34px;display:flex;flex-direction:column;gap:14px;flex:1}
+.mk-t small{font:800 13px/1 'Manrope';letter-spacing:.14em;text-transform:uppercase;color:var(--grijs)}
+.mk-t h3{font-size:clamp(28px,2.6vw,38px)}
+.mk-t p{color:var(--grijs)}
+.merken{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.merken span{padding:8px 14px;border-radius:10px;background:var(--paneel);font:800 14px/1 'Manrope';letter-spacing:.06em}
+.garantie{display:flex;align-items:center;gap:14px;margin-top:auto;padding:16px 18px;border-radius:14px;background:var(--geelz);font-weight:700}
+.garantie b{font:800 30px/1 'Bricolage Grotesque';flex:none}
+.rit{margin-top:22px;display:grid;grid-template-columns:1.25fr 1fr;border-radius:var(--r);overflow:hidden;background:var(--ink);color:var(--wit)}
+.rit figure{min-height:380px}
+.rit figure img{width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+.rit-t{padding:clamp(30px,4vw,54px);display:flex;flex-direction:column;justify-content:center;gap:18px}
+.rit-t .tag{color:var(--wit)}
+.rit-t h3{font-size:clamp(30px,3vw,44px)}
+.rit-t p{color:rgba(255,255,255,.72)}
+
+/* werkplaats */
+.donker{background:var(--ink);color:var(--wit)}
+.donker .tag{color:var(--wit)}
+.donker h2 em{color:var(--ink)}
+.donker .kopje p,.donker p{color:rgba(255,255,255,.7)}
+.wp{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(30px,5vw,80px);align-items:center}
+.wp-f{position:relative;padding:0 0 70px 0}
+.wp-f .a{border-radius:var(--r);overflow:hidden;width:82%;aspect-ratio:1}
+.wp-f .a img{width:100%;height:100%;object-fit:cover}
+.wp-f .b{position:absolute;right:0;bottom:0;width:46%;border-radius:20px;overflow:hidden;border:8px solid var(--ink);aspect-ratio:1}
+.wp-f .b img{width:100%;height:100%;object-fit:cover}
+.wp h2{margin:18px 0 22px}
+.punten{display:grid;gap:4px;margin-top:30px}
+.pt{display:grid;grid-template-columns:52px 1fr;gap:18px;padding:20px 0;border-top:1px solid rgba(255,255,255,.12)}
+.pt i{width:52px;height:52px;border-radius:14px;background:var(--geel);color:var(--ink);display:grid;place-items:center}
+.pt i svg{width:24px;height:24px}
+.pt b{display:block;font:800 19px/1.3 'Manrope';margin-bottom:4px;color:var(--wit)}
+.pt p{font-size:16px}
+.case{margin-top:clamp(50px,6vw,80px);display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,3vw,44px);align-items:center;background:var(--ink2);border-radius:var(--r);padding:clamp(18px,2vw,26px)}
+.case figure{width:clamp(200px,24vw,330px);aspect-ratio:1;border-radius:18px;overflow:hidden}
+.case figure img{width:100%;height:100%;object-fit:cover}
+.case small{font:800 13px/1 'Manrope';letter-spacing:.14em;text-transform:uppercase;color:var(--geel)}
+.case h3{font-size:clamp(28px,3vw,42px);margin:14px 0 14px}
+.case p{max-width:620px}
+
+/* detail */
+.dt{display:grid;grid-template-columns:.85fr 1.15fr;gap:22px;align-items:stretch}
+.dt-f{border-radius:var(--r);overflow:hidden;position:relative;min-height:520px}
+.dt-f img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dt-f span{position:absolute;left:18px;bottom:18px;background:var(--wit);border-radius:12px;padding:12px 16px;font:700 14.5px/1.35 'Manrope';max-width:260px}
+.prijzen{display:grid;gap:14px}
+.pr{background:var(--wit);border-radius:20px;padding:26px 28px;display:grid;grid-template-columns:1fr auto;gap:8px 24px;align-items:start;border:2px solid transparent;transition:border-color .3s,transform .4s var(--ease)}
+.pr:hover{border-color:var(--geel);transform:translateY(-2px)}
+.pr h3{font-size:28px}
+.pr .prijs{text-align:right;font:800 15px/1.2 'Manrope';color:var(--grijs)}
+.pr .prijs b{display:block;font:800 34px/1 'Bricolage Grotesque';color:var(--ink);letter-spacing:-.03em}
+.pr p{grid-column:1/-1;color:var(--grijs);font-size:15.5px}
+.pr.top{background:var(--geel)}
+.pr.top p,.pr.top .prijs{color:rgba(22,21,19,.75)}
+.noot{margin-top:18px;color:var(--grijs);font-size:15px}
+.cases{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:clamp(44px,5vw,64px)}
+.cs figure{border-radius:18px;overflow:hidden;aspect-ratio:4/5;background:var(--paneel)}
+.cs figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.cs:hover figure img{transform:scale(1.05)}
+.cs b{display:block;font:800 17px/1.3 'Manrope';margin-top:14px}
+.cs p{color:var(--grijs);font-size:15px;line-height:1.5;margin-top:4px}
+
+/* service */
+.paneel{background:var(--paneel)}
+.bento{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:auto auto;gap:22px}
+.sv{background:var(--wit);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.sv.groot{grid-row:span 2}
+.sv figure{overflow:hidden;aspect-ratio:16/10}
+.sv.groot figure{aspect-ratio:auto;flex:1;min-height:320px}
+.sv figure img{width:100%;height:100%;object-fit:cover}
+.sv-t{padding:28px 30px 32px}
+.sv-t h3{font-size:clamp(26px,2.3vw,34px);margin-bottom:10px}
+.sv-t p{color:var(--grijs)}
+.tarief{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.tarief span{background:var(--paneel);border-radius:12px;padding:12px 15px;font:600 15px/1.3 'Manrope'}
+.tarief b{font-weight:800}
+.vm{background:var(--ink);color:var(--wit);padding:30px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;border-radius:var(--r)}
+.vm .grt{font:800 clamp(56px,6vw,84px)/.9 'Bricolage Grotesque';color:var(--geel);letter-spacing:-.04em}
+.vm .grt small{font:700 18px/1 'Manrope';color:var(--wit);letter-spacing:0;margin-left:6px}
+.vm h3{font-size:clamp(26px,2.3vw,34px)}
+.vm p{color:rgba(255,255,255,.7)}
+.vm ul{list-style:none;display:grid;gap:8px;margin-top:12px}
+.vm li{display:flex;gap:10px;align-items:flex-start;font-weight:600;font-size:15.5px}
+.vm li svg{width:18px;height:18px;color:var(--geel);flex:none;margin-top:3px}
+
+/* reviews */
+.rv-g{display:grid;grid-template-columns:.8fr 1.2fr;gap:22px;align-items:start}
+.gj{position:sticky;top:24px;border-radius:var(--r);overflow:hidden;background:var(--ink);color:var(--wit)}
+.gj figure{aspect-ratio:4/4.4;overflow:hidden}
+.gj figure img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.gj-t{padding:26px 28px 30px}
+.gj-t b{font:800 26px/1.1 'Bricolage Grotesque';display:block;margin-bottom:10px}
+.gj-t p{color:rgba(255,255,255,.72);font-size:16px}
+.revs{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.rev{background:var(--wit);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:18px}
+.rev .st{color:#E8A500;letter-spacing:3px;font-size:17px}
+.rev blockquote{font-size:16.5px;line-height:1.6}
+.rev figcaption{margin-top:auto;display:flex;align-items:center;gap:12px;font-weight:800}
+.rev figcaption i{width:40px;height:40px;border-radius:50%;background:var(--geel);display:grid;place-items:center;font:800 16px/1 'Bricolage Grotesque';font-style:normal}
+.rev figcaption small{display:block;font-weight:500;color:var(--grijs);font-size:13.5px}
+.rev.foto{padding:0;overflow:hidden;gap:0;position:relative;min-height:300px}
+.rev.foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.rev.foto figcaption{position:relative;margin-top:auto;padding:16px 18px;background:linear-gradient(transparent,rgba(0,0,0,.72));color:#fff}
+.rev.foto figcaption small{color:rgba(255,255,255,.8)}
+.rev.breed{grid-column:1/-1;background:var(--geel)}
+.rev.breed blockquote{font:700 clamp(19px,1.7vw,23px)/1.45 'Manrope'}
+.rev.breed .st{color:var(--ink)}
+.rev.breed figcaption i{background:var(--ink);color:var(--geel)}
+.rev.breed figcaption small{color:rgba(22,21,19,.7)}
+
+/* contact */
+.ct{background:var(--geel);border-radius:clamp(26px,3vw,40px);padding:clamp(30px,5vw,70px);display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,70px);position:relative;overflow:hidden}
+.ct h2{margin:18px 0 20px}
+.ct h2 em::after{background:var(--wit)}
+.ct .tag::before{background:var(--ink)}
+.ct p.in{font-size:18px;max-width:520px}
+.ct .acts{margin-top:28px}
+.lijst{display:grid;gap:4px;margin-top:34px}
+.rij{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center;padding:12px 0;border-top:1px solid rgba(22,21,19,.16)}
+.rij i{width:44px;height:44px;border-radius:12px;background:var(--ink);color:var(--geel);display:grid;place-items:center}
+.rij i svg{width:20px;height:20px}
+.rij small{display:block;font:700 13px/1.2 'Manrope';letter-spacing:.06em;text-transform:uppercase;opacity:.7}
+.rij b{font:800 17.5px/1.35 'Manrope'}
+.uren{background:var(--wit);border-radius:24px;padding:clamp(24px,3vw,36px);align-self:start}
+.uren h3{font-size:30px;margin-bottom:16px}
+.uren table{width:100%;border-collapse:collapse;font-size:16px}
+.uren td{padding:13px 0;border-top:1px solid var(--lijn)}
+.uren td:last-child{text-align:right;font-weight:700}
+.uren tr.dicht td:last-child{color:var(--grijs);font-weight:500}
+.uren .nt{margin-top:16px;font-size:14.5px;color:var(--grijs)}
+
+.voet{padding:60px 0 40px}
+.voet-g{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.voet .merk img{height:52px}
+.voet p{color:var(--grijs);margin-top:16px;max-width:360px;font-size:15.5px}
+.voet h4{font:800 13px/1 'Manrope';letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
+.voet ul{list-style:none;display:grid;gap:9px;font-size:15.5px;color:var(--grijs)}
+.voet ul a:hover{color:var(--ink)}
+.voet-o{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:44px;padding-top:24px;border-top:1px solid var(--lijn);font-size:14px;color:var(--grijs)}
+
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.band-in{animation:none}}
+
+@media (max-width:1080px){
+  .nav{display:none}
+  .cases{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  .hero,.wp,.dt,.rv-g,.ct,.kopje,.duo,.rit,.bento{grid-template-columns:1fr}
+  .kopje p{justify-self:start}
+  .sticker{left:12px;bottom:18px}
+  .badge{right:12px;top:14px;width:108px;height:108px}
+  .badge b{font-size:32px}
+  .dt-f{min-height:420px}
+  .gj{position:static}
+  .gj figure{aspect-ratio:4/3.4}
+  .sv.groot{grid-row:auto}
+  .case{grid-template-columns:1fr}
+  .wp-f,.rit figure,.dt-f,.case figure{order:2}
+  .dt-f{min-height:380px}
+  .case figure{width:100%;aspect-ratio:4/3}
+  .voet-g{grid-template-columns:1fr 1fr}
+  .voet-g>div:first-child{grid-column:1/-1}
+}
+@media (max-width:600px){
+  body{font-size:16.5px}
+  .kop .knop{padding:13px 16px;font-size:14.5px}
+  .merk img{height:36px}
+  .hero h1{font-size:clamp(42px,12.4vw,60px)}
+  .acts .knop{flex:1 1 100%}
+  .hero-f .foto{aspect-ratio:4/4.4}
+  .revs{grid-template-columns:1fr}
+  .cases{gap:12px}
+  .cs b{font-size:15.5px}
+  .cs p{font-size:14px}
+  .pr{padding:22px}
+  .pr h3{font-size:24px}
+  .pr .prijs b{font-size:28px}
+  .rit figure{min-height:260px}
+  .wp-f{padding-bottom:50px}
+  .voet-g{grid-template-columns:1fr}
+}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="naar" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="vink" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="wa" viewBox="0 0 24 24"><path d="M20.5 3.5A11.8 11.8 0 0 0 2.2 17.7L.6 23.4l5.9-1.5A11.8 11.8 0 0 0 20.5 3.5zM12.1 21.6a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.5.9.9-3.4-.2-.4a9.8 9.8 0 1 1 8.2 4.5zm5.4-7.3c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1a8 8 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4 3.6 3.6 0 0 0-1.1 2.6 6.2 6.2 0 0 0 1.3 3.3 14.2 14.2 0 0 0 5.5 4.8c2 .9 2.8.9 3.8.8a3.2 3.2 0 0 0 2.1-1.5 2.6 2.6 0 0 0 .2-1.5c-.1-.2-.3-.2-.6-.4z" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+
+<main id="top">
+<div class="wrap">
+  <header class="kop">
+    <a class="merk" href="#top" aria-label="Motostudio"><img src="img/logo-zwart.webp" alt="Motostudio" width="640" height="324"></a>
+    <nav class="nav" aria-label="Menu"><a href="#motoren">Motoren</a><a href="#werkplaats">Werkplaats</a><a href="#motodetail">Motodetail</a><a href="#service">Service</a><a href="#reviews">Reviews</a></nav>
+    <a class="knop k-ink" href="#contact">Kom eens langs<svg><use href="#naar"/></svg></a>
+  </header>
+
+  <section class="hero" aria-label="Welkom">
+    <div>
+      <span class="tag rv">Motorzaak in Beernem</span>
+      <h1 class="rv" style="--d:1">Kopen, sleutelen en poetsen. <em>Onder één dak.</em></h1>
+      <p class="lead rv" style="--d:2">Nieuwe en tweedehands motoren, een werkplaats voor alle merken en de detailing waar het in 2020 allemaal mee begon. Je krijgt hier uitleg in gewone taal, en de koffie staat klaar.</p>
+      <div class="acts rv" style="--d:3">
+        <a class="knop k-geel" href="https://wa.me/3250893725" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Stuur een berichtje</a>
+        <a class="knop k-lijn" href="#motoren">Bekijk wat we doen<svg><use href="#naar"/></svg></a>
+      </div>
+      <div class="score rv" style="--d:4"><span class="g">G</span><div><b>5,0 <span>★★★★★</span></b><small>uit 88 reviews op Google</small></div></div>
+    </div>
+    <div class="hero-f rv" style="--d:2">
+      <div class="foto"><img src="img/mural-tenere.webp" alt="Adventure motor voor de grote Moto Studio muurschildering aan de werkplaats" width="1200" height="1600" fetchpriority="high"></div>
+      <div class="badge"><div><b>1 jaar</b><small>garantie op<br>elke occasie</small></div></div>
+      <div class="sticker"><small>Officieel dealer</small><b>Beta, AJP, RIEJU en Hyosung</b></div>
+    </div>
+  </section>
+</div>
+<div class="band-w"><div class="band" aria-hidden="true"><div class="band-in"><span>Verkoop</span><span>Onderhoud</span><span>Herstellingen</span><span>Diagnose</span><span>Detailing</span><span>Transport</span><span>Vervangmotor</span><span>Verkoop</span><span>Onderhoud</span><span>Herstellingen</span><span>Diagnose</span><span>Detailing</span><span>Transport</span><span>Vervangmotor</span></div></div></div>
+
+<section class="blok" id="motoren">
+  <div class="wrap">
+    <div class="kopje">
+      <div><span class="tag rv">Motoren</span><h2 class="rv" style="--d:1">Jouw volgende motor <em>staat hier</em></h2></div>
+      <p class="rv" style="--d:2">Van baan en straat tot touring, supersport en het echte offroadwerk. Kom gerust kijken en proeven, we nemen de tijd om samen te zoeken wat bij jou en je rijstijl past.</p>
+    </div>
+    <div class="duo">
+      <article class="mk rv">
+        <figure><img src="img/rieju-nkd.webp" alt="Nieuwe RIEJU NKD 125 in de werkplaats van Motostudio" loading="lazy" width="1200" height="900"></figure>
+        <div class="mk-t">
+          <small>Nieuw</small>
+          <h3>Offroad, allroad en adventure</h3>
+          <p>Als officieel dealer van Beta, AJP en RIEJU zitten we goed in het offroad-, allroad- en adventuresegment. Met Hyosung erbij is er ook iets voor wie liever op de baan blijft.</p>
+          <div class="merken"><span>BETA</span><span>AJP</span><span>RIEJU</span><span>HYOSUNG</span></div>
+        </div>
+      </article>
+      <article class="mk rv" style="--d:1">
+        <figure><img src="img/occasie-rood.webp" alt="Rode motor voor de Moto Studio gevel" loading="lazy" width="1000" height="1000" style="object-position:50% 70%"></figure>
+        <div class="mk-t">
+          <small>Tweedehands</small>
+          <h3>Occasies die we zelf durven verkopen</h3>
+          <p>Door onze achtergrond in detailing kijken we anders naar een motor. Elke occasie krijgt eerst een grondig nazicht, zodat ze er niet alleen goed uitziet maar ook betrouwbaar is.</p>
+          <div class="garantie"><b>12 mnd</b><span>Altijd een jaar garantie, plus service na verkoop in onze eigen werkplaats.</span></div>
+        </div>
+      </article>
+    </div>
+    <div class="rit rv">
+      <figure><img src="img/rit-bos.webp" alt="Groep klanten met hun offroadmotoren in een herfstbos" loading="lazy" width="1300" height="1300"></figure>
+      <div class="rit-t">
+        <span class="tag">Samen op pad</span>
+        <h3>Uit onze stal, de wereld in.</h3>
+        <p>Beta RR 300 en 390, RIEJU 307, AJP PR7 en Yamaha Ténéré. Allemaal motoren die bij ons vertrokken, en we rijden graag mee. Van een frisse trailrit in Frankrijk tot het zwaardere endurowerk in Spanje.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blok donker" id="werkplaats">
+  <div class="wrap">
+    <div class="wp">
+      <div class="wp-f rv">
+        <div class="a"><img src="img/sleutelen.webp" alt="Mechanieker aan het werk aan een blauwe motor" loading="lazy" width="1200" height="1200"></div>
+        <div class="b"><img src="img/gereedschap.webp" alt="Gereedschapslade in de werkplaats" loading="lazy" width="1000" height="1000"></div>
+      </div>
+      <div>
+        <span class="tag rv">Werkplaats</span>
+        <h2 class="rv" style="--d:1">Elk merk, <em>elk model.</em></h2>
+        <p class="rv" style="--d:2">Onderhoud, een herstelling of een motor die vreemd doet: in onze werkplaats in Beernem ben je welkom, ook als je motor niet bij ons gekocht is. Je krijgt een duidelijke uitleg en weet vooraf waar je aan toe bent.</p>
+        <div class="punten">
+          <div class="pt rv" style="--d:2"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></i><div><b>Onderhoud en herstellingen</b><p>Van een gewone beurt tot een grondige herstelling. Ook servicepunt voor Beta, AJP, RIEJU en Hyosung.</p></div></div>
+          <div class="pt rv" style="--d:3"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></i><div><b>Diagnose</b><p>We zoeken uit wat er scheelt, en leggen het uit zonder moeilijke termen.</p></div></div>
+          <div class="pt rv" style="--d:4"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg></i><div><b>Onderdelen en accessoires</b><p>Via ons netwerk van groothandels bestellen we vrijwel elk onderdeel of accessoire, en we monteren het meteen voor je.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="case rv">
+      <figure><img src="img/gsxr750.webp" alt="Paarse Suzuki GSX-R 750 voor de Moto Studio muurschildering" loading="lazy" width="1080" height="1080"></figure>
+      <div>
+        <small>Onlangs in de werkplaats</small>
+        <h3>Pure 90s nostalgie.</h3>
+        <p>De paarse Suzuki GSX-R 750 van Benoit kreeg de complete behandeling: een volledige technische overhaul, daarna een grondige wasbeurt en een lichte lakcorrectie. Klaar om terug de baan op te gaan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blok" id="motodetail">
+  <div class="wrap">
+    <div class="kopje">
+      <div><span class="tag rv">Motodetail</span><h2 class="rv" style="--d:1">Hier is het <em>begonnen.</em></h2></div>
+      <p class="rv" style="--d:2">Sinds 2020 poetsen we motoren terug naar nieuwstaat. Van een wasbeurt tot polijsten in meerdere stappen, met of zonder keramische afwerking. Ideaal voor of na de winterstalling, of als je motor de verkoop in gaat.</p>
+    </div>
+    <div class="dt">
+      <div class="dt-f rv"><img src="img/hogedruk.webp" alt="Motor wordt met de hogedrukreiniger afgespoten in de detailstudio" loading="lazy" width="1100" height="1100"><span>Elke motor gaat met de hand door de was, tot in de moeilijkste hoekjes.</span></div>
+      <div class="prijzen">
+        <article class="pr rv" style="--d:1">
+          <h3>Wash</h3><div class="prijs">vanaf<b>€120</b></div>
+          <p>Intensieve voorwas en handwas, velgen, ketting reinigen en smeren, motorblok en ophanging, en zorgvuldig drogen met perslucht en microvezel. Je motor straalt terug.</p>
+        </article>
+        <article class="pr top rv" style="--d:2">
+          <h3>Detail</h3><div class="prijs">vanaf<b>€300</b></div>
+          <p>Alles van de Wash, plus lakcorrectie in één stap, wax en sealant op lak en wielen, uitlaat en metalen delen opgeknapt, kunststof gevoed en een helder windscherm.</p>
+        </article>
+        <article class="pr rv" style="--d:3">
+          <h3>Protect</h3><div class="prijs">vanaf<b>€150</b></div>
+          <p>Voor fabrieksnieuwe motoren. Lakcorrectie in één stap, gedeeltelijke demontage en bescherming met wax en sealant (vanaf €150) of een keramische coating (vanaf €300).</p>
+        </article>
+        <article class="pr rv" style="--d:4">
+          <h3>Extra's</h3><div class="prijs">vanaf<b>€60</b>per uur</div>
+          <p>Een tweede of derde polijststap, keramische coating, stoomreinigen, natstralen van losse onderdelen of ultrasoon reinigen van carburateurs en injectoren.</p>
+        </article>
+      </div>
+    </div>
+    <div class="cases">
+      <article class="cs rv"><figure><img src="img/r1200gs.webp" alt="BMW R 1200 GS Rallye na de poetsbeurt" loading="lazy" width="1080" height="816"></figure><div><b>BMW R 1200 GS Rallye</b><p>Na 14 jaar trouwe dienst een grondige opfrisbeurt. De eigenaar twijfelt nu om hem nog te verkopen.</p></div></article>
+      <article class="cs rv" style="--d:1"><figure><img src="img/r1100s.webp" alt="BMW R1100S Randy Mamola editie" loading="lazy" width="1080" height="810"></figure><div><b>BMW R1100S Randy Mamola</b><p>Een grondige wasbeurt met dat tikkeltje extra. Merci Stefaan!</p></div></article>
+      <article class="cs rv" style="--d:2"><figure><img src="img/scrambler.webp" alt="Triumph Scrambler 1200 XC na de behandeling" loading="lazy" width="1100" height="1467"></figure><div><b>Triumph Scrambler 1200 XC</b><p>Voor Triumph Wevelgem, met extra liefde voor de lak en de wielen.</p></div></article>
+      <article class="cs rv" style="--d:3"><figure><img src="img/speedtriple.webp" alt="Triumph Speed Triple voor de werkplaats" loading="lazy" width="1100" height="1467"></figure><div><b>Triumph Speed Triple</b><p>Het poetsseizoen is begonnen. Tijd om je motor klaar te zetten.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="blok paneel" id="service">
+  <div class="wrap">
+    <div class="kopje">
+      <div><span class="tag rv">Service</span><h2 class="rv" style="--d:1">We laten je <em>niet staan.</em></h2></div>
+      <p class="rv" style="--d:2">Geen tijd om je motor te brengen? Wij halen hem op. Moet hij een paar dagen blijven? Dan rij je met een vervangmotor naar huis.</p>
+    </div>
+    <div class="bento">
+      <article class="sv groot rv">
+        <figure><img src="img/aanhangwagen.webp" alt="Motor wordt uit de afgesloten aanhangwagen van Motostudio gerold" loading="lazy" width="1200" height="1200"></figure>
+        <div class="sv-t">
+          <h3>Ophalen en terugbrengen</h3>
+          <p>We halen je motor thuis of op locatie op en brengen hem achteraf netjes terug. Hij reist in een afgesloten, geremde aanhangwagen, beschermd tegen weer en wind.</p>
+          <div class="tarief"><span><b>€60</b> forfait</span><span><b>+ €0,50/km</b> bij een aankoop of werk bij ons</span><span><b>+ €1/km</b> voor los transport</span></div>
+        </div>
+      </article>
+      <article class="vm rv" style="--d:1">
+        <div><div class="grt">€25<small>per dag</small></div></div>
+        <div>
+          <h3>Vervangmotor</h3>
+          <p>Staat je eigen motor bij ons in onderhoud, herstelling of restauratie? Dan rij je ondertussen gewoon verder.</p>
+          <ul>
+            <li><svg><use href="#vink"/></svg>Ingeschreven en verzekerd, BA inbegrepen</li>
+            <li><svg><use href="#vink"/></svg>Volle tank mee, volle tank terug</li>
+          </ul>
+        </div>
+      </article>
+      <article class="sv rv" style="--d:2">
+        <figure><img src="img/koffiehoek.webp" alt="Koffiehoek in de winkel van Motostudio" loading="lazy" width="1000" height="1000"></figure>
+        <div class="sv-t">
+          <h3>Winkel en koffiehoek</h3>
+          <p>Liever zelf aan de slag? In de shop vind je onderhoudsproducten die we zelf gebruiken. Neem rustig een koffie terwijl je rondkijkt.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="blok" id="reviews">
+  <div class="wrap">
+    <div class="kopje">
+      <div><span class="tag rv">Reviews</span><h2 class="rv" style="--d:1">5,0 op Google, <em>88 keer.</em></h2></div>
+      <p class="rv" style="--d:2">Een familiale zaak waar je niet de zoveelste bent. Dat zeggen niet wij, dat zeggen de mensen die al eens binnenstapten.</p>
+    </div>
+    <div class="rv-g">
+      <div class="gj rv">
+        <figure><img src="img/gertjan.webp" alt="Zaakvoerder van Motostudio op een motor voor de werkplaats" loading="lazy" width="1100" height="1540"></figure>
+        <div class="gj-t"><b>Een motorzaak op mensenmaat</b><p>Wat begon met poetsen, groeide uit tot een volwaardige motorzaak. De aanpak bleef dezelfde: persoonlijk, eerlijk en met oog voor detail.</p></div>
+      </div>
+      <div class="revs">
+        <figure class="rev breed rv"><span class="st">★★★★★</span><blockquote>Top zaak! Grote kennis en passie voor het vak. Toffe sfeer en goeie koffie :-). Je krijgt er een warme ontvangst, duidelijke uitleg en vooral niet het gevoel dat je 'de zoveelste' bent. Echt een aanrader voor onderhoud, herstellingen, detailing, 2de handsmotoren en nieuwe. Ik zou zeggen, ga eens langs en ontdek het zelf.</blockquote><figcaption><i>L</i><div>Louis Ingelaere<small>Google review</small></div></figcaption></figure>
+        <figure class="rev rv" style="--d:1"><span class="st">★★★★★</span><blockquote>Mijn 1976 Honda CB125 kreeg een welverdiende make-over. Bovendien werden de ontsteking en carburator perfect afgesteld. Alles werd verzorgd door een heel vriendelijke eigenaar. Gertjan, je zal me nog vaker zien!</blockquote><figcaption><i>S</i><div>Sander Dumont<small>Google review</small></div></figcaption></figure>
+        <figure class="rev rv" style="--d:2"><span class="st">★★★★★</span><blockquote>Top service! Gertjan is op zoek gegaan en heeft de motor van mijn dromen gevonden.</blockquote><figcaption><i>J</i><div>Jeroen Lammertyn<small>Google review</small></div></figcaption></figure>
+        <figure class="rev rv" style="--d:3"><span class="st">★★★★★</span><blockquote>Super service, heel vriendelijke verkoper en mechanieker die echt weten waarover ze praten . Ben blij dat ik bij Gert-Jan gekocht heb ! Een echte aanrader !!!!</blockquote><figcaption><i>D</i><div>Dirk Neefs<small>Google review</small></div></figcaption></figure>
+        <figure class="rev foto rv" style="--d:4"><img src="img/zijspan.webp" alt="Klant met zijspan voor de Moto Studio muurschildering" loading="lazy" width="1200" height="1198"><figcaption><div>Twee wielen of drie<small>Op het asfalt of in het zand, iedereen is welkom</small></div></figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blok" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="ct">
+      <div>
+        <span class="tag rv">Langskomen</span>
+        <h2 class="rv" style="--d:1">De koffie <em>staat klaar.</em></h2>
+        <p class="in rv" style="--d:2">Kom kijken naar een motor, plan een onderhoud of vraag een prijs voor een poetsbeurt. Stuur gerust een foto van je motor mee via WhatsApp.</p>
+        <div class="acts rv" style="--d:3">
+          <a class="knop k-ink" href="https://wa.me/3250893725" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>WhatsApp ons</a>
+          <a class="knop k-lijn" href="tel:+3250893725">Bel 050 89 37 25</a>
+        </div>
+        <div class="lijst rv" style="--d:4">
+          <div class="rij"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></i><div><small>Adres</small><b><a href="https://www.google.com/maps/search/?api=1&query=Motostudio+Industriepark+Noord+18+8730+Beernem" target="_blank" rel="noopener">Industriepark Noord 18, 8730 Beernem</a></b></div></div>
+          <div class="rij"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></i><div><small>E-mail</small><b><a href="mailto:info@motostudio.be">info@motostudio.be</a></b></div></div>
+          <div class="rij"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg></i><div><small>Instagram</small><b><a href="https://www.instagram.com/motostudio.be/" target="_blank" rel="noopener">@motostudio.be</a></b></div></div>
+        </div>
+      </div>
+      <div class="uren rv" style="--d:2">
+        <h3>Openingsuren</h3>
+        <table>
+          <tr><td>Maandag</td><td>Op afspraak</td></tr>
+          <tr class="dicht"><td>Dinsdag</td><td>Gesloten</td></tr>
+          <tr><td>Woensdag</td><td>13u tot 17u</td></tr>
+          <tr><td>Donderdag</td><td>Op afspraak</td></tr>
+          <tr><td>Vrijdag</td><td>9u tot 12u, 13u tot 16u</td></tr>
+          <tr><td>Zaterdag</td><td>9u tot 12u</td></tr>
+          <tr class="dicht"><td>Zondag en feestdagen</td><td>Gesloten</td></tr>
+        </table>
+        <p class="nt">Komt het niet uit? Stuur een berichtje, dan zoeken we samen een moment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="voet">
+  <div class="wrap">
+    <div class="voet-g">
+      <div><a class="merk" href="#top" aria-label="Motostudio"><img src="img/logo-zwart.webp" alt="Motostudio" width="640" height="324" loading="lazy"></a><p>Verkoop, onderhoud, herstellingen en detailing van alle merken. Een motorzaak op mensenmaat in Beernem.</p></div>
+      <div><h4>Menu</h4><ul><li><a href="#motoren">Motoren</a></li><li><a href="#werkplaats">Werkplaats</a></li><li><a href="#motodetail">Motodetail</a></li><li><a href="#service">Service</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>Industriepark Noord 18, 8730 Beernem</li><li><a href="tel:+3250893725">050 89 37 25</a></li><li><a href="mailto:info@motostudio.be">info@motostudio.be</a></li><li><a href="https://www.instagram.com/motostudio.be/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/motostudio.beernem" target="_blank" rel="noopener">Facebook</a></li></ul></div>
+    </div>
+    <div class="voet-o"><span>© Motostudio (REBU) · BTW BE0760340537</span><span>Voorbeeldsite door Digital Impression</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){var els=[].slice.call(document.querySelectorAll('.rv'));
+function kijk(){var H=innerHeight;els=els.filter(function(e){var r=e.getBoundingClientRect();if(r.top<H*.94&&r.bottom>0){e.classList.add('in');return false}return true});if(!els.length)removeEventListener('scroll',plan)}
+var t=0;function plan(){if(!t){t=requestAnimationFrame(function(){t=0;kijk()})}}
+addEventListener('scroll',plan,{passive:true});addEventListener('resize',plan);kijk();setTimeout(kijk,300)})();
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
+<style>
+.di,.di *{box-sizing:border-box;margin:0;padding:0;border:0;background:none;box-shadow:none;text-shadow:none;text-transform:none;letter-spacing:normal;float:none;max-width:none;min-height:0;font:inherit;color:inherit;text-decoration:none;opacity:1;transform:none;filter:none;list-style:none}
+.di :is(h2,h3,h4,p,ul,ol,li,details,summary,b,strong,em,small,span,div)::before,.di :is(h2,h3,h4,p,ul,ol,li,details,summary,b,strong,em,small,span,div)::after{content:none!important}
+.di summary::marker{content:""}
+.di{--navy:#0E1C3A;--deep:#0A1530;--goud:#C9A24A;--goud2:#D8BB6A;--bleek:#E8D9A8;--beige:#F1EBDF;--creme:#FBF8F2;
+  --zacht:rgba(241,235,223,.74);--stil:rgba(241,235,223,.5);--lijn:rgba(241,235,223,.12);--ease:cubic-bezier(.16,1,.3,1);
+  position:relative;overflow:clip;background:var(--navy);color:var(--beige);padding:clamp(88px,11vw,136px) 0 56px;
+  font:400 17px/1.65 'Inter',system-ui,sans-serif;text-align:left;-webkit-font-smoothing:antialiased}
+.di::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(760px 480px at 50% -10%,rgba(201,162,74,.14),transparent 66%)}
+.di::after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,162,74,.7) 30%,rgba(232,217,168,.9) 50%,rgba(201,162,74,.7) 70%,transparent)}
+.di .di-wrap{position:relative;max-width:980px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+.di h2,.di h3,.di h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:-.01em;text-transform:none;font-style:normal;color:var(--creme)}
+.di a{color:inherit}
+.di svg{flex:none}
+
+/* boodschap */
+.di .di-kern{text-align:center;max-width:760px;margin:0 auto}
+.di .di-afz{display:inline-flex;align-items:center;gap:12px;margin-bottom:28px;color:var(--goud2);font-size:15px;font-weight:500}
+.di .di-afz i{width:32px;height:32px;border-radius:9px;border:1px solid rgba(201,162,74,.45);display:grid;place-items:center;font:600 15px/1 'Cormorant Garamond',serif;font-style:normal;color:var(--goud);letter-spacing:-.5px}
+.di h2{line-height:1}
+.di .di-voor{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:20px;font:italic 500 clamp(24px,2.5vw,31px)/1.2 'Cormorant Garamond',Georgia,serif;color:var(--goud2);letter-spacing:.005em}
+.di .di-kern .di-voor::before,.di .di-kern .di-voor::after{content:""!important;flex:none;width:clamp(28px,5vw,60px);height:1px;background:linear-gradient(90deg,transparent,var(--goud))}
+.di .di-kern .di-voor::after{background:linear-gradient(270deg,transparent,var(--goud))}
+.di .di-samen{display:block;font:500 clamp(46px,6.2vw,80px)/1.02 'Cormorant Garamond',Georgia,serif;letter-spacing:-.015em;text-wrap:balance;
+  color:var(--creme);background:linear-gradient(180deg,#FBF8F2 35%,#E8D9A8 135%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;padding-bottom:.06em}
+.di .di-lead{text-wrap:pretty;color:var(--zacht);font-size:clamp(17px,1.5vw,19px);margin:24px auto 0;max-width:33em}
+.di .di-knoppen{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:36px}
+.di .di-knoppen a{position:relative;overflow:hidden;display:inline-flex;justify-content:center;align-items:center;gap:10px;border-radius:999px;padding:18px 30px;
+  font:600 17px/1.2 'Inter',sans-serif;text-decoration:none;isolation:isolate;white-space:nowrap;transition:color .5s var(--ease),border-color .5s var(--ease)}
+.di .di-knoppen a svg{width:19px;height:19px}
+.di .di-knoppen a::before{content:"";position:absolute;inset:0;z-index:-1;transform:translateY(101%);transition:transform .55s var(--ease)}
+.di .di-knoppen a:hover::before{transform:translateY(0)}
+.di .di-knoppen .di-cal{background:var(--goud);color:var(--deep);box-shadow:0 18px 44px -18px rgba(201,162,74,.8)}
+.di .di-knoppen .di-cal::before{background:var(--bleek)}
+.di .di-knoppen .di-wa{border:1px solid rgba(241,235,223,.3);color:var(--creme)}
+.di .di-knoppen .di-wa::before{background:var(--creme)}
+.di .di-knoppen .di-wa:hover{color:var(--navy);border-color:var(--creme)}
+.di .di-klein{margin-top:18px;font-size:14.5px;color:var(--stil)}
+
+.di .di-blok{margin-top:clamp(88px,11vw,128px)}
+.di .di-blok>h3{font-size:clamp(30px,3.4vw,40px);line-height:1.05;text-align:center;margin-bottom:44px}
+
+/* prijs */
+.di .di-prijs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);border:1px solid var(--lijn);border-radius:28px;overflow:hidden}
+.di .di-prijs>div{padding:clamp(28px,3.6vw,40px)}
+.di .di-prijs>div+div{border-left:1px solid var(--lijn);background:rgba(241,235,223,.025)}
+.di .di-wat{font-size:15px;font-weight:500;color:var(--goud2)}
+.di .di-getal{font:500 clamp(60px,6.4vw,76px)/1 'Cormorant Garamond',serif;font-variant-numeric:lining-nums;color:var(--creme);margin-top:8px;letter-spacing:-.02em}
+.di .di-getal small{font:500 16px/1 'Inter',sans-serif;color:var(--stil);letter-spacing:0;margin-left:8px}
+.di .di-prijs p{color:var(--zacht);font-size:15.5px;margin-top:14px;max-width:24em}
+.di .di-prijs p b{color:var(--creme);font-weight:500}
+.di .di-opties{margin-top:22px;list-style:none}
+.di .di-opties li{display:grid;grid-template-columns:1fr auto;gap:4px 20px;padding:16px 0;border-top:1px solid var(--lijn)}
+.di .di-opties li:last-child{padding-bottom:0}
+.di .di-opties b{font:500 23px/1.2 'Cormorant Garamond',serif;color:var(--creme);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.di .di-opties b em{font:600 12px/1 'Inter',sans-serif;font-style:normal;color:var(--deep);background:var(--goud);border-radius:999px;padding:4px 10px}
+.di .di-opties .di-pp{font:500 24px/1.2 'Cormorant Garamond',serif;font-variant-numeric:lining-nums;color:var(--creme);text-align:right;white-space:nowrap}
+.di .di-opties .di-pp small{font:500 13.5px/1 'Inter',sans-serif;color:var(--stil);margin-left:4px}
+.di .di-opties .di-ot{grid-column:1/-1;color:var(--zacht);font-size:15px}
+
+/* faq */
+.di .di-faq{max-width:760px;margin:0 auto;border-top:1px solid var(--lijn)}
+.di .di-faq details{border-bottom:1px solid var(--lijn)}
+.di .di-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 2px;
+  font:500 22px/1.25 'Cormorant Garamond',serif;color:var(--creme);transition:color .3s}
+.di .di-faq summary::-webkit-details-marker{display:none}
+.di .di-faq summary:hover{color:var(--goud2)}
+.di .di-faq summary i{flex:none;position:relative;width:30px;height:30px;border-radius:50%;border:1px solid rgba(201,162,74,.5);transition:transform .45s var(--ease),background .3s}
+.di .di-faq summary i::before,.di .di-faq summary i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:var(--goud);transform:translate(-50%,-50%)}
+.di .di-faq summary i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .45s var(--ease)}
+.di .di-faq details[open] summary i{transform:rotate(180deg);background:rgba(201,162,74,.12)}
+.di .di-faq details[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+.di .di-faq .di-antw{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.di .di-faq details[open] .di-antw{grid-template-rows:1fr}
+.di .di-faq .di-antw>div{overflow:hidden}
+.di .di-faq .di-antw p{color:var(--zacht);font-size:16px;padding:0 50px 22px 2px;max-width:38em}
+
+.di .di-faq details,.di .di-faq details[open]{background:none;border-radius:0;box-shadow:none;margin:0;padding:0;border:0;border-bottom:1px solid var(--lijn);display:block}
+.di .di-faq details[open] summary,.di .di-faq summary:hover{background:none;box-shadow:none}
+
+/* afsluiter */
+.di .di-slot{margin-top:clamp(72px,9vw,104px);padding-top:36px;border-top:1px solid var(--lijn);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.di .di-wie{display:flex;align-items:center;gap:16px}
+.di .di-foto{flex:none;display:block;width:60px;height:60px;border-radius:50%;object-fit:cover;object-position:50% 40%;background:#0A1530;box-shadow:0 0 0 1px rgba(201,162,74,.6),0 0 0 4px #0E1C3A,0 0 0 5px rgba(201,162,74,.22)}
+.di .di-wie b{display:block;font:italic 500 26px/1.1 'Cormorant Garamond',serif;color:var(--creme)}
+.di .di-wie .di-lijn{font-size:14.5px;color:var(--stil)}
+.di .di-wie .di-lijn a{text-decoration:none}
+.di .di-wie .di-lijn a:hover{color:var(--creme)}
+.di .di-slot .di-knoppen{margin:0}
+.di .di-slot .di-knoppen a{padding:14px 24px;font-size:15.5px}
+.di :focus-visible{outline:2px solid var(--goud);outline-offset:4px;border-radius:12px}
+
+/* één rustige beweging */
+.di.di-js [data-in]{opacity:0;transform:translateY(16px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0) * 110ms)}
+.di.di-js [data-in].di-zien{opacity:1;transform:none}
+
+@media (max-width:820px){
+  .di .di-prijs{grid-template-columns:1fr}
+  .di .di-prijs>div+div{border-left:0;border-top:1px solid var(--lijn)}
+}
+@media (max-width:720px){
+  .di .di-faq summary{font-size:20px;padding:18px 2px}
+  .di .di-faq .di-antw p{padding-right:10px;font-size:15.5px}
+  .di{font-size:16.5px;padding-bottom:44px}
+  .di .di-voor{font-size:21px;gap:12px;margin-bottom:14px}
+  .di .di-kern .di-voor::before,.di .di-kern .di-voor::after{width:24px}
+  .di .di-samen{font-size:clamp(36px,10vw,46px)}
+  .di .di-lead{font-size:16.5px}
+  .di .di-knoppen{flex-direction:column;margin-top:30px}
+  .di .di-knoppen a{width:100%;padding:17px 18px;font-size:16px}
+  .di .di-blok>h3{margin-bottom:32px}
+  .di .di-prijs{border-radius:24px}
+  .di .di-prijs>div{padding:26px 22px}
+  .di .di-slot{flex-direction:column;align-items:stretch}
+  .di .di-slot .di-knoppen a{width:100%}
+}
+@media (prefers-reduced-motion:reduce){.di.di-js [data-in]{transition:none!important;opacity:1!important;transform:none!important}.di .di-knoppen a,.di .di-knoppen a::before,.di .di-faq summary i,.di .di-faq summary i::after,.di .di-faq .di-antw{transition:none}}
+
+/* kaartje halverwege */
+.di-tip,.di-tip *{box-sizing:border-box;margin:0;padding:0;border:0;background:none;box-shadow:none;text-shadow:none;text-transform:none;letter-spacing:normal;float:none;max-width:none;font:inherit;color:inherit;text-decoration:none;list-style:none}
+.di-tip{--navy:#0E1C3A;--goud:#C9A24A;--goud2:#D8BB6A;--creme:#FBF8F2;--zacht:rgba(241,235,223,.76);--ease:cubic-bezier(.16,1,.3,1);
+  position:fixed;left:20px;bottom:20px;z-index:2147483000;width:340px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+  padding:18px 18px 18px 18px;border-radius:20px;background:var(--navy);color:var(--creme);font:400 15px/1.5 'Inter',system-ui,sans-serif;text-align:left;
+  box-shadow:0 0 0 1px rgba(201,162,74,.4),0 24px 60px -18px rgba(0,0,0,.55);opacity:0;transform:translateY(24px) scale(.98);pointer-events:none;
+  transition:opacity .6s var(--ease),transform .6s var(--ease);-webkit-font-smoothing:antialiased}
+.di-tip.di-tip-aan{opacity:1;transform:none;pointer-events:auto}
+.di-tip .di-tip-s{display:block;width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:50% 40%;background:#0A1530;box-shadow:0 0 0 1px rgba(201,162,74,.6)}
+.di-tip .di-tip-t{font:italic 500 20px/1.2 'Cormorant Garamond',Georgia,serif;color:var(--goud2);padding-right:22px}
+.di-tip .di-tip-p{color:var(--zacht);margin-top:4px;font-size:14.5px}
+.di-tip .di-tip-k{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:10px 18px;border-radius:999px;background:var(--goud);color:#0A1530;font:600 14.5px/1.2 'Inter',sans-serif;cursor:pointer;transition:background .3s}
+.di-tip .di-tip-k:hover{background:#E8D9A8}
+.di-tip .di-tip-k svg{width:16px;height:16px}
+.di-tip .di-tip-x{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:var(--zacht);cursor:pointer;transition:background .3s,color .3s}
+.di-tip .di-tip-x:hover{background:rgba(241,235,223,.08);color:var(--creme)}
+.di-tip .di-tip-x svg{width:14px;height:14px}
+.di-tip :focus-visible{outline:2px solid var(--goud);outline-offset:3px}
+.di-tip :is(p,div,span,a,button)::before,.di-tip :is(p,div,span,a,button)::after{content:none!important}
+@media (max-width:560px){.di-tip{left:12px;right:12px;width:auto;bottom:12px;padding:14px 14px 14px 14px;gap:12px}.di-tip .di-tip-s{width:34px;height:34px;font-size:17px}.di-tip .di-tip-t{font-size:18px}.di-tip .di-tip-p{font-size:14px}}
+@media (prefers-reduced-motion:reduce){.di-tip{transition:none}}
+</style>
+<section aria-labelledby="di-titel" class="di" id="di">
+<div class="di-wrap">
+
+<div class="di-kern">
+<h2 id="di-titel" data-in style="--d:1"><span class="di-voor">Dit is slechts een voorbeeld.</span><span class="di-samen">Samen maken we er jullie nieuwe site van.</span></h2>
+<p class="di-lead" data-in style="--d:2">Ik maakte deze demo voor jullie om te tonen wat er kan. Na een kort gesprek maak ik er iets veel persoonlijkers van, helemaal naar jullie wens.</p>
+<div class="di-knoppen" data-in style="--d:3">
+<a class="di-cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Motostudio" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Plan een gesprek van 30 min</a>
+<a class="di-wa" href="https://wa.me/32496251445?text=Hey%20Stijn%2C%20ik%20zag%20de%20demo%20voor%20Motostudio" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z"/></svg>Stuur een WhatsApp</a>
+</div>
+<p class="di-klein" data-in style="--d:4">Vrijblijvend. Ik kom langs of we bellen.</p>
+</div>
+
+
+<div class="di-blok">
+<h3 data-in>Wat kost het?</h3>
+<div class="di-prijs" data-in style="--d:1">
+<div>
+<span class="di-wat">De website</span>
+<div class="di-getal">€ 699<small>eenmalig, excl. btw</small></div>
+<p>Op maat, op jullie eigen domein.<br><b>Geen voorschot.</b> Jullie betalen pas als alles klaar is.</p>
+</div>
+<div>
+<span class="di-wat">Daarna het onderhoud</span>
+<p style="margin-top:8px">Hosting, domeinnaam en kleine wijzigingen, zoals nieuwe openingsuren.</p>
+<ul class="di-opties">
+<li><b>Zorgeloos <em>mijn aanrader</em></b><span class="di-pp">€ 29,99<small>/ maand, excl. btw</small></span><span class="di-ot">Alles inbegrepen. Wijzigen kan met een berichtje.</span></li>
+<li><b>Zelf beheren</b><span class="di-pp">€ 0<small>/ maand</small></span><span class="di-ot">Alles op jullie naam. Wijzigingen per keer.</span></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="di-blok">
+<h3 data-in>Goed om te weten</h3>
+<div class="di-faq" data-in style="--d:1">
+<details><summary>Waarom deze demo, zonder dat we iets vroegen?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Omdat een voorbeeld meer zegt dan een mail. Zo zien jullie meteen wat er kan, en het kost jullie niets.</p></div></div></details>
+<details><summary>Zitten we ergens aan vast?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Nee. Het gesprek is vrijblijvend. Vinden jullie het niks, dan is het daarmee gedaan.</p></div></div></details>
+<details><summary>Hoe lang duurt het?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Na ons gesprek staat jullie site binnen 10 tot 14 dagen online.</p></div></div></details>
+<details><summary>We hebben al een website. Kan dat ook?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Zeker. Jullie domeinnaam kan gewoon blijven, de nieuwe site komt in de plaats van de oude.</p></div></div></details>
+<details><summary>Moeten we zelf teksten schrijven?<i aria-hidden="true"></i></summary><div class="di-antw"><div><p>Nee, dat doe ik op basis van ons gesprek. Eigen foto's zijn mooi meegenomen, maar niet nodig om te starten.</p></div></div></details>
+</div>
+</div>
+
+<div class="di-slot" data-in>
+<div class="di-wie"><img class="di-foto" src="https://digital-impression.be/assets/img/stijn-2.webp" alt="Stijn Vranken" width="60" height="60" loading="lazy" decoding="async"><div><b>Stijn Vranken</b><span class="di-lijn">Digital Impression, <a href="tel:+32496251445">0496 25 14 45</a></span></div></div>
+<div class="di-knoppen"><a class="di-cal" href="https://cal.com/digitalimpression/kennismaking?notes=Ik%20zag%20de%20demo%20voor%20Motostudio" target="_blank" rel="noopener">Plan een gesprek</a></div>
+</div>
+
+</div>
+</section>
+<script>/*di-v13*/(function(){var d=document.getElementById('di');if(!d||!('IntersectionObserver' in window))return;
+var stil=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!stil){d.classList.add('di-js');var io=new IntersectionObserver(function(x){x.forEach(function(e){if(e.isIntersecting){e.target.classList.add('di-zien');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+[].forEach.call(d.querySelectorAll('[data-in]'),function(e){io.observe(e)})}
+var vast=[];function zoek(){vast=[].filter.call(document.body.querySelectorAll('*'),function(e){if(d.contains(e)||e.closest('.di-strook,.demo'))return false;var p=getComputedStyle(e).position;return p==='fixed'||p==='sticky'})}
+new IntersectionObserver(function(x){if(!vast.length)zoek();var aan=x[0].isIntersecting;vast.forEach(function(e){e.style.transition='opacity .35s';e.style.opacity=aan?'0':'';e.style.pointerEvents=aan?'none':''})},{threshold:.05}).observe(d)})();</script>
+<aside class="di-tip" aria-label="Over deze voorbeeldsite" hidden>
+<img class="di-tip-s" src="https://digital-impression.be/assets/img/stijn-2.webp" alt="" width="40" height="40" loading="lazy" decoding="async">
+<div>
+<p class="di-tip-t">Dit is een voorbeeldsite.</p>
+<p class="di-tip-p">Onderaan lees je hoe we er samen jullie site van maken.</p>
+<a class="di-tip-k" href="#di">Lees meer<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+</div>
+<button class="di-tip-x" type="button" aria-label="Sluiten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+</aside>
+<script>/*di-tip*/(function(){var t=document.querySelector('.di-tip'),d=document.getElementById('di');if(!t||!d)return;
+var weg=false;try{weg=sessionStorage.getItem('di-tip')==='weg'}catch(e){}if(weg)return;
+t.hidden=false;var aan=false,diZicht=false;
+function onder(){var m=0;[].forEach.call(document.body.querySelectorAll('*'),function(e){if(e===t||t.contains(e)||d.contains(e))return;var c=getComputedStyle(e);if(c.position!=='fixed'||c.display==='none'||c.visibility==='hidden'||+c.opacity===0)return;var r=e.getBoundingClientRect();if(r.height>0&&r.height<160&&r.bottom>=innerHeight-48&&r.bottom<=innerHeight+2&&r.top>innerHeight-200&&r.width>innerWidth*.4)m=Math.max(m,innerHeight-r.top)});return m}
+function zet(x){if(x===aan)return;aan=x;if(x){t.style.bottom=((innerWidth<=560?12:20)+onder())+'px'}t.classList.toggle('di-tip-aan',x)}
+function sluit(){try{sessionStorage.setItem('di-tip','weg')}catch(e){}zet(false);setTimeout(function(){t.hidden=true},700);window.removeEventListener('scroll',kijk)}
+function held(){var c=document.querySelectorAll('.hero,[class*="hero"],main>section,body>section,body>header,main>header');for(var i=0;i<c.length;i++){var e=c[i];if(d.contains(e)||t.contains(e)||e.closest('.di-strook,.demo,nav'))continue;var r=e.getBoundingClientRect();if(r.height>innerHeight*.35)return r.bottom+scrollY}return innerHeight*.9}
+var hb=0;window.addEventListener('resize',function(){hb=0});function kijk(){var top=d.getBoundingClientRect().top;
+if(top<innerHeight*1.1){if(aan)sluit();return}if(!hb)hb=held();zet(scrollY>hb-innerHeight*.55)}
+t.querySelector('.di-tip-x').addEventListener('click',sluit);
+t.querySelector('.di-tip-k').addEventListener('click',function(){setTimeout(sluit,300)});
+window.addEventListener('scroll',kijk,{passive:true});kijk()})();</script>
+</body>
+</html>
