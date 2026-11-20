@@ -34,35 +34,49 @@ h2{font-size:clamp(34px,4.2vw,58px)}
 .k-wit{background:var(--wit);color:var(--navy);border:1px solid var(--lijn)}
 
 /* kop */
-.kop{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:18px}
+.kop{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:22px;position:relative;z-index:3;color:#fff}
 .merk{display:inline-flex;align-items:center;gap:11px;font:800 21px/1 'Sora';letter-spacing:-.03em}
 .merk i{width:40px;height:40px;border-radius:13px;background:var(--blauw);display:grid;place-items:center;color:#fff;font:800 15px/1 'Sora';font-style:normal;letter-spacing:-.04em}
 .merk small{display:block;font:600 12px/1 'Manrope';color:var(--grijs);letter-spacing:0;margin-top:4px}
-.nav{display:flex;gap:4px;background:var(--wit);border:1px solid var(--lijn);border-radius:99px;padding:5px}
-.nav a{font:600 15px/1 'Manrope';color:var(--grijs);padding:11px 18px;border-radius:99px;transition:background .3s,color .3s}
-.nav a:hover{background:var(--blauw3);color:var(--navy)}
+.kop .merk small{color:rgba(255,255,255,.72)}
+.kop .merk i{background:#fff;color:var(--blauw);box-shadow:0 10px 24px -10px rgba(0,0,0,.4)}
+.nav{display:flex;gap:4px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:99px;padding:5px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.nav a{font:600 15px/1 'Manrope';color:rgba(255,255,255,.9);padding:11px 18px;border-radius:99px;transition:background .3s,color .3s}
+.nav a:hover{background:#fff;color:var(--navy)}
 .kop .knop{padding:13px 22px;font-size:15px}
 
 /* hero */
-.hero{position:relative;border-radius:40px;overflow:hidden;min-height:min(78vh,720px);display:flex;align-items:flex-end;padding:clamp(18px,2.4vw,30px)}
-.hero > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,29,58,0) 45%,rgba(13,29,58,.35))}
-.paneel{position:relative;z-index:1;background:var(--wit);border-radius:30px;padding:clamp(28px,3.6vw,48px);max-width:640px;box-shadow:0 40px 70px -30px rgba(13,29,58,.5)}
-h1{font-size:clamp(40px,4.9vw,72px);margin-top:20px}
-.lead{margin-top:20px;font-size:clamp(16.5px,1.25vw,18.5px);color:#3B475C;max-width:30em}
-.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.prijsje{position:absolute;z-index:1;top:clamp(18px,2.4vw,30px);right:clamp(18px,2.4vw,30px);display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-radius:22px;padding:14px 20px 14px 14px;box-shadow:0 24px 44px -22px rgba(13,29,58,.5)}
-.prijsje i{width:50px;height:50px;border-radius:50%;background:linear-gradient(140deg,#E3B07A,#B87333);display:grid;place-items:center;color:#fff;flex:none}
-.prijsje i svg{width:24px;height:24px}
-.prijsje b{display:block;font:700 16px/1.2 'Sora';letter-spacing:-.02em}
-.prijsje small{display:block;font:600 13px/1.3 'Manrope';color:var(--grijs);margin-top:3px}
-
-/* cijfers */
-.cijfers{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,20px);margin-top:clamp(14px,1.6vw,20px)}
-.cijfer{background:var(--wit);border-radius:24px;padding:26px 28px;box-shadow:var(--sch);display:flex;align-items:center;gap:18px}
-.cijfer b{font:800 clamp(34px,3.2vw,46px)/1 'Sora';letter-spacing:-.05em;color:var(--blauw)}
-.cijfer span{font:600 15px/1.4 'Manrope'}
-.cijfer small{display:block;color:var(--grijs);font-weight:500}
+.hero{position:relative;isolation:isolate;overflow:hidden;color:#fff;min-height:clamp(700px,calc(100svh - 36px),960px);display:flex;flex-direction:column;border-radius:0 0 clamp(28px,3.4vw,48px) clamp(28px,3.4vw,48px);background:#0B2A4A}
+.h-img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:62% 60%;transform:scale(1.06);animation:hz 2.4s var(--ease) .1s forwards}
+@keyframes hz{to{transform:scale(1)}}
+.h-sh{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,24,48,.5) 0%,rgba(7,24,48,0) 20%),linear-gradient(90deg,rgba(7,24,48,.86) 0%,rgba(7,24,48,.6) 32%,rgba(7,24,48,.08) 60%,rgba(7,24,48,0) 100%),linear-gradient(0deg,rgba(7,24,48,.66) 0%,rgba(7,24,48,0) 32%)}
+.hero>.wrap{width:100%}
+.h-in{flex:1;display:flex;align-items:flex-end;justify-content:space-between;gap:40px;padding-top:clamp(40px,6vw,90px);padding-bottom:clamp(26px,3vw,40px)}
+.h-t{max-width:660px}
+.h-t .pil{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.26);color:#fff;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.h-t .pil::before{background:#7FD0FF;box-shadow:0 0 0 3px rgba(127,208,255,.25)}
+h1{font-size:clamp(46px,5.8vw,90px);margin-top:22px;line-height:1;letter-spacing:-.045em;text-shadow:0 2px 30px rgba(7,24,48,.3)}
+h1 em{color:#9ED8FF;display:block;font-size:1.02em}
+.lead{margin-top:22px;font-size:clamp(17px,1.3vw,19.5px);color:rgba(255,255,255,.86);max-width:31em}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.k-glas{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.k-glas:hover{background:#fff;color:var(--navy)}
+.award{flex:none;display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.95);color:var(--navy);border-radius:24px;padding:14px 22px 14px 14px;box-shadow:0 30px 60px -26px rgba(0,0,0,.6);margin-bottom:8px}
+.award.in{animation:zweef 7s ease-in-out 1.2s infinite}
+@keyframes zweef{50%{transform:translateY(-8px)}}
+.award i{width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#F6D3A6,#C98A4B 55%,#9C5F26);display:grid;place-items:center;color:#fff;flex:none;box-shadow:inset 0 -3px 6px rgba(0,0,0,.18),0 8px 16px -8px rgba(156,95,38,.8)}
+.award i svg{width:26px;height:26px}
+.award b{display:block;font:700 16px/1.25 'Sora';letter-spacing:-.02em}
+.award small{display:block;font:600 13px/1.3 'Manrope';color:var(--grijs);margin-top:3px}
+.h-stats{width:100%;padding-bottom:clamp(20px,2.4vw,32px)}
+.h-stats ul{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);border-radius:24px;background:rgba(7,24,48,.38);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+.h-stats li{display:flex;align-items:center;gap:16px;padding:20px clamp(18px,2.2vw,32px);position:relative}
+.h-stats li+li::before{content:"";position:absolute;left:0;top:24%;bottom:24%;width:1px;background:rgba(255,255,255,.16)}
+.h-stats b{font:800 clamp(28px,2.6vw,40px)/1 'Sora';letter-spacing:-.05em;color:#fff;white-space:nowrap}
+.h-stats span{font:700 15px/1.35 'Manrope';color:#fff}
+.h-stats small{display:block;font-weight:500;font-size:13.5px;color:rgba(255,255,255,.66)}
+.h-stats .m{display:none;font-style:normal}
+.h-stats .st{display:block;color:#FFC94D;letter-spacing:2px;font-size:13px}
 
 /* secties */
 section.s{padding:clamp(90px,10vw,140px) 0}
@@ -74,13 +88,17 @@ section.s{padding:clamp(90px,10vw,140px) 0}
 .aanbod{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,20px)}
 .a{background:var(--wit);border:1px solid var(--lijn);border-radius:var(--r);padding:30px 26px 28px;transition:transform .5s var(--ease),box-shadow .5s;display:flex;flex-direction:column}
 .a:hover{transform:translateY(-5px);box-shadow:var(--sch)}
-.a .ico{width:56px;height:56px;border-radius:18px;background:var(--blauw3);color:var(--blauw);display:grid;place-items:center}
+.a{position:relative}
+.a .ico{width:56px;height:56px;border-radius:18px;background:linear-gradient(145deg,#EAF4FF,#D3E8FD);color:var(--blauw);display:grid;place-items:center;box-shadow:inset 0 1px 0 #fff,0 10px 20px -14px rgba(18,112,227,.6);transition:transform .5s var(--ease)}
+.a:hover .ico{transform:rotate(-6deg) scale(1.06)}
+.a:not(.uit)::after{content:"";position:absolute;right:24px;top:30px;width:34px;height:34px;border-radius:50%;background:var(--blauw3) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231270E3' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7M9 7h8v8'/%3E%3C/svg%3E") center/16px no-repeat;opacity:0;transform:scale(.7);transition:opacity .4s,transform .5s var(--ease)}
+.a:not(.uit):hover::after{opacity:1;transform:none}
 .a .ico svg{width:28px;height:28px}
 .a h3{font-size:22px;margin-top:26px;letter-spacing:-.03em}
 .a p{color:var(--grijs);font-size:15.5px;margin-top:10px;line-height:1.6}
-.a.uit{background:var(--blauw);border-color:transparent;color:#fff;grid-row:span 2;justify-content:flex-end;position:relative;overflow:hidden;padding-top:112px}
-.a.uit::before{content:"";position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;border:40px solid rgba(255,255,255,.08)}
-.a.uit .ico{background:rgba(255,255,255,.14);color:#fff;position:absolute;top:30px;left:26px}
+.a.uit{background:linear-gradient(180deg,rgba(10,70,170,.12) 0%,rgba(10,60,150,.74) 50%,rgba(9,44,110,.96) 100%),url(img/water.webp) center/cover;border-color:transparent;color:#fff;grid-row:span 2;justify-content:flex-end;position:relative;overflow:hidden;padding-top:150px;box-shadow:0 30px 60px -30px rgba(18,90,200,.7)}
+.a.uit::before{content:"Brons 2025";position:absolute;right:22px;top:34px;padding:8px 13px;border-radius:99px;background:linear-gradient(140deg,#F6D3A6,#C98A4B);color:#4A2A0C;font:800 12.5px/1 'Manrope';letter-spacing:.02em;box-shadow:0 10px 20px -10px rgba(0,0,0,.4)}
+.a.uit .ico{background:rgba(255,255,255,.18);color:#fff;position:absolute;top:30px;left:26px;box-shadow:none;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25)}
 .a.uit h3{font-size:clamp(26px,2.3vw,32px)}
 .a.uit p{color:rgba(255,255,255,.85);font-size:16px}
 .a.uit .knop{margin-top:24px;background:#fff;color:var(--blauw);align-self:flex-start}
@@ -98,12 +116,17 @@ section.s{padding:clamp(90px,10vw,140px) 0}
 .pt b span{color:var(--aqua)}
 .pt p{color:rgba(255,255,255,.72);font-size:15px;margin-top:8px;line-height:1.55}
 .water figure{position:relative;min-height:100%}
+.water figure figcaption{position:absolute;left:22px;bottom:22px;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.94);color:var(--navy);border-radius:99px;padding:9px 16px 9px 9px;font:700 14px/1 'Manrope';box-shadow:0 20px 40px -20px rgba(0,0,0,.6);z-index:1}
+.water figure figcaption i{width:30px;height:30px;border-radius:50%;background:var(--blauw);color:#fff;display:grid;place-items:center}
+.water figure figcaption svg{width:16px;height:16px}
 .water figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
 /* realisaties */
 .real-g{display:grid;grid-template-columns:1.25fr 1fr;grid-template-rows:auto auto;gap:clamp(16px,2vw,26px)}
 .p{background:var(--wit);border-radius:var(--r);padding:10px 10px 24px;box-shadow:var(--sch)}
 .p:first-child{grid-row:span 2;display:flex;flex-direction:column}
+.p{transition:transform .6s var(--ease),box-shadow .6s}
+.p:hover{transform:translateY(-6px);box-shadow:0 36px 64px -32px rgba(13,40,90,.45)}
 .p figure{border-radius:20px;overflow:hidden;aspect-ratio:16/10}
 .p:first-child figure{aspect-ratio:auto;flex:1;min-height:420px}
 .p figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
@@ -115,10 +138,18 @@ section.s{padding:clamp(90px,10vw,140px) 0}
 .p p{color:var(--grijs);font-size:15.5px;margin:8px 14px 0}
 
 /* over */
-.over{background:var(--blauw3)}
+.over{background:var(--blauw3);position:relative;margin:60px 0}
+.over::before,.over::after{content:"";position:absolute;left:0;right:0;height:60px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60' preserveAspectRatio='none'%3E%3Cpath d='M0 60V34c120-22 240-30 360-18s240 34 360 30 240-32 360-38 240 10 360 22v30z' fill='%23E4F0FD'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+.over::before{top:-59px}
+.over::after{bottom:-59px;transform:scale(-1,-1)}
+.over figure{position:relative}
+.over .fam{position:absolute;right:-18px;bottom:28px;display:flex;align-items:center;gap:12px;background:#fff;border-radius:20px;padding:12px 18px 12px 12px;box-shadow:0 26px 50px -22px rgba(13,40,90,.55)}
+.over .fam i{width:42px;height:42px;border-radius:14px;background:var(--blauw);color:#fff;display:grid;place-items:center;font:800 15px/1 'Sora';font-style:normal}
+.over .fam b{display:block;font:700 15px/1.2 'Sora';letter-spacing:-.02em}
+.over .fam small{display:block;font:600 12.5px/1.3 'Manrope';color:var(--grijs);margin-top:2px}
 .over-g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
-.over figure{border-radius:34px;overflow:hidden;aspect-ratio:5/4;box-shadow:var(--sch);border:10px solid var(--wit)}
-.over figure img{width:100%;height:100%;object-fit:cover}
+.over figure .fr{border-radius:34px;overflow:hidden;aspect-ratio:5/4;box-shadow:var(--sch);border:10px solid var(--wit)}
+.over figure .fr img{width:100%;height:100%;object-fit:cover}
 .over h2{margin-top:18px}
 .over p{color:#3B475C;margin-top:18px;max-width:31em}
 .over p.groot{font-size:clamp(18px,1.45vw,21px);color:var(--navy);font-weight:500}
@@ -129,13 +160,17 @@ section.s{padding:clamp(90px,10vw,140px) 0}
 
 /* reviews */
 .rev-g{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,22px)}
-.r{background:var(--wit);border-radius:var(--r);padding:30px;box-shadow:var(--sch);display:flex;flex-direction:column}
+.r{background:var(--wit);border-radius:var(--r);padding:32px 30px 28px;box-shadow:var(--sch);display:flex;flex-direction:column;position:relative;overflow:hidden;transition:transform .6s var(--ease)}
+.r:hover{transform:translateY(-5px)}
+.r::before{content:"\201C";position:absolute;right:24px;top:6px;font:italic 500 110px/1 'Playfair Display',serif;color:var(--blauw3)}
+.r > *{position:relative}
+.r cite .g{margin-left:auto;width:22px;height:22px;flex:none}
 .r .st{color:#F4B43C;letter-spacing:3px;font-size:17px}
 .r blockquote{margin-top:16px;font-size:16px;line-height:1.65;color:#27324A}
 .r cite{margin-top:auto;padding-top:22px;font:700 15px/1.2 'Manrope';font-style:normal;display:flex;align-items:center;gap:12px}
 .r cite i{width:40px;height:40px;border-radius:50%;background:var(--blauw3);color:var(--blauw);display:grid;place-items:center;font:800 15px/1 'Sora';font-style:normal}
 .r cite small{display:block;font:500 13px/1.2 'Manrope';color:var(--grijs);margin-top:3px}
-.score{display:flex;align-items:center;gap:16px;justify-self:end}
+.score{display:flex;align-items:center;gap:16px;justify-self:end;background:#fff;border-radius:24px;padding:16px 24px 16px 20px;box-shadow:var(--sch)}
 .score b{font:800 64px/1 'Sora';color:var(--blauw);letter-spacing:-.05em}
 .score span{font:700 15px/1.4 'Manrope';color:#F4B43C}
 .score small{display:block;color:var(--grijs);font-weight:600}
@@ -147,7 +182,9 @@ section.s{padding:clamp(90px,10vw,140px) 0}
 .ct .t > p{color:var(--grijs);margin-top:18px;max-width:30em}
 .rijen{margin-top:26px}
 .rij{display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--lijn)}
-.rij i{width:44px;height:44px;border-radius:14px;background:var(--blauw3);color:var(--blauw);display:grid;place-items:center;flex:none}
+.rij i{width:44px;height:44px;border-radius:14px;background:linear-gradient(145deg,#EAF4FF,#D3E8FD);color:var(--blauw);display:grid;place-items:center;flex:none}
+.knop .wa{width:20px;height:20px}
+.ct figure{overflow:hidden}
 .rij i svg{width:21px;height:21px}
 .rij small{display:block;font:700 12.5px/1 'Manrope';color:var(--grijs);margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
 .rij b{font:600 16.5px/1.5 'Manrope'}
@@ -170,6 +207,10 @@ section.s{padding:clamp(90px,10vw,140px) 0}
 
 @media (max-width:1100px){
   .nav{display:none}
+  .h-in{flex-direction:column;align-items:flex-start;gap:26px}
+  .h-sh{background:linear-gradient(180deg,rgba(7,24,48,.55) 0%,rgba(7,24,48,0) 22%),linear-gradient(90deg,rgba(7,24,48,.88) 0%,rgba(7,24,48,.6) 55%,rgba(7,24,48,.2) 100%),linear-gradient(0deg,rgba(7,24,48,.7) 0%,rgba(7,24,48,0) 40%)}
+  .award{margin-bottom:0}
+  .over .fam{right:14px}
   .aanbod{grid-template-columns:1fr 1fr}
   .a.uit{grid-row:auto;grid-column:1/-1;min-height:300px}
   .water,.over-g,.ct{grid-template-columns:1fr}
@@ -185,20 +226,25 @@ section.s{padding:clamp(90px,10vw,140px) 0}
 @media (max-width:640px){
   body{font-size:16px}
   .kop .knop{display:none}
-  .hero{flex-direction:column;justify-content:flex-end;min-height:0;padding:0;border-radius:30px;background:var(--wit)}
-  .hero > img{position:relative;height:300px;order:2}
-  .hero::after{display:none}
-  .paneel{box-shadow:none;border-radius:0;padding:28px 22px 30px;order:1}
-  .prijsje{top:auto;bottom:14px;right:14px;left:14px;padding:10px 14px 10px 10px}
-  .prijsje i{width:40px;height:40px}
-  .cijfers,.aanbod,.rev-g,.real-g,.punten{grid-template-columns:1fr}
-  .cijfer{padding:20px 22px}
+  .hero{min-height:calc(100svh - 40px)}
+  .h-img{object-position:60% 50%}
+  .h-sh{background:linear-gradient(180deg,rgba(7,24,48,.6) 0%,rgba(7,24,48,0) 22%),linear-gradient(0deg,rgba(7,24,48,.95) 0%,rgba(7,24,48,.8) 52%,rgba(7,24,48,.25) 82%,rgba(7,24,48,.1) 100%)}
+  h1{font-size:clamp(40px,11.5vw,56px)}
+  .award{padding:10px 16px 10px 10px;border-radius:20px}
+  .award i{width:44px;height:44px}.award b{font-size:14.5px}
+  .h-stats li{flex-direction:column;align-items:flex-start;gap:6px;padding:14px 12px}
+  .h-stats b{font-size:24px}
+  .h-stats span{font-size:12.5px}.h-stats small,.h-stats .st{display:none}
+  .h-stats .m{display:inline}
+  .over .fam{right:12px;bottom:14px}
+  .aanbod,.rev-g,.real-g,.punten{grid-template-columns:1fr}
   .water{border-radius:30px}
   .water .t{padding:36px 22px}
   .ct{border-radius:30px}
   .ct .t{padding:34px 22px}
   .voet-g{grid-template-columns:1fr}
   .acts .knop{width:100%}
+  .score{justify-self:start}
 }
 </style>
 </head>
@@ -210,33 +256,35 @@ section.s{padding:clamp(90px,10vw,140px) 0}
   <symbol id="golf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2 0 2-1.5 4-1.5S8 12 10 12s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5M2 17c2 0 2-1.5 4-1.5S8 17 10 17s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5"/><path d="M8 9V4.5a1.5 1.5 0 0 1 3 0M14 9V4.5a1.5 1.5 0 0 1 3 0"/></symbol>
 </svg>
 
-<header class="wrap kop">
-  <a class="merk" href="#top"><i>VF</i><span>VF Zwembaden<small>Uw droom, onze passie</small></span></a>
-  <nav class="nav"><a href="#aanbod">Aanbod</a><a href="#waterneutraal">Waterneutraal</a><a href="#realisaties">Realisaties</a><a href="#over">Over ons</a></nav>
-  <a class="knop k-blauw" href="#contact">Plan een gesprek<svg><use href="#naar"/></svg></a>
-</header>
-
 <main>
-<div class="wrap">
-  <section class="hero rv">
-    <img src="img/hoeve.webp" alt="Strak zwembad met witte boord tussen siergrassen bij een hoeve" width="1080" height="1350">
-    <div class="prijsje"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 8 5-3 5 3-1.5-8"/></svg></i><div><b>Brons, Beste Zwembadbouwer van België</b><small>Categorie Monoblok op maat</small></div></div>
-    <div class="paneel">
-      <span class="pil">Zwembadbouwer in Beringen</span>
-      <h1>Een zwembad dat <em>gewoon klopt</em></h1>
-      <p class="lead">Van het eerste gesprek tot de eerste duik. Filip en Simon bouwen zwembaden op maat die lekvrij zijn, zuinig draaien en jaren meegaan. In je tuin, of als zelfbouwer met hun hulp.</p>
-      <div class="acts">
+<section class="hero">
+  <img class="h-img" src="img/hero-zwembad.webp" alt="Strak zwembad op een terras naast een moderne woning" width="1600" height="1003" fetchpriority="high">
+  <div class="h-sh" aria-hidden="true"></div>
+  <header class="wrap kop">
+    <a class="merk" href="#top"><i>VF</i><span>VF Zwembaden<small>Uw droom, onze passie</small></span></a>
+    <nav class="nav"><a href="#aanbod">Aanbod</a><a href="#waterneutraal">Waterneutraal</a><a href="#realisaties">Realisaties</a><a href="#over">Over ons</a></nav>
+    <a class="knop k-blauw" href="#contact">Plan een gesprek<svg><use href="#naar"/></svg></a>
+  </header>
+  <div class="wrap h-in">
+    <div class="h-t">
+      <span class="pil rv">Zwembadbouwer in Beringen</span>
+      <h1 class="rv" style="--d:1">Een zwembad dat <em>gewoon klopt</em></h1>
+      <p class="lead rv" style="--d:2">Van het eerste gesprek tot de eerste duik. Filip en Simon bouwen zwembaden op maat die lekvrij zijn, zuinig draaien en jaren meegaan. In je tuin, of als zelfbouwer met hun hulp.</p>
+      <div class="acts rv" style="--d:3">
         <a class="knop k-blauw" href="#contact">Vertel ons je plannen<svg><use href="#naar"/></svg></a>
-        <a class="knop k-wit" href="#realisaties">Bekijk realisaties</a>
+        <a class="knop k-glas" href="#realisaties">Bekijk realisaties</a>
       </div>
     </div>
-  </section>
-  <div class="cijfers">
-    <div class="cijfer rv"><b>4,9</b><span>★★★★★<small>232 reviews op Google</small></span></div>
-    <div class="cijfer rv" style="--d:1"><b>±20</b><span>jaar zwembaden<small>sinds Filip begon</small></span></div>
-    <div class="cijfer rv" style="--d:2"><b>0 L</b><span>extra water<small>met waterneutrale filtering</small></span></div>
+    <div class="award rv" style="--d:4"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 8 5-3 5 3-1.5-8"/></svg></i><div><b>Brons, Beste Zwembadbouwer van België</b><small>Categorie Monoblok op maat</small></div></div>
   </div>
-</div>
+  <div class="wrap h-stats rv" style="--d:5">
+    <ul>
+      <li><b>4,9</b><span><span class="st">★★★★★</span><span class="m">op Google</span><small>232 reviews op Google</small></span></li>
+      <li><b>±20</b><span>jaar zwembaden<small>sinds Filip begon</small></span></li>
+      <li><b>0 L</b><span>extra water<small>met waterneutrale filtering</small></span></li>
+    </ul>
+  </div>
+</section>
 
 <section class="s" id="aanbod">
   <div class="wrap">
@@ -275,7 +323,7 @@ section.s{padding:clamp(90px,10vw,140px) 0}
           <div class="pt rv" style="--d:3"><b>Grondwater? Geen probleem</b><p>We bestuderen eerst je ondergrond, ook hier in Beringen.</p></div>
         </div>
       </div>
-      <figure><img src="img/poolhouse.webp" alt="Donker zwembad met grijze boord voor een houten poolhouse" loading="lazy" width="1080" height="1188"></figure>
+      <figure><img src="img/poolhouse.webp" alt="Donker zwembad met grijze boord voor een houten poolhouse" loading="lazy" width="1080" height="1188"><figcaption><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Chloorvrij, met hydrolyse</figcaption></figure>
     </div>
   </div>
 </section>
@@ -301,12 +349,8 @@ section.s{padding:clamp(90px,10vw,140px) 0}
       <h2 class="rv" style="--d:1">Vader en zoon, <em>en veel water</em></h2>
       <p class="groot rv" style="--d:2">Filip runde dertien jaar een restaurant, ontdekte de zwembadbouw en opende bijna twintig jaar geleden VF Zwembaden.</p>
       <p class="rv" style="--d:3">Water is zijn ding, ook buiten de werf: surfen, kitesurfen, windsurfen. Zijn zoon Simon is elektricien van opleiding en werkt nu mee in de zaak. Samen staan ze er van het eerste gesprek tot lang na de oplevering, want bij ons stopt de service niet als het bad vol staat.</p>
-      <div class="duo rv" style="--d:4">
-        <span><i>F</i><span>Filip<small>Oprichter</small></span></span>
-        <span><i>S</i><span>Simon<small>Zoon en vakman</small></span></span>
-      </div>
     </div>
-    <figure class="rv" style="--d:2"><img src="img/filipsimon.webp" alt="Filip en Simon van VF Zwembaden aan een zwembad" loading="lazy" width="1000" height="800"></figure>
+    <figure class="rv" style="--d:2"><div class="fr"><img src="img/filipsimon.webp" alt="Filip en Simon van VF Zwembaden aan een zwembad" loading="lazy" width="1000" height="800"></div><div class="fam"><i>VF</i><div><b>Filip en Simon</b><small>Familiebedrijf uit Beringen</small></div></div></figure>
   </div>
 </section>
 
@@ -317,9 +361,9 @@ section.s{padding:clamp(90px,10vw,140px) 0}
       <div class="score rv" style="--d:2"><b>4,9</b><span>★★★★★<small>232 reviews op Google</small></span></div>
     </div>
     <div class="rev-g">
-      <figure class="r rv"><div class="st">★★★★★</div><blockquote>"De installatie zelf is vlekkeloos, ontzettend vakkundig en heel netjes uitgevoerd door een super vriendelijk en professioneel team. We zijn echt ontzettend blij met ons prachtige zwembad en de heldere uitleg over het filtersysteem met hydrolyse."</blockquote><cite><i>D</i><span>dieter rymen<small>Google review</small></span></cite></figure>
-      <figure class="r rv" style="--d:1"><div class="st">★★★★★</div><blockquote>"Wij hebben via VF een zelfbouwpakket gekocht. Naast correcte informatie op voorhand, kwaliteit van de materialen en goeie plannen zijn we ook heel tevreden over de hulp die ze geboden hebben tijdens het proces."</blockquote><cite><i>M</i><span>Michiel Lambrechts<small>Google review</small></span></cite></figure>
-      <figure class="r rv" style="--d:2"><div class="st">★★★★★</div><blockquote>"Een prachtig zwembad en een samenwerking die we absoluut aanraden! Vanaf de eerste kennismaking met VF Zwembaden hadden we meteen een warm en familiaal gevoel. Het klikte onmiddellijk, alsof we elkaar al jaren kenden!"</blockquote><cite><i>G</i><span>Geert<small>Google review</small></span></cite></figure>
+      <figure class="r rv"><div class="st">★★★★★</div><blockquote>"De installatie zelf is vlekkeloos, ontzettend vakkundig en heel netjes uitgevoerd door een super vriendelijk en professioneel team. We zijn echt ontzettend blij met ons prachtige zwembad en de heldere uitleg over het filtersysteem met hydrolyse."</blockquote><cite><i>D</i><span>dieter rymen<small>Google review</small></span><svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z" fill="#FFC107"/><path d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z" fill="#FF3D00"/><path d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2c-2 1.5-4.5 2.4-7.2 2.4-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z" fill="#4CAF50"/><path d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z" fill="#1976D2"/></svg></cite></figure>
+      <figure class="r rv" style="--d:1"><div class="st">★★★★★</div><blockquote>"Wij hebben via VF een zelfbouwpakket gekocht. Naast correcte informatie op voorhand, kwaliteit van de materialen en goeie plannen zijn we ook heel tevreden over de hulp die ze geboden hebben tijdens het proces."</blockquote><cite><i>M</i><span>Michiel Lambrechts<small>Google review</small></span><svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z" fill="#FFC107"/><path d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z" fill="#FF3D00"/><path d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2c-2 1.5-4.5 2.4-7.2 2.4-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z" fill="#4CAF50"/><path d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z" fill="#1976D2"/></svg></cite></figure>
+      <figure class="r rv" style="--d:2"><div class="st">★★★★★</div><blockquote>"Een prachtig zwembad en een samenwerking die we absoluut aanraden! Vanaf de eerste kennismaking met VF Zwembaden hadden we meteen een warm en familiaal gevoel. Het klikte onmiddellijk, alsof we elkaar al jaren kenden!"</blockquote><cite><i>G</i><span>Geert<small>Google review</small></span><svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z" fill="#FFC107"/><path d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z" fill="#FF3D00"/><path d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2c-2 1.5-4.5 2.4-7.2 2.4-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z" fill="#4CAF50"/><path d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z" fill="#1976D2"/></svg></cite></figure>
     </div>
   </div>
 </section>
@@ -331,7 +375,7 @@ section.s{padding:clamp(90px,10vw,140px) 0}
         <span class="pil rv">Contact</span>
         <h2 class="rv" style="--d:1">Droom je van <em>een bad</em>?</h2>
         <p class="rv" style="--d:2">Stuur een foto van je tuin en wat je in gedachten hebt. Of kom langs in onze winkel in Paal voor advies, producten en materialen.</p>
-        <div class="acts rv" style="--d:3"><a class="knop k-blauw" href="https://wa.me/32476600037" target="_blank" rel="noopener">WhatsApp Filip<svg><use href="#naar"/></svg></a><a class="knop k-wit" href="mailto:info@vfzwembaden.be">info@vfzwembaden.be</a></div>
+        <div class="acts rv" style="--d:3"><a class="knop k-blauw" href="https://wa.me/32476600037" target="_blank" rel="noopener"><svg class="wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2c.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg>WhatsApp Filip</a><a class="knop k-wit" href="mailto:info@vfzwembaden.be">info@vfzwembaden.be</a></div>
         <div class="rijen rv" style="--d:3">
           <div class="rij"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></i><div><small>Winkel</small><b>Diestersesteenweg 134, 3583 Beringen</b><br><a class="lnk" href="https://www.google.com/maps/search/?api=1&query=VF%20Zwembaden%20Diestersesteenweg%20134%20Beringen" target="_blank" rel="noopener">Route plannen</a></div></div>
           <div class="rij"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></i><div><small>Bellen</small><b>Filip <a href="tel:+32476600037">0476 60 00 37</a> · Simon <a href="tel:+32496033216">0496 03 32 16</a></b></div></div>

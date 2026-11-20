@@ -8,7 +8,7 @@
 <meta name="description" content="Handgemaakte pralines, bokkenpootjes en huisgemaakt ijs van Yanne De Decker. Winkel en atelier in Aartselaar, ijsatelier in Niel en een ijskar voor je feest.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
 <style>
 :root{--room:#FBF3E8;--room2:#F4E7D5;--choc:#3A2016;--choc2:#4A2D20;--oranje:#F2A019;--oranje2:#E08A0B;--mute:#7D6556;--lijn:rgba(58,32,22,.13);--ease:cubic-bezier(.16,1,.3,1)}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -22,8 +22,9 @@ a{color:inherit;text-decoration:none}
 
 h1,h2,h3{font-family:'Young Serif',serif;font-weight:400;letter-spacing:-.015em}
 h2{font-size:clamp(38px,4.4vw,62px);line-height:1.04}
-h2 em{font-style:normal;color:var(--oranje2)}
-.oog{display:inline-block;background:var(--room2);color:var(--choc2);border-radius:999px;padding:8px 14px;font:600 13px/1 'DM Sans';letter-spacing:.04em}
+h2 em,h1 em{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;letter-spacing:-.02em;color:var(--oranje2)}
+.oog{display:inline-flex;align-items:center;gap:8px;background:var(--room2);color:var(--choc2);border-radius:999px;padding:8px 15px 8px 11px;font:600 13px/1 'DM Sans';letter-spacing:.04em}
+.oog::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--oranje);box-shadow:0 0 0 3px rgba(242,160,25,.22)}
 .knop{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:16px 28px;font:600 15.5px/1 'DM Sans';transition:transform .4s var(--ease),background .3s,color .3s;white-space:nowrap}
 .knop svg{width:18px;height:18px;flex:none}
 .knop:hover{transform:translateY(-2px)}
@@ -37,7 +38,8 @@ h2 em{font-style:normal;color:var(--oranje2)}
 .k-lijn:hover{background:var(--choc);color:var(--room);border-color:var(--choc)}
 
 /* hero */
-.hero{position:relative;min-height:min(94vh,900px);display:flex;flex-direction:column;color:var(--room);background:var(--choc);overflow:hidden}
+.hero{position:relative;min-height:min(96vh,920px);display:flex;flex-direction:column;color:var(--room);background:var(--choc);overflow:hidden}
+.hero .schulp{position:absolute;left:0;right:0;bottom:-1px;height:22px;z-index:3;background:radial-gradient(circle at 50% 0,transparent 15px,var(--room) 16px) 0 0/38px 22px repeat-x}
 .hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;z-index:0}
 .hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(30,14,8,.9) 0%,rgba(30,14,8,.7) 38%,rgba(30,14,8,.15) 70%,rgba(30,14,8,0) 100%),linear-gradient(180deg,rgba(30,14,8,.55) 0%,rgba(30,14,8,0) 25%)}
 .hero>*:not(img){position:relative;z-index:2}
@@ -52,11 +54,16 @@ h2 em{font-style:normal;color:var(--oranje2)}
 .h-tekst{margin-top:auto;margin-bottom:auto;padding-top:20px;padding-bottom:clamp(60px,7vw,100px)}
 .h-tekst .oog{background:rgba(242,160,25,.18);color:var(--oranje);border:1px solid rgba(242,160,25,.35)}
 h1{font-size:clamp(50px,6.4vw,96px);line-height:1;margin-top:24px;max-width:10.5em}
-h1 em{font-style:normal;color:var(--oranje)}
+h1 em{color:var(--oranje);font-size:1.04em}
 .lead{font-size:clamp(17px,1.35vw,20px);margin-top:24px;max-width:31em;color:rgba(251,243,232,.88)}
 .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-.label{position:absolute;right:clamp(20px,4vw,56px);bottom:clamp(40px,5vw,70px);background:var(--room);color:var(--choc);border-radius:24px;padding:18px 22px;display:flex;align-items:center;gap:16px;box-shadow:0 30px 60px -30px rgba(0,0,0,.7);animation:zw 7s ease-in-out infinite;max-width:300px}
-.label i{flex:none;width:52px;height:52px;border-radius:50%;background:var(--oranje);display:grid;place-items:center;font-style:normal}
+.vtr{display:flex;align-items:center;gap:14px;margin-top:30px;font-size:14.5px;color:rgba(251,243,232,.8)}
+.vtr .g{width:38px;height:38px;padding:8px;border-radius:50%;background:var(--room)}
+.vtr b{font:400 24px/1 'Young Serif';color:var(--room);margin-right:2px}
+.vtr .st{color:var(--oranje);letter-spacing:2px;margin-right:6px}
+.vtr .sep{width:1px;height:26px;background:rgba(251,243,232,.22)}
+.label{position:absolute;right:clamp(20px,4vw,56px);bottom:clamp(64px,6.4vw,96px);background:var(--room);color:var(--choc);border-radius:24px;padding:18px 22px;display:flex;align-items:center;gap:16px;box-shadow:0 30px 60px -30px rgba(0,0,0,.7);animation:zw 7s ease-in-out infinite;max-width:300px}
+.label i{flex:none;width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#FFC768,#F2A019 55%,#C9780A);display:grid;place-items:center;font-style:normal;box-shadow:inset 0 -3px 6px rgba(0,0,0,.15),0 8px 16px -8px rgba(201,120,10,.8)}
 .label i svg{width:26px;height:26px}
 .label b{display:block;font:400 19px/1.15 'Young Serif'}
 .label span{font-size:13.5px;color:var(--mute);line-height:1.35;display:block;margin-top:3px}
@@ -67,60 +74,88 @@ h1 em{font-style:normal;color:var(--oranje)}
 .kop{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:clamp(40px,5vw,60px)}
 .kop h2{margin-top:18px;max-width:12em}
 .kop p{max-width:25em;color:var(--mute)}
-.p-rij{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.6vw,22px)}
-.pk{min-width:0;background:#fff;border-radius:28px;padding:10px 10px 24px;box-shadow:0 30px 60px -46px rgba(58,32,22,.55);transition:transform .5s var(--ease)}
-.pk:hover{transform:translateY(-6px)}
+.p-rij{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.6vw,22px);position:relative}
+.stempel{overflow:hidden;position:absolute;z-index:3;right:-34px;top:-62px;width:128px;height:128px;border-radius:50%;background:var(--choc);color:var(--room);display:grid;place-items:center;box-shadow:0 24px 40px -20px rgba(58,32,22,.7)}
+.stempel svg{position:absolute;inset:0;width:100%;height:100%;animation:draai 26s linear infinite}
+.stempel text{font:600 10.6px 'DM Sans';letter-spacing:2.2px;text-transform:uppercase;fill:var(--room)}
+.stempel img{width:52px;height:auto;filter:brightness(0) invert(.95) sepia(.2)}
+@keyframes draai{to{transform:rotate(360deg)}}
+.pk{min-width:0;background:#fff;border-radius:28px;padding:10px 10px 24px;box-shadow:0 30px 60px -46px rgba(58,32,22,.55),0 0 0 1px rgba(58,32,22,.04);transition:transform .5s var(--ease),box-shadow .5s}
+.pk:hover{transform:translateY(-6px);box-shadow:0 40px 70px -40px rgba(58,32,22,.6),0 0 0 1px rgba(58,32,22,.04)}
+.pk:hover img{transform:scale(1.05)}
 .pk .f{border-radius:20px;overflow:hidden;aspect-ratio:1;position:relative}
-.pk img{width:100%;height:100%;object-fit:cover}
-.pk .f span{position:absolute;left:10px;top:10px;background:var(--oranje);color:var(--choc);border-radius:999px;padding:7px 12px;font:700 12px/1 'DM Sans';letter-spacing:.02em}
-.pk h3{font-size:24px;line-height:1.15;margin:20px 12px 0}
+.pk img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.pk .f span{position:absolute;left:10px;top:10px;background:rgba(251,243,232,.94);color:var(--choc);border-radius:999px;padding:7px 12px;font:700 12px/1 'DM Sans';letter-spacing:.02em;backdrop-filter:blur(6px);box-shadow:0 8px 16px -10px rgba(0,0,0,.5)}
+.pk .f span.or{background:var(--oranje)}
+.pk h3{font-size:24px;line-height:1.15;margin:20px 12px 0;display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.pk h3 small{font:italic 500 17px/1 'Fraunces',serif;color:var(--oranje2)}
 .pk p{color:var(--mute);margin:10px 12px 0;font-size:15.5px;line-height:1.55}
 
 /* verhaal */
 .verhaal{background:#fff;margin:0 clamp(10px,1.2vw,16px);border-radius:clamp(26px,2.6vw,38px);padding:clamp(90px,10vw,130px) 0}
 .v-g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,100px);align-items:center}
 .v-f{position:relative}
-.v-f .f{border-radius:28px;overflow:hidden;aspect-ratio:4/4.6}
+.v-f .f{border-radius:28px;overflow:hidden;aspect-ratio:4/4.6;box-shadow:0 40px 70px -40px rgba(58,32,22,.6)}
+.v-f .chip{position:absolute;left:-18px;top:34px;display:flex;align-items:center;gap:10px;background:var(--oranje);color:var(--choc);border-radius:999px;padding:10px 18px 10px 10px;font:700 14px/1 'DM Sans';box-shadow:0 20px 40px -20px rgba(58,32,22,.7);transform:rotate(-3deg)}
+.v-f .chip i{width:30px;height:30px;border-radius:50%;background:var(--choc);color:var(--oranje);display:grid;place-items:center}
+.v-f .chip svg{width:16px;height:16px}
 .v-f img{width:100%;height:100%;object-fit:cover;object-position:62% 40%}
 .v-f .medaille{position:absolute;right:-22px;bottom:-22px;width:132px;height:132px;border-radius:50%;background:var(--room);display:grid;place-items:center;box-shadow:0 20px 40px -20px rgba(58,32,22,.5)}
 .v-f .medaille img{width:96px;height:auto}
 .v-t h2{margin-top:18px}
 .v-t p{color:var(--mute);margin-top:18px;max-width:31em}
-.v-t blockquote{margin-top:26px;font:400 clamp(22px,1.9vw,27px)/1.35 'Young Serif';max-width:22em;padding-left:22px;border-left:3px solid var(--oranje)}
-.v-t blockquote small{display:block;font:500 14.5px/1 'DM Sans';color:var(--mute);margin-top:12px}
+.v-t blockquote{position:relative;margin-top:30px;font:400 clamp(22px,1.9vw,27px)/1.35 'Young Serif';max-width:22em;background:var(--room);border-radius:24px;padding:28px 28px 22px 30px}
+.v-t blockquote::before{content:"\201C";position:absolute;left:18px;top:-22px;font:italic 500 84px/1 'Fraunces',serif;color:var(--oranje)}
+.v-t blockquote small{display:flex;align-items:center;gap:12px;font:500 14.5px/1 'DM Sans';color:var(--mute);margin-top:14px}
+.v-t blockquote small b{font:italic 500 28px/1 'Fraunces',serif;color:var(--choc);font-weight:500}
 .cijfers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:34px}
-.cijfers div{background:var(--room);border-radius:20px;padding:18px 18px 16px}
-.cijfers b{display:block;font:400 30px/1 'Young Serif';color:var(--choc)}
+.cijfers div{background:#fff;border:1px solid var(--lijn);border-radius:20px;padding:18px 18px 16px;position:relative;overflow:hidden}
+.cijfers div::before{content:"";position:absolute;left:18px;top:0;width:28px;height:4px;border-radius:0 0 4px 4px;background:var(--oranje)}
+.cijfers b{display:block;font:400 32px/1 'Young Serif';color:var(--oranje2)}
 .cijfers span{display:block;font-size:14px;color:var(--mute);margin-top:8px;line-height:1.4}
 
 /* ijs */
 .ijs{padding:clamp(100px,11vw,140px) 0 0}
-.ijs-paneel{background:var(--oranje);border-radius:clamp(28px,3vw,40px);padding:clamp(48px,6vw,84px);display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(36px,4vw,60px);align-items:center;position:relative;overflow:hidden}
+.ijs-paneel::before{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.28),transparent 70%)}
+.ijs-paneel>*{position:relative}
+.ijs-paneel{background:linear-gradient(150deg,#F7B23A,var(--oranje) 45%,#EC930F);border-radius:clamp(28px,3vw,40px);padding:clamp(48px,6vw,84px);display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(36px,4vw,60px);align-items:center;position:relative;overflow:hidden}
 .ijs-paneel .oog{background:rgba(58,32,22,.1)}
+.ijs-paneel .oog::before{background:var(--choc);box-shadow:0 0 0 3px rgba(58,32,22,.15)}
 .ijs-paneel h2 em{color:#fff}
 .ijs-paneel p{margin-top:18px;max-width:31em;color:rgba(58,32,22,.86)}
 .smaken{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
-.smaken span{background:rgba(255,255,255,.55);border-radius:999px;padding:9px 15px;font-size:14.5px;font-weight:600}
+.smaken span{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.62);border-radius:999px;padding:9px 15px 9px 10px;font-size:14.5px;font-weight:600}
+.smaken span i{width:14px;height:14px;border-radius:50%;box-shadow:inset 0 -2px 3px rgba(0,0,0,.15)}
 .locs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
-.locs div{background:var(--room);border-radius:20px;padding:18px 20px}
+.locs div{background:var(--room);border-radius:20px;padding:18px 20px;box-shadow:0 16px 30px -24px rgba(58,32,22,.6)}
 .locs b{display:block;font:400 21px/1.15 'Young Serif'}
 .locs small{display:block;color:var(--mute);font-size:14.5px;margin-top:6px;line-height:1.45}
 .ijs-paneel .knop{margin-top:28px}
-.ijs-f{display:grid;grid-template-columns:1.15fr 1fr;gap:14px;align-items:end}
-.ijs-f .f{border-radius:24px;overflow:hidden;box-shadow:0 30px 50px -30px rgba(58,32,22,.6)}
-.ijs-f .a{aspect-ratio:3/4.8}
-.ijs-f .b{aspect-ratio:3/4;margin-bottom:60px}
+.ijs-f{display:grid;grid-template-columns:1.15fr 1fr;gap:18px;align-items:end;position:relative}
+.ijs-f .f{background:#fff;padding:10px 10px 0;border-radius:22px;box-shadow:0 34px 60px -30px rgba(58,32,22,.7);margin:0}
+.ijs-f .f .im{border-radius:14px;overflow:hidden}
+.ijs-f .a{rotate:-2.5deg}
+.ijs-f .a .im{aspect-ratio:3/4.4}
+.ijs-f .b{rotate:2.5deg;margin-bottom:70px}
+.ijs-f .b .im{aspect-ratio:3/3.6}
 .ijs-f img{width:100%;height:100%;object-fit:cover}
+.ijs-f figcaption{font:italic 500 19px/1 'Fraunces',serif;color:var(--choc);text-align:center;padding:13px 0 15px}
+.smaak18{position:absolute;z-index:2;left:46%;top:-30px;width:112px;height:112px;border-radius:50%;background:var(--choc);color:var(--room);display:grid;place-content:center;text-align:center;rotate:-10deg;box-shadow:0 24px 40px -18px rgba(58,32,22,.8);border:3px dashed rgba(251,243,232,.35);outline:6px solid var(--choc)}
+.smaak18 b{font:400 40px/1 'Young Serif';color:var(--oranje)}
+.smaak18 small{font:600 12px/1.2 'DM Sans';letter-spacing:.06em;text-transform:uppercase}
 
 /* workshops */
 .extra{padding:clamp(100px,11vw,140px) 0}
 .x-g{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,70px);align-items:stretch}
-.x-f{border-radius:28px;overflow:hidden;min-height:440px}
+.x-f{border-radius:28px;overflow:hidden;min-height:440px;position:relative;box-shadow:0 40px 70px -40px rgba(58,32,22,.6)}
+.x-f::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(0deg,rgba(30,14,8,.7),transparent)}
+.x-f figcaption{position:absolute;z-index:1;left:26px;right:26px;bottom:24px;color:var(--room);font:italic 500 clamp(20px,1.8vw,26px)/1.25 'Fraunces',serif}
 .x-f img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
 .x-r{display:grid;gap:16px;align-content:start}
 .x-r h2{margin:18px 0 10px}
-.xk{background:#fff;border-radius:24px;padding:28px 28px 26px;display:grid;grid-template-columns:56px 1fr;gap:18px;box-shadow:0 26px 50px -42px rgba(58,32,22,.55)}
-.xk i{width:56px;height:56px;border-radius:50%;background:var(--room2);display:grid;place-items:center;font-style:normal;color:var(--oranje2)}
+.xk{background:#fff;border-radius:24px;padding:28px 28px 26px;display:grid;grid-template-columns:56px 1fr;gap:18px;box-shadow:0 26px 50px -42px rgba(58,32,22,.55),0 0 0 1px rgba(58,32,22,.04);transition:transform .5s var(--ease)}
+.xk:hover{transform:translateX(6px)}
+.xk i{width:56px;height:56px;border-radius:18px;background:linear-gradient(145deg,#FFE3B5,#FCCB7C);display:grid;place-items:center;font-style:normal;color:var(--choc);box-shadow:0 10px 20px -12px rgba(224,138,11,.8)}
 .xk i svg{width:26px;height:26px}
 .xk h3{font-size:25px;line-height:1.15}
 .xk p{color:var(--mute);margin-top:8px;font-size:16px}
@@ -128,14 +163,20 @@ h1 em{font-style:normal;color:var(--oranje)}
 .xk a svg{width:16px;height:16px}
 
 /* reviews */
+.reviews::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 400px at 90% 0%,rgba(242,160,25,.16),transparent 70%),radial-gradient(500px 400px at 0% 100%,rgba(242,160,25,.1),transparent 70%);pointer-events:none}
+.reviews>.wrap{position:relative}
 .reviews{background:var(--choc);color:var(--room);margin:0 clamp(10px,1.2vw,16px);border-radius:clamp(26px,2.6vw,38px);padding:clamp(90px,10vw,130px) 0;position:relative;overflow:hidden}
 .reviews .oog{background:rgba(242,160,25,.16);color:var(--oranje)}
 .reviews h2 em{color:var(--oranje)}
 .reviews .kop p{color:rgba(251,243,232,.75)}
 .score{display:inline-flex;align-items:center;gap:12px;margin-top:22px;font-size:15px;color:rgba(251,243,232,.85)}
+.score .g{width:34px;height:34px;padding:7px;border-radius:50%;background:var(--room)}
 .score b{background:var(--oranje);color:var(--choc);border-radius:999px;padding:9px 15px;font:400 21px/1 'Young Serif'}
 .r-rij{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,22px)}
-.rk{background:var(--choc2);border:1px solid rgba(251,243,232,.1);border-radius:26px;padding:30px 28px;display:flex;flex-direction:column}
+.rk{position:relative;background:linear-gradient(170deg,#553427,var(--choc2));border:1px solid rgba(251,243,232,.1);border-radius:26px;padding:30px 28px;display:flex;flex-direction:column;transition:transform .5s var(--ease)}
+.rk:hover{transform:translateY(-5px)}
+.rk::before{content:"\201C";position:absolute;right:22px;top:4px;font:italic 500 96px/1 'Fraunces',serif;color:rgba(242,160,25,.22)}
+.rk footer .g{width:22px;height:22px;margin-left:auto;flex:none}
 .rk .st{color:var(--oranje);letter-spacing:3px}
 .rk p{font-size:16.5px;line-height:1.6;margin-top:16px;flex:1;color:rgba(251,243,232,.92)}
 .rk footer{display:flex;align-items:center;gap:12px;margin-top:24px;padding-top:18px;border-top:1px solid rgba(251,243,232,.12)}
@@ -144,12 +185,14 @@ h1 em{font-style:normal;color:var(--oranje)}
 .rk footer small{color:rgba(251,243,232,.6);font-size:13.5px}
 .erk{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(40px,5vw,56px);padding-top:30px;border-top:1px solid rgba(251,243,232,.12);align-items:center}
 .erk small{font:600 12.5px/1 'DM Sans';letter-spacing:.14em;text-transform:uppercase;color:rgba(251,243,232,.6);margin-right:8px}
-.erk span{border:1px solid rgba(251,243,232,.25);border-radius:999px;padding:10px 16px;font-size:14.5px;font-weight:500}
+.erk span{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(251,243,232,.25);border-radius:999px;padding:9px 16px 9px 10px;font-size:14.5px;font-weight:500;background:rgba(251,243,232,.04)}
+.erk span i{width:26px;height:26px;border-radius:50%;background:var(--oranje);color:var(--choc);display:grid;place-items:center}
+.erk span svg{width:14px;height:14px}
 
 /* bezoek */
 .bezoek{padding:clamp(100px,11vw,140px) 0 clamp(80px,9vw,110px)}
 .b-g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2vw,26px);margin-top:clamp(36px,4vw,50px)}
-.bk{display:flex;flex-direction:column;align-items:flex-start;background:#fff;border-radius:28px;padding:clamp(28px,3vw,40px);box-shadow:0 30px 60px -48px rgba(58,32,22,.55)}
+.bk{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;background:#fff;border-radius:28px;padding:clamp(28px,3vw,40px);box-shadow:0 30px 60px -48px rgba(58,32,22,.55)}
 .bk .pil{display:inline-block;background:var(--room2);border-radius:999px;padding:7px 13px;font:700 12.5px/1 'DM Sans';color:var(--choc2)}
 .bk h3{font-size:clamp(28px,2.6vw,36px);line-height:1.1;margin-top:16px}
 .bk>p{color:var(--mute);margin-top:10px}
@@ -157,7 +200,12 @@ h1 em{font-style:normal;color:var(--oranje)}
 .uren li{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--lijn);font-size:15.5px}
 .uren li span:last-child{font-weight:600}
 .uren li.dicht span:last-child{color:var(--mute);font-weight:400}
-.uren li.vandaag{color:var(--oranje2)}
+.uren li.vandaag{color:var(--oranje2);font-weight:600}
+.nu{display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:var(--room);border-radius:999px;padding:8px 14px;font:600 13.5px/1 'DM Sans'}
+.nu::before{content:"";width:8px;height:8px;border-radius:50%;background:#2FA866;box-shadow:0 0 0 3px rgba(47,168,102,.2)}
+.nu.dicht::before{background:#C9573C;box-shadow:0 0 0 3px rgba(201,87,60,.2)}
+.bk .hoorn{position:absolute;right:34px;bottom:96px;width:min(30%,150px);height:auto;color:rgba(58,32,22,.17);transform:rotate(12deg);pointer-events:none}
+.bk.or>*:not(.hoorn){position:relative}
 .bk .knop{margin-top:24px}
 .bk.or{background:var(--oranje)}
 .bk.or .pil{background:rgba(255,255,255,.55)}
@@ -165,7 +213,9 @@ h1 em{font-style:normal;color:var(--oranje)}
 .contactrij{display:flex;flex-wrap:wrap;gap:12px;margin-top:auto;padding-top:26px;width:100%}
 
 .voet{padding:0 0 44px;color:var(--mute);font-size:14.5px}
-.voet .wrap>div{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center;border-top:1px solid var(--lijn);padding-top:26px}
+.voet .wrap>div{display:flex;justify-content:space-between;gap:14px 26px;flex-wrap:wrap;align-items:center;border-top:1px solid var(--lijn);padding-top:26px}
+.voet nav{display:flex;gap:20px;flex-wrap:wrap}
+.voet a:hover{color:var(--choc)}
 .voet img{height:46px;width:auto}
 
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
@@ -183,6 +233,8 @@ h1 em{font-style:normal;color:var(--oranje)}
   .r-rij,.b-g{grid-template-columns:1fr}
   .r-rij{max-width:640px}
   .label{display:none}
+  .stempel{right:-6px;top:-70px;width:108px;height:108px}
+  .v-f .chip{left:-8px}
 }
 @media (max-width:640px){
   body{font-size:16px}
@@ -197,7 +249,10 @@ h1 em{font-style:normal;color:var(--oranje)}
   .p-rij{gap:10px}
   .pk{border-radius:22px;padding:8px 8px 18px}
   .pk .f{border-radius:16px}
-  .pk h3{font-size:19px;margin:14px 8px 0}
+  .pk h3{font-size:17.5px;margin:14px 8px 0}
+  .pk h3 small{display:none}
+  .pk .f span{font-size:11px;padding:6px 10px;white-space:nowrap;left:8px;top:8px}
+  .stempel{right:0}
   .pk p{font-size:13.5px;margin:6px 8px 0}
   .cijfers{grid-template-columns:1fr 1fr 1fr;gap:8px}
   .cijfers div{padding:14px 12px}
@@ -209,6 +264,12 @@ h1 em{font-style:normal;color:var(--oranje)}
   .locs{grid-template-columns:1fr}
   .ijs-paneel .knop{width:100%}
   .ijs-f .b{margin-bottom:30px}
+  .ijs-f{gap:12px}
+  .ijs-f figcaption{font-size:16px;padding:10px 0 12px}
+  .smaak18{width:86px;height:86px;left:40%;top:-26px}.smaak18 b{font-size:30px}.smaak18 small{font-size:10px}
+  .stempel{width:92px;height:92px;top:-56px;right:-4px}.stempel text{font-size:12.5px}.stempel img{width:38px}
+  .vtr{flex-wrap:wrap;gap:10px 12px}.vtr .sep{display:none}
+  .bk .hoorn{display:none}
   .xk{grid-template-columns:1fr;padding:24px 22px}
   .rk{padding:26px 22px}
   .contactrij .knop,.bk .knop{width:100%}
@@ -235,8 +296,10 @@ h1 em{font-style:normal;color:var(--oranje)}
       <a class="knop k-or" href="#aanbod">Ontdek ons aanbod</a>
       <a class="knop k-wit" href="#bezoek">Openingsuren</a>
     </div>
+    <div class="vtr rv" style="--d:4"><svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z" fill="#FFC107"/><path d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z" fill="#FF3D00"/><path d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2c-2 1.5-4.5 2.4-7.2 2.4-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z" fill="#4CAF50"/><path d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z" fill="#1976D2"/></svg><b>4,8</b><span class="st">★★★★★</span><span>88 reviews op Google</span><span class="sep"></span><span>Open atelier in Aartselaar</span></div>
   </div>
   <div class="label"><i><svg viewBox="0 0 24 24" fill="none" stroke="#3A2016" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/><path d="M8.2 13.9 7 22l5-3 5 3-1.2-8.1"/></svg></i><div><b>Gault&amp;Millau 2026</b><span>Opgenomen in de gids Finest Chocolatiers</span></div></div>
+  <div class="schulp" aria-hidden="true"></div>
 </section>
 
 <section class="aanbod" id="aanbod">
@@ -246,10 +309,11 @@ h1 em{font-style:normal;color:var(--oranje)}
       <p class="rv" style="--d:2">Alles wordt hier met de hand gemaakt, achter de glaswand van ons open atelier. Je kijkt gewoon mee terwijl je wacht.</p>
     </div>
     <div class="p-rij">
-      <article class="pk rv"><div class="f"><img src="img/pralines.webp" alt="Vulling wordt met een spuitzak in praline-vormpjes gespoten" loading="lazy" width="1100" height="736" style="object-position:40% 50%"><span>Huisgemaakt</span></div><h3>Pralines</h3><p>Klassiekers en nieuwe, verrassende smaken. Voor jezelf of in een mooie doos als cadeau.</p></article>
-      <article class="pk rv" style="--d:1"><div class="f"><img src="img/bokken.webp" alt="Bokkenpootjes met chocolade-uiteinden van dichtbij" loading="lazy" width="1100" height="1100"></div><h3>Bokkenpootjes</h3><p>Vers gebakken, met een stevige laag chocolade aan de uiteinden. Een van onze specialiteiten.</p></article>
-      <article class="pk rv" style="--d:2"><div class="f"><img src="img/creaties.webp" alt="Gestapelde stukken chocolade met frambozen en hazelnoten" loading="lazy" width="1100" height="1100"></div><h3>Chocoladecreaties</h3><p>Stukken chocolade met fruit en noten, en met Sinterklaas en Pasen ook al het feestelijke lekkers.</p></article>
-      <article class="pk rv" style="--d:3"><div class="f"><img src="img/ijsbeker.webp" alt="Bekertje met bolletjes huisgemaakt ijs, crumble en een koekje" loading="lazy" width="1100" height="1089"></div><h3>Huisgemaakt ijs</h3><p>Ambachtelijk ijs uit eigen atelier, in een hoorntje, een beker of om mee te nemen naar huis.</p></article>
+      <div class="stempel" aria-hidden="true"><svg viewBox="0 0 128 128"><defs><path id="rond" d="M64 64m-48 0a48 48 0 1 1 96 0a48 48 0 1 1-96 0"/></defs><text><textPath href="#rond">Handmade in Belgium · Chocorette · Aartselaar ·</textPath></text></svg><img src="img/logo.webp" alt="" width="393" height="400"></div>
+      <article class="pk rv"><div class="f"><img src="img/pralines.webp" alt="Vulling wordt met een spuitzak in praline-vormpjes gespoten" loading="lazy" width="1100" height="736" style="object-position:40% 50%"><span class="or">Huisgemaakt</span></div><h3>Pralines <small>01</small></h3><p>Klassiekers en nieuwe, verrassende smaken. Voor jezelf of in een mooie doos als cadeau.</p></article>
+      <article class="pk rv" style="--d:1"><div class="f"><img src="img/bokken.webp" alt="Bokkenpootjes met chocolade-uiteinden van dichtbij" loading="lazy" width="1100" height="1100"><span>Specialiteit</span></div><h3>Bokkenpootjes <small>02</small></h3><p>Vers gebakken, met een stevige laag chocolade aan de uiteinden. Een van onze specialiteiten.</p></article>
+      <article class="pk rv" style="--d:2"><div class="f"><img src="img/creaties.webp" alt="Gestapelde stukken chocolade met frambozen en hazelnoten" loading="lazy" width="1100" height="1100"><span>Sinterklaas &amp; Pasen</span></div><h3>Chocolade&shy;creaties <small>03</small></h3><p>Stukken chocolade met fruit en noten, en met Sinterklaas en Pasen ook al het feestelijke lekkers.</p></article>
+      <article class="pk rv" style="--d:3"><div class="f"><img src="img/ijsbeker.webp" alt="Bekertje met bolletjes huisgemaakt ijs, crumble en een koekje" loading="lazy" width="1100" height="1089"><span>Ook in Niel</span></div><h3>Huisgemaakt ijs <small>04</small></h3><p>Ambachtelijk ijs uit eigen atelier, in een hoorntje, een beker of om mee te nemen naar huis.</p></article>
     </div>
   </div>
 </section>
@@ -261,7 +325,7 @@ h1 em{font-style:normal;color:var(--oranje)}
       <h2 class="rv" style="--d:1">Het begon <em>in ons bureau thuis</em></h2>
       <p class="rv" style="--d:2">Ik ben Yanne. Tijdens mijn opleiding brood- en banketbakkerij aan PIVA Antwerpen kon ik er maar geen genoeg van krijgen. Thuis werd onze bureau omgebouwd tot een klein chocolade-atelier, met een machientje, een trilplaat en een hele kast vol vormen. Veel te veel chocolade om alleen op te eten dus.</p>
       <p class="rv" style="--d:3">Ik begon als student-zelfstandige, met verkoopmomenten waarbij ons huis een open atelier werd. In augustus 2020, midden in corona, opende Chocorette de deuren in Aartselaar. Vandaag werk ik er met een fantastisch team, en zie ik vanuit mijn atelier hoe mensen hun klein gelukje komen halen.</p>
-      <blockquote class="rv" style="--d:4">Het delen van je passie met mensen, daar doe ik het voor!<small>Yanne De Decker, chocolatier</small></blockquote>
+      <blockquote class="rv" style="--d:4">Het delen van je passie met mensen, daar doe ik het voor!<small><b>Yanne</b>De Decker, chocolatier</small></blockquote>
       <div class="cijfers rv" style="--d:5">
         <div><b>19</b><span>Mijn leeftijd toen ik startte</span></div>
         <div><b>2020</b><span>Opening van de winkel</span></div>
@@ -270,6 +334,7 @@ h1 em{font-style:normal;color:var(--oranje)}
     </div>
     <div class="v-f rv" style="--d:2">
       <div class="f"><img src="img/yanne.webp" alt="Yanne aan het werk in het chocolade-atelier" loading="lazy" width="1100" height="734"></div>
+      <div class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></i>Kijk mee in het open atelier</div>
       <div class="medaille"><img src="img/logo.webp" alt="" width="393" height="400"></div>
     </div>
   </div>
@@ -282,7 +347,7 @@ h1 em{font-style:normal;color:var(--oranje)}
         <span class="oog rv">IJsatelier &amp; ijskar</span>
         <h2 class="rv" style="--d:1">Ons ijs, <em>vers gedraaid</em> waar je bij staat</h2>
         <p class="rv" style="--d:2">In ons ijsatelier in het centrum van Niel maken we het ijs rechtstreeks in de winkel. Je kiest uit 18 huisbereide smaken, van de klassiekers tot mango-mascarpone en onze crema: vanille-ijs met een toets citroen- en sinaasappelzeste.</p>
-        <div class="smaken rv" style="--d:3"><span>Mango-mascarpone</span><span>Crema</span><span>Aardbei-framboos sorbet</span><span>Citroensorbet</span></div>
+        <div class="smaken rv" style="--d:3"><span><i style="background:#FFB23F"></i>Mango-mascarpone</span><span><i style="background:#FBEFCF"></i>Crema</span><span><i style="background:#E8475A"></i>Aardbei-framboos sorbet</span><span><i style="background:#F8E061"></i>Citroensorbet</span></div>
         <div class="locs rv" style="--d:4">
           <div><b>IJsatelier Niel</b><small>Sint-Hubertusplein 34. Compact afhaalconcept, ook met ijs in potjes voor thuis.</small></div>
           <div><b>De ijskar</b><small>Op je feest, je event of je werkvloer. In het seizoen ook op vaste plekjes in de buurt.</small></div>
@@ -290,8 +355,9 @@ h1 em{font-style:normal;color:var(--oranje)}
         <a class="knop k-choc rv" style="--d:5" href="mailto:atelier@chocorette.be?subject=IJskar%20aanvragen">Vraag de ijskar aan</a>
       </div>
       <div class="ijs-f">
-        <div class="f a rv" style="--d:2"><img src="img/ijskar.webp" alt="De oranje Chocorette-ijskar op een grasveld onder een treurwilg" loading="lazy" width="1100" height="1467" style="object-position:40% 60%"></div>
-        <div class="f b rv" style="--d:3"><img src="img/toog.webp" alt="De ijstoog in Niel met bakken vol huisgemaakt ijs" loading="lazy" width="1100" height="825"></div>
+        <div class="smaak18 rv" style="--d:4"><b>18</b><small>smaken</small></div>
+        <figure class="f a rv" style="--d:2"><div class="im"><img src="img/ijskar.webp" alt="De oranje Chocorette-ijskar op een grasveld onder een treurwilg" loading="lazy" width="1100" height="1467" style="object-position:40% 60%"></div><figcaption>De ijskar</figcaption></figure>
+        <figure class="f b rv" style="--d:3"><div class="im"><img src="img/toog.webp" alt="De ijstoog in Niel met bakken vol huisgemaakt ijs" loading="lazy" width="1100" height="825"></div><figcaption>De toog in Niel</figcaption></figure>
       </div>
     </div>
   </div>
@@ -301,26 +367,26 @@ h1 em{font-style:normal;color:var(--oranje)}
   <div class="wrap x-g">
     <div class="x-r">
       <div><span class="oog rv">Workshops &amp; op maat</span><h2 class="rv" style="--d:1">Zelf aan de slag, <em>of iets voor je bedrijf</em></h2></div>
-      <article class="xk rv" style="--d:2"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7a8 8 0 0 1 16 0v7z"/><path d="M8 21v-4M16 21v-4M12 6V3"/></svg></i><div><h3>Chocoladeworkshops</h3><p>In ons atelier maak je zelf holle figuren, versier je chocolade rondjes en proef je mee. Leuk voor een verjaardag of gewoon met vrienden. Wat je maakt, neem je mee naar huis.</p><a href="https://www.chocorette.be/webshop/ws-/workshops" target="_blank" rel="noopener">Bekijk de workshops <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>
+      <article class="xk rv" style="--d:2"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7a8 8 0 0 1 16 0v7z"/><path d="M8 21v-4M16 21v-4M12 6V3"/></svg></i><div><h3>Chocoladeworkshops</h3><p>In ons atelier maak je zelf holle figuren, versier je chocolade rondjes en proef je mee. Leuk voor een verjaardag of gewoon met vrienden.</p><a href="https://www.chocorette.be/webshop/ws-/workshops" target="_blank" rel="noopener">Bekijk de workshops <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>
       <article class="xk rv" style="--d:3"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18M12 8c-2-4-6-4-6-1.5S10 8 12 8zm0 0c2-4 6-4 6-1.5S14 8 12 8z"/></svg></i><div><h3>Pralines met jouw logo</h3><p>We drukken je logo, naam, foto of boodschap op onze handgemaakte pralines. Voor relatiegeschenken, je personeel met Sinterklaas of Pasen, maar ook voor een trouw, communie of verjaardag.</p><a href="mailto:atelier@chocorette.be?subject=Gepersonaliseerde%20pralines">Vraag een voorstel <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>
       <article class="xk rv" style="--d:4"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18M5 11l1 9h12l1-9M8 11V7a4 4 0 0 1 8 0v4"/></svg></i><div><h3>Voor horeca</h3><p>Vers gedraaid ijs en sorbet voor je desserts, pralines met je logo bij de koffie of bokkenpootjes op het dessertbordje.</p></div></article>
     </div>
-    <div class="x-f rv" style="--d:2"><img src="img/handen.webp" alt="Chocolatier giet chocolade in een vorm in het atelier" loading="lazy" width="1100" height="1650"></div>
+    <figure class="x-f rv" style="--d:2"><img src="img/handen.webp" alt="Chocolatier giet chocolade in een vorm in het atelier" loading="lazy" width="1100" height="1650"><figcaption>Wat je maakt, neem je mee naar huis</figcaption></figure>
   </div>
 </section>
 
 <section class="reviews" id="reviews">
   <div class="wrap">
     <div class="kop">
-      <div><span class="oog rv">Reviews</span><h2 class="rv" style="--d:1">Wat onze klanten <em>ervan vinden</em></h2><div class="score rv" style="--d:2"><b>4,8</b>★★★★★ &nbsp;88 reviews op Google</div></div>
+      <div><span class="oog rv">Reviews</span><h2 class="rv" style="--d:1">Wat onze klanten <em>ervan vinden</em></h2><div class="score rv" style="--d:2"><svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z" fill="#FFC107"/><path d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z" fill="#FF3D00"/><path d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2c-2 1.5-4.5 2.4-7.2 2.4-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z" fill="#4CAF50"/><path d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z" fill="#1976D2"/></svg><b>4,8</b>★★★★★ &nbsp;88 reviews op Google</div></div>
       <p class="rv" style="--d:2">Drie reviews, letterlijk zoals ze op Google staan.</p>
     </div>
     <div class="r-rij">
-      <blockquote class="rk rv"><span class="st">★★★★★</span><p>De lekkerste ambachtelijke chocolade uit Aartselaar en de verre omstreken. Onze klanten vinden ze heerlijk!</p><footer><i>P</i><div><b>Paul Natens</b><small>Google review</small></div></footer></blockquote>
-      <blockquote class="rk rv" style="--d:1"><span class="st">★★★★★</span><p>Alles werd goed uitgelegd waardoor het vlot verliep. Er was ook plaats om vragen te stellen. Door heel het proces zelf te doen, hebben we nog meer appreciatie voor al het werk dat er in deze creaties gestoken wordt.</p><footer><i>A</i><div><b>Annelies De Smet</b><small>Over een workshop</small></div></footer></blockquote>
-      <blockquote class="rk rv" style="--d:2"><span class="st">★★★★★</span><p>Hier kan u heerlijke chocolade kopen en ondertussen een lekkere koffie (of thee) drinken met iets bij... Service is prima en uiterst vriendelijk.</p><footer><i>S</i><div><b>Stefaan Pockelé</b><small>Google review</small></div></footer></blockquote>
+      <blockquote class="rk rv"><span class="st">★★★★★</span><p>De lekkerste ambachtelijke chocolade uit Aartselaar en de verre omstreken. Onze klanten vinden ze heerlijk!</p><footer><i>P</i><div><b>Paul Natens</b><small>Google review</small></div><svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z" fill="#FFC107"/><path d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z" fill="#FF3D00"/><path d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2c-2 1.5-4.5 2.4-7.2 2.4-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z" fill="#4CAF50"/><path d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z" fill="#1976D2"/></svg></footer></blockquote>
+      <blockquote class="rk rv" style="--d:1"><span class="st">★★★★★</span><p>Alles werd goed uitgelegd waardoor het vlot verliep. Er was ook plaats om vragen te stellen. Door heel het proces zelf te doen, hebben we nog meer appreciatie voor al het werk dat er in deze creaties gestoken wordt.</p><footer><i>A</i><div><b>Annelies De Smet</b><small>Over een workshop</small></div><svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z" fill="#FFC107"/><path d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z" fill="#FF3D00"/><path d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2c-2 1.5-4.5 2.4-7.2 2.4-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z" fill="#4CAF50"/><path d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z" fill="#1976D2"/></svg></footer></blockquote>
+      <blockquote class="rk rv" style="--d:2"><span class="st">★★★★★</span><p>Hier kan u heerlijke chocolade kopen en ondertussen een lekkere koffie (of thee) drinken met iets bij... Service is prima en uiterst vriendelijk.</p><footer><i>S</i><div><b>Stefaan Pockelé</b><small>Google review</small></div><svg class="g" viewBox="0 0 48 48" aria-hidden="true"><path d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z" fill="#FFC107"/><path d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z" fill="#FF3D00"/><path d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2c-2 1.5-4.5 2.4-7.2 2.4-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z" fill="#4CAF50"/><path d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z" fill="#1976D2"/></svg></footer></blockquote>
     </div>
-    <div class="erk rv"><small>Erkend door</small><span>Gault&amp;Millau Finest Chocolatiers</span><span>Handmade in Belgium (UNIZO)</span><span>Goe Grief van hier</span></div>
+    <div class="erk rv"><small>Erkend door</small><span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 8 5-3 5 3-1.5-8"/></svg></i>Gault&amp;Millau Finest Chocolatiers</span><span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-4 0v1M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8a8 8 0 0 0 16 0v-3a2 2 0 0 0-4 0"/></svg></i>Handmade in Belgium (UNIZO)</span><span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></i>Goe Grief van hier</span></div>
   </div>
 </section>
 
@@ -333,6 +399,7 @@ h1 em{font-style:normal;color:var(--oranje)}
         <span class="pil">Winkel, tearoom &amp; atelier</span>
         <h3>Aartselaar</h3>
         <p>Kapellestraat 35, 2630 Aartselaar. Neem plaats voor een koffie en werp een blik in ons open atelier.</p>
+        <span class="nu" id="nu" hidden></span>
         <ul class="uren" id="uren">
           <li class="dicht" data-d="1"><span>Maandag</span><span>Gesloten</span></li>
           <li data-d="2"><span>Dinsdag</span><span>9u30 tot 17u</span></li>
@@ -345,6 +412,7 @@ h1 em{font-style:normal;color:var(--oranje)}
         <a class="knop k-choc" href="https://www.google.com/maps/dir/?api=1&destination=Chocorette+Kapellestraat+35+Aartselaar" target="_blank" rel="noopener">Route naar Aartselaar</a>
       </div>
       <div class="bk or rv" style="--d:1">
+        <svg class="hoorn" viewBox="0 0 100 160" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 62h56L50 150z"/><path d="M30 62a20 20 0 0 1 2-30 22 22 0 0 1 36 0 20 20 0 0 1 2 30"/><path d="M32 32a18 18 0 0 1 36 0"/><path d="M36 80l22 22M33 96l18 18M64 80 42 102M67 96 49 114"/></svg>
         <span class="pil">IJsatelier</span>
         <h3>Niel</h3>
         <p>Sint-Hubertusplein 34, 2845 Niel. Onze uren in Niel volgen het seizoen en het weer. De actuele uren vind je altijd op onze Instagram.</p>
@@ -359,10 +427,12 @@ h1 em{font-style:normal;color:var(--oranje)}
 </section>
 </main>
 
-<footer class="voet"><div class="wrap"><div><img src="img/logo.webp" alt="Chocorette" width="393" height="400"><span>Kapellestraat 35, 2630 Aartselaar</span><span>Voorbeeldsite door Digital Impression</span></div></div></footer>
+<footer class="voet"><div class="wrap"><div><img src="img/logo.webp" alt="Chocorette" width="393" height="400"><nav aria-label="Footer"><a href="#aanbod">Aanbod</a><a href="#ijs">IJs &amp; ijskar</a><a href="#workshops">Workshops</a><a href="https://www.instagram.com/atelier_chocorette/" target="_blank" rel="noopener">Instagram</a></nav><span>Kapellestraat 35, 2630 Aartselaar</span><span>Voorbeeldsite door Digital Impression</span></div></div></footer>
 
 <script>
-(function(){var d=new Date().getDay();var li=document.querySelector('#uren li[data-d="'+d+'"]');if(li)li.classList.add('vandaag')})();
+(function(){var n=new Date(),d=n.getDay();var li=document.querySelector('#uren li[data-d="'+d+'"]');if(li)li.classList.add('vandaag');
+var u={2:[570,1020],3:[570,1020],4:[570,1020],5:[540,1020],6:[570,1020]},m=n.getHours()*60+n.getMinutes(),e=document.getElementById('nu');if(!e)return;
+var o=u[d];if(o&&m>=o[0]&&m<o[1]){e.textContent='Nu open, vandaag tot 17u'}else{e.textContent='Nu gesloten';e.classList.add('dicht')}e.hidden=false})();
 (function(){var els=[].slice.call(document.querySelectorAll('.rv'));
 function kijk(){var H=innerHeight;els=els.filter(function(e){var r=e.getBoundingClientRect();if(r.top<H*.94&&r.bottom>0){e.classList.add('in');return false}return true});if(!els.length)removeEventListener('scroll',plan)}
 var t=0;function plan(){if(!t){t=requestAnimationFrame(function(){t=0;kijk()})}}
