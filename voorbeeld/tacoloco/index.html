@@ -47,18 +47,18 @@ a{color:inherit;text-decoration:none}
 .nav{display:flex;gap:28px;font:700 15px/1 'Outfit';color:rgba(255,255,255,.85)}
 .nav a:hover{color:#fff}
 .kop .knop{padding:14px 22px;font-size:15px}
-.hero-g{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,5vw,70px);align-items:center;padding-top:clamp(30px,4vw,56px);padding-bottom:clamp(70px,8vw,110px)}
+.paneel{position:relative;border-radius:40px;overflow:hidden;min-height:min(80vh,720px);display:flex;align-items:flex-end;isolation:isolate;margin:10px 0 clamp(44px,5vw,64px);border:6px solid var(--geel);box-shadow:0 40px 80px -40px rgba(0,0,0,.55)}
+.paneel .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% 42%;z-index:-2}
+.paneel::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(18,70,26,.94) 0%,rgba(18,70,26,.72) 40%,rgba(18,70,26,.05) 74%),linear-gradient(0deg,rgba(18,70,26,.45),transparent 40%)}
+.inhoud{padding:clamp(30px,5vw,64px);max-width:860px}
 .hero .cap{color:var(--geel)}
-.hero h1{font-size:clamp(56px,7.6vw,110px);margin:22px 0 24px;line-height:.95}
+.hero h1{font-size:clamp(50px,6.2vw,88px);margin:20px 0 22px;line-height:.95}
 .hero h1 span{color:var(--geel)}
-.lead{font-size:19.5px;line-height:1.6;max-width:540px;color:rgba(255,255,255,.9)}
-.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-.waar{margin-top:30px;display:flex;flex-wrap:wrap;gap:8px}
-.waar span{background:rgba(0,0,0,.16);border-radius:999px;padding:10px 15px;font:600 14px/1 'Outfit'}
-.foto-h{position:relative;max-width:480px;width:100%;justify-self:end}
-.foto-h .f{border-radius:240px 240px 32px 32px;overflow:hidden;aspect-ratio:4/5;border:8px solid var(--geel);box-shadow:0 40px 70px -30px rgba(0,0,0,.5)}
-.foto-h .f img{width:100%;height:100%;object-fit:cover;object-position:60% 40%}
-.score{position:absolute;left:-34px;bottom:13%;background:#fff;color:var(--ink);border-radius:22px;padding:15px 20px;display:flex;align-items:center;gap:13px;box-shadow:0 26px 44px -20px rgba(0,0,0,.5)}
+.lead{font-size:19.5px;line-height:1.6;max-width:540px;color:rgba(255,255,255,.92)}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.waar{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px}
+.waar span{background:rgba(0,0,0,.28);border-radius:999px;padding:10px 15px;font:600 14px/1 'Outfit'}
+.score{position:absolute;right:26px;top:26px;background:#fff;color:var(--ink);border-radius:22px;padding:15px 20px;display:flex;align-items:center;gap:13px;box-shadow:0 26px 44px -20px rgba(0,0,0,.5)}
 .score b{font:400 38px/1 'Lilita One';color:var(--gr)}
 .score span{font:600 13px/1.35 'Outfit';color:var(--mute)}
 .score em{display:block;font-style:normal;color:var(--geel);letter-spacing:2px;font-size:15px}
@@ -171,8 +171,8 @@ a{color:inherit;text-decoration:none}
  .gerechten{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:900px){
- .hero-g,.lili-g,.bz-g,.event-k{grid-template-columns:1fr}
- .foto-h{justify-self:center;max-width:420px}
+ .lili-g,.bz-g,.event-k{grid-template-columns:1fr}
+ .paneel{min-height:680px}
  .plekken,.rev-g{grid-template-columns:1fr}
  .duo{order:2;max-width:520px;width:100%}
  .event-k .im{order:2;min-height:340px}
@@ -185,8 +185,13 @@ a{color:inherit;text-decoration:none}
  .hero h1{font-size:54px}
  .lead{font-size:18px}
  .acts .knop{width:100%}
- .score{left:-6px;bottom:10%;padding:12px 16px}
- .score b{font-size:30px}
+ .paneel{border-radius:28px;min-height:1290px;background:#12461A}
+ .paneel .bg{height:43%;object-position:62% 30%}
+ .paneel::before{background:linear-gradient(0deg,#12461A 0%,#12461A 55%,rgba(18,70,26,.6) 61%,rgba(18,70,26,0) 70%)}
+ .hero h1 br{display:none}
+ .inhoud{padding:26px 22px}
+ .score{right:14px;top:14px;padding:10px 14px}
+ .score b{font-size:28px}
  .gerechten{grid-template-columns:1fr 1fr;gap:12px}
  .gerecht h3{font-size:22px}
  .gerecht p{display:none}
@@ -207,20 +212,20 @@ a{color:inherit;text-decoration:none}
     <nav class="nav"><a href="#waar">Waar vind je ons</a><a href="#kaart">Wat we koken</a><a href="#lili">Ons verhaal</a><a href="#events">Foodtruck huren</a><a href="#contact">Contact</a></nav>
     <a class="knop k-geel" href="https://www.eltacoloco.be/takeaway" target="_blank" rel="noopener">Bestel je takeaway</a>
   </div></div>
-  <div class="wrap hero-g">
-    <div class="rv">
-      <span class="cap">Mexicaanse foodtruck · Aarschot &amp; Leuven</span>
-      <h1 class="dik">Mexico, recht uit <span>Lili's keuken.</span></h1>
-      <p class="lead">Lili is geboren en getogen in Guadalajara. Na dertig jaar in België kookt ze hier de gerechten van thuis: taco's, flautas, enchiladas en burrito's, huisgemaakt en met heel veel liefde.</p>
-      <div class="acts">
-        <a class="knop k-geel" href="https://www.eltacoloco.be/takeaway" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>Bestel je takeaway</a>
-        <a class="knop k-lijnw" href="#events">Foodtruck op je feest</a>
+  <div class="wrap">
+    <div class="paneel">
+      <img class="bg" src="img/herobg.webp" alt="Lili overhandigt een bestelling aan het venster van de foodtruck" width="1200" height="1500">
+      <div class="inhoud rv">
+        <span class="cap">Mexicaanse foodtruck · Aarschot &amp; Leuven</span>
+        <h1 class="dik">Mexico, recht uit <br><span>Lili's keuken.</span></h1>
+        <p class="lead">Lili is geboren en getogen in Guadalajara. Na dertig jaar in België kookt ze hier de gerechten van thuis: taco's, flautas, enchiladas en burrito's, huisgemaakt en met heel veel liefde.</p>
+        <div class="acts">
+          <a class="knop k-geel" href="https://www.eltacoloco.be/takeaway" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>Bestel je takeaway</a>
+          <a class="knop k-lijnw" href="#events">Foodtruck op je feest</a>
+        </div>
+        <div class="waar"><span>Afhalen in Aarschot</span><span>Zaterdagmarkt Leuven</span><span>Foodtruck op locatie</span></div>
       </div>
-      <div class="waar"><span>Afhalen in Aarschot</span><span>Zaterdagmarkt Leuven</span><span>Foodtruck op locatie</span></div>
-    </div>
-    <div class="foto-h rv" style="--d:2">
-      <div class="f"><img src="img/hero.webp" alt="Lili overhandigt een bestelling aan het venster van de foodtruck" width="1200" height="1500"></div>
-      <div class="score"><b>4,9</b><span><em>★★★★★</em>216 reviews op Google</span></div>
+      <div class="score rv" style="--d:2"><b>4,9</b><span><em>★★★★★</em>216 reviews op Google</span></div>
     </div>
   </div>
 </header>
