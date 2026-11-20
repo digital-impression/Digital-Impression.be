@@ -317,6 +317,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .cta-blue .acts{display:flex;gap:12px;flex-wrap:wrap}
 .cta-blue .btn-line{border-color:rgba(255,255,255,.45)}
 @media (max-width:720px){.cta-blue .wrap{grid-template-columns:1fr;gap:32px}.cta-blue .acts .btn{flex:1 1 100%}}
+
+/* v6.3: hero badge */
+.badge{display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.16);border-radius:999px;background:rgba(18,18,18,.45);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:5px;gap:4px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.badge span{display:inline-flex;align-items:center;gap:9px;height:34px;padding:0 14px;border-radius:999px;font:500 12.5px/1 var(--jost);letter-spacing:.06em;color:#E6E6E6;white-space:nowrap}
+.badge .b1{background:rgba(255,255,255,.07)}
+.badge .b1 i{width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 3px rgba(79,163,227,.2)}
+.badge .b2 svg{width:16px;height:16px;color:var(--blue)}
+@media (max-width:720px){.badge span{height:30px;padding:0 11px;font-size:11.5px;gap:7px}.badge .b2 svg{width:14px;height:14px}}
+@media (max-width:370px){.badge{flex-wrap:wrap;border-radius:18px}}
 @media (max-width:1080px){
   .menu{display:none}
   .about,.acad{grid-template-columns:1fr}
@@ -369,6 +378,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .cgrid{grid-template-columns:1fr;gap:34px}
   .map{height:320px}
 }
+@media (max-width:400px){.foot .back{display:none!important}.logo small{display:none}.logo span{font-size:13px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .fade{opacity:1;transform:none}}
 </style>
 </head>
@@ -389,11 +399,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <section class="hero" id="top">
   <img src="img/hero.webp" alt="Zwarte BMW op de brug in de studio van JB Cardetail" width="1600" height="1200" fetchpriority="high">
   <div class="wrap">
-    <span class="lbl fade">High-end detailing · Antwerpen</span>
+    <div class="badge fade"><span class="b1"><i></i>Sinds 1982</span><span class="b2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.4 3 8.3 7 9.5 4-1.2 7-5.1 7-9.5V6l-7-3Z"/><path d="m9 12 2 2 4-4" stroke-linecap="round"/></svg>9 jaar garantie op coating</span></div>
     <h1 class="fade" style="--d:1">Lak die weer spiegelt<i class="dot">.</i></h1>
     <p class="fade" style="--d:2">Polijsten, keramische coating en luxe handwas, in onze eigen studio in Antwerpen. Bereken hier uw prijs en kies meteen wanneer u langskomt.</p>
     <div class="cta fade" style="--d:3"><a class="btn btn-silver" href="#boeken">Bereken uw prijs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a><a class="btn btn-line" href="#diensten">Onze diensten</a></div>
-    <div class="spec fade" style="--d:4"><div><small>Sinds</small><b>1982</b><span>Aan de Duboisstraat, Antwerpen</span></div><div><small>Garantie</small><b>9 jaar</b><span>Op onze keramische coating</span></div></div>
   </div>
 </section>
 <section class="sec" id="diensten">
