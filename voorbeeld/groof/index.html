@@ -228,6 +228,16 @@ h2 em{color:var(--appel2)}
  .hx .hx-badge{align-self:flex-start}
 }
 .hx .hx-glass{background:rgba(255,255,255,.14)!important;border:1px solid rgba(255,255,255,.26)!important;color:#fff!important;box-shadow:none!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}.hx .hx-glass *{color:#fff}
+/*hx-nav*/
+.hx-navt{background:transparent!important;border-color:transparent!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;transition:background .35s,color .35s}
+.hx-navt::before,.hx-navt::after{opacity:0}
+.hx-navt,.hx-navt :not(.hx-keep):not(.hx-keep *){color:#fff!important;border-color:rgba(255,255,255,.28)!important}
+.hx-navt img.hx-inv{filter:brightness(0) invert(1)}
+.hx-navt .hx-glass2{background:rgba(255,255,255,.13)!important;border:1px solid rgba(255,255,255,.24)!important;box-shadow:none!important;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.hx-hasnav .hx-w{padding-top:calc(var(--hxnav,0px) + 40px)}
+.hx-hasnav .hx-sh{background-image:linear-gradient(180deg,rgba(22,48,20,.62) 0%,rgba(22,48,20,0) 26%),linear-gradient(90deg,rgba(22,48,20,.86) 0%,rgba(22,48,20,.62) 38%,rgba(22,48,20,.12) 72%,rgba(22,48,20,0) 100%),linear-gradient(0deg,rgba(22,48,20,.55) 0%,rgba(22,48,20,0) 45%)}
+.hx-B.hx-hasnav.hx-hero{padding:0}.hx-B.hx-hasnav .hx-box{border-radius:0 0 clamp(22px,3vw,40px) clamp(22px,3vw,40px)}
+@media (max-width:860px){.hx-hasnav .hx-sh{background:linear-gradient(180deg,rgba(22,48,20,.6) 0%,rgba(22,48,20,0) 22%),linear-gradient(0deg,rgba(22,48,20,.92) 0%,rgba(22,48,20,.72) 45%,rgba(22,48,20,.2) 78%,rgba(22,48,20,.05) 100%)}}
 
 .hx-B .hx-m{left:34%}.hx-B .hx-sh{background:linear-gradient(90deg,rgb(22,48,20) 34%,rgba(22,48,20,.8) 44%,rgba(22,48,20,.2) 66%,rgba(22,48,20,0) 84%),linear-gradient(0deg,rgba(22,48,20,.5),rgba(22,48,20,0) 40%)}@media(max-width:860px){.hx-B .hx-m{left:0}}
 </style>
@@ -254,7 +264,21 @@ h2 em{color:var(--appel2)}
 <a class="knop k-lijn hx-ghost" href="#bezoek">Kom langs</a>
 </div>
 </div><div class="prijs hx-badge"><b>4,5</b><small><i>★★★★★</i>311 reviews op Google</small></div></div></div>
-</section><script>(function(){document.querySelectorAll(".hx-t *").forEach(function(e){if(e.closest("a,.hx-pill,.g")||e.matches("a,.g"))return;var c=getComputedStyle(e).backgroundColor.match(/[\d.]+/g);if(!c)return;var a=c.length>3?+c[3]:1;if(a>.45&&(+c[0]+ +c[1]+ +c[2])/3>170)e.classList.add("hx-glass")})})()</script>
+</section><script>(function(){document.querySelectorAll(".hx-t *").forEach(function(e){if(e.closest("a,.hx-pill,.g")||e.matches("a,.g"))return;var c=getComputedStyle(e).backgroundColor.match(/[\d.]+/g);if(!c)return;var a=c.length>3?+c[3]:1;if(a>.45&&(+c[0]+ +c[1]+ +c[2])/3>170)e.classList.add("hx-glass")})})()</script><script>(function(){var h=document.querySelector(".hx-hero");if(!h)return;
+function bg(e){var c=getComputedStyle(e).backgroundColor.match(/[\d.]+/g);if(!c)return null;var a=c.length>3?+c[3]:1;if(a<.3)return null;return (+c[0]+ +c[1]+ +c[2])/3}
+function vis(e){var r=e.getBoundingClientRect();return r.width>0&&r.height>0}
+function isNav(e){if(!e||!e.querySelector||e.matches(".demo,.di-strook,script,style,link")||!vis(e))return false;var r=e.getBoundingClientRect();return !!e.querySelector("a")&&r.height>30&&r.height<230}
+var n=null,inside=false;
+for(var i=0;i<h.children.length;i++){var c=h.children[i];if(c.matches(".hx-pre,.kop,.top,header,nav")&&isNav(c)){n=c;inside=true;break}}
+if(!n){var e=h;while(e&&e!==document.body&&!n){var p=e.previousElementSibling;while(p){if(isNav(p)){n=p;break}if(p.matches(".demo,.di-strook,script,style,link")||p.getBoundingClientRect().height<4){p=p.previousElementSibling;continue}break}e=e.parentElement}}
+if(!n)return;var cs=getComputedStyle(n),pos=cs.position,H=n.getBoundingClientRect().height;
+n.classList.add("hx-navt","hx-nav");h.classList.add("hx-hasnav");h.style.setProperty("--hxnav",H+"px");
+if(!inside){if(pos==="absolute"||pos==="fixed"){h.style.paddingTop="0px"}else{var hm=parseFloat(getComputedStyle(h).marginTop)||0;h.style.marginTop=(hm-H)+"px";if(pos==="static")n.style.position="relative"}n.style.zIndex="60"}
+n.querySelectorAll("*").forEach(function(x){if(!vis(x)||x.closest(".hx-keep"))return;var b=bg(x);if(b===null)return;var r=x.getBoundingClientRect();if(b>170&&r.width>150&&!x.matches("a"))x.classList.add("hx-glass2");else x.classList.add("hx-keep")});
+var AL=["rozen.webp", "petals.webp"];n.querySelectorAll("img").forEach(function(im){if(im.closest(".hx-keep"))return;var f=(im.getAttribute("src")||"").split("/").pop();if(AL.indexOf(f)>-1)im.classList.add("hx-inv")});
+if(pos==="sticky"||pos==="fixed"){var f=function(){n.classList.toggle("hx-navt",scrollY<h.offsetHeight-H-30)};addEventListener("scroll",f,{passive:true});f()}
+})()</script>
+
 
 <section class="s" id="verhaal" style="padding-top:clamp(30px,4vw,60px)">
   <div class="wrap vg">

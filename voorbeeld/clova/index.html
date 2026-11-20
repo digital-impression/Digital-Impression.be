@@ -302,6 +302,16 @@ section.contact{padding-top:0}
  .hx .hx-badge{align-self:flex-start}
 }
 .hx .hx-glass{background:rgba(255,255,255,.14)!important;border:1px solid rgba(255,255,255,.26)!important;color:#fff!important;box-shadow:none!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}.hx .hx-glass *{color:#fff}
+/*hx-nav*/
+.hx-navt{background:transparent!important;border-color:transparent!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;transition:background .35s,color .35s}
+.hx-navt::before,.hx-navt::after{opacity:0}
+.hx-navt,.hx-navt :not(.hx-keep):not(.hx-keep *){color:#fff!important;border-color:rgba(255,255,255,.28)!important}
+.hx-navt img.hx-inv{filter:brightness(0) invert(1)}
+.hx-navt .hx-glass2{background:rgba(255,255,255,.13)!important;border:1px solid rgba(255,255,255,.24)!important;box-shadow:none!important;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.hx-hasnav .hx-w{padding-top:calc(var(--hxnav,0px) + 40px)}
+.hx-hasnav .hx-sh{background-image:linear-gradient(180deg,rgba(52,34,24,.62) 0%,rgba(52,34,24,0) 26%),linear-gradient(90deg,rgba(52,34,24,.86) 0%,rgba(52,34,24,.62) 38%,rgba(52,34,24,.12) 72%,rgba(52,34,24,0) 100%),linear-gradient(0deg,rgba(52,34,24,.55) 0%,rgba(52,34,24,0) 45%)}
+.hx-B.hx-hasnav.hx-hero{padding:0}.hx-B.hx-hasnav .hx-box{border-radius:0 0 clamp(22px,3vw,40px) clamp(22px,3vw,40px)}
+@media (max-width:860px){.hx-hasnav .hx-sh{background:linear-gradient(180deg,rgba(52,34,24,.6) 0%,rgba(52,34,24,0) 22%),linear-gradient(0deg,rgba(52,34,24,.92) 0%,rgba(52,34,24,.72) 45%,rgba(52,34,24,.2) 78%,rgba(52,34,24,.05) 100%)}}
 
 
 </style>
@@ -337,7 +347,21 @@ section.contact{padding-top:0}
 <span><i><svg viewbox="0 0 24 24"><path d="M4 18c3-6 5-9 8-9s5 3 8 9"></path><path d="M8 18h8"></path></svg></i>Voor beginners en gevorderden</span>
 </div>
 </div><div class="score hx-badge"><span class="g"><svg viewbox="0 0 24 24"><path d="M22.6 12.3c0-.8-.1-1.4-.2-2.1H12v4h6c-.1 1-.8 2.5-2.3 3.5v2.8h3.6c2.1-2 3.3-4.9 3.3-8.2Z" fill="#4285F4"></path><path d="M12 23c3 0 5.5-1 7.3-2.7l-3.6-2.8c-1 .7-2.2 1.1-3.7 1.1-2.9 0-5.3-1.9-6.2-4.5H2.1v2.9A11 11 0 0 0 12 23Z" fill="#34A853"></path><path d="M5.8 14.1a6.6 6.6 0 0 1 0-4.2V7H2.1a11 11 0 0 0 0 10l3.7-2.9Z" fill="#FBBC05"></path><path d="M12 5.4c1.6 0 3.1.6 4.2 1.7l3.2-3.2A11 11 0 0 0 2.1 7l3.7 2.9C6.7 7.3 9.1 5.4 12 5.4Z" fill="#EA4335"></path></svg></span><span><b>5,0</b><i class="sterren">★★★★★</i>49 reviews op Google</span></div></div>
-</section><script>(function(){document.querySelectorAll(".hx-t *").forEach(function(e){if(e.closest("a,.hx-pill,.g")||e.matches("a,.g"))return;var c=getComputedStyle(e).backgroundColor.match(/[\d.]+/g);if(!c)return;var a=c.length>3?+c[3]:1;if(a>.45&&(+c[0]+ +c[1]+ +c[2])/3>170)e.classList.add("hx-glass")})})()</script>
+</section><script>(function(){document.querySelectorAll(".hx-t *").forEach(function(e){if(e.closest("a,.hx-pill,.g")||e.matches("a,.g"))return;var c=getComputedStyle(e).backgroundColor.match(/[\d.]+/g);if(!c)return;var a=c.length>3?+c[3]:1;if(a>.45&&(+c[0]+ +c[1]+ +c[2])/3>170)e.classList.add("hx-glass")})})()</script><script>(function(){var h=document.querySelector(".hx-hero");if(!h)return;
+function bg(e){var c=getComputedStyle(e).backgroundColor.match(/[\d.]+/g);if(!c)return null;var a=c.length>3?+c[3]:1;if(a<.3)return null;return (+c[0]+ +c[1]+ +c[2])/3}
+function vis(e){var r=e.getBoundingClientRect();return r.width>0&&r.height>0}
+function isNav(e){if(!e||!e.querySelector||e.matches(".demo,.di-strook,script,style,link")||!vis(e))return false;var r=e.getBoundingClientRect();return !!e.querySelector("a")&&r.height>30&&r.height<230}
+var n=null,inside=false;
+for(var i=0;i<h.children.length;i++){var c=h.children[i];if(c.matches(".hx-pre,.kop,.top,header,nav")&&isNav(c)){n=c;inside=true;break}}
+if(!n){var e=h;while(e&&e!==document.body&&!n){var p=e.previousElementSibling;while(p){if(isNav(p)){n=p;break}if(p.matches(".demo,.di-strook,script,style,link")||p.getBoundingClientRect().height<4){p=p.previousElementSibling;continue}break}e=e.parentElement}}
+if(!n)return;var cs=getComputedStyle(n),pos=cs.position,H=n.getBoundingClientRect().height;
+n.classList.add("hx-navt","hx-nav");h.classList.add("hx-hasnav");h.style.setProperty("--hxnav",H+"px");
+if(!inside){if(pos==="absolute"||pos==="fixed"){h.style.paddingTop="0px"}else{var hm=parseFloat(getComputedStyle(h).marginTop)||0;h.style.marginTop=(hm-H)+"px";if(pos==="static")n.style.position="relative"}n.style.zIndex="60"}
+n.querySelectorAll("*").forEach(function(x){if(!vis(x)||x.closest(".hx-keep"))return;var b=bg(x);if(b===null)return;var r=x.getBoundingClientRect();if(b>170&&r.width>150&&!x.matches("a"))x.classList.add("hx-glass2");else x.classList.add("hx-keep")});
+var AL=[];n.querySelectorAll("img").forEach(function(im){if(im.closest(".hx-keep"))return;var f=(im.getAttribute("src")||"").split("/").pop();if(AL.indexOf(f)>-1)im.classList.add("hx-inv")});
+if(pos==="sticky"||pos==="fixed"){var f=function(){n.classList.toggle("hx-navt",scrollY<h.offsetHeight-H-30)};addEventListener("scroll",f,{passive:true});f()}
+})()</script>
+
 
 <section class="s start" id="starten">
   <div class="wrap st-g">
