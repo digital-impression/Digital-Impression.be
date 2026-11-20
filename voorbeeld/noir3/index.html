@@ -237,56 +237,64 @@ footer::before{content:"";position:absolute;left:0;right:0;top:-23px;height:24px
   .voet{flex-direction:column;align-items:flex-start}
 }
 
-/*hx-hero 20/11*/
-.hx.hx-hero{margin:0;padding:0;background:none;border:0;border-radius:0;box-shadow:none;grid-template-columns:none;max-width:none;width:auto;height:auto;text-align:left}.hx.hx-hero::before,.hx.hx-hero::after{display:none}
-.hx{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:flex-end;min-height:clamp(600px,calc(100svh - 90px),920px);color:#fff}
-.hx-m{position:absolute;inset:0;z-index:-2;overflow:hidden;background:rgb(28,16,10)}
-.hx-img{width:100%;height:100%;object-fit:cover;object-position:58% 45%;transform:scale(1.06);animation:hxz 2.2s cubic-bezier(.16,1,.3,1) .1s forwards}
-@keyframes hxz{to{transform:scale(1)}}
-.hx-sh{position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(28,16,10,.86) 0%,rgba(28,16,10,.62) 38%,rgba(28,16,10,.12) 72%,rgba(28,16,10,0) 100%),linear-gradient(0deg,rgba(28,16,10,.55) 0%,rgba(28,16,10,0) 45%)}
-.hx-w{position:relative;width:100%;max-width:1280px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,4.5vw,56px) clamp(52px,7vw,92px);display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
-.hx .hx-t{max-width:640px;margin:0;padding:0;text-align:left;color:rgba(255,255,255,.88);background:none;box-shadow:none;border:0;position:relative;flex:1 1 auto;transform:none}
-.hx .hx-t>*{margin-left:0;margin-right:0;max-width:none}
-.hx .hx-t h1{color:#fff;font-size:clamp(40px,5vw,74px);max-width:12.5em;text-shadow:0 2px 30px rgba(28,16,10,.35)}
-.hx .hx-t h1 em,.hx .hx-t h1 i,.hx .hx-t h1 [class]{color:#F2A65A}
-.hx .hx-t p{color:rgba(255,255,255,.88);max-width:34em}.hx .hx-t p b,.hx .hx-t p strong{color:#fff}
-.hx .hx-t>:not(h1):not(.hx-pill):not(.hx-acts):not(p){color:rgba(255,255,255,.82)}
-.hx .hx-pill{width:fit-content;background:rgba(255,255,255,.14)!important;color:#fff!important;border:1px solid rgba(255,255,255,.26)!important;box-shadow:none!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-.hx .hx-pill *{color:inherit}
-.hx .hx-acts{justify-content:flex-start}
-.hx:not(.hx-C) .hx-t,.hx:not(.hx-C) .hx-t *{text-align:left}
-.hx:not(.hx-C) .hx-t>div,.hx:not(.hx-C) .hx-t>p{justify-content:flex-start;align-items:flex-start;margin-left:0;margin-right:0}
-.hx:not(.hx-C) .hx-t>div{align-items:center}
-.hx .hx-t>:not(h1):not(.hx-pill):not(.hx-acts) :is(b,strong,span,em,i,small):not(a *){color:inherit}
-.hx .hx-t .g{color:#3b3b3b!important}
-.hx .hx-ghost{background:rgba(255,255,255,.1)!important;color:#fff!important;border:1.5px solid rgba(255,255,255,.5)!important;box-shadow:none!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.hx .hx-ghost:hover{background:#fff!important;color:rgb(28,16,10)!important}
-.hx .hx-badge{color:#1d1b19;position:relative!important;inset:auto!important;transform:none!important;flex:none;margin:0;align-self:flex-end;animation:none}
-.hx-B.hx-hero{padding:0 clamp(10px,1.4vw,18px)}.hx-B .hx-box{position:relative;isolation:isolate;width:100%;border-radius:clamp(22px,3vw,40px);overflow:hidden;display:flex;align-items:flex-end;min-height:inherit}.hx-B{display:block}.hx-B .hx-box .hx-m{z-index:-2}
-
-.hx-C .hx-w{flex-direction:column;align-items:center;text-align:center}.hx-C .hx-t{text-align:center;margin:0 auto}.hx-C .hx-t h1{margin-left:auto;margin-right:auto}.hx-C .hx-acts{justify-content:center}.hx-C .hx-t>*{margin-left:auto!important;margin-right:auto!important}.hx-C .hx-sh{background:linear-gradient(0deg,rgba(28,16,10,.85),rgba(28,16,10,.35) 60%,rgba(28,16,10,.2))}.hx-C .hx-badge{align-self:center}
+/* hero 20/11: klassieke coffeebar */
+.top{position:relative;background:var(--esp);background-image:none}
+.top>.wrap{position:absolute;left:0;right:0;top:0;z-index:6}
+.top nav ul{background:rgba(255,245,234,.1);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,245,234,.14)}
+.nh{position:relative;isolation:isolate;overflow:hidden;min-height:clamp(640px,100svh,940px);display:flex;align-items:center;color:var(--latte)}
+.nh-bg{position:absolute;inset:0;z-index:-3}
+.nh-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform:scale(1.08);animation:nhz 2.4s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes nhz{to{transform:scale(1)}}
+.nh::before{content:"";position:absolute;inset:0;z-index:-2;background:
+ radial-gradient(60% 70% at 78% 52%,rgba(216,116,42,.28),rgba(216,116,42,0) 70%),
+ linear-gradient(90deg,rgba(26,14,8,.97) 0%,rgba(26,14,8,.9) 34%,rgba(26,14,8,.55) 60%,rgba(26,14,8,.35) 100%),
+ linear-gradient(180deg,rgba(26,14,8,.75) 0%,rgba(26,14,8,0) 22%,rgba(26,14,8,0) 70%,rgba(26,14,8,.85) 100%)}
+.nh-w{width:min(1240px,100% - 48px);margin:0 auto;padding:150px 0 110px;position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;gap:40px}
+.nh-t{position:relative;z-index:2;max-width:600px}
+.nh-kick{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--car2)}
+.nh-kick::before{content:"";width:34px;height:2px;background:var(--car2);border-radius:2px}
+.nh h1{font-size:clamp(52px,6.6vw,104px);line-height:.94;color:#FFF6EA;margin:22px 0 0;letter-spacing:-.025em}
+.nh h1 em{color:var(--car2);font-weight:600}
+.nh-lead{margin-top:26px;font-size:clamp(17px,1.35vw,19px);line-height:1.6;color:rgba(245,228,206,.86);max-width:30em}
+.nh-acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.nh .btn-c{box-shadow:0 18px 40px -16px rgba(216,116,42,.9)}
+.nh .btn-g{color:#FFF6EA;box-shadow:inset 0 0 0 1.5px rgba(245,228,206,.45);background:rgba(255,245,234,.06);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.nh .btn-g:hover{background:rgba(255,245,234,.14)}
+.nh-trust{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:30px;font-size:14.5px;color:rgba(245,228,206,.72)}
+.nh-trust span{display:inline-flex;align-items:center;gap:8px}
+.nh-trust i{width:6px;height:6px;border-radius:50%;background:var(--car2);display:block}
+.nh-kop{position:relative;justify-self:end;width:min(560px,44vw);aspect-ratio:664/594;margin-right:-70px}
+.nh-kop .kop{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 50px 60px rgba(0,0,0,.65)) drop-shadow(0 12px 18px rgba(0,0,0,.45));animation:nhkop 1.6s cubic-bezier(.16,1,.3,1) .2s both}
+@keyframes nhkop{from{opacity:0;transform:translateY(40px) rotate(-14deg) scale(.94)}to{opacity:1;transform:none}}
+.nh-damp{position:absolute;left:32%;top:-30%;width:36%;height:48%;pointer-events:none;opacity:.8;z-index:2}
+.nh-damp path{fill:none;stroke:rgba(255,246,234,.5);stroke-width:6;stroke-linecap:round;filter:blur(3px);stroke-dasharray:180;animation:nhd 5.5s ease-in-out infinite}
+.nh-damp path:nth-child(2){animation-delay:1.6s;stroke-width:4}
+.nh-damp path:nth-child(3){animation-delay:3.1s;stroke-width:3}
+@keyframes nhd{0%{stroke-dashoffset:180;opacity:0;transform:translateY(16px)}35%{opacity:1}100%{stroke-dashoffset:-180;opacity:0;transform:translateY(-24px)}}
+.nh-score{position:absolute;left:-9%;bottom:15%;z-index:3;display:flex;align-items:center;gap:12px;background:#FFFCF7;color:var(--esp);padding:12px 18px 12px 12px;border-radius:20px;box-shadow:0 24px 50px -18px rgba(0,0,0,.6);animation:nhf 6s ease-in-out infinite}
+.nh-score b{font:800 30px/1 'Fraunces',serif;font-variation-settings:"SOFT" 100}
+.nh-score .st{color:#F0A020;font-size:14px;letter-spacing:2px;display:block;line-height:1.1}
+.nh-score small{font-size:13px;color:var(--grijs);display:block}
+.nh-score .g{width:40px;height:40px;border-radius:12px;background:var(--latte);display:grid;place-items:center}
+@keyframes nhf{50%{transform:translateY(-8px)}}
+.nh-golf{position:absolute;left:0;right:0;bottom:-1px;height:28px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 24'%3E%3Cpath d='M0 24V12C10 12 10 0 20 0S30 12 40 12 50 0 60 0 70 12 80 12V24Z' fill='%23FCF5EB'/%3E%3C/svg%3E") 0 100%/80px 24px repeat-x;z-index:3}
+@media (max-width:1080px){.nh-kop{width:min(480px,46vw)}}
 @media (max-width:860px){
- .hx{min-height:calc(100svh - 70px)}
- .hx-img{object-position:62% 40%}
- .hx .hx-t h1{font-size:clamp(36px,10vw,52px)}
- .hx-sh{background:linear-gradient(0deg,rgba(28,16,10,.92) 0%,rgba(28,16,10,.72) 45%,rgba(28,16,10,.2) 78%,rgba(28,16,10,.05) 100%)}
- .hx:not(.hx-C) .hx-t>div{flex-wrap:wrap}
- .hx-w{flex-direction:column;align-items:flex-start;gap:26px;padding-bottom:40px;}
- .hx .hx-badge{align-self:flex-start}
+ .nh{min-height:auto;align-items:flex-start}
+ .nh-w{grid-template-columns:1fr;padding:120px 0 70px;gap:30px}
+ .nh::before{background:radial-gradient(70% 40% at 70% 82%,rgba(216,116,42,.3),rgba(216,116,42,0) 70%),linear-gradient(180deg,rgba(26,14,8,.92) 0%,rgba(26,14,8,.8) 55%,rgba(26,14,8,.55) 100%)}
+ .nh-kop{justify-self:center;width:min(400px,84vw);margin:10px -12vw 0 0}
+ .nh-score{left:-12%;bottom:18%}
 }
-.hx .hx-glass{background:rgba(255,255,255,.14)!important;border:1px solid rgba(255,255,255,.26)!important;color:#fff!important;box-shadow:none!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}.hx .hx-glass *{color:#fff}
-/*hx-nav*/
-.hx-navt{background:transparent!important;border-color:transparent!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;transition:background .35s,color .35s}
-.hx-navt::before,.hx-navt::after{opacity:0}
-.hx-navt,.hx-navt :not(.hx-keep):not(.hx-keep *){color:#fff!important;border-color:rgba(255,255,255,.28)!important}
-.hx-navt img.hx-inv{filter:brightness(0) invert(1)}
-.hx-navt .hx-glass2{background:rgba(255,255,255,.13)!important;border:1px solid rgba(255,255,255,.24)!important;box-shadow:none!important;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
-.hx-hasnav .hx-w{padding-top:calc(var(--hxnav,0px) + 40px)}
-.hx-hasnav .hx-sh{background-image:linear-gradient(180deg,rgba(28,16,10,.62) 0%,rgba(28,16,10,0) 26%),linear-gradient(90deg,rgba(28,16,10,.86) 0%,rgba(28,16,10,.62) 38%,rgba(28,16,10,.12) 72%,rgba(28,16,10,0) 100%),linear-gradient(0deg,rgba(28,16,10,.55) 0%,rgba(28,16,10,0) 45%)}
-.hx-B.hx-hasnav.hx-hero{padding:0}.hx-B.hx-hasnav .hx-box{border-radius:0 0 clamp(22px,3vw,40px) clamp(22px,3vw,40px)}
-@media (max-width:860px){.hx-hasnav .hx-sh{background:linear-gradient(180deg,rgba(28,16,10,.6) 0%,rgba(28,16,10,0) 22%),linear-gradient(0deg,rgba(28,16,10,.92) 0%,rgba(28,16,10,.72) 45%,rgba(28,16,10,.2) 78%,rgba(28,16,10,.05) 100%)}}
-.hx .hx-main{background:#F2A65A!important;color:#2a160a!important;border-color:transparent!important}
-
+@media (max-width:520px){
+ .nh h1{font-size:clamp(44px,13vw,58px)}
+ .nh-acts .btn{width:100%;justify-content:center}
+ .nh-kop{width:88vw;margin-right:-22vw}
+ .nh-kick{font-size:12px;letter-spacing:.1em}.nh-kick::before{width:20px}
+ .nh-score{left:-4%;bottom:14%;padding:10px 14px 10px 10px}
+ .nh-score b{font-size:24px}
+}
+@media (prefers-reduced-motion:reduce){.nh-bg img,.nh-kop .kop,.nh-score,.nh-damp path{animation:none}}
 </style>
 </head>
 <body>
@@ -306,32 +314,27 @@ footer::before{content:"";position:absolute;left:0;right:0;top:-23px;height:24px
     </nav>
   </div>
 
-  <div class="hero hx-hero hx hx-A" id="top">
-<div class="hx-m"><img class="hx-img" src="img/neon.webp" alt="Het neonlicht 'noir' boven de toog van Noir Coffeebar" fetchpriority="high" decoding="async"></div><div class="hx-sh" aria-hidden="true"></div><div class="hx-w"><div class="hx-t"><span class="pill hx-pill"><i></i>Specialty coffeebar in de Naamsestraat</span><h1>Koffie, koers en <em>genieten</em></h1><div class="hero-zij">
-<b>Koffie zoals we hem zelf graag drinken.</b>
-          Van bonen die we zelf branden, met melk die mooi glanst. Neem een plekje aan het raam of zet je fiets buiten tegen de gevel.
-        </div><div class="knoppen hx-acts">
-<a class="btn btn-d hx-main" href="#toog">Wat staat er op de toog <span class="pijl"><svg fill="none" viewbox="0 0 16 16"><path d="M3 8h10m-4-4 4 4-4 4" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></a>
-<a class="btn btn-o hx-ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=Noir+Coffeebar+Naamsestraat+49+3000+Leuven" rel="noopener" target="_blank">Plan je route</a>
-</div><p class="vertrouw">Naamsestraat 49, Leuven</p></div><div class="score hx-badge">
-<span class="g"><svg height="20" viewbox="0 0 48 48" width="20"><path d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.4-.4-3.5z" fill="#FFC107"></path><path d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z" fill="#FF3D00"></path><path d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z" fill="#4CAF50"></path><path d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z" fill="#1976D2"></path></svg></span>
-<div><strong>4,7</strong> <span class="st">★★★★★</span><span>987 reviews op Google</span></div>
-</div></div>
-</div><script>(function(){document.querySelectorAll(".hx-t *").forEach(function(e){if(e.closest("a,.hx-pill,.g")||e.matches("a,.g"))return;var c=getComputedStyle(e).backgroundColor.match(/[\d.]+/g);if(!c)return;var a=c.length>3?+c[3]:1;if(a>.45&&(+c[0]+ +c[1]+ +c[2])/3>170)e.classList.add("hx-glass")})})()</script><script>(function(){var h=document.querySelector(".hx-hero");if(!h)return;
-function bg(e){var c=getComputedStyle(e).backgroundColor.match(/[\d.]+/g);if(!c)return null;var a=c.length>3?+c[3]:1;if(a<.3)return null;return (+c[0]+ +c[1]+ +c[2])/3}
-function vis(e){var r=e.getBoundingClientRect();return r.width>0&&r.height>0}
-function isNav(e){if(!e||!e.querySelector||e.matches(".demo,.di-strook,script,style,link")||!vis(e))return false;var r=e.getBoundingClientRect();return !!e.querySelector("a")&&r.height>30&&r.height<230}
-var n=null,inside=false;
-for(var i=0;i<h.children.length;i++){var c=h.children[i];if(c.matches(".hx-pre,.kop,.top,header,nav")&&isNav(c)){n=c;inside=true;break}}
-if(!n){var e=h;while(e&&e!==document.body&&!n){var p=e.previousElementSibling;while(p){if(isNav(p)){n=p;break}if(p.matches(".demo,.di-strook,script,style,link")||p.getBoundingClientRect().height<4){p=p.previousElementSibling;continue}break}e=e.parentElement}}
-if(!n)return;var cs=getComputedStyle(n),pos=cs.position,H=n.getBoundingClientRect().height;
-n.classList.add("hx-navt","hx-nav");h.classList.add("hx-hasnav");h.style.setProperty("--hxnav",H+"px");
-if(!inside){if(pos==="absolute"||pos==="fixed"){h.style.paddingTop="0px"}else{var hm=parseFloat(getComputedStyle(h).marginTop)||0;h.style.marginTop=(hm-H)+"px";if(pos==="static")n.style.position="relative"}n.style.zIndex="60"}
-n.querySelectorAll("*").forEach(function(x){if(!vis(x)||x.closest(".hx-keep"))return;var b=bg(x);if(b===null)return;var r=x.getBoundingClientRect();if(b>170&&r.width>150&&!x.matches("a"))x.classList.add("hx-glass2");else x.classList.add("hx-keep")});
-var AL=["logo.png", "bonenmannen.webp", "logo-wit.png"];n.querySelectorAll("img").forEach(function(im){if(im.closest(".hx-keep"))return;var f=(im.getAttribute("src")||"").split("/").pop();if(AL.indexOf(f)>-1)im.classList.add("hx-inv")});
-if(pos==="sticky"||pos==="fixed"){var f=function(){n.classList.toggle("hx-navt",scrollY<h.offsetHeight-H-30)};addEventListener("scroll",f,{passive:true});f()}
-})()</script>
-
+  <section class="nh" id="top">
+    <div class="nh-bg"><img src="img/bonen.webp" alt="" width="1600" height="1067" fetchpriority="high" decoding="async"></div>
+    <div class="nh-w">
+      <div class="nh-t">
+        <span class="nh-kick">Specialty coffee &amp; eigen branderij</span>
+        <h1>Koffie, koers en <em>genieten</em></h1>
+        <p class="nh-lead">Bonen die we zelf branden, melk die mooi glanst en een barista die er een tekening in giet. Neem een plekje aan het raam of zet je fiets buiten tegen de gevel.</p>
+        <div class="nh-acts">
+          <a class="btn btn-c" href="#toog">Wat staat er op de toog <span class="pijl"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10m-4-4 4 4-4 4" stroke="#D8742A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          <a class="btn btn-g" href="https://www.google.com/maps/dir/?api=1&amp;destination=Noir+Coffeebar+Naamsestraat+49+3000+Leuven" target="_blank" rel="noopener">Plan je route</a>
+        </div>
+        <div class="nh-trust"><span><i></i>Naamsestraat 49, Leuven</span><span><i></i>Elke dag open</span><span><i></i>Bonen van Naft Coffee Roasters</span></div>
+      </div>
+      <div class="nh-kop">
+        <svg class="nh-damp" viewBox="0 0 120 140" aria-hidden="true"><path d="M30 130c-14-22 16-34 2-58S40 26 30 8"/><path d="M62 132c-14-22 16-34 2-58S72 28 62 10"/><path d="M92 130c-12-20 14-30 2-52"/></svg>
+        <img class="kop" src="img/kop-noir.webp" alt="Cappuccino met 'noir' in latte art, van bovenaf" width="664" height="594">
+        <div class="nh-score"><span class="g"><svg height="20" viewbox="0 0 48 48" width="20"><path d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.4-.4-3.5z" fill="#FFC107"></path><path d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z" fill="#FF3D00"></path><path d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z" fill="#4CAF50"></path><path d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z" fill="#1976D2"></path></svg></span><div><b>4,7</b><span class="st">★★★★★</span><small>987 reviews op Google</small></div></div>
+      </div>
+    </div>
+    <div class="nh-golf" aria-hidden="true"></div>
+  </section>
 </header>
 
 <main>

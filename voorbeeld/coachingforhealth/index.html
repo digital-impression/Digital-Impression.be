@@ -193,19 +193,53 @@ a{color:inherit;text-decoration:none}
  .lijst,.pz-g{grid-template-columns:1fr}
  .li.hy{grid-column:auto;flex-direction:column;align-items:flex-start;gap:8px}
 }
+
+/* hero 20/11: full picture met bewegend beeld */
+.hero.hv{position:relative;isolation:isolate;overflow:hidden;color:#fff;min-height:clamp(640px,calc(100svh - 38px),920px);display:flex;flex-direction:column;background:#0B2417}
+.hv-media{position:absolute;inset:0;z-index:-2}
+.hv-media video,.hv-media img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.hv::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(8,30,18,.9) 0%,rgba(8,30,18,.72) 36%,rgba(8,30,18,.25) 66%,rgba(8,30,18,.1) 100%),linear-gradient(180deg,rgba(8,30,18,.6) 0%,rgba(8,30,18,0) 24%,rgba(8,30,18,0) 64%,rgba(8,30,18,.7) 100%)}
+.hv .kop{position:relative;z-index:3}
+.hv .logo span,.hv .nav{color:#fff}
+.hv .logo small{color:rgba(255,255,255,.7)}
+.hv .nav a:hover{color:#7EE2A8}
+.hv .logo img{border-radius:50%;box-shadow:0 0 0 3px rgba(255,255,255,.9)}
+.hv-w{flex:1;display:flex;align-items:flex-end;padding-top:60px;padding-bottom:clamp(60px,7vw,96px);gap:40px;justify-content:space-between}
+.hv-t{max-width:660px}
+.hv .cap{color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.hv h1{font-size:clamp(52px,6.6vw,100px);margin-top:22px;color:#fff;text-shadow:0 4px 40px rgba(0,0,0,.25)}
+.hv h1 .yt{display:block;font-size:.84em;line-height:1.05;margin-top:6px;color:#7EE2A8}
+.hv .lead{color:rgba(255,255,255,.86);max-width:31em;font-size:clamp(16.5px,1.3vw,18.5px);margin-top:22px}
+.hv .k-wit{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.hv .k-wit:hover{background:#fff;color:var(--ink)}
+.hv .vink{color:rgba(255,255,255,.82)}
+.hv .vink span::before{background:#7EE2A8}
+.hv .score{color:var(--ink);position:relative;left:auto;bottom:auto;flex:none;align-self:flex-end;background:rgba(255,255,255,.95)}
+@media (max-width:900px){
+ .hv{min-height:calc(100svh - 38px)}
+ .hv::before{background:linear-gradient(180deg,rgba(8,30,18,.7) 0%,rgba(8,30,18,.35) 26%,rgba(8,30,18,.55) 50%,rgba(8,30,18,.94) 100%)}
+ .hv-w{flex-direction:column;align-items:flex-start;gap:28px;padding-bottom:44px}
+ .hv .score{align-self:flex-start}
+ .hv-media video,.hv-media img{object-position:44% 30%}
+}
+@media (max-width:600px){.hv h1{font-size:clamp(42px,12.4vw,56px)}}
+@media (prefers-reduced-motion:reduce){.hv-media video{display:none}}
 </style>
 </head>
 <body>
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
-<header class="hero">
+<header class="hero hv">
+  <div class="hv-media" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="auto" poster="img/hero-poster.webp"><source src="img/hero.mp4" type="video/mp4"></video>
+  </div>
   <div class="kop"><div class="wrap">
     <a class="logo" href="#"><img src="img/logo.webp" alt="Logo Coaching for Health" width="539" height="539"><span>Coaching for Health<small>Trainingsstudio Roeselare</small></span></a>
     <nav class="nav"><a href="#trainen">Trainen</a><a href="#lessen">Groepslessen</a><a href="#prijzen">Prijzen</a><a href="#studio">De studio</a></nav>
     <a class="knop k-gr" href="#intake">Gratis intake</a>
   </div></div>
-  <div class="wrap hero-g">
-    <div class="rv">
+  <div class="wrap hv-w">
+    <div class="hv-t rv">
       <span class="cap">Personal training · small group · bootcamp</span>
       <h1 class="kp">Nothing feels better than <span class="yt">a finished workout</span></h1>
       <p class="lead">De trainingsstudio in Roeselare waar sporten plezant én effectief is. Alleen, met z'n tweeën of in een kleine groep: we vertrekken altijd van een gesprek over waar jij naartoe wil.</p>
@@ -215,10 +249,7 @@ a{color:inherit;text-decoration:none}
       </div>
       <div class="vink"><span>Officiële HYROX Training Club</span><span>Ook voor 50-plussers</span><span>Fitte mama-programma</span></div>
     </div>
-    <div class="hero-ft rv" style="--d:2">
-      <div class="ft"><img src="img/rig.webp" alt="Groepsles aan het rek in de studio van Coaching for Health" width="1600" height="1200"></div>
-      <div class="score"><b>5,0</b><div><strong>104 reviews</strong><span class="st">★★★★★</span> <span>op Google</span></div></div>
-    </div>
+    <div class="score rv" style="--d:2"><b>5,0</b><div><strong>104 reviews</strong><span class="st">★★★★★</span> <span>op Google</span></div></div>
   </div>
 </header>
 
