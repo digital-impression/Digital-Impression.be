@@ -262,6 +262,46 @@ h1,h2,h3,h4{font-family:var(--jost);font-weight:300;letter-spacing:-.01em;line-h
 footer{border-top:1px solid var(--ln);padding:30px 0 36px;font:400 12px/1.6 var(--mono);color:var(--g2)}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
+
+/* v6.1: hero specs, blue details, werkwijze */
+.hero h1 .dot{font-style:normal;color:var(--blue)}
+.spec{display:flex;margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);max-width:540px}
+.spec div{flex:1;padding-right:28px}
+.spec div+div{padding-left:28px;border-left:1px solid rgba(255,255,255,.14)}
+.spec small{display:block;font:500 10.5px/1 var(--jost);letter-spacing:.26em;text-transform:uppercase;color:var(--blue)}
+.spec b{display:block;font:300 38px/1 var(--jost);letter-spacing:-.01em;margin:10px 0 8px}
+.spec span{display:block;font-size:13.5px;color:#B5B5B5;line-height:1.45}
+.lbl::before{background:var(--blue)}
+.rule::before{background:var(--blue)}
+.band b em{font-style:normal;color:var(--blue);font-size:.55em;letter-spacing:.02em}
+.tl:hover{border-color:var(--blue)}
+.menu a:hover{border-color:var(--blue)}
+.btn-line:hover{border-color:var(--w)}
+.opt.on .mk{border-color:var(--blue)}
+.opt.on .mk::after{background:var(--blue)}
+.tabs button.on{border-color:var(--blue)}
+.tabs button span{color:var(--blue)}
+.fields input:focus,.fields textarea:focus{border-color:var(--blue)}
+.recap{border-left-color:var(--blue)}
+.ticket{border-top-color:var(--blue)}
+.bill .tot{border-top-color:rgba(79,163,227,.55)}
+.svc h3::after{content:"";display:block;width:24px;height:1px;background:var(--blue);margin-top:14px;transition:width .6s var(--ease)}
+.svc:hover h3::after{width:48px}
+.method{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(48px,7vw,100px);align-items:center}
+.method p{color:var(--g1);max-width:50ch}
+.how{list-style:none;margin-top:30px;border-top:1px solid var(--ln)}
+.how li{display:grid;grid-template-columns:52px 1fr;padding:18px 0;border-bottom:1px solid var(--ln);font-size:15px;color:var(--g1);line-height:1.55}
+.how span{font:400 13px/1.9 var(--mono);color:var(--blue)}
+.how b{display:block;font:400 18px/1.4 var(--jost);color:var(--w);margin-bottom:2px}
+.method .team{margin-top:26px;font-size:14.5px}
+.method .team b{color:var(--w);font-weight:500}
+.mph img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:saturate(.4)}
+.work .im.cut{background:radial-gradient(70% 55% at 55% 85%,#2A2A2A,#101010 70%);display:flex;align-items:flex-end}
+.work .im.cut img{object-fit:contain;object-position:right bottom;height:auto;transform:translateX(10%) scale(1.12);transform-origin:right bottom;filter:saturate(.35) brightness(.92)}
+.work figure:hover .im.cut img{transform:translateX(10%) scale(1.16)}
+.mph figcaption{margin-top:12px;font:400 12px/1.5 var(--mono);color:var(--g2)}
+@media (max-width:1080px){.method{grid-template-columns:1fr}.mph{max-width:560px}}
+@media (max-width:720px){.spec{margin-top:36px}.spec b{font-size:30px}.spec div{padding-right:16px}.spec div+div{padding-left:16px}}
 @media (max-width:1080px){
   .menu{display:none}
   .about,.acad{grid-template-columns:1fr}
@@ -322,51 +362,34 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 <header class="nav">
   <div class="wrap">
-    <a class="logo" href="#top"><img src="img/mark.webp" alt="" width="240" height="219"><span>JB Cardetail<small>Antwerpen, sinds 1982</small></span></a>
-    <nav class="menu" aria-label="Hoofdmenu"><a href="#over">Over ons</a><a href="#diensten">Diensten</a><a href="#werk">Werk</a><a href="#boeken">Prijs &amp; afspraak</a><a href="#contact">Contact</a></nav>
+    <a class="logo" href="#top"><img src="img/mark.webp" alt="" width="240" height="219"><span>JB Cardetail<small>Detailingstudio Antwerpen</small></span></a>
+    <nav class="menu" aria-label="Hoofdmenu"><a href="#diensten">Diensten</a><a href="#werkwijze">Werkwijze</a><a href="#werk">Werk</a><a href="#boeken">Prijs &amp; afspraak</a><a href="#contact">Contact</a></nav>
     <a class="btn btn-line" href="#boeken">Afspraak maken</a>
     <button class="burger" type="button" id="burger" aria-label="Menu"><i></i><i></i></button>
   </div>
 </header>
-<div class="sheet"><a href="#over">Over ons</a><a href="#diensten">Diensten</a><a href="#werk">Werk</a><a href="#boeken">Prijs &amp; afspraak</a><a href="#contact">Contact</a><p>Duboisstraat 36/38, 2060 Antwerpen<br>03 233 63 63</p></div>
+<div class="sheet"><a href="#diensten">Diensten</a><a href="#werkwijze">Werkwijze</a><a href="#werk">Werk</a><a href="#boeken">Prijs &amp; afspraak</a><a href="#contact">Contact</a><p>Duboisstraat 36/38, 2060 Antwerpen<br>03 233 63 63</p></div>
 
 <main>
 <section class="hero" id="top">
   <img src="img/hero.webp" alt="Zwarte BMW op de brug in de studio van JB Cardetail" width="1600" height="1200" fetchpriority="high">
   <div class="wrap">
-    <span class="lbl fade">JB Cardetail · Duboisstraat Antwerpen</span>
-    <h1 class="fade" style="--d:1">Drie generaties glans.</h1>
-    <p class="fade" style="--d:2">Luxe handwas, polijsten en keramische coating, met de hand en in onze eigen studio. Al sinds 1982 op dezelfde plek.</p>
+    <span class="lbl fade">High-end detailing · Antwerpen</span>
+    <h1 class="fade" style="--d:1">Lak die weer spiegelt<i class="dot">.</i></h1>
+    <p class="fade" style="--d:2">Polijsten, keramische coating en luxe handwas, in onze eigen studio in Antwerpen. Bereken hier uw prijs en kies meteen wanneer u langskomt.</p>
     <div class="cta fade" style="--d:3"><a class="btn btn-silver" href="#boeken">Bereken uw prijs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a><a class="btn btn-line" href="#diensten">Onze diensten</a></div>
+    <div class="spec fade" style="--d:4"><div><small>Sinds</small><b>1982</b><span>Aan de Duboisstraat, Antwerpen</span></div><div><small>Garantie</small><b>9 jaar</b><span>Op onze keramische coating</span></div></div>
   </div>
 </section>
 <div class="band">
   <div class="wrap">
-    <div><b>1982</b><span>Op deze plek</span></div>
-    <div><b>98%</b><span>Lakcorrectie voor de coating</span></div>
-    <div><b>9 jaar</b><span>Garantie op de coating</span></div>
+    <div><b>98<em>%</em></b><span>Lakcorrectie voor de coating</span></div>
+    <div><b>3<em> stappen</em></b><span>Polijsten, paneel per paneel</span></div>
     <div><b>5,0</b><span>Op Google, 45 reviews</span></div>
+    <div><b>6<em> dagen</em></b><span>Per week open</span></div>
   </div>
 </div>
-
-<section class="sec" id="over">
-  <div class="wrap about">
-    <div class="txt">
-      <span class="lbl fade">Over ons</span>
-      <h2 class="fade" style="--d:1;margin-top:22px">Het begon met zeep.</h2>
-      <div class="rule fade" style="--d:1"></div>
-      <p class="fade" style="--d:2">In 1938 startte Frans van den Goor met Lingo: poetsmiddelen, handcleaners en zepen. In 1982 opende Francis van den Goor hier aan de Duboisstraat Carwash Dubois. Na de uren werd er gepolijst, en dat groeide zo hard dat er in 1989 een eigen studio kwam.</p>
-      <p class="fade" style="--d:3">In 1995 nam <strong>Justyna Brys</strong> het over en maakte van polijsten haar vak. Vandaag staat ze er samen met <strong>Bert van den Goor</strong>, de derde generatie. Elke wagen gaat bij ons op de brug, onder fel licht, tot elk paneel goed staat.</p>
-      <div class="sign fade" style="--d:4"><img src="img/duo.webp" alt="" width="1000" height="1223" loading="lazy"><div><b>Justyna Brys &amp; Bert van den Goor</b>JB Cardetail</div></div>
-    </div>
-    <div class="pair fade" style="--d:2">
-      <figure class="p1"><img src="img/duo.webp" alt="Justyna en Bert in de studio" width="1000" height="1223" loading="lazy"><figcaption>Justyna en Bert, vandaag</figcaption></figure>
-      <figure class="p2"><img src="img/vintage2.webp" alt="Oude foto: een Rolls-Royce wordt gepolijst in de studio" width="900" height="714" loading="lazy" style="object-position:60% 50%"><figcaption>Uit het familiealbum</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="diensten" style="padding-top:0">
+<section class="sec" id="diensten">
   <div class="wrap">
     <div class="intro"><div><span class="lbl fade">Diensten</span><h2 class="fade" style="--d:1">Wat we voor uw wagen doen.</h2></div><p class="fade" style="--d:2">We bekijken eerst samen de lak en het interieur, en zeggen eerlijk wat zin heeft. Een prijs op maat kan altijd, of u berekent ze hieronder zelf.</p></div>
     <div class="svcs">
@@ -381,11 +404,30 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   </div>
 </section>
 
+<section class="sec" id="werkwijze" style="padding-top:0">
+  <div class="wrap method">
+    <div class="txt">
+      <span class="lbl fade">Werkwijze</span>
+      <h2 class="fade" style="--d:1;margin-top:22px">Elke wagen op de brug.</h2>
+      <div class="rule fade" style="--d:1"></div>
+      <p class="fade" style="--d:2">Geen wasstraat en geen haast. Uw wagen staat bij ons binnen, op de brug en onder fel licht. Zo zien we elke kras en werken we tot het hele paneel goed staat, ook onderaan en in de hoeken.</p>
+      <ol class="how fade" style="--d:3">
+        <li><span>01</span><div><b>Wassen en clayen</b>Eerst gaat al het vuil eraf, ook wat in de lak vastzit.</div></li>
+        <li><span>02</span><div><b>Polijsten</b>Paneel per paneel, in één, twee of drie stappen, tot de lak weer diep glanst.</div></li>
+        <li><span>03</span><div><b>Beschermen</b>Een laag wax, of een keramische coating met Crystal Serum Ultra.</div></li>
+        <li><span>04</span><div><b>Nakijken</b>Pas als alles onder de lamp klopt, rijdt hij de studio uit.</div></li>
+      </ol>
+      <p class="team fade" style="--d:4">Het werk gebeurt door <b>Justyna Brys</b> en <b>Bert van den Goor</b>, met dezelfde zorg voor een Polo als voor een Porsche.</p>
+    </div>
+    <figure class="mph fade" style="--d:2"><img src="img/sl.webp" alt="Mercedes SL op de brug in de studio" width="1400" height="1089" loading="lazy" style="object-position:38% 50%"><figcaption>Mercedes SL op de brug, Duboisstraat</figcaption></figure>
+  </div>
+</section>
+
 <section class="sec" id="werk" style="padding-top:0">
   <div class="wrap">
     <div class="intro"><div><span class="lbl fade">Uit de studio</span><h2 class="fade" style="--d:1">Van gezinswagen tot oldtimer.</h2></div><p class="fade" style="--d:2">Elke wagen krijgt dezelfde aandacht, of hij nu twee maanden oud is of al veertig jaar meegaat.</p></div>
     <div class="work">
-      <figure class="fade"><div class="im"><img src="img/sl.webp" alt="Mercedes SL op de brug in de studio" width="1400" height="1089" loading="lazy"></div><figcaption><b>Mercedes SL</b><span>Polijsten</span></figcaption></figure>
+      <figure class="fade"><div class="im cut"><img src="img/porsche.webp" alt="Porsche 911 in de studio" width="1032" height="652" loading="lazy"></div><figcaption><b>Porsche 911</b><span>Sportwagen</span></figcaption></figure>
       <figure class="fade" style="--d:1"><div class="im"><img src="img/ducati.webp" alt="Rode Ducati in de studio" width="1200" height="900" loading="lazy" style="object-position:40% 50%"></div><figcaption><b>Ducati</b><span>Motorfiets</span></figcaption></figure>
       <figure class="fade" style="--d:2"><div class="im"><img src="img/boot.webp" alt="Boot wordt gepolijst in de studio" width="900" height="1174" loading="lazy" style="object-position:50% 40%"></div><figcaption><b>Boot</b><span>Gelcoat polijsten</span></figcaption></figure>
     </div>
