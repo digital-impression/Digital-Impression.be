@@ -302,6 +302,21 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .mph figcaption{margin-top:12px;font:400 12px/1.5 var(--mono);color:var(--g2)}
 @media (max-width:1080px){.method{grid-template-columns:1fr}.mph{max-width:560px}}
 @media (max-width:720px){.spec{margin-top:36px}.spec b{font-size:30px}.spec div{padding-right:16px}.spec div+div{padding-left:16px}}
+
+/* v6.2: blauwe CTA en header */
+.nav::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(79,163,227,.0) 15%,rgba(79,163,227,.85) 50%,rgba(79,163,227,0) 85%,transparent 100%)}
+.nav .btn-line{border-color:rgba(79,163,227,.7)}
+.nav .btn-line:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+.cta-blue{position:relative;overflow:hidden;padding:clamp(80px,9vw,120px) 0;background:radial-gradient(60% 120% at 85% 50%,rgba(79,163,227,.42),transparent 70%),radial-gradient(50% 90% at 10% 100%,rgba(79,163,227,.18),transparent 70%),linear-gradient(120deg,#08172A 0%,#0E2E4D 55%,#0A1D33 100%);border-top:1px solid rgba(79,163,227,.35);border-bottom:1px solid rgba(79,163,227,.35)}
+.cta-blue::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 120px);-webkit-mask:linear-gradient(90deg,transparent,#000 60%);mask:linear-gradient(90deg,transparent,#000 60%)}
+.cta-blue .wrap{position:relative;display:grid;grid-template-columns:1.3fr auto;gap:48px;align-items:end}
+.cta-blue .lbl{color:#BFDDF5}
+.cta-blue .lbl::before{background:#BFDDF5}
+.cta-blue h2{font-size:clamp(36px,4.2vw,58px);margin:22px 0 18px;max-width:16ch}
+.cta-blue p{color:#C4D6E6;max-width:48ch}
+.cta-blue .acts{display:flex;gap:12px;flex-wrap:wrap}
+.cta-blue .btn-line{border-color:rgba(255,255,255,.45)}
+@media (max-width:720px){.cta-blue .wrap{grid-template-columns:1fr;gap:32px}.cta-blue .acts .btn{flex:1 1 100%}}
 @media (max-width:1080px){
   .menu{display:none}
   .about,.acad{grid-template-columns:1fr}
@@ -381,14 +396,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <div class="spec fade" style="--d:4"><div><small>Sinds</small><b>1982</b><span>Aan de Duboisstraat, Antwerpen</span></div><div><small>Garantie</small><b>9 jaar</b><span>Op onze keramische coating</span></div></div>
   </div>
 </section>
-<div class="band">
-  <div class="wrap">
-    <div><b>98<em>%</em></b><span>Lakcorrectie voor de coating</span></div>
-    <div><b>3<em> stappen</em></b><span>Polijsten, paneel per paneel</span></div>
-    <div><b>5,0</b><span>Op Google, 45 reviews</span></div>
-    <div><b>6<em> dagen</em></b><span>Per week open</span></div>
-  </div>
-</div>
 <section class="sec" id="diensten">
   <div class="wrap">
     <div class="intro"><div><span class="lbl fade">Diensten</span><h2 class="fade" style="--d:1">Wat we voor uw wagen doen.</h2></div><p class="fade" style="--d:2">We bekijken eerst samen de lak en het interieur, en zeggen eerlijk wat zin heeft. Een prijs op maat kan altijd, of u berekent ze hieronder zelf.</p></div>
@@ -423,7 +430,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   </div>
 </section>
 
-<section class="sec" id="werk" style="padding-top:0">
+<section class="cta-blue">
+  <div class="wrap">
+    <div>
+      <span class="lbl fade">Prijs &amp; afspraak</span>
+      <h2 class="fade" style="--d:1">Benieuwd wat het kost voor uw wagen?</h2>
+      <p class="fade" style="--d:2">Kies de behandeling, zie meteen een richtprijs en leg zelf een moment vast. Liever eerst even praten? Bel ons gerust.</p>
+    </div>
+    <div class="acts fade" style="--d:3"><a class="btn btn-w" href="#boeken">Bereken uw prijs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a><a class="btn btn-line" href="tel:+3232336363">03 233 63 63</a></div>
+  </div>
+</section>
+
+<section class="sec" id="werk">
   <div class="wrap">
     <div class="intro"><div><span class="lbl fade">Uit de studio</span><h2 class="fade" style="--d:1">Van gezinswagen tot oldtimer.</h2></div><p class="fade" style="--d:2">Elke wagen krijgt dezelfde aandacht, of hij nu twee maanden oud is of al veertig jaar meegaat.</p></div>
     <div class="work">
