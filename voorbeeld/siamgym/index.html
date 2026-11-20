@@ -10,164 +10,180 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Instrument+Serif:ital@1&family=Manrope:wght@400;500;600;700;800&display=swap">
 <script>document.documentElement.classList.add('js')</script>
 <style>
-:root{--bl:#1D6FE8;--bl2:#4C93FF;--blz:#E6EFFD;--nacht:#0A0E16;--nacht2:#121826;--licht:#F3F6FB;--wit:#fff;--ink:#0E1420;--mute:#5E6A7E;--lijn:rgba(255,255,255,.12);--ease:cubic-bezier(.16,1,.3,1)}
+:root{--bl:#1D6FE8;--bl2:#4C93FF;--bl3:#8DBBFF;--nacht:#06080D;--n2:#0C1019;--kaart:#111723;--kaart2:#172033;--wit:#fff;--zacht:rgba(235,241,255,.72);--stil:rgba(235,241,255,.5);--lijn:rgba(235,241,255,.1);--ease:cubic-bezier(.16,1,.3,1)}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--licht);color:var(--ink);font:500 17px/1.62 'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--nacht);color:#fff;font:500 17px/1.62 'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(18px,4vw,40px)}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(18px,4vw,40px)}
 .demo{background:var(--bl);color:#fff;font:600 13.5px/1.4 'Manrope',sans-serif;text-align:center;padding:9px 16px;position:relative;z-index:60}
 .demo a{font-weight:800;text-decoration:underline;text-underline-offset:3px}
-.bs{font-family:'Big Shoulders Display',sans-serif;font-weight:900;line-height:.9;letter-spacing:-.005em;text-transform:uppercase}
+.bs{font-family:'Big Shoulders Display',sans-serif;font-weight:900;line-height:.88;letter-spacing:-.005em;text-transform:uppercase}
 .it{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;text-transform:none;letter-spacing:0}
-.cap{display:inline-flex;align-items:center;gap:10px;font:800 12.5px/1 'Manrope',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--bl)}
-.cap::before{content:"";width:9px;height:9px;background:currentColor;transform:rotate(45deg)}
-.knop{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:16px 26px;font:800 15px/1 'Manrope',sans-serif;transition:transform .4s var(--ease),box-shadow .4s,background .3s;white-space:nowrap}
-.knop svg{width:18px;height:18px}
+.cap{display:inline-flex;align-items:center;gap:10px;font:800 12.5px/1 'Manrope',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--bl2)}
+.cap::before{content:"";width:9px;height:9px;background:currentColor;transform:rotate(45deg);box-shadow:0 0 14px currentColor}
+.knop{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:17px 28px;font:800 15.5px/1 'Manrope',sans-serif;transition:transform .4s var(--ease),box-shadow .4s,background .3s,border-color .3s;white-space:nowrap}
+.knop svg{width:18px;height:18px;transition:transform .4s var(--ease)}
 .knop:hover{transform:translateY(-3px)}
-.k-bl{background:var(--bl);color:#fff;box-shadow:0 16px 36px -14px rgba(29,111,232,.8)}
-.k-lijn{border:1.5px solid rgba(255,255,255,.28);color:#fff}
-.k-lijn:hover{background:rgba(255,255,255,.07)}
-.k-ink{background:var(--ink);color:#fff}
+.knop:hover svg{transform:translateX(3px)}
+.k-bl{background:var(--bl);color:#fff;box-shadow:0 16px 40px -12px rgba(29,111,232,.9),inset 0 1px 0 rgba(255,255,255,.25)}
+.k-bl:hover{background:var(--bl2)}
+.k-lijn{border:1.5px solid rgba(255,255,255,.35);color:#fff;background:rgba(6,8,13,.35)}
+.k-lijn:hover{background:#fff;color:var(--nacht)}
 
 /* hero */
-.hero{background:var(--nacht);color:#fff;position:relative;overflow:hidden;isolation:isolate}
-.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(640px 560px at 76% 56%,rgba(29,111,232,.42),transparent 70%),radial-gradient(500px 400px at 0% 100%,rgba(76,147,255,.12),transparent 70%)}
-.kop{padding:20px 0}
-.kop .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
-.logo{display:flex;align-items:center;gap:12px;font:900 26px/1 'Big Shoulders Display';letter-spacing:.04em;text-transform:uppercase}
-.logo i{width:30px;height:30px;background:var(--bl);transform:rotate(45deg);border-radius:4px;display:grid;place-items:center}
-.logo i::after{content:"";width:12px;height:12px;border:2.5px solid #fff;border-radius:2px}
-.nav{display:flex;gap:30px;font:700 14.5px/1 'Manrope';color:rgba(255,255,255,.72)}
-.nav a:hover{color:#fff}
+.hero{position:relative;isolation:isolate;overflow:hidden;min-height:clamp(660px,56vw,860px);display:flex;flex-direction:column}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;z-index:-2;transform:scale(1.06);animation:inz 2.4s var(--ease) .1s forwards}
+@keyframes inz{to{transform:scale(1)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(6,8,13,.75) 0%,rgba(6,8,13,0) 22%),linear-gradient(90deg,rgba(6,8,13,.92) 0%,rgba(6,8,13,.7) 34%,rgba(6,8,13,.1) 66%,rgba(6,8,13,0) 100%),linear-gradient(0deg,var(--nacht) 0%,rgba(6,8,13,0) 34%)}
+.kop{position:relative;z-index:5}
+.kop .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:18px;padding-bottom:18px}
+.logo{display:flex;align-items:center;gap:12px;font:900 26px/1 'Big Shoulders Display';letter-spacing:.05em;text-transform:uppercase}
+.logo img{width:50px;height:50px;border-radius:12px;object-fit:cover;box-shadow:0 0 0 1px rgba(76,147,255,.4),0 10px 30px -8px rgba(29,111,232,.7)}
+.nav{display:flex;gap:4px;padding:6px;border-radius:999px;background:rgba(6,8,13,.45);border:1px solid var(--lijn);backdrop-filter:blur(12px);font:700 14.5px/1 'Manrope'}
+.nav a{padding:11px 16px;border-radius:999px;color:rgba(255,255,255,.8);transition:background .3s,color .3s}
+.nav a:hover{background:var(--bl);color:#fff}
 .kop .knop{padding:13px 20px;font-size:14px}
-.hero-g{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(20px,3vw,50px);align-items:center;padding-top:clamp(20px,3vw,40px)}
-.hero-t{padding-bottom:clamp(60px,7vw,100px)}
-.hero h1{font-size:clamp(62px,8.4vw,128px);margin-top:22px}
-.hero h1 .it{display:block;color:var(--bl2);font-size:.62em;line-height:1;margin-top:8px}
-.hero .lead{max-width:31em;color:rgba(255,255,255,.74);font-size:clamp(16.5px,1.3vw,18.5px);margin-top:24px}
-.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.feiten{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:34px;font:700 14px/1.3 'Manrope';color:rgba(255,255,255,.7)}
+.hero-w{flex:1;display:flex;align-items:flex-end;justify-content:space-between;gap:40px;padding-top:40px;padding-bottom:clamp(110px,10vw,140px)}
+.hero-t{max-width:660px}
+.hero h1{font-size:clamp(70px,9.4vw,150px);margin-top:20px;text-shadow:0 12px 50px rgba(0,0,0,.5)}
+.hero h1 .it{display:block;color:var(--bl2);font-size:.5em;line-height:1;margin-top:6px;text-shadow:0 0 40px rgba(29,111,232,.5)}
+.hero .lead{max-width:31em;color:rgba(255,255,255,.8);font-size:clamp(16.5px,1.3vw,18.5px);margin-top:22px}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.feiten{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:28px;font:700 14px/1.3 'Manrope';color:rgba(255,255,255,.72)}
 .feiten span{display:flex;align-items:center;gap:9px}
 .feiten b{color:#fff}
 .feiten span::before{content:"";width:7px;height:7px;background:var(--bl2);transform:rotate(45deg)}
-.vecht{position:relative;align-self:end;justify-self:center;width:min(100%,520px);aspect-ratio:.82}
-.ruit{position:absolute;left:50%;top:44%;width:78%;aspect-ratio:1;translate:-50% -50%;rotate:45deg;background:linear-gradient(135deg,var(--bl2),var(--bl) 55%,#0F4FB4);border-radius:34px;box-shadow:0 50px 120px -40px rgba(29,111,232,.9)}
-.ruit::after{content:"";position:absolute;inset:-22px;border:1.5px solid rgba(76,147,255,.35);border-radius:46px}
-.vecht img{position:absolute;bottom:0;left:50%;translate:-50% 0;width:86%;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55))}
-.score{position:absolute;left:-4%;top:16%;display:flex;align-items:center;gap:12px;background:#fff;color:var(--ink);border-radius:20px;padding:12px 18px 12px 12px;box-shadow:0 26px 50px -22px rgba(0,0,0,.8);animation:zweef 7s ease-in-out infinite;z-index:2}
-.score b{display:grid;place-items:center;width:48px;height:48px;border-radius:14px;background:var(--bl);color:#fff;font:900 22px/1 'Big Shoulders Display'}
-.score strong{display:block;font-size:14.5px}
-.score span{font-size:12.5px;color:var(--mute);font-weight:600}
-.score .st{color:#F2A922;letter-spacing:1px}
-@keyframes zweef{0%,100%{translate:0 0}50%{translate:0 -10px}}
+.score{flex:none;display:flex;align-items:center;gap:14px;background:rgba(12,16,25,.62);border:1px solid rgba(141,187,255,.25);backdrop-filter:blur(14px);border-radius:22px;padding:14px 20px 14px 14px;box-shadow:0 26px 50px -22px rgba(0,0,0,.9);animation:zweef 7s ease-in-out infinite}
+.score b{display:grid;place-items:center;width:56px;height:56px;border-radius:16px;background:var(--bl);color:#fff;font:900 26px/1 'Big Shoulders Display';box-shadow:0 10px 26px -8px rgba(29,111,232,.9)}
+.score strong{display:block;font-size:15px}
+.score span{font-size:13px;color:var(--zacht);font-weight:600}
+.score .st{color:#FFC233;letter-spacing:1.5px}
+@keyframes zweef{0%,100%{translate:0 0}50%{translate:0 -8px}}
+
+/* lint */
+.lint{position:relative;z-index:6;margin-top:-62px;transform:rotate(-1.5deg);background:var(--bl);overflow:hidden;box-shadow:0 20px 50px -18px rgba(29,111,232,.75);border-top:1px solid rgba(255,255,255,.25)}
+.lint-in{display:flex;width:max-content;animation:loop 34s linear infinite}
+.lint span{display:flex;align-items:center;gap:26px;padding:16px 13px;font:900 26px/1 'Big Shoulders Display';text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+.lint span::after{content:"";width:11px;height:11px;background:#fff;transform:rotate(45deg)}
+@keyframes loop{to{transform:translateX(-50%)}}
 
 /* secties */
-.s{padding:clamp(80px,9vw,120px) 0}
-.s-kop{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:clamp(34px,4vw,52px)}
-.h2{font-size:clamp(46px,5.8vw,84px);margin-top:16px}
-.h2 .it{color:var(--bl)}
-.s-kop p{max-width:27em;color:var(--mute)}
+.s{padding:clamp(90px,10vw,140px) 0;position:relative}
+.s-kop{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:clamp(36px,4vw,56px)}
+.h2{font-size:clamp(50px,6.4vw,96px);margin-top:16px}
+.h2 .it{color:var(--bl2)}
+.s-kop p{max-width:27em;color:var(--zacht)}
 
 /* disciplines */
-.dis-g{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.dk{background:#fff;border-radius:26px;overflow:hidden;box-shadow:0 24px 50px -36px rgba(14,20,32,.45);display:flex;flex-direction:column;transition:transform .5s var(--ease)}
-.dk:hover{transform:translateY(-6px)}
-.dk .ft{aspect-ratio:4/3.3;overflow:hidden;position:relative}
-.dk .ft img{width:100%;height:100%;object-fit:cover}
-.dk .ft span{position:absolute;left:12px;top:12px;background:rgba(10,14,22,.78);backdrop-filter:blur(6px);color:#fff;border-radius:999px;padding:7px 12px;font:800 12px/1 'Manrope';letter-spacing:.06em}
-.dk .tx{padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
-.dk h3{font:900 30px/1 'Big Shoulders Display';text-transform:uppercase}
-.dk p{color:var(--mute);font-size:15.5px;line-height:1.55}
-.dk .wn{margin-top:auto;padding-top:12px;font:700 13.5px/1.3 'Manrope';color:var(--bl)}
-.dk.uit{background:var(--bl);color:#fff}
-.dk.uit p{color:rgba(255,255,255,.82)}
+.dis-g{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.dk{position:relative;border-radius:26px;overflow:hidden;min-height:clamp(460px,38vw,540px);display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate;border:1px solid var(--lijn);transition:transform .6s var(--ease),box-shadow .6s,border-color .4s}
+.dk>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.4s var(--ease)}
+.dk::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(6,8,13,.97) 0%,rgba(6,8,13,.82) 34%,rgba(6,8,13,.1) 64%,rgba(6,8,13,0) 100%)}
+.dk:hover{transform:translateY(-8px);border-color:rgba(76,147,255,.55);box-shadow:0 40px 70px -40px rgba(29,111,232,.8)}
+.dk:hover>img{transform:scale(1.07)}
+.dk .tg{position:absolute;left:14px;top:14px;background:rgba(6,8,13,.6);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(8px);color:#fff;border-radius:999px;padding:8px 13px;font:800 12px/1 'Manrope';letter-spacing:.06em}
+.dk .tx{padding:24px 22px 24px;display:flex;flex-direction:column;gap:9px}
+.dk h3{font:900 34px/.92 'Big Shoulders Display';text-transform:uppercase}
+.dk p{color:var(--zacht);font-size:15.5px;line-height:1.55}
+.dk .wn{display:flex;align-items:center;gap:8px;margin-top:6px;font:800 13.5px/1.3 'Manrope';color:var(--bl3)}
+.dk .wn::before{content:"";width:7px;height:7px;background:currentColor;transform:rotate(45deg)}
+.dk.uit{border-color:rgba(76,147,255,.7)}
+.dk.uit::before{background:linear-gradient(0deg,rgba(18,72,170,.98) 0%,rgba(29,111,232,.85) 36%,rgba(29,111,232,.1) 66%,transparent 100%)}
+.dk.uit p{color:rgba(255,255,255,.9)}
 .dk.uit .wn{color:#fff}
-.mat{margin-top:22px;display:flex;align-items:center;gap:14px;background:#fff;border-radius:999px;padding:12px 14px 12px 22px;box-shadow:0 20px 40px -34px rgba(14,20,32,.4);max-width:max-content}
-.mat i{flex:none;width:34px;height:34px;border-radius:50%;background:var(--blz);color:var(--bl);display:grid;place-items:center}
+.dk.uit .tg{background:var(--bl);border-color:transparent}
+.mat{margin-top:18px;display:flex;align-items:center;gap:14px;background:var(--kaart);border:1px solid var(--lijn);border-radius:999px;padding:12px 18px 12px 12px;max-width:max-content}
+.mat i{flex:none;width:36px;height:36px;border-radius:50%;background:var(--bl);color:#fff;display:grid;place-items:center}
 .mat i svg{width:17px;height:17px}
-.mat span{font-size:15px;font-weight:600}
+.mat span{font-size:15px;font-weight:600;color:var(--zacht)}
 
-/* verhaal (donker) */
-.verhaal{background:var(--nacht);color:#fff;border-radius:clamp(28px,4vw,48px);margin:0 clamp(10px,1.4vw,18px)}
-.vh-g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,80px);align-items:center}
-.verhaal .cap{color:var(--bl2)}
-.verhaal .h2{font-size:clamp(44px,5vw,74px);margin-bottom:20px}
-.verhaal .h2 .it{color:var(--bl2)}
-.verhaal p{color:rgba(255,255,255,.74);max-width:31em}
-.verhaal p+p{margin-top:14px}
-.tijd{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
-.tijd div{border:1px solid var(--lijn);border-radius:20px;padding:18px 18px 16px}
-.tijd b{display:block;font:900 40px/1 'Big Shoulders Display';color:var(--bl2)}
-.tijd span{display:block;margin-top:8px;font-size:14px;color:rgba(255,255,255,.7);line-height:1.4}
-.collage{display:grid;grid-template-columns:1.1fr .9fr;grid-template-rows:auto auto;gap:14px}
-.collage figure{border-radius:24px;overflow:hidden}
-.collage img{width:100%;height:100%;object-fit:cover}
-.collage .a{grid-row:span 2;aspect-ratio:3/4.6}
-.collage .b,.collage .c{aspect-ratio:1/1}
+/* de club: verhaal + beeldwand */
+.vh-g{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,80px);align-items:end;margin-bottom:clamp(36px,4vw,56px)}
+.vh-g .h2{margin-bottom:0;font-size:clamp(48px,5.4vw,82px)}
+.vh-g p{color:var(--zacht);max-width:34em}
+.vh-g p+p{margin-top:14px}
+.tijd{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+.tijd div{background:var(--kaart);border:1px solid var(--lijn);border-radius:20px;padding:18px 18px 16px}
+.tijd b{display:block;font:900 46px/1 'Big Shoulders Display';color:var(--bl2)}
+.tijd span{display:block;margin-top:8px;font-size:14px;color:var(--zacht);line-height:1.4}
+.wand{display:grid;grid-template-columns:1.5fr 1fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:14px;height:clamp(560px,52vw,720px)}
+.wand figure{position:relative;border-radius:24px;overflow:hidden;background:var(--kaart)}
+.wand figure::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,8,13,.7),transparent 42%);pointer-events:none}
+.wand img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.wand figure:hover img{transform:scale(1.06)}
+.wand .a{grid-row:span 2}
+.wand .d{grid-column:span 2}
+.wand figcaption{position:absolute;left:18px;bottom:16px;z-index:2;font:900 24px/1 'Big Shoulders Display';text-transform:uppercase;letter-spacing:.02em}
+.wand figcaption small{display:block;font:800 11.5px/1 'Manrope';letter-spacing:.18em;color:var(--bl3);margin-bottom:6px}
 
 /* rooster + prijzen */
 .rooster{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.dag{background:#fff;border-radius:22px;padding:20px 20px 16px;box-shadow:0 20px 40px -34px rgba(14,20,32,.4)}
-.dag h3{font:900 26px/1 'Big Shoulders Display';text-transform:uppercase;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
-.dag h3 small{font:700 11.5px/1 'Manrope';letter-spacing:.12em;color:var(--mute)}
-.les{display:flex;gap:14px;align-items:baseline;padding:9px 0;border-top:1px solid #E7ECF4;font-size:15px}
+.dag{background:var(--kaart);border:1px solid var(--lijn);border-radius:22px;padding:20px 20px 14px;transition:border-color .4s}
+.dag:hover{border-color:rgba(76,147,255,.45)}
+.dag h3{font:900 28px/1 'Big Shoulders Display';text-transform:uppercase;margin-bottom:10px}
+.les{display:flex;gap:14px;align-items:baseline;padding:10px 0;border-top:1px solid var(--lijn);font-size:15px}
 .les:first-of-type{border-top:0}
-.les time{flex:none;width:104px;font-weight:800;color:var(--bl);font-size:14px}
-.les span{font-weight:600}
-.prijs-kop{margin-top:clamp(60px,7vw,90px)}
+.les time{flex:none;width:106px;font-weight:800;color:var(--bl3);font-size:14px}
+.les span{font-weight:600;color:rgba(255,255,255,.9)}
+.prijs-kop{margin-top:clamp(70px,8vw,110px)}
 .prijs-g{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.pk{background:#fff;border-radius:28px;padding:clamp(24px,3vw,36px);box-shadow:0 24px 50px -38px rgba(14,20,32,.45)}
-.pk h3{font:900 36px/1 'Big Shoulders Display';text-transform:uppercase}
-.pk .sub{color:var(--mute);font-size:15px;margin:6px 0 18px}
-.pr{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px dashed #D5DEEC;font-weight:700}
-.pr em{font:900 30px/1 'Big Shoulders Display';font-style:normal;color:var(--ink)}
-.pr.top{background:var(--blz);border:0;border-radius:16px;padding:14px 16px;margin-top:6px}
-.pr.top em{color:var(--bl)}
+.pk{background:var(--kaart);border:1px solid var(--lijn);border-radius:28px;padding:clamp(24px,3vw,36px)}
+.pk h3{font:900 40px/1 'Big Shoulders Display';text-transform:uppercase}
+.pk .sub{color:var(--stil);font-size:15px;margin:6px 0 18px}
+.pr{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px dashed rgba(235,241,255,.16);font-weight:700}
+.pr em{font:900 32px/1 'Big Shoulders Display';font-style:normal}
+.pr.top{background:linear-gradient(90deg,rgba(29,111,232,.28),rgba(29,111,232,.12));border:1px solid rgba(76,147,255,.5);border-radius:16px;padding:14px 16px;margin-top:6px}
+.pr.top em{color:var(--bl3)}
 .pr.top small{display:inline-block;margin-left:8px;background:var(--bl);color:#fff;border-radius:999px;padding:5px 10px;font:800 11px/1 'Manrope';letter-spacing:.08em;text-transform:uppercase;vertical-align:middle}
-.prijs-voet{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:22px;color:var(--mute);font-size:15px}
+.prijs-voet{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:22px;color:var(--zacht);font-size:15px}
+.k-wit{background:#fff;color:var(--nacht)}
+.k-wit:hover{background:var(--bl3)}
 
-/* reviews */
-.rev{background:var(--bl);color:#fff;border-radius:clamp(28px,4vw,48px);margin:0 clamp(10px,1.4vw,18px)}
+/* reviews: de blauwe kaart */
+.rev{background:var(--bl) radial-gradient(800px 420px at 90% 0%,rgba(141,187,255,.5),transparent 70%);border-radius:clamp(28px,4vw,48px);margin:0 clamp(10px,1.4vw,18px);overflow:hidden}
 .rev .cap{color:#fff}
-.rev .h2 .it{color:#CFE0FF}
+.rev .cap::before{box-shadow:none}
+.rev .h2 .it{color:#D6E6FF}
 .rev-sc{display:flex;align-items:center;gap:14px}
-.rev-sc b{font:900 74px/1 'Big Shoulders Display'}
-.rev-sc span{font-size:14px;color:rgba(255,255,255,.85);line-height:1.4}
+.rev-sc b{font:900 84px/1 'Big Shoulders Display'}
+.rev-sc span{font-size:14px;color:rgba(255,255,255,.88);line-height:1.4}
 .rev-sc .st{display:block;color:#FFD15C;letter-spacing:2px}
 .rev-g{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.rk{background:#fff;color:var(--ink);border-radius:26px;padding:26px 24px 20px;display:flex;flex-direction:column;justify-content:space-between;gap:18px}
+.rk{background:#fff;color:#0E1420;border-radius:26px;padding:28px 26px 22px;display:flex;flex-direction:column;justify-content:space-between;gap:18px;box-shadow:0 30px 60px -36px rgba(6,8,13,.8)}
 .rk .st{color:#F2A922;letter-spacing:2px;font-size:14px}
-.rk p{margin-top:10px;font-size:16px;line-height:1.58}
-.rk footer{font-size:14px;color:var(--mute);border-top:1px solid #E7ECF4;padding-top:14px}
-.rk footer b{color:var(--ink)}
+.rk p{margin-top:10px;font-size:16px;line-height:1.6}
+.rk footer{font-size:14px;color:#5E6A7E;border-top:1px solid #E7ECF4;padding-top:14px}
+.rk footer b{color:#0E1420}
 
 /* bezoek */
-.bz-g{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
-.bz{background:#fff;border-radius:30px;padding:clamp(28px,3.4vw,46px);box-shadow:0 24px 50px -40px rgba(14,20,32,.45)}
-.bz>p{color:var(--mute);max-width:30em;margin-top:12px}
-.park{margin:22px 0;background:var(--blz);border-radius:18px;padding:16px 18px;font-size:15px;line-height:1.5}
-.park b{display:block;color:var(--bl);font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+.bz-g{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:stretch}
+.bz{background:var(--kaart);border:1px solid var(--lijn);border-radius:30px;padding:clamp(28px,3.4vw,46px)}
+.bz>p{color:var(--zacht);max-width:30em;margin-top:14px}
+.park{margin:22px 0;background:rgba(29,111,232,.12);border:1px solid rgba(76,147,255,.28);border-radius:18px;padding:16px 18px;font-size:15px;line-height:1.5;color:rgba(255,255,255,.86)}
+.park b{display:block;color:var(--bl3);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
 .cl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.cl a{display:flex;gap:12px;align-items:center;background:var(--licht);border-radius:16px;padding:13px 14px;transition:background .3s}
-.cl a:hover{background:var(--blz)}
+.cl a{display:flex;gap:12px;align-items:center;background:var(--kaart2);border-radius:16px;padding:13px 14px;transition:background .3s,transform .4s var(--ease)}
+.cl a:hover{background:#1E2A42;transform:translateY(-2px)}
 .cl i{flex:none;width:40px;height:40px;border-radius:50%;background:var(--bl);color:#fff;display:grid;place-items:center}
 .cl i svg{width:18px;height:18px}
-.cl small{display:block;font-size:12px;color:var(--mute)}
+.cl small{display:block;font-size:12px;color:var(--stil)}
 .cl b{font-size:14.5px;word-break:break-word}
 .cl a.ml{grid-column:span 2}
-.bz-ft{position:relative;border-radius:30px;overflow:hidden;min-height:540px}
+.bz-ft{position:relative;border-radius:30px;overflow:hidden;min-height:560px}
 .bz-ft img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.bz-ft .tag{position:absolute;left:16px;bottom:16px;background:#fff;color:var(--ink);border-radius:999px;padding:11px 16px;font:800 13.5px/1 'Manrope'}
+.bz-ft .tag{position:absolute;left:16px;bottom:16px;background:#fff;color:var(--nacht);border-radius:999px;padding:11px 16px;font:800 13.5px/1 'Manrope'}
 
-.voet{background:var(--nacht);color:rgba(255,255,255,.6);padding:40px 0;font-size:14.5px;margin-top:clamp(70px,8vw,110px)}
+.voet{border-top:1px solid var(--lijn);color:var(--stil);padding:36px 0;font-size:14.5px;margin-top:clamp(80px,9vw,120px)}
 .voet .wrap{display:flex;flex-wrap:wrap;gap:18px 40px;align-items:center;justify-content:space-between}
-.voet .logo{color:#fff}
+.voet .logo{color:#fff;font-size:22px}
+.voet .logo img{width:40px;height:40px;border-radius:10px}
+.voet a:hover{color:#fff}
 
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none}.score{animation:none}}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none}.score,.lint-in,.hero>img{animation:none}}
 
 @media (max-width:1080px){
  .nav{display:none}
@@ -175,118 +191,72 @@ a{color:inherit;text-decoration:none}
  .rooster{grid-template-columns:1fr 1fr}
 }
 @media (max-width:900px){
- .hero-g,.vh-g,.bz-g,.prijs-g{grid-template-columns:1fr}
- .hero-t{padding-bottom:10px}
- .vecht{width:min(92%,440px);margin-top:46px}
- .vh-g .vh-t{order:-1}
+ .vh-g,.bz-g,.prijs-g{grid-template-columns:1fr}
+ .hero{min-height:0}
+ .hero{background:var(--nacht)}
+ .hero>img{top:auto;bottom:0;height:min(118vw,560px);object-position:50% 30%}
+ .hero::before{background:linear-gradient(180deg,rgba(6,8,13,.6) 0%,var(--nacht) 10%,var(--nacht) calc(100% - min(118vw,560px)),rgba(6,8,13,.55) calc(100% - min(92vw,560px) + 120px),rgba(6,8,13,.05) 70%,rgba(6,8,13,.1) 86%,var(--nacht) 100%)}
+ .hero-w{flex-direction:column;align-items:flex-start;padding-bottom:min(90vw,400px)}
  .s-kop{flex-direction:column;align-items:flex-start}
  .rev-g{grid-template-columns:1fr}
- .bz-ft{min-height:360px}
+ .wand{grid-template-columns:1fr 1fr;grid-template-rows:none;height:auto}
+ .wand figure{aspect-ratio:1/1}
+ .wand .a{grid-row:auto;grid-column:span 2;aspect-ratio:16/10}
+ .wand .d{aspect-ratio:16/10}
+ .bz-ft{min-height:380px}
 }
 @media (max-width:600px){
  body{font-size:16px}
  .kop .knop{display:none}
- .hero h1{font-size:clamp(54px,16vw,74px)}
+ .logo img{width:44px;height:44px}
+ .hero h1{font-size:clamp(64px,19vw,84px)}
+ .hero-w{gap:22px}
  .acts .knop{flex:1 1 100%}
- .score{left:0;top:auto;bottom:7%;padding:10px 14px 10px 10px}
- .score b{width:42px;height:42px;font-size:19px}
+ .score{padding:10px 16px 10px 10px}
+ .score b{width:46px;height:46px;font-size:21px}
+ .lint{margin-top:-50px}
+ .lint span{font-size:21px;padding:13px 10px;gap:20px}
  .dis-g,.rooster{grid-template-columns:1fr}
- .tijd{grid-template-columns:1fr 1fr 1fr;gap:8px}
+ .dk{min-height:440px}
+ .tijd{gap:8px}
  .tijd div{padding:14px 12px}
- .tijd b{font-size:32px}
+ .tijd b{font-size:34px}
  .tijd span{font-size:12.5px}
- .collage .a{aspect-ratio:3/4.6}
- .les time{width:92px}
+ .wand{grid-template-columns:1fr;gap:12px}
+ .wand .a,.wand .d{grid-column:auto}
+ .wand figure,.wand .a,.wand .d{aspect-ratio:4/3}
+ .les time{width:94px}
  .cl{grid-template-columns:1fr}
  .cl a.ml{grid-column:auto}
  .mat{border-radius:22px}
 }
-
-/*hx-hero 20/11*/
-.hx.hx-hero{margin:0;padding:0;background:none;border:0;border-radius:0;box-shadow:none;grid-template-columns:none;max-width:none;width:auto;height:auto;text-align:left}.hx.hx-hero::before,.hx.hx-hero::after{display:none}
-.hx{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:flex-end;min-height:clamp(600px,calc(100svh - 40px),920px);color:#fff}
-.hx-m{position:absolute;inset:0;z-index:-2;overflow:hidden;background:rgb(8,14,30)}
-.hx-img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;transform:scale(1.06);animation:hxz 2.2s cubic-bezier(.16,1,.3,1) .1s forwards}
-@keyframes hxz{to{transform:scale(1)}}
-.hx-sh{position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(8,14,30,.86) 0%,rgba(8,14,30,.62) 38%,rgba(8,14,30,.12) 72%,rgba(8,14,30,0) 100%),linear-gradient(0deg,rgba(8,14,30,.55) 0%,rgba(8,14,30,0) 45%)}
-.hx-w{position:relative;width:100%;max-width:1280px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,4.5vw,56px) clamp(52px,7vw,92px);display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
-.hx .hx-t{max-width:640px;margin:0;padding:0;text-align:left;color:rgba(255,255,255,.88);background:none;box-shadow:none;border:0;position:relative;flex:1 1 auto;transform:none}
-.hx .hx-t>*{margin-left:0;margin-right:0;max-width:none}
-.hx .hx-t h1{color:#fff;font-size:clamp(40px,5vw,74px);max-width:12.5em;text-shadow:0 2px 30px rgba(8,14,30,.35)}
-.hx .hx-t h1 em,.hx .hx-t h1 i,.hx .hx-t h1 [class]{color:#62A8FF}
-.hx .hx-t p{color:rgba(255,255,255,.88);max-width:34em}.hx .hx-t p b,.hx .hx-t p strong{color:#fff}
-.hx .hx-t>:not(h1):not(.hx-pill):not(.hx-acts):not(p){color:rgba(255,255,255,.82)}
-.hx .hx-pill{width:fit-content;background:rgba(255,255,255,.14)!important;color:#fff!important;border:1px solid rgba(255,255,255,.26)!important;box-shadow:none!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-.hx .hx-pill *{color:inherit}
-.hx .hx-acts{justify-content:flex-start}
-.hx:not(.hx-C) .hx-t,.hx:not(.hx-C) .hx-t *{text-align:left}
-.hx:not(.hx-C) .hx-t>div,.hx:not(.hx-C) .hx-t>p{justify-content:flex-start;align-items:flex-start;margin-left:0;margin-right:0}
-.hx:not(.hx-C) .hx-t>div{align-items:center}
-.hx .hx-t>:not(h1):not(.hx-pill):not(.hx-acts) :is(b,strong,span,em,i,small):not(a *){color:inherit}
-.hx .hx-t .g{color:#3b3b3b!important}
-.hx .hx-ghost{background:rgba(255,255,255,.1)!important;color:#fff!important;border:1.5px solid rgba(255,255,255,.5)!important;box-shadow:none!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.hx .hx-ghost:hover{background:#fff!important;color:rgb(8,14,30)!important}
-.hx .hx-badge{color:#1d1b19;position:relative!important;inset:auto!important;transform:none!important;flex:none;margin:0;align-self:flex-end;animation:none}
-.hx-B.hx-hero{padding:0 clamp(10px,1.4vw,18px)}.hx-B .hx-box{position:relative;isolation:isolate;width:100%;border-radius:clamp(22px,3vw,40px);overflow:hidden;display:flex;align-items:flex-end;min-height:inherit}.hx-B{display:block}.hx-B .hx-box .hx-m{z-index:-2}
-
-.hx-C .hx-w{flex-direction:column;align-items:center;text-align:center}.hx-C .hx-t{text-align:center;margin:0 auto}.hx-C .hx-t h1{margin-left:auto;margin-right:auto}.hx-C .hx-acts{justify-content:center}.hx-C .hx-t>*{margin-left:auto!important;margin-right:auto!important}.hx-C .hx-sh{background:linear-gradient(0deg,rgba(8,14,30,.85),rgba(8,14,30,.35) 60%,rgba(8,14,30,.2))}.hx-C .hx-badge{align-self:center}
-@media (max-width:860px){
- .hx{min-height:calc(100svh - 70px)}
- .hx-img{object-position:50% 40%}
- .hx .hx-t h1{font-size:clamp(36px,10vw,52px)}
- .hx-sh{background:linear-gradient(0deg,rgba(8,14,30,.92) 0%,rgba(8,14,30,.72) 45%,rgba(8,14,30,.2) 78%,rgba(8,14,30,.05) 100%)}
- .hx:not(.hx-C) .hx-t>div{flex-wrap:wrap}
- .hx-w{flex-direction:column;align-items:flex-start;gap:26px;padding-bottom:40px;}
- .hx .hx-badge{align-self:flex-start}
-}
-.hx .hx-glass{background:rgba(255,255,255,.14)!important;border:1px solid rgba(255,255,255,.26)!important;color:#fff!important;box-shadow:none!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}.hx .hx-glass *{color:#fff}
-/*hx-nav*/
-.hx-navt{background:transparent!important;border-color:transparent!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;transition:background .35s,color .35s}
-.hx-navt::before,.hx-navt::after{opacity:0}
-.hx-navt,.hx-navt :not(.hx-keep):not(.hx-keep *){color:#fff!important;border-color:rgba(255,255,255,.28)!important}
-.hx-navt img.hx-inv{filter:brightness(0) invert(1)}
-.hx-navt .hx-glass2{background:rgba(255,255,255,.13)!important;border:1px solid rgba(255,255,255,.24)!important;box-shadow:none!important;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
-.hx-hasnav .hx-w{padding-top:calc(var(--hxnav,0px) + 40px)}
-.hx-hasnav .hx-sh{background-image:linear-gradient(180deg,rgba(8,14,30,.62) 0%,rgba(8,14,30,0) 26%),linear-gradient(90deg,rgba(8,14,30,.86) 0%,rgba(8,14,30,.62) 38%,rgba(8,14,30,.12) 72%,rgba(8,14,30,0) 100%),linear-gradient(0deg,rgba(8,14,30,.55) 0%,rgba(8,14,30,0) 45%)}
-.hx-B.hx-hasnav.hx-hero{padding:0}.hx-B.hx-hasnav .hx-box{border-radius:0 0 clamp(22px,3vw,40px) clamp(22px,3vw,40px)}
-@media (max-width:860px){.hx-hasnav .hx-sh{background:linear-gradient(180deg,rgba(8,14,30,.6) 0%,rgba(8,14,30,0) 22%),linear-gradient(0deg,rgba(8,14,30,.92) 0%,rgba(8,14,30,.72) 45%,rgba(8,14,30,.2) 78%,rgba(8,14,30,.05) 100%)}}
-
-.hx.hx-hero{flex-direction:column;align-items:stretch;justify-content:space-between}.hx .kop{position:relative;z-index:3}img[src="img/coach-cut.webp"]:not(.hx-img){background:radial-gradient(circle at 50% 40%,#2c6fe0,#0b1a3a);object-fit:contain!important;object-position:50% 100%!important}
 </style>
 </head>
 <body>
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
-<header class="hero hx-hero hx hx-A" >
-<div class="kop"><div class="wrap">
-<a class="logo" href="#"><i></i>Siam Gym</a>
-<nav class="nav"><a href="#trainen">Trainen</a><a href="#club">De club</a><a href="#uren">Uren &amp; prijzen</a><a href="#bezoek">Bezoek</a></nav>
-<a class="knop k-bl" href="https://wa.me/32496262742" rel="noopener" target="_blank">Kom eens proberen</a>
-</div></div><div class="hx-m"><img class="hx-img" src="img/zaal.webp" alt="" fetchpriority="high" decoding="async"></div><div class="hx-sh" aria-hidden="true"></div><div class="hx-w"><div class="hero-t rv hx-t">
-<span class="cap hx-pill" style="color:var(--bl2)">Gevechtssportclub · Zwevegem</span>
-<h1 class="bs">Leer vechten. <span class="it">Op je eigen tempo.</span></h1>
-<p class="lead">Boksen, kick- en thaiboksen voor iedereen vanaf 5 jaar. Of je nu nog nooit een handschoen aanhad of je klaarmaakt voor de ring: bij ons stap je in wanneer je wil, en de trainers volgen je stap voor stap.</p>
-<div class="acts hx-acts">
-<a class="knop k-bl hx-main" href="https://wa.me/32496262742" rel="noopener" target="_blank">Plan je eerste les <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
-<a class="knop k-lijn hx-ghost" href="#uren">Bekijk de lesuren</a>
-</div>
-<div class="feiten"><span><b>Sinds 1999</b></span><span>Instappen kan het hele jaar</span><span>Materiaal eerste les van ons</span></div>
-</div><div class="score hx-badge"><b>4,8</b><div><strong>125 reviews</strong><span class="st">★★★★★</span> <span>op Google</span></div></div></div>
-</header><script>(function(){document.querySelectorAll(".hx-t *").forEach(function(e){if(e.closest("a,.hx-pill,.g")||e.matches("a,.g"))return;var c=getComputedStyle(e).backgroundColor.match(/[\d.]+/g);if(!c)return;var a=c.length>3?+c[3]:1;if(a>.45&&(+c[0]+ +c[1]+ +c[2])/3>170)e.classList.add("hx-glass")})})()</script><script>(function(){var h=document.querySelector(".hx-hero");if(!h)return;
-function bg(e){var c=getComputedStyle(e).backgroundColor.match(/[\d.]+/g);if(!c)return null;var a=c.length>3?+c[3]:1;if(a<.3)return null;return (+c[0]+ +c[1]+ +c[2])/3}
-function vis(e){var r=e.getBoundingClientRect();return r.width>0&&r.height>0}
-function isNav(e){if(!e||!e.querySelector||e.matches(".demo,.di-strook,script,style,link")||!vis(e))return false;var r=e.getBoundingClientRect();return !!e.querySelector("a")&&r.height>30&&r.height<230}
-var n=null,inside=false;
-for(var i=0;i<h.children.length;i++){var c=h.children[i];if(c.matches(".hx-pre,.kop,.top,header,nav")&&isNav(c)){n=c;inside=true;break}}
-if(!n){var e=h;while(e&&e!==document.body&&!n){var p=e.previousElementSibling;while(p){if(isNav(p)){n=p;break}if(p.matches(".demo,.di-strook,script,style,link")||p.getBoundingClientRect().height<4){p=p.previousElementSibling;continue}break}e=e.parentElement}}
-if(!n)return;var cs=getComputedStyle(n),pos=cs.position,H=n.getBoundingClientRect().height;
-n.classList.add("hx-navt","hx-nav");h.classList.add("hx-hasnav");h.style.setProperty("--hxnav",H+"px");
-if(!inside){if(pos==="absolute"||pos==="fixed"){h.style.paddingTop="0px"}else{var hm=parseFloat(getComputedStyle(h).marginTop)||0;h.style.marginTop=(hm-H)+"px";if(pos==="static")n.style.position="relative"}n.style.zIndex="60"}
-n.querySelectorAll("*").forEach(function(x){if(!vis(x)||x.closest(".hx-keep"))return;var b=bg(x);if(b===null)return;var r=x.getBoundingClientRect();if(b>170&&r.width>150&&!x.matches("a"))x.classList.add("hx-glass2");else x.classList.add("hx-keep")});
-var AL=[];n.querySelectorAll("img").forEach(function(im){if(im.closest(".hx-keep"))return;var f=(im.getAttribute("src")||"").split("/").pop();if(AL.indexOf(f)>-1)im.classList.add("hx-inv")});
-if(pos==="sticky"||pos==="fixed"){var f=function(){n.classList.toggle("hx-navt",scrollY<h.offsetHeight-H-30)};addEventListener("scroll",f,{passive:true});f()}
-})()</script>
-
+<header class="hero">
+  <img src="img/ring-tijger.webp" alt="De ring van Siam Gym voor de grote tijgermuurschildering" width="1600" height="739" fetchpriority="high">
+  <div class="kop"><div class="wrap">
+    <a class="logo" href="#"><img src="img/logo.webp" alt="" width="300" height="299">Siam Gym</a>
+    <nav class="nav"><a href="#trainen">Trainen</a><a href="#club">De club</a><a href="#uren">Uren &amp; prijzen</a><a href="#bezoek">Bezoek</a></nav>
+    <a class="knop k-bl" href="https://wa.me/32496262742" rel="noopener" target="_blank">Kom eens proberen</a>
+  </div></div>
+  <div class="wrap hero-w">
+    <div class="hero-t">
+      <span class="cap rv">Gevechtssportclub · Zwevegem</span>
+      <h1 class="bs rv" style="--d:1">Leer vechten. <span class="it">Op je eigen tempo.</span></h1>
+      <p class="lead rv" style="--d:2">Boksen, kick- en thaiboksen voor iedereen vanaf 5 jaar. Of je nu nog nooit een handschoen aanhad of je klaarmaakt voor de ring: bij ons stap je in wanneer je wil, en de trainers volgen je stap voor stap.</p>
+      <div class="acts rv" style="--d:3">
+        <a class="knop k-bl" href="https://wa.me/32496262742" rel="noopener" target="_blank">Plan je eerste les <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="knop k-lijn" href="#uren">Bekijk de lesuren</a>
+      </div>
+      <div class="feiten rv" style="--d:4"><span><b>Sinds 1999</b></span><span>Instappen kan het hele jaar</span><span>Materiaal eerste les van ons</span></div>
+    </div>
+    <div class="score rv" style="--d:4"><b>4,8</b><div><strong>125 reviews</strong><span class="st">★★★★★</span> <span>op Google</span></div></div>
+  </div>
+</header>
+<div class="lint" aria-hidden="true"><div class="lint-in"><span>Boksen</span><span>Kickboksen</span><span>Thaiboksen</span><span>Kids Martial Arts</span><span>Vrije training</span><span>Privéles</span><span>Battle Arena</span><span>Boksen</span><span>Kickboksen</span><span>Thaiboksen</span><span>Kids Martial Arts</span><span>Vrije training</span><span>Privéles</span><span>Battle Arena</span></div></div>
 
 <main>
 <section class="s" id="trainen">
@@ -296,32 +266,37 @@ if(pos==="sticky"||pos==="fixed"){var f=function(){n.classList.toggle("hx-navt",
       <p class="rv" style="--d:1">Met één all-in abonnement train je mee in alle reguliere lessen en de vrije training. Combineer gerust: veel leden doen kickboksen op maandag en Engels boksen op donderdag.</p>
     </div>
     <div class="dis-g">
-      <article class="dk rv"><div class="ft"><img src="img/coach-cut.webp" alt="Trainer van Siam Gym in gevechtshouding" loading="lazy" width="872" height="1400"><span>4x per week</span></div><div class="tx"><h3>Kick- &amp; thaiboksen</h3><p>Stoten, trappen, knieën en clinch. Je bouwt conditie en techniek op, recreatief of richting competitie.</p><span class="wn">Ma, wo, za</span></div></article>
-      <article class="dk rv" style="--d:1"><div class="ft"><img src="img/pads.webp" alt="Padwerk tussen twee leden" loading="lazy" width="1440" height="964"><span>Handen omhoog</span></div><div class="tx"><h3>Engels boksen</h3><p>Voetwerk, combinaties en verdedigen. Een volledige workout waarbij je bijna geen contact maakt, tenzij je dat zelf wil.</p><span class="wn">Di en do, 19u tot 20u30</span></div></article>
-      <article class="dk uit rv" style="--d:2"><div class="ft"><img src="img/ring.webp" alt="Opwarming en stretching in de ring" loading="lazy" width="1440" height="754"><span>Vanaf 5 jaar</span></div><div class="tx"><h3>Kids Martial Arts</h3><p>Speels maar leerrijk: technieken, behendigheid, conditie en lenigheid. Zonder contact met elkaar.</p><span class="wn">Woensdag 16u30 tot 17u30</span></div></article>
-      <article class="dk rv" style="--d:3"><div class="ft"><img src="img/wraps.webp" alt="Lid tapet zijn handen in voor de training" loading="lazy" width="1440" height="960"><span>Op afspraak</span></div><div class="tx"><h3>Vrije training &amp; privéles</h3><p>Zelf aan de zak werken, of één op één met een gediplomeerde lesgever die zich volledig op jou richt.</p><span class="wn">Di en do 18u, vrijdag op afspraak</span></div></article>
+      <article class="dk rv"><img src="img/coach-cut.webp" alt="Trainer van Siam Gym in gevechtshouding" loading="lazy" width="872" height="1400" style="object-position:50% 12%"><span class="tg">4x per week</span><div class="tx"><h3>Kick- &amp; thaiboksen</h3><p>Stoten, trappen, knieën en clinch. Je bouwt conditie en techniek op, recreatief of richting competitie.</p><span class="wn">Ma, wo, za</span></div></article>
+      <article class="dk rv" style="--d:1"><img src="img/pads.webp" alt="Padwerk tussen twee leden" loading="lazy" width="1440" height="964" style="object-position:62% 50%"><span class="tg">Handen omhoog</span><div class="tx"><h3>Engels boksen</h3><p>Voetwerk, combinaties en verdedigen. Een volledige workout waarbij je bijna geen contact maakt, tenzij je dat zelf wil.</p><span class="wn">Di en do, 19u tot 20u30</span></div></article>
+      <article class="dk uit rv" style="--d:2"><img src="img/ring.webp" alt="Opwarming en stretching in de ring" loading="lazy" width="1440" height="754" style="object-position:70% 50%"><span class="tg">Vanaf 5 jaar</span><div class="tx"><h3>Kids Martial Arts</h3><p>Speels maar leerrijk: technieken, behendigheid, conditie en lenigheid. Zonder contact met elkaar.</p><span class="wn">Woensdag 16u30 tot 17u30</span></div></article>
+      <article class="dk rv" style="--d:3"><img src="img/wraps.webp" alt="Lid tapet zijn handen in voor de training" loading="lazy" width="1440" height="960" style="object-position:62% 50%"><span class="tg">Op afspraak</span><div class="tx"><h3>Vrije training &amp; privéles</h3><p>Zelf aan de zak werken, of één op één met een gediplomeerde lesgever die zich volledig op jou richt.</p><span class="wn">Di en do 18u, vrijdag op afspraak</span></div></article>
     </div>
     <div class="mat rv"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><span>Je eerste les mag je gewoon ons materiaal gebruiken. Daarna helpen we je aan goede handschoenen en beschermers.</span></div>
   </div>
 </section>
 
-<section class="s verhaal" id="club">
-  <div class="wrap vh-g">
-    <div class="collage rv">
-      <figure class="a"><img src="img/zak.webp" alt="Bokszak met het Siam Gym-logo voor de tijgermuurschildering" loading="lazy" width="1440" height="960" style="object-position:30% 50%"></figure>
-      <figure class="b"><img src="img/onthaal.webp" alt="Het nieuwe onthaal van Siam Gym" loading="lazy" width="1440" height="959"></figure>
-      <figure class="c"><img src="img/kooi.webp" alt="De kooi in blauw licht" loading="lazy" width="1440" height="1029"></figure>
-    </div>
-    <div class="vh-t">
-      <span class="cap rv">De club</span>
-      <h2 class="bs h2 rv">Van judozaaltje <span class="it">naar Siam Gym 2.0</span></h2>
-      <p class="rv">Siam Gym begon in 1999 in het judozaaltje van het oude zwembad van Zwevegem. Sindsdien is het veel meer geworden dan een sportclub. Vandaag trainen we in een gloednieuwe zaal aan de Otegemstraat, naast Intratuin, met een ring, een kooi en muren die je niet snel vergeet.</p>
-      <p class="rv">Wat bleef: iedereen is welkom, haantjesgedrag niet. Dames, heren, kids, jong en oud trainen hier samen, elk op hun eigen niveau. En wie de ring in wil, kan dat op Battle Arena, ons eigen gala in Zwevegem en Waregem.</p>
-      <div class="tijd rv">
-        <div><b>4</b><span>Disciplines onder één dak</span></div>
-        <div><b>6</b><span>Dagen per week training</span></div>
-        <div><b>5</b><span>Jaar: vanaf dan mag je starten</span></div>
+<section class="s club" id="club" style="padding-top:0">
+  <div class="wrap">
+    <div class="vh-g">
+      <div>
+        <span class="cap rv">De club</span>
+        <h2 class="bs h2 rv">Van judozaaltje <span class="it">naar Siam&nbsp;Gym&nbsp;2.0</span></h2>
+        <div class="tijd rv">
+          <div><b>4</b><span>Disciplines onder één dak</span></div>
+          <div><b>6</b><span>Dagen per week training</span></div>
+          <div><b>5</b><span>Jaar: vanaf dan mag je starten</span></div>
+        </div>
       </div>
+      <div>
+        <p class="rv">Siam Gym begon in 1999 in het judozaaltje van het oude zwembad van Zwevegem. Sindsdien is het veel meer geworden dan een sportclub. Vandaag trainen we in een gloednieuwe zaal aan de Otegemstraat, naast Intratuin, met een ring, een kooi en muren die je niet snel vergeet.</p>
+        <p class="rv" style="--d:1">Wat bleef: iedereen is welkom, haantjesgedrag niet. Dames, heren, kids, jong en oud trainen hier samen, elk op hun eigen niveau. En wie de ring in wil, kan dat op Battle Arena, ons eigen gala in Zwevegem en Waregem.</p>
+      </div>
+    </div>
+    <div class="wand">
+      <figure class="a rv"><img src="img/zaal.webp" alt="Groepsles kickboksen voor de grote muurschildering" loading="lazy" width="1440" height="807" style="object-position:40% 50%"><figcaption><small>Elke week</small>Groepsles</figcaption></figure>
+      <figure class="b rv" style="--d:1"><img src="img/kooi-muur.webp" alt="De kooi van Siam Gym met muurschildering erachter" loading="lazy" width="1600" height="739" style="object-position:50% 50%"><figcaption><small>Siam Gym 2.0</small>De kooi</figcaption></figure>
+      <figure class="c rv" style="--d:2"><img src="img/fitness.webp" alt="Trainingstoestellen naast een muurschildering van een bokser" loading="lazy" width="1600" height="739" style="object-position:42% 50%"><figcaption><small>Siam Gym 2.0</small>De muren</figcaption></figure>
+      <figure class="d rv" style="--d:3"><img src="img/onthaal.webp" alt="Het nieuwe onthaal van Siam Gym" loading="lazy" width="1440" height="959" style="object-position:50% 60%"><figcaption><small>Naast Intratuin</small>Het onthaal</figcaption></figure>
     </div>
   </div>
 </section>
@@ -359,7 +334,7 @@ if(pos==="sticky"||pos==="fixed"){var f=function(){n.classList.toggle("hx-navt",
         <div class="pr"><span>1 jaar</span><em>€ 199</em></div>
       </div>
     </div>
-    <div class="prijs-voet rv"><span>Privéles? Vraag gerust naar de prijs in de gym of via mail.</span><a class="knop k-ink" href="mailto:siamgym@hotmail.com">siamgym@hotmail.com</a></div>
+    <div class="prijs-voet rv"><span>Privéles? Vraag gerust naar de prijs in de gym of via mail.</span><a class="knop k-wit" href="mailto:siamgym@hotmail.com">siamgym@hotmail.com</a></div>
   </div>
 </section>
 
@@ -396,7 +371,7 @@ if(pos==="sticky"||pos==="fixed"){var f=function(){n.classList.toggle("hx-navt",
 </section>
 </main>
 
-<footer class="voet"><div class="wrap"><span class="logo"><i></i>Siam Gym</span><span>Otegemstraat 319A, 8550 Zwevegem</span><a href="https://www.instagram.com/siam_gym/" target="_blank" rel="noopener">@siam_gym</a><span>Voorbeeldsite door Digital Impression</span></div></footer>
+<footer class="voet"><div class="wrap"><span class="logo"><img src="img/logo.webp" alt="" width="300" height="299" loading="lazy">Siam Gym</span><span>Otegemstraat 319A, 8550 Zwevegem</span><a href="https://www.instagram.com/siam_gym/" target="_blank" rel="noopener">@siam_gym</a><span>Voorbeeldsite door Digital Impression</span></div></footer>
 
 <script>
 (function(){var els=[].slice.call(document.querySelectorAll('.rv'));

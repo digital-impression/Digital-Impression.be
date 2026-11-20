@@ -267,6 +267,79 @@ h1{font-size:clamp(56px,6.8vw,100px);margin-top:26px}
   .v-g{grid-template-columns:1fr}
 }
 
+
+/* oorgalerij (aanpassing 20/11) */
+.galerij{background:var(--nacht2);color:#fff;overflow:hidden;isolation:isolate}
+.galerij .sterrenveld{z-index:-1;opacity:.9;background-image:radial-gradient(circle,rgba(255,255,255,.5) 1.1px,transparent 1.6px),radial-gradient(circle,rgba(226,174,74,.55) 1px,transparent 1.5px);background-size:140px 140px,90px 90px;-webkit-mask:linear-gradient(180deg,#000,transparent 70%);mask:linear-gradient(180deg,#000,transparent 70%)}
+.galerij::before{content:"";position:absolute;z-index:-1;width:900px;height:900px;right:-300px;top:-380px;border-radius:50%;background:radial-gradient(circle,rgba(226,174,74,.22),rgba(226,174,74,0) 64%)}
+.g-top{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;margin-bottom:clamp(36px,4vw,56px)}
+.galerij h2{color:#fff;margin-top:20px}
+.galerij h2 em{color:var(--goud)}
+.galerij .g-top p{color:rgba(255,255,255,.72);max-width:30em;justify-self:end}
+.galerij .pil{background:rgba(255,255,255,.1);color:#fff;box-shadow:none;border:1px solid rgba(255,255,255,.16)}
+.g-raster{display:grid;grid-template-columns:1.2fr .9fr .9fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:14px;height:clamp(620px,62vw,820px)}
+.g-raster figure{position:relative;border-radius:30px;overflow:hidden;background:var(--nacht)}
+.g-raster figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.g-raster figure:hover img{transform:scale(1.06)}
+.g-raster figure.hoog{grid-row:span 2;border-radius:999px 999px 30px 30px}
+.g-raster figcaption{position:absolute;left:14px;bottom:14px;display:inline-flex;align-items:center;gap:8px;background:rgba(27,22,68,.72);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.16);color:#fff;border-radius:99px;padding:9px 15px 9px 10px;font:700 13px/1 'Manrope'}
+.g-raster figcaption::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--goud);box-shadow:0 0 10px var(--goud)}
+.g-kaart{grid-column:3;grid-row:2;border-radius:30px;padding:clamp(24px,2.4vw,32px);background:linear-gradient(150deg,#F1C56E,var(--goud) 55%,#C98F2E);color:var(--nacht2);display:flex;flex-direction:column;justify-content:space-between;gap:18px;position:relative;overflow:hidden}
+.g-kaart::after{content:"";position:absolute;right:-50px;top:-50px;width:180px;height:180px;border-radius:50%;border:1.5px dashed rgba(27,22,68,.25)}
+.g-kaart .maan{width:40px;height:40px;background:var(--nacht2)}
+.g-kaart .maan::after{background:#fff2d6}
+.g-kaart h3{font-size:clamp(26px,2.2vw,32px);color:var(--nacht2)}
+.g-kaart h3 em{color:var(--nacht2)}
+.g-kaart a{display:inline-flex;align-items:center;gap:10px;font:800 15px/1 'Manrope';border-bottom:2px solid currentColor;padding-bottom:5px;width:fit-content}
+.g-kaart a svg{width:17px;height:17px}
+.lint{margin-top:clamp(40px,5vw,64px);border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.lint-in{display:flex;width:max-content;animation:loop 40s linear infinite}
+.lint span{display:flex;align-items:center;gap:30px;padding:20px 15px;font:italic 400 clamp(28px,3vw,40px)/1 'Newsreader',serif;white-space:nowrap;color:rgba(255,255,255,.88)}
+.lint span::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--goud);box-shadow:0 0 12px var(--goud)}
+@keyframes loop{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.lint-in{animation:none}}
+
+/* juwelen in het donker */
+#juwelen{background:var(--nacht);color:#fff;overflow:hidden;isolation:isolate}
+#juwelen::before{content:"";position:absolute;z-index:-1;width:1000px;height:700px;left:50%;top:-200px;translate:-50% 0;border-radius:50%;background:radial-gradient(closest-side,rgba(205,190,255,.22),rgba(205,190,255,0))}
+#juwelen h2{color:#fff}
+#juwelen h2 em{color:var(--goud)}
+#juwelen .s-kop p{color:rgba(255,255,255,.74)}
+#juwelen .pil{background:rgba(255,255,255,.1);color:#fff;box-shadow:none;border:1px solid rgba(255,255,255,.16)}
+#juwelen .jk{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);box-shadow:none;backdrop-filter:blur(6px)}
+#juwelen .jk:hover{border-color:rgba(226,174,74,.55)}
+#juwelen .jk .beeld{background:radial-gradient(70% 70% at 50% 42%,#3a3180 0%,#231d58 58%,#18143f 100%)}
+#juwelen .jk .beeld::before{border-color:rgba(226,174,74,.35)}
+#juwelen .jk .beeld::after{background:radial-gradient(closest-side,rgba(0,0,0,.45),rgba(0,0,0,0))}
+#juwelen .jk .beeld img{filter:drop-shadow(0 18px 18px rgba(0,0,0,.45)) drop-shadow(0 0 30px rgba(255,236,190,.18))}
+#juwelen .jk .lab{background:var(--goud);color:var(--nacht2)}
+#juwelen .jk h3{color:#fff}
+#juwelen .jk p{color:rgba(255,255,255,.7)}
+#juwelen .merken span{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.14)}
+#juwelen .merken em{color:rgba(255,255,255,.55)}
+.glim{position:absolute;z-index:2;width:16px;height:16px;pointer-events:none;background:radial-gradient(circle,#fff 0 18%,transparent 20%),linear-gradient(0deg,transparent 46%,rgba(255,255,255,.9) 50%,transparent 54%),linear-gradient(90deg,transparent 46%,rgba(255,255,255,.9) 50%,transparent 54%);animation:glim 3.2s ease-in-out infinite}
+@keyframes glim{0%,100%{opacity:0;transform:scale(.4) rotate(0)}50%{opacity:1;transform:scale(1) rotate(45deg)}}
+@media (prefers-reduced-motion:reduce){.glim{animation:none;opacity:.8}}
+
+@media (max-width:1060px){
+  .g-top{grid-template-columns:1fr}
+  .galerij .g-top p{justify-self:start}
+  .g-raster{grid-template-columns:1fr 1fr;grid-template-rows:none;height:auto}
+  .g-raster figure{aspect-ratio:1/1.1}
+  .g-raster figure.hoog{grid-row:auto;grid-column:1/-1;aspect-ratio:16/11;border-radius:30px}
+  .g-kaart{grid-column:auto;grid-row:auto}
+}
+@media (max-width:640px){
+  .g-raster{gap:10px}
+  .g-raster figure{border-radius:22px}
+  .g-raster figure.hoog{aspect-ratio:4/4.4;border-radius:999px 999px 24px 24px}
+  .g-raster figcaption{font-size:12px;padding:8px 12px 8px 9px;left:10px;bottom:10px}
+  .g-kaart{border-radius:22px;padding:18px 16px;gap:12px}
+  .g-kaart h3{font-size:21px}
+  .g-kaart .maan{width:30px;height:30px}
+  .g-kaart a{font-size:13.5px;gap:6px}
+}
+
 /*hx-hero 20/11*/
 .hx.hx-hero{margin:0;padding:0;background:none;border:0;border-radius:0;box-shadow:none;grid-template-columns:none;max-width:none;width:auto;height:auto;text-align:left}.hx.hx-hero::before,.hx.hx-hero::after{display:none}
 .hx{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:flex-end;min-height:clamp(600px,calc(100svh - 90px),920px);color:#fff}
@@ -386,6 +459,24 @@ if(pos==="sticky"||pos==="fixed"){var f=function(){n.classList.toggle("hx-navt",
   </div>
 </section>
 
+<section class="s galerij" id="oren">
+  <div class="sterrenveld" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="g-top">
+      <div><span class="pil rv"><span class="maan" aria-hidden="true"></span>Ear curation</span><h2 class="rv" style="--d:1">Elk oor is anders, <em>elk plan ook</em></h2></div>
+      <p class="rv" style="--d:2">Eén fijne helix, een rij ringetjes in je lobe of een volledig opgebouwd oor met goud en steentjes. We kijken samen wat bij jouw oor en jouw stijl past.</p>
+    </div>
+    <div class="g-raster">
+      <figure class="hoog rv"><img src="img/g-goud.webp" alt="Oor met gouden studs in helix, conch en lobes" loading="lazy" width="1200" height="1600" style="object-position:50% 30%"><figcaption>Helix, conch &amp; lobes</figcaption></figure>
+      <figure class="rv" style="--d:1"><img src="img/g-industrial.webp" alt="Industrial en ring in de lobe bij donker haar" loading="lazy" width="1200" height="1800" style="object-position:50% 34%"><figcaption>Industrial</figcaption></figure>
+      <figure class="rv" style="--d:2"><img src="img/g-stack.webp" alt="Lobe stack met kleine studs en steentjes" loading="lazy" width="1200" height="1800" style="object-position:50% 58%"><figcaption>Lobe stack</figcaption></figure>
+      <figure class="rv" style="--d:3"><img src="img/g-ketting.webp" alt="Hand met gouden ringen bij een oor met fijn kettinkje" loading="lazy" width="1200" height="1800" style="object-position:50% 38%"><figcaption>Goud &amp; kettinkjes</figcaption></figure>
+      <div class="g-kaart rv" style="--d:4"><span class="maan" aria-hidden="true"></span><h3>Benieuwd wat bij <em>jouw oor</em> past?</h3><a href="https://maanlichtpiercings.setmore.com/ils" target="_blank" rel="noopener">Boek je afspraak <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+  </div>
+  <div class="lint" aria-hidden="true"><div class="lint-in"><span>Lobe</span><span>Helix</span><span>Conch</span><span>Tragus</span><span>Daith</span><span>Rook</span><span>Neus</span><span>Septum</span><span>Navel</span><span>Lip</span><span>Wenkbrauw</span><span>Lobe</span><span>Helix</span><span>Conch</span><span>Tragus</span><span>Daith</span><span>Rook</span><span>Neus</span><span>Septum</span><span>Navel</span><span>Lip</span><span>Wenkbrauw</span></div></div>
+</section>
+
 <section class="s prijzen" id="prijzen">
   <div class="wrap">
     <div class="s-kop">
@@ -445,15 +536,15 @@ if(pos==="sticky"||pos==="fixed"){var f=function(){n.classList.toggle("hx-navt",
     </div>
     <div class="j-g">
       <article class="jk rv">
-        <div class="beeld"><span class="lab">18kt goud</span><img src="img/libel.webp" alt="Gouden libelle-juweel met fijne details op een stuk kwarts" loading="lazy" width="718" height="636"></div>
+        <div class="beeld"><span class="lab">18kt goud</span><i class="glim" style="left:26%;top:30%" aria-hidden="true"></i><img src="img/libel.webp" alt="Gouden libelle-juweel met fijne details op een stuk kwarts" loading="lazy" width="718" height="636"></div>
         <div class="t"><h3>Massief goud</h3><p>Met de hand gemaakt in 14 of 18 karaat, zoals deze libel van Anatometal. Mooi in je oor, maar ook in je neus.</p></div>
       </article>
       <article class="jk rv" style="--d:1">
-        <div class="beeld"><span class="lab">Titanium</span><img src="img/fans.webp" alt="Waaiertje van drie marquise-steentjes in herfstkleuren" loading="lazy" width="659" height="456"></div>
+        <div class="beeld"><span class="lab">Titanium</span><i class="glim" style="right:28%;top:34%;animation-delay:1.1s" aria-hidden="true"></i><img src="img/fans.webp" alt="Waaiertje van drie marquise-steentjes in herfstkleuren" loading="lazy" width="659" height="456"></div>
         <div class="t"><h3>Titanium met kleur</h3><p>Implant grade titanium, met steentjes in elke tint. Het titanium kan ook goudkleurig geanodiseerd worden.</p></div>
       </article>
       <article class="jk rv" style="--d:2">
-        <div class="beeld"><span class="lab">Voor elk oor</span><img src="img/blauw.webp" alt="Waaiertje van drie blauwe marquise-steentjes" loading="lazy" width="776" height="545"></div>
+        <div class="beeld"><span class="lab">Voor elk oor</span><i class="glim" style="left:34%;top:62%;animation-delay:2s" aria-hidden="true"></i><img src="img/blauw.webp" alt="Waaiertje van drie blauwe marquise-steentjes" loading="lazy" width="776" height="545"></div>
         <div class="t"><h3>Voor vers of genezen</h3><p>Veel van deze juwelen passen zowel in een nieuwe piercing als in eentje die al lang genezen is.</p></div>
       </article>
     </div>
