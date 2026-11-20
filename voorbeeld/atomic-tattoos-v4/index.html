@@ -44,28 +44,32 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:7
 nav .btn{padding:11px 20px;font-size:14.5px}
 
 /* hero */
-.hero{position:relative;background:var(--zw);color:var(--tekst);overflow:hidden;padding:40px 0 96px}
-.hero::before{content:"";position:absolute;left:-10%;top:30%;width:900px;height:900px;background:radial-gradient(closest-side,rgba(232,50,43,.26),transparent 70%);pointer-events:none}
-.woord{position:absolute;left:50%;top:18px;transform:translateX(-50%);font-family:'Bowlby One',sans-serif;font-size:clamp(120px,21vw,330px);line-height:1;letter-spacing:.01em;color:transparent;-webkit-text-stroke:2px rgba(242,236,226,.13);white-space:nowrap;pointer-events:none;user-select:none}
-.hero .wrap{position:relative;display:grid;grid-template-columns:1fr 1.05fr;gap:72px;align-items:center;padding-top:70px}
-.beeld{position:relative;justify-self:center;width:min(430px,100%)}
-.beeld .blok{position:absolute;inset:34px -38px -30px 40px;background:var(--rood);transform:skewX(-8deg);border-radius:18px}
-.beeld figure{position:relative;border-radius:var(--r);overflow:hidden;transform:rotate(-3deg);box-shadow:0 50px 90px -30px rgba(0,0,0,.85);border:7px solid var(--zw3);aspect-ratio:4/5}
-.beeld figure img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
-.beeld figcaption{position:absolute;left:16px;bottom:16px;background:rgba(15,13,12,.82);backdrop-filter:blur(6px);color:#fff;font-size:13px;font-weight:600;padding:7px 14px;border-radius:99px}
-.stempel{position:absolute;right:-56px;top:-40px;width:150px;height:150px;border-radius:50%;background:var(--wit);color:var(--ink);display:grid;place-items:center;box-shadow:0 24px 50px -18px rgba(0,0,0,.7);z-index:2}
+.hero{position:relative;isolation:isolate;overflow:hidden;background:var(--zw);color:var(--tekst);border-radius:0 0 40px 40px;min-height:max(620px,calc(100svh - 114px));display:flex;align-items:flex-end}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:62% 38%;filter:grayscale(1) contrast(1.08) brightness(.92);transform:scale(1.06);animation:inzoom 2.4s var(--ease) forwards}
+@keyframes inzoom{to{transform:scale(1)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  radial-gradient(60% 70% at 8% 100%,rgba(232,50,43,.38),rgba(232,50,43,0) 70%),
+  linear-gradient(90deg,rgba(15,13,12,.96) 0%,rgba(15,13,12,.86) 34%,rgba(15,13,12,.35) 62%,rgba(15,13,12,.1) 100%),
+  linear-gradient(0deg,rgba(15,13,12,.7) 0%,rgba(15,13,12,0) 40%)}
+.hero .wrap{position:relative;width:min(1200px,100% - 48px);display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:40px;padding:110px 0 84px}
+.hero .tekst{max-width:640px}
+.hero .pill{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;padding:9px 16px 9px 10px;border-radius:99px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.hero .pill img{width:22px;height:22px}
+.hero h1{font-size:clamp(50px,6.2vw,96px);margin:24px 0 24px;color:#fff;text-shadow:0 4px 40px rgba(0,0,0,.4)}
+.hero h1 .acc{font-size:.66em;display:block;margin-top:12px;transform:rotate(-3deg) translateX(4px);color:#FF4A40}
+.hero p.lead{font-size:19px;color:#D9D2C8;max-width:530px}
+.knoppen{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero .btn-lijn{background:rgba(255,255,255,.06);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.trust{display:flex;align-items:center;gap:10px;margin-top:26px;font-size:15px;color:#C7BFB4;font-weight:500}
+.trust svg{color:var(--rood);flex:none}
+.stempel{position:relative;width:156px;height:156px;border-radius:50%;background:var(--wit);color:var(--ink);display:grid;place-items:center;box-shadow:0 30px 60px -20px rgba(0,0,0,.8),0 0 0 8px rgba(255,255,255,.08);transform:rotate(-8deg);margin-bottom:6px}
 .stempel svg.ring{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);animation:draai 22s linear infinite}
 .stempel .mid{text-align:center;line-height:1}
-.stempel .mid b{font-family:'Bowlby One',sans-serif;font-weight:400;font-size:34px;display:block}
+.stempel .mid b{font-family:'Bowlby One',sans-serif;font-weight:400;font-size:36px;display:block}
 .stempel .mid span{color:var(--rood);font-size:14px;letter-spacing:2px}
 @keyframes draai{to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion:reduce){.stempel svg.ring{animation:none}}
-.hero h1{font-size:clamp(50px,5.8vw,84px);margin:22px 0 26px}
-.hero h1 .acc{font-size:.74em;display:block;margin-top:14px;transform:rotate(-3deg) translateX(4px)}
-.hero p.lead{font-size:19px;color:#CEC6BA;max-width:520px}
-.knoppen{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-.trust{display:flex;align-items:center;gap:10px;margin-top:26px;font-size:15px;color:var(--grijs);font-weight:500}
-.trust svg{color:var(--rood);flex:none}
+@media (prefers-reduced-motion:reduce){.stempel svg.ring,.hero-bg img{animation:none}.hero-bg img{transform:none}}
 
 /* secties */
 section{position:relative}
@@ -147,7 +151,7 @@ section{position:relative}
 .flash .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
 .flashfoto{position:relative}
 .flashfoto figure{border-radius:var(--r);overflow:hidden;aspect-ratio:1/1.02;box-shadow:0 40px 80px -40px rgba(40,25,15,.45);transform:rotate(2deg)}
-.flashfoto img{width:100%;height:100%;object-fit:cover}
+.flashfoto img{width:100%;height:100%;object-fit:cover;object-position:50% 35%}
 .flash h2{font-size:clamp(40px,4.4vw,62px);margin:16px 0 22px}
 .flash p{color:#4e463e;margin-bottom:14px;max-width:500px}
 .uren{margin-top:34px;background:var(--wit);border-radius:var(--r);padding:28px 30px;box-shadow:0 24px 50px -34px rgba(40,25,15,.4);max-width:500px}
@@ -191,9 +195,9 @@ form.idee button{margin-top:22px;width:100%;justify-content:center;border:0;curs
 
 @media (max-width:1020px){
   .menu{display:none}
-  .hero .wrap,.over .wrap,.stijlen .wrap,.flash .wrap,.contact .wrap{grid-template-columns:1fr;gap:56px}
-  .hero .wrap{padding-top:40px}
-  .beeld{order:2;margin-top:10px}
+  .over .wrap,.stijlen .wrap,.flash .wrap,.contact .wrap{grid-template-columns:1fr;gap:56px}
+  .hero .wrap{grid-template-columns:1fr;gap:30px;padding:90px 0 64px}
+  .hero::before{background:radial-gradient(70% 50% at 0% 100%,rgba(232,50,43,.38),rgba(232,50,43,0) 70%),linear-gradient(0deg,rgba(15,13,12,.97) 0%,rgba(15,13,12,.88) 48%,rgba(15,13,12,.35) 80%,rgba(15,13,12,.15) 100%)}
   .kop{flex-direction:column;align-items:flex-start;gap:18px}
   .rgrid{grid-template-columns:1fr}
   .galerij{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:260px}
@@ -209,13 +213,13 @@ form.idee button{margin-top:22px;width:100%;justify-content:center;border:0;curs
   .logo img{width:40px;height:40px}
   .logo b{font-size:19px}
   nav .btn{padding:10px 16px;font-size:14px}
-  .hero{padding:24px 0 72px}
-  .woord{top:10px;-webkit-text-stroke-width:1.5px}
-  .hero h1{font-size:clamp(40px,11.4vw,56px)}
-  .hero p.lead{font-size:17.5px}
-  .beeld{width:min(330px,82%);margin-right:18px}
-  .beeld .blok{inset:28px -22px -22px 30px}
-  .stempel{width:116px;height:116px;right:-34px;top:-34px}
+  .hero{border-radius:0 0 30px 30px;min-height:calc(100svh - 104px)}
+  .hero .wrap{width:calc(100% - 36px);padding:150px 0 48px}
+  .hero-bg img{object-position:50% 20%}
+  .hero h1{font-size:clamp(42px,12vw,58px);margin:20px 0 18px}
+  .hero p.lead{font-size:17px}
+  .hero .pill{font-size:11px;letter-spacing:.1em}
+  .stempel{width:112px;height:112px;margin:0}
   .stempel .mid b{font-size:26px}
   .sec{padding:84px 0}
   .werk{padding-top:84px}
@@ -234,56 +238,6 @@ form.idee button{margin-top:22px;width:100%;justify-content:center;border:0;curs
   .voet .wrap{flex-direction:column;align-items:flex-start}
 }
 
-/*hx-hero 20/11*/
-.hx.hx-hero{margin:0;padding:0;background:none;border:0;border-radius:0;box-shadow:none;grid-template-columns:none;max-width:none;width:auto;height:auto;text-align:left}.hx.hx-hero::before,.hx.hx-hero::after{display:none}
-.hx{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:flex-end;min-height:clamp(600px,calc(100svh - 90px),920px);color:#fff}
-.hx-m{position:absolute;inset:0;z-index:-2;overflow:hidden;background:rgb(16,12,10)}
-.hx-img{width:100%;height:100%;object-fit:cover;object-position:50% 42%;transform:scale(1.06);animation:hxz 2.2s cubic-bezier(.16,1,.3,1) .1s forwards}
-@keyframes hxz{to{transform:scale(1)}}
-.hx-sh{position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(16,12,10,.86) 0%,rgba(16,12,10,.62) 38%,rgba(16,12,10,.12) 72%,rgba(16,12,10,0) 100%),linear-gradient(0deg,rgba(16,12,10,.55) 0%,rgba(16,12,10,0) 45%)}
-.hx-w{position:relative;width:100%;max-width:1280px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,4.5vw,56px) clamp(52px,7vw,92px);display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
-.hx .hx-t{max-width:640px;margin:0;padding:0;text-align:left;color:rgba(255,255,255,.88);background:none;box-shadow:none;border:0;position:relative;flex:1 1 auto;transform:none}
-.hx .hx-t>*{margin-left:0;margin-right:0;max-width:none}
-.hx .hx-t h1{color:#fff;font-size:clamp(40px,5vw,74px);max-width:12.5em;text-shadow:0 2px 30px rgba(16,12,10,.35)}
-.hx .hx-t h1 em,.hx .hx-t h1 i,.hx .hx-t h1 [class]{color:#FF5A4E}
-.hx .hx-t p{color:rgba(255,255,255,.88);max-width:34em}.hx .hx-t p b,.hx .hx-t p strong{color:#fff}
-.hx .hx-t>:not(h1):not(.hx-pill):not(.hx-acts):not(p){color:rgba(255,255,255,.82)}
-.hx .hx-pill{width:fit-content;background:rgba(255,255,255,.14)!important;color:#fff!important;border:1px solid rgba(255,255,255,.26)!important;box-shadow:none!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-.hx .hx-pill *{color:inherit}
-.hx .hx-acts{justify-content:flex-start}
-.hx:not(.hx-C) .hx-t,.hx:not(.hx-C) .hx-t *{text-align:left}
-.hx:not(.hx-C) .hx-t>div,.hx:not(.hx-C) .hx-t>p{justify-content:flex-start;align-items:flex-start;margin-left:0;margin-right:0}
-.hx:not(.hx-C) .hx-t>div{align-items:center}
-.hx .hx-t>:not(h1):not(.hx-pill):not(.hx-acts) :is(b,strong,span,em,i,small):not(a *){color:inherit}
-.hx .hx-t .g{color:#3b3b3b!important}
-.hx .hx-ghost{background:rgba(255,255,255,.1)!important;color:#fff!important;border:1.5px solid rgba(255,255,255,.5)!important;box-shadow:none!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.hx .hx-ghost:hover{background:#fff!important;color:rgb(16,12,10)!important}
-.hx .hx-badge{color:#1d1b19;position:relative!important;inset:auto!important;transform:none!important;flex:none;margin:0;align-self:flex-end;animation:none}
-.hx-B.hx-hero{padding:0 clamp(10px,1.4vw,18px)}.hx-B .hx-box{position:relative;isolation:isolate;width:100%;border-radius:clamp(22px,3vw,40px);overflow:hidden;display:flex;align-items:flex-end;min-height:inherit}.hx-B{display:block}.hx-B .hx-box .hx-m{z-index:-2}
-
-.hx-C .hx-w{flex-direction:column;align-items:center;text-align:center}.hx-C .hx-t{text-align:center;margin:0 auto}.hx-C .hx-t h1{margin-left:auto;margin-right:auto}.hx-C .hx-acts{justify-content:center}.hx-C .hx-t>*{margin-left:auto!important;margin-right:auto!important}.hx-C .hx-sh{background:linear-gradient(0deg,rgba(16,12,10,.85),rgba(16,12,10,.35) 60%,rgba(16,12,10,.2))}.hx-C .hx-badge{align-self:center}
-@media (max-width:860px){
- .hx{min-height:calc(100svh - 70px)}
- .hx-img{object-position:45% 40%}
- .hx .hx-t h1{font-size:clamp(36px,10vw,52px)}
- .hx-sh{background:linear-gradient(0deg,rgba(16,12,10,.92) 0%,rgba(16,12,10,.72) 45%,rgba(16,12,10,.2) 78%,rgba(16,12,10,.05) 100%)}
- .hx:not(.hx-C) .hx-t>div{flex-wrap:wrap}
- .hx-w{flex-direction:column;align-items:flex-start;gap:26px;padding-bottom:40px;}
- .hx .hx-badge{align-self:flex-start}
-}
-.hx .hx-glass{background:rgba(255,255,255,.14)!important;border:1px solid rgba(255,255,255,.26)!important;color:#fff!important;box-shadow:none!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}.hx .hx-glass *{color:#fff}
-/*hx-nav*/
-.hx-navt{background:transparent!important;border-color:transparent!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;transition:background .35s,color .35s}
-.hx-navt::before,.hx-navt::after{opacity:0}
-.hx-navt,.hx-navt :not(.hx-keep):not(.hx-keep *){color:#fff!important;border-color:rgba(255,255,255,.28)!important}
-.hx-navt img.hx-inv{filter:brightness(0) invert(1)}
-.hx-navt .hx-glass2{background:rgba(255,255,255,.13)!important;border:1px solid rgba(255,255,255,.24)!important;box-shadow:none!important;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
-.hx-hasnav .hx-w{padding-top:calc(var(--hxnav,0px) + 40px)}
-.hx-hasnav .hx-sh{background-image:linear-gradient(180deg,rgba(16,12,10,.62) 0%,rgba(16,12,10,0) 26%),linear-gradient(90deg,rgba(16,12,10,.86) 0%,rgba(16,12,10,.62) 38%,rgba(16,12,10,.12) 72%,rgba(16,12,10,0) 100%),linear-gradient(0deg,rgba(16,12,10,.55) 0%,rgba(16,12,10,0) 45%)}
-.hx-B.hx-hasnav.hx-hero{padding:0}.hx-B.hx-hasnav .hx-box{border-radius:0 0 clamp(22px,3vw,40px) clamp(22px,3vw,40px)}
-@media (max-width:860px){.hx-hasnav .hx-sh{background:linear-gradient(180deg,rgba(16,12,10,.6) 0%,rgba(16,12,10,0) 22%),linear-gradient(0deg,rgba(16,12,10,.92) 0%,rgba(16,12,10,.72) 45%,rgba(16,12,10,.2) 78%,rgba(16,12,10,.05) 100%)}}
-
-
 </style>
 </head>
 <body>
@@ -297,34 +251,25 @@ form.idee button{margin-top:22px;width:100%;justify-content:center;border:0;curs
   </div>
 </nav>
 
-<header class="hero hx-hero hx hx-A" id="top">
-<div class="hx-m"><img class="hx-img" src="img/tom-aan-het-werk.webp" alt="Tom Maassen aan het werk in Atomic Custom Tattoos" fetchpriority="high" decoding="async"></div><div class="hx-sh" aria-hidden="true"></div><div class="hx-w"><div class="tekst hx-t">
-<span class="tag hx-pill">Custom tattoo shop van Tom Maassen</span>
-<h1>Getekend voor jou <span class="acc">en voor niemand anders!</span></h1>
-<p class="lead">Elke tattoo bij Atomic tekent Tom met de hand, op maat van je huid en de plek waar hij komt. Felle kleur, zacht black and grey of een oude tattoo die beter kan: kom maar af met je idee.</p>
-<div class="knoppen hx-acts">
-<a class="btn btn-rood hx-main" href="https://wa.me/32499101547"><svg fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 .9c.3.2.5.2.6.4.1.1.1.7-.2 1.3Z"></path></svg>WhatsApp je idee</a>
-<a class="btn btn-lijn hx-ghost" href="#werk">Bekijk het werk</a>
-</div>
-<p class="trust"><svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewbox="0 0 24 24" width="18"><path d="M20 6 9 17l-5-5"></path></svg>Elk ontwerp 100% met de hand getekend</p>
-</div><div aria-label="5,0 op Google uit 65 reviews" class="stempel hx-badge">
-<svg aria-hidden="true" class="ring" viewbox="0 0 100 100"><defs><path d="M50,50 m-39,0 a39,39 0 1,1 78,0 a39,39 0 1,1 -78,0" id="cirkel"></path></defs><text fill="#16120F" font-family="Schibsted Grotesk, sans-serif" font-size="8.2" font-weight="700"><textpath href="#cirkel" lengthadjust="spacing" textlength="242">65 REVIEWS OP GOOGLE ✺ 65 REVIEWS OP GOOGLE ✺</textpath></text></svg>
-<div class="mid"><b>5,0</b><span>★★★★★</span></div>
-</div></div>
-</header><script>(function(){document.querySelectorAll(".hx-t *").forEach(function(e){if(e.closest("a,.hx-pill,.g")||e.matches("a,.g"))return;var c=getComputedStyle(e).backgroundColor.match(/[\d.]+/g);if(!c)return;var a=c.length>3?+c[3]:1;if(a>.45&&(+c[0]+ +c[1]+ +c[2])/3>170)e.classList.add("hx-glass")})})()</script><script>(function(){var h=document.querySelector(".hx-hero");if(!h)return;
-function bg(e){var c=getComputedStyle(e).backgroundColor.match(/[\d.]+/g);if(!c)return null;var a=c.length>3?+c[3]:1;if(a<.3)return null;return (+c[0]+ +c[1]+ +c[2])/3}
-function vis(e){var r=e.getBoundingClientRect();return r.width>0&&r.height>0}
-function isNav(e){if(!e||!e.querySelector||e.matches(".demo,.di-strook,script,style,link")||!vis(e))return false;var r=e.getBoundingClientRect();return !!e.querySelector("a")&&r.height>30&&r.height<230}
-var n=null,inside=false;
-for(var i=0;i<h.children.length;i++){var c=h.children[i];if(c.matches(".hx-pre,.kop,.top,header,nav")&&isNav(c)){n=c;inside=true;break}}
-if(!n){var e=h;while(e&&e!==document.body&&!n){var p=e.previousElementSibling;while(p){if(isNav(p)){n=p;break}if(p.matches(".demo,.di-strook,script,style,link")||p.getBoundingClientRect().height<4){p=p.previousElementSibling;continue}break}e=e.parentElement}}
-if(!n)return;var cs=getComputedStyle(n),pos=cs.position,H=n.getBoundingClientRect().height;
-n.classList.add("hx-navt","hx-nav");h.classList.add("hx-hasnav");h.style.setProperty("--hxnav",H+"px");
-if(!inside){if(pos==="absolute"||pos==="fixed"){h.style.paddingTop="0px"}else{var hm=parseFloat(getComputedStyle(h).marginTop)||0;h.style.marginTop=(hm-H)+"px";if(pos==="static")n.style.position="relative"}n.style.zIndex="60"}
-n.querySelectorAll("*").forEach(function(x){if(!vis(x)||x.closest(".hx-keep"))return;var b=bg(x);if(b===null)return;var r=x.getBoundingClientRect();if(b>170&&r.width>150&&!x.matches("a"))x.classList.add("hx-glass2");else x.classList.add("hx-keep")});
-var AL=["atoom-wit.webp", "atoom-rood.webp"];n.querySelectorAll("img").forEach(function(im){if(im.closest(".hx-keep"))return;var f=(im.getAttribute("src")||"").split("/").pop();if(AL.indexOf(f)>-1)im.classList.add("hx-inv")});
-if(pos==="sticky"||pos==="fixed"){var f=function(){n.classList.toggle("hx-navt",scrollY<h.offsetHeight-H-30)};addEventListener("scroll",f,{passive:true});f()}
-})()</script>
+<header class="hero" id="top">
+  <div class="hero-bg"><img src="img/flash.webp" alt="Toms flash-muur: tientallen handgetekende ontwerpen naast elkaar op een donkere muur" width="1600" height="1716" fetchpriority="high"></div>
+  <div class="wrap">
+    <div class="tekst">
+      <span class="pill"><img src="img/atoom-rood.webp" alt="">Custom tattoo shop van Tom Maassen</span>
+      <h1>Getekend voor jou <span class="acc">en voor niemand anders!</span></h1>
+      <p class="lead">Elke tattoo bij Atomic tekent Tom met de hand, op maat van je huid en de plek waar hij komt. Felle kleur, zacht black and grey of een oude tattoo die beter kan: kom maar af met je idee.</p>
+      <div class="knoppen">
+        <a class="btn btn-rood" href="https://wa.me/32499101547"><svg fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 .9c.3.2.5.2.6.4.1.1.1.7-.2 1.3Z"></path></svg>WhatsApp je idee</a>
+        <a class="btn btn-lijn" href="#werk">Bekijk het werk</a>
+      </div>
+      <p class="trust"><svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24" width="18"><path d="M20 6 9 17l-5-5"></path></svg>Elk ontwerp 100% met de hand getekend</p>
+    </div>
+    <div aria-label="5,0 op Google uit 65 reviews" class="stempel">
+      <svg aria-hidden="true" class="ring" viewbox="0 0 100 100"><defs><path d="M50,50 m-39,0 a39,39 0 1,1 78,0 a39,39 0 1,1 -78,0" id="cirkel"></path></defs><text fill="#16120F" font-family="Schibsted Grotesk, sans-serif" font-size="8.2" font-weight="700"><textpath href="#cirkel" lengthadjust="spacing" textlength="242">65 REVIEWS OP GOOGLE ✺ 65 REVIEWS OP GOOGLE ✺</textpath></text></svg>
+      <div class="mid"><b>5,0</b><span>★★★★★</span></div>
+    </div>
+  </div>
+</header>
 
 
 <section class="sec over" id="tom">
@@ -414,7 +359,7 @@ if(pos==="sticky"||pos==="fixed"){var f=function(){n.classList.toggle("hx-navt",
 
 <section class="sec flash" id="shop">
   <div class="wrap">
-    <div class="flashfoto"><figure><img src="img/flash.webp" alt="Muur vol flash-tekeningen van Tom" loading="lazy"></figure></div>
+    <div class="flashfoto"><figure><img src="img/tom-aan-het-werk.webp" alt="Tom aan het werk" loading="lazy" width="1600" height="2133"></figure></div>
     <div>
       <span class="tag">In de shop</span>
       <h2>Binnen? <span class="acc">Kijk links!</span></h2>

@@ -10,7 +10,7 @@
 <link rel="icon" href="img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@1&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap">
 <style>
 :root{
   --ink:#0C111E;--ink2:#1B2133;--cob:#2342EE;--cob2:#1A32C9;--cobl:#8EA0FF;--paper:#F1F0EC;--card:#fff;
@@ -25,7 +25,7 @@ a{color:inherit;text-decoration:none}
 .demo{background:var(--ink);color:#C9CEDC;font-size:13px;text-align:center;padding:9px 16px;position:relative;z-index:30}
 .demo a{color:var(--cobl);text-decoration:underline;text-underline-offset:3px;font-weight:700}
 h1,h2,h3{font-family:'Anton',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.005em;line-height:.98}
-.it{font-family:'Instrument Serif',Georgia,serif;font-style:italic;text-transform:none;letter-spacing:0;font-weight:400}
+.it{font-family:inherit;font-style:normal;text-transform:inherit;letter-spacing:inherit;font-weight:inherit}
 .tag{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:7px 14px 7px 12px;border-radius:99px;background:#fff;border:1px solid var(--line);color:var(--ink)}
 .tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--cob)}
 .btn{display:inline-flex;align-items:center;gap:12px;font-weight:700;font-size:15px;padding:8px 8px 8px 22px;border-radius:99px;transition:transform .3s var(--ease),background .3s}
@@ -62,7 +62,7 @@ section{position:relative}
 .hero .tag{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.22);color:#fff;backdrop-filter:blur(8px)}
 .hero .tag::before{background:var(--cobl)}
 .hero h1{font-size:clamp(58px,8.6vw,124px);margin:22px 0 22px;max-width:760px}
-.hero h1 .it{color:var(--cobl);font-size:1.08em;line-height:.8}
+.hero h1 .it{color:var(--cobl)}
 .hero p.lead{font-size:18px;max-width:500px;color:rgba(255,255,255,.86)}
 .hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
 .trust{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:26px;font-size:14px;color:rgba(255,255,255,.92);font-weight:600}
@@ -85,11 +85,6 @@ section{position:relative}
 .sign b{display:block;font-size:15px}.sign small{color:var(--muted);font-size:13px}
 .over .pic{position:relative}
 .over .pic img{border-radius:var(--r);aspect-ratio:4/4.6;object-fit:cover;width:100%}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:clamp(50px,6vw,80px)}
-.stat{background:#fff;border-radius:22px;padding:26px 26px 24px;border:1px solid var(--line)}
-.stat b{font-family:'Anton';font-weight:400;font-size:clamp(48px,5vw,64px);line-height:1;color:var(--cob)}
-.stat b small{font-family:'Manrope';font-weight:800;font-size:18px;margin-left:6px;color:var(--ink)}
-.stat p{margin:10px 0 0;font-size:14.5px;color:var(--muted)}
 
 /* aanbod */
 .aanbod{background:#fff;border-radius:44px 44px 0 0}
@@ -128,7 +123,7 @@ section{position:relative}
 .rev .box::before{content:"";position:absolute;left:-140px;top:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.14),transparent 70%)}
 .rev .tag{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.2);color:#fff}.rev .tag::before{background:#fff}
 .big{font-family:'Anton';font-size:clamp(110px,13vw,170px);line-height:.9;margin:26px 0 10px}
-.big small{font-family:'Instrument Serif';font-style:italic;font-size:.34em;opacity:.75;margin-left:8px}
+.big small{font-family:'Manrope',sans-serif;font-weight:700;font-size:.2em;opacity:.75;margin-left:10px;letter-spacing:.02em}
 .rev .stars{color:#FFD24A;font-size:22px;letter-spacing:4px}
 .rev .l p{color:rgba(255,255,255,.84);margin:14px 0 26px;max-width:340px}
 .pills{display:flex;flex-wrap:wrap;gap:8px}
@@ -211,9 +206,6 @@ footer nav{display:flex;gap:20px;font-size:14px;font-weight:600}
   .head{flex-direction:column;align-items:flex-start;gap:16px;margin-bottom:34px}
   .over .grid{grid-template-columns:1fr}
   .over .pic img{aspect-ratio:4/3.6}
-  .stats{grid-template-columns:1fr;gap:10px}
-  .stat{display:flex;align-items:center;gap:18px;padding:20px 22px}
-  .stat p{margin:0}
   .aanbod{border-radius:30px 30px 0 0}
   .cards{grid-template-columns:1fr}
   .bento{grid-template-columns:1fr 1fr;grid-template-rows:220px 220px 220px auto;gap:10px}
@@ -277,11 +269,6 @@ footer nav{display:flex;gap:20px;font-size:14px;font-weight:600}
         <div class="sign"><span class="av">A</span><div><b>Anass</b><small>Zaakvoerder Atlastic</small></div></div>
       </div>
       <div class="pic rv"><img src="img/keuken.webp" alt="Grijze gietvloer in een keuken met houten eiland" loading="lazy"></div>
-    </div>
-    <div class="stats">
-      <div class="stat rv"><b>0<small>voegen</small></b><p>Naadloos van muur tot muur, en makkelijk proper te houden.</p></div>
-      <div class="stat rv"><b>1<small>week</small></b><p>Zo snel ligt een gietvloer er meestal bij u thuis.</p></div>
-      <div class="stat rv"><b>6<small>afwerkingen</small></b><p>Van PU-gietvloer en lavasteen tot steentapijt en mortex.</p></div>
     </div>
   </div>
 </section>
