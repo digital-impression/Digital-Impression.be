@@ -44,19 +44,21 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:400;letter-spacing:-.0
 .top .knop{padding:13px 22px;font-size:14.5px}
 
 /* hero */
-.hero{padding:clamp(34px,4vw,56px) 0 clamp(80px,9vw,120px);text-align:center;position:relative;overflow:hidden;isolation:isolate}
-.hero::before{content:"";position:absolute;left:50%;top:220px;width:1500px;height:640px;translate:-50% 0;background:radial-gradient(closest-side,var(--poeder),transparent);z-index:-1}
-.hero h1{font-size:clamp(46px,5.8vw,84px);max-width:13em;margin:22px auto 0}
-.hero h1 .sc{font-size:1.3em;margin-top:.08em}
-.hero .lead{font-size:clamp(17px,1.35vw,19px);color:var(--mute);max-width:36em;margin:24px auto 0;font-weight:400}
-.hero .lead b{color:var(--inkt);font-weight:500}
-.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;justify-content:center}
-.rij3{display:grid;grid-template-columns:1fr 1.18fr 1fr;gap:clamp(14px,2vw,26px);align-items:end;margin-top:clamp(50px,6vw,76px);position:relative}
-.rij3 .f{border-radius:999px 999px 34px 34px;overflow:hidden;background:var(--poeder2);box-shadow:0 34px 60px -40px rgba(58,33,41,.55)}
-.rij3 .f img{width:100%;height:100%;object-fit:cover}
-.rij3 .z{aspect-ratio:4/5}
-.rij3 .m{aspect-ratio:3/4}
-.score{position:absolute;right:calc(33% - 70px);top:12%;background:var(--wit);border-radius:22px;padding:14px 18px;display:flex;align-items:center;gap:12px;text-align:left;box-shadow:0 26px 50px -22px rgba(58,33,41,.45);animation:zw 6s ease-in-out infinite;z-index:2}
+.hero{padding:6px 0 clamp(60px,7vw,90px)}
+.h-paneel{position:relative;margin:0 clamp(10px,1.4vw,20px);border-radius:40px;overflow:hidden;isolation:isolate;min-height:min(84vh,780px);display:flex;align-items:center;background:var(--inkt);color:#fff}
+.h-paneel>img{position:absolute;top:0;right:0;width:70%;height:100%;object-fit:cover;object-position:60% 58%;z-index:-2;-webkit-mask-image:linear-gradient(90deg,transparent,#000 24%);mask-image:linear-gradient(90deg,transparent,#000 24%)}
+.h-paneel::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--inkt) 0%,var(--inkt) 28%,rgba(58,33,41,.8) 42%,rgba(58,33,41,.15) 66%,rgba(58,33,41,0) 82%),linear-gradient(0deg,rgba(58,33,41,.45),rgba(58,33,41,0) 30%)}
+.h-in{width:100%;padding:clamp(40px,5vw,72px) clamp(26px,5vw,72px)}
+.h-tekst{max-width:620px}
+.hero .label{color:var(--poeder2)}
+.hero h1{font-size:clamp(46px,5.6vw,82px);margin-top:22px}
+.hero h1 .sc{font-size:1.3em;margin-top:.08em;color:#F2A9BD}
+.hero .lead{font-size:clamp(17px,1.35vw,19px);color:rgba(255,240,243,.8);max-width:32em;margin-top:24px;font-weight:400}
+.hero .lead b{color:#fff;font-weight:500}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.k-glas{border:1.5px solid rgba(255,255,255,.45);color:#fff}
+.k-glas:hover{border-color:#fff}
+.score{position:absolute;right:clamp(20px,3vw,44px);bottom:clamp(20px,3vw,44px);background:var(--wit);color:var(--inkt);border-radius:22px;padding:14px 18px;display:flex;align-items:center;gap:12px;text-align:left;box-shadow:0 26px 50px -22px rgba(0,0,0,.5);animation:zw 6s ease-in-out infinite;z-index:2}
 .score b{font:400 36px/1 'Playfair Display';color:var(--rose)}
 .score i{display:block;font-style:normal;color:var(--goud);letter-spacing:2px;font-size:13px}
 .score span{display:block;font-size:13px;color:var(--mute);line-height:1.35}
@@ -173,16 +175,20 @@ h2 .sc{font-size:1.25em}
  .o-f{order:2;margin:10px 0 26px 26px}
  .b-f{order:2;min-height:420px}
  .r-g{grid-template-columns:1fr}
- .score{right:4%;top:auto;bottom:-24px}
+ .h-paneel{min-height:0;border-radius:30px;align-items:flex-end}
+ .h-paneel>img{width:100%;height:60%;object-position:62% 55%;-webkit-mask-image:none;mask-image:none}
+ .h-paneel::before{background:linear-gradient(0deg,var(--inkt) 0%,var(--inkt) 44%,rgba(58,33,41,.6) 56%,rgba(58,33,41,0) 72%)}
+ .h-in{padding-top:min(70vw,500px)}
+ .score{top:20px;bottom:auto;right:20px}
 }
 @media (max-width:640px){
  body{font-size:16.5px}
  .top .knop{display:none}
- .hero h1{font-size:44px}
+ .hero h1{font-size:42px}
  .acts .knop{flex:1 1 100%}
- .rij3{grid-template-columns:1fr 1fr;gap:12px}
- .rij3 .m{grid-column:span 2;order:-1;aspect-ratio:4/4.4}
- .score{right:50%;translate:50% 0;bottom:-28px;animation:none}
+ .h-in{padding:min(92vw,420px) 22px 30px}
+ .score{animation:none;padding:10px 14px}
+ .score b{font-size:28px}
  .o-f .stempel{width:124px;height:124px;left:-16px}
  .o-f .stempel b{font-size:22px}
  .kaart .t{padding:24px 22px 26px}
@@ -205,20 +211,18 @@ h2 .sc{font-size:1.25em}
 
 <main>
 <section class="hero">
-  <div class="wrap">
-    <span class="label rv">Beauty salon in Bouwel</span>
-    <h1 class="rv" style="--d:1">Elke dag wakker met <span class="sc">een stralende blik</span></h1>
-    <p class="lead rv" style="--d:2">Ombré brows, eyeliner die blijft zitten, wimpers en je make-up voor de grote dag. Ashley werkt in haar roze salon aan de Hanegoor, waar je <b>altijd met een glimlach</b> ontvangen wordt.</p>
-    <div class="acts rv" style="--d:3">
-      <a class="knop k-rose" href="https://brush-and-beauty.salonized.com/widget_bookings/new" target="_blank" rel="noopener">Maak een afspraak <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="knop k-lijn" href="#pmu">Bekijk de behandelingen</a>
-    </div>
-    <div class="rij3">
-      <div class="f z rv"><img src="img/brows.webp" alt="Klante met verse ombré brows bij Brush and Beauty" width="1200" height="1200"></div>
-      <div class="f m rv" style="--d:1"><img src="img/salon.webp" alt="Ashley aan haar bureau in de salon met de roze bloemenmuur" width="1200" height="1600"></div>
-      <div class="f z rv" style="--d:2"><img src="img/bruid.webp" alt="Bruidskapsel met lange krullen en een haarjuweel" width="1200" height="1311"></div>
-      <div class="score"><b>5,0</b><div><i>★★★★★</i><span>171 reviews<br>op Google</span></div></div>
-    </div>
+  <div class="h-paneel">
+    <img src="img/hero.webp" alt="Ashley aan haar bureau in de salon met de roze bloemenmuur" width="1440" height="1920">
+    <div class="h-in"><div class="h-tekst">
+      <span class="label rv">Beauty salon in Bouwel</span>
+      <h1 class="rv" style="--d:1">Elke dag wakker met <span class="sc">een stralende blik</span></h1>
+      <p class="lead rv" style="--d:2">Ombré brows, eyeliner die blijft zitten, wimpers en je make-up voor de grote dag. Ashley werkt in haar roze salon aan de Hanegoor, waar je <b>altijd met een glimlach</b> ontvangen wordt.</p>
+      <div class="acts rv" style="--d:3">
+        <a class="knop k-rose" href="https://brush-and-beauty.salonized.com/widget_bookings/new" target="_blank" rel="noopener">Maak een afspraak <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="knop k-glas" href="#pmu">Bekijk de behandelingen</a>
+      </div>
+    </div></div>
+    <div class="score"><b>5,0</b><div><i>★★★★★</i><span>171 reviews<br>op Google</span></div></div>
   </div>
 </section>
 
