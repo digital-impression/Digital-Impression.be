@@ -9,134 +9,173 @@
 <script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="img/stock-butternuts.webp">
 <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@600;700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 <style>
-:root{--groen:#4c7c32;--groen2:#3d6828;--bos:#263d19;--nut:#e8863a;--nut2:#d4722a;--creme:#f7f1e5;--kraft:#ecdfc6;--wit:#fffcf6;--ink:#1e2a15;--grijs:#5f6852;--lijn:rgba(30,42,21,.13);--ease:cubic-bezier(.2,.7,.2,1)}
+:root{--groen:#4c7c32;--groen2:#3d6828;--bos:#263d19;--bos2:#1b2d11;--nut:#e8863a;--nut2:#d4722a;--perzik:#f6c28f;--creme:#f7f1e5;--kraft:#ecdfc6;--wit:#fffcf6;--ink:#1e2a15;--grijs:#5f6852;--lijn:rgba(30,42,21,.13);--ease:cubic-bezier(.2,.7,.2,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',system-ui,sans-serif;background:var(--creme);color:var(--ink);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit}
-h1,h2,h3{font-family:'Gabarito',sans-serif;font-weight:800;line-height:.98;letter-spacing:-.02em}
-.wrap{width:min(1240px,92vw);margin:0 auto}
-.demo{background:var(--bos);color:var(--creme);font-size:13.5px;text-align:center;padding:9px 14px}
-.demo a{color:#f6c28f;font-weight:700}
-.knop{display:inline-flex;align-items:center;gap:12px;border-radius:999px;padding:16px 26px;font-weight:700;font-size:15.5px;text-decoration:none;transition:transform .25s var(--ease),background .25s,box-shadow .25s;white-space:nowrap}
+h1,h2,h3{font-family:'Gabarito',sans-serif;font-weight:800;line-height:.98;letter-spacing:-.02em;font-style:normal}
+.wrap{width:min(1280px,92vw);margin:0 auto}
+.demo{background:var(--bos2);color:var(--creme);font-size:13.5px;text-align:center;padding:9px 14px}
+.demo a{color:var(--perzik);font-weight:700}
+.knop{display:inline-flex;align-items:center;gap:12px;border-radius:999px;padding:17px 28px;font-weight:700;font-size:15.5px;text-decoration:none;transition:transform .25s var(--ease),background .25s,box-shadow .25s;white-space:nowrap}
 .knop:hover{transform:translateY(-2px)}
 .knop svg{width:15px;height:15px}
-.k-nut{background:var(--nut);color:#fff}.k-nut:hover{background:var(--nut2)}
+.k-nut{background:var(--nut);color:#fff;box-shadow:0 16px 34px -16px rgba(232,134,58,.9)}.k-nut:hover{background:var(--nut2)}
 .k-groen{background:var(--groen);color:#fff}.k-groen:hover{background:var(--groen2)}
-.k-lijn{box-shadow:inset 0 0 0 1.5px rgba(247,241,229,.45);color:var(--creme)}.k-lijn:hover{box-shadow:inset 0 0 0 1.5px var(--creme)}
+.k-glas{background:rgba(247,241,229,.12);color:var(--creme);box-shadow:inset 0 0 0 1.5px rgba(247,241,229,.4);backdrop-filter:blur(6px)}.k-glas:hover{background:rgba(247,241,229,.2)}
 .k-lijn2{box-shadow:inset 0 0 0 1.5px var(--lijn)}.k-lijn2:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
-/* hero */
-.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);min-height:max(720px,calc(100svh - 38px));background:var(--groen);color:var(--creme)}
-.hl{display:flex;flex-direction:column;padding:26px 64px 40px max(4vw,calc((100vw - 1240px)/2))}
-.nav{display:flex;align-items:center;gap:26px}
-.nav .logo img{height:50px;width:auto}
-.nav ul{list-style:none;display:flex;gap:24px;margin-left:auto;font-weight:600;font-size:15px}
-.nav ul a{text-decoration:none;opacity:.8}.nav ul a:hover{opacity:1}
-.htx{margin:auto 0;padding:56px 0 40px}
 .oog{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--nut2)}
-.hero .oog{color:#f6c28f}
-.hero h1{font-size:clamp(54px,6.1vw,100px);font-weight:900;text-transform:uppercase;margin:20px 0 26px;letter-spacing:-.025em}
+
+/* hero */
+.hero{position:relative;isolation:isolate;overflow:hidden;background:var(--bos);color:var(--creme);min-height:max(760px,calc(100svh - 38px));display:flex;flex-direction:column}
+.hbg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:70% 50%;transform:scale(1.06);animation:zoom 2.4s var(--ease) forwards}
+@keyframes zoom{to{transform:none}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(27,45,17,.96) 0%,rgba(31,52,20,.9) 34%,rgba(38,61,25,.32) 62%,rgba(38,61,25,.04) 100%),linear-gradient(0deg,rgba(27,45,17,.55) 0%,transparent 30%)}
+.nav{display:flex;align-items:center;gap:30px;padding:24px 0}
+.nav .logo img{height:52px;width:auto}
+.nav ul{list-style:none;display:flex;gap:30px;margin-left:auto;font-weight:600;font-size:15px}
+.nav ul a{text-decoration:none;opacity:.85}.nav ul a:hover{opacity:1}
+.nav .knop{padding:12px 20px;font-size:14.5px}
+.hin{flex:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:center;padding:30px 0 70px}
+.pill{display:inline-flex;align-items:center;gap:10px;background:rgba(247,241,229,.12);border:1px solid rgba(247,241,229,.22);border-radius:999px;padding:8px 16px 8px 10px;font-size:13.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--creme)}
+.pill i{width:22px;height:22px;border-radius:50%;background:var(--nut);display:grid;place-items:center}
+.pill i svg{width:12px;height:12px;color:#fff}
+.hero h1{font-size:clamp(58px,6.6vw,108px);font-weight:900;text-transform:uppercase;margin:26px 0 26px;letter-spacing:-.03em;line-height:.92}
 .hero h1 span{display:block}
-.hero h1 .n{color:#f6c28f}
-.hero .lead{font-size:19px;line-height:1.55;color:rgba(247,241,229,.86);max-width:500px}
+.hero h1 .n{color:var(--perzik)}
+.hero .lead{font-size:19.5px;line-height:1.55;color:rgba(247,241,229,.88);max-width:520px}
 .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-.hvoet{display:flex;gap:28px;flex-wrap:wrap;padding-top:22px;border-top:1px solid rgba(247,241,229,.2);font-size:14.5px;color:rgba(247,241,229,.78)}
-.hvoet b{color:var(--creme);font-weight:700}
-.hr{position:relative;overflow:hidden;background:var(--bos)}
-.hr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:38% 50%;transform:scale(1.04);transition:transform 1.6s var(--ease)}
-.hr.in img{transform:none}
+.hvoet{display:flex;gap:34px;flex-wrap:wrap;margin-top:44px;font-size:14.5px;color:rgba(247,241,229,.78)}
+.hvoet b{display:block;color:var(--creme);font-family:'Gabarito';font-size:26px;font-weight:800;line-height:1.1}
+.hvoet .ster{color:var(--perzik);letter-spacing:2px;font-size:13px}
+.hvis{position:relative;aspect-ratio:1;width:min(100%,600px);justify-self:end}
+.bord{position:absolute;inset:7%;border-radius:50%;background:var(--creme);box-shadow:0 60px 90px -40px rgba(0,0,0,.6),inset 0 0 0 14px rgba(255,255,255,.5)}
+.bord::after{content:"";position:absolute;inset:7%;border-radius:50%;border:2px dashed rgba(76,124,50,.28)}
+.wcut{position:absolute;left:50%;top:-1%;height:96%;width:auto;transform:translateX(-50%) rotate(-4deg);filter:drop-shadow(0 40px 34px rgba(30,20,5,.45));animation:zweef 6s ease-in-out infinite}
+@keyframes zweef{50%{transform:translateX(-50%) rotate(-2deg) translateY(-10px)}}
+.stempel{position:absolute;left:0;top:6%;width:150px;height:150px;border-radius:50%;background:var(--nut);color:#fff;display:grid;place-items:center;box-shadow:0 24px 40px -20px rgba(0,0,0,.55)}
+.stempel svg{position:absolute;inset:0;width:100%;height:100%;animation:draai 22s linear infinite}
+.stempel text{font:700 12.5px 'DM Sans',sans-serif;letter-spacing:2.6px;fill:#fff;text-transform:uppercase}
+.stempel b{font-family:'Gabarito';font-weight:900;font-size:34px;line-height:1}
+@keyframes draai{to{transform:rotate(360deg)}}
+.chip{position:absolute;right:0;bottom:12%;background:var(--wit);color:var(--ink);border-radius:22px;padding:14px 18px;display:flex;gap:12px;align-items:center;box-shadow:0 26px 50px -24px rgba(0,0,0,.6);font-size:14px;line-height:1.3}
+.chip i{width:42px;height:42px;border-radius:50%;background:var(--groen);display:grid;place-items:center;font-style:normal}
+.chip i svg{width:20px;height:20px;color:#fff}
+.chip b{display:block;font-family:'Gabarito';font-size:17px;font-weight:800}
+.chip span{color:var(--grijs)}
+
 /* secties */
-.s{padding:130px 0}
-.kop{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:54px;flex-wrap:wrap}
-.kop h2,.h2{font-size:clamp(42px,4.8vw,72px);margin-top:14px;max-width:760px}
+.s{padding:140px 0}
+.kop{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:56px;flex-wrap:wrap}
+.kop h2{font-size:clamp(42px,4.8vw,72px);margin-top:14px;max-width:760px}
 .kop p{max-width:420px;color:var(--grijs)}
+
 /* wurger */
-.wg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;align-items:center}
-.wgb{position:relative;aspect-ratio:1;max-width:560px;width:100%;justify-self:center}
-.wgb::before{content:"";position:absolute;inset:6% 4% 2%;border-radius:50%;background:var(--nut)}
-.wgb::after{content:"";position:absolute;inset:16% 14% 12%;border-radius:50%;border:2px dashed rgba(255,255,255,.35)}
-.wgb img{position:absolute;z-index:2;left:50%;top:-2%;height:100%;width:auto;transform:translateX(-50%);filter:drop-shadow(0 34px 30px rgba(60,30,5,.35));transition:transform .6s var(--ease)}
-.wgb:hover img{transform:translateX(-50%) rotate(-3deg) scale(1.03)}
-.wgb .sinds{position:absolute;z-index:3;right:0;bottom:8%;background:var(--wit);border-radius:22px;padding:16px 20px;box-shadow:0 24px 44px -24px rgba(30,42,21,.5);font-size:14px;line-height:1.35;color:var(--grijs)}
-.wgb .sinds b{display:block;font-family:'Gabarito';font-size:30px;font-weight:900;color:var(--groen);line-height:1}
-.wgt h2{font-size:clamp(40px,4.4vw,66px);margin:14px 0 22px}
+.wg{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:90px;align-items:center}
+.wgv{position:relative;padding:0 0 70px 0}
+.wgv .groot{border-radius:40px;overflow:hidden;aspect-ratio:1;box-shadow:0 50px 80px -50px rgba(30,42,21,.6)}
+.wgv .groot img{width:100%;height:100%;object-fit:cover;object-position:40% 50%;transition:transform 1.2s var(--ease)}
+.wgv:hover .groot img{transform:scale(1.04)}
+.wgv .klein{position:absolute;right:-34px;bottom:0;width:42%;aspect-ratio:4/5;border-radius:30px;overflow:hidden;border:8px solid var(--creme);transform:rotate(4deg);box-shadow:0 30px 50px -30px rgba(30,42,21,.6)}
+.wgv .klein img{width:100%;height:100%;object-fit:cover}
+.wgv .sinds{position:absolute;left:-26px;top:34px;background:var(--groen);color:var(--creme);border-radius:24px;padding:18px 22px;box-shadow:0 24px 44px -24px rgba(30,42,21,.7);font-size:14px;line-height:1.35}
+.wgv .sinds b{display:block;font-family:'Gabarito';font-size:38px;font-weight:900;line-height:1;color:var(--perzik)}
+.wgt h2{font-size:clamp(42px,4.4vw,66px);margin:14px 0 22px}
 .wgt .lead{color:var(--grijs);font-size:18px}
-.lagen{list-style:none;margin:34px 0 30px;border-top:1px solid var(--lijn)}
-.lagen li{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--lijn);align-items:start}
-.lagen i{width:34px;height:34px;border-radius:50%;background:var(--kraft);display:grid;place-items:center;font-style:normal}
-.lagen i svg{width:18px;height:18px;color:var(--groen)}
+.lagen{list-style:none;margin:32px 0 30px;display:grid;gap:4px;border-top:1px solid var(--lijn)}
+.lagen li{display:grid;grid-template-columns:52px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--lijn);align-items:center}
+.lagen .nr{font-family:'Gabarito';font-weight:900;font-size:30px;color:var(--nut);line-height:1}
 .lagen b{display:block;font-size:17px}
 .lagen span{display:block;color:var(--grijs);font-size:15px;line-height:1.5}
 .namen{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
-.namen span{font-family:'Gabarito';font-weight:800;font-size:19px;background:var(--wit);border:1px solid var(--lijn);border-radius:999px;padding:8px 16px;transition:background .25s,color .25s}
+.namen span{font-family:'Gabarito';font-weight:800;font-size:19px;background:var(--wit);border:1px solid var(--lijn);border-radius:999px;padding:8px 18px;transition:background .25s,color .25s}
 .namen span:hover{background:var(--groen);color:#fff;border-color:var(--groen)}
 .namen em{font-style:normal;color:var(--grijs);font-size:15px;margin-left:6px}
+
+/* sfeerband */
+.band{position:relative;isolation:isolate;min-height:max(620px,82vh);display:flex;align-items:flex-end;color:var(--creme);overflow:hidden}
+.band>img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.band::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(27,45,17,.92) 0%,rgba(27,45,17,.55) 38%,rgba(27,45,17,0) 70%)}
+.band .wrap{padding:0 0 84px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:60px;align-items:end}
+.band h2{font-size:clamp(46px,5.6vw,88px);text-transform:uppercase;font-weight:900;letter-spacing:-.025em;line-height:.94}
+.band h2 span{color:var(--perzik)}
+.band p{font-size:18.5px;color:rgba(247,241,229,.88)}
+.feiten{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.feiten span{background:rgba(247,241,229,.14);border:1px solid rgba(247,241,229,.25);backdrop-filter:blur(8px);border-radius:999px;padding:9px 16px;font-size:14.5px;font-weight:600}
+
 /* kaart */
 .kaart{background:var(--wit)}
 .kg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
-.kk{background:var(--creme);border-radius:30px;overflow:hidden;display:flex;flex-direction:column}
-.kk figure{aspect-ratio:4/3;overflow:hidden}
-.kk figure img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
-.kk:hover figure img{transform:scale(1.05)}
-.kk .in2{padding:26px 26px 30px}
-.kk h3{font-size:28px}
-.kk .uur{display:block;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--nut2);margin:8px 0 16px}
+.kk{background:var(--creme);border-radius:32px;overflow:hidden;display:flex;flex-direction:column}
+.kk figure{position:relative;aspect-ratio:1/1;overflow:hidden}
+.kk figure img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.kk:hover figure img{transform:scale(1.06)}
+.kk figure figcaption{position:absolute;left:18px;top:18px;background:var(--wit);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--nut2)}
+.kk .in2{padding:26px 28px 30px}
+.kk h3{font-size:30px;margin-bottom:14px}
 .lijst{list-style:none}
 .lijst li{display:flex;align-items:baseline;gap:8px;padding:7px 0;font-size:15.5px}
 .lijst li::after{content:"";order:2;flex:1;border-bottom:1.5px dotted rgba(30,42,21,.25);transform:translateY(-4px)}
 .lijst li b{order:3;font-weight:700;white-space:nowrap}
 .lijst li span{order:1}
-.zoet{margin-top:22px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);background:var(--kraft);border-radius:30px;overflow:hidden}
-.zoet figure{min-height:320px;position:relative}
+.zoet{margin-top:22px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);background:var(--nut);color:#fff;border-radius:32px;overflow:hidden}
+.zoet figure{min-height:440px;position:relative}
 .zoet figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.zoet .tx{padding:44px 48px;display:flex;flex-direction:column;justify-content:center}
-.zoet h3{font-size:clamp(32px,3vw,44px);margin:10px 0 14px}
-.zoet p{color:var(--grijs)}
-.zoet .prijs{font-family:'Gabarito';font-weight:900;font-size:22px;color:var(--groen);margin-top:16px}
-.pdf{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-weight:700;color:var(--groen);text-decoration:none;font-size:15.5px}
+.zoet .tx{padding:52px 50px;display:flex;flex-direction:column;justify-content:center}
+.zoet .oog{color:#fff;opacity:.85}
+.zoet h3{font-size:clamp(34px,3.2vw,50px);margin:12px 0 16px}
+.zoet p{color:rgba(255,255,255,.9)}
+.zoet .prijs{display:inline-block;align-self:flex-start;font-family:'Gabarito';font-weight:900;font-size:22px;background:#fff;color:var(--nut2);border-radius:999px;padding:8px 18px;margin-top:22px}
+.pdf{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-weight:700;color:#fff;text-decoration:none;font-size:15.5px}
 .pdf:hover{text-decoration:underline}
+
 /* meenemen */
-.mn{background:var(--bos);color:var(--creme);border-radius:52px;margin:0 1.6vw;padding:120px 0}
-.mn .wrap{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:72px;align-items:center}
-.mn .oog{color:#f6c28f}
+.mn{background:var(--bos);color:var(--creme);border-radius:52px;margin:0 1.6vw 140px;padding:110px 0;overflow:hidden}
+.mn .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:72px;align-items:center}
+.mn .oog{color:var(--perzik)}
 .mn h2{font-size:clamp(42px,4.6vw,68px);margin:14px 0 20px}
-.mn .lead{color:rgba(247,241,229,.8);font-size:18px}
-.toog{list-style:none;margin:30px 0 0;display:grid;gap:12px}
-.toog li{display:flex;gap:14px;align-items:center;background:rgba(247,241,229,.07);border-radius:18px;padding:14px 18px;font-size:15.5px}
-.toog li b{font-weight:700}
-.toog li i{flex:none;width:36px;height:36px;border-radius:50%;background:var(--nut);display:grid;place-items:center;font-style:normal}
-.toog li i svg{width:18px;height:18px;color:#fff}
-.mnq{margin-top:26px;font-size:16px;color:rgba(247,241,229,.85);border-left:3px solid var(--nut);padding-left:18px}
-.mnq small{display:block;margin-top:6px;color:rgba(247,241,229,.55);font-size:14px}
-.mnf{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:14px}
-.mnf figure{border-radius:28px;overflow:hidden}
-.mnf img{width:100%;height:100%;object-fit:cover}
-.mnf .f1{grid-row:span 2;min-height:560px}
-.mnf .f2,.mnf .f3{aspect-ratio:1}
+.mn .lead{color:rgba(247,241,229,.82);font-size:18px}
+.toog{list-style:none;margin:28px 0 0;border-top:1px solid rgba(247,241,229,.16)}
+.toog li{padding:14px 0;border-bottom:1px solid rgba(247,241,229,.16);font-size:16px;color:rgba(247,241,229,.82)}
+.toog li b{color:var(--creme)}
+.mnq{margin-top:28px;font-family:'Gabarito';font-weight:700;font-size:22px;line-height:1.3;color:var(--creme)}
+.mnq small{display:block;margin-top:8px;font-family:'DM Sans';font-weight:500;color:rgba(247,241,229,.55);font-size:14px}
+.mnf{display:grid;grid-template-columns:1.15fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:680px}
+.mnf figure{border-radius:30px;overflow:hidden;position:relative}
+.mnf img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.mnf figure:hover img{transform:scale(1.05)}
+.mnf .f1{grid-row:span 2}
+.mnf figcaption{position:absolute;left:14px;bottom:14px;background:var(--wit);color:var(--ink);border-radius:999px;padding:7px 14px;font-size:13.5px;font-weight:700}
+
 /* zaak */
-.zg{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px;margin-bottom:70px}
-.zg figure{border-radius:30px;overflow:hidden;position:relative}
-.zg img{width:100%;height:100%;object-fit:cover}
-.zg .z1{min-height:520px}
-.zg .z2{min-height:520px}
-.zg figcaption{position:absolute;left:16px;bottom:16px;background:var(--wit);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600}
+.zaak{position:relative;isolation:isolate;min-height:max(640px,86vh);display:flex;align-items:flex-start;color:var(--creme);overflow:hidden}
+.zaak>img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.zaak::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,24,12,.78) 0%,rgba(20,24,12,.35) 45%,rgba(20,24,12,.1) 100%)}
+.zaak .wrap{padding:120px 0 0}
+.zaak h2{font-size:clamp(46px,5.4vw,84px);max-width:820px;margin:14px 0 20px}
+.zaak .oog{color:var(--perzik)}
+.zaak p{max-width:520px;font-size:18.5px;color:rgba(247,241,229,.9)}
+.rvs{position:relative;z-index:2;margin-top:-150px;padding-bottom:140px}
 .rvk{display:grid;grid-template-columns:minmax(0,.8fr) repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
-.score{background:var(--groen);color:var(--creme);border-radius:28px;padding:30px 28px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
-.score b{font-family:'Gabarito';font-weight:900;font-size:84px;line-height:.85}
-.score .st{color:#f6c28f;letter-spacing:3px}
-.score span{font-size:15px;color:rgba(247,241,229,.82)}
-.rk{background:var(--wit);border:1px solid var(--lijn);border-radius:28px;padding:28px 26px;display:flex;flex-direction:column;gap:16px}
+.score{background:var(--nut);color:#fff;border-radius:28px;padding:30px 28px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;box-shadow:0 40px 60px -40px rgba(30,42,21,.6)}
+.score b{font-family:'Gabarito';font-weight:900;font-size:88px;line-height:.85}
+.score .st{letter-spacing:3px}
+.score span{font-size:15px;color:rgba(255,255,255,.9)}
+.rk{background:var(--wit);border-radius:28px;padding:28px 26px;display:flex;flex-direction:column;gap:16px;box-shadow:0 40px 60px -40px rgba(30,42,21,.55)}
 .rk .st{color:var(--nut);letter-spacing:3px;font-size:14px}
 .rk p{font-size:15.5px;line-height:1.6}
 .rk .wie{margin-top:auto;font-size:14px;color:var(--grijs)}
 .rk .wie b{display:block;color:var(--ink);font-size:15px}
+
 /* bezoek */
-.bz{padding:0 0 130px}
+.bz{padding:0 0 140px}
 .bzk{background:var(--kraft);border-radius:44px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);overflow:hidden}
-.bzk .tx{padding:72px 64px}
+.bzk .tx{padding:76px 64px}
 .bzk h2{font-size:clamp(42px,4.6vw,68px);margin:14px 0 18px}
 .bzk .lead{color:var(--grijs);font-size:18px;max-width:470px}
 .info{display:grid;grid-template-columns:1fr 1fr;gap:24px 30px;margin:34px 0 36px;font-size:15.5px}
@@ -145,12 +184,13 @@ h1,h2,h3{font-family:'Gabarito',sans-serif;font-weight:800;line-height:.98;lette
 .uren{list-style:none}
 .uren li{display:flex;justify-content:space-between;gap:12px;max-width:230px}
 .uren li span:last-child{font-weight:600}
-.bzk .slot{background:var(--groen);color:var(--creme);padding:72px 56px;display:flex;flex-direction:column;justify-content:space-between;gap:40px;position:relative;overflow:hidden}
-.bzk .slot::before{content:"";position:absolute;right:-120px;bottom:-120px;width:380px;height:380px;border-radius:50%;background:var(--groen2)}
-.bzk .slot img{position:relative;height:70px;width:auto;align-self:flex-start}
-.bzk .slot p{position:relative;font-family:'Gabarito';font-weight:900;font-size:clamp(38px,3.8vw,58px);line-height:1;text-transform:uppercase}
-.bzk .slot p span{color:#f6c28f}
-.bzk .slot small{position:relative;font-size:15px;color:rgba(247,241,229,.75)}
+.bzk figure{position:relative;min-height:640px}
+.bzk figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.bzk figcaption{position:absolute;left:22px;bottom:22px;background:var(--wit);border-radius:22px;padding:16px 20px;display:flex;align-items:center;gap:14px;box-shadow:0 26px 50px -26px rgba(0,0,0,.55)}
+.bzk figcaption img{position:static;width:58px;height:auto;background:var(--groen);border-radius:14px;padding:8px}
+.bzk figcaption b{display:block;font-family:'Gabarito';font-size:18px;font-weight:800;line-height:1.2}
+.bzk figcaption span{font-size:14px;color:var(--grijs)}
+
 /* footer */
 .voet{background:var(--bos);color:rgba(247,241,229,.68);padding:64px 0 36px;font-size:14.5px}
 .voet .wrap{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
@@ -158,56 +198,83 @@ h1,h2,h3{font-family:'Gabarito',sans-serif;font-weight:800;line-height:.98;lette
 .voet p{margin-top:18px;max-width:300px}
 .voet h4{color:var(--creme);font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
 .voet ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-.voet a{text-decoration:none}.voet a:hover{color:#f6c28f}
+.voet a{text-decoration:none}.voet a:hover{color:var(--perzik)}
 .voet .ond{grid-column:1/-1;border-top:1px solid rgba(247,241,229,.12);padding-top:22px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13.5px}
+
 /* reveal */
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.hr img{transform:none}}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.hbg,.wcut,.stempel svg{animation:none;transform:none}.wcut{transform:translateX(-50%) rotate(-4deg)}}
 @media (max-width:1100px){
  .nav ul{display:none}
- .hero{grid-template-columns:1fr}
- .hl{padding:24px 4vw 46px}
- .hr{min-height:620px}
- .wg{grid-template-columns:1fr;gap:50px}
+ .nav .knop{margin-left:auto}
+ .hero::before{background:linear-gradient(180deg,rgba(27,45,17,.95) 0%,rgba(27,45,17,.82) 55%,rgba(27,45,17,.45) 100%)}
+ .hin{grid-template-columns:1fr;gap:30px;padding-bottom:60px}
+ .hvis{justify-self:center;width:min(100%,520px)}
+ .wg{grid-template-columns:1fr;gap:60px}
  .wgt{order:-1}
+ .wgv{max-width:640px;width:100%;justify-self:center}
+ .band .wrap{grid-template-columns:1fr;gap:24px}
  .kg{grid-template-columns:1fr 1fr}
  .kg .kk:last-child{grid-column:span 2}
- .kg .kk:last-child figure{aspect-ratio:16/7}
+ .kg .kk:last-child figure{aspect-ratio:16/8}
  .mn .wrap{grid-template-columns:1fr;gap:50px}
- .zg .z1,.zg .z2{min-height:420px}
  .rvk{grid-template-columns:1fr 1fr}
  .bzk{grid-template-columns:1fr}
+ .bzk figure{min-height:520px}
  .voet .wrap{grid-template-columns:1fr 1fr}
 }
 @media (max-width:640px){
  body{font-size:16px}
- .s{padding:88px 0}
+ .s{padding:90px 0}
+ .nav{padding:18px 0}
  .nav .logo img{height:42px}
- .hero h1{font-size:50px}
+ .nav .knop{padding:10px 16px;font-size:13.5px}
+ .pill{font-size:12px}
+ .hero h1{font-size:clamp(44px,13vw,56px)}
  .hero .lead{font-size:16.5px}
  .acts .knop{flex:1;justify-content:center}
- .hvoet{gap:8px 18px;font-size:14px}
- .hr{min-height:440px}
- .wgb .sinds{right:-2px;padding:12px 14px}
- .wgb .sinds b{font-size:24px}
+ .hvoet{gap:24px;margin-top:34px}
+ .hvoet b{font-size:22px}
+ .stempel{width:112px;height:112px}
+ .stempel text{font-size:11px;letter-spacing:1.6px}
+ .stempel b{font-size:26px}
+ .chip{padding:10px 14px;bottom:6%}
+ .chip i{width:34px;height:34px}
+ .wgv{padding-bottom:50px}
+ .wgv .groot{border-radius:28px}
+ .wgv .klein{right:-6px;width:44%;border-width:6px;border-radius:22px}
+ .wgv .sinds{left:-6px;top:18px;padding:12px 16px}
+ .wgv .sinds b{font-size:28px}
+ .band{min-height:680px}
+ .band::before{background:linear-gradient(0deg,rgba(27,45,17,.96) 0%,rgba(27,45,17,.88) 50%,rgba(27,45,17,.2) 80%,rgba(27,45,17,0) 100%)}
+ .zaak::before{background:linear-gradient(180deg,rgba(20,24,12,.85) 0%,rgba(20,24,12,.6) 50%,rgba(20,24,12,.2) 100%)}
+ .band .wrap{padding-bottom:56px}
+ .band h2{font-size:clamp(40px,11.5vw,52px)}
+ .band p{font-size:16.5px}
  .kg{grid-template-columns:1fr}
  .kg .kk:last-child{grid-column:auto}
- .kg .kk:last-child figure{aspect-ratio:4/3}
+ .kg .kk:last-child figure{aspect-ratio:1/1}
  .zoet{grid-template-columns:1fr}
- .zoet .tx{padding:32px 26px;order:-1}
- .zoet figure{min-height:260px}
- .mn{border-radius:32px;margin:0 10px;padding:88px 0}
- .mnf .f1{min-height:380px}
- .zg{grid-template-columns:1fr;margin-bottom:50px}
- .zg .z1,.zg .z2{min-height:300px}
+ .zoet .tx{padding:36px 26px;order:-1}
+ .zoet figure{min-height:300px}
+ .mn{border-radius:32px;margin:0 10px 90px;padding:86px 0}
+ .mnf{height:auto;grid-template-columns:1fr 1fr;grid-template-rows:auto auto}
+ .mnf .f1{grid-row:auto;grid-column:span 2;aspect-ratio:1}
+ .mnf .f2,.mnf .f3{aspect-ratio:1}
+ .mnq{font-size:19px}
+ .zaak{min-height:600px}
+ .zaak .wrap{padding-top:80px}
+ .zaak h2{font-size:clamp(40px,11vw,52px)}
+ .zaak p{font-size:16.5px}
+ .rvs{margin-top:-90px;padding-bottom:90px}
  .rvk{grid-template-columns:1fr}
- .score b{font-size:68px}
- .bz{padding-bottom:88px}
+ .score b{font-size:70px}
+ .bz{padding-bottom:90px}
  .bzk{border-radius:30px}
  .bzk .tx{padding:46px 24px}
  .info{grid-template-columns:1fr}
- .bzk .slot{padding:46px 26px}
+ .bzk figure{min-height:420px}
  .voet .wrap{grid-template-columns:1fr}
 }
 </style>
@@ -217,48 +284,71 @@ h1,h2,h3{font-family:'Gabarito',sans-serif;font-weight:800;line-height:.98;lette
 
 <main id="top">
 <section class="hero">
-  <div class="hl">
-    <header class="nav">
-      <a class="logo" href="#top" aria-label="B-NUT Brasschaat"><img src="img/logo-wit.webp" alt="B-NUT" width="400" height="256"></a>
-      <ul>
-        <li><a href="#wurger">De Wurger</a></li>
-        <li><a href="#kaart">Kaart</a></li>
-        <li><a href="#meenemen">Meenemen</a></li>
-        <li><a href="#bezoek">Bezoek</a></li>
-      </ul>
-    </header>
+  <img class="hbg" src="img/stock-butternuts.webp" alt="" width="2000" height="1433" fetchpriority="high">
+  <header class="nav wrap">
+    <a class="logo" href="#top" aria-label="B-NUT Brasschaat"><img src="img/logo-wit.webp" alt="B-NUT" width="400" height="256"></a>
+    <ul>
+      <li><a href="#wurger">De Wurger</a></li>
+      <li><a href="#kaart">Kaart</a></li>
+      <li><a href="#meenemen">Meenemen</a></li>
+      <li><a href="#bezoek">Bezoek</a></li>
+    </ul>
+    <a class="knop k-nut" href="https://bookings.zenchef.com/results?rid=366294&amp;pid=1001" target="_blank" rel="noopener">Reserveer</a>
+  </header>
+  <div class="wrap hin">
     <div class="htx">
-      <span class="oog rv">Ontbijt en lunch · 100% veggie en vegan</span>
+      <span class="pill rv"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14Z"/><path d="M5 19 13 11"/></svg></i>Ontbijt en lunch · 100% veggie en vegan</span>
       <h1 class="rv" style="--d:1"><span>Geen burger.</span><span>Geen wafel.</span><span class="n">Een Wurger.</span></h1>
-      <p class="lead rv" style="--d:2">Twee huisgemaakte butternutwafels, een vegan burger, verse groentjes en onze eigen sauzen. Aan de Bredabaan in Brasschaat, al sinds 2016.</p>
+      <p class="lead rv" style="--d:2">Twee butternutwafels uit eigen keuken, een vegan burger, verse groentjes en onze eigen sauzen. Aan de Bredabaan in Brasschaat, al sinds 2016.</p>
       <div class="acts rv" style="--d:3">
         <a class="knop k-nut" href="https://bookings.zenchef.com/results?rid=366294&amp;pid=1001" target="_blank" rel="noopener">Reserveer een tafel <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="knop k-lijn" href="#kaart">Bekijk de kaart</a>
+        <a class="knop k-glas" href="#kaart">Bekijk de kaart</a>
+      </div>
+      <div class="hvoet rv" style="--d:4">
+        <span><b>4,7</b><span class="ster">★★★★★</span> 188 reviews</span>
+        <span><b>9u tot 16u</b>maandag tot zaterdag</span>
       </div>
     </div>
-    <div class="hvoet rv" style="--d:4"><span><b>4,7 op Google</b> uit 188 reviews</span><span><b>Ma tot za</b> 9u tot 16u</span></div>
-  </div>
-  <div class="hr rv">
-    <img src="img/hero.webp" alt="Twee Wurgers op een bord: butternutwafels met vegan burger, sla, pompoen en saus" width="1138" height="1138" fetchpriority="high">
+    <div class="hvis rv" style="--d:2">
+      <div class="bord"></div>
+      <img class="wcut" src="img/wurger.webp" alt="Een Wurger: butternutwafel, sla, gegrilde courgette, vegan kaas en saus" width="696" height="775">
+      <div class="stempel" aria-hidden="true">
+        <svg viewBox="0 0 150 150"><defs><path id="cirkel" d="M75,75 m-56,0 a56,56 0 1,1 112,0 a56,56 0 1,1 -112,0"/></defs><text><textPath href="#cirkel">Thuis van de Wurger · sinds 2016 ·</textPath></text></svg>
+        <b>B</b>
+      </div>
+      <div class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14Z"/><path d="M5 19 13 11"/></svg></i><div><b>Volledig plantaardig</b><span>Ook de sauzen en de taart</span></div></div>
+    </div>
   </div>
 </section>
 
 <section class="s" id="wurger">
   <div class="wrap wg">
-    <div class="wgb rv">
-      <img src="img/wurger.webp" alt="Uitgesneden Wurger: butternutwafel, sla, gegrilde courgette, vegan kaas en saus" width="696" height="775" loading="lazy">
-      <div class="sinds"><b>2016</b>zo lang staat hij al<br>op onze kaart</div>
+    <div class="wgv rv">
+      <div class="groot"><img src="img/hero.webp" alt="Twee Wurgers op een bord: butternutwafels met vegan burger, sla, pompoen en saus" width="1138" height="1138" loading="lazy"></div>
+      <div class="klein"><img src="img/stock-butternut-half.webp" alt="" width="1000" height="1256" loading="lazy"></div>
+      <div class="sinds"><b>2016</b>zo lang staat hij<br>al op onze kaart</div>
     </div>
     <div class="wgt">
       <span class="oog rv">Ons signatuurgerecht</span>
       <h2 class="rv" style="--d:1">Before it was a trend, it was our Wurger.</h2>
       <p class="lead rv" style="--d:2">Toen Quick deze herfst met een wafelburger uitpakte, moesten we even lachen. Wie hier ooit lunchte, kent het concept al jaren. Not just a burger, not just a waffle. Simply our Wurger.</p>
       <ul class="lagen">
-        <li class="rv"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="M8 5v14M16 5v14M3 12h18"/></svg></i><div><b>Twee butternutwafels</b><span>Zelf gebakken, met pompoen in het deeg. Eentje boven, eentje onder.</span></div></li>
-        <li class="rv" style="--d:1"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><ellipse cx="12" cy="12" rx="9" ry="5"/><path d="M5 12c2 1.5 4.5 2 7 2s5-.5 7-2"/></svg></i><div><b>Een vegan burger</b><span>Met een fris slaatje en verse groentjes erbij.</span></div></li>
-        <li class="rv" style="--d:2"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg></i><div><b>Onze eigen sauzen</b><span>Op basis van aquafaba, our liquid gold. Ook al onze dressings beginnen daar.</span></div></li>
+        <li class="rv"><span class="nr">01</span><div><b>Twee butternutwafels</b><span>Zelf gebakken, met pompoen in het deeg. Eentje boven, eentje onder.</span></div></li>
+        <li class="rv" style="--d:1"><span class="nr">02</span><div><b>Een vegan burger</b><span>Met een fris slaatje en verse groentjes erbij.</span></div></li>
+        <li class="rv" style="--d:2"><span class="nr">03</span><div><b>Onze eigen sauzen</b><span>Op basis van aquafaba, our liquid gold. Ook al onze dressings beginnen daar.</span></div></li>
       </ul>
       <div class="namen rv"><span>Champy</span><span>Cheesy</span><span>Beasty</span><span>Papry</span><span>Spinny</span><em>€ 17,5 per Wurger</em></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="band-titel">
+  <img src="img/stock-groenten.webp" alt="" width="1600" height="1069" loading="lazy">
+  <div class="wrap">
+    <h2 id="band-titel" class="rv">Alles plantaardig.<br><span>Ook de taart.</span></h2>
+    <div class="rv" style="--d:1">
+      <p>Onze sauzen en dressings maken we met aquafaba, de pancakes krijgen cashewcrème en elk stuk taart op de toog is vegan. Je mist niks, dat beloven we.</p>
+      <div class="feiten"><span>Ontbijt tot 10u45</span><span>Lunch vanaf 11u</span><span>Ook voor kids</span></div>
     </div>
   </div>
 </section>
@@ -267,24 +357,24 @@ h1,h2,h3{font-family:'Gabarito',sans-serif;font-weight:800;line-height:.98;lette
   <div class="wrap">
     <div class="kop">
       <div><span class="oog rv">Van ontbijt tot lunch</span><h2 class="rv" style="--d:1">Life is too short to eat boring food.</h2></div>
-      <p class="rv" style="--d:2">Alles plantaardig. 's Morgens bowls en wafels, vanaf 11 uur taffles, salades en Wurgers.</p>
+      <p class="rv" style="--d:2">'s Morgens bowls, wafels en pancakes. Vanaf 11 uur taffles, toasts, salades en Wurgers.</p>
     </div>
     <div class="kg">
       <article class="kk rv">
-        <figure><img src="img/bowls.webp" alt="Kommen met geroosterde aubergine, wortel en kruimels" width="1010" height="1010" loading="lazy"></figure>
-        <div class="in2"><h3>Ontbijt</h3><span class="uur">Tot 10u45</span>
+        <figure><img src="img/bowls.webp" alt="Kommen met geroosterde aubergine, wortel en kruimels" width="1010" height="1010" loading="lazy"><figcaption>Tot 10u45</figcaption></figure>
+        <div class="in2"><h3>Ontbijt</h3>
           <ul class="lijst"><li><span>Açaí bowl</span><b>12</b></li><li><span>Yoghurt bowl</span><b>12</b></li><li><span>Havermout met peer in kaneel</span><b>11</b></li><li><span>Zoete wafels</span><b>13</b></li><li><span>Pain perdu van butternutbrood</span><b>14</b></li><li><span>Pancakes met cashewcrème</span><b>14</b></li></ul>
         </div>
       </article>
       <article class="kk rv" style="--d:1">
-        <figure><img src="img/pompoen.webp" alt="Geroosterde butternut met witte saus in bakjes" width="1536" height="1536" loading="lazy"></figure>
-        <div class="in2"><h3>Taffles en toasts</h3><span class="uur">Vanaf 11u · op butternutwafel of zuurdesem</span>
+        <figure><img src="img/pompoen.webp" alt="Geroosterde butternut met witte saus in bakjes" width="1536" height="1536" loading="lazy"><figcaption>Vanaf 11u</figcaption></figure>
+        <div class="in2"><h3>Taffles en toasts</h3>
           <ul class="lijst"><li><span>Baba ganoush</span><b>16,5</b></li><li><span>Cézaar</span><b>17,5</b></li><li><span>Hummus</span><b>16,5</b></li><li><span>Pléparé</span><b>16</b></li><li><span>Chick 'n curry</span><b>17</b></li><li><span>Huisgemaakte kroketten</span><b>16,5</b></li></ul>
         </div>
       </article>
       <article class="kk rv" style="--d:2">
-        <figure><img src="img/slacups.webp" alt="Slablaadjes gevuld met kruimels en saus" width="1536" height="1536" loading="lazy"></figure>
-        <div class="in2"><h3>Salades</h3><span class="uur">Met een butternutwafel erbij</span>
+        <figure><img src="img/slacups.webp" alt="Slablaadjes gevuld met kruimels en saus" width="1536" height="1536" loading="lazy"><figcaption>Met butternutwafel</figcaption></figure>
+        <div class="in2"><h3>Salades</h3>
           <ul class="lijst"><li><span>Quinoa</span><b>17,5</b></li><li><span>Cézaar</span><b>17,5</b></li><li><span>Geitenkaas</span><b>18,5</b></li><li><span>Healthy green</span><b>17,5</b></li><li><span>Kids: zoete-aardappelfrietjes</span><b>12</b></li></ul>
         </div>
       </article>
@@ -308,31 +398,31 @@ h1,h2,h3{font-family:'Gabarito',sans-serif;font-weight:800;line-height:.98;lette
       <span class="oog rv">Aan de toog</span>
       <h2 class="rv" style="--d:1">Geen tijd om te blijven? Neem het mee.</h2>
       <p class="lead rv" style="--d:2">Een koffie met havermelk, een slaatje in een kraftbakje of een stuk taart voor straks. We pakken het in terwijl je wacht.</p>
-      <ul class="toog">
-        <li class="rv"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 8h12v6a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5V8Z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17M9 3v2M13 3v2"/></svg></i><span><b>Verse kweepeerthee met gember</b>, nieuw deze herfst</span></li>
-        <li class="rv" style="--d:1"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 4h12l-1 16H7L6 4Z"/><path d="M9 9h6"/></svg></i><span><b>Huisgemaakte granola</b> in de kraftzak, € 8</span></li>
-        <li class="rv" style="--d:2"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 11h16l-1.5 8h-13L4 11Z"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></i><span><b>Slaatjes, wafels en gerechten</b> in een bakje om mee te nemen</span></li>
+      <ul class="toog rv" style="--d:3">
+        <li><b>Verse kweepeerthee met gember</b>, nieuw deze herfst</li>
+        <li><b>Huisgemaakte granola</b> in de kraftzak, € 8</li>
+        <li><b>Slaatjes, wafels en gerechten</b> in een bakje om mee te nemen</li>
       </ul>
       <p class="mnq rv">"En achteraf kan je nog een zalig dessertje mee naar huis nemen. All vegan, I love it."<small>Nathalie Lesage, op Google</small></p>
     </div>
     <div class="mnf">
-      <figure class="f1 rv"><img src="img/takeaway.webp" alt="Kraftzak en koffie met B-NUT-sticker in een kartonnen houder" width="1536" height="1536" loading="lazy" style="object-position:55% 50%"></figure>
-      <figure class="f2 rv" style="--d:1"><img src="img/granola.webp" alt="Zak huisgemaakte granola van B-NUT" width="1322" height="1322" loading="lazy"></figure>
+      <figure class="f1 rv"><img src="img/takeaway.webp" alt="Kraftzak en koffie met B-NUT-sticker in een kartonnen houder" width="1536" height="1536" loading="lazy" style="object-position:55% 50%"><figcaption>Koffie en een slaatje voor onderweg</figcaption></figure>
+      <figure class="f2 rv" style="--d:1"><img src="img/granola.webp" alt="Zak huisgemaakte granola van B-NUT" width="1322" height="1322" loading="lazy"><figcaption>Granola, € 8</figcaption></figure>
       <figure class="f3 rv" style="--d:2"><img src="img/potjes.webp" alt="Bakjes met slaatjes en potjes saus klaar om mee te nemen" width="1022" height="1022" loading="lazy"></figure>
     </div>
   </div>
 </section>
 
-<section class="s" id="zaak">
+<section class="zaak" id="zaak">
+  <img src="img/lampions.webp" alt="Interieur met papieren lampionnen, houten wand en een vijgenplant" width="1536" height="1040" loading="lazy">
   <div class="wrap">
-    <div class="kop">
-      <div><span class="oog rv">Bredabaan 234</span><h2 class="rv" style="--d:1">Kom binnen, al is het maar voor een koffie.</h2></div>
-      <p class="rv" style="--d:2">Hout aan de muur, papieren lampionnen aan het plafond en overal groen. Wie enkel iets komt drinken, is even welkom als wie blijft lunchen.</p>
-    </div>
-    <div class="zg">
-      <figure class="z1 rv"><img src="img/lampions.webp" alt="Interieur met papieren lampionnen, houten wand en een vijgenplant" width="1536" height="1040" loading="lazy" style="object-position:50% 40%"><figcaption>Onder de lampionnen</figcaption></figure>
-      <figure class="z2 rv" style="--d:1"><img src="img/tafel.webp" alt="Rustige tafel bij het raam met planten" width="1536" height="2048" loading="lazy" style="object-position:50% 60%"><figcaption>Een tafel aan het raam</figcaption></figure>
-    </div>
+    <span class="oog rv">Bredabaan 234</span>
+    <h2 class="rv" style="--d:1">Kom binnen, al is het maar voor een koffie.</h2>
+    <p class="rv" style="--d:2">Hout aan de muur, papieren lampionnen aan het plafond en overal groen. Wie enkel iets komt drinken, is even welkom als wie blijft lunchen.</p>
+  </div>
+</section>
+<section class="rvs" aria-label="Reviews">
+  <div class="wrap">
     <div class="rvk">
       <div class="score rv"><b>4,7</b><div><span class="st">★★★★★</span><br><span>uit 188 reviews op Google</span></div></div>
       <article class="rk rv" style="--d:1"><span class="st">★★★★★</span><p>Ik zou zelf niet makkelijk voor vegi kiezen voor lunch maar Bnut raad ik echt altijd aan, ook aan prepare lovers zoals mezelf is hun vegi variant mega lekker! Keep up the good work.</p><div class="wie"><b>Katrien Devillé</b>Google</div></article>
@@ -360,11 +450,7 @@ h1,h2,h3{font-family:'Gabarito',sans-serif;font-weight:800;line-height:.98;lette
           <a class="knop k-lijn2" href="https://www.instagram.com/bnutbrasschaat/" target="_blank" rel="noopener">@bnutbrasschaat</a>
         </div>
       </div>
-      <div class="slot">
-        <img src="img/logo-wit.webp" alt="" width="400" height="256" loading="lazy">
-        <p>Eat good,<br><span>feel better.</span></p>
-        <small>100% veggie en vegan, aan de Bredabaan in Brasschaat.</small>
-      </div>
+      <figure><img src="img/tafel.webp" alt="Rustige tafel bij het raam met planten" width="1536" height="2048" loading="lazy"><figcaption><img src="img/logo-wit.webp" alt="" width="400" height="256" loading="lazy"><div><b>Een tafel aan het raam</b><span>Ma tot za, 9u tot 16u</span></div></figcaption></figure>
     </div>
   </div>
 </section>
