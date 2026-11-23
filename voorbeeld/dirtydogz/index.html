@@ -109,20 +109,17 @@ h1,h2,h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;text-transfor
 .selectie .bd b{color:var(--room)}
 /* weides */
 .wei .kop p{color:var(--grijs)}
-.wtabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
-.wtab{border:1.5px solid var(--lijn);background:var(--kaart);border-radius:999px;padding:11px 20px;font-weight:800;font-size:15px;transition:.25s}
-.wtab.on{background:var(--zwart);color:var(--room);border-color:var(--zwart)}
-.wbox{display:grid;grid-template-columns:1.35fr 1fr;gap:20px}
-.wimg{position:relative;border-radius:30px;overflow:hidden;aspect-ratio:1.35;background:#5c7a3c}
-.wimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s var(--ease)}
-.wimg img.on{opacity:1}
-.winfo{background:var(--kaart);border:1px solid var(--lijn);border-radius:30px;padding:34px 32px;display:flex;flex-direction:column}
-.winfo h3{font-size:44px}
-.winfo .wt{color:var(--grijs);margin:12px 0 22px;min-height:78px}
-.winfo ul{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:15px;margin-bottom:26px}
-.winfo li{display:flex;gap:11px;align-items:flex-start;line-height:1.45}
-.winfo li::before{content:"";flex:none;width:18px;height:18px;margin-top:2px;border-radius:50%;background:var(--bal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23151613' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/11px no-repeat}
-.winfo .knop{margin-top:auto;align-self:flex-start}
+.weides{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.wd{position:relative;border-radius:30px;overflow:hidden;aspect-ratio:.82;color:#fff}
+.wd img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.wd:hover img{transform:scale(1.04)}
+.wd::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,16,10,.85),rgba(14,16,10,0) 50%)}
+.wd figcaption{position:absolute;left:24px;right:24px;bottom:22px;z-index:2;font-size:15px;line-height:1.45;color:rgba(255,255,255,.85)}
+.wd figcaption b{display:block;font-family:'Barlow Condensed';font-weight:800;font-size:38px;text-transform:uppercase;line-height:1;color:#fff;margin-bottom:6px}
+.wregels{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:20px;background:var(--kaart);border:1px solid var(--lijn);border-radius:26px;padding:16px 16px 16px 22px}
+.wregels span{font-weight:700;font-size:15px;display:flex;align-items:center;gap:9px;margin-right:14px}
+.wregels span::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--bal);box-shadow:0 0 0 3px rgba(150,180,0,.25)}
+.wregels .knop{margin-left:auto}
 .extra{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px}
 .ex{display:flex;gap:16px;align-items:center;background:var(--room2);border-radius:24px;padding:14px}
 .ex img{width:92px;height:92px;border-radius:18px;object-fit:cover;flex:none}
@@ -142,7 +139,7 @@ h1,h2,h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;text-transfor
 .namen{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .namen span{background:var(--kaart);border:1px solid var(--lijn);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:700}
 .namen span em{font-style:normal;font-weight:600;color:var(--grijs);margin-left:4px}
-.asiel{display:flex;align-items:center;gap:14px;margin-top:26px;font-size:15px;color:var(--grijs)}
+.asiel{display:block;margin-top:26px;font-size:15px;color:var(--grijs)}
 .asiel a{font-weight:800;color:var(--zwart)}
 /* reviews */
 .revs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
@@ -190,7 +187,10 @@ h1,h2,h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;text-transfor
  .nav ul{display:none}.nav .knop{margin-left:auto}
  .hero .wrap.rij{grid-template-columns:1fr;gap:20px}
  .lot .wrap,.team .wrap{grid-template-columns:1fr;gap:50px}
- .pgrid,.wbox{grid-template-columns:1fr}
+ .pgrid{grid-template-columns:1fr}
+ .weides{grid-template-columns:1fr 1fr 1fr}
+ .wd{aspect-ratio:.7}
+ .wd figcaption b{font-size:30px}
  .pfoto{min-height:420px;order:2}
  .prijzen{grid-template-columns:1fr 1fr 1fr}
  .extra{grid-template-columns:1fr}
@@ -216,9 +216,9 @@ h1,h2,h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;text-transfor
  .prijzen{grid-template-columns:1fr}
  .selectie .bd{grid-template-columns:1fr;gap:14px}
  .pfoto .max b{font-size:48px}
- .winfo{padding:28px 22px}
- .winfo h3{font-size:38px}
- .wtab{padding:10px 15px;font-size:14px}
+ .weides{grid-template-columns:1fr}
+ .wd{aspect-ratio:1.1}
+ .wregels .knop{margin-left:0;width:100%;justify-content:center}
  .revs{grid-template-columns:1fr}
  .score b{font-size:66px}
  .ct{padding:20px 0 84px}
@@ -317,28 +317,14 @@ h1,h2,h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;text-transfor
       <div><span class="oog rv"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg>Drie speelweides te huur</span><h2 class="rv" style="--d:1">Een hele weide, voor u alleen.</h2></div>
       <p class="rv" style="--d:2">Afgesloten, met een dubbele omheining van 4 meter breed tussen de weides, zodat vreemde honden nooit bij elkaar kunnen. Alleen in alle rust, of met bevriende honden.</p>
     </div>
-    <div class="wtabs rv" role="tablist">
-      <button class="wtab on" data-w="0">Vijverweide</button>
-      <button class="wtab" data-w="1">Bosweide</button>
-      <button class="wtab" data-w="2">Weide groen</button>
+    <div class="weides">
+      <figure class="wd rv"><img src="img/vijver2.webp" alt="Honden zwemmen in de vijver met fontein" width="1440" height="1440" loading="lazy"><figcaption><b>Vijverweide</b>Met zwemvijver, elk jaar behandeld en met pompen en fonteinen gezond gehouden.</figcaption></figure>
+      <figure class="wd rv" style="--d:1"><img src="img/bos.webp" alt="Groep honden op de weide met zonlicht door de bomen" width="1440" height="1440" loading="lazy"><figcaption><b>Bosweide</b>Langs de bosrand, voor een rustig uur met honden die elkaar al kennen.</figcaption></figure>
+      <figure class="wd rv" style="--d:2"><img src="img/groen.webp" alt="Kleine honden in het hoge gras van de weide" width="1440" height="1438" loading="lazy"><figcaption><b>Weide groen</b>De best verlichte van de drie, handig als het na het werk al donker is.</figcaption></figure>
     </div>
-    <div class="wbox">
-      <div class="wimg rv">
-        <img class="on" src="img/vijver2.webp" alt="Honden zwemmen in de vijver met fontein" width="1440" height="1440" loading="lazy">
-        <img src="img/bos.webp" alt="Groep honden op de weide met zonlicht door de bomen" width="1440" height="1440" loading="lazy">
-        <img src="img/groen.webp" alt="Kleine honden op het hoge gras van de weide" width="1440" height="1438" loading="lazy">
-      </div>
-      <div class="winfo rv" style="--d:1">
-        <h3 id="wt">Vijverweide</h3>
-        <p class="wt" id="wx">Voor de waterratten. De vijver wordt elk jaar behandeld en er liggen zware luchtpompen en fonteinen in om het water gezond te houden.</p>
-        <ul>
-          <li>Maximum 10 honden per weide</li>
-          <li>Sober verlicht, te huur tot 22u</li>
-          <li>Licht brandt al vanaf 6u 's morgens</li>
-          <li>Parking vlakbij, honden aan de lijn tot aan de poort</li>
-        </ul>
-        <a class="knop k-zwart" href="#contact">Weide reserveren</a>
-      </div>
+    <div class="wregels rv">
+      <span>Maximum 10 honden per weide</span><span>Verlicht van 6u tot 22u</span><span>Dubbele omheining van 4 meter</span>
+      <a class="knop k-zwart" href="#contact">Weide reserveren</a>
     </div>
     <div class="extra">
       <div class="ex rv"><img src="img/wash.webp" alt="Hond in de selfdogwash" width="1440" height="1440" loading="lazy"><div><b>Selfdogwash</b><span>Neem handdoeken, shampoo en muntstukken mee. Het spoelen doet u zelf.</span></div></div>
@@ -427,10 +413,6 @@ function zet(x){var r=vn.getBoundingClientRect();var p=Math.max(4,Math.min(96,(x
 vn.addEventListener('pointerdown',function(e){drag=true;zet(e.clientX);vn.setPointerCapture(e.pointerId)});
 vn.addEventListener('pointermove',function(e){if(drag)zet(e.clientX)});
 vn.addEventListener('pointerup',function(){drag=false});
-/* weides */
-var W=[["Vijverweide","Voor de waterratten. De vijver wordt elk jaar behandeld en er liggen zware luchtpompen en fonteinen in om het water gezond te houden."],["Bosweide","Langs de bosrand, voor een rustig uur met uw eigen hond of met honden die elkaar al kennen. Ook hier maximum 10 honden."],["Weide groen","De best verlichte weide van de drie, handig voor een rondje na het werk als het al donker is."]];
-var tb=[].slice.call(document.querySelectorAll('.wtab')),wi=[].slice.call(document.querySelectorAll('.wimg img'));
-tb.forEach(function(b,i){b.addEventListener('click',function(){tb.forEach(function(x,j){x.classList.toggle('on',i===j)});wi.forEach(function(x,j){x.classList.toggle('on',i===j)});document.getElementById('wt').textContent=W[i][0];document.getElementById('wx').textContent=W[i][1]})});
 /* reveal */
 var els=[].slice.call(document.querySelectorAll('.rv'));
 function kijk(){var H=innerHeight;els=els.filter(function(e){var r=e.getBoundingClientRect();if(r.top<H*.94&&r.bottom>0){e.classList.add('in');return false}return true})}
