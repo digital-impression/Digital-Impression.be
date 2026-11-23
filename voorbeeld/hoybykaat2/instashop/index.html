@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Voorbeeld Instagram-shop · Hoy by Kaat</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="../img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+:root{--groen:#0B6B3E;--diep:#0E3B26;--creme:#F7F3EA;--oranje:#F26A2E;--inkt:#1B241E;--mute:#68716A;--lijn:rgba(27,36,30,.1);--ease:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}
+body{font-family:Figtree,system-ui,sans-serif;color:var(--inkt);background:radial-gradient(60% 50% at 10% 0%,#FFE3A6 0%,rgba(255,227,166,0) 70%),radial-gradient(50% 50% at 100% 100%,#F9D3DE 0%,rgba(249,211,222,0) 70%),var(--creme);min-height:100vh;-webkit-font-smoothing:antialiased}
+img{display:block}
+.wrap{width:min(1240px,100% - 48px);margin:0 auto;padding:60px 0 80px;display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center;min-height:100vh}
+.lbl{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--groen)}
+.lbl i{width:8px;height:8px;border-radius:50%;background:var(--oranje)}
+h1{font:400 clamp(44px,5vw,72px)/1 Fraunces,serif;letter-spacing:-.02em;color:var(--diep);margin:16px 0 18px}
+h1 .hand{font-family:Caveat,cursive;font-weight:700;color:var(--oranje);font-size:.8em}
+.intro{color:var(--mute);font-size:18px;line-height:1.6;margin-bottom:30px;max-width:470px}
+.stap{display:flex;gap:16px;margin-bottom:18px;max-width:470px}
+.stap b{width:40px;height:40px;border-radius:50%;background:#fff;display:grid;place-items:center;font:600 18px Fraunces,serif;color:var(--groen);flex:none;box-shadow:0 10px 20px -14px rgba(14,59,38,.5)}
+.stap h3{font-size:16.5px;font-weight:700;margin-bottom:2px}
+.stap p{color:var(--mute);font-size:15px;line-height:1.5}
+.terug{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-weight:600;color:var(--groen);text-decoration:none}
+.toestellen{display:flex;gap:28px;justify-content:center;align-items:flex-start;position:relative}
+.gsm{width:330px;height:690px;border-radius:52px;background:#0d0f0e;padding:11px;box-shadow:0 50px 90px -40px rgba(14,59,38,.6),inset 0 0 0 2px #2a2d2b;flex:none;position:relative}
+.gsm.twee{margin-top:70px}
+.scherm{width:100%;height:100%;border-radius:42px;background:#fff;overflow:hidden;position:relative;display:flex;flex-direction:column}
+.notch{position:absolute;top:10px;left:50%;translate:-50% 0;width:100px;height:28px;border-radius:20px;background:#0d0f0e;z-index:5}
+.status{display:flex;justify-content:space-between;padding:14px 26px 6px;font-size:13px;font-weight:600}
+.kop{display:flex;align-items:center;gap:8px;padding:6px 16px 8px}
+.kop b{font-size:17px;font-weight:700;flex:1}
+.kop svg{width:22px;height:22px;stroke:var(--inkt);fill:none;stroke-width:1.8}
+.scroll{flex:1;overflow-y:auto;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.prof{display:flex;align-items:center;gap:18px;padding:6px 16px 10px}
+.av{width:78px;height:78px;border-radius:50%;padding:3px;background:conic-gradient(#F26A2E,#FFC23D,#F4A6B7,#0B6B3E,#F26A2E);flex:none}
+.av img{width:100%;height:100%;border-radius:50%;border:3px solid #fff}
+.cijfers{display:flex;gap:18px;text-align:center;flex:1;justify-content:space-around}
+.cijfers b{display:block;font-size:16px}
+.cijfers small{font-size:12px;color:var(--mute)}
+.bio{padding:0 16px 10px;font-size:13px;line-height:1.45}
+.bio b{display:block;font-size:13.5px}
+.bio a{color:#2B5CB8;text-decoration:none;font-weight:600}
+.knoppen{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;padding:0 16px 12px}
+.knoppen span{background:#EFEFEF;border-radius:9px;text-align:center;font-size:13px;font-weight:600;padding:7px 0}
+.knoppen span.blauw{background:var(--groen);color:#fff}
+.hl{display:flex;gap:14px;padding:2px 16px 14px;overflow-x:auto;scrollbar-width:none}
+.hl div{text-align:center;font-size:11.5px;flex:none}
+.hl img{width:58px;height:58px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 0 0 1.5px #ddd;margin-bottom:4px}
+.tabs{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid #eee}
+.tabs button{border:0;background:none;padding:10px 0;border-bottom:1.5px solid transparent;display:grid;place-items:center;cursor:pointer}
+.tabs button.aan{border-color:var(--inkt)}
+.tabs svg{width:22px;height:22px;stroke:#999;fill:none;stroke-width:1.8}
+.tabs button.aan svg{stroke:var(--inkt)}
+.raster{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.raster button{border:0;padding:0;background:#f3f3f3;aspect-ratio:3/4;position:relative;cursor:pointer;overflow:hidden}
+.raster img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.raster button:hover img{transform:scale(1.06)}
+.raster .tag{position:absolute;left:6px;bottom:6px;background:rgba(255,255,255,.94);border-radius:6px;font-size:10.5px;font-weight:700;padding:3px 6px;color:var(--inkt);max-width:calc(100% - 12px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.raster .zak{position:absolute;right:6px;top:6px;width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,.45);display:grid;place-items:center}
+.raster .zak svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2}
+.raster button.aan::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 3px var(--oranje)}
+.shopkop{padding:12px 16px 8px;display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--mute)}
+.shopkop b{color:var(--inkt);font-size:14px;flex:1}
+.cat{display:flex;gap:6px;padding:0 16px 12px;overflow-x:auto;scrollbar-width:none}
+.cat span{border:1px solid #ddd;border-radius:999px;padding:5px 11px;font-size:12px;font-weight:600;white-space:nowrap}
+.cat span.aan{background:var(--inkt);color:#fff;border-color:var(--inkt)}
+.nav{display:flex;justify-content:space-around;padding:10px 0 18px;border-top:1px solid #eee}
+.nav svg{width:23px;height:23px;stroke:var(--inkt);fill:none;stroke-width:1.8}
+.nav img{width:24px;height:24px;border-radius:50%;box-shadow:0 0 0 1.5px var(--inkt)}
+/* product */
+.pfoto{position:relative;aspect-ratio:4/5;overflow:hidden;background:#f3f3f3}
+.pfoto img{width:100%;height:100%;object-fit:cover;animation:fade .6s var(--ease)}
+@keyframes fade{from{opacity:0;transform:scale(1.04)}}
+.dots{position:absolute;bottom:10px;left:50%;translate:-50% 0;display:flex;gap:4px}
+.dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.6)}
+.dots i:first-child{background:#fff}
+.pinfo{padding:14px 16px}
+.pinfo small{color:var(--mute);font-size:12px;display:flex;align-items:center;gap:6px}
+.pinfo small img{width:18px;height:18px;border-radius:50%}
+.pinfo h2{font:600 20px/1.2 Figtree,sans-serif;margin:8px 0 4px}
+.pinfo .prijs{font-size:16px;font-weight:700;color:var(--groen)}
+.pinfo p{font-size:13.5px;color:#444;line-height:1.5;margin:10px 0 14px}
+.pk{display:grid;gap:8px}
+.pk span{display:block;text-align:center;border-radius:10px;padding:11px;font-size:14px;font-weight:700}
+.pk .a{background:var(--groen);color:#fff}
+.pk .b{background:#EFEFEF}
+.meer{padding:6px 16px 16px}
+.meer b{font-size:13.5px;display:block;margin-bottom:8px}
+.meer div{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.meer img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px}
+.voorbeeld{position:absolute;top:-16px;right:-10px;z-index:6;background:var(--oranje);color:#fff;font:700 22px Caveat,cursive;padding:8px 16px;border-radius:999px;rotate:8deg;box-shadow:0 12px 24px -12px rgba(242,106,46,.8)}
+.pijl-tekst{position:absolute;left:50%;top:18px;translate:-50% 0;font:700 22px Caveat,cursive;color:var(--groen);white-space:nowrap}
+@media(max-width:1060px){.wrap{grid-template-columns:1fr;padding-top:40px}.toestellen{flex-wrap:wrap}}
+@media(max-width:720px){.voorbeeld{right:6px}.gsm.twee{display:none}.gsm{width:min(330px,100%);height:680px}.pijl-tekst{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <div>
+  <span class="lbl"><i></i>Voorbeeld voor Hoy by Kaat</span>
+  <h1>Je shop, gewoon <span class="hand">op Instagram</span></h1>
+  <p class="intro">Daar volgen al 4.597 mensen je werk. Met een shop op je profiel kunnen ze meteen zien wat te koop is, en vind je bestellingen gewoon in je berichten.</p>
+  <div class="stap"><b>1</b><div><h3>Een shop-tab op je profiel</h3><p>Al je boeketten, kransen, cadeaubonnen en workshops netjes op een rij, met foto, prijs en uitleg.</p></div></div>
+  <div class="stap"><b>2</b><div><h3>Producten taggen in je posts</h3><p>Post je een boeket of een reel, dan tag je het product. Wie het mooi vindt, tikt erop en ziet meteen de prijs.</p></div></div>
+  <div class="stap"><b>3</b><div><h3>Bestellen met een berichtje</h3><p>Je klant stuurt een bericht of gaat naar je website. Workshops en kampen worden er meteen geboekt.</p></div></div>
+  <a class="terug" href="../#shop">← Terug naar de website</a>
+ </div>
+ <div class="toestellen">
+  <span class="voorbeeld">voorbeeld</span>
+  <div class="gsm">
+   <div class="scherm">
+    <span class="notch"></span>
+    <div class="status"><span>9:41</span><span>●●● 5G ▮</span></div>
+    <div class="kop"><b>hoybykaat</b><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></div>
+    <div class="scroll">
+     <div class="prof"><span class="av"><img src="../img/logo.png" alt="Profielfoto Hoy by Kaat"></span><div class="cijfers"><div><b>4.597</b><small>volgers</small></div><div><b>5,0</b><small>op Google</small></div><div><b>9</b><small>in de shop</small></div></div></div>
+     <div class="bio"><b>Hoy by Kaat</b>Bloemenatelier in Leuven, op afspraak<br>Workshops · huwelijken · kampen · zijden bloemen<br>Because flowers make the difference ✿<br><a href="../">hoybykaat.be</a></div>
+     <div class="knoppen"><span class="blauw">Volgen</span><span>Bericht</span><span>Shop</span></div>
+     <div class="hl"><div><img src="../img/trouw2.webp" alt="">Huwelijk</div><div><img src="../img/ws2.webp" alt="">Workshops</div><div><img src="../img/kamp1.webp" alt="">Kampen</div><div><img src="../img/win2.webp" alt="">Winter</div><div><img src="../img/s_zijde.webp" alt="">Zijde</div></div>
+     <div class="tabs"><button type="button" data-t="posts" aria-label="Berichten"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></button><button type="button" data-t="shop" class="aan" aria-label="Shop"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></button><button type="button" aria-label="Getagd"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="12" cy="10" r="3"/><path d="M7 19c1-3 3-4 5-4s4 1 5 4"/></svg></button></div>
+     <div id="shopkop"><div class="shopkop"><b>Shop</b>9 producten</div><div class="cat"><span class="aan">Alles</span><span>Boeketten</span><span>Droog &amp; zijde</span><span>Workshops</span><span>Cadeau</span></div></div>
+     <div class="raster" id="raster"></div>
+    </div>
+    <div class="nav"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"/></svg><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/></svg><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><img src="../img/logo.png" alt=""></div>
+   </div>
+  </div>
+  <div class="gsm twee">
+   <span class="pijl-tekst">tik op een product ↓</span>
+   <div class="scherm">
+    <span class="notch"></span>
+    <div class="status"><span>9:41</span><span>●●● 5G ▮</span></div>
+    <div class="kop"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg><b style="text-align:center">Product</b><svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg></div>
+    <div class="scroll" id="detail"></div>
+   </div>
+  </div>
+ </div>
+</div>
+<script>
+(function(){
+var P=[
+ {f:'s_wild',n:'Kleurrijk wildboeket',p:'Op aanvraag',c:'Boeketten',t:'Eén week per maand maak ik wilde boeketten met verse seizoensbloemen. Levering in Leuven en 10 km rond, of afhalen in Heverlee.'},
+ {f:'s_droog',n:'Droogboeket in jouw kleuren',p:'Op aanvraag',c:'Droog & zijde',t:'Geef je kleuren door of stuur een foto. Geen onderhoud en lang mooi. Verzenden kan.'},
+ {f:'s_zijde',n:'Zijden boeket met vaas',p:'€ 35 / maand',c:'Droog & zijde',t:'Voor je zaak: een zijden boeket in een passende vaas, en vijf keer per jaar een nieuw. Prijs excl. btw.'},
+ {f:'b_winter',n:'Workshop winterkrans',p:'vanaf € 55 pp',c:'Workshops',t:'Maak je eigen krans met vers groen, droogbloemen of kunstbloemen. Je kiest je datum op de website.'},
+ {f:'s_hoop',n:'Bloemenhoop',p:'Op aanvraag',c:'Droog & zijde',t:'Een ring vol droogbloemen, voor aan de muur of de deur.'},
+ {f:'b_ws',n:'Cadeaubon workshop',p:'vanaf € 55',c:'Cadeau',t:'Een workshop cadeau doen? De ontvanger kiest zelf een datum en de bloemen.'},
+ {f:'s_papier',n:'Papieren bloemen',p:'Op aanvraag',c:'Droog & zijde',t:'Handgemaakt van crêpepapier. Ze verwelken nooit.'},
+ {f:'b_kamp',n:'Kerstkamp 8 tot 14 jaar',p:'€ 165',c:'Workshops',t:'21, 22 en 23 december, van 9 tot 16 uur. Materiaal en begeleiding inbegrepen.'},
+ {f:'win1',n:'Winterkrans',p:'Op aanvraag',c:'Boeketten',t:'Een krans met dennengroen en gedroogde sinaasappel, voor aan de deur of op tafel.'}
+];
+var POSTS=['i1','i2','i3','i4','i5','i6','i7','i8','i9'];
+var zak='<span class="zak"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span>';
+var r=document.getElementById('raster'),d=document.getElementById('detail'),sk=document.getElementById('shopkop'),gekozen=0,tab='shop';
+function raster(){
+ sk.style.display=tab==='shop'?'':'none';
+ r.innerHTML=tab==='shop'?P.map(function(x,i){return '<button type="button" data-i="'+i+'"'+(i===gekozen?' class="aan"':'')+'><img src="../img/'+x.f+'.webp" alt="'+x.n+'">'+zak+'<span class="tag">'+x.p+'</span></button>';}).join('')
+  :POSTS.map(function(f,i){return '<button type="button" data-i="'+(i%P.length)+'"><img src="../img/'+f+'.webp" alt="">'+(i%3===0?zak:'')+'</button>';}).join('');
+}
+function detail(){var x=P[gekozen];
+ d.innerHTML='<div class="pfoto"><img src="../img/'+x.f+'.webp" alt="'+x.n+'"><span class="dots"><i></i><i></i><i></i></span></div><div class="pinfo"><small><img src="../img/logo.png" alt="">hoybykaat</small><h2>'+x.n+'</h2><span class="prijs">'+x.p+'</span><p>'+x.t+'</p><div class="pk"><span class="a">Bekijk op de website</span><span class="b">Stuur een bericht</span></div></div><div class="meer"><b>Meer van Hoy by Kaat</b><div>'+P.filter(function(y,i){return i!==gekozen;}).slice(0,3).map(function(y){return '<img src="../img/'+y.f+'.webp" alt="">';}).join('')+'</div></div>';
+ d.scrollTop=0;}
+r.addEventListener('click',function(e){var b=e.target.closest('[data-i]');if(!b)return;gekozen=+b.dataset.i;raster();detail();});
+document.querySelectorAll('.tabs [data-t]').forEach(function(b){b.onclick=function(){tab=b.dataset.t;document.querySelectorAll('.tabs button').forEach(function(x){x.classList.toggle('aan',x===b);});raster();};});
+raster();detail();
+})();
+</script>
+</body>
+</html>
