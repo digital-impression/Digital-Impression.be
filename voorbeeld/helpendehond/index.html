@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--petrol:#2b7684;--petrol2:#1f5964;--diep:#163f47;--ijs:#e7f1f1;--ijs2:#d6e8e8;--geel:#f5c24a;--wit:#fff;--room:#fbfaf6;--grijs:#55666a;--lijn:rgba(22,63,71,.12);--ease:cubic-bezier(.2,.7,.2,1)}
+:root{--petrol:#2b7684;--petrol2:#1f5964;--diep:#163f47;--nacht:#10313a;--ijs:#e7f1f1;--ijs2:#d6e8e8;--geel:#f5c24a;--wit:#fff;--room:#fbfaf6;--zand:#f3eee3;--grijs:#55666a;--lijn:rgba(22,63,71,.12);--ease:cubic-bezier(.2,.7,.2,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Lexend',system-ui,sans-serif;font-weight:300;background:var(--room);color:var(--diep);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -20,187 +20,207 @@ img{display:block;max-width:100%}
 a{color:inherit}
 b,strong{font-weight:500}
 h1,h2,h3{font-weight:600;line-height:1.05;letter-spacing:-.035em}
-.p{color:var(--petrol)}
 .wrap{width:min(1240px,92vw);margin:0 auto}
-.demo{background:var(--diep);color:#e9f4f4;font-size:13.5px;text-align:center;padding:9px 14px}
+.demo{background:var(--nacht);color:#e9f4f4;font-size:13.5px;text-align:center;padding:9px 14px}
 .demo a{color:var(--geel);font-weight:500}
 .knop{display:inline-flex;align-items:center;gap:12px;border-radius:999px;padding:15px 26px;font-weight:500;font-size:15.5px;text-decoration:none;transition:transform .25s var(--ease),background .25s;white-space:nowrap}
 .knop:hover{transform:translateY(-2px)}
 .k-petrol{background:var(--petrol);color:#fff}
 .k-petrol:hover{background:var(--petrol2)}
 .k-geel{background:var(--geel);color:var(--diep)}
-.k-lijn{box-shadow:inset 0 0 0 1.5px rgba(22,63,71,.25)}
-.k-wit{background:#fff;color:var(--diep)}
+.k-glas{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.4)}
 .knop svg{width:15px;height:15px}
+.oog{display:inline-flex;align-items:center;gap:9px;font-size:13.5px;font-weight:500;color:var(--petrol);letter-spacing:.06em;text-transform:uppercase}
+.oog::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--geel)}
+.oog.licht{color:#bfe0e4}
 /* hero */
-.hero{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);min-height:max(700px,calc(100svh - 38px));background:var(--ijs)}
-.hl{display:flex;flex-direction:column;padding:26px 64px 50px max(4vw,calc((100vw - 1240px)/2))}
-.nav{display:flex;align-items:center;gap:14px}
+.hero{position:relative;background:var(--nacht);color:#fff;min-height:max(700px,calc(100svh - 38px));display:flex;flex-direction:column;overflow:hidden;isolation:isolate}
+.hero .foto{position:absolute;z-index:-1;top:0;right:0;bottom:0;width:72%}
+.hero .foto img{width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.hero .foto::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--nacht) 0%,rgba(16,49,58,.75) 16%,rgba(16,49,58,0) 42%),linear-gradient(0deg,rgba(16,49,58,.55),rgba(16,49,58,0) 30%),linear-gradient(180deg,rgba(16,49,58,.6),rgba(16,49,58,0) 22%)}
+.nav{position:relative;z-index:3}
+.nav .wrap{display:flex;align-items:center;gap:14px;padding:22px 0}
 .merk{display:flex;align-items:center;gap:12px;text-decoration:none}
 .merk img{height:44px;width:auto}
 .merk b{font-weight:600;font-size:20px;letter-spacing:-.02em;line-height:1;white-space:nowrap}
-.merk small{display:block;font-size:12.5px;color:var(--grijs);margin-top:3px;letter-spacing:.02em}
-.nav ul{list-style:none;display:flex;gap:22px;margin-left:auto;font-size:15px;font-weight:400;white-space:nowrap}
+.merk small{display:block;font-size:12.5px;opacity:.7;margin-top:3px;letter-spacing:.02em}
+.nav ul{list-style:none;display:flex;gap:26px;margin-left:auto;font-size:15px;font-weight:400;white-space:nowrap}
 .nav ul a{text-decoration:none;opacity:.8}.nav ul a:hover{opacity:1}
-.htx{margin:auto 0;padding:56px 0 30px}
-.mini{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:500;color:var(--petrol);background:#fff;border-radius:999px;padding:7px 15px 7px 9px}
-.mini img{width:22px;height:auto}
-.hero h1{font-size:clamp(46px,5.2vw,80px);margin:24px 0 24px}
-.hero .lead{font-size:19px;color:var(--grijs);max-width:500px}
-.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-.hnote{display:flex;gap:30px;flex-wrap:wrap;font-size:14.5px;color:var(--grijs)}
-.hnote b{display:block;color:var(--diep);font-size:20px;font-weight:600;letter-spacing:-.02em}
-.hr{position:relative;overflow:hidden;border-radius:0 0 0 64px}
-.hr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% 50%}
-/* secties */
-.s{padding:120px 0}
-.oog{display:inline-flex;align-items:center;gap:9px;font-size:13.5px;font-weight:500;color:var(--petrol);letter-spacing:.06em;text-transform:uppercase}
-.oog::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--geel)}
-.kop{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:50px;flex-wrap:wrap}
-.kop h2{font-size:clamp(38px,4.4vw,64px);margin-top:14px;max-width:700px}
-.kop p{max-width:420px;color:var(--grijs)}
+.nav .knop{padding:11px 20px;margin-left:12px}
+.hin{flex:1;display:flex;align-items:center;position:relative;z-index:2}
+.htx{max-width:600px;padding:30px 0 120px}
+.hero h1{font-size:clamp(48px,5.3vw,78px);margin:22px 0 22px}
+.hero h1 span{color:var(--geel)}
+.hero .lead{font-size:18.5px;color:rgba(255,255,255,.8);max-width:500px}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hvoet{position:absolute;z-index:3;left:0;right:0;bottom:30px}
+.hvoet .wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+.hnote{display:flex;gap:34px;flex-wrap:wrap;font-size:14px;color:rgba(255,255,255,.7)}
+.hnote b{display:block;color:#fff;font-size:21px;font-weight:600;letter-spacing:-.02em}
+.zegel{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.94);color:var(--diep);border-radius:24px;padding:12px 20px 12px 12px;box-shadow:0 26px 50px -24px rgba(0,0,0,.6);max-width:380px}
+.zegel i{flex:none;width:58px;height:58px;border-radius:50%;background:var(--geel);display:grid;place-items:center}
+.zegel i img{width:36px;height:auto}
+.zegel b{display:block;font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.25}
+.zegel span{font-size:13.5px;color:var(--grijs);line-height:1.4}
 /* verhaal */
-.ver .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:70px;align-items:center}
-.verf{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;align-items:end}
-.verf figure{border-radius:30px;overflow:hidden}
-.verf img{width:100%;height:100%;object-fit:cover}
-.verf .v1{aspect-ratio:.72}
-.verf .v2{aspect-ratio:.8;margin-bottom:60px}
-.ver h2{font-size:clamp(38px,4.4vw,62px);margin:14px 0 22px}
+.ver{padding:130px 0}
+.ver .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:80px;align-items:center}
+.verf{position:relative}
+.verf .v1{border-radius:36px;overflow:hidden;aspect-ratio:1}
+.verf .v1 img{width:100%;height:100%;object-fit:cover}
+.verf .v2{position:absolute;right:-34px;top:-40px;width:38%;aspect-ratio:.8;border-radius:28px;overflow:hidden;border:7px solid var(--room);box-shadow:0 30px 60px -30px rgba(22,63,71,.6)}
+.verf .v2 img{width:100%;height:100%;object-fit:cover;object-position:62% 40%}
+.citaat{position:absolute;left:-24px;bottom:-34px;max-width:360px;background:var(--geel);color:var(--diep);border-radius:26px;padding:22px 26px;display:flex;gap:16px;align-items:center;box-shadow:0 30px 60px -30px rgba(22,63,71,.6)}
+.citaat img{width:42px;height:auto;flex:none}
+.citaat p{font-size:20px;font-weight:500;line-height:1.3;letter-spacing:-.015em}
+.ver h2{font-size:clamp(40px,4.6vw,66px);margin:14px 0 22px}
 .ver .lead{color:var(--grijs);font-size:18px}
 .ver .lead+.lead{margin-top:14px}
-.citaat{margin:30px 0 0;background:var(--petrol);color:#fff;border-radius:26px;padding:26px 28px;display:flex;gap:18px;align-items:center}
-.citaat img{width:46px;height:auto;flex:none}
-.citaat p{font-size:21px;font-weight:500;line-height:1.35;letter-spacing:-.015em}
 /* aanbod */
-.aan{background:var(--ijs);border-radius:48px;margin:0 1.6vw;padding:120px 0}
-.drie{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.kd{background:#fff;border-radius:30px;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s var(--ease),box-shadow .35s}
-.kd:hover{transform:translateY(-5px);box-shadow:0 30px 50px -36px rgba(22,63,71,.5)}
-.kd .im{aspect-ratio:1.35;overflow:hidden}
-.kd .im img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
-.kd:hover .im img{transform:scale(1.05)}
-.kd .tx{padding:26px 26px 28px;display:flex;flex-direction:column;gap:10px;flex:1}
-.kd h3{font-size:26px}
-.kd p{font-size:15.5px;color:var(--grijs)}
-.kd .meta{margin-top:auto;padding-top:14px;border-top:1px solid var(--lijn);display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;color:var(--grijs)}
-.kd .meta span{display:flex;align-items:center;gap:7px}
-.kd .meta span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--petrol)}
-.kd.geel{background:var(--geel)}
-.kd.geel p,.kd.geel .meta{color:#4b3a07}
-.kd.geel .meta{border-color:rgba(22,63,71,.15)}
-.kd.geel .meta span::before{background:var(--diep)}
-.meer{margin-top:22px;background:#fff;border-radius:26px;padding:22px 26px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-.meer>b{font-weight:600;margin-right:8px}
-.meer span{background:var(--ijs);border-radius:999px;padding:8px 15px;font-size:14.5px}
+.aan{background:var(--ijs);border-radius:48px;margin:0 1.4vw;padding:120px 0}
+.kop{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:46px;flex-wrap:wrap}
+.kop h2{font-size:clamp(40px,4.6vw,68px);margin-top:14px;max-width:720px}
+.kop p{max-width:400px;color:var(--grijs)}
+.drie{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.kd{position:relative;border-radius:32px;overflow:hidden;min-height:600px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate}
+.kd>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s var(--ease)}
+.kd:hover>img{transform:scale(1.05)}
+.kd::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(16,49,58,.94) 0%,rgba(16,49,58,.55) 42%,rgba(16,49,58,0) 70%)}
+.kd .lab{position:absolute;left:18px;top:18px;background:rgba(255,255,255,.92);color:var(--diep);border-radius:999px;padding:7px 14px;font-size:13.5px;font-weight:500}
+.kd .tx{padding:30px}
+.kd h3{font-size:32px}
+.kd p{font-size:15.5px;color:rgba(255,255,255,.82);margin-top:10px}
+.kd .meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.kd .meta span{border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:5px 12px;font-size:13px}
+.kd.geel .lab{background:var(--geel)}
+.meer{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14.5px}
+.meer b{margin-right:6px}
+.meer span{background:#fff;border-radius:999px;padding:7px 14px;color:var(--diep)}
 /* hondenschool */
-.hs .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:70px;align-items:center}
-.hs h2{font-size:clamp(38px,4.4vw,62px);margin:14px 0 20px}
+.hs{padding:130px 0}
+.hs .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+.hs h2{font-size:clamp(40px,4.6vw,66px);margin:14px 0 22px}
 .hs .lead{color:var(--grijs);font-size:18px}
-.regels{margin:30px 0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.rg{background:#fff;border:1px solid var(--lijn);border-radius:22px;padding:18px 20px}
-.rg b{display:block;font-weight:600;font-size:16px;margin-bottom:3px}
-.rg span{font-size:14.5px;color:var(--grijs);line-height:1.5;display:block}
-.prijslijn{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
-.prijslijn div{font-size:14.5px;color:var(--grijs);line-height:1.35}
-.prijslijn div b{display:block;font-size:30px;font-weight:600;color:var(--diep);letter-spacing:-.03em}
-.hsf{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.hsf figure{border-radius:28px;overflow:hidden}
-.hsf img{width:100%;height:100%;object-fit:cover}
-.hsf .h1{grid-column:span 2;aspect-ratio:1.5}
-.hsf .h2,.hsf .h3{aspect-ratio:1}
-/* angst */
-.ang{padding:0 0 120px}
-.angk{background:var(--diep);color:#e9f4f4;border-radius:44px;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-.angk .f{position:relative;min-height:600px}
-.angk .f img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.angk .tx{padding:72px 60px}
-.angk .oog{color:var(--geel)}
-.angk h2{font-size:clamp(38px,4.2vw,60px);margin:14px 0 20px}
-.angk .lead{color:rgba(233,244,244,.75)}
-.stapjes{margin:30px 0;display:flex;flex-direction:column;gap:0}
-.stapjes div{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:15px 0;border-top:1px solid rgba(233,244,244,.14);font-size:15.5px;color:rgba(233,244,244,.8)}
-.stapjes div b{display:block;color:#fff;font-weight:500}
-.stapjes i{font-style:normal;width:36px;height:36px;border-radius:50%;background:rgba(245,194,74,.16);color:var(--geel);display:grid;place-items:center;font-weight:600;font-size:14px}
-.angk blockquote{background:rgba(255,255,255,.06);border-radius:22px;padding:20px 22px;font-size:16px;line-height:1.55}
-.angk blockquote small{display:block;margin-top:8px;color:rgba(233,244,244,.6);font-size:14px}
+.regels{margin:28px 0 0;display:flex;flex-direction:column}
+.rg{display:grid;grid-template-columns:30px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--lijn);font-size:15.5px}
+.rg:last-child{border-bottom:1px solid var(--lijn)}
+.rg i{width:30px;height:30px;border-radius:50%;background:var(--ijs);display:grid;place-items:center;color:var(--petrol)}
+.rg i svg{width:15px;height:15px}
+.rg b{font-weight:500}
+.rg span{color:var(--grijs)}
+.prijslijn{display:flex;align-items:center;gap:28px;flex-wrap:wrap;margin-top:30px}
+.prijslijn div{font-size:14px;color:var(--grijs);line-height:1.3}
+.prijslijn b{display:block;font-size:34px;font-weight:600;color:var(--diep);letter-spacing:-.03em}
+.mozaiek{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:330px 250px;gap:14px}
+.mozaiek figure{border-radius:28px;overflow:hidden;position:relative}
+.mozaiek img{width:100%;height:100%;object-fit:cover}
+.mozaiek .m1{grid-column:span 2}
+.mozaiek figcaption{position:absolute;left:14px;bottom:14px;background:rgba(255,255,255,.92);border-radius:999px;padding:6px 13px;font-size:13px;font-weight:500}
+/* nala en xenza */
+.nx{position:relative;margin:0 1.4vw;border-radius:44px;overflow:hidden;min-height:760px;display:flex;align-items:center;color:#fff;isolation:isolate}
+.nx>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;z-index:-2}
+.nx::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(270deg,rgba(16,49,58,.94) 0%,rgba(16,49,58,.72) 34%,rgba(16,49,58,0) 58%)}
+.nx .tx{max-width:500px;padding:90px 0;margin-left:auto}
+.nx h2{font-size:clamp(40px,4.6vw,66px);margin:14px 0 20px}
+.nx .lead{color:rgba(255,255,255,.82);font-size:17.5px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.duo div{background:rgba(255,255,255,.1);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.16);border-radius:22px;padding:18px 20px;font-size:14.5px;color:rgba(255,255,255,.8);line-height:1.5}
+.duo b{display:block;color:var(--geel);font-size:18px;font-weight:600;margin-bottom:4px}
+.nx blockquote{margin-top:24px;font-size:16px;color:rgba(255,255,255,.88);line-height:1.55;border-left:3px solid var(--geel);padding-left:18px}
+.nx blockquote small{display:block;margin-top:6px;color:rgba(255,255,255,.55);font-size:13.5px}
 /* reviews */
-.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.rk{background:#fff;border:1px solid var(--lijn);border-radius:28px;padding:30px;display:flex;flex-direction:column;gap:16px}
-.rk p{font-size:16px;line-height:1.6}
-.rk .wie{margin-top:auto;display:flex;gap:12px;align-items:center;font-size:14px;color:var(--grijs)}
-.rk .wie b{display:block;color:var(--diep);font-size:15px}
-.ini{width:42px;height:42px;border-radius:50%;background:var(--ijs);display:grid;place-items:center;font-weight:600;color:var(--petrol);flex:none}
-.ster{color:var(--geel);letter-spacing:2px;font-size:15px}
-.score{display:flex;align-items:center;gap:16px}
-.score b{font-size:78px;font-weight:600;letter-spacing:-.05em;line-height:.9}
-.score span{font-size:14.5px;color:var(--grijs);line-height:1.45}
+.rev{padding:130px 0}
+.rev .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:40px;align-items:stretch}
+.revf{position:relative;border-radius:36px;overflow:hidden;min-height:640px}
+.revf img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 50%}
+.revf::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(16,49,58,.8),rgba(16,49,58,0) 50%)}
+.revf .score{position:absolute;z-index:2;left:30px;bottom:28px;color:#fff;display:flex;align-items:center;gap:14px}
+.revf .score b{font-size:72px;font-weight:600;letter-spacing:-.05em;line-height:.9}
+.revf .score span{font-size:14.5px;color:rgba(255,255,255,.85);line-height:1.45}
+.ster{color:var(--geel);letter-spacing:2px;font-size:14px}
+.revr{display:flex;flex-direction:column;justify-content:center}
+.revr h2{font-size:clamp(40px,4.6vw,66px);margin:14px 0 30px}
+.rk{background:#fff;border:1px solid var(--lijn);border-radius:24px;padding:22px 24px;margin-top:12px}
+.rk p{font-size:15.5px;line-height:1.6;margin-top:6px}
+.rk .wie{margin-top:12px;font-size:14px;color:var(--grijs)}
+.rk .wie b{color:var(--diep)}
 /* contact */
 .ct{padding:0 0 120px}
-.ctk{position:relative;border-radius:44px;overflow:hidden;background:var(--petrol);color:#fff;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}
-.ctk .tx{padding:70px 60px}
-.ctk h2{font-size:clamp(40px,4.6vw,66px);margin:14px 0 18px}
-.ctk .oog{color:#fff}
-.ctk .lead{color:rgba(255,255,255,.85);font-size:18px;max-width:480px}
-.info{display:grid;grid-template-columns:1fr 1fr;gap:20px 30px;margin:32px 0 34px;font-size:15px;color:rgba(255,255,255,.82)}
-.info b{display:block;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--geel);margin-bottom:4px;font-weight:500}
+.ctk{position:relative;margin:0 1.4vw;border-radius:44px;overflow:hidden;color:#fff;min-height:620px;display:flex;align-items:center;isolation:isolate}
+.ctk>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%;z-index:-2}
+.ctk::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(16,49,58,.94) 0%,rgba(16,49,58,.72) 42%,rgba(16,49,58,.1) 75%)}
+.ctk .tx{max-width:600px;padding:80px 0}
+.ctk h2{font-size:clamp(42px,4.8vw,72px);margin:14px 0 18px}
+.ctk .lead{color:rgba(255,255,255,.82);font-size:18px;max-width:500px}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:18px 30px;margin:30px 0 34px;font-size:15.5px;color:rgba(255,255,255,.8)}
+.info b{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--geel);margin-bottom:4px;font-weight:500}
 .info a{color:#fff;font-weight:500;overflow-wrap:anywhere}
-.ctk .f{position:relative;min-height:520px}
-.ctk .f img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 50%}
 /* footer */
-.voet{background:var(--diep);color:rgba(233,244,244,.65);padding:60px 0 36px;font-size:14.5px}
-.voet .wrap{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
-.voet .merk{color:#fff}.voet .merk small{color:rgba(233,244,244,.6)}
-.voet p{margin-top:16px;max-width:300px}
-.voet h4{color:#fff;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px;font-weight:500}
+.voet{background:var(--nacht);color:rgba(231,241,241,.65);padding:60px 0 36px;font-size:14.5px}
+.voet .wrap{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px}
+.voet .merk{color:#fff}
+.voet .merk small{color:rgba(231,241,241,.6)}
+.voet p{margin-top:16px;max-width:320px}
+.voet h4{color:#fff;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;font-weight:500}
 .voet ul{list-style:none;display:flex;flex-direction:column;gap:8px}
 .voet a{text-decoration:none}.voet a:hover{color:var(--geel)}
-.voet .ond{grid-column:1/-1;border-top:1px solid rgba(233,244,244,.12);padding-top:22px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13.5px}
+.voet .ond{grid-column:1/-1;border-top:1px solid rgba(231,241,241,.12);padding-top:22px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13.5px}
 /* reveal */
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
 @media (max-width:1060px){
- .nav ul{display:none}
- .hero{grid-template-columns:1fr}
- .hl{padding:24px 4vw 50px}
- .hr{min-height:520px;border-radius:0}
- .ver .wrap,.hs .wrap{grid-template-columns:1fr;gap:50px}
- .verf,.hsf{order:2}
+ .nav ul{display:none}.nav .knop{margin-left:auto}
+ .hero .foto{width:100%}
+ .hero .foto::after{background:linear-gradient(90deg,rgba(16,49,58,.92) 0%,rgba(16,49,58,.55) 50%,rgba(16,49,58,.1) 80%),linear-gradient(0deg,rgba(16,49,58,.7),rgba(16,49,58,0) 35%)}
+ .ver .wrap{grid-template-columns:1fr;gap:80px}
+ .verf{max-width:620px;order:2}
+ .revf{order:2}
  .drie{grid-template-columns:1fr 1fr}
- .drie .kd:last-child{grid-column:span 2}
- .drie .kd:last-child .im{aspect-ratio:2.2}
- .angk,.ctk{grid-template-columns:minmax(0,1fr)}
- .angk .f{min-height:420px;order:2}
- .revs{grid-template-columns:1fr 1fr}
+ .drie .kd:first-child{grid-column:span 2;min-height:500px}
+ .hs .wrap{grid-template-columns:1fr;gap:50px}
+ .rev .wrap{grid-template-columns:1fr}
+ .revf{min-height:520px}
  .voet .wrap{grid-template-columns:1fr 1fr}
 }
 @media (max-width:640px){
  body{font-size:16px}
- .s{padding:84px 0}
  .merk img{height:38px}.merk b{font-size:18px}
- .hero h1{font-size:42px}
- .hnote{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;font-size:13px;line-height:1.35}
- .hnote b{font-size:18px}
+ .nav .knop{display:none}
+ .hero{min-height:0}
+ .hero .foto{position:relative;width:auto;height:440px;margin:0 10px;border-radius:28px;overflow:hidden;order:3}
+ .hero .foto img{object-position:42% 60%}
+ .hero .foto::after{background:linear-gradient(0deg,rgba(16,49,58,.5),rgba(16,49,58,0) 40%)}
+ .htx{padding:26px 0 34px}
+ .hero h1{font-size:44px}
  .hero .lead{font-size:16.5px}
  .acts .knop{flex:1;justify-content:center}
- .hr{min-height:420px}
- .verf .v2{margin-bottom:30px}
+ .hvoet{position:relative;bottom:auto;order:4;padding:16px 0 26px}
+ .hvoet .wrap{flex-direction:column;align-items:flex-start;gap:18px}
+ .hnote{gap:22px}
+ .ver{padding:90px 0}
+ .verf .v2{right:-8px;top:-30px}
+ .citaat{left:-8px;right:20px;bottom:-40px;padding:18px 20px}.citaat p{font-size:17.5px}
  .aan{border-radius:30px;margin:0 10px;padding:84px 0}
  .drie{grid-template-columns:1fr}
- .drie .kd:last-child{grid-column:auto}
- .drie .kd:last-child .im{aspect-ratio:1.35}
- .regels{grid-template-columns:1fr}
- .ang,.ct{padding-bottom:84px}
- .angk,.ctk{border-radius:30px}
- .angk .tx,.ctk .tx{padding:46px 24px}
- .angk .f{min-height:340px}
- .revs{grid-template-columns:1fr}
- .score b{font-size:62px}
+ .drie .kd:first-child{grid-column:auto}
+ .kd,.drie .kd:first-child{min-height:520px;border-radius:26px}
+ .kd .tx{padding:24px}
+ .hs{padding:90px 0}
+ .mozaiek{grid-template-rows:260px 190px;gap:10px}
+ .nx{margin:0 10px;border-radius:30px;min-height:0;align-items:flex-end}
+ .nx>img{height:400px;top:auto;bottom:0}
+ .nx{background:var(--nacht);align-items:flex-start}
+ .nx::before{background:linear-gradient(0deg,rgba(16,49,58,0) 0,rgba(16,49,58,0) 250px,var(--nacht) 400px)}
+ .nx .tx{padding:44px 0 330px;margin-left:0}
+ .duo{grid-template-columns:1fr}
+ .rev{padding:90px 0}
+ .revf{min-height:440px;border-radius:28px}
+ .ctk{margin:0 10px;border-radius:30px;align-items:flex-end;min-height:680px}
+ .ctk::before{background:linear-gradient(0deg,rgba(16,49,58,.96) 0%,rgba(16,49,58,.75) 55%,rgba(16,49,58,.15))}
+ .ctk .tx{padding:44px 0}
  .info{grid-template-columns:1fr}
- .ctk .f{min-height:340px}
  .voet .wrap{grid-template-columns:1fr}
- .citaat p{font-size:18px}
 }
 </style>
 </head>
@@ -209,41 +229,52 @@ h1,h2,h3{font-weight:600;line-height:1.05;letter-spacing:-.035em}
 
 <main id="top">
 <section class="hero">
-  <div class="hl">
-    <header class="nav">
-      <a class="merk" href="#top"><img src="img/mark.png" alt="" width="342" height="280"><span><b>HelpenDe Hond</b><small>Alessa · Beernem</small></span></a>
+  <div class="foto"><img src="img/steiger.webp" alt="Alessa zit met haar zwarte hond op een steiger aan het water, ze kijken elkaar aan" width="1600" height="1068" fetchpriority="high"></div>
+  <header class="nav">
+    <div class="wrap">
+      <a class="merk" href="#top"><img src="img/mark-wit.png" alt="" width="342" height="280"><span><b>HelpenDe Hond</b><small>Alessa · Beernem</small></span></a>
       <ul>
+        <li><a href="#verhaal">Ons verhaal</a></li>
         <li><a href="#aanbod">Aanbod</a></li>
         <li><a href="#hondenschool">Hondenschool</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-    </header>
-    <div class="htx">
-      <span class="mini rv"><img src="img/mark.png" alt="" width="342" height="280">Gedragstherapie · hondenschool · therapiehond</span>
-      <h1 class="rv" style="--d:1">Een hond hebben mag <span class="p">gewoon leuk zijn.</span></h1>
-      <p class="lead rv" style="--d:2">Ik ben Alessa, holistisch hondengedragstherapeute. Samen met therapiehond Nala help ik honden en hun baasjes rond Oostkamp, Beernem en Brugge om in harmonie samen te leven. Bij jullie thuis, bij mij in Beernem of in de Fun Hondenschool.</p>
-      <div class="acts rv" style="--d:3">
-        <a class="knop k-petrol" href="#contact">Gratis kennismaking <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="knop k-lijn" href="#aanbod">Bekijk het aanbod</a>
+      <a class="knop k-geel" href="#contact">Gratis kennismaking</a>
+    </div>
+  </header>
+  <div class="hin">
+    <div class="wrap">
+      <div class="htx">
+        <span class="oog licht rv">Gedragstherapie · hondenschool · therapiehond</span>
+        <h1 class="rv" style="--d:1">Een hond hebben mag <span>gewoon leuk zijn.</span></h1>
+        <p class="lead rv" style="--d:2">Ik ben Alessa. Samen met therapiehond Nala help ik honden en hun mensen om terug rustig samen te leven. Bij jullie thuis, bij mij in Beernem of in de Fun Hondenschool.</p>
+        <div class="acts rv" style="--d:3">
+          <a class="knop k-geel" href="#contact">Plan een gratis kennismaking <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="knop k-glas" href="#aanbod">Bekijk het aanbod</a>
+        </div>
       </div>
     </div>
-    <div class="hnote rv" style="--d:4"><div><b>5,0 ★</b>uit 30 reviews op Google</div><div><b>Nala</b>gecertificeerd therapiedier</div><div><b>Max. 5</b>honden per les</div></div>
   </div>
-  <div class="hr"><img src="img/hero.webp" alt="Alessa geeft haar hond een high five in een veld vol boterbloemen" width="1600" height="1064" fetchpriority="high"></div>
+  <div class="hvoet rv" style="--d:4">
+    <div class="wrap">
+      <div class="hnote"><div><b>5,0 ★</b>uit 30 reviews op Google</div><div><b>Max. 5</b>honden per les</div><div><b>Gratis</b>screeningsgesprek</div></div>
+      <div class="zegel"><i><img src="img/mark.png" alt="" width="342" height="280"></i><span><b>Nala, gecertificeerd therapiedier</b>Mee op bezoek in scholen en woonzorgcentra</span></div>
+    </div>
+  </div>
 </section>
 
-<section class="s ver" id="verhaal">
+<section class="ver" id="verhaal">
   <div class="wrap">
-    <div class="verf">
-      <figure class="v1 rv"><img src="img/portret.webp" alt="Portret van Alessa in een veld" width="1600" height="1068" style="object-position:62% 40%" loading="lazy"></figure>
-      <figure class="v2 rv" style="--d:1"><img src="img/knuffel.webp" alt="Alessa ligt lachend in het gras met haar honden" width="1440" height="1440" loading="lazy"></figure>
+    <div class="verf rv">
+      <figure class="v1"><img src="img/knuffel.webp" alt="Alessa ligt lachend in het gras, wang aan wang met haar hond" width="1440" height="1440" loading="lazy" style="object-position:40% 50%"></figure>
+      <figure class="v2"><img src="img/portret.webp" alt="Portret van Alessa in een veld met hoog gras" width="1600" height="1068" loading="lazy"></figure>
+      <div class="citaat"><img src="img/mark.png" alt="" width="342" height="280"><p>"Ik heb Nala gered, maar zij mij ook."</p></div>
     </div>
     <div>
       <span class="oog rv">Waarom ik dit doe</span>
       <h2 class="rv" style="--d:1">Ik weet hoe zwaar het kan zijn.</h2>
-      <p class="lead rv" style="--d:2">Mijn eerste hond Haiko, een jonge husky uit het asiel, kon absoluut niet alleen zijn. Even naar het toilet gaan was al te veel. Het legde een enorme druk op alles. Toen hij ziek werd en stierf, stond ik er plots alleen voor.</p>
-      <p class="lead rv" style="--d:2">Een paar maanden later werd ik pleeggezin voor een bange straathond uit Turkije. Ze bleef. Gras, auto's, het strand, alles was nieuw voor haar. Met veel geduld en positieve training bloeide ze open tot de lieve, sociale hond die nu mee op therapiebezoek gaat.</p>
-      <div class="citaat rv" style="--d:3"><img src="img/mark-wit.png" alt="" width="342" height="280"><p>"Ik heb Nala gered, maar zij mij ook."</p></div>
+      <p class="lead rv" style="--d:2">Mijn eerste hond Haiko, een jonge husky uit het asiel, kon absoluut niet alleen zijn. Even naar het toilet gaan was al te veel. Toen hij ziek werd en stierf, stond ik er plots alleen voor.</p>
+      <p class="lead rv" style="--d:2">Een paar maanden later werd ik pleeggezin voor een bange straathond uit Turkije. Ze bleef. Gras, auto's, het strand: alles was nieuw voor haar. Met veel geduld bloeide ze open tot de lieve hond die nu mee op therapiebezoek gaat. Dat was Nala.</p>
     </div>
   </div>
 </section>
@@ -252,81 +283,77 @@ h1,h2,h3{font-weight:600;line-height:1.05;letter-spacing:-.035em}
   <div class="wrap">
     <div class="kop">
       <div><span class="oog rv">Wat we doen</span><h2 class="rv" style="--d:1">Voor elk probleem een eigen aanpak.</h2></div>
-      <p class="rv" style="--d:2">Van een hond die uitvalt aan de lijn tot een kind dat niet meer bij een vriendje durft te spelen omdat daar een hond woont. Twijfel je? Een screeningsgesprek is gratis.</p>
+      <p class="rv" style="--d:2">Van een hond die uitvalt aan de lijn tot een kind dat niet meer bij een vriendje durft spelen omdat daar een hond woont. Twijfel je? Het screeningsgesprek is gratis.</p>
     </div>
     <div class="drie">
-      <article class="kd rv"><div class="im"><img src="img/consult.webp" alt="Alessa neemt notities tijdens een consult" width="1600" height="1077" loading="lazy"></div><div class="tx"><h3>Gedragstherapie</h3><p>Een uitgebreid gedragsconsult en adviesgesprek, bij jullie thuis of bij mij in Beernem. Daarna begeleid ik jullie met opvolgtrainingen, tot het echt loopt.</p><div class="meta"><span>Aan huis of in Beernem</span><span>Holistisch</span></div></div></article>
-      <article class="kd geel rv" style="--d:1"><div class="im"><img src="img/twee.webp" alt="Twee honden zitten rustig naast elkaar in het hoge gras" width="1440" height="1440" loading="lazy" style="object-position:50% 45%"></div><div class="tx"><h3>Angst voor honden</h3><p>Een traject voor volwassenen en kinderen met cynofobie. In kleine stapjes, op jullie tempo, en pas als je er klaar voor bent komt Nala erbij.</p><div class="meta"><span>5 sessies van ongeveer 1 uur</span><span>Met Nala</span></div></div></article>
-      <article class="kd rv" style="--d:2"><div class="im"><img src="img/school.webp" alt="Alessa geeft les aan een baasje met hond op een grasveld" width="1600" height="1068" loading="lazy"></div><div class="tx"><h3>Fun Hondenschool</h3><p>Basisvaardigheden en tricks, telkens op een andere locatie. Zo oefen je in de echte wereld, niet enkel op een plein.</p><div class="meta"><span>Max. 5 deelnemers</span><span>Gratis proefles</span></div></div></article>
+      <article class="kd rv"><img src="img/st-thuis.webp" alt="Hond ligt met zijn kop op de rand van de zetel" width="1600" height="1066" loading="lazy" style="object-position:45% 50%"><span class="lab">Aan huis of in Beernem</span><div class="tx"><h3>Gedragstherapie</h3><p>Een uitgebreid consult bij jullie thuis of bij mij. Daarna begeleid ik jullie met opvolgtrainingen, tot het echt loopt.</p><div class="meta"><span>Holistisch</span><span>Met opvolging</span></div></div></article>
+      <article class="kd geel rv" style="--d:1"><img src="img/twee.webp" alt="Twee honden zitten rustig naast elkaar in het hoge gras" width="1440" height="1440" loading="lazy" style="object-position:50% 40%"><span class="lab">Met Nala</span><div class="tx"><h3>Angst voor honden</h3><p>Voor volwassenen en kinderen die bang zijn van honden. In kleine stapjes, op jullie tempo. Nala komt er pas bij als je er klaar voor bent.</p><div class="meta"><span>5 sessies</span><span>Ongeveer 1 uur</span></div></div></article>
+      <article class="kd rv" style="--d:2"><img src="img/school.webp" alt="Alessa geeft les aan een baasje met hond op een grasveld" width="1600" height="1068" loading="lazy" style="object-position:30% 50%"><span class="lab">Gratis proefles</span><div class="tx"><h3>Fun Hondenschool</h3><p>Basisvaardigheden en tricks, telkens op een andere plek. Zo oefen je in de echte wereld.</p><div class="meta"><span>Max. 5 honden</span><span>€25 per les</span></div></div></article>
     </div>
-    <div class="meer rv"><b>En ook:</b><span>Workshop ontspannen wandelen</span><span>Leer je hond spelen</span><span>Masterclass coöperatieve zorg</span><span>Therapiedier op bezoek in scholen en woonzorgcentra</span><span>Uitlaatdienst</span><span>Hondenfitness</span><span>Online cursussen</span><span>Cadeaubon</span></div>
+    <div class="meer rv"><b>En ook:</b><span>Workshop ontspannen wandelen</span><span>Leer je hond spelen</span><span>Masterclass coöperatieve zorg</span><span>Therapiedier op bezoek</span><span>Uitlaatdienst</span><span>Hondenfitness</span><span>Online cursussen</span><span>Cadeaubon</span></div>
   </div>
 </section>
 
-<section class="s hs" id="hondenschool">
+<section class="hs" id="hondenschool">
   <div class="wrap">
     <div>
       <span class="oog rv">Fun Hondenschool</span>
       <h2 class="rv" style="--d:1">Geen niveaugroepen. Wel jouw hond.</h2>
-      <p class="lead rv" style="--d:2">Ik pas elke oefening aan aan het duo voor me. De ene hond daag ik uit met een rollende bal of een fietser die voorbijrijdt, de andere oefent nog rustig een eenvoudig commando tussen andere honden. Iedere hond krijgt precies wat hij op dat moment aankan.</p>
+      <p class="lead rv" style="--d:2">De ene hond daag ik uit met een rollende bal of een fietser die voorbijrijdt, de andere oefent rustig een eenvoudig commando tussen andere honden. Elke hond krijgt wat hij op dat moment aankan.</p>
       <div class="regels">
-        <div class="rg rv"><b>Telkens een andere plek</b><span>Hoe vaak wandel je in het echt heen en weer over hetzelfde plein?</span></div>
-        <div class="rg rv" style="--d:1"><b>Maximum 5 honden</b><span>Zo heeft iedereen genoeg persoonlijke begeleiding.</span></div>
-        <div class="rg rv"><b>Eerst de basiscursus</b><span>'Hoe denkt een hond?' of 'Hond in Balans', zodat we dezelfde visie delen.</span></div>
-        <div class="rg rv" style="--d:1"><b>Zonder prik of slip</b><span>Gentle Leaders, slipkettingen en prikkettingen blijven thuis.</span></div>
+        <div class="rg rv"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span><b>Telkens een andere plek.</b> Want hoe vaak wandel je in het echt over hetzelfde plein?</span></div>
+        <div class="rg rv"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span><b>Maximum 5 honden.</b> Zo krijgt iedereen genoeg aandacht.</span></div>
+        <div class="rg rv"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span><b>Zonder prik of slip.</b> Gentle Leaders, slip- en prikkettingen blijven thuis.</span></div>
       </div>
       <div class="prijslijn rv">
         <div><b>€25</b>per losse les</div>
         <div><b>€200</b>voor 10 beurten</div>
         <a class="knop k-petrol" href="#contact">Boek een gratis proefles</a>
       </div>
-      <p class="rv" style="margin-top:24px;color:var(--grijs);font-size:15.5px">Wees lief voor jezelf én voor elkaar. Niet elke les verloopt perfect, en dat is helemaal oké.</p>
     </div>
-    <div class="hsf">
-      <figure class="h1 rv"><img src="img/leon.webp" alt="Jonge Leonberger staat op een plateau tijdens de les" width="1600" height="1198" loading="lazy" style="object-position:50% 35%"></figure>
-      <figure class="h2 rv" style="--d:1"><img src="img/training.webp" alt="Twee baasjes oefenen met een zwarte hond" width="1600" height="1064" loading="lazy"></figure>
-      <figure class="h3 rv" style="--d:2"><img src="img/tak.webp" alt="Hond wacht op een boomstam in het groen" width="1600" height="1064" loading="lazy" style="object-position:55% 50%"></figure>
+    <div class="mozaiek">
+      <figure class="m1 rv"><img src="img/leon.webp" alt="Jonge Leonberger staat trots op een plateau tijdens de les" width="1600" height="1198" loading="lazy" style="object-position:50% 38%"><figcaption>Elke les een nieuwe uitdaging</figcaption></figure>
+      <figure class="rv" style="--d:1"><img src="img/training.webp" alt="Twee baasjes oefenen met een zwarte hond" width="1600" height="1064" loading="lazy"></figure>
+      <figure class="rv" style="--d:2"><img src="img/tak.webp" alt="Hond wacht op een boomstam in het groen" width="1600" height="1064" loading="lazy" style="object-position:62% 50%"></figure>
     </div>
   </div>
 </section>
 
-<section class="ang">
+<section class="nx">
+  <img src="img/jurk.webp" alt="Alessa buigt zich lachend naar haar hond in een zonnig veld" width="1440" height="1440" loading="lazy">
   <div class="wrap">
-    <div class="angk rv">
-      <div class="tx">
-        <span class="oog">Nala en Xenza</span>
-        <h2>Twee therapiehonden, elk met hun eigen talent.</h2>
-        <p class="lead">Nala is een gecertificeerd therapiedier. Ze ging mee naar woonzorgcentra, waar bewoners haar mochten borstelen of snoepjes voor haar trucjes breken, en naar scholen, waar kinderen leren hoe honden 'praten'.</p>
-        <div class="stapjes">
-          <div><i>N</i><span><b>Nala, de knuffelaar</b>Ooit een bange straathond, nu de rustigste aanwezigheid in de kamer.</span></div>
-          <div><i>X</i><span><b>Xenza, de uitlegger</b>Een Beauceron van 35 kilo in harlekijnkleuren. Opspringen? Dat doet ze niet. Ze toont liever hoe hondentaal werkt.</span></div>
-        </div>
-        <blockquote>"Alessa is echt een life saver. Ze heeft me op een zeer professionele, toegankelijke en respectvolle manier leren omgaan met mijn angst voor honden."<small>Laura Van Beethoven, op Google</small></blockquote>
+    <div class="tx rv">
+      <span class="oog licht">Nala en Xenza</span>
+      <h2>Twee therapiehonden, elk met hun eigen talent.</h2>
+      <p class="lead">Nala ging mee naar woonzorgcentra, waar bewoners haar mochten borstelen of snoepjes voor haar trucjes breken, en naar scholen, waar kinderen leren hoe honden 'praten'.</p>
+      <div class="duo">
+        <div><b>Nala</b>Ooit een bange straathond, nu de rustigste aanwezigheid in de kamer.</div>
+        <div><b>Xenza</b>Een Beauceron van 35 kilo. Opspringen doet ze niet, ze toont liever hoe hondentaal werkt.</div>
       </div>
-      <div class="f"><img src="img/jurk.webp" alt="Alessa buigt zich in een veld naar haar hond" width="1440" height="1440" loading="lazy" style="object-position:50% 40%"></div>
+      <blockquote>"Ze heeft me op een zeer professionele, toegankelijke en respectvolle manier leren omgaan met mijn angst voor honden."<small>Laura Van Beethoven, op Google</small></blockquote>
     </div>
   </div>
 </section>
 
-<section class="s" style="padding-top:0">
+<section class="rev">
   <div class="wrap">
-    <div class="kop">
-      <div><span class="oog rv">Reviews</span><h2 class="rv" style="--d:1">Een echte eyeopener.</h2></div>
-      <div class="score rv" style="--d:2"><b>5,0</b><span><span class="ster">★★★★★</span><br>uit 30 reviews op Google</span></div>
-    </div>
-    <div class="revs">
-      <article class="rk rv"><span class="ster">★★★★★</span><p>De masterclass coöperatieve zorg gevolgd. Deze is echte eyeopener en een must voor alle hondenbaasjes die afstemmend willen bezig zijn met hun trouwe viervoeter.</p><div class="wie"><span class="ini">K</span><div><b>Kelly Pacco</b>Masterclass</div></div></article>
-      <article class="rk rv" style="--d:1"><span class="ster">★★★★★</span><p>Ik volgde de masterclass over coöperatieve zorg bij Alessa van HelpenDe hond omdat onze dalmatiër veel stress signalen vertoont bij het nagels knippen. Alessa legde het concept hiervan met heel veel kennis en enthousiasme uit.</p><div class="wie"><span class="ini">L</span><div><b>Lieve De Bruyne</b>Masterclass</div></div></article>
-      <article class="rk rv" style="--d:2"><span class="ster">★★★★★</span><p>'De puppy school bij jouw thuis!' gevolgd. Wat een verrijking! Ik heb veel nieuwe dingen geleerd en regelmatig 'ooo' momenten gehad. Hierdoor kan ik zeer gemotiveerd met alle handvatten aan de slag. Bedankt Alessandra!</p><div class="wie"><span class="ini">M</span><div><b>Marjolijn Eikelboom</b>Online cursus</div></div></article>
+    <div class="revf rv"><img src="img/hero.webp" alt="Alessa geeft haar hond een high five in een veld vol boterbloemen" width="1600" height="1064" loading="lazy"><div class="score"><b>5,0</b><span><span class="ster">★★★★★</span><br>uit 30 reviews op Google</span></div></div>
+    <div class="revr">
+      <span class="oog rv">Reviews</span>
+      <h2 class="rv" style="--d:1">Een echte eyeopener.</h2>
+      <article class="rk rv"><span class="ster">★★★★★</span><p>Ik volgde de masterclass over coöperatieve zorg omdat onze dalmatiër veel stresssignalen vertoont bij het nagels knippen. Alessa legde het concept met heel veel kennis en enthousiasme uit.</p><div class="wie"><b>Lieve De Bruyne</b> · Masterclass</div></article>
+      <article class="rk rv" style="--d:1"><span class="ster">★★★★★</span><p>'De puppy school bij jouw thuis!' gevolgd. Wat een verrijking! Ik heb veel nieuwe dingen geleerd en regelmatig 'ooo' momenten gehad.</p><div class="wie"><b>Marjolijn Eikelboom</b> · Online cursus</div></article>
+      <article class="rk rv" style="--d:2"><span class="ster">★★★★★</span><p>Deze is echt een eyeopener en een must voor alle hondenbaasjes die afstemmend bezig willen zijn met hun trouwe viervoeter.</p><div class="wie"><b>Kelly Pacco</b> · Masterclass</div></article>
     </div>
   </div>
 </section>
 
 <section class="ct" id="contact">
-  <div class="wrap">
-    <div class="ctk rv">
+  <div class="ctk rv">
+    <img src="img/st-knuffel.webp" alt="Vrouw zit in de bergen en houdt haar zwarte hond dicht tegen zich aan" width="1800" height="1200" loading="lazy">
+    <div class="wrap">
       <div class="tx">
-        <span class="oog">Contact</span>
+        <span class="oog licht">Contact</span>
         <h2>Vertel me wat er speelt.</h2>
         <p class="lead">Een kort screeningsgesprek is gratis. Daarna weten we allebei of en hoe ik jullie kan helpen. Ik werk op afspraak, bij jullie thuis of bij mij in Beernem.</p>
         <div class="info">
@@ -337,10 +364,9 @@ h1,h2,h3{font-weight:600;line-height:1.05;letter-spacing:-.035em}
         </div>
         <div class="acts" style="margin:0">
           <a class="knop k-geel" href="https://wa.me/32463611874" target="_blank" rel="noopener">Stuur een WhatsApp</a>
-          <a class="knop" style="box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.5);color:#fff" href="mailto:helpendehond@outlook.com">Mail Alessa</a>
+          <a class="knop k-glas" href="mailto:helpendehond@outlook.com">Mail Alessa</a>
         </div>
       </div>
-      <div class="f"><img src="img/steiger.webp" alt="Alessa zit met haar hond op een steiger aan het water" width="1600" height="1068" loading="lazy"></div>
     </div>
   </div>
 </section>
