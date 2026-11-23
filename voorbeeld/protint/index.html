@@ -39,48 +39,47 @@ h2 em{font-style:normal;color:var(--turqd)}
 .k-glas:hover{background:rgba(255,255,255,.12)}
 
 /* hero */
-.hero{position:relative;background:radial-gradient(70% 70% at 72% 62%,#20363A 0%,#121A1D 45%,var(--ink) 80%);color:#fff;overflow:hidden;isolation:isolate}
-.hero::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(60% 70% at 70% 55%,#000,transparent 75%);mask-image:radial-gradient(60% 70% at 70% 55%,#000,transparent 75%)}
+.hero{position:relative;background:var(--ink);color:#fff;overflow:hidden;isolation:isolate}
+.hero-foto{position:absolute;inset:0;z-index:-2;overflow:hidden;margin:0}
+.hero-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 72%;filter:brightness(.74) contrast(1.14) saturate(.82);animation:zoom 2.4s var(--ease) both}
+@keyframes zoom{from{transform:scale(1.07);opacity:.2}to{transform:none;opacity:1}}
+.hero-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0%,rgba(11,14,16,.92) 22%,rgba(11,14,16,.55) 40%,rgba(11,14,16,0) 62%),linear-gradient(0deg,var(--ink) 0%,rgba(11,14,16,.55) 16%,rgba(11,14,16,0) 38%),linear-gradient(180deg,rgba(11,14,16,.75) 0%,rgba(11,14,16,0) 22%),radial-gradient(60% 50% at 70% 80%,rgba(25,194,182,.14),transparent 70%)}
 .kop{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0;position:relative;z-index:5}
 .merk{display:inline-flex;align-items:center;gap:14px}
 .merk img{height:46px;width:auto}
 .hero .merk img{filter:brightness(0) invert(1)}
 .merk span{font:700 15px/1.15 'Sora';letter-spacing:-.02em}
 .merk span small{display:block;font:500 12.5px/1.2 'Figtree';opacity:.6;letter-spacing:0}
-.nav{display:flex;gap:4px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:99px;padding:5px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-.nav a{font:500 15px/1 'Figtree';color:rgba(255,255,255,.75);padding:11px 18px;border-radius:99px;transition:background .3s,color .3s}
-.nav a:hover{background:rgba(255,255,255,.08);color:#fff}
+.nav{display:flex;gap:4px;background:rgba(11,14,16,.35);border:1px solid rgba(255,255,255,.12);border-radius:99px;padding:5px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.nav a{font:500 15px/1 'Figtree';color:rgba(255,255,255,.8);padding:11px 18px;border-radius:99px;transition:background .3s,color .3s}
+.nav a:hover{background:rgba(255,255,255,.1);color:#fff}
 .kop .knop{padding:13px 22px;font-size:15px}
-.woord{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);z-index:-1;-webkit-mask-image:linear-gradient(90deg,transparent 22%,#000 55%);mask-image:linear-gradient(90deg,transparent 22%,#000 55%);font:800 clamp(120px,23vw,360px)/1 'Sora';letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.07);white-space:nowrap;user-select:none;pointer-events:none}
-.hero-g{position:relative;display:grid;grid-template-columns:.86fr 1.14fr;align-items:center;min-height:clamp(600px,calc(100svh - 128px),820px);padding-bottom:40px}
-.hero-t{position:relative;z-index:3;padding:20px 0 40px}
-.hero .pil{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.14);color:#fff}
-.hero h1{font-size:clamp(46px,5.6vw,84px);margin-top:26px;letter-spacing:-.045em}
+.hero-g{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:clamp(420px,calc(100svh - 380px),560px);padding:10px 0 0}
+.onder{padding-bottom:34px}
+.hero-t{position:relative;z-index:3;max-width:600px}
+.hero .pil{background:rgba(11,14,16,.45);border-color:rgba(255,255,255,.16);color:#fff;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.hero h1{font-size:clamp(48px,5.7vw,88px);margin-top:20px;letter-spacing:-.05em;line-height:.96;text-shadow:0 10px 40px rgba(0,0,0,.35)}
 .hero h1 span{color:var(--turq2)}
-.hero .lead{max-width:26.5em;margin-top:24px;font-size:clamp(17px,1.25vw,19px);color:rgba(255,255,255,.72)}
-.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
-.bewijs{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin-top:40px;padding-top:26px;border-top:1px solid rgba(255,255,255,.1)}
+.hero .lead{max-width:30em;margin-top:26px;font-size:clamp(17px,1.25vw,19px);color:rgba(255,255,255,.78)}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero-o{display:flex;justify-content:space-between;align-items:center;gap:30px;margin-top:34px;position:relative;z-index:3;padding-top:24px;border-top:1px solid rgba(255,255,255,.12)}
+.bewijs{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px}
 .gsc{display:flex;align-items:center;gap:12px}
 .gsc i{width:42px;height:42px;border-radius:50%;background:#fff;display:grid;place-items:center;font-style:normal}
 .gsc b{font:700 22px/1 'Sora';letter-spacing:-.03em}
 .gsc b span{color:#F5B400;font-size:13px;letter-spacing:2px;margin-left:6px;vertical-align:3px}
-.gsc small{display:block;font-size:13px;color:rgba(255,255,255,.55);margin-top:3px}
-.bewijs .v{display:inline-flex;align-items:center;gap:9px;font:600 14.5px/1.2 'Figtree';color:rgba(255,255,255,.85)}
-.bewijs .v svg{width:20px;height:20px;padding:3px;border-radius:50%;background:rgba(25,194,182,.18);color:var(--turq2)}
-.wagen{position:relative;align-self:end;margin-right:-40px;margin-left:-30px;z-index:2}
-.wagen img{position:relative;width:100%;z-index:2;filter:drop-shadow(0 40px 40px rgba(0,0,0,.55));animation:rij 1.6s var(--ease) .15s both}
-@keyframes rij{from{opacity:0;transform:translateX(70px)}to{opacity:1;transform:none}}
-.wagen::before{content:"";position:absolute;left:4%;right:6%;bottom:2%;height:16%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.75),transparent);z-index:1}
-.wagen::after{content:"";position:absolute;left:10%;right:10%;top:8%;bottom:22%;border-radius:50%;background:radial-gradient(closest-side,rgba(70,220,208,.22),transparent);filter:blur(20px);z-index:0}
-.tintkaart{position:absolute;z-index:4;left:6%;bottom:-6px;width:min(330px,80%);background:rgba(18,24,27,.72);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:22px;padding:18px 18px 16px;box-shadow:0 30px 60px -24px rgba(0,0,0,.7)}
-.tintkaart .bo{display:flex;justify-content:space-between;align-items:center;font:600 12.5px/1 'Figtree';color:rgba(255,255,255,.6);letter-spacing:.04em;text-transform:uppercase}
+.gsc small{display:block;font-size:13px;color:rgba(255,255,255,.6);margin-top:3px}
+.bewijs .v{display:inline-flex;align-items:center;gap:9px;font:600 14.5px/1.2 'Figtree';color:rgba(255,255,255,.88)}
+.bewijs .v svg{width:20px;height:20px;padding:3px;border-radius:50%;background:rgba(25,194,182,.2);color:var(--turq2)}
+.tintkaart{flex:none;width:330px;background:rgba(11,14,16,.55);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:22px;padding:18px 18px 16px;box-shadow:0 30px 60px -24px rgba(0,0,0,.7)}
+.tintkaart .bo{display:flex;justify-content:space-between;align-items:center;font:600 12.5px/1 'Figtree';color:rgba(255,255,255,.62);letter-spacing:.04em;text-transform:uppercase}
 .tintkaart .bo b{color:#fff;font:700 13px/1 'Sora';letter-spacing:-.01em;text-transform:none}
 .schaal{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:14px}
 .schaal span{position:relative;height:42px;border-radius:10px;background:linear-gradient(135deg,#B9D7E4,#E6EEF0);overflow:hidden;display:flex;align-items:flex-end;justify-content:flex-end;padding:6px 7px;font:700 12px/1 'Sora';color:#fff}
 .schaal span::before{content:"";position:absolute;inset:0;background:rgba(8,12,14,var(--o))}
 .schaal span em{position:relative;font-style:normal}
 .schaal span.aan{outline:2px solid var(--turq2);outline-offset:2px}
-.tintkaart p{margin-top:12px;font-size:13.5px;color:rgba(255,255,255,.7);line-height:1.45}
+.tintkaart p{margin-top:12px;font-size:13.5px;color:rgba(255,255,255,.72);line-height:1.45}
 .tintkaart p b{color:#fff;font-weight:600}
 
 /* merken strook */
@@ -214,15 +213,20 @@ section.s{padding:clamp(90px,10vw,140px) 0}
 
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.wagen img,.strook .rail{animation:none}}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.hero-foto img,.strook .rail{animation:none}}
 
 @media (max-width:1100px){
   .nav{display:none}
-  .hero-g{grid-template-columns:1fr;min-height:0;padding-bottom:60px}
-  .hero-t{padding:30px 0 10px}
-  .wagen{margin:10px -10px 0;max-width:860px}
-  .tintkaart{left:0;bottom:-30px}
-  .woord{top:66%}
+  .hero{display:flex;flex-direction:column}
+  .hero-foto{order:2}
+  .hero>.wrap{order:1;width:100%}
+  .hero-g{min-height:0;padding:24px 0 0}
+  .hero>.onder{order:3;width:100%}
+  .hero-foto{position:relative;inset:auto;width:auto;height:auto;aspect-ratio:16/11;margin:0;z-index:0}
+  .hero-foto img{object-position:50% 50%}
+  .hero-foto::after{background:linear-gradient(180deg,var(--ink) 0%,rgba(11,14,16,0) 26%),linear-gradient(0deg,var(--ink) 0%,rgba(11,14,16,0) 30%)}
+  .hero-o{margin-top:0;border-top:0;padding:0 0 40px;gap:24px;flex-direction:column-reverse;align-items:stretch}
+  .tintkaart{width:min(100%,420px);margin-top:-70px;position:relative;z-index:2}
   .s-kop{grid-template-columns:1fr}
   .s-kop .rr{justify-self:start}
   .diensten{grid-template-columns:1fr 1fr}
@@ -245,10 +249,10 @@ section.s{padding:clamp(90px,10vw,140px) 0}
   .hero h1{font-size:clamp(40px,11.4vw,52px);margin-top:20px}
   .acts .knop{flex:1 1 100%}
   .bewijs{gap:14px;margin-top:30px}
-  .wagen{margin:0 -8px}
-  .tintkaart{position:relative;left:auto;bottom:auto;width:auto;margin:-6px 8px 0}
-  .woord{top:auto;bottom:120px;font-size:140px}
   .strook span{font-size:12px}
+  .hero-foto{aspect-ratio:1/1;margin-top:-10px}
+  .hero-foto img{object-position:40% 55%}
+  .tintkaart{margin-top:-56px}
   .tint,.ct{border-radius:28px}
   .diensten,.bento,.rev-g{grid-template-columns:1fr}
   .dienst figure{aspect-ratio:4/3.3}
@@ -280,7 +284,7 @@ section.s{padding:clamp(90px,10vw,140px) 0}
 
 <main id="top">
 <section class="hero" aria-label="Welkom">
-  <div class="woord" aria-hidden="true">PROTINT</div>
+  <figure class="hero-foto"><img src="img/studio-m4.webp" srcset="img/studio-m4-gsm.webp 1100w, img/studio-m4.webp 2000w" sizes="(max-width:640px) 100vw, 100vw" alt="Matzwarte BMW onder de lichtlijnen van een studio, met de lampen die weerspiegelen in de donkere ruiten" width="2000" height="1336" fetchpriority="high"></figure>
   <div class="wrap">
     <header class="kop">
       <a class="merk" href="#top" aria-label="Protint9000"><img src="img/logo.webp" alt="Protint9000" width="360" height="292"><span>Protint9000<small>Windowtinting en wraps</small></span></a>
@@ -296,19 +300,20 @@ section.s{padding:clamp(90px,10vw,140px) 0}
           <a class="knop k-turq" href="#contact">Vraag je offerte<svg><use href="#naar"/></svg></a>
           <a class="knop k-glas" href="#realisaties">Bekijk realisaties</a>
         </div>
-        <div class="bewijs">
-          <div class="gsc"><i><svg width="22" height="22" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg></i><div><b>4,9<span>★★★★★</span></b><small>77 reviews op Google</small></div></div>
-          <span class="v"><svg><use href="#vink"/></svg>Levenslange garantie</span>
-          <span class="v"><svg><use href="#vink"/></svg>Ook op verplaatsing</span>
-        </div>
       </div>
-      <div class="wagen">
-        <img src="img/m5-vrij.webp" alt="Nieuwe BMW M5 in matgrijs met getinte ruiten en het ProTinT-plaatje" width="1358" height="742" fetchpriority="high">
-        <div class="tintkaart">
-          <div class="bo">BMW M5 <b>Achteraan 15%</b></div>
-          <div class="schaal" aria-hidden="true"><span style="--o:.38"><em>50</em></span><span style="--o:.55"><em>35</em></span><span class="aan" style="--o:.78"><em>15</em></span><span style="--o:.92"><em>5</em></span></div>
-          <p><b>Strak tot in de hoek,</b> zonder bubbels of oranje warmtelijnen.</p>
-        </div>
+    </div>
+  </div>
+  <div class="wrap onder">
+    <div class="hero-o">
+      <div class="bewijs">
+        <div class="gsc"><i><svg width="22" height="22" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg></i><div><b>4,9<span>★★★★★</span></b><small>77 reviews op Google</small></div></div>
+        <span class="v"><svg><use href="#vink"/></svg>Levenslange garantie</span>
+        <span class="v"><svg><use href="#vink"/></svg>Ook op verplaatsing</span>
+      </div>
+      <div class="tintkaart">
+        <div class="bo">Hoe donker? <b>Jij kiest</b></div>
+        <div class="schaal" aria-hidden="true"><span style="--o:.38"><em>50</em></span><span style="--o:.55"><em>35</em></span><span class="aan" style="--o:.78"><em>15</em></span><span style="--o:.92"><em>5</em></span></div>
+        <p><b>Strak tot in de hoek,</b> zonder bubbels of oranje warmtelijnen.</p>
       </div>
     </div>
   </div>
