@@ -48,23 +48,39 @@ h1,h2,h3{font-family:'Anton',sans-serif;font-weight:400;line-height:.95;letter-s
 .nav ul a{text-decoration:none;font:500 15px/1 'Outfit'}
 .nav ul a:hover{color:var(--bord)}
 
-/* hero full screen */
-.hero{position:relative;min-height:min(940px,100vh);display:flex;align-items:flex-end;overflow:hidden;color:#fff;background:var(--bord-d)}
-.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% 40%;transform:scale(1.05);animation:zoom 15s var(--ease) forwards}
+/* hero (23 nov): donker bordeaux, boogvenster met stockfoto */
+.hero{position:relative;overflow:hidden;color:#fff;background:var(--bord-d);padding:176px 0 104px}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 78% 48%,rgba(244,185,184,.16),transparent 70%),radial-gradient(40% 50% at 8% 100%,rgba(0,0,0,.25),transparent 70%);pointer-events:none}
+.hero .wrap{position:relative;z-index:2;width:min(1320px,100% - 48px);display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center}
+.h-in{max-width:640px}
+.h-in .tag{background:rgba(255,255,255,.1);color:var(--roze)}
+.h-in h1{font-size:clamp(64px,7.6vw,124px);margin:26px 0 24px;line-height:.9}
+.h-in h1 .sl{display:block;font-size:.4em;color:var(--roze);margin-bottom:14px}
+.h-in p{font-size:19px;max-width:29em;color:rgba(255,255,255,.84)}
+.h-in .acties{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+.h-feit{display:flex;flex-wrap:wrap;gap:0;margin-top:44px;padding-top:24px;border-top:1px solid rgba(255,255,255,.16)}
+.h-feit div{padding-right:26px;margin-right:26px;border-right:1px solid rgba(255,255,255,.16)}
+.h-feit div:last-child{border:0;margin:0;padding:0}
+.h-feit b{display:block;font:400 26px/1 'Anton';letter-spacing:.01em;color:#fff;text-transform:uppercase}
+.h-feit span{display:block;margin-top:7px;font:500 14px/1.3 'Outfit';color:rgba(255,255,255,.66)}
+.h-beeld{position:relative;justify-self:end;width:min(100%,520px)}
+.boog{position:relative;aspect-ratio:4/5;border-radius:320px 320px 30px 30px;overflow:hidden;box-shadow:0 50px 80px -40px rgba(0,0,0,.7);z-index:1}
+.boog img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform:scale(1.06);animation:zoom 16s var(--ease) forwards}
 @keyframes zoom{to{transform:scale(1)}}
-.hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(34,10,14,.82) 0%,rgba(34,10,14,.5) 38%,rgba(34,10,14,0) 64%),linear-gradient(0deg,rgba(34,10,14,.45),transparent 40%)}
-.hero .wrap{position:relative;z-index:2;width:min(1380px,100% - 48px);padding:200px 0 84px;display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
-.h-in{max-width:660px}
-.h-in .tag{background:rgba(255,255,255,.14);color:var(--roze);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-.h-in h1{font-size:clamp(64px,8vw,128px);margin:22px 0 20px}
-.h-in h1 .sl{display:block;font-size:.42em;color:var(--roze);margin-bottom:10px}
-.h-in p{font-size:19.5px;max-width:28em;color:rgba(255,255,255,.88)}
-.h-in .acties{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
-.badge{flex:none;width:150px;height:150px;border-radius:50%;background:var(--roze);color:var(--bord-d);display:grid;place-items:center;text-align:center;transform:rotate(-8deg);box-shadow:0 26px 40px -18px rgba(0,0,0,.55);position:relative}
+.boog:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(60,14,25,.35),transparent 35%)}
+.h-beeld:before{content:"";position:absolute;inset:-16px -16px 26px 26px;border-radius:330px 330px 34px 34px;background:repeating-linear-gradient(90deg,var(--roze) 0 22px,#fff 22px 44px);opacity:.9;transform:translate(22px,-6px)}
+.rond{position:absolute;left:-66px;bottom:56px;z-index:2;width:176px;height:176px;border-radius:50%;overflow:hidden;border:8px solid var(--bord-d);box-shadow:0 26px 40px -18px rgba(0,0,0,.6)}
+.rond img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;right:-30px;bottom:-34px;z-index:3;width:146px;height:146px;border-radius:50%;background:var(--roze);color:var(--bord-d);display:grid;place-items:center;text-align:center;transform:rotate(-8deg);box-shadow:0 26px 40px -18px rgba(0,0,0,.55)}
 .badge svg.r{position:absolute;inset:0;width:100%;height:100%;animation:draai 26s linear infinite}
 @keyframes draai{to{transform:rotate(360deg)}}
 .badge b{display:block;font:400 44px/1 'Anton'}
 .badge span{font:600 12.5px/1.2 'Outfit'}
+.sticker{position:absolute;left:-40px;top:70px;z-index:3;background:#fff;color:var(--bord-d);border-radius:18px;padding:14px 18px 14px 14px;display:flex;align-items:center;gap:12px;box-shadow:0 24px 40px -20px rgba(0,0,0,.55);transform:rotate(-3deg)}
+.sticker i{flex:none;width:42px;height:42px;border-radius:12px;background:var(--roze-l);display:grid;place-items:center;color:var(--bord)}
+.sticker i svg{width:24px;height:24px}
+.sticker b{display:block;font:600 15px/1.25 'Outfit';white-space:nowrap}
+.sticker span{display:block;font:500 13px/1.3 'Outfit';color:var(--grijs)}
 
 section{position:relative}
 .sec{padding:130px 0}
@@ -180,7 +196,7 @@ footer .luifel{border-radius:0;margin-bottom:80px;height:26px}
 .vt .merk{color:var(--roze)}
 .vt .merk b{font-size:44px}.vt .merk small{font-size:19px}.vt .merk svg{width:44px;height:44px}
 .vt p{color:rgba(255,255,255,.7);margin-top:18px;max-width:22em;font-size:15.5px}
-.vt h4{font:600 15px/1 'Zilla Slab';font-style:italic;color:var(--roze);margin-bottom:16px}
+.vt h4{font:600 15px/1 'Zilla Slab';font-style:normal;color:var(--roze);margin-bottom:16px}
 .vt ul{list-style:none;display:grid;gap:8px;font-size:15.5px;color:rgba(255,255,255,.85)}
 .vt a{text-decoration:none}.vt a:hover{text-decoration:underline}
 .pain{font:400 clamp(40px,6.4vw,92px)/1 'Anton';text-transform:uppercase;color:rgba(244,185,184,.12);text-align:center;margin:60px 0 30px;white-space:nowrap}
@@ -189,14 +205,14 @@ footer .luifel{border-radius:0;margin-bottom:80px;height:26px}
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
 .js .kraft.rv.in{transform:rotate(-.6deg)}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.hero>img,.badge svg.r{animation:none}}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.boog img,.badge svg.r{animation:none}}
 
 @media (max-width:1100px){.rev-g{grid-template-columns:1fr 1fr}}
 @media (max-width:1020px){
  .nav ul{display:none}
- .hero .wrap{flex-direction:column;align-items:flex-start;padding:170px 0 50px}
- .hero:before{background:linear-gradient(0deg,rgba(60,14,25,.92) 0%,rgba(60,14,25,.6) 55%,rgba(60,14,25,.2) 100%)}
- .hero>img{object-position:62% 40%}
+ .hero{padding:156px 0 110px}
+ .hero .wrap{grid-template-columns:1fr;gap:80px}
+ .h-beeld{justify-self:center;width:min(100% - 60px,480px)}
  .ruit,.zat,.info,.verhaal .g{grid-template-columns:1fr;gap:56px}
  .ruit-t,.zat-t{order:-1}
  .ruit-f{max-width:560px}
@@ -211,12 +227,23 @@ footer .luifel{border-radius:0;margin-bottom:80px;height:26px}
  .wrap,.nav .wrap,.hero .wrap{width:calc(100% - 36px)}
  .merk b{font-size:26px}.merk svg{width:26px;height:26px}
  .nav .btn{padding:12px 16px;font-size:14px}
- .hero{min-height:780px}
- .hero .wrap{padding:150px 0 36px}
- .h-in h1{font-size:64px}
+ .hero{padding:140px 0 90px}
+ .hero .wrap{gap:64px}
+ .h-in h1{font-size:60px}
  .h-in p{font-size:17px}
- .badge{width:120px;height:120px}
- .badge b{font-size:36px}
+ .h-feit{margin-top:34px}
+ .h-feit div{padding-right:16px;margin-right:16px}
+ .h-feit b{font-size:21px}
+ .h-feit span{font-size:12.5px}
+ .h-beeld{width:calc(100% - 44px);justify-self:end;margin-right:6px}
+ .h-beeld:before{inset:-10px -10px 20px 20px;transform:translate(12px,-4px)}
+ .rond{width:118px;height:118px;left:-30px;bottom:40px;border-width:6px}
+ .badge{width:112px;height:112px;right:-14px;bottom:-28px}
+ .badge b{font-size:34px}
+ .badge span{font-size:11px}
+ .sticker{left:-26px;top:36px;padding:10px 14px 10px 10px}
+ .sticker i{width:34px;height:34px}
+ .sticker b{font-size:13.5px}.sticker span{font-size:12px}
  .sec{padding:88px 0}
  .ruit-f{padding:0 16px 50px 0}
  .bordsec,.verhaal{margin-left:10px;margin-right:10px;border-radius:36px}
@@ -267,15 +294,24 @@ body .verhaal h2 .sl{color:var(--roze)}
 </header>
 
 <section class="hero" id="top">
-  <img src="img/hero.webp" alt="Anita aan de oven, met op de voorgrond een plaat versgebakken croissants en chocoladekoeken met amandel" width="1600" height="1042">
   <div class="wrap">
     <div class="h-in">
       <span class="tag rv"><svg><use href="#raaf"/></svg>Plantaardige zuurdesembakkerij in Aalst</span>
       <h1 class="rv" style="--d:1"><span class="sl">Vers uit de oven,</span>tot het op is.</h1>
-      <p class="rv" style="--d:2">Zuurdesembrood, croissants en kaneelbuns, volledig plantaardig. Anita bakt alles zelf in de Korte Zoutstraat, van woensdag tot zaterdag.</p>
+      <p class="rv" style="--d:2">Zuurdesembrood, croissants en kaneelbuns, volledig plantaardig. Anita bakt alles zelf, achter het raam in de Korte Zoutstraat. Kom vroeg, want wat op is, is op.</p>
       <div class="acties rv" style="--d:3"><a class="btn btn-r" href="#bord">Wat ligt er op de rekken <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-gl" href="#info">Openingsuren</a></div>
+      <div class="h-feit rv" style="--d:4">
+        <div><b>Wo tot za</b><span>vanaf 7u30</span></div>
+        <div><b>Tot 15u</b><span>of tot uitverkocht</span></div>
+        <div><b>100%</b><span>plantaardig</span></div>
+      </div>
     </div>
-    <div class="badge rv" style="--d:4"><svg class="r" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="cirkel" d="M50 50 m-40 0 a40 40 0 1 1 80 0 a40 40 0 1 1 -80 0"/></defs><text font-family="Outfit" font-weight="700" font-size="7.4" letter-spacing="1.6" fill="#7a2335"><textPath href="#cirkel">GOOGLE REVIEWS · 100% PLANTAARDIG · </textPath></text></svg><div><b>4,8</b><span>★★★★★<br>19 reviews</span></div></div>
+    <div class="h-beeld rv" style="--d:2">
+      <div class="boog"><img src="img/hero-stock.webp" alt="Rijen glanzende croissants met fijne laagjes, net uit de oven" width="1066" height="1333"></div>
+      <div class="rond"><img src="img/licht-stock.webp" alt="Een croissant met suiker in het vroege ochtendlicht" width="640" height="640"></div>
+      <div class="sticker"><i><svg><use href="#raaf"/></svg></i><div><b>Op zaterdag: het specialleke</b><span>Iets extra, alleen die dag</span></div></div>
+      <div class="badge"><svg class="r" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="cirkel" d="M50 50 m-40 0 a40 40 0 1 1 80 0 a40 40 0 1 1 -80 0"/></defs><text font-family="Outfit" font-weight="700" font-size="7.4" letter-spacing="1.6" fill="#7a2335"><textPath href="#cirkel">GOOGLE REVIEWS · 100% PLANTAARDIG · </textPath></text></svg><div><b>4,8</b><span>★★★★★<br>19 reviews</span></div></div>
+    </div>
   </div>
 </section>
 
