@@ -71,7 +71,7 @@ section{position:relative}
 .pad{padding:clamp(90px,10vw,140px) 0}
 
 /* verhaal */
-.vh{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,96px);align-items:center}
+.vh{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,96px);align-items:center}
 .vh h2{margin-bottom:24px}
 .vh p{color:#4a3329;max-width:520px}
 .vh p+p{margin-top:14px}
@@ -81,8 +81,7 @@ section{position:relative}
 .feit b{display:block;font:900 34px/1 'Big Shoulders Display',sans-serif;color:var(--rust);margin-bottom:6px}
 .feit span{font-size:14.5px;color:var(--zacht);line-height:1.4;display:block}
 .vh-foto{position:relative}
-.vh-foto .f{border-radius:34px;overflow:hidden;aspect-ratio:1/1;transform:rotate(2deg);box-shadow:0 34px 70px -30px rgba(42,29,23,.5);transition:transform .8s var(--ease)}
-.vh-foto:hover .f{transform:rotate(0)}
+.vh-foto .f{border-radius:34px;overflow:hidden;aspect-ratio:1/1;box-shadow:0 34px 70px -30px rgba(42,29,23,.5)}
 .vh-foto .f img{width:100%;height:100%;object-fit:cover}
 .vh-foto .lbl{position:absolute;left:-18px;bottom:40px;background:var(--rust);color:#fff;border-radius:999px;padding:12px 18px;font-weight:800;font-size:14.5px;box-shadow:0 14px 30px rgba(145,73,49,.35);display:flex;gap:8px;align-items:center}
 .vh-foto .lbl svg{width:16px;height:16px}
@@ -149,6 +148,12 @@ section{position:relative}
 .dag b{display:block;font-weight:800;font-size:15.5px}
 .dag span{font-size:14px;color:var(--zacht)}
 
+.ws-lijst{list-style:none;margin:28px 0 30px;display:grid;gap:10px;position:relative;z-index:1}
+.ws-lijst li{display:flex;align-items:baseline;gap:14px;border-top:1px solid rgba(255,255,255,.2);padding-top:12px}
+.ws-lijst b{font:900 30px/1 'Big Shoulders Display',sans-serif;color:var(--perzik);min-width:120px;text-transform:uppercase}
+.ws-lijst span{color:rgba(255,255,255,.85)}
+.ws-btn{background:var(--room);color:var(--rust);position:relative;z-index:1}
+.ws-btn i{background:var(--rust);color:#fff}
 /* reviews */
 .rev{background:var(--euca);color:var(--room)}
 .rev h2{color:var(--perzik)}
@@ -161,9 +166,7 @@ section{position:relative}
 .score span{display:block;color:rgba(255,247,239,.7);font-size:14.5px;font-weight:600;margin-top:4px}
 .revs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .rk{background:var(--room);color:var(--ink);border-radius:26px;padding:26px 24px;display:flex;flex-direction:column;gap:16px;transition:transform .5s var(--ease)}
-.rk:nth-child(even){transform:rotate(1deg)}
-.rk:nth-child(odd){transform:rotate(-1deg)}
-.rk:hover{transform:rotate(0) translateY(-4px)}
+.rk:hover{transform:translateY(-4px)}
 .rk .sterren svg{width:14px;height:14px}
 .rk p{font-size:16px;flex:1;color:#3b2a22}
 .rk .wie{padding-top:14px;border-top:1px solid var(--lijn);display:flex;justify-content:space-between;font-size:14.5px}
@@ -209,8 +212,6 @@ section{position:relative}
 
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease) calc(var(--d,0)*90ms),transform 1s var(--ease) calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
-.js .rk.rv.in:nth-child(even){transform:rotate(1deg)}
-.js .rk.rv.in:nth-child(odd){transform:rotate(-1deg)}
 
 @media (max-width:1080px){
   .links a:not(.cta){display:none}
@@ -255,10 +256,13 @@ section{position:relative}
   .dr:last-child .f{aspect-ratio:4/4.4;min-height:0}
   .dr:last-child .f img{position:static}
   .revs{grid-template-columns:1fr}
-  .rk:nth-child(n),.js .rk.rv.in:nth-child(n){transform:none}
   .score b{font-size:76px}
   .uren li.vandaag{margin:0 -6px}
   .dr h3{font-size:36px}
+  .t-fotos{grid-template-columns:1fr;gap:12px}
+  .t-fotos .a{aspect-ratio:1/1}
+  .t-fotos .b{aspect-ratio:1/1;margin:0;border:0}
+  .t-fotos .b img{object-position:50% 30%}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -283,7 +287,6 @@ section{position:relative}
 <section class="hero" aria-label="G'days Australian Cocktail Bar">
   <div class="h-foto">
     <img src="img/hero.webp" alt="Bartender proeft een cocktail aan de bar van G'days, met de koala Tilly en het Welcome at G'days-bord achter hem" width="1200" height="1600" fetchpriority="high">
-    <div class="sticker"><b>"Niet een gewone cocktail bar."</b><small>Marieke, op Google</small></div>
   </div>
   <div class="h-tekst">
     <span class="eye rv"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4C11 4 5 8.5 4.2 17.6 3.9 19 5 20 6.4 19.8 15.4 18.9 20 13 20 4Zm-13 13c2-4 5-7 9-9-3 2.6-5.6 5.6-7.4 9.4Z"/></svg>Australian cocktail bar · Hasselt</span>
@@ -304,15 +307,9 @@ section{position:relative}
       <h2 id="t-vh" class="rv" style="--d:1">Een bar waar iedereen aanschuift</h2>
       <p class="rv" style="--d:2">G'days opende in december 2025 met één idee: een cocktailbar waar mensen van alle slag samenkomen. Achter de bar staat Jake, die zijn Australische roots meenam naar Hasselt.</p>
       <p class="rv" style="--d:3">Sinds de zomer staan we er met drie. Drie koppen zijn beter dan één, en drie paar handen al helemaal. De koala-power is er alleen maar sterker op geworden: kijk maar naar onze tafel.</p>
-      <div class="feiten">
-        <div class="feit rv" style="--d:2"><b>Aussie</b><span>kaart met Limburgse jenever</span></div>
-        <div class="feit rv" style="--d:3"><b>4 tot 30</b><span>personen per workshop</span></div>
-        <div class="feit rv" style="--d:4"><b>1 koala</b><span>met haar eigen cocktail</span></div>
-      </div>
     </div>
     <div class="vh-foto rv" style="--d:2">
       <div class="f"><img src="img/tafel.webp" alt="Drie handen op elkaar op een blauwe tafel met een geschilderde koala" loading="lazy" width="1000" height="977"></div>
-      <span class="lbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-8-8M20 4l-8 8"/></svg>Onze koalatafel, zelf geschilderd</span>
     </div>
   </div>
 </section>
@@ -358,12 +355,12 @@ section{position:relative}
       <div class="ws rv" style="--d:1">
         <h3>Workshops op maat</h3>
         <p>Teambuilding, verjaardag, vrijgezellen of gewoon zin om zelf te leren shaken. Wij stemmen de workshop af op jullie groep. Any reason is a good reason!</p>
-        <div class="groep">
-          <div class="rij"><label for="aantal">Met hoeveel zijn jullie?</label><output id="uit" for="aantal">10</output></div>
-          <input type="range" id="aantal" min="4" max="30" value="10" aria-label="Aantal personen">
-          <div class="schaal"><span>4 personen</span><span>30 personen</span></div>
-          <a class="btn" id="wsmail" href="mailto:gdayscocktails@outlook.com?subject=Workshop%20voor%2010%20personen">Vraag je workshop aan<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></i></a>
-        </div>
+        <ul class="ws-lijst">
+          <li><b>4 tot 30</b><span>personen per workshop</span></li>
+          <li><b>Op maat</b><span>van jullie groep en gelegenheid</span></li>
+          <li><b>Bij ons</b><span>aan de bar in de Persoonstraat</span></li>
+        </ul>
+        <a class="btn ws-btn" href="mailto:gdayscocktails@outlook.com?subject=Workshop%20aanvragen">Vraag je workshop aan<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></i></a>
       </div>
       <div class="avond rv" style="--d:2">
         <h3>Extra avonden</h3>
@@ -416,7 +413,6 @@ section{position:relative}
     </div>
     <div class="bz-foto rv" style="--d:1">
       <img src="img/raam.webp" alt="Een gast met een cocktail aan het raam van G'days, met het koalalogo op het glas" loading="lazy" width="1000" height="1333">
-      <div class="zin"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></i><div><b>Zoek de koala op het raam</b><span>Persoonstraat 14, in het centrum van Hasselt</span></div></div>
     </div>
   </div>
 </section>
@@ -433,12 +429,6 @@ section{position:relative}
 </footer>
 
 <script>
-(function(){
-var r=document.getElementById('aantal'),o=document.getElementById('uit'),m=document.getElementById('wsmail');
-function z(){var v=r.value;o.textContent=v;r.style.setProperty('--p',((v-4)/26*100)+'%');m.href='mailto:gdayscocktails@outlook.com?subject='+encodeURIComponent('Workshop voor '+v+' personen')}
-r.addEventListener('input',z);z();
-var d=new Date().getDay(),li=document.querySelector('#uren li[data-d="'+d+'"]');if(li)li.classList.add('vandaag');
-})();
 (function(){var els=[].slice.call(document.querySelectorAll('.rv'));
 function kijk(){var H=innerHeight;els=els.filter(function(e){var r=e.getBoundingClientRect();if(r.top<H*.94&&r.bottom>0){e.classList.add('in');return false}return true});if(!els.length)removeEventListener('scroll',plan)}
 var t=0;function plan(){if(!t){t=requestAnimationFrame(function(){t=0;kijk()})}}
