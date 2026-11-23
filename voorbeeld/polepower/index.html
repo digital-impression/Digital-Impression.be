@@ -33,23 +33,42 @@ h1,h2,h3{font-family:'Sora',sans-serif;font-weight:700;line-height:1.04;letter-s
 .oog::before{content:"";width:22px;height:3px;border-radius:3px;background:var(--fuchsia)}
 .logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none;font-family:'Sora';font-weight:800;font-size:19px;letter-spacing:-.01em;color:var(--pruim)}
 .logo img{width:54px;height:54px;border-radius:50%}
-/* hero */
-.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:max(700px,calc(100svh - 38px));background:var(--wit)}
-.hl{display:flex;flex-direction:column;padding:22px 64px 40px max(4vw,calc((100vw - 1240px)/2))}
-.nav{display:flex;align-items:center;gap:24px}
-.nav ul{list-style:none;display:flex;gap:24px;margin-left:auto;font-weight:700;font-size:15px;white-space:nowrap}
-.nav ul a{text-decoration:none;opacity:.7}.nav ul a:hover{opacity:1;color:var(--fuchsia)}
-.htx{margin:auto 0;padding:54px 0 46px}
-.hero h1{font-size:clamp(48px,5vw,82px);margin:22px 0 26px;max-width:640px}
-.hero .lead{font-size:19px;color:var(--grijs);max-width:500px}
+/* hero: één paneel, de foto loopt over in het pruim */
+.hero{position:relative;margin:14px;border-radius:40px;overflow:hidden;background:var(--pruim);color:#fff;min-height:max(700px,calc(100svh - 66px));display:flex;flex-direction:column;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(760px 560px at 8% 18%,rgba(228,0,125,.30),transparent 62%),radial-gradient(600px 420px at 30% 100%,rgba(228,0,125,.16),transparent 60%)}
+.hf{position:absolute;top:0;right:0;bottom:0;width:75%;z-index:-1;-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.45) 12%,#000 25%);mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.45) 12%,#000 25%)}
+.hf img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.hf::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(42,21,48,.94) 0,rgba(42,21,48,0) 32%),linear-gradient(180deg,rgba(42,21,48,.5) 0,rgba(42,21,48,0) 20%)}
+.nav{display:flex;align-items:center;gap:24px;padding:22px 30px 0 34px}
+.nav .logo{color:#fff}
+.nav ul{list-style:none;display:flex;gap:4px;margin-left:auto;font-weight:700;font-size:15px;white-space:nowrap;background:rgba(255,255,255,.12);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:999px;padding:6px}
+.nav ul a{display:block;text-decoration:none;padding:9px 16px;border-radius:999px;transition:background .25s}.nav ul a:hover{background:rgba(255,255,255,.16)}
+.hmid{flex:1;display:flex;align-items:center;padding:40px 40px 30px 72px}
+.htx{max-width:640px}
+.hero .oog{color:#ff7ab9}.hero .oog::before{background:#ff7ab9}
+.hero h1{font-size:clamp(50px,5.6vw,90px);margin:22px 0 26px;color:#fff;text-shadow:0 2px 30px rgba(42,21,48,.5)}
+.hero h1 .f{color:#ff4fa3;display:block}
+.hero .lead{font-size:19px;color:rgba(255,255,255,.8);max-width:440px}
 .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-.hvoet{display:flex;gap:12px 30px;flex-wrap:wrap;padding-top:22px;border-top:1px solid var(--lijn);font-size:14.5px;color:var(--grijs)}
-.hvoet b{color:var(--pruim)}
-.hvoet .st{color:var(--fuchsia);letter-spacing:1px}
-.hf{position:relative;overflow:hidden}
-.hf img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:58% 40%}
-.hf .move{position:absolute;right:26px;bottom:26px;background:rgba(255,253,251,.94);border-radius:20px;padding:14px 18px;font-size:14px;line-height:1.4;max-width:250px;box-shadow:0 20px 40px -24px rgba(42,21,48,.7)}
-.hf .move b{display:block;font-family:'Sora';font-weight:800;font-size:17px;color:var(--pruim)}
+.k-glas{box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.42);color:#fff}.k-glas:hover{box-shadow:inset 0 0 0 1.5px #fff}
+.hvoet{display:flex;align-items:center;gap:14px 26px;flex-wrap:wrap;margin:0 22px 22px;padding:16px 22px 16px 50px;border-radius:26px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);font-size:14.5px;color:rgba(255,255,255,.72)}
+.hvoet ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.hvoet li{border-radius:999px;padding:7px 14px;background:rgba(255,255,255,.1);color:#fff;font-weight:700;font-size:13.5px}
+.hvoet li:first-child{background:var(--fuchsia)}
+.hvoet .wie{margin-left:auto}
+.hvoet b{color:#fff}
+.reeks{position:absolute;right:40px;top:196px;width:290px;background:var(--wit);color:var(--ink);border-radius:26px;padding:24px 24px 22px;box-shadow:0 30px 60px -28px rgba(0,0,0,.7)}
+.reeks .rt{font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--fuchsia)}
+.reeks h2{font-size:22px;letter-spacing:-.02em;margin:8px 0 16px;padding-right:44px}
+.maand{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.maand span{background:var(--blush);border-radius:16px;padding:10px 6px;text-align:center;font-weight:800;color:var(--pruim);font-size:14px;line-height:1.2}
+.maand small{display:block;font-weight:600;font-size:11.5px;color:var(--grijs);margin-top:2px}
+.reeks .pr{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px;padding-top:14px;border-top:1px dashed var(--lijn);font-size:14px;color:var(--grijs)}
+.reeks .pr b{white-space:nowrap;font-family:'Sora';font-weight:800;font-size:26px;color:var(--pruim);letter-spacing:-.03em}
+.score-r{position:absolute;right:-14px;top:-50px;width:112px;height:112px;border-radius:50%;background:var(--fuchsia);color:#fff;display:grid;place-content:center;text-align:center;box-shadow:0 18px 30px -12px rgba(228,0,125,.7);border:5px solid var(--wit);line-height:1.1}
+.score-r b{font-family:'Sora';font-weight:800;font-size:30px;letter-spacing:-.03em}
+.score-r i{font-style:normal;font-size:11px;letter-spacing:1px;color:#ffd2e7}
+.score-r small{font-size:11px;font-weight:700;opacity:.9}
 /* secties */
 .s{padding:140px 0}
 .kop{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:56px;flex-wrap:wrap}
@@ -164,7 +183,8 @@ h1,h2,h3{font-family:'Sora',sans-serif;font-weight:700;line-height:1.04;letter-s
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .js .rv.in{opacity:1;transform:none}
 @media (max-width:1100px){
-  .hl{padding-right:40px}
+  .hmid{padding-left:48px}
+  .reeks{width:270px;right:28px}
   .eg{grid-template-columns:1fr 1fr}
   .rg{grid-template-columns:1fr 1fr}
   .rk.f1{grid-column:1/-1}
@@ -172,11 +192,19 @@ h1,h2,h3{font-family:'Sora',sans-serif;font-weight:700;line-height:1.04;letter-s
   .hnf .klein{right:0}
 }
 @media (max-width:900px){
-  .hero{grid-template-columns:1fr;min-height:0}
-  .hl{padding:20px 5vw 46px}
+  .hero{min-height:0;border-radius:32px;margin:10px}
+  .nav{order:1;padding:18px 18px 0 22px}
   .nav ul{display:none}
-  .htx{padding:44px 0 34px}
-  .hf{min-height:600px}
+  .hmid{order:2;padding:44px 6vw 0;display:block}
+  .hf{order:3;position:relative;width:auto;height:560px;margin-top:8px}
+  .hf{-webkit-mask-image:linear-gradient(180deg,transparent 0,rgba(0,0,0,.6) 12%,#000 28%);mask-image:linear-gradient(180deg,transparent 0,rgba(0,0,0,.6) 12%,#000 28%)}
+  .hf img{object-position:50% 40%}
+  .hf::after{background:linear-gradient(0deg,rgba(42,21,48,.95) 0,rgba(42,21,48,0) 34%)}
+  .reeks{order:4;position:relative;top:auto;right:auto;margin:-170px 22px 0 auto;width:min(300px,calc(100% - 96px))}
+  .score-r{right:-10px;top:-46px;width:96px;height:96px}
+  .score-r b{font-size:25px}
+  .hvoet{order:5;position:relative;margin:22px 14px 14px;padding:18px 20px}
+  .hvoet .wie{margin-left:0}
   .s{padding:100px 0}
   .tg{grid-template-columns:1fr}
   .tgf{min-height:520px;order:2}
@@ -197,8 +225,9 @@ h1,h2,h3{font-family:'Sora',sans-serif;font-weight:700;line-height:1.04;letter-s
   .hero .lead{font-size:17.5px}
   .knop{padding:15px 22px;font-size:15px}
   .acts .knop{flex:1 1 100%;justify-content:center}
-  .hf{min-height:460px}
-  .hf .move{left:14px;right:14px;bottom:14px;max-width:none}
+  .hmid{padding:36px 22px 0}
+  .hf{height:440px}
+  .reeks{margin-top:-140px}
   .tk{grid-template-columns:48px 1fr;padding:18px}
   .tk i{width:48px;height:48px;border-radius:15px}
   .tk span{display:none}
@@ -220,34 +249,41 @@ h1,h2,h3{font-family:'Sora',sans-serif;font-weight:700;line-height:1.04;letter-s
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
 <header class="hero" id="top">
-  <div class="hl">
-    <nav class="nav" aria-label="Hoofdmenu">
-      <a class="logo" href="#top"><img src="img/logo.webp" alt="" width="300" height="300">PolePower</a>
-      <ul>
-        <li><a href="#lessen">Lessen</a></li>
-        <li><a href="#instappen">Instappen</a></li>
-        <li><a href="#prive">Privé</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <div class="hf">
+    <img src="img/hero.webp" alt="Een danseres in een roze topje aan een paal tussen de bomen en de witte narcissen" width="1365" height="1365" fetchpriority="high">
+  </div>
+  <nav class="nav" aria-label="Hoofdmenu">
+    <a class="logo" href="#top"><img src="img/logo.webp" alt="" width="300" height="300">PolePower</a>
+    <ul>
+      <li><a href="#lessen">Lessen</a></li>
+      <li><a href="#instappen">Instappen</a></li>
+      <li><a href="#prive">Privé</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="hmid">
     <div class="htx">
       <span class="oog">Paaldans- en aerialstudio in Balen</span>
       <h1>Je verschiet ervan wat je <span class="f">zelf al kan</span></h1>
       <p class="lead">Paalacro, paaldans, aerial yoga en aerial hoop bij Hanne in Hulsen. Sportief zijn hoeft niet: iedereen kan hier starten, jong en oud.</p>
       <div class="acts">
         <a class="knop k-f" href="https://wa.me/32496747957?text=Hoi%20Hanne%2C%20ik%20wil%20graag%20een%20proefles%20doen." target="_blank" rel="noopener">Plan een proefles <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="knop k-lijn" href="#lessen">Bekijk de lessen</a>
+        <a class="knop k-glas" href="#lessen">Bekijk de lessen</a>
       </div>
     </div>
-    <div class="hvoet">
-      <span><span class="st">★★★★★</span> <b>4,8</b> op Google · 125 reviews</span>
-      <span><b>Dansen sinds 2015</b></span>
-      <span><b>Nieuwe studio</b> in Balen</span>
-    </div>
   </div>
-  <div class="hf">
-    <img src="img/hero.webp" alt="Een danseres in een roze topje aan een paal tussen de bomen en de witte narcissen" width="1365" height="1365" fetchpriority="high">
-    <div class="move"><b>Kracht, lenigheid en lef</b>Ook buiten, als het weer meezit.</div>
+  <aside class="reeks" aria-label="Instappen">
+    <span class="rt">Instappen</span>
+    <h2>Drie keer per jaar start een nieuwe reeks</h2>
+    <div class="maand"><span>Sept<small>reeks 1</small></span><span>Jan<small>reeks 2</small></span><span>April<small>reeks 3</small></span></div>
+    <div class="pr"><span>Je proefles, aan het begin van elke reeks</span><b>€ 14</b></div>
+    <div class="score-r" aria-label="4,8 op 5 op Google, 125 reviews"><b>4,8</b><i>★★★★★</i><small>125 reviews</small></div>
+  </aside>
+  <div class="hvoet">
+    <ul aria-label="Lessen">
+      <li>Paalacro</li><li>Paaldans &amp; choreo</li><li>Aerial hoop</li><li>Aerial yoga</li><li>Acro yoga</li>
+    </ul>
+    <span class="wie"><b>Dansen sinds 2015</b> · nieuwe studio in Balen</span>
   </div>
 </header>
 
