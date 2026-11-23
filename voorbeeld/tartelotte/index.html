@@ -41,28 +41,39 @@ h2 .sc{display:inline-block;white-space:nowrap;line-height:1;margin-top:.05em}
 .nav ul a{display:block;padding:10px 17px;border-radius:999px;text-decoration:none;font:600 14.5px/1 'Manrope'}
 .nav ul a:hover{background:var(--olijf-l)}
 
-/* hero half half */
-.hero{display:grid;grid-template-columns:1.02fr .98fr;min-height:min(920px,100vh);background:var(--olijf);color:#fff;position:relative}
-.h-t{position:relative;display:flex;align-items:center;padding:140px 6vw 80px max(24px,calc((100vw - 1380px)/2 + 24px));overflow:hidden}
-.h-t:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 40px,transparent 40px 80px)}
-.h-in{position:relative;max-width:580px}
+/* hero (23 nov): olijf, staande foto met kader */
+.hero{position:relative;overflow:hidden;background:var(--olijf);color:#fff;padding:168px 0 112px}
+.hero:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.045) 0 40px,transparent 40px 80px);pointer-events:none}
+.hero:after{content:"";position:absolute;right:-8%;top:-20%;width:62%;height:140%;background:radial-gradient(closest-side,rgba(255,240,220,.16),transparent);pointer-events:none}
+.hero .wrap{position:relative;z-index:2;width:min(1320px,100% - 48px);display:grid;grid-template-columns:1.05fr .95fr;gap:80px;align-items:center}
+.h-in{max-width:600px}
 .h-in .tag{color:var(--olijf-l)}
 .h-in .tag:before{background:repeating-linear-gradient(90deg,#fff 0 3px,var(--olijf-l) 3px 6px)}
-.h-in h1{font-size:clamp(60px,6.8vw,108px);margin:22px 0 24px}
+.h-in h1{font-size:clamp(60px,7vw,112px);margin:24px 0 26px;line-height:.98}
 .h-in h1 .sc{color:#f6c9c9;display:block;font-size:.62em;line-height:1;margin-top:8px}
 .h-in p{font-size:19px;color:rgba(255,255,255,.86);max-width:27em}
-.h-in .acties{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
-.h-in .mini{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
-.h-in .mini span{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border-radius:999px;padding:9px 14px;font:600 13.5px/1 'Manrope'}
-.h-in .mini svg{width:15px;height:15px;stroke:#f6c9c9}
-.h-f{position:relative;overflow:hidden}
-.h-f img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 60%;transform:scale(1.05);animation:zoom 14s var(--ease) forwards}
+.h-in .acties{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
+.h-stappen{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:0;margin-top:46px;padding-top:24px;border-top:1px solid rgba(255,255,255,.18)}
+.h-stappen div{padding-right:24px;margin-right:24px;border-right:1px solid rgba(255,255,255,.18)}
+.h-stappen div:last-child{border:0;margin:0;padding:0}
+.h-stappen b{display:block;font:500 28px/1 'Fraunces';font-variation-settings:'SOFT' 100;letter-spacing:-.02em;color:#fff}
+.h-stappen span{display:block;margin-top:7px;font:600 13.5px/1.3 'Manrope';color:rgba(255,255,255,.66)}
+.h-beeld{position:relative;justify-self:end;width:min(100%,500px)}
+.h-beeld:before{content:"";position:absolute;inset:22px -22px -22px 22px;border-radius:34px;border:1.5px solid rgba(247,201,201,.55)}
+.h-foto{position:relative;aspect-ratio:4/5;border-radius:34px;overflow:hidden;box-shadow:0 50px 80px -40px rgba(30,34,8,.75)}
+.h-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform:scale(1.06);animation:zoom 16s var(--ease) forwards}
 @keyframes zoom{to{transform:scale(1)}}
-.h-f:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.2),transparent 22%)}
-.score{position:absolute;left:26px;bottom:26px;z-index:2;background:var(--papier);color:var(--inkt);border-radius:22px;padding:14px 18px;display:flex;align-items:center;gap:14px;box-shadow:0 24px 40px -18px rgba(0,0,0,.5)}
+.h-foto:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(30,34,8,.3),transparent 30%)}
+.score{position:absolute;left:-54px;bottom:54px;z-index:3;background:var(--papier);color:var(--inkt);border-radius:22px;padding:14px 20px;display:flex;align-items:center;gap:14px;box-shadow:0 24px 40px -18px rgba(0,0,0,.45)}
 .score b{font:500 42px/1 'Fraunces';font-variation-settings:'SOFT' 100}
 .score span{font:600 13.5px/1.35 'Manrope'}
 .score i{display:block;color:var(--roze);font-style:normal;letter-spacing:2px}
+.stempel{position:absolute;right:-46px;top:-46px;z-index:3;width:138px;height:138px;border-radius:50%;background:var(--roze-l);color:var(--olijf-d);display:grid;place-items:center;box-shadow:0 24px 40px -18px rgba(0,0,0,.45)}
+.stempel svg.r{position:absolute;inset:0;width:100%;height:100%;animation:draai 28s linear infinite}
+@keyframes draai{to{transform:rotate(360deg)}}
+.stempel .kern{width:62px;height:62px;border-radius:50%;background:repeating-linear-gradient(90deg,var(--olijf) 0 4px,#7c8a3a 4px 8px);color:var(--creme);display:grid;place-items:center;text-align:center;font:500 12.5px/.9 'Fraunces';font-variation-settings:'SOFT' 100;letter-spacing:-.02em}
+.h-pil{position:absolute;right:28px;bottom:-22px;z-index:3;background:var(--olijf-d);color:#fff;border-radius:999px;padding:12px 18px;font:700 13.5px/1 'Manrope';display:flex;align-items:center;gap:9px;box-shadow:0 20px 34px -16px rgba(0,0,0,.5)}
+.h-pil svg{width:16px;height:16px;stroke:#f6c9c9}
 
 section{position:relative}
 .sec{padding:130px 0}
@@ -172,13 +183,13 @@ footer{background:var(--olijf-d);color:#fff;margin-top:130px;padding:84px 0 30px
 
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.h-f img{animation:none}}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.h-foto img,.stempel svg.r{animation:none}}
 
 @media (max-width:1020px){
  .nav ul{display:none}
- .hero{grid-template-columns:1fr}
- .h-t{padding:130px 24px 64px}
- .h-f{min-height:72vh}
+ .hero{padding:150px 0 110px}
+ .hero .wrap{grid-template-columns:1fr;gap:84px}
+ .h-beeld{justify-self:center;width:min(100% - 70px,470px)}
  .aanbod,.stap-g,.rev-g{grid-template-columns:1fr}
  .aanbod{max-width:560px}
  .shop{grid-template-columns:1fr;gap:16px}
@@ -193,11 +204,23 @@ footer{background:var(--olijf-d);color:#fff;margin-top:130px;padding:84px 0 30px
  .wrap,.nav .wrap{width:calc(100% - 36px)}
  .logo{width:56px;height:56px;font-size:13px}
  .nav .btn{padding:12px 16px;font-size:14px}
- .h-t{padding:112px 18px 50px}
- .h-in h1{font-size:58px}
+ .hero{padding:128px 0 96px}
+ .hero .wrap{width:calc(100% - 36px);gap:70px}
+ .h-in h1{font-size:56px}
  .h-in p{font-size:17px}
- .h-f{min-height:540px}
- .score{left:16px;bottom:16px}
+ .h-stappen{margin-top:36px}
+ .h-stappen div{padding-right:14px;margin-right:14px}
+ .h-stappen b{font-size:22px}
+ .h-stappen span{font-size:12px}
+ .h-beeld{width:calc(100% - 40px);justify-self:start;margin-left:4px}
+ .h-beeld:before{inset:14px -14px -14px 14px;border-radius:28px}
+ .h-foto{border-radius:28px}
+ .score{left:-4px;bottom:34px;padding:10px 14px;gap:10px}
+ .score b{font-size:32px}
+ .score span{font-size:12px}
+ .stempel{width:104px;height:104px;right:-20px;top:-36px}
+ .stempel .kern{width:46px;height:46px;font-size:10px}
+ .h-pil{right:8px;bottom:-18px;font-size:12.5px;padding:10px 14px}
  .sec{padding:88px 0}
  .best{margin:0 10px;border-radius:36px;padding:80px 0}
  .stap{padding:26px 22px}
@@ -231,21 +254,24 @@ body .h-in h1 .sc{display:block;font-size:.42em;margin-top:14px;letter-spacing:-
 </header>
 
 <section class="hero" id="top">
-  <div class="h-t">
+  <div class="wrap">
     <div class="h-in">
       <span class="tag rv">Artisanale patisserie op bestelling</span>
-      <h1 class="rv" style="--d:1">Mooi én lekker. <span class="sc">geen of-of verhaal</span></h1>
-      <p class="rv" style="--d:2">Taarten, taartjes en sweetboxes, dagvers gemaakt door Lotte met enkel natuurlijke ingrediënten. Je bestelt online en haalt af in Destelbergen, op het moment dat jij kiest.</p>
+      <h1 class="rv" style="--d:1">Mooi én lekker. <span class="sc">Geen of-of verhaal.</span></h1>
+      <p class="rv" style="--d:2">Vintage cakes, cijfertaarten en sweetboxes, met de hand gemaakt door Lotte met enkel natuurlijke ingrediënten. Je bestelt online en haalt af in Destelbergen, op het moment dat jij kiest.</p>
       <div class="acties rv" style="--d:3"><a class="btn btn-c" href="https://tartelotte.shop" target="_blank" rel="noopener">Bestel in de webshop <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-lw" href="#aanbod">Wat we maken</a></div>
-      <div class="mini rv" style="--d:4">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M8 3v4M16 3v4M4 9h16M5 5h14v15H5z"/></svg>5 dagen besteltermijn</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 19c0-8 6-14 15-14-1 9-7 15-15 14z"/><path d="M5 19l7-7"/></svg>Natuurlijke ingrediënten</span>
+      <div class="h-stappen rv" style="--d:4">
+        <div><b>Sinds 2021</b><span>taarten op bestelling</span></div>
+        <div><b>5 dagen</b><span>besteltermijn</span></div>
+        <div><b>Op maat</b><span>voor jouw feest</span></div>
       </div>
     </div>
-  </div>
-  <div class="h-f">
-    <img src="img/hero.webp" alt="Feestelijke sweetbox van Tartelotte met hartjeswafels, cupcakes, financiers en een roze kaartje met het logo" width="1440" height="1919">
-    <div class="score"><b>5,0</b><span><i>★★★★★</i>18 reviews op Google</span></div>
+    <div class="h-beeld rv" style="--d:2">
+      <div class="h-foto"><img src="img/hero-stock.webp" alt="Handen leggen een mille-feuille met vanillecrème en karamel op een plank vol poedersuiker" width="1280" height="1600"></div>
+      <div class="stempel" aria-hidden="true"><svg class="r" viewBox="0 0 100 100"><defs><path id="kring" d="M50 50 m-39 0 a39 39 0 1 1 78 0 a39 39 0 1 1 -78 0"/></defs><text font-family="Manrope" font-weight="700" font-size="7.6" letter-spacing="1.9" fill="#4f5a1f"><textPath href="#kring">ARTISANALE PATISSERIE · OP BESTELLING · </textPath></text></svg><span class="kern">Tarte<br>lotte</span></div>
+      <div class="score"><b>5,0</b><span><i>★★★★★</i>18 reviews op Google</span></div>
+      <span class="h-pil"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 19c0-8 6-14 15-14-1 9-7 15-15 14z"/><path d="M5 19l7-7"/></svg>Natuurlijke ingrediënten</span>
+    </div>
   </div>
 </section>
 
