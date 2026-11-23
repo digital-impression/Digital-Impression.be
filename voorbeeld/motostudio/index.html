@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Motostudio · Motorzaak op mensenmaat in Beernem</title>
+<title>Motostudio · Motoren kopen, sleutelen en poetsen onder één dak</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&display=swap">
@@ -78,7 +78,8 @@ section.blok{padding:clamp(80px,9vw,130px) 0}
 
 /* motoren */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.mk{background:var(--wit);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 0 var(--lijn)}
+.mk{background:var(--wit);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--sch);transition:transform .5s var(--ease)}
+.mk:hover{transform:translateY(-5px)}
 .mk figure{aspect-ratio:16/11;overflow:hidden}
 .mk figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
 .mk:hover figure img{transform:scale(1.04)}
@@ -101,7 +102,8 @@ section.blok{padding:clamp(80px,9vw,130px) 0}
 /* werkplaats */
 .donker{background:var(--ink);color:var(--wit)}
 .donker .tag{color:var(--wit)}
-.donker h2 em{color:var(--ink)}
+.donker h2 em{color:var(--geel)}
+.donker h2 em::after{background:rgba(255,194,26,.2);height:.3em;bottom:.02em}
 .donker .kopje p,.donker p{color:rgba(255,255,255,.7)}
 .wp{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(30px,5vw,80px);align-items:center}
 .wp-f{position:relative;padding:0 0 70px 0}
@@ -129,7 +131,7 @@ section.blok{padding:clamp(80px,9vw,130px) 0}
 .dt-f img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .dt-f span{position:absolute;left:18px;bottom:18px;background:var(--wit);border-radius:12px;padding:12px 16px;font:700 14.5px/1.35 'Manrope';max-width:260px}
 .prijzen{display:grid;gap:14px}
-.pr{background:var(--wit);border-radius:20px;padding:26px 28px;display:grid;grid-template-columns:1fr auto;gap:8px 24px;align-items:start;border:2px solid transparent;transition:border-color .3s,transform .4s var(--ease)}
+.pr{background:var(--wit);box-shadow:0 20px 40px -30px rgba(22,21,19,.35);border-radius:20px;padding:26px 28px;display:grid;grid-template-columns:1fr auto;gap:8px 24px;align-items:start;border:2px solid transparent;transition:border-color .3s,transform .4s var(--ease)}
 .pr:hover{border-color:var(--geel);transform:translateY(-2px)}
 .pr h3{font-size:28px}
 .pr .prijs{text-align:right;font:800 15px/1.2 'Manrope';color:var(--grijs)}
@@ -177,7 +179,7 @@ section.blok{padding:clamp(80px,9vw,130px) 0}
 .gj-t b{font:800 26px/1.1 'Bricolage Grotesque';display:block;margin-bottom:10px}
 .gj-t p{color:rgba(255,255,255,.72);font-size:16px}
 .revs{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.rev{background:var(--wit);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:18px}
+.rev{background:var(--wit);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:18px;box-shadow:0 20px 40px -30px rgba(22,21,19,.35)}
 .rev .st{color:#E8A500;letter-spacing:3px;font-size:17px}
 .rev blockquote{font-size:16.5px;line-height:1.6}
 .rev figcaption{margin-top:auto;display:flex;align-items:center;gap:12px;font-weight:800}
@@ -267,56 +269,55 @@ section.blok{padding:clamp(80px,9vw,130px) 0}
   .voet-g{grid-template-columns:1fr}
 }
 
-/*hx-hero 20/11*/
-.hx.hx-hero{margin:0;padding:0;background:none;border:0;border-radius:0;box-shadow:none;grid-template-columns:none;max-width:none;width:auto;height:auto;text-align:left}.hx.hx-hero::before,.hx.hx-hero::after{display:none}
-.hx{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:flex-end;min-height:clamp(600px,calc(100svh - 90px),920px);color:#fff}
-.hx-m{position:absolute;inset:0;z-index:-2;overflow:hidden;background:rgb(20,18,16)}
-.hx-img{width:100%;height:100%;object-fit:cover;object-position:50% 55%;transform:scale(1.06);animation:hxz 2.2s cubic-bezier(.16,1,.3,1) .1s forwards}
-@keyframes hxz{to{transform:scale(1)}}
-.hx-sh{position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(20,18,16,.86) 0%,rgba(20,18,16,.62) 38%,rgba(20,18,16,.12) 72%,rgba(20,18,16,0) 100%),linear-gradient(0deg,rgba(20,18,16,.55) 0%,rgba(20,18,16,0) 45%)}
-.hx-w{position:relative;width:100%;max-width:1280px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,4.5vw,56px) clamp(52px,7vw,92px);display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
-.hx .hx-t{max-width:640px;margin:0;padding:0;text-align:left;color:rgba(255,255,255,.88);background:none;box-shadow:none;border:0;position:relative;flex:1 1 auto;transform:none}
-.hx .hx-t>*{margin-left:0;margin-right:0;max-width:none}
-.hx .hx-t h1{color:#fff;font-size:clamp(40px,5vw,74px);max-width:12.5em;text-shadow:0 2px 30px rgba(20,18,16,.35)}
-.hx .hx-t h1 em,.hx .hx-t h1 i,.hx .hx-t h1 [class]{color:#FFC72C}
-.hx .hx-t p{color:rgba(255,255,255,.88);max-width:34em}.hx .hx-t p b,.hx .hx-t p strong{color:#fff}
-.hx .hx-t>:not(h1):not(.hx-pill):not(.hx-acts):not(p){color:rgba(255,255,255,.82)}
-.hx .hx-pill{width:fit-content;background:rgba(255,255,255,.14)!important;color:#fff!important;border:1px solid rgba(255,255,255,.26)!important;box-shadow:none!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-.hx .hx-pill *{color:inherit}
-.hx .hx-acts{justify-content:flex-start}
-.hx:not(.hx-C) .hx-t,.hx:not(.hx-C) .hx-t *{text-align:left}
-.hx:not(.hx-C) .hx-t>div,.hx:not(.hx-C) .hx-t>p{justify-content:flex-start;align-items:flex-start;margin-left:0;margin-right:0}
-.hx:not(.hx-C) .hx-t>div{align-items:center}
-.hx .hx-t>:not(h1):not(.hx-pill):not(.hx-acts) :is(b,strong,span,em,i,small):not(a *){color:inherit}
-.hx .hx-t .g{color:#3b3b3b!important}
-.hx .hx-ghost{background:rgba(255,255,255,.1)!important;color:#fff!important;border:1.5px solid rgba(255,255,255,.5)!important;box-shadow:none!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.hx .hx-ghost:hover{background:#fff!important;color:rgb(20,18,16)!important}
-.hx .hx-badge{color:#1d1b19;position:relative!important;inset:auto!important;transform:none!important;flex:none;margin:0;align-self:flex-end;animation:none}
-.hx-B.hx-hero{padding:0 clamp(10px,1.4vw,18px)}.hx-B .hx-box{position:relative;isolation:isolate;width:100%;border-radius:clamp(22px,3vw,40px);overflow:hidden;display:flex;align-items:flex-end;min-height:inherit}.hx-B{display:block}.hx-B .hx-box .hx-m{z-index:-2}
 
-.hx-C .hx-w{flex-direction:column;align-items:center;text-align:center}.hx-C .hx-t{text-align:center;margin:0 auto}.hx-C .hx-t h1{margin-left:auto;margin-right:auto}.hx-C .hx-acts{justify-content:center}.hx-C .hx-t>*{margin-left:auto!important;margin-right:auto!important}.hx-C .hx-sh{background:linear-gradient(0deg,rgba(20,18,16,.85),rgba(20,18,16,.35) 60%,rgba(20,18,16,.2))}.hx-C .hx-badge{align-self:center}
-@media (max-width:860px){
- .hx{min-height:calc(100svh - 70px)}
- .hx-img{object-position:40% 50%}
- .hx .hx-t h1{font-size:clamp(36px,10vw,52px)}
- .hx-sh{background:linear-gradient(0deg,rgba(20,18,16,.92) 0%,rgba(20,18,16,.72) 45%,rgba(20,18,16,.2) 78%,rgba(20,18,16,.05) 100%)}
- .hx:not(.hx-C) .hx-t>div{flex-wrap:wrap}
- .hx-w{flex-direction:column;align-items:flex-start;gap:26px;padding-bottom:40px;}
- .hx .hx-badge{align-self:flex-start}
+/* hero: hun rolpoort met de muurschildering */
+.held{position:relative;color:#fff;background:#252422;overflow:hidden;isolation:isolate}
+.held::before{content:"";position:absolute;inset:0;z-index:-2;background:repeating-linear-gradient(180deg,rgba(255,255,255,.035) 0 2px,transparent 2px 34px),linear-gradient(90deg,#1A1917 0%,#22211F 40%,#34322E 100%)}
+.held::after{content:"";position:absolute;left:0;right:0;bottom:0;height:70px;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.35))}
+.held .kop{position:relative;z-index:5}
+.held .merk img{filter:brightness(0) invert(1)}
+.held .nav a{color:rgba(255,255,255,.82)}
+.held .nav a:hover{color:#fff}
+.held-g{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(20px,3vw,40px);align-items:center;min-height:clamp(600px,calc(100svh - 120px),800px);padding:10px 0 60px}
+.held .tag{color:#fff}
+.held h1{font-size:clamp(46px,5.3vw,80px);margin:24px 0 26px;color:#fff}
+.held h1 em{color:var(--geel)}
+.held h1 em::after{background:rgba(255,194,26,.2);height:.3em;bottom:.02em}
+.held .lead{color:rgba(255,255,255,.74);max-width:31em}
+.held .acts{margin-top:34px}
+.k-poort{border:2px solid rgba(255,255,255,.3);color:#fff}
+.k-poort:hover{background:#fff;color:var(--ink);border-color:#fff}
+.held .score{border-top-color:rgba(255,255,255,.14)}
+.held .score small{color:rgba(255,255,255,.6)}
+.held .score b{color:#fff}
+.poort{position:relative;height:clamp(500px,60vh,640px)}
+.poort .mural{position:absolute;right:-2%;top:2%;width:96%;filter:brightness(0) invert(1);opacity:.92;transform:rotate(-3deg)}
+.poort .licht{position:absolute;left:8%;right:0;bottom:4%;height:70%;border-radius:50%;background:radial-gradient(closest-side,rgba(255,194,26,.16),transparent)}
+.poort .moto{position:absolute;left:6%;bottom:2%;width:84%;filter:drop-shadow(0 34px 30px rgba(0,0,0,.6));animation:rijin 1.5s var(--ease) .2s both}
+@keyframes rijin{from{opacity:0;transform:translateX(-60px)}to{opacity:1;transform:none}}
+.poort .schaduw{position:absolute;left:10%;right:12%;bottom:0;height:9%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.7),transparent)}
+.dealer{position:absolute;right:0;bottom:16%;z-index:3;background:var(--geel);color:var(--ink);border-radius:20px;padding:16px 18px 14px;transform:rotate(3deg);box-shadow:0 26px 50px -20px rgba(0,0,0,.65);width:228px}
+.dealer small{display:flex;align-items:center;gap:8px;font:800 11.5px/1 'Manrope';letter-spacing:.16em;text-transform:uppercase}
+.dealer small::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ink)}
+.dealer b{display:block;font:800 22px/1.05 'Bricolage Grotesque';letter-spacing:-.02em;margin:10px 0 12px}
+.dealer div{display:flex;flex-wrap:wrap;gap:5px}
+.dealer div span{background:var(--ink);color:var(--geel);font:800 11.5px/1 'Manrope';letter-spacing:.08em;padding:7px 9px;border-radius:8px}
+@media (max-width:900px){
+  .held-g{grid-template-columns:1fr;min-height:0;padding:20px 0 50px}
+  .poort{height:min(92vw,520px)}
+  .dealer{right:4px;bottom:auto;top:46%}
 }
-.hx .hx-glass{background:rgba(255,255,255,.14)!important;border:1px solid rgba(255,255,255,.26)!important;color:#fff!important;box-shadow:none!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}.hx .hx-glass *{color:#fff}
-/*hx-nav*/
-.hx-navt{background:transparent!important;border-color:transparent!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;transition:background .35s,color .35s}
-.hx-navt::before,.hx-navt::after{opacity:0}
-.hx-navt,.hx-navt :not(.hx-keep):not(.hx-keep *){color:#fff!important;border-color:rgba(255,255,255,.28)!important}
-.hx-navt img.hx-inv{filter:brightness(0) invert(1)}
-.hx-navt .hx-glass2{background:rgba(255,255,255,.13)!important;border:1px solid rgba(255,255,255,.24)!important;box-shadow:none!important;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
-.hx-hasnav .hx-w{padding-top:calc(var(--hxnav,0px) + 40px)}
-.hx-hasnav .hx-sh{background-image:linear-gradient(180deg,rgba(20,18,16,.62) 0%,rgba(20,18,16,0) 26%),linear-gradient(90deg,rgba(20,18,16,.86) 0%,rgba(20,18,16,.62) 38%,rgba(20,18,16,.12) 72%,rgba(20,18,16,0) 100%),linear-gradient(0deg,rgba(20,18,16,.55) 0%,rgba(20,18,16,0) 45%)}
-.hx-B.hx-hasnav.hx-hero{padding:0}.hx-B.hx-hasnav .hx-box{border-radius:0 0 clamp(22px,3vw,40px) clamp(22px,3vw,40px)}
-@media (max-width:860px){.hx-hasnav .hx-sh{background:linear-gradient(180deg,rgba(20,18,16,.6) 0%,rgba(20,18,16,0) 22%),linear-gradient(0deg,rgba(20,18,16,.92) 0%,rgba(20,18,16,.72) 45%,rgba(20,18,16,.2) 78%,rgba(20,18,16,.05) 100%)}}
+@media (max-width:600px){
+  .held h1{font-size:clamp(42px,12.4vw,60px)}
+  .held .kop .knop{padding:12px 15px}
+  .dealer{width:190px;padding:13px 14px 12px;top:auto;bottom:-4px;right:0}
+  .dealer b{font-size:18px;margin:8px 0 10px}
+  .poort .moto{left:0;width:92%;bottom:12%}
+  .poort .schaduw{bottom:10%}
+  .poort{height:min(108vw,470px)}
+}
+@media (prefers-reduced-motion:reduce){.poort .moto{animation:none}}
 
-.hx.hx-hero{margin-left:calc(50% - 50vw)!important;margin-right:0!important;width:100vw!important;max-width:none;border-radius:0!important}html,body{overflow-x:clip}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -332,40 +333,34 @@ section.blok{padding:clamp(80px,9vw,130px) 0}
 </svg>
 
 <main id="top">
-<div class="wrap">
-  <header class="kop">
-    <a class="merk" href="#top" aria-label="Motostudio"><img src="img/logo-zwart.webp" alt="Motostudio" width="640" height="324"></a>
-    <nav class="nav" aria-label="Menu"><a href="#motoren">Motoren</a><a href="#werkplaats">Werkplaats</a><a href="#motodetail">Motodetail</a><a href="#service">Service</a><a href="#reviews">Reviews</a></nav>
-    <a class="knop k-ink" href="#contact">Kom eens langs<svg><use href="#naar"/></svg></a>
-  </header>
-
-  <section class="hero hx-hero hx hx-B" aria-label="Welkom">
-<div class="hx-box"><div class="hx-m"><img class="hx-img" src="img/rieju-nkd.webp" alt="" fetchpriority="high" decoding="async"></div><div class="hx-sh" aria-hidden="true"></div><div class="hx-w"><div class="hx-t">
-<span class="tag rv hx-pill">Motorzaak in Beernem</span>
-<h1 class="rv" style="--d:1">Kopen, sleutelen en poetsen. <em>Onder één dak.</em></h1>
-<p class="lead rv" style="--d:2">Nieuwe en tweedehands motoren, een werkplaats voor alle merken en de detailing waar het in 2020 allemaal mee begon. Je krijgt hier uitleg in gewone taal, en de koffie staat klaar.</p>
-<div class="acts rv hx-acts" style="--d:3">
-<a class="knop k-geel hx-main" href="https://wa.me/3250893725" rel="noopener" target="_blank"><svg><use href="#wa"></use></svg>Stuur een berichtje</a>
-<a class="knop k-lijn hx-ghost" href="#motoren">Bekijk wat we doen<svg><use href="#naar"></use></svg></a>
-</div>
-<div class="score rv" style="--d:4"><span class="g">G</span><div><b>5,0 <span>★★★★★</span></b><small>uit 88 reviews op Google</small></div></div>
-</div></div></div>
-</section><script>(function(){document.querySelectorAll(".hx-t *").forEach(function(e){if(e.closest("a,.hx-pill,.g")||e.matches("a,.g"))return;var c=getComputedStyle(e).backgroundColor.match(/[\d.]+/g);if(!c)return;var a=c.length>3?+c[3]:1;if(a>.45&&(+c[0]+ +c[1]+ +c[2])/3>170)e.classList.add("hx-glass")})})()</script><script>(function(){var h=document.querySelector(".hx-hero");if(!h)return;
-function bg(e){var c=getComputedStyle(e).backgroundColor.match(/[\d.]+/g);if(!c)return null;var a=c.length>3?+c[3]:1;if(a<.3)return null;return (+c[0]+ +c[1]+ +c[2])/3}
-function vis(e){var r=e.getBoundingClientRect();return r.width>0&&r.height>0}
-function isNav(e){if(!e||!e.querySelector||e.matches(".demo,.di-strook,script,style,link")||!vis(e))return false;var r=e.getBoundingClientRect();return !!e.querySelector("a")&&r.height>30&&r.height<230}
-var n=null,inside=false;
-for(var i=0;i<h.children.length;i++){var c=h.children[i];if(c.matches(".hx-pre,.kop,.top,header,nav")&&isNav(c)){n=c;inside=true;break}}
-if(!n){var e=h;while(e&&e!==document.body&&!n){var p=e.previousElementSibling;while(p){if(isNav(p)){n=p;break}if(p.matches(".demo,.di-strook,script,style,link")||p.getBoundingClientRect().height<4){p=p.previousElementSibling;continue}break}e=e.parentElement}}
-if(!n)return;var cs=getComputedStyle(n),pos=cs.position,H=n.getBoundingClientRect().height;
-n.classList.add("hx-navt","hx-nav");h.classList.add("hx-hasnav");h.style.setProperty("--hxnav",H+"px");
-if(!inside){if(pos==="absolute"||pos==="fixed"){h.style.paddingTop="0px"}else{var hm=parseFloat(getComputedStyle(h).marginTop)||0;h.style.marginTop=(hm-H)+"px";if(pos==="static")n.style.position="relative"}n.style.zIndex="60"}
-n.querySelectorAll("*").forEach(function(x){if(!vis(x)||x.closest(".hx-keep"))return;var b=bg(x);if(b===null)return;var r=x.getBoundingClientRect();if(b>170&&r.width>150&&!x.matches("a"))x.classList.add("hx-glass2");else x.classList.add("hx-keep")});
-var AL=["logo-zwart.webp"];n.querySelectorAll("img").forEach(function(im){if(im.closest(".hx-keep"))return;var f=(im.getAttribute("src")||"").split("/").pop();if(AL.indexOf(f)>-1)im.classList.add("hx-inv")});
-if(pos==="sticky"||pos==="fixed"){var f=function(){n.classList.toggle("hx-navt",scrollY<h.offsetHeight-H-30)};addEventListener("scroll",f,{passive:true});f()}
-})()</script>
-
-</div>
+<section class="held" aria-label="Welkom">
+  <div class="wrap">
+    <header class="kop">
+      <a class="merk" href="#top" aria-label="Motostudio"><img src="img/logo-zwart.webp" alt="Motostudio" width="640" height="324"></a>
+      <nav class="nav" aria-label="Menu"><a href="#motoren">Motoren</a><a href="#werkplaats">Werkplaats</a><a href="#motodetail">Motodetail</a><a href="#service">Service</a><a href="#reviews">Reviews</a></nav>
+      <a class="knop k-geel" href="#contact">Kom eens langs<svg><use href="#naar"/></svg></a>
+    </header>
+    <div class="held-g">
+      <div>
+        <span class="tag">Verkoop · Werkplaats · Detailing</span>
+        <h1>Kopen, sleutelen en poetsen. <em>Onder één dak.</em></h1>
+        <p class="lead">Nieuwe en tweedehands motoren, een werkplaats voor alle merken en de detailing waar het in 2020 allemaal mee begon. Je krijgt hier uitleg in gewone taal, en de koffie staat klaar.</p>
+        <div class="acts">
+          <a class="knop k-geel" href="https://wa.me/3250893725" rel="noopener" target="_blank"><svg><use href="#wa"></use></svg>Stuur een berichtje</a>
+          <a class="knop k-poort" href="#motoren">Bekijk wat we doen<svg><use href="#naar"></use></svg></a>
+        </div>
+        <div class="score"><span class="g"><svg width="22" height="22" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg></span><div><b>5,0 <span>★★★★★</span></b><small>uit 88 reviews op Google</small></div></div>
+      </div>
+      <div class="poort">
+        <img class="mural" src="img/logo-zwart.webp" alt="" width="640" height="324" aria-hidden="true">
+        <span class="licht" aria-hidden="true"></span>
+        <span class="schaduw" aria-hidden="true"></span>
+        <img class="moto" src="img/rieju-vrij.webp" alt="Zwarte RIEJU NKD naked bike, nieuw te koop bij Motostudio" width="698" height="557" fetchpriority="high">
+        <div class="dealer"><small>Officieel dealer</small><b>Vier merken, één adres</b><div><span>BETA</span><span>AJP</span><span>RIEJU</span><span>HYOSUNG</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 <div class="band-w"><div class="band" aria-hidden="true"><div class="band-in"><span>Verkoop</span><span>Onderhoud</span><span>Herstellingen</span><span>Diagnose</span><span>Detailing</span><span>Transport</span><span>Vervangmotor</span><span>Verkoop</span><span>Onderhoud</span><span>Herstellingen</span><span>Diagnose</span><span>Detailing</span><span>Transport</span><span>Vervangmotor</span></div></div></div>
 
 <section class="blok" id="motoren">
@@ -415,7 +410,7 @@ if(pos==="sticky"||pos==="fixed"){var f=function(){n.classList.toggle("hx-navt",
       <div>
         <span class="tag rv">Werkplaats</span>
         <h2 class="rv" style="--d:1">Elk merk, <em>elk model.</em></h2>
-        <p class="rv" style="--d:2">Onderhoud, een herstelling of een motor die vreemd doet: in onze werkplaats in Beernem ben je welkom, ook als je motor niet bij ons gekocht is. Je krijgt een duidelijke uitleg en weet vooraf waar je aan toe bent.</p>
+        <p class="rv" style="--d:2">Onderhoud, een herstelling of een motor die vreemd doet: in onze werkplaats ben je welkom, ook als je motor niet bij ons gekocht is. Je krijgt een duidelijke uitleg en weet vooraf waar je aan toe bent.</p>
         <div class="punten">
           <div class="pt rv" style="--d:2"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></i><div><b>Onderhoud en herstellingen</b><p>Van een gewone beurt tot een grondige herstelling. Ook servicepunt voor Beta, AJP, RIEJU en Hyosung.</p></div></div>
           <div class="pt rv" style="--d:3"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></i><div><b>Diagnose</b><p>We zoeken uit wat er scheelt, en leggen het uit zonder moeilijke termen.</p></div></div>
@@ -567,7 +562,7 @@ if(pos==="sticky"||pos==="fixed"){var f=function(){n.classList.toggle("hx-navt",
 <footer class="voet">
   <div class="wrap">
     <div class="voet-g">
-      <div><a class="merk" href="#top" aria-label="Motostudio"><img src="img/logo-zwart.webp" alt="Motostudio" width="640" height="324" loading="lazy"></a><p>Verkoop, onderhoud, herstellingen en detailing van alle merken. Een motorzaak op mensenmaat in Beernem.</p></div>
+      <div><a class="merk" href="#top" aria-label="Motostudio"><img src="img/logo-zwart.webp" alt="Motostudio" width="640" height="324" loading="lazy"></a><p>Verkoop, onderhoud, herstellingen en detailing van alle merken. Een motorzaak op mensenmaat.</p></div>
       <div><h4>Menu</h4><ul><li><a href="#motoren">Motoren</a></li><li><a href="#werkplaats">Werkplaats</a></li><li><a href="#motodetail">Motodetail</a></li><li><a href="#service">Service</a></li></ul></div>
       <div><h4>Contact</h4><ul><li>Industriepark Noord 18, 8730 Beernem</li><li><a href="tel:+3250893725">050 89 37 25</a></li><li><a href="mailto:info@motostudio.be">info@motostudio.be</a></li><li><a href="https://www.instagram.com/motostudio.be/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/motostudio.beernem" target="_blank" rel="noopener">Facebook</a></li></ul></div>
     </div>
