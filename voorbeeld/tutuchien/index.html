@@ -29,30 +29,56 @@ h1,h2,h3{font-family:'Young Serif',serif;font-weight:400;line-height:1.05;letter
 .k-lijn{box-shadow:inset 0 0 0 1.5px rgba(74,44,34,.25)}
 .knop svg{width:15px;height:15px}
 /* hero */
-.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:max(720px,calc(100svh - 38px))}
-.hl{display:flex;flex-direction:column;padding:26px 70px 46px max(4vw,calc((100vw - 1240px)/2))}
-.nav{display:flex;align-items:center;gap:20px}
+.hero{padding:14px 1.4vw 0}
+.hcard{position:relative;isolation:isolate;border-radius:44px;overflow:hidden;min-height:max(700px,calc(100svh - 52px));display:flex;flex-direction:column;padding:0 max(4vw,calc((100vw - 1240px)/2 - 1.4vw));background:linear-gradient(112deg,#fcf6f1 0%,#f9ebe6 44%,#f6d9dc 72%,#f2c7cf 100%)}
+.hcard::before{content:"";position:absolute;z-index:-1;right:-6%;top:-18%;width:62%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.75) 0%,rgba(255,255,255,0) 66%)}
+.hcard::after{content:"";position:absolute;z-index:-1;inset:0;background-image:radial-gradient(rgba(217,117,138,.16) 1.4px,transparent 1.6px);background-size:26px 26px;-webkit-mask-image:linear-gradient(100deg,transparent 40%,#000 75%);mask-image:linear-gradient(100deg,transparent 40%,#000 75%)}
+.nav{display:flex;align-items:center;gap:20px;padding:24px 0 0;position:relative;z-index:3}
 .merk{text-decoration:none;display:flex;align-items:center;gap:12px}
 .merk .strik{width:42px;height:42px;border-radius:50%;background:var(--blush);display:grid;place-items:center}
+.hcard .merk .strik{background:#fff;box-shadow:0 8px 18px -10px rgba(74,44,34,.5)}
 .merk .strik svg{width:24px;height:24px;color:var(--cacao)}
 .merk b{display:block;font-family:'Young Serif';font-weight:400;font-size:24px;line-height:1}
 .merk small{display:block;white-space:nowrap;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--grijs);margin-top:4px}
-.nav ul{list-style:none;display:flex;gap:22px;margin-left:auto;font-weight:600;font-size:15px;white-space:nowrap}
-.nav ul a{text-decoration:none;opacity:.8}.nav ul a:hover{opacity:1}
-.htx{margin:auto 0;padding:50px 0 30px}
-.mini{display:inline-flex;align-items:center;gap:9px;background:var(--kaart);border:1px solid var(--lijn);border-radius:999px;padding:7px 15px 7px 10px;font-size:14px;font-weight:700}
-.mini span{font-size:16px}
-.hero h1{font-size:clamp(50px,5.6vw,88px);margin:24px 0 22px}
+.nav ul{list-style:none;display:flex;gap:6px;margin-left:auto;font-weight:700;font-size:15px;white-space:nowrap;background:rgba(255,250,246,.7);backdrop-filter:blur(8px);border-radius:999px;padding:5px}
+.nav ul a{display:block;text-decoration:none;padding:8px 16px;border-radius:999px;transition:background .25s}.nav ul a:hover{background:#fff}
+.nav .knop{padding:12px 20px;font-size:15px}
+.hgrid{flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:30px;align-items:stretch}
+.htx{align-self:center;padding:40px 0 70px;position:relative;z-index:2}
+.mini{display:inline-flex;align-items:center;gap:9px;background:#fff;border-radius:999px;padding:7px 16px 7px 8px;font-size:14px;font-weight:700;box-shadow:0 10px 24px -16px rgba(74,44,34,.5)}
+.mini i{width:26px;height:26px;border-radius:50%;background:var(--blush);display:grid;place-items:center}
+.mini i svg{width:15px;height:15px;color:var(--cacao)}
+.hero h1{font-size:clamp(52px,5.7vw,92px);margin:24px 0 22px;max-width:600px}
 .hero h1 b{font-weight:400;color:var(--roze2)}
-.hero .lead{font-size:19px;color:var(--grijs);max-width:500px}
+.hero .lead{font-size:19px;color:var(--cacao2);max-width:480px}
 .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.hscore{display:flex;align-items:center;gap:14px;font-size:14.5px;color:var(--grijs)}
-.hscore b{font-family:'Young Serif';font-weight:400;font-size:36px;color:var(--cacao);line-height:1}
-.hscore .ster{color:var(--roze)}
-.hr{position:relative;overflow:hidden;background:var(--creme2)}
-.hr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%}
-.hr .tag{position:absolute;left:26px;bottom:26px;background:var(--kaart);border-radius:20px;padding:14px 18px;font-size:14px;line-height:1.35;max-width:250px;box-shadow:0 20px 40px -24px rgba(74,44,34,.6)}
-.hr .tag b{display:block;font-family:'Young Serif';font-weight:400;font-size:18px}
+.hero .k-lijn{background:rgba(255,255,255,.55)}
+.hadr{display:flex;align-items:center;gap:10px;margin-top:26px;font-size:14.5px;font-weight:600;color:var(--grijs)}
+.hadr svg{width:17px;height:17px;color:var(--roze2);flex:none}
+.stage{position:relative;min-height:560px}
+.boog{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:min(470px,88%);height:80%;border-radius:999px 999px 0 0;background:linear-gradient(180deg,#eea9b6 0%,#e68fa1 100%);box-shadow:inset 0 2px 0 rgba(255,255,255,.35)}
+.boog::before{content:"";position:absolute;inset:22px 22px 0;border-radius:999px 999px 0 0;border:1.5px dashed rgba(255,255,255,.55);border-bottom:0}
+.boog::after{content:"";position:absolute;left:50%;top:15%;width:74%;aspect-ratio:1;border-radius:50%;transform:translateX(-50%);background:radial-gradient(circle,rgba(255,255,255,.55),rgba(255,255,255,0) 70%)}
+.tafel{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:min(300px,56%);height:58px;z-index:1}
+.tafel::before{content:"";position:absolute;left:0;right:0;top:0;height:30px;border-radius:50%;background:var(--cacao);box-shadow:0 3px 0 #2f1b14}
+.tafel::after{content:"";position:absolute;left:50%;top:22px;bottom:0;width:22px;margin-left:-11px;background:#2f1b14}
+.hond{position:absolute;left:50%;bottom:44px;transform:translateX(-50%);height:min(86%,600px);width:auto;max-width:none;z-index:2;filter:drop-shadow(0 22px 22px rgba(74,44,34,.28))}
+.zweef{position:absolute;z-index:3;background:#fff;border-radius:22px;box-shadow:0 22px 44px -22px rgba(74,44,34,.55)}
+.z-score{left:-2%;bottom:22%;padding:14px 18px;display:flex;align-items:center;gap:12px}
+.z-score b{font-family:'Young Serif';font-weight:400;font-size:38px;line-height:1}
+.z-score span{font-size:13.5px;line-height:1.35;color:var(--grijs)}
+.z-score .ster{color:var(--roze);font-size:13px;letter-spacing:2px}
+.z-naam{right:1%;bottom:9%;padding:10px 16px 10px 10px;display:flex;align-items:center;gap:10px;font-size:14px;line-height:1.3}
+.z-naam .beker{width:44px;height:44px;border-radius:50%;background:var(--blush);display:grid;place-items:center;flex:none}.z-naam .beker svg{width:22px;height:22px;color:var(--cacao)}
+.z-naam b{display:block;font-family:'Young Serif';font-weight:400;font-size:17px}
+.z-naam span{color:var(--grijs);font-size:13px}
+.stempel{position:absolute;z-index:3;right:5%;top:9%;width:132px;height:132px;border-radius:50%;background:var(--cacao);color:var(--creme);display:grid;place-items:center;box-shadow:0 20px 40px -20px rgba(74,44,34,.7)}
+.stempel svg.ring{position:absolute;inset:0;width:100%;height:100%;animation:draai 28s linear infinite}
+.stempel .mid{width:58px;height:58px;border-radius:50%;background:var(--blush);display:grid;place-items:center;font-size:24px;line-height:1}
+@keyframes draai{to{transform:rotate(360deg)}}
+.vonk{position:absolute;z-index:1;color:#fff;width:22px;height:22px}
+.vonk.v1{left:16%;top:22%}.vonk.v2{right:30%;top:6%;width:16px;height:16px;color:var(--roze2)}.vonk.v3{left:8%;top:52%;width:14px;height:14px;color:var(--roze2)}
+@media (prefers-reduced-motion:reduce){.stempel svg.ring{animation:none}}
 /* secties */
 .s{padding:120px 0}
 .oog{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--roze2)}
@@ -141,10 +167,10 @@ h1,h2,h3{font-family:'Young Serif',serif;font-weight:400;line-height:1.05;letter
 .js .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
 @media (max-width:1060px){
- .nav ul{display:none}
- .hero{grid-template-columns:1fr}
- .hl{padding:24px 4vw 50px}
- .hr{min-height:600px}
+ .nav ul{display:none}.nav .knop{margin-left:auto}
+ .hgrid{grid-template-columns:1fr;gap:0}
+ .htx{padding:46px 0 30px}
+ .stage{min-height:560px}
  .teddy{grid-template-columns:1fr 1fr}
  .aw .wrap{grid-template-columns:1fr;gap:50px}
  .awf{order:2}
@@ -157,10 +183,22 @@ h1,h2,h3{font-family:'Young Serif',serif;font-weight:400;line-height:1.05;letter
 @media (max-width:640px){
  body{font-size:16px}
  .s{padding:84px 0}
+ .hero{padding:10px 10px 0}
+ .hcard{border-radius:30px;padding:0 20px;min-height:0}
+ .nav{padding-top:18px}
+ .merk b{font-size:21px}.merk small{font-size:10.5px}.merk .strik{width:38px;height:38px}
+ .nav .knop{display:none}
+ .htx{padding:38px 0 20px}
  .hero h1{font-size:46px}
  .hero .lead{font-size:16.5px}
  .acts .knop{flex:1;justify-content:center}
- .hr{min-height:480px}
+ .stage{min-height:510px;margin:0 -20px}
+ .boog{width:300px}
+ .hond{height:390px;bottom:38px}
+ .tafel{width:220px;height:50px}
+ .stempel{width:96px;height:96px;right:12px;top:4px}.stempel .mid{width:42px;height:42px;font-size:18px}
+ .z-score{left:16px;bottom:auto;top:8px;padding:10px 13px;gap:9px;border-radius:18px}.z-score b{font-size:28px}.z-score span{font-size:12px}
+ .z-naam{right:12px;bottom:14px;padding:7px 12px 7px 7px}.z-naam .beker{width:36px;height:36px}.z-naam b{font-size:15px}.z-naam span{font-size:12px}
  .teddy{grid-template-columns:1fr 1fr;gap:10px}
  .td{height:340px;border-radius:120px 120px 22px 22px}
  .td img{bottom:92px;height:68%}
@@ -190,29 +228,42 @@ h1,h2,h3{font-family:'Young Serif',serif;font-weight:400;line-height:1.05;letter
 
 <main id="top">
 <section class="hero">
-  <div class="hl">
+  <div class="hcard">
     <header class="nav">
       <a class="merk" href="#top"><span class="strik"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 10.2c-1-2.8-5.6-5.4-8.2-4.3C1.6 6.9 1.8 12 2.6 14.4c.8 2.3 5.6 1.2 7.6-1.4l-2 6.2h2.2L12 14l1.6 5.2h2.2l-2-6.2c2 2.6 6.8 3.7 7.6 1.4.8-2.4 1-7.5-1.2-8.5-2.6-1.1-7.2 1.5-8.2 4.3Zm0 1.8a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2Z"/></svg></span><span><b>Tutu Chien</b><small>Hondenkapsalon · Brecht</small></span></a>
       <ul>
         <li><a href="#teddy">Teddy's</a></li>
+        <li><a href="#awards">Awards</a></li>
         <li><a href="#salon">Salon</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <a class="knop k-cacao" href="https://wa.me/32468322474" target="_blank" rel="noopener">Afspraak maken</a>
     </header>
-    <div class="htx">
-      <span class="mini rv"><span>🇧🇪</span>Member of the Belgian Grooming Team</span>
-      <h1 class="rv" style="--d:1">Een knuffelbeer op <b>vier pootjes.</b></h1>
-      <p class="lead rv" style="--d:2">Award-winning trimsalon en boetiek in Brecht. Mila is poedel- en doodlespecialist en knipt in Asian Style, met veel geduld voor elk hondje, hyperactief of bang.</p>
-      <div class="acts rv" style="--d:3">
-        <a class="knop k-cacao" href="https://wa.me/32468322474" target="_blank" rel="noopener">Maak een afspraak <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="knop k-lijn" href="#teddy">Bekijk de teddy's</a>
+    <div class="hgrid">
+      <div class="htx">
+        <span class="mini rv"><i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 10.2c-1-2.8-5.6-5.4-8.2-4.3C1.6 6.9 1.8 12 2.6 14.4c.8 2.3 5.6 1.2 7.6-1.4l-2 6.2h2.2L12 14l1.6 5.2h2.2l-2-6.2c2 2.6 6.8 3.7 7.6 1.4.8-2.4 1-7.5-1.2-8.5-2.6-1.1-7.2 1.5-8.2 4.3Zm0 1.8a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2Z"/></svg></i>Trimsalon en boetiek, op afspraak</span>
+        <h1 class="rv" style="--d:1">Een knuffelbeer op <b>vier pootjes.</b></h1>
+        <p class="lead rv" style="--d:2">Award-winning trimsalon en boetiek in Brecht. Mila is poedel- en doodlespecialist en knipt in Asian Style, met veel geduld voor elk hondje, hyperactief of bang.</p>
+        <div class="acts rv" style="--d:3">
+          <a class="knop k-cacao" href="https://wa.me/32468322474" target="_blank" rel="noopener">Maak een afspraak <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="knop k-lijn" href="#teddy">Bekijk de teddy's</a>
+        </div>
+        <p class="hadr rv" style="--d:4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Brugstraat 55, Brecht</p>
+      </div>
+      <div class="stage rv" style="--d:2" aria-label="Toypoedel Charlie na zijn trimbeurt">
+        <svg class="vonk v1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.9 6.6 4.8 10.6 12 12-7.2 1.4-11.1 5.4-12 12-.9-6.6-4.8-10.6-12-12C7.2 10.6 11.1 6.6 12 0Z"/></svg><svg class="vonk v2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.9 6.6 4.8 10.6 12 12-7.2 1.4-11.1 5.4-12 12-.9-6.6-4.8-10.6-12-12C7.2 10.6 11.1 6.6 12 0Z"/></svg><svg class="vonk v3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.9 6.6 4.8 10.6 12 12-7.2 1.4-11.1 5.4-12 12-.9-6.6-4.8-10.6-12-12C7.2 10.6 11.1 6.6 12 0Z"/></svg>
+        <div class="boog"></div>
+        <div class="tafel"></div>
+        <img class="hond" src="img/charlie-hero.webp" alt="Lichte toypoedel Charlie in teddylook met zwart strikje" width="557" height="1040" fetchpriority="high">
+        <div class="stempel" title="Lid van Groomteam Belgium">
+          <svg class="ring" viewBox="0 0 132 132" aria-hidden="true"><defs><path id="cirkel" d="M66 66m-50 0a50 50 0 1 1 100 0a50 50 0 1 1-100 0"/></defs><text font-family="Mulish,sans-serif" font-size="11.2" font-weight="800" letter-spacing="2.6" fill="currentColor"><textPath href="#cirkel">GROOMTEAM BELGIUM · MEMBER ·</textPath></text></svg>
+          <span class="mid" aria-hidden="true">🇧🇪</span>
+        </div>
+        <div class="zweef z-score"><b>4,9</b><span><span class="ster">★★★★★</span><br>37 reviews op Google</span></div>
+        <div class="zweef z-naam"><i class="beker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M17 6h3v1a4 4 0 0 1-3 3.9M7 6H4v1a4 4 0 0 0 3 3.9"/></svg></i><span><b>Prijs met Bobby</b><span>Grooming Art, Asian Style</span></span></div>
       </div>
     </div>
-    <div class="hscore rv" style="--d:4"><b>4,9</b><span><span class="ster">★★★★★</span><br>37 reviews op Google</span></div>
   </div>
-  <div class="hr">
-    <img src="img/hero.webp" alt="Lichte toypoedel op de trimtafel voor de muur met rozetten in het salon" width="1600" height="1600" fetchpriority="high">
-      </div>
 </section>
 
 <section class="s" id="teddy">
