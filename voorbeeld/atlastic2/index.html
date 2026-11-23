@@ -11,248 +11,205 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="preload" as="image" href="img/hero.webp">
 <style>
 :root{
-  --ink:#0E1119;--ink2:#171B25;--ink3:#232836;--cob:#2342EE;--cob2:#1A32C9;--cobl:#9AAAFF;
-  --stone:#E9E5DE;--stone2:#DED8CE;--paper:#F5F3EF;--card:#fff;--gold:#E8B54A;
-  --muted:#686B74;--line:rgba(14,17,25,.1);--r:22px;--ease:cubic-bezier(.2,.8,.2,1)
+  --ink:#15171C;--ink2:#2A2D34;--cob:#2342EE;--cobl:#AEB9FF;
+  --kalk:#F4F1EC;--steen:#E8E3DB;--steen2:#DCD5CA;--wit:#FBFAF7;
+  --muted:#6E6A64;--line:rgba(21,23,28,.1);--ease:cubic-bezier(.16,1,.3,1)
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font:500 16px/1.7 'Manrope',system-ui,sans-serif;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font:500 16.5px/1.7 'Manrope',system-ui,sans-serif;color:var(--ink);background:var(--kalk);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-.wrap{width:min(1280px,100% - 64px);margin-inline:auto}
-.demo{background:var(--ink);color:#C9CEDC;font-size:13px;text-align:center;padding:9px 16px;position:relative;z-index:30}
+.wrap{width:min(1320px,100% - 64px);margin-inline:auto}
+.demo{background:var(--ink);color:#C9CCD4;font-size:13px;text-align:center;padding:9px 16px;position:relative;z-index:40}
 .demo a{color:var(--cobl);text-decoration:underline;text-underline-offset:3px;font-weight:700}
-h1,h2,h3{font-family:'Anton',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.98}
-.lbl{display:inline-flex;align-items:center;gap:12px;font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
+h1,h2,h3{font-family:'Anton',Impact,sans-serif;font-weight:400;font-style:normal;text-transform:uppercase;letter-spacing:.01em;line-height:.98}
+h2{font-size:clamp(44px,5.6vw,84px)}
+.lbl{display:inline-flex;align-items:center;gap:12px;font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 .lbl::before{content:"";width:28px;height:1.5px;background:var(--cob)}
-.btn{display:inline-flex;align-items:center;gap:14px;font-weight:700;font-size:15px;padding:7px 7px 7px 24px;border-radius:99px;transition:transform .35s var(--ease),background .3s,box-shadow .35s}
-.btn i{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-style:normal;transition:transform .35s var(--ease)}
+.btn{display:inline-flex;align-items:center;gap:14px;font-weight:700;font-size:15px;padding:7px 7px 7px 26px;border-radius:99px;transition:transform .4s var(--ease),background .3s,border-color .3s,color .3s}
+.btn i{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-style:normal;transition:transform .4s var(--ease)}
 .btn svg{width:16px;height:16px}
 .btn:hover{transform:translateY(-2px)}.btn:hover i{transform:rotate(-45deg)}
-.btn-k{background:var(--ink);color:#fff;box-shadow:0 14px 30px -14px rgba(14,17,25,.55)}.btn-k i{background:var(--cob);color:#fff}
-.btn-k:hover{background:#000}
-.btn-w{background:#fff;color:var(--ink)}.btn-w i{background:var(--ink);color:#fff}
-.btn-c{background:var(--cob);color:#fff}.btn-c i{background:#fff;color:var(--cob)}
-.btn-o{border:1.5px solid rgba(14,17,25,.18);color:var(--ink);padding:14px 24px}
-.btn-o:hover{border-color:var(--ink)}
+.btn-w{background:var(--wit);color:var(--ink)}.btn-w i{background:var(--cob);color:#fff}
+.btn-k{background:var(--ink);color:#fff}.btn-k i{background:var(--cob);color:#fff}
+.btn-g{border:1.5px solid rgba(255,255,255,.5);color:#fff;padding:15px 26px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);background:rgba(255,255,255,.08)}
+.btn-g:hover{border-color:#fff;background:rgba(255,255,255,.16)}
 section{position:relative}
-.sec{padding:clamp(84px,10vw,140px) 0}
-.head{display:grid;grid-template-columns:1.1fr .9fr;align-items:end;gap:48px;margin-bottom:56px}
-.head h2{font-size:clamp(42px,5.4vw,76px);margin-top:20px}
-.head p{max-width:420px;color:var(--muted);justify-self:end}
+.sec{padding:clamp(96px,11vw,160px) 0}
 
 /* nav */
-.nav{background:var(--stone)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 0}
-.logo img{width:56px;height:56px}
-.nav ul{display:flex;gap:34px;list-style:none}
-.nav ul a{font-weight:700;font-size:14.5px;position:relative;padding:6px 0}
-.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
-.nav ul a:hover::after{transform:scaleX(1)}
-.nav .btn{font-size:14px;padding:5px 5px 5px 20px}.nav .btn i{width:36px;height:36px}
+.nav{position:absolute;left:0;right:0;z-index:20;padding:22px 0}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;width:min(1440px,100% - 56px)}
+.logo img{width:62px;height:62px}
+.logo .dk{display:none}
+.nav ul{display:flex;gap:6px;list-style:none;background:rgba(21,23,28,.22);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.18);border-radius:99px;padding:6px}
+.nav ul a{display:block;color:#fff;font-weight:700;font-size:14.5px;padding:10px 18px;border-radius:99px;transition:background .3s}
+.nav ul a:hover{background:rgba(255,255,255,.14)}
+.nav .btn{font-size:14px;padding:5px 5px 5px 20px}.nav .btn i{width:38px;height:38px}
 
 /* hero */
-.hero{background:var(--stone);padding:6px 0 0;overflow:hidden}
-.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:90px;background:var(--paper)}
-.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:.92fr 1.08fr;gap:56px;align-items:stretch}
-.hero .txt{display:flex;flex-direction:column;justify-content:center;padding:10px 0 96px}
-.hero h1{font-size:clamp(64px,7.6vw,116px);line-height:.92;margin:24px 0 26px;letter-spacing:.005em}
-.hero h1 b{font-weight:400;color:var(--cob)}
-.hero .lead{font-size:18px;line-height:1.7;max-width:470px;color:#3C3F48}
-.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
-.proof{display:flex;align-items:center;gap:16px;margin-top:34px;padding-top:24px;border-top:1px solid var(--line);max-width:470px}
-.proof .g{width:46px;height:46px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 8px 20px -10px rgba(14,17,25,.3);flex-shrink:0}
-.proof b{font-family:'Anton';font-weight:400;font-size:30px;line-height:1;margin-right:6px}
-.proof .st{color:var(--gold);letter-spacing:2px;font-size:14px}
-.proof small{display:block;color:var(--muted);font-size:13px;font-weight:600;margin-top:2px}
-.shot{position:relative;height:clamp(560px,calc(100svh - 150px),760px);margin-bottom:24px}
-.shot .frame{position:absolute;inset:0;border-radius:28px;overflow:hidden;box-shadow:0 50px 90px -40px rgba(14,17,25,.45)}
-.shot .frame img{width:100%;height:100%;object-fit:cover;object-position:50% 70%;transform:scale(1.04);animation:zoom 2.4s var(--ease) forwards}
-@keyframes zoom{to{transform:none}}
-.shot .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,17,25,0) 55%,rgba(14,17,25,.35))}
-.shot .cap{position:absolute;right:22px;top:22px;z-index:2;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:rgba(14,17,25,.38);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.22);padding:9px 14px;border-radius:99px}
-.mat{position:absolute;z-index:3;left:-64px;bottom:42px;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:24px;padding:20px 22px 18px;box-shadow:0 34px 70px -28px rgba(14,17,25,.5);width:max-content;max-width:calc(100% + 40px)}
-.mat p{font-size:11.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:flex;justify-content:space-between;gap:20px}
-.mat p span{color:var(--cob)}
-.sw{display:flex;gap:16px}
-.sw figure{text-align:center;font-size:12.5px;font-weight:700}
-.sw i{display:block;width:60px;height:60px;border-radius:50%;margin:0 auto 8px;background-size:cover;box-shadow:inset 0 0 0 1px rgba(14,17,25,.08),0 0 0 3px #fff,0 0 0 4px var(--line);transition:transform .4s var(--ease)}
-.sw figure:hover i{transform:scale(1.08)}
+.hero{min-height:max(720px,calc(100svh - 39px));display:flex;align-items:flex-end;overflow:hidden;isolation:isolate;color:#fff}
+.h-beeld{position:absolute;inset:0;z-index:-2}
+.h-beeld img{width:100%;height:100%;object-fit:cover;object-position:50% 96%;transform:scale(1.06);animation:rust 14s var(--ease) forwards}
+@keyframes rust{to{transform:scale(1)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(15,16,20,.78) 0%,rgba(15,16,20,.42) 34%,rgba(15,16,20,0) 62%),linear-gradient(90deg,rgba(15,16,20,.45) 0%,rgba(15,16,20,0) 55%),linear-gradient(180deg,rgba(15,16,20,.35),transparent 20%)}
+.h-in{width:min(1440px,100% - 56px);margin:0 auto;padding:0 0 64px;display:grid;grid-template-columns:minmax(0,760px) 1fr;gap:40px;align-items:end}
+.h-in .lbl{color:rgba(255,255,255,.85)}
+.h-in .lbl::before{background:#fff}
+.hero h1{font-size:clamp(68px,8.6vw,138px);line-height:.9;margin:22px 0 26px}
+.hero .lead{font-size:18.5px;line-height:1.65;max-width:540px;color:rgba(255,255,255,.88)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.h-kaart{justify-self:end;display:flex;align-items:center;gap:16px;background:rgba(251,250,247,.92);color:var(--ink);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:22px;padding:16px 22px 16px 16px;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+.h-kaart .g{width:46px;height:46px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 0 0 1px var(--line)}
+.h-kaart .st{color:#E0A93B;letter-spacing:2px;font-size:14px;line-height:1}
+.h-kaart b{display:block;font-size:15px;margin-top:4px}
+.h-kaart small{color:var(--muted);font-size:13px;font-weight:600}
 
-/* over */
-.over .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,110px);align-items:center}
-.over .pics{position:relative;padding:0 0 70px 0}
-.over .pics img{border-radius:var(--r);width:100%;object-fit:cover}
-.over .p1{aspect-ratio:4/4.4}
-.over .p2{position:absolute;right:-28px;bottom:0;width:44%!important;aspect-ratio:3/3.6;border:8px solid var(--paper);border-radius:24px!important;box-shadow:0 30px 60px -30px rgba(14,17,25,.45)}
-.over h2{font-size:clamp(42px,5.2vw,72px);margin:22px 0 28px}
-.over p{color:var(--muted);max-width:520px;margin-bottom:16px}
-.over p strong{color:var(--ink)}
-.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px;max-width:520px}
-.facts div{background:#fff;border-radius:16px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;font-size:14.5px;font-weight:700;line-height:1.45}
-.facts svg{width:20px;height:20px;color:var(--cob);flex-shrink:0;margin-top:1px}
-.sign{display:flex;align-items:center;gap:14px;margin-top:32px}
-.sign .av{width:48px;height:48px;border-radius:50%;background:var(--ink);display:grid;place-items:center}
-.sign .av img{width:30px;height:30px;filter:invert(1)}
-.sign b{display:block;font-size:15px}.sign small{color:var(--muted);font-size:13px}
+/* sfeer */
+.sfeer{padding:clamp(96px,11vw,150px) 0 0}
+.sfeer .zin{width:min(1060px,100% - 64px);margin:0 auto clamp(56px,7vw,96px);text-align:center}
+.sfeer .zin p{font:400 clamp(34px,4vw,58px)/1.12 'Anton',Impact,sans-serif;text-transform:uppercase;letter-spacing:.01em;color:var(--ink);margin-top:24px}
+.sfeer .zin p span{color:var(--muted)}
+.band{position:relative;height:clamp(460px,78vh,820px);overflow:hidden}
+.band img{position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;object-position:50% 60%;will-change:transform}
+.band .tag{position:absolute;left:32px;bottom:30px;background:rgba(251,250,247,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:99px;padding:11px 18px;font-size:13.5px;font-weight:700;display:flex;gap:10px;align-items:center}
+.band .tag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cob)}
 
-/* aanbod */
-.aanbod{background:#fff}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.card{display:flex;flex-direction:column;border-radius:var(--r);background:var(--paper);overflow:hidden;transition:transform .5s var(--ease),box-shadow .5s}
-.card:hover{transform:translateY(-6px);box-shadow:0 34px 60px -34px rgba(14,17,25,.35)}
-.card .ph{overflow:hidden;aspect-ratio:4/3.3;position:relative}
-.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
-.card:hover .ph img{transform:scale(1.05)}
-.card .ph span{position:absolute;left:16px;top:16px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.92);padding:7px 12px;border-radius:99px}
-.card .bd{padding:24px 26px 28px;display:flex;flex-direction:column;flex:1}
-.card .n{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--cob)}
-.card h3{font-size:30px;margin:8px 0 10px}
-.card p{color:var(--muted);font-size:15px}
-.card.cta{background:var(--ink);color:#fff;padding:36px 32px;justify-content:space-between;gap:26px;position:relative}
-.card.cta::before{content:"";position:absolute;right:-110px;bottom:-110px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(35,66,238,.45),transparent 70%)}
-.card.cta>*{position:relative}
-.card.cta h3{font-size:40px;margin:16px 0 14px}
-.card.cta p{color:rgba(255,255,255,.78)}
-.card.cta .ind{margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.16);font-size:14.5px;color:#fff}
-.card.cta .lbl{color:#fff}.card.cta .lbl::before{background:var(--cobl)}
-.card.cta .btn{align-self:flex-start}
+/* materialen */
+.kop{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;margin-bottom:56px}
+.kop h2{margin-top:20px}
+.kop p{max-width:440px;color:var(--muted);justify-self:end;font-size:17.5px}
+.mats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.mat{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:3/4.4;isolation:isolate;color:#fff;background:var(--steen)}
+.mat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.6s var(--ease)}
+.mat:hover img{transform:scale(1.05)}
+.mat::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(15,16,20,.78) 0%,rgba(15,16,20,.1) 50%,transparent 70%)}
+.mat .t{position:absolute;left:22px;right:22px;bottom:22px}
+.mat h3{font-size:clamp(26px,2.2vw,34px);margin-bottom:8px}
+.mat p{font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.85)}
+.mat .pil{position:absolute;top:18px;left:18px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:rgba(251,250,247,.9);color:var(--ink);padding:8px 12px;border-radius:99px}
+.extra{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.extra span{display:inline-flex;align-items:center;gap:10px;background:var(--wit);border:1px solid var(--line);border-radius:99px;padding:11px 18px;font-size:14.5px;font-weight:700}
+.extra svg{width:17px;height:17px;color:var(--cob)}
 
 /* projecten */
-.proj{background:#fff;padding-top:0}
-.bento{display:grid;grid-template-columns:1.15fr 1fr 1.05fr .85fr;grid-template-rows:300px 300px;gap:16px}
-.bento figure{position:relative;border-radius:var(--r);overflow:hidden;background:var(--paper)}
-.bento figure img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
-.bento figure:hover img{transform:scale(1.05)}
-.bento figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(14,17,25,.55));pointer-events:none}
-.bento figcaption{position:absolute;left:20px;right:20px;bottom:18px;z-index:1;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;gap:10px}
-.bento figcaption::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff}
-.b1{grid-row:1/3;grid-column:1}.b2{grid-column:2;grid-row:1}.b3{grid-column:2;grid-row:2}.b4{grid-row:1/3;grid-column:3}.bento .note{grid-row:1/3;grid-column:4}
-.bento .note{border-radius:var(--r);background:var(--stone);padding:28px;display:flex;flex-direction:column;justify-content:space-between}
-.note h3{font-size:34px}
-.note p{font-size:14.5px;color:var(--muted);margin:12px 0 18px}
-.steps{list-style:none;display:grid;gap:12px;margin:8px 0 22px}.steps li{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:700;line-height:1.35}.steps b{width:30px;height:30px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:12.5px;flex-shrink:0;color:var(--cob)}
-.note .btn{font-size:14px;padding:5px 5px 5px 18px;align-self:flex-start}.note .btn i{width:34px;height:34px}
+.proj{background:var(--steen)}
+.galerij{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:340px 340px;gap:16px}
+.galerij figure{position:relative;border-radius:26px;overflow:hidden;background:var(--steen2)}
+.galerij img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
+.galerij figure:hover img{transform:scale(1.04)}
+.galerij figcaption{position:absolute;left:16px;bottom:16px;background:rgba(251,250,247,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:99px;padding:9px 15px;font-size:13px;font-weight:700}
+.g1{grid-row:1/3}
+.g4{grid-column:2/4}
+.anass{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;margin-top:40px;padding:26px 30px;background:var(--wit);border-radius:26px}
+.anass .av{width:58px;height:58px;border-radius:50%;background:var(--ink);display:grid;place-items:center}
+.anass .av img{width:36px;height:36px}
+.anass p{font-size:17px;line-height:1.55;max-width:760px}
+.anass p b{display:block;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
 
 /* reviews */
-.rev{padding:0 0 0;background:#fff}
-.rev .box{background:var(--ink);color:#fff;border-radius:36px;padding:clamp(40px,6vw,84px);display:grid;grid-template-columns:.78fr 1.22fr;gap:clamp(36px,5vw,76px);position:relative;overflow:hidden}
-.rev .box::before{content:"";position:absolute;right:-180px;top:-220px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(35,66,238,.35),transparent 68%)}
-.rev .box>*{position:relative}
-.rev .lbl{color:#fff}.rev .lbl::before{background:var(--cobl)}
-.big{font-family:'Anton';font-size:clamp(110px,12vw,168px);line-height:.9;margin:28px 0 12px}
-.big small{font-family:'Manrope',sans-serif;font-weight:700;font-size:.17em;color:rgba(255,255,255,.6);margin-left:12px;letter-spacing:.02em}
-.rev .stars{color:var(--gold);font-size:20px;letter-spacing:5px}
-.rev .l p{color:rgba(255,255,255,.72);margin:16px 0 28px;max-width:340px}
-.pills{display:flex;flex-wrap:wrap;gap:8px}
-.pills span{font-size:13px;font-weight:600;padding:8px 14px;border-radius:99px;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.86)}
-.quotes{display:grid;gap:14px}
-.q{background:var(--ink2);border:1px solid rgba(255,255,255,.07);border-radius:22px;padding:28px 30px;transition:background .4s}
-.q:hover{background:var(--ink3)}
-.q .s{color:var(--gold);letter-spacing:3px;font-size:13px}
-.q blockquote{font-size:17.5px;font-weight:600;line-height:1.6;margin:12px 0 18px;color:#fff}
-.q .who{display:flex;align-items:center;gap:12px;font-size:14px}
-.q .who i{width:38px;height:38px;border-radius:50%;background:var(--cob);display:grid;place-items:center;font-style:normal;font-weight:800;color:#fff}
-.q .who small{display:block;color:rgba(255,255,255,.55);font-size:12.5px}
-
-/* faq */
-.faq{background:#fff}
-.faq .grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(40px,7vw,110px);align-items:start}
-.faq h2{font-size:clamp(42px,5.2vw,72px);margin:22px 0 22px}
-.faq .l p{color:var(--muted);max-width:380px;margin-bottom:30px}
-details{border-bottom:1px solid var(--line)}
-details:first-child{border-top:1px solid var(--line)}
-summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 4px;font-weight:700;font-size:18px}
-summary::-webkit-details-marker{display:none}
-summary i{flex-shrink:0;width:38px;height:38px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-style:normal;font-size:18px;transition:transform .35s var(--ease),background .3s,color .3s,border-color .3s}
-details[open] summary i{transform:rotate(45deg);background:var(--ink);border-color:var(--ink);color:#fff}
-details p{padding:0 60px 26px 4px;color:var(--muted);max-width:640px}
+.rev .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(40px,6vw,96px);align-items:center}
+.rev .st{color:#E0A93B;letter-spacing:5px;font-size:20px;margin:26px 0 22px}
+.rev blockquote{font:400 clamp(34px,3.8vw,56px)/1.08 'Anton',Impact,sans-serif;text-transform:uppercase}
+.rev cite{display:block;font-style:normal;margin-top:24px;color:var(--muted);font-weight:600}
+.rev cite b{color:var(--ink)}
+.q{background:var(--wit);border:1px solid var(--line);border-radius:24px;padding:26px 28px}
+.q+.q{margin-top:14px}
+.q p{font-size:16.5px;line-height:1.6;font-weight:600}
+.q small{display:block;margin-top:14px;color:var(--muted);font-size:13.5px;font-weight:600}
+.rev .bron{margin-top:18px;font-size:14px;color:var(--muted);font-weight:600}
 
 /* contact */
-.contact{background:#fff;padding-top:0;padding-bottom:40px}
-.contact .box{background:var(--stone);border-radius:36px;padding:clamp(36px,5.5vw,76px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,72px)}
-.contact h2{font-size:clamp(44px,5.4vw,76px);margin:22px 0 22px}
-.contact .l>p{color:#4A4D56;max-width:430px}
-.rows{margin-top:32px;display:grid;gap:10px}
-.row{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.7);border-radius:18px;padding:14px 18px;transition:transform .35s var(--ease),background .3s}
-a.row:hover{transform:translateX(4px);background:#fff}
-.row .ic{width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;flex-shrink:0}
+.contact{padding-top:0}
+.cbox{display:grid;grid-template-columns:1fr 1fr;border-radius:34px;overflow:hidden;background:var(--ink);color:#fff}
+.c-beeld{position:relative;min-height:640px}
+.c-beeld img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 70%}
+.c-beeld::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,16,20,.75),transparent 55%)}
+.c-beeld .zin{position:absolute;left:34px;right:34px;bottom:32px;z-index:1}
+.c-beeld .zin h2{font-size:clamp(40px,4.4vw,66px)}
+.c-beeld .zin p{color:rgba(255,255,255,.85);margin-top:14px;max-width:440px}
+.c-r{padding:clamp(32px,4.5vw,64px)}
+.rows{display:grid;gap:10px;margin-bottom:28px}
+.row{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:13px 18px;transition:background .3s}
+a.row:hover{background:rgba(255,255,255,.1)}
+.row .ic{width:42px;height:42px;border-radius:50%;background:var(--cob);color:#fff;display:grid;place-items:center;flex-shrink:0}
 .row .ic svg{width:18px;height:18px}
-.row small{display:block;color:var(--muted);font-size:12.5px;font-weight:600}
-.row b{font-size:16px}
-.row .go{margin-left:auto;font-size:13px;font-weight:700;color:var(--cob);white-space:nowrap}
-form{background:#fff;border-radius:28px;padding:clamp(26px,3.5vw,42px);display:grid;gap:14px;align-content:start;box-shadow:0 40px 80px -50px rgba(14,17,25,.4)}
-form h3{font-size:32px;margin-bottom:4px}
-label{font-size:13px;font-weight:700;display:grid;gap:6px}
-input,select,textarea{font:500 15px 'Manrope',sans-serif;border:1.5px solid var(--line);background:var(--paper);border-radius:14px;padding:13px 15px;color:var(--ink);width:100%}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cob);background:#fff}
-textarea{min-height:110px;resize:vertical}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.row small{display:block;color:rgba(255,255,255,.6);font-size:12.5px;font-weight:600}
+.row b{font-size:15.5px}
+form{display:grid;gap:12px}
+form h3{font-size:30px;margin-bottom:4px}
+label{font-size:13px;font-weight:700;display:grid;gap:6px;color:rgba(255,255,255,.8)}
+input,select,textarea{font:500 15px 'Manrope',sans-serif;border:1.5px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);border-radius:14px;padding:13px 15px;color:#fff;width:100%}
+select option{color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cobl)}
+textarea{min-height:96px;resize:vertical}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 form .btn{border:0;cursor:pointer;justify-self:start;font-family:inherit}
-form small{color:var(--muted);font-size:12.5px}
+form small{color:rgba(255,255,255,.55);font-size:12.5px}
 
 /* footer */
-footer{background:#fff;padding:20px 0 46px}
+footer{padding:20px 0 46px}
 footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:34px}
 footer .logo img{width:52px;height:52px}
 footer p{font-size:14px;color:var(--muted)}
 footer nav{display:flex;gap:24px;font-size:14px;font-weight:700}
 
 /* reveal */
-.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease) calc(var(--d,0)*90ms),transform 1.1s var(--ease) calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
 
 @media (max-width:1100px){
   .nav ul{display:none}
-  .hero .wrap{grid-template-columns:1fr 1fr;gap:36px}
-  .mat{left:-30px}
-  .sw i{width:50px;height:50px}.sw{gap:12px}
-  .cards{grid-template-columns:1fr 1fr}
-  .bento{grid-template-columns:1fr 1fr;grid-template-rows:260px 260px 260px auto}
-  .b1{grid-row:1/3;grid-column:1}.b2{grid-column:2;grid-row:1}.b3{grid-column:2;grid-row:2}.b4{grid-row:3;grid-column:1/3}.bento .note{grid-row:4;grid-column:1/3}
-  .over .p2{right:0}
-  .rev .box,.faq .grid,.contact .box{grid-template-columns:1fr}
+  .mats{grid-template-columns:1fr 1fr}
+  .mat{aspect-ratio:4/4.6}
+  .galerij{grid-template-columns:1fr 1fr;grid-template-rows:300px 300px 300px}
+  .g1{grid-row:1/3}.g4{grid-column:1/3}
+  .rev .wrap,.cbox{grid-template-columns:1fr}
+  .c-beeld{min-height:480px}
 }
 @media (max-width:860px){
   .wrap{width:calc(100% - 36px)}
-  .hero .wrap{grid-template-columns:1fr;gap:0}
-  .hero .txt{padding:22px 0 34px}
-  .hero::after{height:60px}
-  .shot{min-height:0;height:min(118vw,560px)}
-  .mat{left:14px;right:14px;bottom:14px;width:auto;max-width:none}
-  .sw{justify-content:space-between}
-  .head{grid-template-columns:1fr;gap:16px;margin-bottom:36px}.head p{justify-self:start}
-  .over .grid{grid-template-columns:1fr}
-  .over .pics{order:2}
+  .nav{position:relative;padding:16px 0;background:var(--steen)}
+  .nav .wrap{width:calc(100% - 36px)}
+  .logo .wt{display:none}.logo .dk{display:block}
+  .hero{display:flex;flex-direction:column;align-items:stretch;min-height:0;color:var(--ink);background:var(--steen)}
+  .hero::before{display:none}
+  .h-beeld{position:relative;order:2;height:min(120vw,620px);z-index:0}
+  .h-in{order:1;grid-template-columns:1fr;padding:24px 0 36px;width:calc(100% - 36px)}
+  .h-in .lbl{color:var(--muted)}.h-in .lbl::before{background:var(--cob)}
+  .hero .lead{color:#3f3d3a}
+  .btn-g{color:var(--ink);border-color:rgba(21,23,28,.25);background:transparent}
+  .btn-g:hover{border-color:var(--ink);background:transparent}
+  .btn-w{background:var(--ink);color:#fff}
+  .h-kaart{justify-self:start;box-shadow:none;border:1px solid var(--line)}
+  .kop{grid-template-columns:1fr;gap:16px;margin-bottom:36px}.kop p{justify-self:start}
+  .band .tag{left:16px;bottom:16px}
+  .anass{grid-template-columns:auto 1fr}
+  .anass .btn{grid-column:1/3;justify-self:start}
 }
 @media (max-width:600px){
-  .logo img{width:46px;height:46px}
+  .logo img{width:50px;height:50px}
   .nav .btn span{display:none}.nav .btn{padding:4px}
-  .hero h1{font-size:clamp(54px,16vw,76px);margin:20px 0 22px}
+  .hero h1{font-size:clamp(56px,16vw,80px);margin:18px 0 20px}
   .hero .lead{font-size:16.5px}
-  .hero .cta .btn{flex:1 1 auto;justify-content:space-between}
-  .hero .cta .btn-o{justify-content:center}
-  .proof{margin-top:30px;padding-top:22px}
-  .mat{padding:16px 16px 14px;border-radius:20px}
-  .mat p{font-size:10.5px;margin-bottom:12px}
-  .sw i{width:46px;height:46px}.sw figure{font-size:11.5px}
-  .over .p2{width:46%!important}
-  .facts{grid-template-columns:1fr}
-  .cards{grid-template-columns:1fr}
-  .bento{grid-template-rows:200px 200px 230px auto;gap:10px}
-  .bento figcaption{left:12px;bottom:12px;font-size:12.5px}
-  .rev .box,.contact .box{border-radius:26px;padding:32px 20px}
-  .q{padding:22px}
-  details p{padding-right:10px}
-  summary{font-size:16.5px}
+  .mats{grid-template-columns:1fr}
+  .mat{aspect-ratio:4/4.4}
+  .galerij{grid-template-columns:1fr;grid-template-rows:none;grid-auto-rows:320px}
+  .g1,.g4{grid-row:auto;grid-column:auto}
+  .band{height:115vw;min-height:0}
+  .anass{padding:22px;grid-template-columns:1fr}
+  .anass .btn{grid-column:auto}
+  .cbox{border-radius:26px}
+  .c-beeld{min-height:420px}
+  .c-beeld .zin{left:22px;right:22px;bottom:22px}
   .two{grid-template-columns:1fr}
-  .row .go{display:none}
   footer .wrap{flex-direction:column;align-items:flex-start}
 }
-@media (prefers-reduced-motion:reduce){.shot .frame img{animation:none;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -260,200 +217,150 @@ footer nav{display:flex;gap:24px;font-size:14px;font-weight:700}
 
 <header class="nav">
   <div class="wrap">
-    <a href="#top" class="logo" aria-label="Atlastic"><img src="img/logo.png" alt="Atlastic logo"></a>
+    <a href="#top" class="logo" aria-label="Atlastic"><img class="wt" src="img/logo-wit.png" alt="Atlastic logo"><img class="dk" src="img/logo.png" alt="Atlastic logo"></a>
     <ul>
-      <li><a href="#aanbod">Vloeren</a></li>
+      <li><a href="#materialen">Vloeren</a></li>
       <li><a href="#projecten">Projecten</a></li>
       <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#faq">Vragen</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a class="btn btn-k" href="tel:+32484815093"><span>0484 81 50 93</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></i></a>
+    <a class="btn btn-w" href="tel:+32484815093"><span>0484 81 50 93</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></i></a>
   </div>
 </header>
 
-<section class="hero" id="top">
-  <div class="wrap">
-    <div class="txt">
-      <span class="lbl">Gietvloeren op maat</span>
-      <h1>Naadloos van vloer tot trap<b>.</b></h1>
-      <p class="lead">Gietvloeren, lavasteen, steentapijt en microcement. Eén strakke vloer die zonder voeg doorloopt van de keuken tot in de badkamer, en als u wil zelfs de trap op.</p>
-      <div class="cta">
-        <a class="btn btn-k" href="https://wa.me/32484815093">Stuur foto's van uw ruimte<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
-        <a class="btn btn-o" href="#projecten">Bekijk ons werk</a>
-      </div>
-      <div class="proof">
-        <span class="g"><svg width="22" height="22" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg></span>
-        <div><b>5,0</b><span class="st">★★★★★</span><small>17 reviews op Google, allemaal vijf sterren</small></div>
+<main id="top">
+<section class="hero" aria-label="Atlastic gietvloeren">
+  <div class="h-beeld"><img src="img/hero.webp" alt="Witte naadloze gietvloer in een lichte keuken met marmeren eiland en grote ramen naar de tuin" width="1600" height="1196" fetchpriority="high"></div>
+  <div class="h-in">
+    <div>
+      <span class="lbl rv">Gietvloeren op maat</span>
+      <h1 class="rv" style="--d:1">Rust van muur tot muur</h1>
+      <p class="lead rv" style="--d:2">Een naadloze vloer die het licht laat doorlopen door heel uw huis. Gietvloer, lavasteen, microcement of steentapijt, ter plaatse gegoten en tot in de hoeken afgewerkt.</p>
+      <div class="cta rv" style="--d:3">
+        <a class="btn btn-w" href="https://wa.me/32484815093">Stuur foto's van uw ruimte<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+        <a class="btn btn-g" href="#projecten">Bekijk projecten</a>
       </div>
     </div>
-    <div class="shot">
-      <div class="frame"><img src="img/gietvloer.webp" alt="Lichte naadloze gietvloer in een living met designzetels" fetchpriority="high"></div>
-      <span class="cap">PU-gietvloer · living</span>
-      <div class="mat">
-        <p>Kies uw afwerking <span>4 materialen</span></p>
-        <div class="sw">
-          <figure><i style="background-image:url(img/gietvloer.webp);background-position:15% 99%;background-size:380%"></i>Gietvloer</figure>
-          <figure><i style="background-image:url(img/lavasteen.webp);background-position:30% 90%;background-size:420%"></i>Lavasteen</figure>
-          <figure><i style="background-image:url(img/steentapijt.webp);background-position:45% 60%;background-size:360%"></i>Steentapijt</figure>
-          <figure><i style="background-image:url(img/mortex.webp);background-position:62% 8%;background-size:420%"></i>Microcement</figure>
-        </div>
-      </div>
+    <div class="h-kaart rv" style="--d:4">
+      <span class="g"><svg width="22" height="22" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg></span>
+      <div><div class="st">★★★★★</div><b>Vijf sterren op Google</b><small>van elke klant die een review schreef</small></div>
     </div>
   </div>
 </section>
 
-<section class="over sec" id="over">
+<section class="sfeer" aria-labelledby="t-sfeer">
+  <div class="zin">
+    <h2 id="t-sfeer" class="lbl rv" style="font:800 12px/1 Manrope,sans-serif;letter-spacing:.22em">Waarom een gietvloer</h2>
+    <p class="rv" style="--d:1">Geen voeg die het oog stopt. <span>Eén vlak dat van de keuken doorloopt tot in de badkamer, en als u wil de trap op.</span></p>
+  </div>
+  <div class="band rv"><img src="img/lavasteen.webp" alt="Lichte lavasteen gietvloer in een open living met eettafel" loading="lazy" width="1300" height="940"><span class="tag">Lavasteen gietvloer in een open living</span></div>
+</section>
+
+<section class="mat-sec sec" id="materialen" aria-labelledby="t-mat">
   <div class="wrap">
-    <div class="grid">
-      <div class="pics rv">
-        <img class="p1" src="img/hero.webp" alt="Witte gietvloer in een lichte keuken met marmeren eiland" loading="lazy">
-        <img class="p2" src="img/keuken.webp" alt="Grijze gietvloer in een keuken met houten eiland" loading="lazy">
-      </div>
-      <div class="rv">
-        <span class="lbl">Over Atlastic</span>
-        <h2>Eén vloer die het hele huis samenhoudt</h2>
-        <p><strong>Een vloer zonder één voeg geeft rust.</strong> Dat zien we elke keer opnieuw, of het nu om een badkamer gaat, een living met open keuken of een groot magazijn.</p>
-        <p>Elke gietvloer wordt ter plaatse gegoten en tot in de hoeken afgewerkt. Wilt u dezelfde look op uw trap of wanden, dan trekken we die gewoon door. Tijdens de werken weet u altijd waar we staan.</p>
-        <div class="facts">
-          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12.5l5 5L20 6.5"/></svg>Kan op vloerverwarming</div>
-          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12.5l5 5L20 6.5"/></svg>Ook op trappen en wanden</div>
-        </div>
-        <div class="sign"><span class="av"><img src="img/logo.png" alt=""></span><div><b>Anass</b><small>Zaakvoerder Atlastic</small></div></div>
-      </div>
+    <div class="kop">
+      <div><span class="lbl rv">Wat we leggen</span><h2 id="t-mat" class="rv" style="--d:1">Elk materiaal zijn eigen karakter</h2></div>
+      <p class="rv" style="--d:2">Van een warme matte steenlook tot een vloer die tegen een stootje kan. We bekijken samen wat past bij uw ruimte en hoe u er leeft.</p>
+    </div>
+    <div class="mats">
+      <article class="mat rv"><img src="img/lamellen.webp" alt="Lichte gietvloer in een living met houten lamellen" loading="lazy" style="object-position:50% 70%"><span class="pil">Woning en bedrijf</span><div class="t"><h3>PU- en epoxy&shy;gietvloer</h3><p>Strak, slijtvast en zonder voegen. In elke kleur.</p></div></article>
+      <article class="mat rv" style="--d:1"><img src="img/mortex.webp" alt="Badkamermeubel en wand in microcement" loading="lazy" style="object-position:50% 30%"><span class="pil">Waterdicht</span><div class="t"><h3>Microcement en mortex</h3><p>Voor badkamerwanden, inloopdouches, spatwanden en zelfs uw aanrecht.</p></div></article>
+      <article class="mat rv" style="--d:2"><img src="img/steentapijt.webp" alt="Buitentrap afgewerkt met steentapijt" loading="lazy"><span class="pil">Binnen en buiten</span><div class="t"><h3>Steentapijt</h3><p>Een naadloze korrelvloer met stukjes steen of marmer, ook bovenop uw bestaande vloer.</p></div></article>
+      <article class="mat rv" style="--d:3"><img src="img/trap.webp" alt="Zwevende trap in betonlook boven een gietvloer" loading="lazy"><span class="pil">Eén geheel</span><div class="t"><h3>Trappen en wanden</h3><p>Dezelfde look van vloer tot trap, meteen slijtvast.</p></div></article>
+    </div>
+    <div class="extra rv">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12.5l5 5L20 6.5"/></svg>Kan op vloerverwarming</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12.5l5 5L20 6.5"/></svg>Makkelijk stofvrij te houden</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12.5l5 5L20 6.5"/></svg>Ook industriële vloeren in epoxy en PU</span>
     </div>
   </div>
 </section>
 
-<section class="aanbod sec" id="aanbod">
+<section class="proj sec" id="projecten" aria-labelledby="t-proj">
   <div class="wrap">
-    <div class="head rv">
-      <div><span class="lbl">Wat we leggen</span><h2>Elk materiaal zijn eigen karakter</h2></div>
-      <p>Van een warme matte steenlook tot een vloer die tegen een stootje kan. We bekijken samen wat past bij uw ruimte en hoe u er leeft.</p>
+    <div class="kop">
+      <div><span class="lbl rv">Projecten</span><h2 id="t-proj" class="rv" style="--d:1">Zo voelt het bij u thuis</h2></div>
+      <p class="rv" style="--d:2">Een greep uit ons werk van de laatste maanden. Van living en badkamer tot terras en trap.</p>
     </div>
-    <div class="cards">
-      <article class="card rv"><div class="ph"><img src="img/lavasteen.webp" alt="Lavasteen gietvloer in een eetkamer" loading="lazy"><span>Krasvast</span></div><div class="bd"><span class="n">01</span><h3>Lavasteen gietvloer</h3><p>Fijne lavasteenkorrels in PU. Een matte steen- of betonlook die tegen kinderen en huisdieren kan.</p></div></article>
-      <article class="card rv"><div class="ph"><img src="img/lamellen.webp" alt="Lichte gietvloer in een living met houten lamellen" loading="lazy" style="object-position:50% 70%"><span>Woning en bedrijf</span></div><div class="bd"><span class="n">02</span><h3>PU- en epoxygietvloer</h3><p>Strak, slijtvast en zonder voegen. In elke kleur, voor uw woning of uw bedrijfspand.</p></div></article>
-      <article class="card rv"><div class="ph"><img src="img/mortex.webp" alt="Badkamermeubel en wand in microcement" loading="lazy" style="object-position:50% 35%"><span>Waterdicht</span></div><div class="bd"><span class="n">03</span><h3>Microcement en mortex</h3><p>Voor badkamerwanden, inloopdouches, spatwanden en zelfs uw aanrecht. In elke kleur.</p></div></article>
-      <article class="card rv"><div class="ph"><img src="img/steentapijt.webp" alt="Buitentrap afgewerkt met steentapijt" loading="lazy"><span>Binnen en buiten</span></div><div class="bd"><span class="n">04</span><h3>Steentapijt</h3><p>Een naadloze korrelvloer met stukjes steen of marmer. Kan zelfs bovenop uw bestaande vloer.</p></div></article>
-      <article class="card rv"><div class="ph"><img src="img/trap.webp" alt="Zwevende trap in betonlook boven een gietvloer" loading="lazy"><span>Eén geheel</span></div><div class="bd"><span class="n">05</span><h3>Trappen en wanden</h3><p>Dezelfde look van vloer tot trap. Een PU-trap is meteen slijtvast en makkelijk in onderhoud.</p></div></article>
-      <article class="card cta rv">
-        <div>
-          <span class="lbl">Advies op maat</span>
-          <h3>Twijfelt u nog?</h3>
-          <p>Stuur een paar foto's van uw ruimte en de oppervlakte. Anass denkt met u mee over het juiste materiaal.</p>
-          <p class="ind">Ook voor garage, werkplaats of magazijn: industriële vloeren in epoxy en PU.</p>
-        </div>
-        <a class="btn btn-w" href="https://wa.me/32484815093">Foto's doorsturen<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
-      </article>
+    <div class="galerij">
+      <figure class="g1 rv"><img src="img/gietvloer.webp" alt="Lichte naadloze gietvloer in een living met designzetels" loading="lazy" style="object-position:50% 60%"><figcaption>Living in PU-gietvloer</figcaption></figure>
+      <figure class="rv" style="--d:1"><img src="img/badkamer.webp" alt="Badkamer met naadloze vloer en wanden" loading="lazy" style="object-position:50% 55%"><figcaption>Badkamer zonder voegen</figcaption></figure>
+      <figure class="rv" style="--d:2"><img src="img/douche.webp" alt="Inloopdouche en bad in microcement" loading="lazy" style="object-position:50% 60%"><figcaption>Douche in microcement</figcaption></figure>
+      <figure class="g4 rv" style="--d:1"><img src="img/terras.webp" alt="Overdekt terras met steentapijt" loading="lazy" style="object-position:50% 70%"><figcaption>Steentapijt op het terras</figcaption></figure>
+    </div>
+    <div class="anass rv">
+      <span class="av"><img src="img/logo-wit.png" alt=""></span>
+      <p><b>Anass, zaakvoerder</b>Een vloer zonder één voeg geeft rust. Dat zien we elke keer opnieuw, of het nu om een badkamer gaat, een living met open keuken of een groot magazijn.</p>
+      <a class="btn btn-k" href="https://wa.me/32484815093">Stuur uw foto's<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
     </div>
   </div>
 </section>
 
-<section class="proj sec" id="projecten">
+<section class="rev sec" id="reviews" aria-labelledby="t-rev">
   <div class="wrap">
-    <div class="head rv">
-      <div><span class="lbl">Projecten</span><h2>Pas opgeleverd</h2></div>
-      <p>Een greep uit ons werk van de laatste maanden. Van badkamer tot terras.</p>
-    </div>
-    <div class="bento">
-      <figure class="b1 rv"><img src="img/badkamer.webp" alt="Badkamer met naadloze vloer en wanden" loading="lazy"><figcaption>Badkamer zonder voegen</figcaption></figure>
-      <figure class="b2 rv"><img src="img/terras.webp" alt="Overdekt terras met steentapijt" loading="lazy"><figcaption>Steentapijt op het terras</figcaption></figure>
-      <figure class="b4 rv"><img src="img/douche.webp" alt="Inloopdouche en bad in microcement" loading="lazy"><figcaption>Douche in microcement</figcaption></figure>
-      <figure class="b3 rv"><img src="img/steentrap.webp" alt="Trap afgewerkt met steentapijt" loading="lazy"><figcaption>Trap in steentapijt</figcaption></figure>
-      <div class="note rv">
-        <div><h3>Uw ruimte als volgende?</h3>
-        <p>Een foto en de oppervlakte is genoeg om te starten.</p></div>
-        <ol class="steps"><li><b>1</b>Stuur foto's en de m²</li><li><b>2</b>Samen kiezen we het materiaal</li><li><b>3</b>U krijgt een prijs op maat</li></ol>
-        <a class="btn btn-k" href="#contact">Neem contact op<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="rev" id="reviews">
-  <div class="wrap">
-    <div class="box">
-      <div class="l rv">
-        <span class="lbl">Wat klanten zeggen</span>
-        <div class="big">5,0<small>op 5</small></div>
-        <div class="stars">★★★★★</div>
-        <p>17 reviews op Google, allemaal met vijf sterren. Daar zijn we best trots op!</p>
-        <div class="pills"><span>Vlotte communicatie</span><span>Eerlijk advies</span><span>Vakmanschap</span><span>Goede naservice</span></div>
-      </div>
-      <div class="quotes">
-        <div class="q rv"><div class="s">★★★★★</div><blockquote>"De communicatie verliep steeds vlot en duidelijk, en we werden actief betrokken bij elke stap van het project."</blockquote><div class="who"><i>J</i><div><b>Jochem De Doncker</b><small>Google-review</small></div></div></div>
-        <div class="q rv"><div class="s">★★★★★</div><blockquote>"Zeer tevreden! Duidelijk en eerlijk advies gekregen. Mooie vloer, makkelijk in onderhoud. En goede (na)service."</blockquote><div class="who"><i>A</i><div><b>Anouk Schroyen</b><small>Google-review</small></div></div></div>
-        <div class="q rv"><div class="s">★★★★★</div><blockquote>"Super vriendelijke zaakvoerder die passie heeft voor zijn werk. Een goede vakman en redelijk met prijzen."</blockquote><div class="who"><i>G</i><div><b>Garage Motorsport</b><small>Google-review</small></div></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="faq sec" id="faq">
-  <div class="wrap grid">
-    <div class="l rv">
-      <span class="lbl">Goed om te weten</span>
-      <h2>Vragen die we vaak krijgen</h2>
-      <p>Staat uw vraag er niet bij? Bel of stuur gerust een berichtje, Anass legt het u graag uit.</p>
-      <a class="btn btn-k" href="tel:+32484815093">Bel 0484 81 50 93<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
-    </div>
     <div class="rv">
-      <details open><summary>Kan een gietvloer op vloerverwarming?<i>+</i></summary><p>Ja. Een gietvloer en een lavasteenvloer gaan allebei prima samen met vloerverwarming. Lavasteen geleidt de warmte zelfs heel goed, waardoor uw vloer snel en gelijkmatig warm aanvoelt.</p></details>
-      <details><summary>Moet mijn oude vloer eruit?<i>+</i></summary><p>Niet altijd. Steentapijt kunnen we bovenop een bestaande vloer leggen. Zo spaart u breekwerk, tijd en geld. Ook een oude trap krijgt zo een volledig nieuwe look.</p></details>
-      <details><summary>Hoe lang duurt het?<i>+</i></summary><p>Een gietvloer ligt er meestal op een week. Hoe lang het bij u duurt, hangt af van de ruimte en het materiaal. Dat hoort u vooraf.</p></details>
-      <details><summary>Kan het ook in de badkamer?<i>+</i></summary><p>Zeker. Een gietvloer kan als badkamervloer en microcement is waterdicht. Ideaal voor wanden en een inloopdouche zonder één voeg.</p></details>
-      <details><summary>Is zo'n vloer moeilijk in onderhoud?<i>+</i></summary><p>Integendeel. Zonder naden of kieren krijgen vuil en stof weinig kans om zich op te hopen. Ook wie last heeft van allergieën, houdt zo'n vloer makkelijk stofvrij.</p></details>
+      <h2 id="t-rev" class="lbl" style="font:800 12px/1 Manrope,sans-serif;letter-spacing:.22em">Wat klanten zeggen</h2>
+      <div class="st" aria-label="5 sterren">★★★★★</div>
+      <blockquote>"Mooie vloer, makkelijk in onderhoud. En goede (na)service."</blockquote>
+      <cite><b>Anouk Schroyen</b>, op Google</cite>
+    </div>
+    <div>
+      <figure class="q rv" style="--d:1"><p>"De communicatie verliep steeds vlot en duidelijk, en we werden actief betrokken bij elke stap van het project."</p><small>Jochem De Doncker, Google</small></figure>
+      <figure class="q rv" style="--d:2"><p>"Super vriendelijke zaakvoerder die passie heeft voor zijn werk. Een goede vakman en redelijk met prijzen."</p><small>Garage Motorsport, Google</small></figure>
+      <p class="bron rv" style="--d:3">17 reviews op Google, allemaal met vijf sterren.</p>
     </div>
   </div>
 </section>
 
-<section class="contact sec" id="contact">
+<section class="contact sec" id="contact" aria-labelledby="t-contact">
   <div class="wrap">
-    <div class="box">
-      <div class="l rv">
-        <span class="lbl">Contact</span>
-        <h2>Klaar voor een vloer zonder naden?</h2>
-        <p>Stuur een paar foto's van uw ruimte en de oppervlakte. Dan laten we u zo snel mogelijk iets weten met een prijs op maat.</p>
-        <div class="rows">
-          <a class="row" href="https://wa.me/32484815093"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></span><div><small>WhatsApp</small><b>0484 81 50 93</b></div><span class="go">Stuur een bericht</span></a>
-          <a class="row" href="tel:+32484815093"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span><div><small>Bellen</small><b>0484 81 50 93</b></div><span class="go">Bel nu</span></a>
-          <a class="row" href="mailto:atlastic@outlook.be"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div><small>Mail</small><b>atlastic@outlook.be</b></div></a>
-          <a class="row" href="https://www.google.com/maps/dir/?api=1&destination=Lochtstraat+22a,+3740+Bilzen-Hoeselt" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg></span><div><small>Adres</small><b>Lochtstraat 22a, 3740 Bilzen-Hoeselt</b></div><span class="go">Route</span></a>
-        </div>
+    <div class="cbox rv">
+      <div class="c-beeld">
+        <img src="img/keuken.webp" alt="Grijze gietvloer in een keuken met houten eiland" loading="lazy">
+        <div class="zin"><h2 id="t-contact">Klaar voor een vloer zonder naden?</h2><p>Stuur een paar foto's van uw ruimte en de oppervlakte. Dan krijgt u zo snel mogelijk een prijs op maat.</p></div>
       </div>
-      <form class="rv" action="mailto:atlastic@outlook.be" method="post" enctype="text/plain" id="f">
-        <h3>Vraag uw prijs</h3>
-        <div class="two">
-          <label>Naam<input name="naam" required autocomplete="name"></label>
-          <label>Gsm<input name="gsm" type="tel" autocomplete="tel"></label>
+      <div class="c-r">
+        <div class="rows">
+          <a class="row" href="https://wa.me/32484815093"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></span><div><small>WhatsApp of bellen</small><b>0484 81 50 93</b></div></a>
+          <a class="row" href="mailto:atlastic@outlook.be"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div><small>Mail</small><b>atlastic@outlook.be</b></div></a>
+          <a class="row" href="https://www.google.com/maps/dir/?api=1&destination=Lochtstraat+22a,+3740+Bilzen-Hoeselt" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg></span><div><small>Adres</small><b>Lochtstraat 22a, 3740 Bilzen-Hoeselt</b></div></a>
         </div>
-        <div class="two">
-          <label>Wat zoekt u?<select name="soort"><option>Gietvloer</option><option>Lavasteen gietvloer</option><option>Microcement of mortex</option><option>Steentapijt</option><option>Trap of wand</option><option>Industriële vloer</option><option>Weet ik nog niet</option></select></label>
-          <label>Oppervlakte (m²)<input name="oppervlakte" inputmode="numeric"></label>
-        </div>
-        <label>Uw bericht<textarea name="bericht" placeholder="Over welke ruimte gaat het?"></textarea></label>
-        <button class="btn btn-k" type="submit">Verstuur<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></button>
-        <small>Uw bericht opent in uw mailprogramma. Foto's kan u daar meteen bijvoegen.</small>
-      </form>
+        <form action="mailto:atlastic@outlook.be" method="post" enctype="text/plain" id="f">
+          <h3>Vraag uw prijs</h3>
+          <div class="two">
+            <label>Naam<input name="naam" required autocomplete="name"></label>
+            <label>Gsm<input name="gsm" type="tel" autocomplete="tel"></label>
+          </div>
+          <div class="two">
+            <label>Wat zoekt u?<select name="soort"><option>Gietvloer</option><option>Lavasteen gietvloer</option><option>Microcement of mortex</option><option>Steentapijt</option><option>Trap of wand</option><option>Industriële vloer</option><option>Weet ik nog niet</option></select></label>
+            <label>Oppervlakte (m²)<input name="oppervlakte" inputmode="numeric"></label>
+          </div>
+          <label>Uw bericht<textarea name="bericht" placeholder="Over welke ruimte gaat het?"></textarea></label>
+          <button class="btn btn-w" type="submit">Verstuur<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></button>
+          <small>Uw bericht opent in uw mailprogramma. Foto's kan u daar meteen bijvoegen.</small>
+        </form>
+      </div>
     </div>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="wrap">
     <a href="#top" class="logo" aria-label="Atlastic"><img src="img/logo.png" alt="Atlastic logo"></a>
-    <nav><a href="#aanbod">Vloeren</a><a href="#projecten">Projecten</a><a href="#faq">Vragen</a><a href="#contact">Contact</a></nav>
+    <nav><a href="#materialen">Vloeren</a><a href="#projecten">Projecten</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></nav>
     <p>Lochtstraat 22a, 3740 Bilzen-Hoeselt · Voorbeeldsite door Digital Impression</p>
   </div>
 </footer>
 
 <script>
 (function(){
-  var els=document.querySelectorAll('.rv');
-  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
-  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
-  els.forEach(function(e){io.observe(e)});
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  function kijk(){var H=innerHeight;els=els.filter(function(e){var r=e.getBoundingClientRect();if(r.top<H*.94&&r.bottom>0){e.classList.add('in');return false}return true})}
+  var band=document.querySelector('.band img'),stil=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function par(){if(!band||stil)return;var r=band.parentNode.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;var p=(r.top+r.height/2-innerHeight/2)/innerHeight;band.style.transform='translateY('+(p*-6)+'%)'}
+  var t=0;function plan(){if(!t){t=requestAnimationFrame(function(){t=0;kijk();par()})}}
+  addEventListener('scroll',plan,{passive:true});addEventListener('resize',plan);kijk();par();setTimeout(kijk,300);
   var f=document.getElementById('f');
   f.addEventListener('submit',function(ev){ev.preventDefault();var d=new FormData(f);
     var b='Naam: '+d.get('naam')+'\nGsm: '+d.get('gsm')+'\nSoort: '+d.get('soort')+'\nOppervlakte: '+d.get('oppervlakte')+' m²\n\n'+d.get('bericht');
