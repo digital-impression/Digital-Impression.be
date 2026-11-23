@@ -19,6 +19,7 @@ a{color:inherit}
 h1,h2,h3{font-family:'Bricolage Grotesque';font-weight:800;line-height:.98;letter-spacing:-.025em}
 .blok{font-family:'Titan One',sans-serif;font-weight:400;letter-spacing:.01em;line-height:.9;text-transform:uppercase}
 .sc{font-family:'Pacifico',cursive;font-weight:400;letter-spacing:0;text-transform:none}
+h1 .sc,h2 .sc,h3 .sc,h4 .sc{font-family:inherit;font-weight:inherit;letter-spacing:inherit;font-style:normal}
 .wrap{width:min(1220px,100% - 48px);margin:0 auto}
 .demo{position:relative;z-index:60;background:var(--blauw);color:var(--ink);font-size:13px;text-align:center;padding:8px 14px;line-height:1.4}
 .demo a{color:var(--roze-d);font-weight:700}
@@ -42,22 +43,30 @@ h1,h2,h3{font-family:'Bricolage Grotesque';font-weight:800;line-height:.98;lette
 .nav ul a:hover{background:var(--zacht)}
 .nav .knop{padding:12px 20px}
 
-/* hero */
-.hero{position:relative;min-height:max(680px,calc(100vh - 36px));display:flex;align-items:flex-end;overflow:hidden;isolation:isolate;color:#fff}
-.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;z-index:-2;animation:zoom 10s var(--ease) forwards;transform:scale(1.06)}
+/* hero: stockfoto, roze studio, één geheel met de typografie */
+.hero{--hbg:#EEAFAD;position:relative;min-height:max(700px,calc(100vh - 36px));display:flex;align-items:center;overflow:hidden;isolation:isolate;background:var(--hbg);color:var(--ink)}
+.h-foto{position:absolute;inset:0;z-index:-2;margin:0}
+.h-foto img{width:100%;height:100%;object-fit:cover;object-position:68% 30%;transform:scale(1.05);animation:zoom 9s var(--ease) forwards}
 @keyframes zoom{to{transform:scale(1)}}
-.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(58,14,46,.9) 0%,rgba(58,14,46,.55) 34%,rgba(58,14,46,0) 62%),linear-gradient(180deg,rgba(58,14,46,.45),transparent 22%)}
-.h-in{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:40px;align-items:end;padding-bottom:64px}
-.h-merk{position:relative}
-.h-merk h1{font-family:'Titan One';font-weight:400;font-size:clamp(100px,15.5vw,236px);line-height:.8;color:var(--roze);letter-spacing:0;text-shadow:6px 6px 0 #fff;margin-bottom:6px}
-.h-merk .sc{display:block;font-size:clamp(34px,4.4vw,62px);color:#fff;transform:rotate(-5deg);margin:-.1em 0 0 .6em;text-shadow:0 4px 20px rgba(0,0,0,.35)}
-.h-r{background:rgba(58,14,46,.5);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.22);border-radius:24px;padding:26px}
-.h-r p{font-size:18px;line-height:1.5;margin-bottom:22px;color:#FFEAF4}
-.h-r p b{color:#fff}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(238,175,173,.55) 0%,rgba(238,175,173,0) 46%),linear-gradient(180deg,rgba(238,175,173,.5),transparent 20%)}
+.h-in{width:min(1360px,100% - 48px);margin:0 auto;padding:150px 0 90px}
+.h-merk{max-width:640px}
+.h-merk .tag{margin-bottom:26px}
+.h-merk h1{font-family:'Titan One';font-weight:400;font-size:clamp(104px,12.6vw,206px);line-height:.8;letter-spacing:.005em;color:#fff;text-shadow:7px 7px 0 var(--roze);-webkit-text-stroke:3px var(--ink);paint-order:stroke fill}
+.h-glam{display:inline-flex;align-items:center;gap:12px;margin:22px 0 0 clamp(12px,2vw,34px);background:var(--blauw);border:2px solid var(--ink);border-radius:16px;padding:10px 20px 12px;box-shadow:5px 5px 0 var(--ink);transform:rotate(-3deg);font-weight:800;font-size:clamp(26px,2.6vw,38px);line-height:1;letter-spacing:-.02em}
+.h-glam svg{width:.8em;height:.8em;color:var(--roze-d)}
+.h-tekst{max-width:470px;margin-top:34px}
+.h-tekst p{font-size:19px;line-height:1.55;margin-bottom:26px}
+.h-tekst p b{font-weight:800}
 .acts{display:flex;gap:14px;flex-wrap:wrap}
-.h-score{position:absolute;right:max(24px,calc((100vw - 1360px)/2 + 24px));top:118px;background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:22px;padding:14px 20px;box-shadow:5px 5px 0 var(--ink);display:flex;align-items:center;gap:12px;transform:rotate(3deg)}
+.h-score{position:absolute;z-index:3;right:max(24px,calc((100vw - 1360px)/2 + 24px));bottom:64px;background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:22px;padding:14px 20px;box-shadow:5px 5px 0 var(--ink);display:flex;align-items:center;gap:12px;transform:rotate(3deg)}
 .h-score b{font-family:'Titan One';font-weight:400;font-size:38px;color:var(--roze);line-height:1}
 .h-score span{font-size:13px;line-height:1.3;font-weight:600}
+.h-kleur{position:absolute;right:max(24px,calc((100vw - 1360px)/2 + 24px));top:136px;display:flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--ink);border-radius:999px;padding:8px 16px 8px 8px;box-shadow:4px 4px 0 var(--ink);font-weight:700;font-size:14px;transform:rotate(-2deg)}
+.h-kleur i{display:flex}
+.h-kleur i span{width:22px;height:22px;border-radius:50%;border:2px solid var(--ink);margin-right:-7px}
+.h-kleur i span:last-child{margin-right:0}
+
 .st{color:var(--oranje);letter-spacing:2px}
 
 /* band */
@@ -71,7 +80,7 @@ h1,h2,h3{font-family:'Bricolage Grotesque';font-weight:800;line-height:.98;lette
 .vn{padding:120px 0;background:var(--blauw)}
 .vn-g{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .vn h2{font-size:clamp(52px,5.8vw,88px);margin:22px 0 22px}
-.vn h2 .sc{color:var(--roze-d);font-size:.8em}
+.vn h2 .sc{color:var(--roze-d)}
 .vn p{font-size:19px;max-width:470px;margin-bottom:18px}
 .vn .hint{display:inline-flex;align-items:center;gap:10px;font-weight:700;margin-top:10px}
 .vn .hint svg{width:22px;height:22px}
@@ -95,7 +104,7 @@ h1,h2,h3{font-family:'Bricolage Grotesque';font-weight:800;line-height:.98;lette
 .c3{right:24px;bottom:0;width:42%;height:310px;transform:rotate(-2deg);z-index:3}
 .c1 figcaption{position:absolute;left:14px;bottom:14px;background:#fff;border:2px solid var(--ink);border-radius:999px;padding:6px 14px;font-weight:700;font-size:14px}
 .salon h2{font-size:clamp(52px,5.8vw,88px);margin:22px 0 24px}
-.salon h2 .sc{color:var(--roze);font-size:.78em}
+.salon h2 .sc{color:var(--roze)}
 .salon p{font-size:19px;margin-bottom:16px;max-width:500px}
 .kleurtjes{display:flex;gap:10px;margin:30px 0 0;flex-wrap:wrap}
 .kleurtjes span{display:flex;align-items:center;gap:8px;padding:8px 14px 8px 8px;border-radius:999px;background:#fff;border:2px solid var(--line);font-size:14px;font-weight:600}
@@ -121,7 +130,7 @@ h1,h2,h3{font-family:'Bricolage Grotesque';font-weight:800;line-height:.98;lette
 .bruid .tag{background:var(--roze);color:#fff;border-color:#fff;box-shadow:3px 3px 0 #fff}
 .bruid .tag i{background:#fff}
 .bruid h2{font-size:clamp(52px,5.8vw,88px);margin-top:22px}
-.bruid h2 .sc{color:var(--roze);font-size:.8em}
+.bruid h2 .sc{color:var(--roze)}
 .b-top p{font-size:18px;color:#EBD9EE}
 .b-g{display:grid;grid-template-columns:1.15fr .85fr .85fr;grid-auto-rows:540px;gap:22px}
 .b-k{border-radius:24px;overflow:hidden;position:relative}
@@ -139,7 +148,7 @@ h1,h2,h3{font-family:'Bricolage Grotesque';font-weight:800;line-height:.98;lette
 .rev{padding:120px 0;background:var(--papier)}
 .r-top{text-align:center;max-width:760px;margin:0 auto 56px}
 .rev h2{font-size:clamp(52px,5.8vw,88px);margin-top:22px}
-.rev h2 .sc{color:var(--roze);font-size:.8em}
+.rev h2 .sc{color:var(--roze)}
 .r-g{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .rk{background:#fff;border:3px solid var(--ink);border-radius:26px;padding:32px;box-shadow:7px 7px 0 var(--ink);display:flex;flex-direction:column;transition:transform .3s var(--ease)}
 .rk:nth-child(2){background:var(--zacht);transform:rotate(-1.5deg)}
@@ -155,7 +164,7 @@ h1,h2,h3{font-family:'Bricolage Grotesque';font-weight:800;line-height:.98;lette
 .contact{padding:0 0 120px;background:var(--papier)}
 .c-kaart{position:relative;background:var(--roze);color:#fff;border:3px solid var(--ink);border-radius:36px;box-shadow:10px 10px 0 var(--ink);padding:70px 64px;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;overflow:hidden}
 .c-kaart h2{font-family:'Titan One';font-weight:400;font-size:clamp(60px,7vw,104px);line-height:.88;text-transform:uppercase;letter-spacing:0;text-shadow:5px 5px 0 var(--ink)}
-.c-kaart h2 .sc{display:block;text-transform:none;font-size:.5em;color:var(--blauw);text-shadow:none;margin:6px 0 0 .4em;transform:rotate(-4deg)}
+.c-kaart h2 .sc{display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.02em;line-height:1;text-transform:none;font-size:.42em;color:var(--blauw);text-shadow:none;margin:12px 0 0}
 .c-kaart p{font-size:19px;color:#FFE6F2;margin:40px 0 30px;max-width:460px}
 .c-info{background:#fff;color:var(--ink);border:3px solid var(--ink);border-radius:26px;padding:30px}
 .c-info div{padding:14px 0;border-bottom:2px dashed var(--line)}
@@ -174,15 +183,24 @@ footer{background:var(--ink);color:#d9c9dd;padding:70px 0 30px;overflow:hidden}
 .js .rv{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
 .js .rk.rv.in:nth-child(2){transform:rotate(-1.5deg)}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.band .loop,.hero>img{animation:none}}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.band .loop,.h-foto img{animation:none}}
 
+@media (max-width:860px){
+ .hero{display:flex;flex-direction:column;align-items:stretch;min-height:0}
+ .hero::before{display:none}
+ .h-in{width:calc(100% - 48px);margin:0 auto;padding:128px 0 0}
+ .h-foto{position:relative;inset:auto;z-index:0;height:min(96vw,620px);margin-top:-30px}
+ .h-foto img{object-position:80% 25%;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 24%);mask-image:linear-gradient(180deg,transparent 0,#000 24%)}
+ .h-kleur{display:none}
+ .h-in{order:1}.h-foto{order:2}
+ .h-score{bottom:28px}
+}
 @media (max-width:1080px){
  .nav ul{display:none}.nav .knop{margin-left:auto}
  .vn-g,.s-g,.b-top,.c-kaart{grid-template-columns:1fr;gap:50px}
  .w-g{grid-template-columns:repeat(2,1fr)}
  .b-g{grid-template-columns:1fr 1fr;grid-auto-rows:auto}.b-k{aspect-ratio:3/4}.b-k.info{grid-column:span 2;aspect-ratio:auto}
  .r-g{grid-template-columns:1fr}
- .h-in{grid-template-columns:minmax(0,1fr);gap:20px}
 }
 @media (max-width:700px){
  .w-top{flex-direction:column;align-items:flex-start;gap:18px}
@@ -194,13 +212,10 @@ footer{background:var(--ink);color:#d9c9dd;padding:70px 0 30px;overflow:hidden}
  .wrap{width:calc(100% - 40px)}
  .nav .knop{display:none}
  .logo b{font-size:32px}
- .hero{min-height:calc(100svh - 52px)}
- .hero>img{object-position:40% 40%}
- .hero::before{background:linear-gradient(0deg,rgba(58,14,46,.94) 0%,rgba(58,14,46,.7) 45%,rgba(58,14,46,0) 75%),linear-gradient(180deg,rgba(58,14,46,.45),transparent 22%)}
- .h-merk h1{font-size:94px;text-shadow:4px 4px 0 #fff}
- .h-score{top:96px;right:16px;padding:10px 14px}.h-score b{font-size:28px}
- .h-in{padding-bottom:40px}
- .h-r p{font-size:17px}
+ .h-merk h1{font-size:clamp(84px,26vw,112px);text-shadow:5px 5px 0 var(--roze);-webkit-text-stroke:2.5px var(--ink)}
+ .h-glam{font-size:25px;margin-top:18px}
+ .h-tekst p{font-size:17px}
+ .h-score{right:16px;padding:10px 14px}.h-score b{font-size:28px}
  .band span{font-size:22px}
  .vn,.salon,.werk,.bruid,.rev{padding:84px 0}
  .contact{padding-bottom:84px}
@@ -226,11 +241,16 @@ footer{background:var(--ink);color:#d9c9dd;padding:70px 0 30px;overflow:hidden}
 </div></nav>
 
 <header class="hero">
-  <img src="img/hero.webp" alt="Lang koperkleurig haar met grote golven in het lila salon van BLUSH" width="1600" height="1111">
+  <figure class="h-foto"><img src="img/hero-stock.webp" alt="Glanzend fuchsiaroze bobkapsel met zachte golf, van achteren gezien tegen een roze achtergrond" width="2000" height="1333" fetchpriority="high"></figure>
+  <div class="h-kleur rv" style="--d:3" aria-hidden="true"><i><span style="background:var(--roze)"></span><span style="background:var(--blauw)"></span><span style="background:var(--lila)"></span><span style="background:var(--oranje)"></span></i>Kleur, extensions &amp; bruid</div>
   <div class="h-score rv" style="--d:4"><b>5,0</b><span><span class="st">★★★★★</span><br>op Google</span></div>
-  <div class="wrap h-in">
-    <div class="h-merk rv"><h1>BLUSH</h1><span class="sc">let's get glam!</span></div>
-    <div class="h-r rv" style="--d:2">
+  <div class="h-in">
+    <div class="h-merk">
+      <span class="tag rv"><i></i>Kapsalon · Brugge</span>
+      <h1 class="rv" style="--d:1">BLUSH</h1>
+      <span class="h-glam rv" style="--d:2">Let's get glam!<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></span>
+    </div>
+    <div class="h-tekst rv" style="--d:3">
       <p>Kapsalon aan de Koningin Elisabethlaan in Brugge. Kleur, extensions, bruidskapsels en make-up, in een salon vol kleur. <b>Bij Blush ga je glam naar buiten.</b></p>
       <div class="acts">
         <a class="knop k-roze" href="https://ig.me/m/blush_brugge" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>Stuur een DM</a>
