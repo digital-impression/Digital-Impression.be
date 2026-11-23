@@ -10,202 +10,213 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--groen:#1E3A2C;--groen2:#142A1F;--mos:#2F5240;--roze:#D9467E;--roze2:#B8336A;--koraal:#F08A6B;--creme:#FBF6EE;--zand:#F2E8DA;--ink:#1B231E;--grijs:#5F6B63;--lijn:rgba(30,58,44,.14);--ease:cubic-bezier(.2,.7,.2,1)}
+:root{--groen:#1E3A2C;--groen2:#142A1F;--mos:#2F5240;--roze:#D9467E;--roze2:#B8336A;--blos:#F9DDE7;--koraal:#F08A6B;--zon:#F5C342;--creme:#FBF6EE;--zand:#F2E8DA;--ink:#1B231E;--grijs:#5F6B63;--lijn:rgba(30,58,44,.14);--ease:cubic-bezier(.2,.7,.2,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:'Outfit',system-ui,sans-serif;color:var(--ink);background:var(--creme);font-size:17px;line-height:1.62;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-h1,h2,h3,.ys{font-family:'Young Serif',Georgia,serif;font-weight:400;line-height:1.05;letter-spacing:-.01em}
+h1,h2,h3,.ys{font-family:'Young Serif',Georgia,serif;font-weight:400;font-style:normal;line-height:1.04;letter-spacing:-.015em}
 .wrap{width:min(1240px,100% - 48px);margin:0 auto}
+.breed{width:min(1420px,100% - 28px);margin:0 auto}
 .demo{position:relative;z-index:60;background:var(--roze);color:#fff;font-size:13px;text-align:center;padding:8px 14px;line-height:1.4}
 .demo a{font-weight:600;text-decoration:underline;text-underline-offset:2px}
-.lbl{display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--roze2)}
+.lbl{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--roze2)}
+.lbl::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
 .knop{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font-weight:600;font-size:15.5px;transition:transform .3s var(--ease),background .3s,color .3s;white-space:nowrap;border:1.5px solid transparent}
 .knop:hover{transform:translateY(-2px)}
 .knop svg{width:18px;height:18px;flex:none}
 .k-roze{background:var(--roze);color:#fff;box-shadow:0 16px 30px -18px rgba(217,70,126,.9)}.k-roze:hover{background:var(--roze2)}
-.k-wit{border-color:rgba(255,255,255,.45);color:#fff}.k-wit:hover{background:rgba(255,255,255,.12)}
-.k-groen{background:var(--groen);color:#fff}.k-groen:hover{background:var(--groen2)}
+.k-lijn{border-color:rgba(30,58,44,.3);color:var(--groen)}.k-lijn:hover{background:var(--groen);color:#fff}
+.k-wit{background:#fff;color:var(--groen)}.k-wit:hover{background:var(--blos)}
 .js .rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .js .rv.in{opacity:1;transform:none}
-.js .rv.d1{transition-delay:.1s}.js .rv.d2{transition-delay:.2s}.js .rv.d3{transition-delay:.3s}
+.js .rv.d1{transition-delay:.1s}.js .rv.d2{transition-delay:.2s}.js .rv.d3{transition-delay:.3s}.js .rv.d4{transition-delay:.4s}
+figure{position:relative;overflow:hidden}
+figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+figure:hover img{transform:scale(1.04)}
+.cap{position:absolute;left:14px;bottom:14px;background:rgba(251,246,238,.95);color:var(--groen);font-size:13.5px;font-weight:600;padding:8px 14px;border-radius:999px;line-height:1.2;max-width:calc(100% - 28px)}
 
-/* logo */
-.logo{display:flex;align-items:center;gap:12px;color:#fff}
+/* logo + nav */
+.logo{display:flex;align-items:center;gap:12px;color:var(--groen)}
 .logo svg{width:38px;height:38px;flex:none}
 .logo b{font-family:'Outfit',sans-serif;font-weight:500;font-size:26px;letter-spacing:.01em;line-height:1}
-
-/* nav */
-.nav{position:absolute;left:0;right:0;top:35px;z-index:40;color:#fff}
+.nav{position:absolute;left:0;right:0;top:35px;z-index:40;color:var(--groen)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 0}
-.nav ul{display:flex;gap:30px;list-style:none;font-size:15px;font-weight:500}
-.nav ul a{opacity:.85}.nav ul a:hover{opacity:1}
-.nav .knop{padding:11px 20px;font-size:14px}
+.nav ul{display:flex;gap:6px;list-style:none;font-size:15px;font-weight:500;background:rgba(255,255,255,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:6px;border-radius:999px;border:1px solid rgba(30,58,44,.08)}
+.nav ul a{display:block;padding:8px 16px;border-radius:999px;transition:background .25s}
+.nav ul a:hover{background:var(--blos)}
+.nav .knop{padding:12px 22px;font-size:14.5px}
 
 /* hero */
-.hero{position:relative;min-height:max(680px,100svh);background:var(--groen2);color:#fff;overflow:hidden}
-.hero picture,.hero picture img{position:absolute;inset:0;width:100%;height:100%}
-.hero picture img{object-fit:cover;object-position:50% 70%;animation:z 14s var(--ease) both}
-@keyframes z{from{transform:scale(1.06)}to{transform:scale(1)}}
-.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,42,31,.86) 0%,rgba(20,42,31,.62) 42%,rgba(20,42,31,0) 70%),linear-gradient(90deg,rgba(20,42,31,.6),rgba(20,42,31,0) 58%)}
-.hero .wrap{position:relative;z-index:2;padding-top:clamp(150px,20vh,200px)}
-.hero .lbl{color:#FFC2D6}
-.hero h1{font-size:clamp(52px,7vw,108px);margin:18px 0 22px;max-width:9em}
-.hero p{max-width:30em;font-size:18.5px;color:rgba(255,255,255,.86)}
-.hero .knoppen{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-.hero .adres{position:absolute;z-index:2;left:0;right:0;bottom:28px}
-.hero .adres .wrap{padding:0;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-.hero .adres span{font-size:14px;color:#fff;background:rgba(20,42,31,.55);backdrop-filter:blur(8px);padding:10px 16px;border-radius:999px}
-.hero .adres b{font-weight:600}
+.hero{position:relative;background:var(--creme);overflow:hidden;padding-bottom:14px}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(520px 380px at 88% 18%,rgba(249,221,231,.95),transparent 70%),radial-gradient(420px 300px at 6% 8%,rgba(245,195,66,.22),transparent 70%)}
+.h-top{position:relative;display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(30px,5vw,70px);align-items:end;padding-top:clamp(128px,15vh,150px);padding-bottom:clamp(26px,3.4vh,40px)}
+.hero h1{font-size:clamp(54px,6vw,92px);color:var(--groen);margin-top:16px}
+.hero h1 span{color:var(--roze)}
+.h-side p{font-size:18px;color:var(--grijs);max-width:27em}
+.h-side .knoppen{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.h-side .knop{padding:14px 20px;font-size:15px}
+.h-wall{position:relative;display:grid;grid-template-columns:1fr 1.1fr 1.45fr 1.1fr 1fr;gap:14px;align-items:end;height:clamp(380px,min(42vw,calc(100svh - 425px)),600px)}
+.h-wall figure,.h-wall .f3{height:100%}
+.h-wall figure{border-radius:28px}
+.h-wall .f1{height:70%;border-radius:999px 999px 28px 28px}
+.h-wall .f2{height:86%}
+.h-wall .f3{position:relative}
+.h-wall .f3 figure{border-radius:999px 999px 28px 28px}
+.h-wall .f4{height:80%}
+.h-wall .f5{height:64%;border-radius:999px 999px 28px 28px}
+.h-wall img{animation:z 12s var(--ease) both}
+@keyframes z{from{transform:scale(1.08)}to{transform:scale(1)}}
+.stempel{position:absolute;z-index:3;left:-58px;top:16%;width:132px;height:132px;border-radius:50%;background:var(--zon);color:var(--groen);display:grid;place-items:center;box-shadow:0 20px 40px -20px rgba(20,42,31,.6)}
+.stempel svg.ring{position:absolute;inset:0;width:100%;height:100%;animation:draai 22s linear infinite}
+.stempel text{font:600 11.5px 'Outfit',sans-serif;letter-spacing:.2em;text-transform:uppercase;fill:var(--groen)}
+.stempel b{font-family:'Young Serif',serif;font-weight:400;font-size:30px;line-height:1}
+@keyframes draai{to{transform:rotate(360deg)}}
+.score{position:absolute;z-index:2;left:14px;right:14px;bottom:14px;background:rgba(255,255,255,.96);border-radius:20px;padding:12px 14px;display:flex;align-items:center;gap:12px;box-shadow:0 18px 30px -20px rgba(0,0,0,.5)}
+.score b{font-family:'Young Serif',serif;font-weight:400;font-size:30px;line-height:1;color:var(--groen)}
+.score span{font-size:13px;line-height:1.3;color:var(--grijs)}
+.score i{display:block;font-style:normal;color:var(--roze);letter-spacing:2px;font-size:13px}
 
 /* winkel */
-.winkel{padding:clamp(90px,11vw,150px) 0;background:var(--creme)}
-.wgrid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(36px,5vw,80px);align-items:start}
-.wt{position:sticky;top:40px}
-.wt h2{font-size:clamp(40px,4.6vw,68px);margin:14px 0 20px}
-.wt>p{color:var(--grijs);max-width:31em}
-.wt>p+p{margin-top:12px}
-.aanbod{list-style:none;margin-top:30px;border-top:1px solid var(--lijn)}
-.aanbod li{display:flex;justify-content:space-between;gap:16px;padding:15px 0;border-bottom:1px solid var(--lijn);font-size:16.5px}
-.aanbod li span{color:var(--grijs);font-size:14.5px;text-align:right}
-.mozaiek{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.mozaiek figure{position:relative;border-radius:26px;overflow:hidden}
-.mozaiek img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-.mozaiek figure:hover img{transform:scale(1.04)}
-.mozaiek .a{grid-row:span 2;aspect-ratio:3/4.6}
-.mozaiek .b,.mozaiek .c{aspect-ratio:1}
-.mozaiek figcaption{position:absolute;left:14px;bottom:14px;background:rgba(251,246,238,.94);color:var(--groen);font-size:13px;font-weight:600;padding:7px 13px;border-radius:999px}
-.loading{margin-top:16px;background:var(--groen);color:#fff;border-radius:26px;padding:26px 28px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}
-.loading b{font-family:'Young Serif',serif;font-weight:400;font-size:30px;line-height:1;color:#FFC2D6;white-space:nowrap}
-.loading p{font-size:15.5px;color:rgba(255,255,255,.82)}
+.winkel{padding:clamp(90px,10vw,140px) 0}
+.kop{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,5vw,80px);align-items:end;margin-bottom:clamp(34px,4vw,54px)}
+.kop h2{font-size:clamp(40px,4.6vw,68px);margin-top:14px;color:var(--groen)}
+.kop p{color:var(--grijs);font-size:17.5px}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(200px,19vw,270px);gap:14px}
+.bento figure{border-radius:26px}
+.b-hand{grid-row:span 2}
+.b-kleur{grid-column:span 2}
+.b-pot{grid-row:span 2}
+.b-lamp{grid-column:span 2}
+.b20{background:var(--roze);color:#fff;border-radius:26px;padding:26px;display:flex;flex-direction:column;justify-content:space-between}
+.b20 b{font-family:'Young Serif',serif;font-weight:400;font-size:clamp(30px,2.6vw,40px);line-height:1}
+.b20 p{font-size:15px;color:rgba(255,255,255,.9);line-height:1.5}
+.aanbod{grid-column:span 2;background:var(--groen);color:#fff;border-radius:26px;padding:clamp(24px,2.6vw,34px);display:flex;flex-direction:column;justify-content:center}
+.aanbod h3{font-size:28px;margin-bottom:14px}
+.aanbod ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.aanbod li{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:8px 15px;font-size:15px}
 
-/* thuis */
-.thuis{padding:clamp(90px,11vw,150px) 0;background:var(--groen);color:#fff;overflow:hidden}
-.thuis .lbl{color:#FFC2D6}
-.tkop{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:44px}
-.tkop h2{font-size:clamp(40px,4.6vw,68px);margin-top:14px;max-width:10em}
-.tkop p{max-width:28em;color:rgba(255,255,255,.75)}
-.tgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:18px}
-.tk{display:flex;flex-direction:column;gap:16px}
-.tk .f{border-radius:24px;overflow:hidden;aspect-ratio:4/5}
-.tk:first-child .f{aspect-ratio:5.2/5}
-.tk .f img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-.tk:hover .f img{transform:scale(1.04)}
-.tk h3{font-size:24px}
-.tk p{font-size:15.5px;color:rgba(255,255,255,.72);margin-top:4px}
-.tk small{display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--koraal);font-weight:600}
+/* band */
+.band{position:relative;min-height:min(88vh,800px);display:grid;place-items:center;color:#fff;text-align:center;overflow:hidden;background:var(--groen2)}
+.band>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.band::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at center,rgba(20,42,31,.62),rgba(20,42,31,.38) 60%,rgba(20,42,31,.2))}
+.band .wrap{position:relative;z-index:2;padding:110px 0}
+.band .lbl{color:#FFD0DF}
+.band blockquote{font-family:'Young Serif',serif;font-size:clamp(36px,4.8vw,72px);line-height:1.08;max-width:15em;margin:22px auto 18px;text-shadow:0 2px 30px rgba(0,0,0,.25)}
+.band cite{font-style:normal;font-size:15px;color:rgba(255,255,255,.85)}
+.mini{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:40px}
+.mini p{background:rgba(251,246,238,.95);color:var(--ink);border-radius:20px;padding:14px 18px;font-size:15px;max-width:340px;text-align:left;line-height:1.45}
+.mini p b{display:block;font-size:13px;color:var(--grijs);font-weight:600;margin-top:6px}
+.mini .sc{background:var(--zon);display:flex;align-items:center;gap:12px}
+.mini .sc strong{font-family:'Young Serif',serif;font-weight:400;font-size:38px;line-height:1;color:var(--groen)}
 
 /* feesten */
-.feest{padding:clamp(90px,11vw,150px) 0;background:var(--zand)}
-.fkop{text-align:center;max-width:820px;margin:0 auto 50px}
-.fkop h2{font-size:clamp(40px,4.8vw,72px);margin:14px 0 18px}
-.fkop p{color:var(--grijs);font-size:18px}
-.fgrid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:clamp(150px,15vw,210px);gap:16px}
-.fgrid figure{position:relative;border-radius:24px;overflow:hidden}
-.fgrid img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-.fgrid figure:hover img{transform:scale(1.04)}
-.fgrid figcaption{position:absolute;left:14px;bottom:14px;right:14px;color:#fff;font-size:14px;font-weight:500;text-shadow:0 1px 14px rgba(0,0,0,.5)}
-.f1{grid-column:1/6;grid-row:span 3}
-.f2{grid-column:6/10;grid-row:span 2}
-.f3{grid-column:10/13;grid-row:span 2}
-.f4{grid-column:6/9;grid-row:span 2}
-.f5{grid-column:9/13;grid-row:span 2}
-.f6{grid-column:1/6;grid-row:span 1}
-.fnoot{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:34px}
+.feest{background:var(--groen);color:#fff;padding:clamp(90px,10vw,140px) 0 clamp(70px,8vw,110px)}
+.feest .lbl{color:#FFC2D6}
+.feest .kop h2{color:#fff}
+.feest .kop p{color:rgba(255,255,255,.78)}
+.feest .kop .knop{margin-top:22px}
+.fbreed{border-radius:30px;aspect-ratio:21/8.5}
+.fbreed img{object-position:50% 62%}
+.frij{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:14px}
+.frij figure{border-radius:26px;aspect-ratio:3/4}
+.fcap{position:absolute;left:0;right:0;bottom:0;padding:40px 16px 14px;color:#fff;font-size:14.5px;font-weight:500;background:linear-gradient(0deg,rgba(20,42,31,.75),transparent)}
+.fbreed .fcap{padding:80px 24px 20px;font-size:16px}
 
 /* tuin */
-.tuin{padding:clamp(90px,11vw,150px) 0;background:var(--creme)}
-.tugrid{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(30px,5vw,70px);align-items:center}
-.tubeeld{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.tubeeld figure{border-radius:24px;overflow:hidden;aspect-ratio:1}
-.tubeeld figure:first-child{grid-column:span 2;aspect-ratio:16/9}
-.tubeeld img{width:100%;height:100%;object-fit:cover}
-.tut h2{font-size:clamp(38px,4.2vw,62px);margin:14px 0 18px}
-.tut p{color:var(--grijs)}
-.tut ul{list-style:none;margin-top:24px;display:grid;gap:10px}
-.tut li{display:flex;gap:12px;align-items:flex-start;font-size:16px}
-.tut li svg{width:20px;height:20px;flex:none;color:var(--roze);margin-top:3px}
-
-/* reviews */
-.reviews{padding:0 0 clamp(90px,11vw,150px);background:var(--creme)}
-.rbox{background:#fff;border-radius:32px;padding:clamp(30px,4vw,56px);display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,4vw,60px);align-items:center;border:1px solid var(--lijn)}
-.rbox .score b{font-family:'Young Serif',serif;font-weight:400;font-size:clamp(70px,8vw,110px);line-height:.9;color:var(--groen)}
-.rbox .score i{display:block;font-style:normal;color:var(--roze);letter-spacing:3px;font-size:18px;margin:10px 0 6px}
-.rbox .score span{color:var(--grijs)}
-.rbox .score h2{font-size:clamp(28px,2.6vw,38px);margin-top:22px}
-.rlijst{display:grid;gap:14px}
-.rk{background:var(--creme);border-radius:22px;padding:22px 24px}
-.rk p{font-family:'Young Serif',serif;font-size:20px;line-height:1.35}
-.rk footer{margin-top:10px;font-size:14px;color:var(--grijs)}
-.rk footer b{color:var(--ink);font-weight:600}
+.tuin{padding:clamp(90px,10vw,140px) 0}
+.tgrid{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:repeat(2,clamp(200px,19vw,280px));gap:14px}
+.tgrid figure{border-radius:26px}
+.tgrid .groot{grid-row:span 2}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.pills span{background:var(--blos);color:var(--roze2);font-weight:600;font-size:14px;border-radius:999px;padding:8px 14px}
 
 /* bezoek */
-.bezoek{background:var(--groen);color:#fff;padding:clamp(90px,11vw,140px) 0}
-.bgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:start}
-.bezoek .lbl{color:#FFC2D6}
-.bezoek h2{font-size:clamp(42px,5vw,76px);margin:14px 0 20px}
-.bezoek .bl>p{color:rgba(255,255,255,.78);max-width:30em}
+.bezoek{background:var(--zand);padding:clamp(90px,10vw,140px) 0}
+.bgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.bfoto{position:relative}
+.bfoto figure{border-radius:999px 999px 30px 30px;aspect-ratio:4/5}
+.uren{position:absolute;right:-30px;bottom:30px;width:min(340px,80%);background:#fff;border-radius:24px;padding:22px 24px;box-shadow:0 30px 50px -30px rgba(20,42,31,.5)}
+.uren h3{font-size:24px;margin-bottom:8px;color:var(--groen)}
+.uren ul{list-style:none}
+.uren li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-top:1px solid var(--lijn);font-size:14.5px}
+.uren li span{color:var(--grijs);text-align:right}
+.uren li.dicht span{color:#A7ADA8}
+.btekst h2{font-size:clamp(42px,5vw,76px);margin:14px 0 18px;color:var(--groen)}
+.btekst>p{color:var(--grijs);max-width:30em}
 .kontakt{display:grid;gap:10px;margin-top:28px}
-.kontakt a{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.07);border-radius:18px;padding:14px 18px;transition:background .25s}
-.kontakt a:hover{background:rgba(255,255,255,.13)}
-.kontakt .ic{width:42px;height:42px;border-radius:50%;background:var(--roze);display:grid;place-items:center;flex:none}
+.kontakt a{display:flex;align-items:center;gap:14px;background:#fff;border-radius:18px;padding:13px 18px;transition:transform .25s var(--ease)}
+.kontakt a:hover{transform:translateX(4px)}
+.kontakt .ic{width:42px;height:42px;border-radius:50%;background:var(--roze);color:#fff;display:grid;place-items:center;flex:none}
 .kontakt .ic svg{width:19px;height:19px}
-.kontakt small{display:block;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.kontakt small{display:block;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--grijs)}
 .kontakt b{font-weight:500}
-.urenkaart{background:var(--creme);color:var(--ink);border-radius:28px;padding:30px 32px}
-.urenkaart h3{font-size:28px;margin-bottom:14px}
-.urenkaart ul{list-style:none}
-.urenkaart li{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-top:1px solid var(--lijn);font-size:15.5px}
-.urenkaart li span{color:var(--grijs);text-align:right}
-.urenkaart li.dicht span{color:#A7ADA8}
-.urenkaart .adres{margin-top:18px;display:flex;justify-content:space-between;align-items:center;gap:14px;background:var(--zand);border-radius:18px;padding:14px 18px;font-size:15px}
-.urenkaart .adres b{display:block;font-weight:600}
-.urenkaart .adres a{color:var(--roze2);font-weight:600;white-space:nowrap}
+.kontakt .route{margin-left:auto;color:var(--roze2);font-weight:600;font-size:14.5px;white-space:nowrap}
 
 /* footer */
 .voet{background:var(--groen2);color:rgba(255,255,255,.65);padding:56px 0 30px}
+.voet .logo{color:#fff}
 .voet .top{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 .voet .zin{font-size:14px;letter-spacing:.06em;max-width:36em}
 .voet .onder{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-top:34px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:14px}
 .voet a:hover{color:#fff}
 
-@media (max-width:1060px){.nav ul{display:none}}
+@media (max-width:1100px){.nav ul{display:none}}
 @media (max-width:960px){
- .wgrid,.tugrid,.rbox,.bgrid{grid-template-columns:1fr}
- .wt{position:relative;top:0}
- .tkop{flex-direction:column;align-items:flex-start;gap:14px}
- .tgrid{grid-template-columns:1fr 1fr}
- .tk:first-child{grid-column:span 2}
- .tk:first-child .f{aspect-ratio:16/10}
- .fgrid{grid-template-columns:1fr 1fr;grid-auto-rows:auto}
- .fgrid figure{grid-column:auto!important;grid-row:auto!important;aspect-ratio:4/5}
- .fgrid .f1,.fgrid .f6{grid-column:span 2!important;aspect-ratio:16/11}
- .tut{order:1}.tubeeld{order:2}
+ .h-top,.kop,.bgrid{grid-template-columns:1fr}
+ .h-top{gap:22px}
+ .h-wall{grid-template-columns:1fr 1.45fr 1fr;height:clamp(340px,58vw,480px)}
+ .h-wall .f1,.h-wall .f5{display:none}
+ .stempel{left:-36px;width:112px;height:112px}
+ .stempel b{font-size:25px}
+ .bento{grid-template-columns:1fr 1fr;grid-auto-rows:minmax(clamp(160px,26vw,240px),auto)}
+ .b-hand{order:1}.b-pot{order:2}.b-kleur{order:3}.bento figure:nth-child(4){order:4}.b-lamp{order:5;grid-column:span 1}.b20{order:6;grid-column:span 2;gap:10px}.aanbod{order:7}
+ .b-hand,.b-pot{grid-row:span 2}
+ .b-kleur,.aanbod{grid-column:span 2}
+ .bento figure img{position:absolute;inset:0}
+ .b-kleur{min-height:clamp(220px,40vw,330px)}
+ .frij{grid-template-columns:repeat(6,1fr)}
+ .frij figure{grid-column:span 2}
+ .frij figure:nth-child(4),.frij figure:nth-child(5){grid-column:span 3;aspect-ratio:4/3.2}
+ .bfoto{max-width:560px;width:100%;margin:0 auto}
+ .fbreed{aspect-ratio:16/9}
+ .uren{right:16px}
 }
 @media (max-width:760px){
  body{font-size:16px}
  .wrap{width:calc(100% - 36px)}
+ .breed{width:calc(100% - 20px)}
  .nav .knop{display:none}
- .hero{min-height:max(700px,100svh)}
- .hero picture img{object-position:50% 100%}
- .hero::before{background:linear-gradient(180deg,rgba(20,42,31,.9) 0%,rgba(20,42,31,.78) 50%,rgba(20,42,31,0) 78%)}
- .hero .wrap{padding-top:130px}
- .hero h1{font-size:clamp(46px,13.5vw,60px)}
- .hero p{font-size:16.5px}
- .hero .adres{bottom:18px}
- .hero .adres .wrap{justify-content:flex-start}
- .hero .adres span{font-size:13px}
- .mozaiek{grid-template-columns:1fr 1fr;gap:10px}
- .mozaiek .a{grid-column:span 2;grid-row:auto;aspect-ratio:4/4.4}
- .loading{grid-template-columns:1fr;gap:8px}
- .tgrid{grid-template-columns:1fr}
- .tk:first-child{grid-column:auto}
- .fgrid{gap:10px}
- .fgrid figcaption{font-size:12.5px}
- .tubeeld{gap:10px}
- .aanbod li{flex-direction:column;gap:2px}.aanbod li span{text-align:left}
+ .h-top{padding-top:120px;padding-bottom:26px}
+ .hero h1{font-size:clamp(44px,12.4vw,58px)}
+ .h-side p{font-size:16.5px}
+ .h-wall{gap:8px;height:clamp(300px,82vw,380px)}
+ .h-wall figure{border-radius:20px}
+ .stempel{left:auto;right:-14px;top:-30px;width:96px;height:96px}
+ .stempel b{font-size:21px}
+ .score{display:none}
+ .bento{gap:10px;grid-auto-rows:minmax(160px,auto)}
+ .b20{padding:22px}
+ .b-hand,.b-pot{min-height:330px}
+ .b20 b{font-size:28px}
+ .band{min-height:auto}
+ .band blockquote{font-size:clamp(30px,8.6vw,38px)}
+ .cap{font-size:12.5px;padding:7px 12px;left:10px;bottom:10px}
+ .band .wrap{padding:90px 0}
+ .mini p{max-width:none;width:100%}
+ .frij{grid-template-columns:1fr 1fr;gap:10px}
+ .frij figure{aspect-ratio:3/4!important;grid-column:auto!important}
+ .frij figure:nth-child(5){grid-column:span 2!important;aspect-ratio:16/11!important}
+ .fbreed{aspect-ratio:4/3.6;border-radius:22px}
+ .tgrid{grid-template-columns:1fr 1fr;grid-template-rows:auto;gap:10px}
+ .tgrid .groot{grid-column:span 2;grid-row:auto;aspect-ratio:4/3.4}
+ .tgrid figure:not(.groot){aspect-ratio:1}
+ .bfoto{order:2}
+ .uren{position:relative;right:auto;bottom:auto;width:auto;margin:-60px 14px 0}
+ .kontakt .route{display:none}
 }
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -216,7 +227,6 @@ h1,h2,h3,.ys{font-family:'Young Serif',Georgia,serif;font-weight:400;line-height
     <a class="logo" href="#top" aria-label="Bloemblad"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 34V19"/><path d="M20 19c-5 0-8-4-8-10 4 0 6 2 8 5 2-3 4-5 8-5 0 6-3 10-8 10Z"/><path d="M20 14V7"/><path d="M20 28c-3-3-6-3-9-2 2 3 5 4 9 2ZM20 26c3-3 6-3 9-2-2 3-5 4-9 2Z"/></svg><b>Bloemblad</b></a>
     <ul>
       <li><a href="#winkel">De winkel</a></li>
-      <li><a href="#thuis">Interieur</a></li>
       <li><a href="#feesten">Feesten &amp; huwelijken</a></li>
       <li><a href="#tuin">Tuin</a></li>
       <li><a href="#bezoek">Openingsuren</a></li>
@@ -227,135 +237,123 @@ h1,h2,h3,.ys{font-family:'Young Serif',Georgia,serif;font-weight:400;line-height
 
 <main id="top">
 <section class="hero" aria-label="Bloemblad">
-  <picture>
-    <source media="(max-width:760px)" srcset="img/herom.webp">
-    <img src="img/hero.webp" alt="Lange feesttafels met kleurrijke bloemen in losse vaasjes en gele kaarsen" width="1536" height="952" fetchpriority="high">
-  </picture>
-  <div class="wrap">
-    <span class="lbl">Bloemen · planten · interieur · events</span>
-    <h1>Bloemen met karakter.</h1>
-    <p>Zacht, uitbundig of helemaal op maat. Voor op je tafel, in je interieur, in je tuin of op je grote feest. Kom binnen in Sint-Kruis.</p>
-    <div class="knoppen">
-      <a class="knop k-roze" href="tel:+3250375075"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>Bestel: 050 37 50 75</a>
-      <a class="knop k-wit" href="#feesten">Bloemen voor je feest</a>
+  <div class="wrap h-top">
+    <div>
+      <span class="lbl rv">Bloemen · planten · interieur · events</span>
+      <h1 class="rv d1"><span>Kleur</span> die je mee naar huis neemt.</h1>
+    </div>
+    <div class="h-side rv d2">
+      <p>Volle, kleurrijke boeketten. Planten, potten, lampen en kussens voor binnen. En bloemen voor jullie grote dag. Je vindt het allemaal bij ons aan de Baron Ruzettelaan.</p>
+      <div class="knoppen">
+        <a class="knop k-roze" href="tel:+3250375075"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>Bestel: 050 37 50 75</a>
+        <a class="knop k-lijn" href="#feesten">Bloemen voor je feest</a>
+      </div>
     </div>
   </div>
-  <div class="adres"><div class="wrap"><span><b>Baron Ruzettelaan 343</b> · 8310 Brugge</span><span><b>4,6</b> ★ uit 102 reviews op Google</span></div></div>
+  <div class="breed h-wall">
+    <figure class="f1"><img src="img/s-moody.webp" alt="Donker boeket met rode ranonkels, oranje protea en paarse anemonen" width="1200" height="1920" fetchpriority="high"></figure>
+    <figure class="f2"><img src="img/winkel.webp" alt="Een groot rood en roze boeket wordt door de winkel gedragen" width="1000" height="1333" fetchpriority="high"><div class="score"><b>4,6</b><span><i>★★★★★</i>102 reviews op Google</span></div></figure>
+    <div class="f3">
+      <figure><img src="img/deur.webp" alt="Bloemiste met twee grote boeketten in de deur van Bloemblad, nummer 343" width="1000" height="1000" fetchpriority="high" style="object-position:50% 30%"></figure>
+      <div class="stempel" aria-label="Bloemblad 2.0, vernieuwde winkel"><svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="cirkel" d="M60 60m-45 0a45 45 0 1 1 90 0a45 45 0 1 1-90 0"/></defs><text><textPath href="#cirkel">Vernieuwde winkel · Bloemblad ·</textPath></text></svg><b>2.0</b></div>
+    </div>
+    <figure class="f4"><img src="img/four.webp" alt="Groot bloemstuk in blauw, paars en wit bij Four Antwerp" width="1000" height="1035" fetchpriority="high"></figure>
+    <figure class="f5"><img src="img/s-gerbera.webp" alt="Boeket met rode gerbera, rozen, margrieten en solidago van dichtbij" width="1200" height="1800" fetchpriority="high"></figure>
+  </div>
 </section>
 
 <section class="winkel" id="winkel">
-  <div class="wrap wgrid">
-    <div class="wt rv">
-      <span class="lbl">De winkel</span>
-      <h2>Een bloemenwinkel waar je ook voor je interieur binnenloopt.</h2>
-      <p>Bij Bloemblad maken we boeketten zoals we ze zelf graag krijgen: kleurrijk, vol en nooit saai. Daarnaast vind je planten, potten, kaarsen, geuren en keramiek. Alles met zorg uitgekozen, om cadeau te geven of gewoon voor jezelf.</p>
-      <p>Alain, Barbara en het team staan voor je klaar. Liever bestellen? Bel of mail ons, en we zetten je boeket klaar.</p>
-      <ul class="aanbod">
-        <li>Boeketten en snijbloemen <span>kleurrijk en vol</span></li>
-        <li>Planten en potten <span>binnen en buiten</span></li>
-        <li>Interieur en deco <span>kussens, lampen, kaarsen, keramiek</span></li>
-        <li>Tuinaankleding <span>planten, potten en tuinmeubilair</span></li>
-        <li>Feesten, huwelijken en events <span>van idee tot laatste bloemblaadje</span></li>
-      </ul>
+  <div class="wrap">
+    <div class="kop">
+      <div class="rv"><span class="lbl">De winkel</span><h2>Binnen voor een boeket, buiten met een lamp erbij.</h2></div>
+      <p class="rv d1">Bij Bloemblad maken we boeketten zoals we ze zelf graag krijgen: vol, kleurrijk en nooit saai. Rond de bloemen staan planten, potten, kaarsen, geuren en keramiek. Een deel van de kussens en lampen maken we zelf.</p>
     </div>
-    <div class="rv d1">
-      <div class="mozaiek">
-        <figure class="a"><img src="img/winkel.webp" alt="Een groot rood en roze boeket wordt door de winkel gedragen" loading="lazy"><figcaption>Vers uit de winkel</figcaption></figure>
-        <figure class="b"><img src="img/deur.webp" alt="Bloemiste met twee grote boeketten in de deur van Bloemblad, nummer 343" loading="lazy" style="object-position:50% 30%"><figcaption>Aan de deur, nummer 343</figcaption></figure>
-        <figure class="c"><img src="img/hoek.webp" alt="Hoekje met oranje stoel, groene tegels en gele orchideeën" loading="lazy" style="object-position:50% 40%"><figcaption>Zomer in de winkel</figcaption></figure>
+    <div class="bento">
+      <figure class="b-hand rv"><img src="img/s-handen.webp" alt="Handen die een boeket schikken op een werktafel vol bloemen" loading="lazy" width="1200" height="1800"><span class="cap">Met de hand gebonden</span></figure>
+      <figure class="b-kleur rv d1"><img src="img/s-kleur.webp" alt="Een boeket vol kleur: gele roos, roze anjers, paarse statice en oranje bloemen" loading="lazy" width="1600" height="1422" style="object-position:50% 45%"><span class="cap">Vol, kleurrijk en nooit saai</span></figure>
+      <figure class="b-pot rv d2"><img src="img/potten2.webp" alt="Handgemaakte geglazuurde potten uit Marokko in oranje, rood en blauw" loading="lazy" width="1000" height="1250"><span class="cap">Potten uit Marokko</span></figure>
+      <figure class="rv d1"><img src="img/herfst.webp" alt="Herfsttafel met oranje lamp, rode bloemen en amberkleurige glazen" loading="lazy" width="1000" height="1000"><span class="cap">Een tafel vol herfst</span></figure>
+      <div class="b20 rv d2"><b>Bloemblad 2.0</b><p>Deze zomer werkten we weken achter de schermen. De winkel is vernieuwd, en er komen nieuwe collecties, samenwerkingen en stylingprojecten bij.</p></div>
+      <figure class="b-lamp rv"><img src="img/lamp.webp" alt="Twee lampen met rieten kappen op een kast met kussens" loading="lazy" width="1000" height="1000" style="object-position:50% 40%"><span class="cap">Lampen, deels zelf gemaakt</span></figure>
+      <div class="aanbod rv d1">
+        <h3>Wat je bij ons vindt</h3>
+        <ul><li>Boeketten en snijbloemen</li><li>Planten en potten</li><li>Kaarsen en geuren</li><li>Interieur en deco</li><li>Tuinaankleding</li><li>Feesten en huwelijken</li></ul>
       </div>
-      <div class="loading"><b>Bloemblad 2.0</b><p>Deze zomer werkten we weken achter de schermen. Een vernieuwde winkel, en dat is pas het begin: nieuwe collecties, samenwerkingen, stylingprojecten en events.</p></div>
     </div>
   </div>
 </section>
 
-<section class="thuis" id="thuis">
+<section class="band" aria-label="Wat klanten zeggen">
+  <img src="img/s-tulpen.webp" alt="Boeket met oranje en paarse tulpen, narcissen en gipskruid" loading="lazy" width="2000" height="1333">
   <div class="wrap">
-    <div class="tkop">
-      <div class="rv"><span class="lbl">Voor thuis</span><h2>Kleur met karakter, ook zonder bloemen.</h2></div>
-      <p class="rv d1">Elk seizoen halen we nieuwe stukken binnen. Sommige maken we zelf, andere zoeken we ver van huis. Kom gerust kijken, en voel maar.</p>
-    </div>
-    <div class="tgrid">
-      <article class="tk rv"><div class="f"><img src="img/potten2.webp" alt="Handgemaakte geglazuurde potten uit Marokko in oranje, rood en blauw" loading="lazy"></div><div><small>Uit Marokko</small><h3>Potten die elk net iets anders zijn</h3><p>Handgemaakt, in rijke tinten. Mooi met groen, sterk als statement.</p></div></article>
-      <article class="tk rv d1"><div class="f"><img src="img/herfst.webp" alt="Herfsttafel met oranje lamp, rode bloemen en amberkleurige glazen" loading="lazy"></div><div><small>Zelf gemaakt</small><h3>Kussens en lampen</h3><p>Een deel van onze kussens en lampen maken we zelf. Voor dat persoonlijke tikje.</p></div></article>
-      <article class="tk rv d2"><div class="f"><img src="img/lamp.webp" alt="Twee lampen met rieten kappen op een kast met kussens" loading="lazy"></div><div><small>Voor de donkere maanden</small><h3>Licht en gezelligheid</h3><p>Windlichten, kaarsen en lampen. Voor sfeer en gezelligheid in huis als de wintertijd begint.</p></div></article>
+    <span class="lbl rv">Uit 102 reviews op Google</span>
+    <blockquote class="rv d1">"Altijd supervriendelijke bediening en prachtige boeketten."</blockquote>
+    <cite class="rv d1">STéPRO op Google</cite>
+    <div class="mini rv d2">
+      <p class="sc"><strong>4,6</strong><span>★★★★★<br>gemiddelde score</span></p>
+      <p>"Altijd dik inorde en goeie service. Hoge kwaliteit."<b>David B</b></p>
+      <p>"Hier hebben ze er mooie rozen. En maken er mooie boeketten van."<b>swordfish kind</b></p>
     </div>
   </div>
 </section>
 
 <section class="feest" id="feesten">
   <div class="wrap">
-    <div class="fkop rv">
-      <span class="lbl">Feesten en huwelijken</span>
-      <h2>Van eerste idee tot de laatste bloemblaadjes op tafel.</h2>
-      <p>We luisteren, denken mee en vertalen jullie verhaal naar bloemen. Voor huwelijken, communies, verjaardagen en bedrijfsevents, en samen met eventbedrijven en weddingplanners.</p>
+    <div class="kop">
+      <div class="rv"><span class="lbl">Feesten en huwelijken</span><h2>Van eerste idee tot de laatste bloemblaadjes op tafel.</h2></div>
+      <div class="rv d1"><p>Jullie vertellen wat voor feest het wordt, wij vertalen dat naar bloemen. Voor huwelijken, communies, verjaardagen en bedrijfsevents, en samen met eventbedrijven en weddingplanners.</p><a class="knop k-wit" href="mailto:bloemblad@telenet.be?subject=Bloemen%20voor%20ons%20feest">Vertel ons over je feest</a></div>
     </div>
-    <div class="fgrid">
-      <figure class="f1 rv"><img src="img/hangend.webp" alt="Hangende bloeminstallaties boven een bar in een witte feesttent" loading="lazy"><figcaption>Een zomerhuwelijk, de volledige bloemstyling</figcaption></figure>
-      <figure class="f2 rv d1"><img src="img/schuur.webp" alt="Lange tafels met bloemen en kaarsjes in een schuur met lichtjes" loading="lazy"><figcaption>Huwelijk in een schuur</figcaption></figure>
-      <figure class="f3 rv d2"><img src="img/urn.webp" alt="Groot bloemstuk met ridderspoor en zonnebloemen op een groene sokkel" loading="lazy"><figcaption>Ontvangst buiten</figcaption></figure>
-      <figure class="f4 rv d1"><img src="img/four.webp" alt="Groot bloemstuk in blauw, paars en wit bij Four Antwerp" loading="lazy"><figcaption>Event bij Four Antwerp</figcaption></figure>
-      <figure class="f5 rv d2"><img src="img/communie.webp" alt="Communietafel met roze gipskruid en kaarsen" loading="lazy"><figcaption>Communiefeest in het roze</figcaption></figure>
-      <figure class="f6 rv"><img src="img/tent.webp" alt="Ronde tafels met kleurrijke bloemen in een feesttent" loading="lazy" style="object-position:50% 70%"><figcaption>Dezelfde dag, aan tafel</figcaption></figure>
+  </div>
+  <div class="breed">
+    <figure class="fbreed rv"><img src="img/hero.webp" alt="Lange feesttafels met kleurrijke bloemen in losse vaasjes en gele kaarsen" loading="lazy" width="1536" height="952"><span class="fcap">Een zomerhuwelijk: kleur op elke tafel</span></figure>
+    <div class="frij">
+      <figure class="rv"><img src="img/hangend.webp" alt="Hangende bloeminstallaties boven een bar in een witte feesttent" loading="lazy" width="1000" height="1333"><span class="fcap">Hangende bloemen boven de bar</span></figure>
+      <figure class="rv d1"><img src="img/schuur.webp" alt="Lange tafels met bloemen en kaarsjes in een schuur met lichtjes" loading="lazy" width="1000" height="1333"><span class="fcap">Huwelijk in een schuur</span></figure>
+      <figure class="rv d2"><img src="img/urn.webp" alt="Groot bloemstuk met ridderspoor en zonnebloemen op een groene sokkel" loading="lazy" width="1000" height="1333"><span class="fcap">Ontvangst buiten</span></figure>
+      <figure class="rv d3"><img src="img/communie.webp" alt="Communietafel met roze gipskruid en kaarsen" loading="lazy" width="1000" height="1000"><span class="fcap">Communiefeest in het roze</span></figure>
+      <figure class="rv d4"><img src="img/tent.webp" alt="Ronde tafels met kleurrijke bloemen in een feesttent" loading="lazy" width="1000" height="1333" style="object-position:50% 75%"><span class="fcap">Ronde tafels in de tent</span></figure>
     </div>
-    <div class="fnoot rv"><a class="knop k-groen" href="mailto:bloemblad@telenet.be?subject=Bloemen%20voor%20ons%20feest">Vertel ons over je feest</a></div>
   </div>
 </section>
 
 <section class="tuin" id="tuin">
-  <div class="wrap tugrid">
-    <div class="tubeeld rv">
-      <figure><img src="img/tuin.webp" alt="Terras met loungezetels, poef en planten in een groene tuin" loading="lazy" style="object-position:50% 55%"></figure>
-      <figure><img src="img/tuin2.webp" alt="Tuinzetels met kussens voor witte hortensia's" loading="lazy"></figure>
-      <figure><img src="img/potten.webp" alt="Geglazuurde potten in groen, oranje en rood" loading="lazy"></figure>
-    </div>
-    <div class="tut rv d1">
-      <span class="lbl">Tuinaankleding</span>
-      <h2>Van lege tuin naar een plek om te blijven.</h2>
-      <p>Bloemblad stopt niet aan de deur van onze winkel. Voor dit project kleedden we de volledige tuin aan, alles gekozen als één geheel: afgestemd op de woning, de buitenruimte en de mensen die er wonen.</p>
-      <ul>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5 9-10"/></svg>Keuze en plaatsing van planten</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5 9-10"/></svg>Potten die bij de plek passen</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 5 5 9-10"/></svg>Tuinmeubilair, ook te ontdekken in de winkel</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="reviews" id="reviews">
   <div class="wrap">
-    <div class="rbox rv">
-      <div class="score"><b>4,6</b><i>★★★★★</i><span>102 reviews op Google</span><h2>Wat klanten zeggen na hun bezoek</h2></div>
-      <div class="rlijst">
-        <article class="rk"><p>"Altijd supervriendelijke bediening en prachtige boeketten die ze maken.!!!"</p><footer><b>STéPRO</b> · Google</footer></article>
-        <article class="rk"><p>"Altijd dik inorde en goeie service. Hoge kwaliteit. Zeer vriendelijk personeel/eigenaars"</p><footer><b>David B</b> · Google</footer></article>
-        <article class="rk"><p>"Hier hebben ze er mooie rozen. En maken er mooie boeketten van."</p><footer><b>swordfish kind</b> · Google</footer></article>
-      </div>
+    <div class="kop">
+      <div class="rv"><span class="lbl">Tuinaankleding</span><h2>Van lege tuin naar een plek om te blijven.</h2></div>
+      <div class="rv d1"><p>Bloemblad stopt niet aan de deur van de winkel. Voor dit project kleedden we een volledige tuin aan, alles gekozen als één geheel: afgestemd op de woning, de buitenruimte en de mensen die er wonen.</p><div class="pills"><span>Planten kiezen en plaatsen</span><span>Potten die bij de plek passen</span><span>Tuinmeubilair</span></div></div>
+    </div>
+    <div class="tgrid">
+      <figure class="groot rv"><img src="img/tuin.webp" alt="Terras met loungezetels, poef en planten in een groene tuin" loading="lazy" width="1000" height="1000" style="object-position:50% 55%"></figure>
+      <figure class="rv d1"><img src="img/tuin2.webp" alt="Tuinzetels met kussens voor witte hortensia's" loading="lazy" width="1000" height="1000"></figure>
+      <figure class="rv d2"><img src="img/potten.webp" alt="Geglazuurde potten in groen, oranje en rood" loading="lazy" width="1000" height="1250"></figure>
     </div>
   </div>
 </section>
 
 <section class="bezoek" id="bezoek">
   <div class="wrap bgrid">
-    <div class="bl rv">
+    <div class="bfoto rv">
+      <figure><img src="img/hoek.webp" alt="Hoekje in de winkel met oranje stoel, groene tegels en gele orchideeën" loading="lazy" width="1000" height="1334" style="object-position:50% 40%"></figure>
+      <div class="uren">
+        <h3>Openingsuren</h3>
+        <ul>
+          <li class="dicht"><b>Maandag</b><span>gesloten</span></li>
+          <li><b>Di tot vr</b><span>9u - 12u30 · 13u30 - 18u30</span></li>
+          <li><b>Zaterdag</b><span>9u - 12u30 · 13u30 - 18u</span></li>
+          <li><b>Zondag</b><span>9u30 - 12u30</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="btekst rv d1">
       <span class="lbl">Kom langs of bestel</span>
-      <h2>Tot in de winkel.</h2>
-      <p>Binnenspringen voor een boeket, een plant of een cadeautje kan zonder afspraak. Wil je dat we iets klaarzetten, of denk je aan bloemen voor een feest? Bel of mail ons gerust.</p>
+      <h2>Spring gerust binnen.</h2>
+      <p>Voor een boeket, een plant of een cadeautje heb je geen afspraak nodig. Wil je dat we iets klaarzetten, of denk je aan bloemen voor een feest? Bel of mail ons.</p>
       <div class="kontakt">
         <a href="tel:+3250375075"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg></span><span><small>Bellen</small><b>050 37 50 75</b></span></a>
         <a href="mailto:bloemblad@telenet.be"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span><span><small>Mail</small><b>bloemblad@telenet.be</b></span></a>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Baron+Ruzettelaan+343+8310+Brugge" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span><small>Adres</small><b>Baron Ruzettelaan 343, 8310 Brugge</b></span><span class="route">Route →</span></a>
         <a href="https://www.instagram.com/bloembladbrugge/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span><span><small>Instagram</small><b>@bloembladbrugge</b></span></a>
       </div>
-    </div>
-    <div class="urenkaart rv d1">
-      <h3>Openingsuren</h3>
-      <ul>
-        <li class="dicht"><b>Maandag</b><span>gesloten</span></li>
-        <li><b>Dinsdag tot vrijdag</b><span>9u - 12u30 · 13u30 - 18u30</span></li>
-        <li><b>Zaterdag</b><span>9u - 12u30 · 13u30 - 18u</span></li>
-        <li><b>Zondag</b><span>9u30 - 12u30</span></li>
-      </ul>
-      <div class="adres"><div><b>Baron Ruzettelaan 343</b>8310 Brugge (Sint-Kruis)</div><a href="https://www.google.com/maps/dir/?api=1&destination=Baron+Ruzettelaan+343+8310+Brugge" target="_blank" rel="noopener">Route →</a></div>
     </div>
   </div>
 </section>
