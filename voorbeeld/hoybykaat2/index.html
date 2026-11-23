@@ -6,502 +6,478 @@
 <title>Hoy by Kaat · Bloemen, workshops en kampen in Leuven</title>
 <meta name="description" content="Hoy by Kaat in Leuven: kleurrijke bloemen voor huwelijken, afscheid en cadeaus, bloemenworkshops, kinder- en jeugdkampen en zijden bloemen voor je zaak.">
 <meta name="robots" content="noindex">
+<link rel="icon" href="img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=DM+Serif+Display&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Figtree:wght@400;500;600;700&display=swap">
 <style>
-:root{--groen:#1E5B44;--groen2:#2A6E54;--groen3:#143F30;--munt:#DDEFE4;--creme:#FFF8EE;--creme2:#FBEFDF;--perzik:#F7DCC8;--roze:#F6D1D6;--geel:#F8E3A3;--blauw:#D6E4F5;--oranje:#E8682A;--inkt:#1F2A24;--mute:#5E6A63;--lijn:rgba(31,42,36,.12);--r:28px;--ease:cubic-bezier(.16,1,.3,1)}
+:root{--groen:#0B6B3E;--groen2:#0F5A36;--diep:#0E3B26;--creme:#F7F3EA;--papier:#EFEAE0;--oranje:#F26A2E;--roze:#F4A6B7;--zacht:#FBD9DF;--zon:#FFC23D;--blauw:#7FA7E8;--lila:#C9B6F0;--inkt:#1B241E;--mute:#5D665F;--lijn:rgba(27,36,30,.12);--ease:cubic-bezier(.16,1,.3,1);--r:30px}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:96px}
-body{font-family:Figtree,system-ui,sans-serif;background:var(--creme);color:var(--inkt);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto}
+html{scroll-padding-top:100px;overflow-x:clip}
+body{font-family:Figtree,system-ui,sans-serif;background:var(--creme);color:var(--inkt);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background-color .9s var(--ease)}
 img{display:block;max-width:100%}
 a{color:inherit}
-h1,h2,h3{font-family:'DM Serif Display',Georgia,serif;font-weight:400;line-height:1.08;letter-spacing:-.01em;color:var(--groen3)}
-.wrap{width:min(1220px,100% - 48px);margin-inline:auto}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--groen)}
-.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--oranje)}
-.hand{font-family:Caveat,cursive;font-weight:700;color:var(--oranje)}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;transition:transform .3s var(--ease),background .3s,box-shadow .3s;white-space:nowrap}
-.btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
-.btn.vol{background:var(--groen);color:#fff;box-shadow:0 12px 26px -14px rgba(20,63,48,.8)}
-.btn.vol:hover{background:var(--groen3);transform:translateY(-2px)}
-.btn.licht{background:#fff;color:var(--groen3);box-shadow:inset 0 0 0 1.5px var(--lijn)}
-.btn.licht:hover{box-shadow:inset 0 0 0 1.5px var(--groen);transform:translateY(-2px)}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:400;letter-spacing:-.02em;line-height:1}
+.wrap{width:min(1280px,100% - 56px);margin-inline:auto}
+.hand{font-family:Caveat,cursive;font-weight:700}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;transition:transform .4s var(--ease),background .3s,color .3s;white-space:nowrap;position:relative;overflow:hidden}
+.btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;transition:transform .4s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn:hover{transform:translateY(-3px)}
+.btn.groen{background:var(--groen);color:#fff}
+.btn.groen:hover{background:var(--diep)}
 .btn.oranje{background:var(--oranje);color:#fff}
-.btn.oranje:hover{background:#cf5719;transform:translateY(-2px)}
-section{padding:110px 0}
-.kop{max-width:640px;margin-bottom:52px}
-.kop h2{font-size:clamp(38px,5vw,58px);margin:14px 0 16px}
-.kop p{color:var(--mute);font-size:18px}
-.kop.mid{margin-inline:auto;text-align:center}
+.btn.wit{background:#fff;color:var(--diep)}
+.btn.lijn{box-shadow:inset 0 0 0 1.5px currentColor}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.tag i{width:8px;height:8px;border-radius:50%;background:var(--oranje)}
 
-/* aankondiging + header */
-.balk{background:var(--groen3);color:var(--creme);font-size:14px;text-align:center;padding:9px 16px}
-.balk a{color:var(--geel);font-weight:600;text-underline-offset:3px}
-.nav{position:sticky;top:0;z-index:50;background:rgba(255,248,238,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
-.nav.vast{border-color:var(--lijn);box-shadow:0 10px 30px -24px rgba(20,40,30,.5)}
-.nav .wrap{display:flex;align-items:center;gap:22px;height:84px}
-.logo{display:flex;align-items:center;gap:12px;text-decoration:none;flex:none}
-.logo .bol{width:46px;height:46px;border-radius:50%;background:var(--groen);color:var(--creme);display:grid;place-items:center;font:700 23px/1 Caveat,cursive;padding-bottom:3px}
-.logo b{display:block;font:400 22px/1.05 'DM Serif Display',serif;color:var(--groen3)}
-.logo small{display:block;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-top:3px}
-.menu{display:flex;align-items:center;gap:4px;margin-left:auto;list-style:none}
+/* nav */
+.nav{position:fixed;top:16px;left:0;right:0;z-index:80;pointer-events:none}
+.nav .bar{pointer-events:auto;width:min(1320px,100% - 32px);margin:0 auto;display:flex;align-items:center;gap:14px;padding:10px 10px 10px 14px;border-radius:999px;background:rgba(247,243,234,.72);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border:1px solid rgba(255,255,255,.6);box-shadow:0 18px 40px -28px rgba(14,59,38,.45);transition:transform .5s var(--ease)}
+.nav.weg .bar{transform:translateY(-130%)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
+.logo img{width:48px;height:48px;border-radius:50%}
+.logo b{font:600 19px/1 Fraunces,serif;color:var(--diep);letter-spacing:-.01em}
+.menu{display:flex;list-style:none;gap:2px;margin-left:auto}
 .menu>li{position:relative}
-.menu>li>a,.menu>li>button{display:flex;align-items:center;gap:5px;padding:10px 13px;border-radius:999px;font-size:15.5px;font-weight:500;text-decoration:none;background:none;border:0;cursor:pointer;font-family:inherit;color:var(--inkt);transition:background .2s}
-.menu>li>a:hover,.menu>li>button:hover,.menu>li.open>button{background:var(--creme2)}
-.menu .pijl{width:12px;height:12px;stroke:currentColor;stroke-width:2.2;fill:none;transition:transform .25s}
+.menu>li>a,.menu>li>button{display:flex;align-items:center;gap:5px;padding:11px 14px;border-radius:999px;font:500 15.5px Figtree,sans-serif;color:var(--inkt);text-decoration:none;background:none;border:0;cursor:pointer;transition:background .25s}
+.menu>li>a:hover,.menu>li>button:hover,.menu>li.open>button{background:#fff}
+.menu .pijl{width:12px;height:12px;stroke:currentColor;stroke-width:2.2;fill:none;transition:transform .3s}
 .menu li.open .pijl{transform:rotate(180deg)}
-.sub{position:absolute;top:calc(100% + 10px);left:-10px;min-width:280px;background:#fff;border-radius:22px;padding:10px;box-shadow:0 24px 60px -22px rgba(20,40,30,.35);border:1px solid var(--lijn);opacity:0;visibility:hidden;transform:translateY(-6px);transition:.25s var(--ease);list-style:none}
+.sub{position:absolute;top:calc(100% + 14px);left:-14px;width:330px;background:#fff;border-radius:26px;padding:10px;list-style:none;box-shadow:0 30px 70px -30px rgba(14,59,38,.45);opacity:0;visibility:hidden;transform:translateY(-8px) scale(.98);transform-origin:top left;transition:.35s var(--ease)}
 .menu li.open .sub,.menu li:hover .sub{opacity:1;visibility:visible;transform:none}
-.sub a{display:flex;gap:12px;align-items:center;padding:10px 12px;border-radius:14px;text-decoration:none;font-size:15px}
+.sub a{display:flex;align-items:center;gap:14px;padding:9px;border-radius:18px;text-decoration:none}
 .sub a:hover{background:var(--creme)}
-.sub i{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;font-style:normal;font-size:16px;flex:none}
-.sub b{display:block;font-weight:600}
+.sub img{width:52px;height:52px;border-radius:14px;object-fit:cover;flex:none}
+.sub b{display:block;font-weight:600;font-size:15px}
 .sub small{display:block;color:var(--mute);font-size:13px;line-height:1.3}
-.nav .btn{padding:12px 20px;font-size:15px}
-.burger{display:none;margin-left:auto;width:46px;height:46px;border-radius:50%;border:0;background:var(--creme2);cursor:pointer}
-.burger span{display:block;width:18px;height:2px;background:var(--inkt);margin:4px auto;border-radius:2px;transition:.3s}
-.mobiel{display:none}
+.nav .btn{padding:13px 22px;font-size:15px}
+.burger{display:none;margin-left:auto;width:48px;height:48px;border-radius:50%;border:0;background:#fff;cursor:pointer}
+.burger span{display:block;width:18px;height:2px;background:var(--inkt);margin:4px auto;border-radius:2px}
+.mobiel{position:fixed;inset:0;z-index:90;background:var(--groen);color:var(--creme);padding:22px 24px 40px;overflow:auto;clip-path:circle(0% at calc(100% - 44px) 44px);transition:clip-path .7s var(--ease);visibility:hidden}
+.mobiel.open{clip-path:circle(150% at calc(100% - 44px) 44px);visibility:visible}
+.mobiel .rij{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}
+.mobiel .rij b{font:600 22px Fraunces,serif}
+.mobiel .dicht{width:48px;height:48px;border-radius:50%;border:0;background:var(--creme);color:var(--groen);font-size:24px;cursor:pointer}
+.mobiel a.h,.mobiel summary{display:flex;justify-content:space-between;align-items:center;padding:13px 0;font:400 34px/1.1 Fraunces,serif;text-decoration:none;color:var(--creme);border-bottom:1px solid rgba(247,243,234,.18);cursor:pointer;list-style:none}
+.mobiel summary::-webkit-details-marker{display:none}
+.mobiel summary::after{content:"+";font:400 30px Figtree}
+.mobiel details[open] summary::after{content:"−"}
+.mobiel details div{display:grid;gap:4px;padding:10px 0 14px}
+.mobiel details a{color:rgba(247,243,234,.8);text-decoration:none;font-size:18px;padding:5px 0}
+.mobiel .btn{margin-top:28px;width:100%;justify-content:center}
 
 /* hero */
-.hero{padding:56px 0 90px;position:relative;overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
-.hero h1{font-size:clamp(48px,5.4vw,78px);margin:18px 0 24px}
-.hero h1 .hand{font-size:.82em;display:inline-block;transform:rotate(-6deg) translateY(-6px);margin-left:6px}
-.hero p.lead{font-size:19px;color:var(--mute);max-width:500px;margin-bottom:34px}
-.cta{display:flex;flex-wrap:wrap;gap:12px}
-.feiten{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:34px;font-size:14.5px;color:var(--mute)}
-.feiten span{display:flex;align-items:center;gap:8px}
-.feiten svg{width:17px;height:17px;stroke:var(--groen);fill:none;stroke-width:2}
-.collage{position:relative;display:grid;grid-template-columns:1.15fr .85fr;grid-template-rows:1fr 1fr;gap:16px;height:600px}
-.collage figure{border-radius:var(--r);overflow:hidden;position:relative;box-shadow:0 30px 60px -36px rgba(20,40,30,.55)}
-.collage img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-.collage figure:hover img{transform:scale(1.04)}
-.collage .groot{grid-row:1/3}
-.badge{position:absolute;left:-26px;bottom:44px;background:#fff;border-radius:22px;padding:14px 18px;display:flex;align-items:center;gap:14px;box-shadow:0 22px 44px -20px rgba(20,40,30,.45);z-index:3}
-.badge .g{width:40px;height:40px;border-radius:50%;background:var(--munt);display:grid;place-items:center;font-weight:700;color:var(--groen)}
-.badge b{font:400 30px/1 'DM Serif Display',serif;color:var(--groen3)}
-.badge .st{color:#F2A900;font-size:14px;letter-spacing:2px;line-height:1}
-.badge small{display:block;font-size:12.5px;color:var(--mute)}
-.sticker{position:absolute;top:-22px;right:30px;width:118px;height:118px;border-radius:50%;background:var(--oranje);color:#fff;display:grid;place-items:center;text-align:center;font:700 25px/1 Caveat,cursive;transform:rotate(10deg);z-index:3;box-shadow:0 16px 30px -14px rgba(232,104,42,.8)}
-.sticker small{display:block;font:600 11px/1.2 Figtree,sans-serif;letter-spacing:.08em;text-transform:uppercase;margin-top:4px}
-.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;z-index:-1}
+.hero{position:relative;height:100svh;min-height:700px;overflow:hidden;display:grid;place-items:center;text-align:center;background:radial-gradient(120% 80% at 50% 110%,#FBD9DF 0%,rgba(251,217,223,0) 55%),radial-gradient(80% 60% at 90% 0%,#FFE3B0 0%,rgba(255,227,176,0) 60%),var(--creme)}
+#blaadjes{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3}
+.hero .tekst{position:relative;z-index:4;max-width:900px;padding:0 24px}
+.hero .tag{color:var(--groen);margin-bottom:22px}
+.hero h1{font-size:clamp(58px,9.2vw,148px);color:var(--diep);line-height:.92}
+.hero h1 .l{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .l>span{display:inline-block}
+.hero h1 em{font-style:italic;color:var(--groen)}
+.hero h1 .hoy{font-family:Caveat,cursive;font-weight:700;font-style:normal;color:var(--oranje);font-size:.78em;display:inline-block;transform:rotate(-8deg);margin-left:.08em}
+.hero p{max-width:520px;margin:26px auto 34px;font-size:19px;color:var(--mute)}
+.hero .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.zweef{position:absolute;z-index:2;border-radius:26px;overflow:hidden;box-shadow:0 34px 60px -30px rgba(14,59,38,.55);will-change:transform}
+.zweef img{width:100%;height:100%;object-fit:cover}
+.z1{width:17vw;max-width:250px;aspect-ratio:3/4;left:4%;top:16%;rotate:-7deg}
+.z2{width:12vw;max-width:180px;aspect-ratio:1;left:13%;bottom:9%;rotate:6deg;border-radius:50%}
+.z3{width:8vw;max-width:130px;aspect-ratio:3/4;left:21%;top:50%;rotate:-5deg}
+.z4{width:16vw;max-width:240px;aspect-ratio:3/4;right:5%;top:14%;rotate:6deg}
+.z5{width:13vw;max-width:190px;aspect-ratio:1;right:15%;bottom:8%;rotate:-5deg;border-radius:50%}
+.z6{width:8vw;max-width:130px;aspect-ratio:3/4;right:20%;top:47%;rotate:7deg}
+.z7{width:11vw;max-width:160px;aspect-ratio:3/4;left:3%;bottom:-3%;rotate:9deg}
+.stempel{position:absolute;z-index:5;right:6%;bottom:30%;width:132px;height:132px}
+.stempel svg{width:100%;height:100%;animation:draai 18s linear infinite}
+.stempel img{position:absolute;inset:26px;width:80px;height:80px;border-radius:50%}
+@keyframes draai{to{transform:rotate(360deg)}}
+.scrollhint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:5;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);display:flex;flex-direction:column;align-items:center;gap:8px}
+.scrollhint i{width:1.5px;height:38px;background:linear-gradient(var(--groen),transparent);animation:hint 2s ease-in-out infinite;transform-origin:top}
+@keyframes hint{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
 
-/* gelegenheden */
-.momenten{background:#fff;border-radius:48px 48px 0 0}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.kaart{background:var(--creme);border-radius:var(--r);overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s}
-.kaart:hover{transform:translateY(-6px);box-shadow:0 26px 50px -30px rgba(20,40,30,.5)}
-.kaart .foto{aspect-ratio:4/4.4;overflow:hidden;position:relative}
-.kaart .foto img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
-.kaart:hover .foto img{transform:scale(1.05)}
-.kaart .tag{position:absolute;left:14px;top:14px;background:rgba(255,255,255,.92);border-radius:999px;padding:6px 12px;font-size:12.5px;font-weight:600;color:var(--groen3)}
-.kaart .tekst{padding:20px 22px 22px;flex:1;display:flex;flex-direction:column}
-.kaart h3{font-size:27px;margin-bottom:8px}
-.kaart p{color:var(--mute);font-size:15.5px;flex:1}
-.meer{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-weight:600;font-size:15px;color:var(--groen)}
-.meer svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;transition:transform .3s}
-.kaart:hover .meer svg{transform:translateX(4px)}
+/* marquee */
+.loop{background:var(--groen);color:var(--creme);padding:26px 0;overflow:hidden;position:relative;z-index:5}
+.loop .spoor{display:flex;gap:34px;width:max-content;animation:loop 38s linear infinite;align-items:center}
+.loop span{font:italic 400 clamp(34px,4.4vw,62px)/1 Fraunces,serif;white-space:nowrap}
+.loop img{width:clamp(56px,6vw,84px);height:clamp(56px,6vw,84px);border-radius:50%;object-fit:cover}
+@keyframes loop{to{transform:translateX(-50%)}}
 
-/* workshops */
-.ws .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:center}
-.ws-beeld{position:relative}
-.ws-beeld .hoofd{border-radius:220px 220px var(--r) var(--r);overflow:hidden;aspect-ratio:4/5}
-.ws-beeld .hoofd img{width:100%;height:100%;object-fit:cover}
-.ws-beeld .klein{position:absolute;right:-26px;bottom:-30px;width:44%;border-radius:22px;overflow:hidden;border:8px solid var(--creme);aspect-ratio:1}
-.ws-beeld .klein img{width:100%;height:100%;object-fit:cover}
-.prijs{position:absolute;left:-18px;top:44px;background:var(--geel);border-radius:20px;padding:14px 18px;transform:rotate(-4deg);box-shadow:0 18px 30px -18px rgba(20,40,30,.5)}
-.prijs small{display:block;font-size:12.5px;font-weight:600;color:var(--groen3);opacity:.8}
-.prijs b{font:400 34px/1 'DM Serif Display',serif;color:var(--groen3)}
-.ws-lijst{display:grid;gap:12px;margin:28px 0 26px}
-.ws-item{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;background:#fff;border:1px solid var(--lijn);border-radius:22px;padding:16px 20px;transition:border-color .3s,transform .3s var(--ease)}
-.ws-item:hover{border-color:var(--groen);transform:translateX(4px)}
-.ws-item .ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:21px}
-.ws-item h3{font:600 17px/1.3 Figtree,sans-serif;color:var(--inkt)}
-.ws-item p{font-size:14.5px;color:var(--mute);line-height:1.45}
-.ws-item .lbl{font-size:12.5px;font-weight:700;color:var(--groen);background:var(--munt);padding:5px 11px;border-radius:999px;white-space:nowrap}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:30px}
-.chips span{font-size:14px;padding:7px 14px;border-radius:999px;background:var(--creme2);color:var(--groen3);font-weight:500}
+/* statement */
+.zeg{padding:170px 0 150px}
+.zeg p{font:400 clamp(34px,4.6vw,70px)/1.12 Fraunces,serif;letter-spacing:-.02em;max-width:1180px;color:var(--diep)}
+.zeg .w{opacity:.14;transition:opacity .2s}
+.zeg .pil{display:inline-block;width:1.7em;height:.95em;border-radius:999px;overflow:hidden;vertical-align:-.12em;margin:0 .12em}
+.zeg .pil img{width:100%;height:100%;object-fit:cover}
+.zeg .onder{display:flex;gap:40px;margin-top:60px;flex-wrap:wrap;align-items:center}
+.cijfer b{display:block;font:400 64px/1 Fraunces,serif;color:var(--groen)}
+.cijfer small{color:var(--mute);font-size:15px}
 
-/* kampen */
-.kamp{background:var(--groen3);color:var(--creme);border-radius:48px;margin:0 24px;padding:100px 0;position:relative;overflow:hidden}
-.kamp h2{color:var(--creme)}
-.kamp .kop p{color:rgba(255,248,238,.75)}
-.kamp .eyebrow{color:var(--geel)}
-.kamp-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:18px}
-.kk{border-radius:var(--r);padding:28px;background:rgba(255,248,238,.07);border:1px solid rgba(255,248,238,.14)}
-.kk.licht{background:var(--creme);color:var(--inkt);border:0}
-.kk .wie{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--geel)}
-.kk.licht .wie{color:var(--oranje)}
-.kk h3{font-size:32px;margin:10px 0 6px;color:inherit}
-.kk.licht h3{color:var(--groen3)}
-.kk .bedrag{font:400 46px/1 'DM Serif Display',serif;margin:18px 0 6px}
-.kk .bedrag small{font:500 15px Figtree,sans-serif;opacity:.7}
-.kk ul{list-style:none;margin-top:16px;display:grid;gap:9px;font-size:15px}
-.kk li{display:flex;gap:10px;align-items:flex-start}
-.kk li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--oranje);margin-top:9px;flex:none}
-.kk p{font-size:15.5px;opacity:.85}
-.datums{margin-top:34px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;padding:22px 28px;border-radius:22px;background:rgba(255,248,238,.07);font-size:15.5px}
-.datums b{color:var(--geel)}
-.kamp .hoy-groot{position:absolute;right:-30px;bottom:-70px;font:700 300px/1 Caveat,cursive;color:rgba(255,248,238,.05);pointer-events:none}
+/* horizontaal */
+.hor{position:relative;overflow:hidden}
+.hor .kop{padding:0 0 46px}
+.hor h2,.sectiekop{font-size:clamp(46px,6.4vw,104px);color:var(--diep)}
+.hor h2 .hand,.sectiekop .hand{color:var(--oranje);font-size:.8em}
+.baan{display:flex;gap:26px;padding-left:max(28px,calc((100vw - 1280px)/2));padding-right:28px;width:max-content}
+.paneel{width:min(1080px,86vw);height:min(640px,74vh);border-radius:40px;display:grid;grid-template-columns:1.05fr .95fr;overflow:hidden;flex:none;position:relative}
+.paneel .foto{position:relative;overflow:hidden}
+.paneel .foto img{width:100%;height:118%;object-fit:cover;position:absolute;top:-9%}
+.paneel .klein{position:absolute;right:22px;bottom:22px;width:34%;aspect-ratio:3/4;border-radius:22px;overflow:hidden;border:6px solid rgba(255,255,255,.85);rotate:4deg;box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
+.paneel .klein img{position:static;height:100%;width:100%;object-fit:cover}
+.paneel .info{padding:48px 46px;display:flex;flex-direction:column}
+.paneel .nr{font:700 15px Figtree;letter-spacing:.16em;opacity:.7}
+.paneel h3{font-size:clamp(40px,4.2vw,64px);margin:16px 0 18px}
+.paneel p{font-size:17px;opacity:.85;max-width:420px}
+.paneel ul{list-style:none;margin:22px 0 auto;display:grid;gap:10px;font-size:15.5px}
+.paneel li{display:flex;gap:12px;align-items:baseline}
+.paneel li::before{content:"✿";font-size:14px}
+.paneel .btn{align-self:flex-start;margin-top:26px}
+.p-trouw{background:#F9DCE2;color:#4A1E2A}
+.p-ws{background:#FFD36B;color:#3B2A05}
+.p-kamp{background:#9DC0F0;color:#0F2547}
+.p-zijde{background:#CDBDF2;color:#2A1A4D}
+.p-shop{background:#F26A2E;color:#fff}
 
-/* webshop */
-.shop-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:auto auto;gap:18px}
-.sk{border-radius:var(--r);overflow:hidden;position:relative;text-decoration:none;display:flex;flex-direction:column;min-height:270px;transition:transform .4s var(--ease)}
-.sk:hover{transform:translateY(-5px)}
-.sk.foto{color:#fff}
-.sk.foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
-.sk.foto:hover img{transform:scale(1.05)}
-.sk.foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,30,22,0) 35%,rgba(15,30,22,.78))}
-.sk .in{position:relative;z-index:2;margin-top:auto;padding:26px}
-.sk h3{font-size:30px;color:inherit;margin-bottom:6px}
-.sk p{font-size:15.5px;opacity:.9;max-width:380px}
-.sk.groot{grid-row:1/3;min-height:560px}
-.sk.kleur{padding:0}
-.sk.kleur .in{margin-top:0;height:100%;display:flex;flex-direction:column}
-.sk.kleur h3{color:var(--groen3)}
-.sk.kleur p{color:var(--mute);opacity:1}
-.sk .em{font-size:34px;margin-bottom:auto;padding-bottom:30px}
-.sk .pill{display:inline-block;margin-top:14px;background:rgba(255,255,255,.92);color:var(--groen3);font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px}
-.sk.kleur .pill{background:#fff}
+/* winter */
+.winter{background:var(--diep);color:var(--creme);border-radius:56px;margin:150px 20px 0;padding:120px 0;position:relative;overflow:hidden}
+.winter .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+.winter h2{font-size:clamp(46px,5.6vw,88px);color:var(--creme)}
+.winter h2 .hand{color:var(--zon);font-size:.82em}
+.winter p{opacity:.8;font-size:18px;margin:24px 0 30px;max-width:460px}
+.winter .tag{color:var(--zon)}
+.kransen{display:grid;grid-template-columns:1fr 1fr;gap:18px;position:relative}
+.kransen figure{border-radius:28px;overflow:hidden;aspect-ratio:3/4;position:relative}
+.kransen figure:nth-child(2){margin-top:70px}
+.kransen figure:nth-child(3){margin-top:-70px}
+.kransen img{width:100%;height:100%;object-fit:cover}
+.gloed{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,194,61,.55),rgba(255,194,61,0) 65%);width:520px;height:520px;filter:blur(10px);animation:gloed 5s ease-in-out infinite alternate;pointer-events:none}
+@keyframes gloed{from{opacity:.35;transform:scale(.9)}to{opacity:.8;transform:scale(1.08)}}
+.lichtjes{position:absolute;inset:0;pointer-events:none}
+.lichtjes i{position:absolute;width:5px;height:5px;border-radius:50%;background:#FFE29A;box-shadow:0 0 12px 4px rgba(255,214,120,.7);animation:twinkel 2.4s ease-in-out infinite}
+@keyframes twinkel{0%,100%{opacity:.15}50%{opacity:1}}
 
-/* over */
-.over .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-.vandaag{font:400 clamp(70px,10vw,140px)/.9 'DM Serif Display',serif;color:var(--groen3)}
-.vandaag .hand{font-size:.62em;display:block;margin-top:10px;transform:rotate(-4deg);transform-origin:left}
-.over-foto{position:relative;margin-top:34px;border-radius:var(--r);overflow:hidden;aspect-ratio:16/10}
-.over-foto img{width:100%;height:100%;object-fit:cover}
-.over h2{font-size:clamp(36px,4.4vw,52px);margin:14px 0 20px}
-.over p{color:var(--mute);margin-bottom:16px}
-.over p strong{color:var(--inkt);font-weight:600}
-.waarden{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 30px}
-.waarden span{padding:8px 15px;border-radius:999px;font-size:14.5px;font-weight:500}
+/* galerij */
+.gal{padding:160px 0 120px;overflow:hidden}
+.gal .kop{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:60px;flex-wrap:wrap}
+.gal .kop p{max-width:380px;color:var(--mute)}
+.kolommen{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;height:1100px;overflow:hidden;mask-image:linear-gradient(transparent,#000 8%,#000 92%,transparent)}
+.kol{display:grid;gap:18px;align-content:start}
+.kol figure{border-radius:24px;overflow:hidden}
+.kol img{width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1s var(--ease)}
+.kol figure:hover img{transform:scale(1.06)}
+.kol:nth-child(2),.kol:nth-child(4){margin-top:-180px}
+
+/* kaat */
+.kaat .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:80px;align-items:center}
+.portret{position:relative}
+.portret .ram{border-radius:300px 300px 40px 40px;overflow:hidden;aspect-ratio:4/5}
+.portret .ram img{width:100%;height:115%;object-fit:cover}
+.portret .logo-groot{position:absolute;right:-30px;top:40px;width:150px;height:150px;border-radius:50%;box-shadow:0 20px 40px -20px rgba(14,59,38,.5);rotate:8deg}
+.portret .notitie{position:absolute;left:-26px;bottom:50px;background:var(--zon);padding:18px 22px;border-radius:22px;rotate:-4deg;font:700 30px/1 Caveat,cursive;color:var(--diep);box-shadow:0 20px 40px -22px rgba(0,0,0,.4)}
+.kaat h2{font-size:clamp(44px,5.4vw,82px);color:var(--diep);margin:18px 0 26px}
+.kaat h2 em{color:var(--groen)}
+.kaat p{color:var(--mute);margin-bottom:16px;font-size:18px}
+.kaat p strong{color:var(--inkt);font-weight:600}
+.kaat .tag{color:var(--groen)}
 
 /* reviews */
-.rev{background:#fff;border-radius:48px;margin:0 24px}
-.rev-top{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:46px;flex-wrap:wrap}
-.rev-top .kop{margin-bottom:0}
-.score{display:flex;align-items:center;gap:18px;background:var(--creme);border-radius:24px;padding:18px 24px}
-.score b{font:400 54px/1 'DM Serif Display',serif;color:var(--groen3)}
-.score .st{color:#F2A900;letter-spacing:3px}
-.score small{display:block;color:var(--mute);font-size:14px}
-.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.q{background:var(--creme);border-radius:var(--r);padding:30px;display:flex;flex-direction:column}
-.q .st{color:#F2A900;letter-spacing:3px;margin-bottom:14px}
-.q p{font-size:16.5px;flex:1}
-.q .van{display:flex;align-items:center;gap:12px;margin-top:22px;font-weight:600;font-size:15px}
-.q .van i{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:700;color:var(--groen3)}
-.q .van small{display:block;font-weight:500;color:var(--mute);font-size:13px}
-.rev .onder{text-align:center;margin-top:36px}
+.rev{padding:150px 0 40px;overflow:hidden}
+.rev .kop{text-align:center;margin-bottom:56px}
+.rev .score{display:inline-flex;align-items:center;gap:14px;background:#fff;border-radius:999px;padding:10px 22px 10px 10px;margin-top:26px;box-shadow:0 14px 30px -22px rgba(0,0,0,.4)}
+.rev .score .g{width:42px;height:42px;border-radius:50%;background:var(--groen);color:#fff;display:grid;place-items:center;font-weight:700}
+.rev .score b{font:600 26px Fraunces,serif;color:var(--diep)}
+.ster{color:#F2A900;letter-spacing:2px}
+.rij-rev{display:flex;gap:22px;width:max-content;animation:loop 60s linear infinite}
+.rij-rev:hover{animation-play-state:paused}
+.rk{width:440px;background:#fff;border-radius:28px;padding:30px;flex:none;box-shadow:0 20px 40px -32px rgba(14,59,38,.5)}
+.rk p{font:400 21px/1.4 Fraunces,serif;color:var(--diep);margin:14px 0 20px}
+.rk .van{display:flex;align-items:center;gap:12px;font-weight:600}
+.rk .van i{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-style:normal;color:var(--diep);font-weight:700}
+.rk .van small{display:block;font-weight:500;color:var(--mute);font-size:13px}
 
 /* contact */
-.contact .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:22px}
-.c-kaart{border-radius:var(--r);padding:40px}
-.c-kaart.groen{background:var(--groen);color:var(--creme)}
-.c-kaart.groen h2{color:var(--creme);font-size:clamp(36px,4.4vw,52px);margin:12px 0 16px}
-.c-kaart.groen .eyebrow{color:var(--geel)}
-.c-kaart.groen p{color:rgba(255,248,238,.8)}
-.c-lijst{display:grid;gap:10px;margin:28px 0}
-.c-lijst a,.c-lijst div{display:flex;align-items:center;gap:14px;text-decoration:none;padding:14px 16px;border-radius:18px;background:rgba(255,248,238,.08);transition:background .25s}
-.c-lijst a:hover{background:rgba(255,248,238,.16)}
-.c-lijst .ic{width:40px;height:40px;border-radius:12px;background:var(--creme);display:grid;place-items:center;flex:none}
-.c-lijst svg{width:19px;height:19px;stroke:var(--groen);fill:none;stroke-width:2}
-.c-lijst small{display:block;font-size:12.5px;opacity:.7}
-.c-lijst b{font-weight:600}
-.c-kaart.creme{background:var(--perzik);display:flex;flex-direction:column}
-.c-kaart.creme h3{font-size:36px;margin:12px 0 10px}
-.c-kaart.creme p{color:#6b4f40}
-.nieuws{display:flex;gap:8px;margin:24px 0 10px;background:#fff;border-radius:999px;padding:6px}
-.nieuws input{flex:1;border:0;background:none;padding:0 16px;font:inherit;font-size:16px;min-width:0}
-.nieuws input:focus{outline:none}
-.nieuws button{border:0;cursor:pointer;font-family:inherit}
-.c-kaart.creme .fijn{font-size:13px;color:#7c6152}
-.socials{display:flex;gap:10px;margin-top:auto;padding-top:28px}
-.socials a{width:46px;height:46px;border-radius:50%;background:#fff;display:grid;place-items:center;transition:transform .3s}
-.socials a:hover{transform:translateY(-3px)}
-.socials svg{width:20px;height:20px;fill:var(--groen3)}
-.review-cta{margin-top:18px;background:rgba(255,255,255,.55);border-radius:20px;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;font-size:15px;color:#5a4336}
-.review-cta a{font-weight:700;color:var(--groen3);white-space:nowrap}
+.contact{padding:130px 0 40px}
+.groot-cta{position:relative;border-radius:56px;overflow:hidden;min-height:640px;display:flex;align-items:flex-end;color:#fff}
+.groot-cta>img{position:absolute;inset:0;width:100%;height:120%;object-fit:cover;top:-10%}
+.groot-cta::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,59,38,0) 20%,rgba(14,59,38,.85))}
+.groot-cta .in{position:relative;z-index:2;padding:60px;display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:end;width:100%}
+.groot-cta h2{font-size:clamp(50px,6.6vw,108px);line-height:.95}
+.groot-cta h2 .hand{color:var(--zon);font-size:.8em}
+.kontakt{display:grid;gap:10px}
+.kontakt a{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:20px;background:rgba(255,255,255,.14);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);text-decoration:none;transition:background .3s}
+.kontakt a:hover{background:rgba(255,255,255,.26)}
+.kontakt small{display:block;font-size:12.5px;opacity:.75}
+.kontakt b{font-weight:600}
+.kontakt .ic{width:40px;height:40px;border-radius:12px;background:#fff;display:grid;place-items:center;flex:none}
+.kontakt svg{width:19px;height:19px;stroke:var(--groen);fill:none;stroke-width:2}
 
-/* footer */
-footer{padding:80px 0 34px}
-.f-grid{display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:30px;padding-bottom:50px;border-bottom:1px solid var(--lijn)}
-.f-grid h4{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--groen);margin-bottom:14px}
+footer{padding:90px 0 30px}
+.f-grid{display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:30px;padding-bottom:50px;border-bottom:1px solid var(--lijn)}
+.f-grid h4{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--groen);margin-bottom:14px}
 .f-grid ul{list-style:none;display:grid;gap:8px;font-size:15px}
 .f-grid a{text-decoration:none;color:var(--mute)}
-.f-grid a:hover{color:var(--groen3)}
-.f-grid .slogan{font:400 26px/1.2 'DM Serif Display',serif;color:var(--groen3);margin:18px 0 8px;max-width:280px}
+.f-grid a:hover{color:var(--diep)}
+.f-grid .slogan{font:italic 400 28px/1.15 Fraunces,serif;color:var(--diep);margin:18px 0 10px}
 .f-grid .klein{color:var(--mute);font-size:14.5px}
+.nieuws{display:flex;gap:6px;margin-top:18px;background:#fff;border-radius:999px;padding:5px;max-width:380px}
+.nieuws input{flex:1;border:0;background:none;padding:0 14px;font:inherit;font-size:15px;min-width:0}
+.nieuws input:focus{outline:none}
+.nieuws button{border:0;cursor:pointer;font-family:inherit;padding:11px 18px;font-size:14px}
 .f-onder{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:24px;font-size:13.5px;color:var(--mute)}
 .f-onder a{color:var(--mute);text-decoration:none}
 .f-onder nav{display:flex;gap:18px;flex-wrap:wrap}
+.reuzenhoy{font:700 clamp(120px,26vw,420px)/1 Caveat,cursive;color:var(--groen);text-align:center;margin:30px 0 20px;opacity:.95;letter-spacing:-.02em;user-select:none}
 
-/* reveal */
-.rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-.rv.in{opacity:1;transform:none}
-.no-js .rv{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+/* cursor bloem */
+.bloemcursor{position:fixed;left:0;top:0;width:86px;height:86px;border-radius:50%;background:var(--oranje);color:#fff;display:grid;place-items:center;font:700 22px Caveat,cursive;pointer-events:none;z-index:99;transform:translate(-50%,-50%) scale(0);transition:transform .35s var(--ease)}
+.bloemcursor.aan{transform:translate(-50%,-50%) scale(1)}
 
-/* responsive */
-@media(max-width:1180px){
- .menu>li>a,.menu>li>button{padding:10px 9px;font-size:15px}
- .nav .wrap{gap:14px}
-}
+/* reveal fallback */
+.js .op{opacity:0;transform:translateY(40px)}
+
+@media(max-width:1180px){.menu>li>a,.menu>li>button{padding:10px 10px;font-size:15px}}
 @media(max-width:1060px){
- .menu,.nav .btn{display:none}
+ .menu,.nav .btn.groen{display:none}
  .burger{display:block}
- .mobiel{display:block;position:fixed;inset:0;top:0;z-index:60;background:var(--creme);padding:24px;overflow:auto;transform:translateY(-100%);transition:transform .45s var(--ease);visibility:hidden}
- .mobiel.open{transform:none;visibility:visible}
- .mobiel .rij{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}
- .mobiel .dicht{width:46px;height:46px;border-radius:50%;border:0;background:var(--creme2);font-size:22px;cursor:pointer}
- .mobiel a.hoofd{display:block;padding:14px 4px;font:400 28px/1.2 'DM Serif Display',serif;color:var(--groen3);text-decoration:none;border-bottom:1px solid var(--lijn)}
- .mobiel details{border-bottom:1px solid var(--lijn)}
- .mobiel summary{list-style:none;padding:14px 4px;font:400 28px/1.2 'DM Serif Display',serif;color:var(--groen3);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
- .mobiel summary::-webkit-details-marker{display:none}
- .mobiel summary::after{content:"+";font-family:Figtree;font-size:26px;color:var(--groen)}
- .mobiel details[open] summary::after{content:"−"}
- .mobiel details a{display:block;padding:9px 6px;color:var(--mute);text-decoration:none;font-size:17px}
- .mobiel details div{padding-bottom:12px}
- .mobiel .btn{margin-top:26px;width:100%;justify-content:center}
- .hero .wrap,.ws .wrap,.over .wrap,.contact .wrap{grid-template-columns:minmax(0,1fr)}
- .hero .wrap>*,.ws .wrap>*,.over .wrap>*,.contact .wrap>*{min-width:0}
- .grid4{grid-template-columns:repeat(2,1fr)}
- .kamp-grid{grid-template-columns:1fr}
- .shop-grid{grid-template-columns:1fr 1fr}
- .sk.groot{grid-row:auto;grid-column:1/-1;min-height:380px}
- .quotes{grid-template-columns:1fr}
+ .z3,.z6{display:none}
+ .z1{width:26vw;left:-4%;top:12%}.z4{width:25vw;right:-4%;top:10%}
+ .z2{width:20vw;left:4%}.z5{width:20vw;right:4%}.z7{display:none}
+ .stempel{width:104px;height:104px;right:4%;bottom:24%}.stempel img{inset:20px;width:64px;height:64px}
+ .baan{flex-direction:column;width:auto;padding:0 20px}
+ .paneel{width:100%;height:auto;grid-template-columns:1fr}
+ .paneel .foto{aspect-ratio:4/3.2}
+ .paneel .info{order:-1;padding:36px 30px}
+ .winter .wrap,.kaat .wrap{grid-template-columns:1fr}
+ .kolommen{grid-template-columns:repeat(3,1fr);height:900px}
+ .kol:nth-child(4){display:none}
+ .groot-cta .in{grid-template-columns:1fr}
  .f-grid{grid-template-columns:1fr 1fr}
- .ws-beeld{max-width:520px}
+ .f-grid>div:first-child{grid-column:1/-1}
+ .portret{max-width:520px}
 }
 @media(max-width:640px){
  body{font-size:16px}
  .wrap{width:calc(100% - 36px)}
- section{padding:76px 0}
- .nav .wrap{height:72px}
- .logo .bol{width:40px;height:40px;font-size:20px}
- .logo b{font-size:19px}
- .logo small{display:none}
- .balk{font-size:13px}
- .hero{padding:32px 0 70px}
- .hero h1{font-size:clamp(44px,12.5vw,60px)}
- .collage{height:auto;grid-template-rows:auto auto;gap:10px}
- .collage .groot{grid-row:1/3;aspect-ratio:3/4.4}
- .collage figure:not(.groot){aspect-ratio:1}
- .badge{left:10px;bottom:-24px;padding:10px 14px}
- .badge b{font-size:24px}
- .sticker{width:92px;height:92px;font-size:20px;top:-18px;right:8px}
- .grid4{grid-template-columns:1fr}
- .kaart .foto{aspect-ratio:16/11}
- .kamp,.rev{margin:0 10px;border-radius:32px}
- .kamp{padding:70px 0}
- .kk{padding:24px}
- .shop-grid{grid-template-columns:1fr}
- .sk{min-height:240px}
- .ws-item{grid-template-columns:auto 1fr}
- .ws-item .lbl{grid-column:2;justify-self:start}
- .ws-beeld .klein{right:-6px;bottom:-22px}
- .prijs{left:-4px}
- .c-kaart{padding:28px}
- .f-grid{grid-template-columns:1fr 1fr}
- .f-grid>div:first-child{grid-column:1/-1}
- .cta .btn{flex:1 1 100%;justify-content:center}
- .c-lijst b{word-break:break-word}
- .nieuws .btn{padding:12px 16px}
- .momenten{border-radius:32px 32px 0 0}
+ .nav{top:10px}
+ .logo img{width:42px;height:42px}
+ .hero{min-height:840px;align-items:end;padding-bottom:96px}
+ .hero h1{font-size:clamp(50px,14vw,72px)}
+ .hero p{font-size:17px;margin:20px auto 28px}
+ .hero .cta .btn{flex:1 1 100%;justify-content:center}
+ .z1{width:40vw;top:9%;left:-10%}.z4{width:38vw;top:8%;right:-10%}
+ .z2{width:28vw;left:30%;top:13%;bottom:auto}.z5{display:none}
+ .stempel{display:none}
+ .zeg{padding:110px 0 90px}
+ .hor .kop{padding-bottom:30px}
+ .paneel{border-radius:30px}
+ .paneel .klein{width:38%;right:14px;bottom:14px}
+ .winter{margin:100px 10px 0;border-radius:36px;padding:80px 0}
+ .kransen figure:nth-child(2){margin-top:40px}.kransen figure:nth-child(3){margin-top:-40px}
+ .gal{padding:110px 0 80px}
+ .kolommen{grid-template-columns:repeat(2,1fr);height:760px}
+ .kol:nth-child(3){display:none}
+ .kol:nth-child(2){margin-top:-120px}
+ .portret .logo-groot{width:104px;height:104px;right:-6px}
+ .portret .notitie{left:-6px;font-size:24px}
+ .rk{width:300px;padding:24px}.rk p{font-size:18px}
+ .groot-cta{border-radius:36px;min-height:auto;padding-top:280px}
+ .groot-cta .in{padding:30px 24px}
+ .contact{padding:90px 0 20px}
 }
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .op{opacity:1;transform:none}}
 </style>
 </head>
-<body class="no-js">
-<script>document.body.classList.remove('no-js')</script>
-
-<div class="balk">Nieuw in het atelier: winterkransen maken met verse of droge materialen. <a href="#workshops">Bekijk de workshops</a></div>
+<body>
+<script>document.documentElement.classList.add('js')</script>
 
 <header class="nav" id="nav">
- <div class="wrap">
-  <a class="logo" href="#top" aria-label="Hoy by Kaat, naar boven"><span class="bol">hoy</span><span><b>Hoy by Kaat</b><small>Bloemenatelier · Leuven</small></span></a>
-  <ul class="menu" id="menu">
-   <li><a href="#over">Hoy!</a></li>
+ <div class="bar">
+  <a class="logo" href="#top" aria-label="Hoy by Kaat"><img src="img/logo.png" alt="Logo Hoy by Kaat"><b>Hoy by Kaat</b></a>
+  <ul class="menu">
+   <li><a href="#kaat">Hoy!</a></li>
    <li><a href="#huwelijk">Huwelijk</a></li>
    <li class="drop"><button type="button" aria-expanded="false">Workshops <svg class="pijl" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
     <ul class="sub">
-     <li><a href="#workshops"><i style="background:var(--munt)">✿</i><span><b>Permanente workshops</b><small>Elke dag op afspraak, vanaf 2 personen</small></span></a></li>
-     <li><a href="#workshops"><i style="background:var(--roze)">❀</i><span><b>Papieren- en parelbloemen</b><small>Bloemen die nooit verwelken</small></span></a></li>
-     <li><a href="#workshops"><i style="background:var(--geel)">❄</i><span><b>Winterkransen</b><small>Vers, droog of met kunstbloemen</small></span></a></li>
-    </ul>
-   </li>
+     <li><a href="#workshops"><img src="img/ws2.webp" alt=""><span><b>Permanente workshops</b><small>Elke dag op afspraak, vanaf 2 personen</small></span></a></li>
+     <li><a href="#workshops"><img src="img/p3.webp" alt=""><span><b>Papieren- en parelbloemen</b><small>Bloemen die nooit verwelken</small></span></a></li>
+     <li><a href="#winter"><img src="img/win2.webp" alt=""><span><b>Winterkransen</b><small>Vers, droog of met kunstbloemen</small></span></a></li>
+    </ul></li>
    <li><a href="#kampen">Kampen</a></li>
    <li><a href="#zijde">Zijden bloemen</a></li>
    <li class="drop"><button type="button" aria-expanded="false">Webshop <svg class="pijl" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
     <ul class="sub">
-     <li><a href="#webshop"><i style="background:var(--roze)">✾</i><span><b>Verse bloemen</b><small>Levering in Leuven en 10 km rond</small></span></a></li>
-     <li><a href="#webshop"><i style="background:var(--perzik)">❁</i><span><b>Droogbloemen</b><small>Kies je kleuren, verzenden kan</small></span></a></li>
-     <li><a href="#webshop"><i style="background:var(--blauw)">✉</i><span><b>Cadeaubon</b><small>Voor bloemen of een workshop</small></span></a></li>
-     <li><a href="#webshop"><i style="background:var(--munt)">↻</i><span><b>Abonnementen</b><small>Elke maand bloemen in huis</small></span></a></li>
-    </ul>
-   </li>
+     <li><a href="#webshop"><img src="img/shop1.webp" alt=""><span><b>Verse bloemen</b><small>Levering in Leuven en 10 km rond</small></span></a></li>
+     <li><a href="#webshop"><img src="img/shop2.webp" alt=""><span><b>Droogbloemen</b><small>Kies je kleuren, verzenden kan</small></span></a></li>
+     <li><a href="#webshop"><img src="img/p2.webp" alt=""><span><b>Cadeaubon</b><small>Voor bloemen of een workshop</small></span></a></li>
+     <li><a href="#webshop"><img src="img/g05.webp" alt=""><span><b>Abonnementen</b><small>Elke maand bloemen in huis</small></span></a></li>
+    </ul></li>
    <li><a href="#contact">Contact</a></li>
   </ul>
-  <a class="btn vol" href="https://app.webhero-bookings.com/hoy" target="_blank" rel="noopener">Boek een workshop</a>
+  <a class="btn groen" href="https://app.webhero-bookings.com/hoy" target="_blank" rel="noopener">Boek een workshop</a>
   <button class="burger" id="burger" type="button" aria-label="Menu openen"><span></span><span></span><span></span></button>
  </div>
 </header>
 
-<div class="mobiel" id="mobiel" aria-hidden="true">
- <div class="rij"><a class="logo" href="#top"><span class="bol">hoy</span><span><b>Hoy by Kaat</b></span></a><button class="dicht" id="dicht" type="button" aria-label="Menu sluiten">×</button></div>
- <a class="hoofd" href="#over">Hoy!</a>
- <a class="hoofd" href="#huwelijk">Huwelijk</a>
- <details><summary>Workshops</summary><div><a href="#workshops">Permanente workshops</a><a href="#workshops">Papieren- en parelbloemen</a><a href="#workshops">Winterkransen</a></div></details>
- <a class="hoofd" href="#kampen">Kinder- en jeugdkampen</a>
- <a class="hoofd" href="#zijde">Zijden bloemen</a>
+<nav class="mobiel" id="mobiel" aria-hidden="true">
+ <div class="rij"><b>Hoy by Kaat</b><button class="dicht" id="dicht" type="button" aria-label="Menu sluiten">×</button></div>
+ <a class="h" href="#kaat">Hoy!</a>
+ <a class="h" href="#huwelijk">Huwelijk</a>
+ <details><summary>Workshops</summary><div><a href="#workshops">Permanente workshops</a><a href="#workshops">Papieren- en parelbloemen</a><a href="#winter">Winterkransen</a></div></details>
+ <a class="h" href="#kampen">Kinder- en jeugdkampen</a>
+ <a class="h" href="#zijde">Zijden bloemen</a>
  <details><summary>Webshop</summary><div><a href="#webshop">Verse bloemen</a><a href="#webshop">Droogbloemen</a><a href="#webshop">Cadeaubon</a><a href="#webshop">Abonnementen</a></div></details>
- <a class="hoofd" href="#contact">Contact</a>
- <a class="btn vol" href="https://app.webhero-bookings.com/hoy" target="_blank" rel="noopener">Boek een workshop</a>
-</div>
+ <a class="h" href="#contact">Contact</a>
+ <a class="btn oranje" href="https://app.webhero-bookings.com/hoy" target="_blank" rel="noopener">Boek een workshop</a>
+</nav>
 
 <main id="top">
-<section class="hero">
- <div class="blob" style="width:420px;height:420px;background:var(--roze);right:6%;top:4%"></div>
- <div class="blob" style="width:360px;height:360px;background:var(--geel);right:36%;bottom:-6%"></div>
+<section class="hero" data-bg="#F7F3EA">
+ <canvas id="blaadjes" aria-hidden="true"></canvas>
+ <figure class="zweef z1" data-d="1.2"><img src="img/f1.webp" alt="Kleurrijk boeket in de hand" fetchpriority="high"></figure>
+ <figure class="zweef z2" data-d="2"><img src="img/f2.webp" alt="Papieren klaprozen"></figure>
+ <figure class="zweef z3" data-d=".7"><img src="img/f3.webp" alt="Bloemen van pareltjes"></figure>
+ <figure class="zweef z4" data-d="1.4"><img src="img/f4.webp" alt="Bruidspaar onder een bloemenboog"></figure>
+ <figure class="zweef z5" data-d="1.8"><img src="img/f5.webp" alt="Krans met lichtjes"></figure>
+ <figure class="zweef z6" data-d=".8"><img src="img/f6.webp" alt="Boeket met dahlia's en ridderspoor"></figure>
+ <figure class="zweef z7" data-d="1.5"><img src="img/f7.webp" alt="Boeket met zonnebloemen"></figure>
+ <div class="stempel" aria-hidden="true"><svg viewBox="0 0 200 200"><defs><path id="cirkel" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><circle cx="100" cy="100" r="98" fill="#fff"/><text font-family="Figtree" font-weight="700" font-size="15.5" letter-spacing="4.2" fill="#0B6B3E"><textPath href="#cirkel">HOY · VANDAAG · BLOEMEN · LEUVEN ·</textPath></text></svg><img src="img/logo.png" alt=""></div>
+ <div class="tekst">
+  <div class="tag op"><i></i>Bloemenatelier in Leuven</div>
+  <h1><span class="l"><span>Bloemen die</span></span><span class="l"><span>je dag <em>kleur</em></span></span><span class="l"><span>geven. <span class="hoy">hoy!</span></span></span></h1>
+  <p class="op">Om iets te vieren, om iemand te troosten, of om zelf eens met je handen in de bloemen te zitten. Bij Hoy kan je terecht voor grote en kleine momenten.</p>
+  <div class="cta op"><a class="btn groen" href="#webshop">Bestel bloemen <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn wit" href="https://app.webhero-bookings.com/hoy" target="_blank" rel="noopener">Boek een workshop</a></div>
+ </div>
+ <div class="scrollhint" aria-hidden="true">scroll<i></i></div>
+</section>
+
+<div class="loop" aria-hidden="true"><div class="spoor">
+ <span>verse bloemen</span><img src="img/g01.webp" alt=""><span>droogbloemen</span><img src="img/p1.webp" alt=""><span>zijde</span><img src="img/g13.webp" alt=""><span>workshops</span><img src="img/p3.webp" alt=""><span>huwelijken</span><img src="img/g02.webp" alt=""><span>kampen</span><img src="img/p2.webp" alt="">
+ <span>verse bloemen</span><img src="img/g01.webp" alt=""><span>droogbloemen</span><img src="img/p1.webp" alt=""><span>zijde</span><img src="img/g13.webp" alt=""><span>workshops</span><img src="img/p3.webp" alt=""><span>huwelijken</span><img src="img/g02.webp" alt=""><span>kampen</span><img src="img/p2.webp" alt="">
+</div></div>
+
+<section class="zeg" data-bg="#F7F3EA">
  <div class="wrap">
-  <div class="rv">
-   <span class="eyebrow">Because flowers make the difference</span>
-   <h1>Bloemen voor grote en kleine momenten. <span class="hand">hoy!</span></h1>
-   <p class="lead">Om iets te vieren, om iemand te troosten, of gewoon om zelf eens creatief te zijn. In mijn atelier in Leuven maak ik kleurrijke boeketten, bloemen voor jullie trouw en geef ik workshops voor iedereen.</p>
-   <div class="cta">
-    <a class="btn vol" href="#webshop">Bestel bloemen <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    <a class="btn licht" href="https://app.webhero-bookings.com/hoy" target="_blank" rel="noopener">Boek een workshop</a>
-   </div>
-   <div class="feiten">
-    <span><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Familie de Bayostraat 10, Leuven</span>
-    <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Atelier op afspraak</span>
-   </div>
-  </div>
-  <div class="collage rv">
-   <div class="sticker"><span>hoy!<small>vandaag</small></span></div>
-   <figure class="groot"><img src="img/hero.webp" alt="Kleurrijk boeket met dahlia's, ridderspoor en zinnia's" fetchpriority="high"></figure>
-   <figure><img src="img/koppel.webp" alt="Bruidspaar met een zacht lila bruidsboeket"></figure>
-   <figure><img src="img/papier.webp" alt="Papieren klaprozen in zachte pasteltinten" loading="lazy"></figure>
-   <a class="badge" href="https://g.page/r/CYx97H-aiHwWEBE/review" target="_blank" rel="noopener" style="text-decoration:none"><span class="g">G</span><span><b>5,0</b> <span class="st">★★★★★</span><small>77 reviews op Google</small></span></a>
+  <p id="zin">Want bloemen zijn altijd een goed idee <span class="pil"><img src="img/g07.webp" alt=""></span> Om te geven en om te krijgen. Ik maak ze kleurrijk, een beetje wild <span class="pil"><img src="img/p1.webp" alt=""></span> en nooit twee keer hetzelfde. Gewoon zoals ik zelf in het leven sta: vandaag genieten <span class="pil"><img src="img/g09.webp" alt=""></span></p>
+  <div class="onder op">
+   <div class="cijfer"><b>5,0</b><small><span class="ster">★★★★★</span> uit 77 reviews op Google</small></div>
+   <div class="cijfer"><b>2018</b><small>Het jaar dat Hoy begon</small></div>
+   <a class="btn lijn" href="#kaat" style="color:var(--diep)">Leer Kaat kennen <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
  </div>
 </section>
 
-<section class="momenten" id="huwelijk">
+<section class="hor" id="aanbod" data-bg="#FFF1E6">
+ <div class="wrap kop op"><span class="tag" style="color:var(--groen)"><i></i>Wat ik maak</span><h2 style="margin-top:14px">Vijf manieren om <span class="hand">bloemen</span> in je leven te halen</h2></div>
+ <div class="baan" id="baan">
+  <article class="paneel p-trouw" id="huwelijk">
+   <div class="foto"><img src="img/trouw1.webp" alt="Bruid ruikt aan haar kleurrijke bruidsboeket" loading="lazy"><div class="klein"><img src="img/trouw2.webp" alt="Pastelkleurig bruidsboeket" loading="lazy"></div></div>
+   <div class="info"><span class="nr">01 · HUWELIJK</span><h3>Jullie dag, in jullie kleuren</h3><p>Van bruidsboeket en corsages tot tafels, bogen en ruimtedecoratie. In verse, droge of zijden bloemen, helemaal op jullie stijl afgestemd.</p>
+    <ul><li>Eerst een vrijblijvend gesprek over jullie wensen</li><li>Verse bloemen voor bruidswerk vanaf € 700</li><li>Droog- en zijden bloemen vanaf € 300</li></ul>
+    <a class="btn" href="#contact" style="background:#4A1E2A;color:#fff">Plan een gesprek <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </article>
+  <article class="paneel p-ws" id="workshops">
+   <div class="foto"><img src="img/ws1.webp" alt="Lange tafel vol mensen tijdens een bloemenworkshop" loading="lazy"><div class="klein"><img src="img/ws2.webp" alt="Groep vriendinnen met hun eigen kransen" loading="lazy"></div></div>
+   <div class="info"><span class="nr">02 · WORKSHOPS</span><h3>Zelf aan de slag, met alles binnen handbereik</h3><p>Je hoeft niets te kunnen. Ik leg alles stap voor stap uit en je gaat naar huis met je eigen creatie, in droog-, zijden of verse bloemen.</p>
+    <ul><li>Elke dag op afspraak, vanaf € 55 per persoon</li><li>In de week vanaf 2, in het weekend vanaf 4 personen</li><li>Vrijgezellen, verjaardag, teambuilding of Moederdag</li></ul>
+    <a class="btn" href="https://app.webhero-bookings.com/hoy" target="_blank" rel="noopener" style="background:#3B2A05;color:#FFD36B">Kies je datum <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </article>
+  <article class="paneel p-kamp" id="kampen">
+   <div class="foto"><img src="img/kamp1.webp" alt="Kinderen tonen trots hun bloemstukken" loading="lazy"><div class="klein"><img src="img/kamp2.webp" alt="Kinderen op kamp met een hond" loading="lazy"></div></div>
+   <div class="info"><span class="nr">03 · KINDER- EN JEUGDKAMPEN</span><h3>Een vakantie vol bloemen</h3><p>Elke dag maken de kinderen hun eigen creaties, en elke dag gaat er iets mee naar huis. Materiaal en begeleiding zitten erbij.</p>
+    <ul><li>Kinderkamp 8 tot 14 jaar: 4 dagen voor € 220</li><li>Jeugdkamp 12+ met papier en pareltjes: € 165 of € 110</li><li>Kerst: 21 tot 23 december en 28 tot 30 december (12+)</li></ul>
+    <a class="btn" href="https://app.webhero-bookings.com/hoy" target="_blank" rel="noopener" style="background:#0F2547;color:#fff">Schrijf in <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </article>
+  <article class="paneel p-zijde" id="zijde">
+   <div class="foto"><img src="img/zijde1.webp" alt="Etalage vol bloemen boven een zaak" loading="lazy"><div class="klein"><img src="img/zijde2.webp" alt="Bloemenboog boven de ingang van een praktijk" loading="lazy"></div></div>
+   <div class="info"><span class="nr">04 · ZIJDEN BLOEMEN</span><h3>Altijd bloemen in je zaak, zonder omkijken</h3><p>Een zijden boeket in een passende vaas, en vijf keer per jaar een nieuw. Of een installatie op maat voor je etalage, horecazaak of kantoor.</p>
+    <ul><li>Boeket met vaas voor € 35 per maand (excl. btw)</li><li>Nieuw in januari, april, juni, september en november</li><li>Installaties binnen en buiten op aanvraag</li></ul>
+    <a class="btn" href="#contact" style="background:#2A1A4D;color:#fff">Vraag het aan <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </article>
+  <article class="paneel p-shop" id="webshop">
+   <div class="foto"><img src="img/shop1.webp" alt="Groot kleurrijk boeket met verse bloemen" loading="lazy"><div class="klein"><img src="img/shop2.webp" alt="Droogboeket in warme tinten" loading="lazy"></div></div>
+   <div class="info"><span class="nr">05 · WEBSHOP</span><h3>Bloemen in huis, of om weg te geven</h3><p>Eén week per maand maak ik wilde boeketten met verse bloemen. Droogboeketten kan je het hele jaar bestellen, in jouw kleuren.</p>
+    <ul><li>Levering in Leuven en 10 km rond, of afhalen</li><li>Droogbloemen verzenden kan</li><li>Abonnementen en cadeaubonnen, ook voor een workshop</li></ul>
+    <a class="btn wit" href="https://www.hoybykaat.be/webshop/categorie/flower-shop" target="_blank" rel="noopener">Naar de webshop <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </article>
+ </div>
+</section>
+
+<section class="winter" id="winter" data-bg="#F7F3EA">
+ <div class="gloed" style="left:55%;top:10%"></div>
+ <div class="lichtjes" id="lichtjes" aria-hidden="true"></div>
  <div class="wrap">
-  <div class="kop rv"><span class="eyebrow">Gelegenheden</span><h2>Want bloemen zijn altijd een goed idee</h2><p>Om te geven en om te krijgen. Elk stuk maak ik op maat, in de kleuren en de sfeer die bij jou of bij het moment passen.</p></div>
-  <div class="grid4">
-   <a class="kaart rv" href="#contact"><div class="foto"><img src="img/trouw.webp" alt="Bruidspaar in de zetel met kleurrijke trouwbloemen" loading="lazy"><span class="tag">Huwelijk</span></div><div class="tekst"><h3>Jullie trouwdag</h3><p>Van bruidsboeket en corsages tot tafels en ruimtedecoratie. In verse, droge of zijden bloemen, helemaal in jullie stijl.</p><span class="meer">Plan een gesprek <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-   <a class="kaart rv" href="#contact"><div class="foto"><img src="img/stuk.webp" alt="Kleurrijk bloemstuk met kangoeroepoot en zinnia's" loading="lazy"><span class="tag">Afscheid</span></div><div class="tekst"><h3>Rouw en troost</h3><p>Geen strakke, klassieke stukken, wel warme en kleurrijke bloemen. Grafstukken, legboeketten en manden op aanvraag.</p><span class="meer">Neem contact op <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-   <a class="kaart rv" href="#webshop"><div class="foto"><img src="img/kleur.webp" alt="Groot bloemstuk met hortensia, dahlia en zonnehoed" loading="lazy"><span class="tag">Geschenk</span></div><div class="tekst"><h3>Iemand blij maken</h3><p>Een vrolijk wildboeket, een droogboeket dat maanden mooi blijft of een cadeaubon. Gewoon omdat het kan.</p><span class="meer">Naar de webshop <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-   <a class="kaart rv" href="#zijde" id="zijde"><div class="foto"><img src="img/zijde.webp" alt="Zijden bloemen in roze, groen en geel" loading="lazy"><span class="tag">Voor je zaak</span></div><div class="tekst"><h3>Zijden bloemen</h3><p>Een zijden boeket in een passende vaas voor € 35 per maand (excl. btw). Vijf keer per jaar komt er een nieuw boeket.</p><span class="meer">Vraag het aan <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+  <div class="op">
+   <span class="tag"><i style="background:var(--zon)"></i>Nu in het atelier</span>
+   <h2 style="margin-top:16px">Winterkransen <span class="hand">maken</span></h2>
+   <p>Een avond met je handen in het groen, en naar huis met je eigen krans voor de deur of op tafel. Met verse materialen, droogbloemen of kunstbloemen, jij kiest.</p>
+   <a class="btn oranje" href="https://app.webhero-bookings.com/hoy" target="_blank" rel="noopener">Reserveer je plek <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+  <div class="kransen">
+   <figure class="op"><img src="img/win1.webp" alt="Groene krans met gedroogde sinaasappel" loading="lazy"></figure>
+   <figure class="op"><img src="img/win2.webp" alt="Krans met warme lichtjes" loading="lazy"></figure>
+   <figure class="op"><img src="img/win3.webp" alt="Dennenkrans met lichtjes" loading="lazy"></figure>
+   <figure class="op"><img src="img/win4.webp" alt="Rijke winterkrans met dennenappels" loading="lazy"></figure>
   </div>
  </div>
 </section>
 
-<section class="ws" id="workshops">
+<section class="gal" data-bg="#FDF0F2">
  <div class="wrap">
-  <div class="ws-beeld rv">
-   <div class="hoofd"><img src="img/parel.webp" alt="Bloemen gemaakt van kleurige pareltjes" loading="lazy"></div>
-   <div class="prijs"><small>Workshop vanaf</small><b>€ 55</b><small>per persoon</small></div>
-  </div>
-  <div class="rv">
-   <span class="eyebrow">Workshops in het atelier</span>
-   <h2 style="font-size:clamp(38px,5vw,58px);margin:14px 0 16px">Zelf een boeket maken in het atelier</h2>
-   <p style="color:var(--mute);font-size:18px">Je hoeft niets te kunnen. Ik leg alles stap voor stap uit en je gaat naar huis met je eigen creatie. Kies voor droog-, zijden of verse bloemen, afhankelijk van je smaak en het seizoen.</p>
-   <div class="ws-lijst">
-    <div class="ws-item"><span class="ic" style="background:var(--munt)">✿</span><div><h3>Permanente workshops</h3><p>Elke dag op afspraak. In de week vanaf 2 personen, in het weekend vanaf 4.</p></div><span class="lbl">vanaf € 55</span></div>
-    <div class="ws-item"><span class="ic" style="background:var(--geel)">❄</span><div><h3>Winterkransen</h3><p>Met verse materialen, droogbloemen of kunstbloemen, naar keuze.</p></div><span class="lbl">nu bezig</span></div>
-    <div class="ws-item"><span class="ic" style="background:var(--roze)">❀</span><div><h3>Papieren- en parelbloemen</h3><p>Bloemen van crêpepapier en pareltjes, die nooit verwelken.</p></div><span class="lbl">seizoen</span></div>
-   </div>
-   <div class="chips"><span>Vrijgezellen</span><span>Verjaardag</span><span>Teambuilding</span><span>Moederdag</span><span>Pensioen</span></div>
-   <div class="cta"><a class="btn vol" href="https://app.webhero-bookings.com/hoy" target="_blank" rel="noopener">Kies je datum <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn licht" href="tel:+32496968601">Of bel Kaat</a></div>
+  <div class="kop op"><h2 class="sectiekop">Uit het <span class="hand">atelier</span></h2><p>Een greep uit wat de voorbije maanden op de werktafel lag. Elk stuk is anders, net zoals de mensen voor wie het is.</p></div>
+  <div class="kolommen">
+   <div class="kol" data-s="-120"><figure><img src="img/g01.webp" alt="Boeket in een glazen vaas" loading="lazy"></figure><figure><img src="img/g05.webp" alt="Bloemen tegen de muur" loading="lazy"></figure><figure><img src="img/g09.webp" alt="Bloemstuk" loading="lazy"></figure><figure><img src="img/g13.webp" alt="Kleurrijke bloemen" loading="lazy"></figure><figure><img src="img/g17.webp" alt="Papieren bloemen" loading="lazy"></figure></div>
+   <div class="kol" data-s="120"><figure><img src="img/g02.webp" alt="Zonnebloemen en dahlia's" loading="lazy"></figure><figure><img src="img/g06.webp" alt="Bloemen op een rij" loading="lazy"></figure><figure><img src="img/g10.webp" alt="Bloemenlinten" loading="lazy"></figure><figure><img src="img/g14.webp" alt="Boeket in de hand" loading="lazy"></figure><figure><img src="img/g18.webp" alt="Krans van droogbloemen" loading="lazy"></figure></div>
+   <div class="kol" data-s="-200"><figure><img src="img/g03.webp" alt="Dahlia's" loading="lazy"></figure><figure><img src="img/g07.webp" alt="Ridderspoor en rozen" loading="lazy"></figure><figure><img src="img/g11.webp" alt="Bloemen in een mand" loading="lazy"></figure><figure><img src="img/g15.webp" alt="Bloemen in een hart" loading="lazy"></figure></div>
+   <div class="kol" data-s="160"><figure><img src="img/g04.webp" alt="Droogboeket in regenboogkleuren" loading="lazy"></figure><figure><img src="img/g08.webp" alt="Bloemen in een vaas" loading="lazy"></figure><figure><img src="img/g12.webp" alt="Wilde bloemen" loading="lazy"></figure><figure><img src="img/g16.webp" alt="Oranje dahlia's" loading="lazy"></figure></div>
   </div>
  </div>
 </section>
 
-<section class="kamp" id="kampen">
- <span class="hoy-groot" aria-hidden="true">hoy</span>
+<section class="kaat" id="kaat" data-bg="#EEF5EC" style="padding:150px 0">
  <div class="wrap">
-  <div class="kop rv"><span class="eyebrow">Kinder- en jeugdkampen</span><h2>Een vakantie vol bloemen</h2><p>Elke dag werken de kinderen aan hun eigen creaties, en elke dag gaan ze er iets van mee naar huis. Alle materiaal en begeleiding zitten erbij.</p></div>
-  <div class="kamp-grid">
-   <div class="kk licht rv"><span class="wie">Kinderkamp · 8 tot 14 jaar</span><h3>Bloemen schikken en knutselen</h3><div class="bedrag">€ 220 <small>4 dagen</small></div>
-    <ul><li>Met droogbloemen, verse bloemen en kunstbloemen</li><li>Van 9 tot 16 uur, maximaal 16 kinderen</li><li>Eigen lunch, drinkbus en gezond tussendoortje mee</li></ul></div>
-   <div class="kk rv"><span class="wie">Jeugdkamp · vanaf 12 jaar</span><h3>Papier en pareltjes</h3><div class="bedrag">€ 165 <small>3 dagen</small></div><p>Moeilijkere technieken, zoals bloemen van crêpepapier en parelbloemen. Van 10 tot 16 uur, maximaal 10 jongeren.</p></div>
-   <div class="kk rv"><span class="wie">Jeugdkamp · vanaf 12 jaar</span><h3>Kort maar creatief</h3><div class="bedrag">€ 110 <small>2 dagen</small></div><p>Voor wie het eens wil proberen. Twee dagen in het atelier, met alles erop en eraan.</p></div>
+  <div class="portret op">
+   <div class="ram"><img src="img/kaat.webp" alt="Kaat onderweg op wandel" loading="lazy" data-p></div>
+   <img class="logo-groot" src="img/logo.png" alt="">
+   <div class="notitie">hoy = vandaag ☀</div>
   </div>
-  <div class="datums rv"><span><b>Kerstvakantie</b> · kinderkamp 21, 22 en 23 december · 12+ op 28, 29 en 30 december</span><span>Paas- en zomerkampen 2027: inschrijven vanaf 2 januari</span><a class="btn oranje" href="https://app.webhero-bookings.com/hoy" target="_blank" rel="noopener" style="margin-left:auto">Schrijf in</a></div>
- </div>
-</section>
-
-<section id="webshop">
- <div class="wrap">
-  <div class="kop rv"><span class="eyebrow">Webshop</span><h2>Bloemen in huis, of om weg te geven</h2><p>Bestel online en kies zelf: afhalen in het atelier op afspraak of levering aan huis.</p></div>
-  <div class="shop-grid">
-   <a class="sk foto groot rv" href="https://www.hoybykaat.be/webshop/categorie/verse-bloemen" target="_blank" rel="noopener"><img src="img/zonnig.webp" alt="Wildboeket met zonnebloemen en kamille tegen de zomerlucht" loading="lazy"><div class="in"><h3>Kleurrijke wildboeketten</h3><p>Eén week per maand maak ik boeketten met verse bloemen. Ik lever in Leuven en tot 10 km rond. Verse bloemen opsturen kan helaas niet.</p><span class="pill">Verse bloemen</span></div></a>
-   <a class="sk kleur rv" href="https://www.hoybykaat.be/webshop/categorie/droogbloemen" target="_blank" rel="noopener" style="background:var(--perzik)"><div class="in" style="padding:28px"><span class="em">❁</span><h3>Droogboeketten</h3><p>Geen onderhoud en lang mooi. Geef je kleuren door of stuur een foto, verzenden kan.</p><span class="pill">Droogbloemen</span></div></a>
-   <a class="sk kleur rv" href="https://www.hoybykaat.be/webshop/categorie/abonnementen" target="_blank" rel="noopener" style="background:var(--munt)"><div class="in" style="padding:28px"><span class="em">↻</span><h3>Bloemenabonnement</h3><p>Elke maand een vers boeket, zonder dat je eraan moet denken.</p><span class="pill">Abonnementen</span></div></a>
-   <a class="sk kleur rv" href="https://www.hoybykaat.be/webshop/categorie/cadeaubon" target="_blank" rel="noopener" style="background:var(--geel)"><div class="in" style="padding:28px"><span class="em">✉</span><h3>Cadeaubon</h3><p>Te gebruiken voor bloemen naar keuze, of voor een workshop. Afhalen of laten opsturen.</p><span class="pill">Cadeaubon</span></div></a>
-   <a class="sk kleur rv" href="#zijde" style="background:var(--blauw)"><div class="in" style="padding:28px"><span class="em">✾</span><h3>Zijden bloemen</h3><p>Realistisch en zonder onderhoud. Ook installaties op maat voor etalages, horeca en kantoren.</p><span class="pill">Voor je zaak</span></div></a>
-  </div>
- </div>
-</section>
-
-<section class="over" id="over">
- <div class="wrap">
-  <div class="rv">
-   <div class="vandaag">Hoy <span class="hand">betekent vandaag</span></div>
-   <div class="over-foto"><img src="img/bruid.webp" alt="Bruid met een perzikkleurig bruidsboeket" loading="lazy"></div>
-  </div>
-  <div class="rv">
-   <span class="eyebrow">Mijn verhaal</span>
-   <h2>Ik ben Kaat, en ik koos voor wat me gelukkig maakt</h2>
+  <div class="op">
+   <span class="tag"><i></i>Mijn verhaal</span>
+   <h2>Ik ben Kaat, en ik koos voor <em>vandaag</em></h2>
    <p>In 2018 liet ik na dertig jaar mijn vaste job achter me. Spannend, maar het bracht me dichter bij een leven dat past bij wie ik ben: <strong>actief en creatief genieten van elke dag.</strong></p>
-   <p>Hoy is Spaans voor vandaag. Vandaag leven, doen waar ik blij van word. En ik hou gewoon van een goeie begroeting: een hallo of een glimlach kan iemands dag maken.</p>
+   <p>Hoy is Spaans voor vandaag. Vandaag leven, doen waar ik blij van word, nieuwe plekken ontdekken. En ik hou van een goeie begroeting: een hallo of een glimlach kan iemands dag maken.</p>
    <p>Mijn dagen zitten vol bloemen en mensen. Drukke bloemendagen geven me energie, en in mijn workshops deel ik graag een moment van rust en creativiteit.</p>
-   <div class="waarden"><span style="background:var(--munt)">Kleur</span><span style="background:var(--roze)">Vriendelijkheid</span><span style="background:var(--geel)">Creativiteit</span><span style="background:var(--blauw)">Rust</span></div>
-   <a class="btn vol" href="#contact">Kom eens langs <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+   <a class="btn groen" href="#contact" style="margin-top:14px">Kom eens langs in het atelier <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
  </div>
 </section>
 
-<section class="rev" id="reviews">
- <div class="wrap">
-  <div class="rev-top">
-   <div class="kop rv"><span class="eyebrow">Reviews</span><h2>Wat koppels en cursisten zeggen</h2></div>
-   <div class="score rv"><b>5,0</b><div><div class="st">★★★★★</div><small>uit 77 reviews op Google</small></div></div>
-  </div>
-  <div class="quotes">
-   <div class="q rv"><div class="st">★★★★★</div><p>“Wat een prachtige bloemen!” Deze uitspraak werd door zowat al onze gasten gedaan. Kaat verzorgde de bloemen op ons huwelijk en we hadden geen betere keuze kunnen maken.</p><div class="van"><i style="background:var(--roze)">J</i><span>Jill Guns<small>Huwelijk</small></span></div></div>
-   <div class="q rv"><div class="st">★★★★★</div><p>We hadden gekozen voor een kleurrijke, vrolijke stijl en Kaat heeft dit prachtig vertaald naar de bloemen. Kaat is echt een aanrader!</p><div class="van"><i style="background:var(--geel)">J</i><span>Justine Bellier<small>Huwelijk</small></span></div></div>
-   <div class="q rv"><div class="st">★★★★★</div><p>Een workshop gevolgd als onderdeel van een vrijgezellenfeest. Kaat heeft alles zo goed uitgelegd en er was heel veel keus aan mooie, kwaliteitsvolle bloemen.</p><div class="van"><i style="background:var(--munt)">D</i><span>Delia<small>Workshop</small></span></div></div>
-  </div>
-  <div class="onder rv"><a class="btn licht" href="https://g.page/r/CYx97H-aiHwWEBE/review" target="_blank" rel="noopener">Schrijf zelf een review</a></div>
+<section class="rev" data-bg="#F7F3EA">
+ <div class="wrap kop op"><h2 class="sectiekop">Wat mensen <span class="hand">zeggen</span></h2><div class="score"><span class="g">G</span><b>5,0</b><span class="ster">★★★★★</span><span style="color:var(--mute);font-size:14px">77 reviews</span></div></div>
+ <div class="rij-rev">
+  <div class="rk"><span class="ster">★★★★★</span><p>“Wat een prachtige bloemen!” Deze uitspraak werd door zowat al onze gasten gedaan.</p><div class="van"><i style="background:var(--zacht)">J</i><span>Jill Guns<small>Huwelijk</small></span></div></div>
+  <div class="rk"><span class="ster">★★★★★</span><p>We hadden gekozen voor een kleurrijke, vrolijke stijl en Kaat heeft dit prachtig vertaald naar de bloemen.</p><div class="van"><i style="background:#FFE3A6">J</i><span>Justine Bellier<small>Huwelijk</small></span></div></div>
+  <div class="rk"><span class="ster">★★★★★</span><p>Kaat heeft alles zo goed uitgelegd en er was heel veel keus aan mooie, kwaliteitsvolle bloemen.</p><div class="van"><i style="background:#D7E8DB">D</i><span>Delia<small>Workshop, vrijgezellen</small></span></div></div>
+  <div class="rk"><span class="ster">★★★★★</span><p>Persoonlijke begeleiding en een resultaat waar je mond van openviel.</p><div class="van"><i style="background:#DDE6FA">J</i><span>Jill Guns<small>Huwelijk</small></span></div></div>
+  <div class="rk"><span class="ster">★★★★★</span><p>“Wat een prachtige bloemen!” Deze uitspraak werd door zowat al onze gasten gedaan.</p><div class="van"><i style="background:var(--zacht)">J</i><span>Jill Guns<small>Huwelijk</small></span></div></div>
+  <div class="rk"><span class="ster">★★★★★</span><p>We hadden gekozen voor een kleurrijke, vrolijke stijl en Kaat heeft dit prachtig vertaald naar de bloemen.</p><div class="van"><i style="background:#FFE3A6">J</i><span>Justine Bellier<small>Huwelijk</small></span></div></div>
+  <div class="rk"><span class="ster">★★★★★</span><p>Kaat heeft alles zo goed uitgelegd en er was heel veel keus aan mooie, kwaliteitsvolle bloemen.</p><div class="van"><i style="background:#D7E8DB">D</i><span>Delia<small>Workshop, vrijgezellen</small></span></div></div>
+  <div class="rk"><span class="ster">★★★★★</span><p>Persoonlijke begeleiding en een resultaat waar je mond van openviel.</p><div class="van"><i style="background:#DDE6FA">J</i><span>Jill Guns<small>Huwelijk</small></span></div></div>
  </div>
 </section>
 
-<section class="contact" id="contact">
+<section class="contact" id="contact" data-bg="#F7F3EA">
  <div class="wrap">
-  <div class="c-kaart groen rv">
-   <span class="eyebrow">Contact</span>
-   <h2>Zin in bloemen? Laat het me weten</h2>
-   <p>Voor een trouw, een workshop of gewoon een vraag: bel, mail of stuur een bericht. Het atelier is open op afspraak.</p>
-   <div class="c-lijst">
-    <a href="tel:+32496968601"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><span><small>Bellen of WhatsApp</small><b>0496 96 86 01</b></span></a>
-    <a href="mailto:info@hoybykaat.be"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><small>Mailen</small><b>info@hoybykaat.be</b></span></a>
-    <a href="https://www.google.com/maps/search/?api=1&query=Familie+de+Bayostraat+10+Leuven" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span><small>Atelier, op afspraak</small><b>Familie de Bayostraat 10, Leuven</b></span></a>
-   </div>
-   <div class="cta"><a class="btn oranje" href="https://wa.me/32496968601" target="_blank" rel="noopener">Stuur een bericht</a><a class="btn licht" href="https://app.webhero-bookings.com/hoy" target="_blank" rel="noopener">Boek een workshop</a></div>
-  </div>
-  <div class="c-kaart creme rv">
-   <span class="eyebrow" style="color:var(--groen3)">Nieuwsbrief</span>
-   <h3>Als eerste weten wanneer er nieuwe workshops zijn</h3>
-   <p>Nieuwe data, seizoensworkshops en de kampen. Geen spam, beloofd.</p>
-   <form class="nieuws" action="mailto:info@hoybykaat.be" method="get" enctype="text/plain"><input type="hidden" name="subject" value="Inschrijving nieuwsbrief"><input type="email" name="body" placeholder="Je e-mailadres" required aria-label="E-mailadres"><button class="btn vol" type="submit">Schrijf in</button></form>
-   <span class="fijn">Je kan je altijd weer uitschrijven.</span>
-   <div class="review-cta">Fijne ervaring gehad? Laat een review achter, daar help je me echt mee. <a href="https://g.page/r/CYx97H-aiHwWEBE/review" target="_blank" rel="noopener">Schrijf je review</a></div>
-   <div class="socials">
-    <a href="https://www.instagram.com/hoybykaat/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.7 4.7 0 0 0 12 7.3zm0 7.8a3.1 3.1 0 1 1 3.1-3.1 3.1 3.1 0 0 1-3.1 3.1zm6-8a1.1 1.1 0 1 1-1.1-1.1A1.1 1.1 0 0 1 18 7.1zM21.9 8a5.4 5.4 0 0 0-1.5-3.9A5.5 5.5 0 0 0 16.5 2.6C15 2.5 9 2.5 7.5 2.6a5.5 5.5 0 0 0-3.9 1.5A5.5 5.5 0 0 0 2.1 8c-.1 1.5-.1 6.5 0 8a5.4 5.4 0 0 0 1.5 3.9 5.5 5.5 0 0 0 3.9 1.5c1.5.1 7.5.1 9 0a5.4 5.4 0 0 0 3.9-1.5 5.5 5.5 0 0 0 1.5-3.9c.1-1.5.1-6.5 0-8zm-2 9.7a3.2 3.2 0 0 1-1.8 1.8c-1.3.5-4.3.4-5.6.4s-4.4.1-5.6-.4a3.2 3.2 0 0 1-1.8-1.8c-.5-1.3-.4-4.3-.4-5.7s-.1-4.4.4-5.6a3.2 3.2 0 0 1 1.8-1.8C7.6 4 10.6 4.1 12 4.1s4.4-.1 5.6.4a3.2 3.2 0 0 1 1.8 1.8c.5 1.3.4 4.3.4 5.6s.1 4.5-.4 5.8z"/></svg></a>
-    <a href="https://www.facebook.com/Hoybykaat-2389456387784081/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8V6.2c0-.8.2-1.2 1.4-1.2H17V2h-2.6C11.3 2 10 3.5 10 6v2H8v3h2v11h4V11h2.7l.3-3z"/></svg></a>
+  <div class="groot-cta op">
+   <img src="img/veld.webp" alt="Veld vol cosmea in bloei" loading="lazy" data-p>
+   <div class="in">
+    <h2>Zin in bloemen? <span class="hand">Zeg maar hoy!</span></h2>
+    <div class="kontakt">
+     <a href="tel:+32496968601"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><span><small>Bellen of WhatsApp</small><b>0496 96 86 01</b></span></a>
+     <a href="mailto:info@hoybykaat.be"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><small>Mailen</small><b>info@hoybykaat.be</b></span></a>
+     <a href="https://www.google.com/maps/search/?api=1&query=Familie+de+Bayostraat+10+Leuven" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span><small>Atelier, enkel op afspraak</small><b>Familie de Bayostraat 10, Leuven</b></span></a>
+    </div>
    </div>
   </div>
  </div>
@@ -511,37 +487,124 @@ footer{padding:80px 0 34px}
 <footer>
  <div class="wrap">
   <div class="f-grid">
-   <div><a class="logo" href="#top"><span class="bol">hoy</span><span><b>Hoy by Kaat</b><small>Bloemenatelier · Leuven</small></span></a><p class="slogan">Because flowers make the difference.</p><p class="klein">Familie de Bayostraat 10, Leuven<br>0496 96 86 01 · info@hoybykaat.be</p></div>
-   <div><h4>Activiteiten</h4><ul><li><a href="#workshops">Vaste workshops</a></li><li><a href="#workshops">Seizoensworkshops</a></li><li><a href="#kampen">Kinderkampen</a></li><li><a href="https://app.webhero-bookings.com/hoy" target="_blank" rel="noopener">Boek je activiteit</a></li></ul></div>
-   <div><h4>Gelegenheden</h4><ul><li><a href="#huwelijk">Huwelijk</a></li><li><a href="#huwelijk">Afscheid</a></li><li><a href="#webshop">Geschenk</a></li><li><a href="#zijde">Voor je zaak</a></li></ul></div>
+   <div><a class="logo" href="#top"><img src="img/logo.png" alt=""><b>Hoy by Kaat</b></a><p class="slogan">Because flowers make the difference.</p><p class="klein">Nieuwe workshops en kampen als eerste in je mailbox?</p>
+    <form class="nieuws" action="mailto:info@hoybykaat.be" method="get"><input type="hidden" name="subject" value="Inschrijving nieuwsbrief"><input type="email" name="body" placeholder="Je e-mailadres" required aria-label="E-mailadres"><button class="btn groen" type="submit">Schrijf in</button></form></div>
+   <div><h4>Activiteiten</h4><ul><li><a href="#workshops">Vaste workshops</a></li><li><a href="#winter">Seizoensworkshops</a></li><li><a href="#kampen">Kinderkampen</a></li><li><a href="https://app.webhero-bookings.com/hoy" target="_blank" rel="noopener">Boek je activiteit</a></li></ul></div>
+   <div><h4>Gelegenheden</h4><ul><li><a href="#huwelijk">Huwelijk</a></li><li><a href="#contact">Afscheid</a></li><li><a href="#webshop">Geschenk</a></li><li><a href="#zijde">Voor je zaak</a></li></ul></div>
    <div><h4>Webshop</h4><ul><li><a href="#webshop">Verse bloemen</a></li><li><a href="#webshop">Droogbloemen</a></li><li><a href="#zijde">Zijden bloemen</a></li><li><a href="#webshop">Cadeaubon</a></li><li><a href="#webshop">Abonnement</a></li></ul></div>
-   <div><h4>Over Hoy!</h4><ul><li><a href="#over">Mijn verhaal</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#contact">Contact</a></li><li><a href="https://www.instagram.com/hoybykaat/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+   <div><h4>Volg Hoy</h4><ul><li><a href="https://www.instagram.com/hoybykaat/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/Hoybykaat-2389456387784081/" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://g.page/r/CYx97H-aiHwWEBE/review" target="_blank" rel="noopener">Schrijf een review</a></li></ul></div>
   </div>
+  <div class="reuzenhoy" aria-hidden="true">hoy!</div>
   <div class="f-onder"><span>© 2026 Hoy by Kaat · BE 0639.599.291</span><nav><a href="#contact">Privacy</a><a href="#contact">Algemene voorwaarden</a><a href="https://digital-impression.be" target="_blank" rel="noopener">Website door Digital Impression</a></nav></div>
  </div>
 </footer>
+<div class="bloemcursor" id="bc">kijk!</div>
 
+<script src="/assets/vendor/gsap.min.js"></script>
+<script src="/assets/vendor/ScrollTrigger.min.js"></script>
+<script src="/assets/vendor/lenis.min.js"></script>
 <script>
 (function(){
- var nav=document.getElementById('nav');
- function sc(){nav.classList.toggle('vast',window.scrollY>10);}
- window.addEventListener('scroll',sc,{passive:true});sc();
- document.querySelectorAll('.menu .drop>button').forEach(function(b){
-  b.addEventListener('click',function(e){e.stopPropagation();var li=b.parentElement,o=!li.classList.contains('open');
-   document.querySelectorAll('.menu .drop').forEach(function(x){x.classList.remove('open');x.firstElementChild.setAttribute('aria-expanded','false');});
-   if(o){li.classList.add('open');b.setAttribute('aria-expanded','true');}});
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var GS=window.gsap&&window.ScrollTrigger;
+function toon(){document.querySelectorAll('.op').forEach(function(e){e.style.opacity=1;e.style.transform='none';});document.querySelectorAll('.zeg .w').forEach(function(w){w.style.opacity=1;});}
+
+/* menu */
+document.querySelectorAll('.menu .drop>button').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var li=b.parentElement,o=!li.classList.contains('open');document.querySelectorAll('.menu .drop').forEach(function(x){x.classList.remove('open');});if(o)li.classList.add('open');});});
+document.addEventListener('click',function(){document.querySelectorAll('.menu .drop').forEach(function(x){x.classList.remove('open');});});
+var mob=document.getElementById('mobiel');
+function zet(o){mob.classList.toggle('open',o);mob.setAttribute('aria-hidden',o?'false':'true');}
+document.getElementById('burger').onclick=function(){zet(true);};
+document.getElementById('dicht').onclick=function(){zet(false);};
+mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){zet(false);});});
+
+/* zin in woorden splitsen */
+var zin=document.getElementById('zin');
+(function split(el){[].slice.call(el.childNodes).forEach(function(n){if(n.nodeType===3){var f=document.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(function(t){if(!t)return;if(/^\s+$/.test(t)){f.appendChild(document.createTextNode(t));}else{var s=document.createElement('span');s.className='w';s.textContent=t;f.appendChild(s);}});el.replaceChild(f,n);}else if(n.classList&&n.classList.contains('pil')){n.classList.add('w');}});})(zin);
+
+/* lichtjes */
+var lj=document.getElementById('lichtjes');
+for(var i=0;i<34;i++){var d=document.createElement('i');d.style.left=Math.random()*100+'%';d.style.top=Math.random()*100+'%';d.style.animationDelay=(Math.random()*2.4)+'s';d.style.transform='scale('+(.5+Math.random())+')';lj.appendChild(d);}
+
+/* vallende blaadjes */
+var cv=document.getElementById('blaadjes'),cx=cv.getContext('2d'),W,H,bl=[],kl=['#F26A2E','#F4A6B7','#FFC23D','#7FA7E8','#C9B6F0','#F9DCE2','#0B6B3E'];
+function maat(){var r=devicePixelRatio||1;W=cv.offsetWidth;H=cv.offsetHeight;cv.width=W*r;cv.height=H*r;cx.setTransform(r,0,0,r,0,0);}
+maat();addEventListener('resize',maat);
+var N=innerWidth<700?16:30;
+for(var k=0;k<N;k++)bl.push({x:Math.random()*W,y:Math.random()*H,s:6+Math.random()*10,v:.25+Math.random()*.6,a:Math.random()*6.28,va:(Math.random()-.5)*.03,w:Math.random()*6.28,c:kl[k%kl.length]});
+var mx=0,my=0;
+function blad(p){cx.save();cx.translate(p.x,p.y);cx.rotate(p.a);cx.scale(1,Math.abs(Math.sin(p.w))*.6+.4);cx.beginPath();cx.moveTo(0,-p.s);cx.bezierCurveTo(p.s*.9,-p.s*.5,p.s*.6,p.s*.8,0,p.s);cx.bezierCurveTo(-p.s*.6,p.s*.8,-p.s*.9,-p.s*.5,0,-p.s);cx.fillStyle=p.c;cx.globalAlpha=.75;cx.fill();cx.restore();}
+var heroZicht=true;
+function tik(){if(heroZicht){cx.clearRect(0,0,W,H);bl.forEach(function(p){p.y+=p.v;p.x+=Math.sin(p.w)*.5+mx*.4;p.a+=p.va;p.w+=.02;if(p.y>H+20){p.y=-20;p.x=Math.random()*W;}if(p.x>W+20)p.x=-20;if(p.x<-20)p.x=W+20;blad(p);});}requestAnimationFrame(tik);}
+if(!RM)tik();
+
+/* bloem-cursor op foto's */
+var bc=document.getElementById('bc');
+if(matchMedia('(hover:hover)').matches&&!RM){
+ addEventListener('mousemove',function(e){bc.style.left=e.clientX+'px';bc.style.top=e.clientY+'px';mx=(e.clientX/innerWidth-.5);my=(e.clientY/innerHeight-.5);});
+ document.querySelectorAll('.kol figure,.kransen figure').forEach(function(f){f.addEventListener('mouseenter',function(){bc.classList.add('aan');});f.addEventListener('mouseleave',function(){bc.classList.remove('aan');});});
+}
+
+if(!GS||RM){toon();return;}
+gsap.registerPlugin(ScrollTrigger);
+
+/* smooth scroll */
+if(window.Lenis){var lenis=new Lenis({duration:1.15,smoothWheel:true});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000);});gsap.ticker.lagSmoothing(0);
+ document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length>1&&document.querySelector(id)){e.preventDefault();lenis.scrollTo(id,{offset:-90});}});});}
+
+/* nav verstopt bij naar beneden scrollen */
+var nav=document.getElementById('nav'),laatst=0;
+ScrollTrigger.create({onUpdate:function(s){var y=s.scroll();nav.classList.toggle('weg',y>laatst&&y>400);laatst=y;}});
+
+/* hero intro */
+var tl=gsap.timeline({defaults:{ease:'expo.out'}});
+tl.from('.hero h1 .l>span',{yPercent:110,duration:1.3,stagger:.12})
+  .to('.hero .op',{opacity:1,y:0,duration:1,stagger:.1},'-=.9')
+  .from('.zweef',{scale:.4,opacity:0,duration:1.4,stagger:.07,ease:'back.out(1.4)'},'-=1.2')
+  .from('.stempel',{scale:0,rotate:-90,duration:1},'-=.9');
+
+/* zweven met muis + uiteenspatten bij scroll */
+var zw=gsap.utils.toArray('.zweef');
+zw.forEach(function(z){var d=+z.dataset.d;
+ var qx=gsap.quickTo(z,'x',{duration:1.2,ease:'power3'}),qy=gsap.quickTo(z,'y',{duration:1.2,ease:'power3'});
+ addEventListener('mousemove',function(e){qx((e.clientX/innerWidth-.5)*-40*d);qy((e.clientY/innerHeight-.5)*-30*d);});
+ var r=z.getBoundingClientRect(),links=r.left+r.width/2<innerWidth/2;
+ gsap.to(z,{xPercent:links?-70*d:70*d,yPercent:-60*d,rotate:links?-14:14,scale:1.15,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+});
+gsap.to('.hero .tekst',{yPercent:30,opacity:.2,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+ScrollTrigger.create({trigger:'.hero',start:'top top',end:'bottom top',onToggle:function(s){heroZicht=s.isActive;}});
+
+/* woorden kleuren in */
+gsap.to('.zeg .w',{opacity:1,stagger:.05,ease:'none',scrollTrigger:{trigger:'#zin',start:'top 80%',end:'bottom 45%',scrub:true}});
+
+/* reveal */
+gsap.utils.toArray('.op').forEach(function(el){if(el.closest('.hero'))return;gsap.to(el,{opacity:1,y:0,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 88%'}});});
+
+/* achtergrondkleur per sectie */
+gsap.utils.toArray('[data-bg]').forEach(function(s){ScrollTrigger.create({trigger:s,start:'top 55%',end:'bottom 55%',onToggle:function(st){if(st.isActive)document.body.style.backgroundColor=s.dataset.bg;}});});
+
+var mm=gsap.matchMedia();
+mm.add('(min-width:1061px)',function(){
+ /* horizontale baan */
+ var baan=document.getElementById('baan');
+ var ver=function(){return baan.scrollWidth-innerWidth+60;};
+ var ht=gsap.to(baan,{x:function(){return -ver();},ease:'none',scrollTrigger:{trigger:'.hor',start:'top top',end:function(){return '+='+ver();},pin:true,scrub:1,invalidateOnRefresh:true,anticipatePin:1}});
+ gsap.utils.toArray('.paneel').forEach(function(p){
+  gsap.fromTo(p.querySelector('.foto>img'),{xPercent:-8},{xPercent:8,ease:'none',scrollTrigger:{trigger:p,containerAnimation:ht,start:'left right',end:'right left',scrub:true}});
+  gsap.from(p.querySelector('.klein'),{rotate:-12,y:80,opacity:0,ease:'back.out(1.6)',duration:1,scrollTrigger:{trigger:p,containerAnimation:ht,start:'left 70%'}});
  });
- document.addEventListener('click',function(){document.querySelectorAll('.menu .drop').forEach(function(x){x.classList.remove('open');});});
- document.querySelectorAll('.sub a').forEach(function(a){a.addEventListener('click',function(){a.closest('.drop').classList.remove('open');a.blur();});});
- var m=document.getElementById('mobiel');
- function zet(o){m.classList.toggle('open',o);m.setAttribute('aria-hidden',o?'false':'true');document.body.style.overflow=o?'hidden':'';}
- document.getElementById('burger').addEventListener('click',function(){zet(true);});
- document.getElementById('dicht').addEventListener('click',function(){zet(false);});
- m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){zet(false);});});
- if('IntersectionObserver' in window){
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
- }else{document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in');});}
+});
+mm.add('(max-width:1060px)',function(){
+ gsap.utils.toArray('.paneel').forEach(function(p){gsap.from(p,{y:60,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:p,start:'top 88%'}});});
+});
+
+/* galerij kolommen */
+gsap.utils.toArray('.kol').forEach(function(k){gsap.fromTo(k,{y:0},{y:+k.dataset.s,ease:'none',scrollTrigger:{trigger:'.kolommen',start:'top bottom',end:'bottom top',scrub:true}});});
+/* parallax foto's */
+gsap.utils.toArray('[data-p]').forEach(function(im){gsap.fromTo(im,{yPercent:-8},{yPercent:8,ease:'none',scrollTrigger:{trigger:im.parentElement,start:'top bottom',end:'bottom top',scrub:true}});});
+gsap.from('.kransen figure',{y:120,rotate:function(i){return i%2?6:-6;},stagger:.1,duration:1.4,ease:'expo.out',scrollTrigger:{trigger:'.kransen',start:'top 80%'}});
+gsap.from('.reuzenhoy',{yPercent:40,opacity:0,duration:1.6,ease:'expo.out',scrollTrigger:{trigger:'.reuzenhoy',start:'top 95%'}});
+addEventListener('load',function(){ScrollTrigger.refresh();});
 })();
 </script>
 </body>
