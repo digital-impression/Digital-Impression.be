@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Feedback · Hoy by Kaat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=DM+Serif+Display&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+:root{--groen:#1E5B44;--groen3:#164534;--munt:#DDEFE4;--creme:#FFF6EA;--perzik:#F7DCC8;--zand:#FBEBDD;--oranje:#E8682A;--inkt:#1F2A24;--mute:#5E6A63;--lijn:rgba(31,42,36,.12);--rood:#B8452F}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:Figtree,system-ui,sans-serif;color:var(--inkt);background:#EFEAE2;font-size:15px;line-height:1.5}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+.top{height:64px;display:flex;align-items:center;gap:16px;padding:0 20px;background:var(--groen3);color:var(--creme)}
+.merk{display:flex;align-items:center;gap:10px;min-width:0}
+.bol{width:36px;height:36px;border-radius:50%;background:var(--creme);color:var(--groen);display:grid;place-items:center;font:700 19px/1 Caveat,cursive;flex:none}
+.merk b{font:400 20px/1.1 'DM Serif Display',serif;white-space:nowrap}
+.merk small{display:block;font-size:12px;opacity:.75;letter-spacing:.02em}
+.top .sp{flex:1}
+.wissel{display:flex;background:rgba(255,246,234,.12);border-radius:999px;padding:4px}
+.wissel button{padding:7px 14px;border-radius:999px;font-size:13px;font-weight:600;color:var(--creme);opacity:.8}
+.wissel button.aan{background:var(--creme);color:var(--groen3);opacity:1}
+.toplink{font-size:13px;font-weight:600;color:var(--creme);text-decoration:none;border:1px solid rgba(255,246,234,.35);padding:8px 14px;border-radius:999px;white-space:nowrap}
+.toplink:hover{background:rgba(255,246,234,.1)}
+.wrap{display:grid;grid-template-columns:1fr 420px;height:calc(100% - 64px)}
+.podium{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:24px}
+.toestel{background:#11140f;border-radius:18px;padding:10px;box-shadow:0 30px 60px -30px rgba(20,30,25,.55);transition:width .35s,height .35s;position:relative}
+.toestel.gsm{border-radius:42px;padding:12px}
+.scherm{width:100%;height:100%;border-radius:10px;overflow:hidden;background:#fff;position:relative}
+.toestel.gsm .scherm{border-radius:32px}
+.scherm iframe{border:0;display:block;transform-origin:0 0;background:#fff}
+.aanduid{position:absolute;left:50%;top:14px;transform:translateX(-50%);background:var(--oranje);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:999px;box-shadow:0 10px 24px -10px rgba(232,104,42,.7);display:none;z-index:5;white-space:nowrap}
+.aanduid.aan{display:block}
+.paneel{background:var(--creme);border-left:1px solid var(--lijn);display:flex;flex-direction:column;min-height:0}
+.kop{padding:20px 22px 14px;border-bottom:1px solid var(--lijn)}
+.kop h1{font:400 26px/1.15 'DM Serif Display',serif;color:var(--groen3)}
+.kop p{color:var(--mute);font-size:14px;margin-top:6px}
+.naam{display:flex;gap:10px;margin-top:14px;align-items:center}
+.naam label{font-size:13px;font-weight:600;color:var(--mute);white-space:nowrap}
+.naam input{flex:1;border:1px solid var(--lijn);background:#fff;border-radius:12px;padding:9px 12px;font-size:14px}
+.prik{margin-top:12px;width:100%;display:flex;align-items:center;justify-content:center;gap:8px;padding:11px;border-radius:12px;border:1.5px dashed var(--groen);color:var(--groen);font-weight:600;font-size:14px;background:transparent}
+.prik.aan{background:var(--oranje);border-color:var(--oranje);color:#fff;border-style:solid}
+.lijst{flex:1;overflow:auto;padding:14px 16px 20px;display:flex;flex-direction:column;gap:12px;scroll-behavior:smooth}
+.kaart{background:#fff;border:1px solid var(--lijn);border-radius:18px;padding:14px 14px 12px;transition:border-color .25s,box-shadow .25s}
+.kaart.nu{border-color:var(--groen);box-shadow:0 0 0 3px var(--munt)}
+.kaart header{display:flex;align-items:center;gap:10px}
+.nr{width:26px;height:26px;border-radius:50%;background:var(--munt);color:var(--groen3);font-size:12px;font-weight:700;display:grid;place-items:center;flex:none}
+.kaart h3{font-size:15px;font-weight:700;flex:1;line-height:1.25}
+.kaart h3 small{display:block;font-weight:500;color:var(--mute);font-size:12.5px;margin-top:1px}
+.ga{font-size:12px;font-weight:600;color:var(--groen);padding:5px 10px;border-radius:999px;background:var(--munt);white-space:nowrap}
+.keuze{display:flex;gap:8px;margin:12px 0 10px}
+.keuze button{flex:1;padding:8px 10px;border-radius:10px;border:1px solid var(--lijn);font-size:13px;font-weight:600;color:var(--mute);background:#fff}
+.keuze button.ok.aan{background:var(--groen);border-color:var(--groen);color:#fff}
+.keuze button.anders.aan{background:var(--oranje);border-color:var(--oranje);color:#fff}
+.kaart textarea,.alg textarea{width:100%;min-height:62px;resize:vertical;border:1px solid var(--lijn);border-radius:12px;padding:9px 11px;font-size:14px;background:var(--creme)}
+.kaart textarea:focus,.alg textarea:focus,.naam input:focus{outline:2px solid var(--groen);outline-offset:1px;background:#fff}
+.pins{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:8px}
+.pins li{background:var(--zand);border-radius:12px;padding:9px 10px 9px 12px;font-size:13.5px}
+.pins q{display:block;color:var(--mute);font-size:12.5px;font-style:italic;margin-bottom:5px;quotes:"‘" "’"}
+.pins .rij{display:flex;gap:8px;align-items:flex-start}
+.pins textarea{flex:1;min-height:40px;background:#fff;font-size:13.5px}
+.pins .weg{font-size:12px;color:var(--rood);font-weight:600;padding:4px 2px}
+.alg{background:var(--groen3);color:var(--creme);border-radius:18px;padding:16px}
+.alg h3{font:400 20px/1.2 'DM Serif Display',serif}
+.alg p{font-size:13px;opacity:.8;margin:4px 0 10px}
+.alg textarea{background:rgba(255,246,234,.95);color:var(--inkt);min-height:90px}
+.voet{border-top:1px solid var(--lijn);padding:12px 16px 14px;background:var(--creme)}
+.status{font-size:12.5px;color:var(--mute);display:flex;align-items:center;gap:6px;margin-bottom:10px}
+.status i{width:8px;height:8px;border-radius:50%;background:#3bb273;display:inline-block}
+.knoppen{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.knop{padding:11px 12px;border-radius:12px;font-weight:600;font-size:13.5px;text-align:center;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:7px}
+.knop.hoofd{grid-column:1/-1;background:var(--groen);color:#fff}
+.knop.hoofd:hover{background:var(--groen3)}
+.knop.zacht{background:#fff;border:1px solid var(--lijn);color:var(--inkt)}
+.knop.zacht:hover{border-color:var(--groen)}
+.knop svg{width:16px;height:16px;fill:currentColor}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;background:var(--inkt);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;transition:.3s;pointer-events:none;z-index:9}
+.toast.aan{opacity:1;transform:translate(-50%,0)}
+.teller{font-size:12px;color:var(--mute);margin-left:auto}
+@media(max-width:900px){
+ .wrap{grid-template-columns:1fr;height:auto}
+ .podium{display:none}
+ .paneel{border-left:0;min-height:calc(100vh - 64px)}
+ .lijst{overflow:visible}
+ .wissel{display:none}
+ .prik{display:none}
+ .top{padding:0 14px}
+ .merk small{display:none}
+}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="merk"><span class="bol">hoy</span><div><b>Hoy by Kaat</b><small>Feedback op de voorbeeldsite</small></div></div>
+ <div class="sp"></div>
+ <div class="wissel" role="group" aria-label="Weergave">
+  <button type="button" data-v="laptop" class="aan">Laptop</button>
+  <button type="button" data-v="gsm">Gsm</button>
+ </div>
+ <a class="toplink" id="opensite" href="../" target="_blank" rel="noopener">Open de site apart</a>
+</header>
+
+<div class="wrap">
+ <div class="podium" id="podium">
+  <div class="toestel" id="toestel">
+   <div class="scherm" id="scherm">
+    <div class="aanduid" id="aanduid">Klik op het stuk in de site waar je iets over wil zeggen</div>
+    <iframe id="site" title="Voorbeeldsite Hoy by Kaat" src="../"></iframe>
+   </div>
+  </div>
+ </div>
+
+ <aside class="paneel">
+  <div class="kop">
+   <h1>Wat vind je ervan?</h1>
+   <p>Loop de site door en zeg per stuk wat goed zit en wat anders mag. Alles wordt meteen op dit toestel bewaard.</p>
+   <div class="naam"><label for="wie">Wie geeft feedback?</label><input id="wie" placeholder="bv. Kaat" autocomplete="name"></div>
+   <button type="button" class="prik" id="prik"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span>Duid iets aan in de site</span></button>
+  </div>
+
+  <div class="lijst" id="lijst"></div>
+
+  <div class="voet">
+   <div class="status"><i></i><span id="status">Bewaard op dit toestel</span><span class="teller" id="teller"></span></div>
+   <div class="knoppen">
+    <a class="knop hoofd" id="wa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1l-.9 1.2c-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.7.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.3-1.3c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>Klaar? Stuur naar Stijn</a>
+    <button type="button" class="knop zacht" id="kopieer">Kopieer als tekst</button>
+    <button type="button" class="knop zacht" id="download">Download</button>
+   </div>
+  </div>
+ </aside>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+var SITE_ABS='https://digital-impression.be/voorbeeld/hoybykaat/';
+var STIJN='32496251445';
+var KEY='fb-hoybykaat-v1';
+var DELEN=[
+ {id:'top',t:'Bovenaan',s:'Eerste beeld, titel en knoppen'},
+ {id:'aanbod',t:'Aanbod',s:'Vier dingen, één atelier'},
+ {id:'huwelijk',t:'Huwelijk',s:'Jullie dag, in jullie kleuren'},
+ {id:'workshops',t:'Workshops en kampen',s:'Zelf aan de slag'},
+ {id:'thuis',t:'Voor thuis',s:'Boeketten, droogbloemen, zijde, webshop'},
+ {id:'reviews',t:'Reviews',s:'Koppels en cursisten vertellen'},
+ {id:'contact',t:'Contact',s:'Kom eens langs in het atelier'},
+ {id:'_stijl',t:'Kleuren, letters en foto’s',s:'Het gevoel van de site in het algemeen'}
+];
+var d={wie:'',delen:{},alg:'',pins:[]};
+try{var o=JSON.parse(localStorage.getItem(KEY)||'null');if(o)d=Object.assign(d,o);}catch(e){}
+d.delen=d.delen||{};d.pins=d.pins||[];
+DELEN.forEach(function(x){if(!d.delen[x.id])d.delen[x.id]={k:'',tekst:''};});
+
+var lijst=document.getElementById('lijst'),frame=document.getElementById('site'),statusEl=document.getElementById('status');
+var wie=document.getElementById('wie');wie.value=d.wie||'';
+
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+function bouw(){
+ var h='';
+ DELEN.forEach(function(x,i){
+  var v=d.delen[x.id];
+  h+='<article class="kaart" data-id="'+x.id+'"><header><span class="nr">'+(i+1)+'</span><h3>'+x.t+'<small>'+x.s+'</small></h3>'+(x.id.charAt(0)!=='_'?'<button type="button" class="ga" data-ga="'+x.id+'">Bekijk</button>':'')+'</header>'+
+  '<div class="keuze"><button type="button" class="ok'+(v.k==='ok'?' aan':'')+'" data-k="ok">Goed zo</button><button type="button" class="anders'+(v.k==='anders'?' aan':'')+'" data-k="anders">Graag anders</button></div>'+
+  '<textarea data-t="'+x.id+'" placeholder="Wat mag er anders, of wat vind je net goed?">'+esc(v.tekst)+'</textarea>'+
+  '<ul class="pins" data-pins="'+x.id+'"></ul></article>';
+ });
+ h+='<section class="alg"><h3>Nog iets kwijt?</h3><p>Ideeën, wensen, dingen die je nog mist op de site.</p><textarea id="algtekst" placeholder="Schrijf hier alles wat nergens anders past">'+esc(d.alg||'')+'</textarea></section>';
+ lijst.innerHTML=h;
+ tekenPins();
+}
+function tekenPins(){
+ document.querySelectorAll('[data-pins]').forEach(function(ul){
+  var id=ul.getAttribute('data-pins');var h='';
+  d.pins.forEach(function(p,i){if(p.deel!==id)return;
+   h+='<li><q>'+esc(p.stuk)+'</q><div class="rij"><textarea data-pin="'+i+'" placeholder="Wat wil je hierover zeggen?">'+esc(p.tekst)+'</textarea><button type="button" class="weg" data-weg="'+i+'">Weg</button></div></li>';
+  });
+  ul.innerHTML=h;
+ });
+ teller();
+}
+var tm;
+function bewaar(){
+ d.wie=wie.value.trim();d.t=new Date().toISOString();
+ try{localStorage.setItem(KEY,JSON.stringify(d));statusEl.textContent='Bewaard op dit toestel';}catch(e){statusEl.textContent='Kon niet bewaren, kopieer je tekst voor de zekerheid';}
+ teller();zetWa();
+}
+function later(){statusEl.textContent='Bezig met bewaren…';clearTimeout(tm);tm=setTimeout(bewaar,400);}
+function teller(){
+ var n=0;DELEN.forEach(function(x){var v=d.delen[x.id];if(v.k||v.tekst.trim())n++;});
+ n+=d.pins.filter(function(p){return p.tekst.trim();}).length;
+ document.getElementById('teller').textContent=n?n+(n===1?' opmerking':' opmerkingen'):'';
+}
+
+lijst.addEventListener('click',function(e){
+ var b=e.target.closest('button');if(!b)return;
+ var kaart=b.closest('.kaart');
+ if(b.dataset.k&&kaart){var id=kaart.dataset.id;var v=d.delen[id];v.k=(v.k===b.dataset.k)?'':b.dataset.k;
+  kaart.querySelectorAll('.keuze button').forEach(function(x){x.classList.toggle('aan',x.dataset.k===v.k);});
+  if(v.k==='anders')kaart.querySelector('textarea').focus();bewaar();}
+ if(b.dataset.ga){gaNaar(b.dataset.ga);}
+ if(b.dataset.weg!==undefined){d.pins.splice(+b.dataset.weg,1);tekenPins();bewaar();}
+});
+lijst.addEventListener('input',function(e){
+ var t=e.target;
+ if(t.dataset.t){d.delen[t.dataset.t].tekst=t.value;}
+ else if(t.dataset.pin!==undefined){d.pins[+t.dataset.pin].tekst=t.value;}
+ else if(t.id==='algtekst'){d.alg=t.value;}
+ later();
+});
+wie.addEventListener('input',later);
+
+/* toestel en schaal */
+var toestel=document.getElementById('toestel'),podium=document.getElementById('podium'),modus='laptop';
+function schaal(){
+ if(!podium.offsetWidth)return;
+ var W=modus==='gsm'?390:1440,H=modus==='gsm'?844:900;
+ var pad=modus==='gsm'?24:20;
+ var maxW=podium.clientWidth-48,maxH=podium.clientHeight-48;
+ var s=Math.min(1,(maxW-pad)/W,(maxH-pad)/H);
+ toestel.className='toestel'+(modus==='gsm'?' gsm':'');
+ toestel.style.width=(W*s+pad)+'px';toestel.style.height=(H*s+pad)+'px';
+ frame.style.width=W+'px';frame.style.height=H+'px';frame.style.transform='scale('+s+')';
+}
+document.querySelectorAll('.wissel button').forEach(function(b){b.addEventListener('click',function(){
+ modus=b.dataset.v;document.querySelectorAll('.wissel button').forEach(function(x){x.classList.toggle('aan',x===b);});schaal();});});
+window.addEventListener('resize',schaal);schaal();
+
+/* toegang tot de site in het frame (lukt enkel op hetzelfde domein) */
+function doc(){try{return frame.contentDocument&&frame.contentDocument.body?frame.contentDocument:null;}catch(e){return null;}}
+if(location.protocol==='file:'||location.hostname!=='digital-impression.be'&&location.hostname!=='localhost'&&location.hostname!=='127.0.0.1'){frame.src=SITE_ABS;document.getElementById('opensite').href=SITE_ABS;}
+function gaNaar(id){
+ var dc=doc();
+ if(dc){var el=dc.getElementById(id);if(el){var y=el.getBoundingClientRect().top+frame.contentWindow.scrollY-(id==='top'?0:70);frame.contentWindow.scrollTo({top:Math.max(0,y),behavior:'smooth'});}}
+ else{frame.src=SITE_ABS+'#'+id;}
+ markeer(id);
+}
+function markeer(id){
+ document.querySelectorAll('.kaart').forEach(function(k){k.classList.toggle('nu',k.dataset.id===id);});
+}
+var huidig='';
+function volg(){
+ var dc=doc();if(!dc)return;
+ var w=frame.contentWindow,mid=w.innerHeight*0.35,best='top';
+ DELEN.forEach(function(x){var el=dc.getElementById(x.id);if(el&&el.getBoundingClientRect().top<=mid)best=x.id;});
+ if(best!==huidig){huidig=best;markeer(best);
+  var k=lijst.querySelector('.kaart[data-id="'+best+'"]');
+  if(k&&!lijst.contains(document.activeElement))k.scrollIntoView({block:'nearest',behavior:'smooth'});}
+}
+var prikAan=false,prik=document.getElementById('prik'),aanduid=document.getElementById('aanduid');
+function zetPrik(v){prikAan=v;prik.classList.toggle('aan',v);aanduid.classList.toggle('aan',v);
+ prik.querySelector('span').textContent=v?'Klik nu in de site (of hier om te stoppen)':'Duid iets aan in de site';
+ var dc=doc();if(dc)dc.documentElement.style.cursor=v?'crosshair':'';}
+prik.addEventListener('click',function(){
+ if(!doc()){toast('Aanduiden werkt op de online versie, gebruik anders de vakjes per stuk');return;}
+ zetPrik(!prikAan);});
+function deelVan(el){
+ while(el&&el!==el.ownerDocument.body){if(el.id&&d.delen[el.id])return el.id;el=el.parentElement;}
+ return huidig||'top';
+}
+function stukTekst(el){
+ if(el.tagName==='IMG')return 'Foto'+(el.alt?': '+el.alt:'');
+ var t=(el.innerText||el.textContent||'').replace(/\s+/g,' ').trim();
+ if(!t&&el.querySelector&&el.querySelector('img'))return 'Foto';
+ if(t.length>90)t=t.slice(0,88).replace(/\s\S*$/,'')+'…';
+ return t||'Dit stuk';
+}
+function koppel(){
+ var dc=doc();if(!dc)return;
+ try{var st=dc.createElement('style');st.textContent='.di-tip{display:none!important}';dc.head.appendChild(st);}catch(e){}
+ frame.contentWindow.addEventListener('scroll',function(){window.requestAnimationFrame(volg);},{passive:true});
+ dc.addEventListener('click',function(e){
+  if(!prikAan)return;
+  e.preventDefault();e.stopPropagation();
+  var el=e.target;
+  var blok=el.closest('h1,h2,h3,h4,p,li,a,button,img,figure,blockquote')||el;
+  var oud=blok.style.outline;blok.style.outline='3px solid #E8682A';blok.style.outlineOffset='3px';
+  setTimeout(function(){blok.style.outline=oud;},1400);
+  var deel=deelVan(blok);
+  d.pins.push({deel:deel,stuk:stukTekst(blok),tekst:''});
+  zetPrik(false);tekenPins();bewaar();
+  var ta=lijst.querySelector('[data-pin="'+(d.pins.length-1)+'"]');
+  if(ta){ta.closest('.kaart').scrollIntoView({block:'center',behavior:'smooth'});setTimeout(function(){ta.focus();},350);}
+ },true);
+ volg();
+}
+frame.addEventListener('load',koppel);
+if(doc()&&frame.contentDocument.readyState==='complete')koppel();
+
+/* uitvoer */
+function alsTekst(){
+ var r=[];r.push('Feedback Hoy by Kaat'+(d.wie?' van '+d.wie:''));
+ r.push(new Date().toLocaleString('nl-BE',{dateStyle:'long',timeStyle:'short'}));r.push('');
+ DELEN.forEach(function(x,i){
+  var v=d.delen[x.id];var pins=d.pins.filter(function(p){return p.deel===x.id&&p.tekst.trim();});
+  if(!v.k&&!v.tekst.trim()&&!pins.length)return;
+  r.push((i+1)+'. '+x.t+(v.k==='ok'?' · goed zo':v.k==='anders'?' · graag anders':''));
+  if(v.tekst.trim())r.push('   '+v.tekst.trim().replace(/\n/g,'\n   '));
+  pins.forEach(function(p){r.push('   > bij “'+p.stuk+'”: '+p.tekst.trim().replace(/\n/g,' '));});
+  r.push('');
+ });
+ if((d.alg||'').trim()){r.push('Algemeen');r.push('   '+d.alg.trim().replace(/\n/g,'\n   '));}
+ return r.join('\n').trim();
+}
+function zetWa(){
+ var t=alsTekst();if(t.length>3500)t=t.slice(0,3500)+'\n(… de rest stuur ik apart)';
+ document.getElementById('wa').href='https://wa.me/'+STIJN+'?text='+encodeURIComponent(t);
+}
+function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('aan');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('aan');},2200);}
+document.getElementById('kopieer').addEventListener('click',function(){
+ var t=alsTekst();
+ (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){toast('Gekopieerd');},function(){
+  var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');toast('Gekopieerd');}catch(e){toast('Kopiëren lukte niet');}a.remove();});
+});
+document.getElementById('download').addEventListener('click',function(){
+ var b=new Blob([alsTekst()],{type:'text/plain;charset=utf-8'});var a=document.createElement('a');
+ a.href=URL.createObjectURL(b);a.download='feedback-hoy-by-kaat.txt';document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},500);
+});
+document.getElementById('wa').addEventListener('click',function(){bewaar();});
+
+bouw();teller();zetWa();
+})();
+</script>
+</body>
+</html>
