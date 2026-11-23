@@ -81,7 +81,8 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:400;letter-spacing:-.02e
 .hero h1 .hoy{font-family:Caveat,cursive;font-weight:700;font-style:normal;color:var(--oranje);font-size:.78em;display:inline-block;transform:rotate(-8deg);margin-left:.08em}
 .hero p{max-width:520px;margin:26px auto 34px;font-size:19px;color:var(--mute)}
 .hero .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.zweef{position:absolute;z-index:2;border-radius:26px;overflow:hidden;box-shadow:0 34px 60px -30px rgba(14,59,38,.55);will-change:transform}
+.zweef{position:absolute;z-index:2;border-radius:26px;overflow:hidden;box-shadow:0 40px 70px -40px rgba(14,59,38,.55);will-change:transform}
+.zweef img{will-change:transform}
 .zweef img{width:100%;height:100%;object-fit:cover}
 .z1{width:17vw;max-width:250px;aspect-ratio:3/4;left:4%;top:16%;rotate:-7deg}
 .z2{width:12vw;max-width:180px;aspect-ratio:1;left:13%;bottom:9%;rotate:6deg;border-radius:50%}
@@ -99,40 +100,44 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:400;letter-spacing:-.02e
 @keyframes hint{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
 
 /* marquee */
-.loop{background:var(--groen);color:var(--creme);padding:26px 0;overflow:hidden;position:relative;z-index:5}
-.loop .spoor{display:flex;gap:34px;width:max-content;animation:loop 38s linear infinite;align-items:center}
-.loop span{font:italic 400 clamp(34px,4.4vw,62px)/1 Fraunces,serif;white-space:nowrap}
-.loop img{width:clamp(56px,6vw,84px);height:clamp(56px,6vw,84px);border-radius:50%;object-fit:cover}
+.loop{background:var(--groen);color:var(--creme);padding:14px 0;overflow:hidden;position:relative;z-index:5}
+.loop .spoor{display:flex;gap:26px;width:max-content;animation:loop 60s linear infinite;align-items:center}
+.loop span{font:italic 400 19px/1 Fraunces,serif;white-space:nowrap;letter-spacing:.01em;opacity:.92}
+.loop img{width:28px;height:28px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px rgba(247,243,234,.25)}
 @keyframes loop{to{transform:translateX(-50%)}}
 
 /* statement */
-.zeg{padding:170px 0 150px}
-.zeg p{font:400 clamp(34px,4.6vw,70px)/1.12 Fraunces,serif;letter-spacing:-.02em;max-width:1180px;color:var(--diep)}
-.zeg .w{opacity:.14;transition:opacity .2s}
-.zeg .pil{display:inline-block;width:1.7em;height:.95em;border-radius:999px;overflow:hidden;vertical-align:-.12em;margin:0 .12em}
-.zeg .pil img{width:100%;height:100%;object-fit:cover}
-.zeg .onder{display:flex;gap:40px;margin-top:60px;flex-wrap:wrap;align-items:center}
-.cijfer b{display:block;font:400 64px/1 Fraunces,serif;color:var(--groen)}
-.cijfer small{color:var(--mute);font-size:15px}
-
-/* horizontaal */
-.hor{position:relative;overflow:hidden}
-.hor .kop{padding:0 0 46px}
-.hor h2,.sectiekop{font-size:clamp(46px,6.4vw,104px);color:var(--diep)}
+.zeg{padding:170px 0 40px;text-align:center}
+.zeg .tag{color:var(--groen);margin-bottom:34px;justify-content:center}
+.zeg p{font:400 clamp(28px,3.3vw,48px)/1.28 Fraunces,serif;letter-spacing:-.015em;max-width:920px;margin:0 auto;color:var(--diep)}
+.zeg p em{font-style:italic;color:var(--groen)}
+.zeg .w{opacity:.16;transition:opacity .2s}
+.zeg .handtek{font:700 42px/1 Caveat,cursive;color:var(--oranje);margin-top:30px;display:inline-block;transform:rotate(-4deg)}
+.zeg .onder{display:flex;justify-content:center;margin:70px auto 0;max-width:760px;border-top:1px solid var(--lijn);border-bottom:1px solid var(--lijn)}
+.cijfer{flex:1;padding:26px 18px}
+.cijfer+.cijfer{border-left:1px solid var(--lijn)}
+.cijfer b{display:block;font:400 44px/1 Fraunces,serif;color:var(--groen);margin-bottom:8px}
+.cijfer small{color:var(--mute);font-size:14px;letter-spacing:.02em}
+/* diensten */
+.hor{position:relative;padding:150px 0 40px}
+.hor .kop{padding:0 0 60px;display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+.hor .kop p{max-width:380px;color:var(--mute)}
+.hor h2,.sectiekop{font-size:clamp(44px,5.6vw,92px);color:var(--diep)}
 .hor h2 .hand,.sectiekop .hand{color:var(--oranje);font-size:.8em}
-.baan{display:flex;gap:26px;padding-left:max(28px,calc((100vw - 1280px)/2));padding-right:28px;width:max-content}
-.paneel{width:min(1080px,86vw);height:min(640px,74vh);border-radius:40px;display:grid;grid-template-columns:1.05fr .95fr;overflow:hidden;flex:none;position:relative}
+.baan{width:min(1280px,100% - 56px);margin:0 auto;display:grid;gap:0}
+.paneel{position:sticky;top:110px;height:min(600px,calc(100vh - 150px));border-radius:40px;display:grid;grid-template-columns:1.05fr .95fr;overflow:hidden;margin-bottom:60px;box-shadow:0 -24px 60px -40px rgba(14,59,38,.45);transform-origin:50% 0}
+.paneel:nth-child(2){top:126px}.paneel:nth-child(3){top:142px}.paneel:nth-child(4){top:158px}.paneel:nth-child(5){top:174px}
 .paneel .foto{position:relative;overflow:hidden}
-.paneel .foto img{width:100%;height:118%;object-fit:cover;position:absolute;top:-9%}
-.paneel .klein{position:absolute;right:22px;bottom:22px;width:34%;aspect-ratio:3/4;border-radius:22px;overflow:hidden;border:6px solid rgba(255,255,255,.85);rotate:4deg;box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
+.paneel .foto img{width:100%;height:116%;object-fit:cover;position:absolute;top:-8%}
+.paneel .klein{position:absolute;right:22px;bottom:22px;width:32%;aspect-ratio:3/4;border-radius:22px;overflow:hidden;border:6px solid rgba(255,255,255,.85);rotate:4deg;box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
 .paneel .klein img{position:static;height:100%;width:100%;object-fit:cover}
-.paneel .info{padding:48px 46px;display:flex;flex-direction:column}
-.paneel .nr{font:700 15px Figtree;letter-spacing:.16em;opacity:.7}
-.paneel h3{font-size:clamp(40px,4.2vw,64px);margin:16px 0 18px}
-.paneel p{font-size:17px;opacity:.85;max-width:420px}
+.paneel .info{padding:48px 50px;display:flex;flex-direction:column}
+.paneel .nr{font:700 13px Figtree;letter-spacing:.18em;opacity:.7}
+.paneel h3{font-size:clamp(38px,3.8vw,58px);margin:16px 0 18px}
+.paneel p{font-size:17px;opacity:.85;max-width:440px}
 .paneel ul{list-style:none;margin:22px 0 auto;display:grid;gap:10px;font-size:15.5px}
 .paneel li{display:flex;gap:12px;align-items:baseline}
-.paneel li::before{content:"✿";font-size:14px}
+.paneel li::before{content:"✿";font-size:13px}
 .paneel .btn{align-self:flex-start;margin-top:26px}
 .p-trouw{background:#F9DCE2;color:#4A1E2A}
 .p-ws{background:#FFD36B;color:#3B2A05}
@@ -162,12 +167,12 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:400;letter-spacing:-.02e
 .gal{padding:160px 0 120px;overflow:hidden}
 .gal .kop{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:60px;flex-wrap:wrap}
 .gal .kop p{max-width:380px;color:var(--mute)}
-.kolommen{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;height:1100px;overflow:hidden;mask-image:linear-gradient(transparent,#000 8%,#000 92%,transparent)}
-.kol{display:grid;gap:18px;align-content:start}
-.kol figure{border-radius:24px;overflow:hidden}
+.kolommen{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;height:980px;overflow:hidden;mask-image:linear-gradient(transparent,#000 10%,#000 90%,transparent);max-width:1120px;margin:0 auto}
+.kol{display:grid;gap:34px;align-content:start}
+.kol figure{border-radius:28px;overflow:hidden}
 .kol img{width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1s var(--ease)}
 .kol figure:hover img{transform:scale(1.06)}
-.kol:nth-child(2),.kol:nth-child(4){margin-top:-180px}
+.kol:nth-child(2){margin-top:-140px}
 
 /* kaat */
 .kaat .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:80px;align-items:center}
@@ -245,13 +250,13 @@ footer{padding:90px 0 30px}
  .z1{width:26vw;left:-4%;top:12%}.z4{width:25vw;right:-4%;top:10%}
  .z2{width:20vw;left:4%}.z5{width:20vw;right:4%}.z7{display:none}
  .stempel{width:104px;height:104px;right:4%;bottom:24%}.stempel img{inset:20px;width:64px;height:64px}
- .baan{flex-direction:column;width:auto;padding:0 20px}
- .paneel{width:100%;height:auto;grid-template-columns:1fr}
+ .baan{width:calc(100% - 40px)}
+ .paneel{position:relative;top:auto!important;height:auto;grid-template-columns:1fr;margin-bottom:22px}
  .paneel .foto{aspect-ratio:4/3.2}
  .paneel .info{order:-1;padding:36px 30px}
  .winter .wrap,.kaat .wrap{grid-template-columns:1fr}
- .kolommen{grid-template-columns:repeat(3,1fr);height:900px}
- .kol:nth-child(4){display:none}
+ .kolommen{gap:18px;height:860px}
+ .kol{gap:18px}
  .groot-cta .in{grid-template-columns:1fr}
  .f-grid{grid-template-columns:1fr 1fr}
  .f-grid>div:first-child{grid-column:1/-1}
@@ -357,19 +362,8 @@ footer{padding:90px 0 30px}
  <span>verse bloemen</span><img src="img/g01.webp" alt=""><span>droogbloemen</span><img src="img/p1.webp" alt=""><span>zijde</span><img src="img/g13.webp" alt=""><span>workshops</span><img src="img/p3.webp" alt=""><span>huwelijken</span><img src="img/g02.webp" alt=""><span>kampen</span><img src="img/p2.webp" alt="">
 </div></div>
 
-<section class="zeg" data-bg="#F7F3EA">
- <div class="wrap">
-  <p id="zin">Want bloemen zijn altijd een goed idee <span class="pil"><img src="img/g07.webp" alt=""></span> Om te geven en om te krijgen. Ik maak ze kleurrijk, een beetje wild <span class="pil"><img src="img/p1.webp" alt=""></span> en nooit twee keer hetzelfde. Gewoon zoals ik zelf in het leven sta: vandaag genieten <span class="pil"><img src="img/g09.webp" alt=""></span></p>
-  <div class="onder op">
-   <div class="cijfer"><b>5,0</b><small><span class="ster">★★★★★</span> uit 77 reviews op Google</small></div>
-   <div class="cijfer"><b>2018</b><small>Het jaar dat Hoy begon</small></div>
-   <a class="btn lijn" href="#kaat" style="color:var(--diep)">Leer Kaat kennen <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-  </div>
- </div>
-</section>
-
-<section class="hor" id="aanbod" data-bg="#FFF1E6">
- <div class="wrap kop op"><span class="tag" style="color:var(--groen)"><i></i>Wat ik maak</span><h2 style="margin-top:14px">Vijf manieren om <span class="hand">bloemen</span> in je leven te halen</h2></div>
+<section class="hor" id="aanbod" data-bg="#FBF2E8">
+ <div class="wrap kop op"><div><span class="tag" style="color:var(--groen)"><i></i>Wat ik maak</span><h2 style="margin-top:14px">Vijf manieren om <span class="hand">bloemen</span><br>in je leven te halen</h2></div><p>Van de mooiste dag van je leven tot een vrolijk boeket op een gewone dinsdag. Alles maak ik zelf, in mijn atelier in Leuven.</p></div>
  <div class="baan" id="baan">
   <article class="paneel p-trouw" id="huwelijk">
    <div class="foto"><img src="img/trouw1.webp" alt="Bruid ruikt aan haar kleurrijke bruidsboeket" loading="lazy"><div class="klein"><img src="img/trouw2.webp" alt="Pastelkleurig bruidsboeket" loading="lazy"></div></div>
@@ -427,15 +421,27 @@ footer{padding:90px 0 30px}
  <div class="wrap">
   <div class="kop op"><h2 class="sectiekop">Uit het <span class="hand">atelier</span></h2><p>Een greep uit wat de voorbije maanden op de werktafel lag. Elk stuk is anders, net zoals de mensen voor wie het is.</p></div>
   <div class="kolommen">
-   <div class="kol" data-s="-120"><figure><img src="img/g01.webp" alt="Boeket in een glazen vaas" loading="lazy"></figure><figure><img src="img/g05.webp" alt="Bloemen tegen de muur" loading="lazy"></figure><figure><img src="img/g09.webp" alt="Bloemstuk" loading="lazy"></figure><figure><img src="img/g13.webp" alt="Kleurrijke bloemen" loading="lazy"></figure><figure><img src="img/g17.webp" alt="Papieren bloemen" loading="lazy"></figure></div>
-   <div class="kol" data-s="120"><figure><img src="img/g02.webp" alt="Zonnebloemen en dahlia's" loading="lazy"></figure><figure><img src="img/g06.webp" alt="Bloemen op een rij" loading="lazy"></figure><figure><img src="img/g10.webp" alt="Bloemenlinten" loading="lazy"></figure><figure><img src="img/g14.webp" alt="Boeket in de hand" loading="lazy"></figure><figure><img src="img/g18.webp" alt="Krans van droogbloemen" loading="lazy"></figure></div>
-   <div class="kol" data-s="-200"><figure><img src="img/g03.webp" alt="Dahlia's" loading="lazy"></figure><figure><img src="img/g07.webp" alt="Ridderspoor en rozen" loading="lazy"></figure><figure><img src="img/g11.webp" alt="Bloemen in een mand" loading="lazy"></figure><figure><img src="img/g15.webp" alt="Bloemen in een hart" loading="lazy"></figure></div>
-   <div class="kol" data-s="160"><figure><img src="img/g04.webp" alt="Droogboeket in regenboogkleuren" loading="lazy"></figure><figure><img src="img/g08.webp" alt="Bloemen in een vaas" loading="lazy"></figure><figure><img src="img/g12.webp" alt="Wilde bloemen" loading="lazy"></figure><figure><img src="img/g16.webp" alt="Oranje dahlia's" loading="lazy"></figure></div>
+   <div class="kol" data-s="-60"><figure><img src="img/g01.webp" alt="Boeket in een glazen vaas" loading="lazy"></figure><figure><img src="img/g07.webp" alt="Ridderspoor en rozen" loading="lazy"></figure><figure><img src="img/g13.webp" alt="Kleurrijke bloemen" loading="lazy"></figure></div>
+   <div class="kol" data-s="70"><figure><img src="img/g04.webp" alt="Droogboeket in regenboogkleuren" loading="lazy"></figure><figure><img src="img/g10.webp" alt="Bloemenlinten" loading="lazy"></figure><figure><img src="img/g16.webp" alt="Oranje dahlia's" loading="lazy"></figure></div>
+   <div class="kol" data-s="-90"><figure><img src="img/g03.webp" alt="Dahlia's" loading="lazy"></figure><figure><img src="img/g09.webp" alt="Bloemstuk" loading="lazy"></figure><figure><img src="img/g15.webp" alt="Bloemen in een hart" loading="lazy"></figure></div>
   </div>
  </div>
 </section>
 
-<section class="kaat" id="kaat" data-bg="#EEF5EC" style="padding:150px 0">
+<section class="zeg" data-bg="#F7F3EA">
+ <div class="wrap">
+  <div class="tag op"><i></i>Hoy betekent vandaag</div>
+  <p id="zin">Want bloemen zijn altijd een goed idee. Om te geven en om te krijgen, om iets te vieren of iemand te troosten. Ik maak ze <em>kleurrijk</em>, een beetje wild en nooit twee keer hetzelfde. Zoals ik zelf in het leven sta: vandaag genieten.</p>
+  <div class="handtek op">Kaat</div>
+  <div class="onder op">
+   <div class="cijfer"><b>5,0</b><small><span class="ster">★★★★★</span> 77 reviews op Google</small></div>
+   <div class="cijfer"><b>2018</b><small>het jaar dat Hoy begon</small></div>
+   <div class="cijfer"><b>Leuven</b><small>atelier op afspraak</small></div>
+  </div>
+ </div>
+</section>
+
+<section class="kaat" id="kaat" data-bg="#EEF5EC" style="padding:120px 0 150px">
  <div class="wrap">
   <div class="portret op">
    <div class="ram"><img src="img/kaat.webp" alt="Kaat onderweg op wandel" loading="lazy" data-p></div>
@@ -520,7 +526,7 @@ mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',functio
 
 /* zin in woorden splitsen */
 var zin=document.getElementById('zin');
-(function split(el){[].slice.call(el.childNodes).forEach(function(n){if(n.nodeType===3){var f=document.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(function(t){if(!t)return;if(/^\s+$/.test(t)){f.appendChild(document.createTextNode(t));}else{var s=document.createElement('span');s.className='w';s.textContent=t;f.appendChild(s);}});el.replaceChild(f,n);}else if(n.classList&&n.classList.contains('pil')){n.classList.add('w');}});})(zin);
+(function split(el){[].slice.call(el.childNodes).forEach(function(n){if(n.nodeType===3){var f=document.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(function(t){if(!t)return;if(/^\s+$/.test(t)){f.appendChild(document.createTextNode(t));}else{var s=document.createElement('span');s.className='w';s.textContent=t;f.appendChild(s);}});el.replaceChild(f,n);}else if(n.nodeType===1){split(n);}});})(zin);
 
 /* lichtjes */
 var lj=document.getElementById('lichtjes');
@@ -530,12 +536,12 @@ for(var i=0;i<34;i++){var d=document.createElement('i');d.style.left=Math.random
 var cv=document.getElementById('blaadjes'),cx=cv.getContext('2d'),W,H,bl=[],kl=['#F26A2E','#F4A6B7','#FFC23D','#7FA7E8','#C9B6F0','#F9DCE2','#0B6B3E'];
 function maat(){var r=devicePixelRatio||1;W=cv.offsetWidth;H=cv.offsetHeight;cv.width=W*r;cv.height=H*r;cx.setTransform(r,0,0,r,0,0);}
 maat();addEventListener('resize',maat);
-var N=innerWidth<700?16:30;
-for(var k=0;k<N;k++)bl.push({x:Math.random()*W,y:Math.random()*H,s:6+Math.random()*10,v:.25+Math.random()*.6,a:Math.random()*6.28,va:(Math.random()-.5)*.03,w:Math.random()*6.28,c:kl[k%kl.length]});
+var N=innerWidth<700?7:14;
+for(var k=0;k<N;k++)bl.push({x:Math.random()*W,y:Math.random()*H,s:4+Math.random()*6,v:.18+Math.random()*.35,a:Math.random()*6.28,va:(Math.random()-.5)*.03,w:Math.random()*6.28,c:kl[k%kl.length]});
 var mx=0,my=0;
-function blad(p){cx.save();cx.translate(p.x,p.y);cx.rotate(p.a);cx.scale(1,Math.abs(Math.sin(p.w))*.6+.4);cx.beginPath();cx.moveTo(0,-p.s);cx.bezierCurveTo(p.s*.9,-p.s*.5,p.s*.6,p.s*.8,0,p.s);cx.bezierCurveTo(-p.s*.6,p.s*.8,-p.s*.9,-p.s*.5,0,-p.s);cx.fillStyle=p.c;cx.globalAlpha=.75;cx.fill();cx.restore();}
+function blad(p){cx.save();cx.translate(p.x,p.y);cx.rotate(p.a);cx.scale(1,Math.abs(Math.sin(p.w))*.6+.4);cx.beginPath();cx.moveTo(0,-p.s);cx.bezierCurveTo(p.s*.9,-p.s*.5,p.s*.6,p.s*.8,0,p.s);cx.bezierCurveTo(-p.s*.6,p.s*.8,-p.s*.9,-p.s*.5,0,-p.s);cx.fillStyle=p.c;cx.globalAlpha=.42;cx.fill();cx.restore();}
 var heroZicht=true;
-function tik(){if(heroZicht){cx.clearRect(0,0,W,H);bl.forEach(function(p){p.y+=p.v;p.x+=Math.sin(p.w)*.5+mx*.4;p.a+=p.va;p.w+=.02;if(p.y>H+20){p.y=-20;p.x=Math.random()*W;}if(p.x>W+20)p.x=-20;if(p.x<-20)p.x=W+20;blad(p);});}requestAnimationFrame(tik);}
+function tik(){if(heroZicht){cx.clearRect(0,0,W,H);bl.forEach(function(p){p.y+=p.v;p.x+=Math.sin(p.w)*.35+mx*.2;p.a+=p.va;p.w+=.02;if(p.y>H+20){p.y=-20;p.x=Math.random()*W;}if(p.x>W+20)p.x=-20;if(p.x<-20)p.x=W+20;blad(p);});}requestAnimationFrame(tik);}
 if(!RM)tik();
 
 /* bloem-cursor op foto's */
@@ -557,21 +563,25 @@ var nav=document.getElementById('nav'),laatst=0;
 ScrollTrigger.create({onUpdate:function(s){var y=s.scroll();nav.classList.toggle('weg',y>laatst&&y>400);laatst=y;}});
 
 /* hero intro */
-var tl=gsap.timeline({defaults:{ease:'expo.out'}});
-tl.from('.hero h1 .l>span',{yPercent:110,duration:1.3,stagger:.12})
-  .to('.hero .op',{opacity:1,y:0,duration:1,stagger:.1},'-=.9')
-  .from('.zweef',{scale:.4,opacity:0,duration:1.4,stagger:.07,ease:'back.out(1.4)'},'-=1.2')
-  .from('.stempel',{scale:0,rotate:-90,duration:1},'-=.9');
+gsap.set('.zweef',{clipPath:'inset(100% 0% 0% 0% round 26px)'});
+gsap.set('.zweef img',{scale:1.35});
+var tl=gsap.timeline({defaults:{ease:'expo.out'},delay:.15});
+tl.from('.hero h1 .l>span',{yPercent:110,rotate:3,duration:1.7,stagger:.13})
+  .to('.zweef',{clipPath:'inset(0% 0% 0% 0% round 26px)',duration:1.9,stagger:{each:.08,from:'center'},ease:'expo.inOut'},'-=1.5')
+  .to('.zweef img',{scale:1,duration:2.4,stagger:{each:.08,from:'center'},ease:'expo.out'},'<')
+  .to('.hero .op',{opacity:1,y:0,duration:1.3,stagger:.1},'-=1.8')
+  .from('.stempel',{opacity:0,scale:.85,duration:1.4},'-=1.2')
+  .from('.scrollhint',{opacity:0,duration:1},'-=.8');
 
-/* zweven met muis + uiteenspatten bij scroll */
-var zw=gsap.utils.toArray('.zweef');
-zw.forEach(function(z){var d=+z.dataset.d;
- var qx=gsap.quickTo(z,'x',{duration:1.2,ease:'power3'}),qy=gsap.quickTo(z,'y',{duration:1.2,ease:'power3'});
- addEventListener('mousemove',function(e){qx((e.clientX/innerWidth-.5)*-40*d);qy((e.clientY/innerHeight-.5)*-30*d);});
- var r=z.getBoundingClientRect(),links=r.left+r.width/2<innerWidth/2;
- gsap.to(z,{xPercent:links?-70*d:70*d,yPercent:-60*d,rotate:links?-14:14,scale:1.15,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+/* subtiel meebewegen met de muis, diepte bij scrollen */
+gsap.utils.toArray('.zweef').forEach(function(z){var d=+z.dataset.d;
+ var qx=gsap.quickTo(z,'x',{duration:1.8,ease:'power3'}),qy=gsap.quickTo(z,'y',{duration:1.8,ease:'power3'});
+ addEventListener('mousemove',function(e){qx((e.clientX/innerWidth-.5)*-16*d);qy((e.clientY/innerHeight-.5)*-12*d);});
+ gsap.to(z.querySelector('img'),{yPercent:-10*d,scale:1.08,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1.2}});
+ gsap.to(z,{yPercent:-55*d,opacity:.0,ease:'power1.in',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1.2}});
 });
-gsap.to('.hero .tekst',{yPercent:30,opacity:.2,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+gsap.to('.hero .tekst',{y:120,opacity:0,ease:'power1.in',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1.2}});
+gsap.to('.stempel',{rotate:120,y:-80,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1.2}});
 ScrollTrigger.create({trigger:'.hero',start:'top top',end:'bottom top',onToggle:function(s){heroZicht=s.isActive;}});
 
 /* woorden kleuren in */
@@ -585,17 +595,15 @@ gsap.utils.toArray('[data-bg]').forEach(function(s){ScrollTrigger.create({trigge
 
 var mm=gsap.matchMedia();
 mm.add('(min-width:1061px)',function(){
- /* horizontale baan */
- var baan=document.getElementById('baan');
- var ver=function(){return baan.scrollWidth-innerWidth+60;};
- var ht=gsap.to(baan,{x:function(){return -ver();},ease:'none',scrollTrigger:{trigger:'.hor',start:'top top',end:function(){return '+='+ver();},pin:true,scrub:1,invalidateOnRefresh:true,anticipatePin:1}});
- gsap.utils.toArray('.paneel').forEach(function(p){
-  gsap.fromTo(p.querySelector('.foto>img'),{xPercent:-8},{xPercent:8,ease:'none',scrollTrigger:{trigger:p,containerAnimation:ht,start:'left right',end:'right left',scrub:true}});
-  gsap.from(p.querySelector('.klein'),{rotate:-12,y:80,opacity:0,ease:'back.out(1.6)',duration:1,scrollTrigger:{trigger:p,containerAnimation:ht,start:'left 70%'}});
+ var pn=gsap.utils.toArray('.paneel');
+ pn.forEach(function(p,i){
+  gsap.fromTo(p.querySelector('.foto>img'),{yPercent:-6},{yPercent:6,ease:'none',scrollTrigger:{trigger:p,start:'top bottom',end:'bottom top',scrub:true}});
+  if(i<pn.length-1){gsap.to(p,{scale:.93,filter:'brightness(.9)',ease:'none',scrollTrigger:{trigger:pn[i+1],start:'top 85%',end:'top 20%',scrub:true}});}
+  gsap.from(p.querySelector('.klein'),{rotate:-10,y:60,opacity:0,duration:1.4,ease:'expo.out',scrollTrigger:{trigger:p,start:'top 70%'}});
  });
 });
 mm.add('(max-width:1060px)',function(){
- gsap.utils.toArray('.paneel').forEach(function(p){gsap.from(p,{y:60,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:p,start:'top 88%'}});});
+ gsap.utils.toArray('.paneel').forEach(function(p){gsap.from(p,{y:60,opacity:0,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:p,start:'top 88%'}});});
 });
 
 /* galerij kolommen */
