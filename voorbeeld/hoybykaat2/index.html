@@ -21,15 +21,31 @@ a{color:inherit}
 h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:400;letter-spacing:-.02em;line-height:1}
 .wrap{width:min(1280px,100% - 56px);margin-inline:auto}
 .hand{font-family:Caveat,cursive;font-weight:700}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;transition:transform .4s var(--ease),background .3s,color .3s;white-space:nowrap;position:relative;overflow:hidden}
-.btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;transition:transform .4s var(--ease)}
-.btn:hover svg{transform:translateX(4px)}
-.btn:hover{transform:translateY(-3px)}
-.btn.groen{background:var(--groen);color:#fff}
-.btn.groen:hover{background:var(--diep)}
-.btn.oranje{background:var(--oranje);color:#fff}
-.btn.wit{background:#fff;color:var(--diep)}
-.btn.lijn{box-shadow:inset 0 0 0 1.5px currentColor}
+.btn{--kl:transparent;--bl:var(--roze);--hz:var(--zon);display:inline-flex;align-items:center;gap:11px;padding:15px 28px 15px 18px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;white-space:nowrap;position:relative;isolation:isolate;cursor:pointer;background:var(--kl);transition:transform .6s var(--ease),color .3s,filter .4s}
+.btn.rand{background:transparent!important}
+.btn .rnd{position:absolute;inset:-4px;width:calc(100% + 8px);height:calc(100% + 8px);z-index:-1;overflow:visible;pointer-events:none}
+.btn .rnd path{fill:var(--kl);transition:fill .35s}
+.btn.lijn .rnd path{fill:none;stroke:currentColor;stroke-width:1.5}
+.btn:hover{transform:translateY(-3px) rotate(-1deg)}
+.btn:active{transform:scale(.96);transition-duration:.15s}
+.btn>svg:not(.rnd){width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
+.bk{width:28px;height:28px;flex:none;display:grid;place-items:center;margin:-6px 0}
+.bk svg{width:28px;height:28px;overflow:visible;transition:transform 1.4s var(--ease)}
+.bk .bl{fill:var(--bl);transform-box:view-box;transform-origin:12px 12px;transform:rotate(var(--a)) scale(.68);transition:transform .9s var(--ease) var(--d)}
+.bk .hz{fill:var(--hz);transform-box:view-box;transform-origin:12px 12px;transform:scale(.8);transition:transform .6s var(--ease) .1s}
+.bk .bb{transform-box:view-box;transform-origin:12px 12px;animation:wieg 4s ease-in-out infinite}
+@keyframes wieg{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(10deg)}}
+.btn:hover .bl,.btn:focus-visible .bl,.btn.open .bl{transform:rotate(calc(var(--a) + 36deg)) scale(1.08)}
+.btn:hover .hz,.btn:focus-visible .hz,.btn.open .hz{transform:scale(1.1)}
+.btn:hover .bk svg{transform:rotate(90deg)}
+.btn.groen{--kl:var(--groen);color:#fff}
+.btn.groen:hover{--kl:var(--diep)}
+.btn.oranje{--kl:var(--oranje);color:#fff;--bl:#fff;--hz:var(--zon)}
+.btn.oranje:hover{--kl:#E05A20}
+.btn.wit{--kl:#fff;color:var(--diep);--bl:var(--oranje)}
+.btn.lijn{--bl:var(--groen)}
+.btn:hover{filter:drop-shadow(0 12px 16px rgba(14,59,38,.22))}
+.vlieg{position:fixed;z-index:300;pointer-events:none;border-radius:80% 0 80% 0;will-change:transform,opacity}
 .tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
 .tag i{width:8px;height:8px;border-radius:50%;background:var(--oranje)}
 
@@ -53,7 +69,7 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:400;letter-spacing:-.02e
 .sub img{width:52px;height:52px;border-radius:14px;object-fit:cover;flex:none}
 .sub b{display:block;font-weight:600;font-size:15px}
 .sub small{display:block;color:var(--mute);font-size:13px;line-height:1.3}
-.nav .btn{padding:13px 22px;font-size:15px}
+.nav .btn{padding:10px 20px 10px 14px;font-size:15px}
 .burger{display:none;margin-left:auto;width:48px;height:48px;border-radius:50%;border:0;background:#fff;cursor:pointer}
 .burger span{display:block;width:18px;height:2px;background:var(--inkt);margin:4px auto;border-radius:2px}
 .mobiel{position:fixed;inset:0;z-index:90;background:var(--groen);color:var(--creme);padding:22px 24px 40px;overflow:auto;clip-path:circle(0% at calc(100% - 44px) 44px);transition:clip-path .7s var(--ease);visibility:hidden}
@@ -301,11 +317,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
 .hero::after{content:"";position:absolute;left:50%;top:46%;width:760px;height:520px;translate:-50% -50%;background:radial-gradient(closest-side,rgba(255,214,120,.55),rgba(255,214,120,0));filter:blur(20px);animation:adem 7s ease-in-out infinite;pointer-events:none;z-index:1}
 @keyframes stralen{to{rotate:360deg}}
 @keyframes adem{0%,100%{opacity:.55;scale:.92}50%{opacity:.95;scale:1.06}}
-.btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);transition:left .8s var(--ease);pointer-events:none}
-.btn:hover::after{left:130%}
-.glans::after{animation:glans 3.6s var(--ease) infinite}
-@keyframes glans{0%,60%{left:-60%}100%{left:130%}}
-.btn svg{position:relative;z-index:1}
+
 
 /* ===== boeken ===== */
 .boek{position:relative;padding:150px 0 130px;overflow:hidden}
@@ -570,7 +582,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
   <div class="tag op"><i></i>Bloemenatelier in Leuven</div>
   <h1><span class="l"><span>Bloemen die</span></span><span class="l"><span>je dag <em>kleur</em></span></span><span class="l"><span>geven. <span class="hoy">hoy!</span></span></span></h1>
   <p class="op">Om iets te vieren, om iemand te troosten, of om zelf eens met je handen in de bloemen te zitten. Bij Hoy kan je terecht voor grote en kleine momenten.</p>
-  <div class="cta op"><a class="btn groen" href="#boeken" data-boek="">Boek een workshop <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn wit" href="#shop">Naar de shop</a></div>
+  <div class="cta op"><a class="btn groen" href="#boeken" data-boek="">Boek een workshop</a><a class="btn wit" href="#shop">Naar de shop</a></div>
  </div>
  <div class="scrollhint" aria-hidden="true">scroll<i></i></div>
 </section>
@@ -587,31 +599,31 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
    <div class="foto"><img src="img/trouw1.webp" alt="Bruid ruikt aan haar kleurrijke bruidsboeket" loading="lazy"><div class="klein"><img src="img/trouw2.webp" alt="Pastelkleurig bruidsboeket" loading="lazy"></div></div>
    <div class="info"><span class="nr">01 · HUWELIJK</span><h3>Jullie dag, in jullie kleuren</h3><p>Van bruidsboeket en corsages tot tafels, bogen en ruimtedecoratie. In verse, droge of zijden bloemen, helemaal op jullie stijl afgestemd.</p>
     <ul><li>Eerst een vrijblijvend gesprek over jullie wensen</li><li>Verse bloemen voor bruidswerk vanaf € 700</li><li>Droog- en zijden bloemen vanaf € 300</li></ul>
-    <a class="btn" href="#boeken" data-boek="trouw" style="background:#4A1E2A;color:#fff">Plan een gesprek <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <a class="btn" href="#boeken" data-boek="trouw" style="background:#4A1E2A;color:#fff">Plan een gesprek</a></div>
   </article>
   <article class="paneel p-ws" id="workshops">
    <div class="foto"><img src="img/ws1.webp" alt="Lange tafel vol mensen tijdens een bloemenworkshop" loading="lazy"><div class="klein"><img src="img/ws2.webp" alt="Groep vriendinnen met hun eigen kransen" loading="lazy"></div></div>
    <div class="info"><span class="nr">02 · WORKSHOPS</span><h3>Zelf aan de slag, met alles binnen handbereik</h3><p>Je hoeft niets te kunnen. Ik leg alles stap voor stap uit en je gaat naar huis met je eigen creatie, in droog-, zijden of verse bloemen.</p>
     <ul><li>Elke dag op afspraak, vanaf € 55 per persoon</li><li>In de week vanaf 2, in het weekend vanaf 4 personen</li><li>Vrijgezellen, verjaardag, teambuilding of Moederdag</li></ul>
-    <a class="btn" href="#boeken" data-boek="ws" style="background:#3B2A05;color:#FFD36B">Kies je datum <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <a class="btn" href="#boeken" data-boek="ws" style="background:#3B2A05;color:#FFD36B">Kies je datum</a></div>
   </article>
   <article class="paneel p-kamp" id="kampen">
    <div class="foto"><img src="img/kamp1.webp" alt="Kinderen tonen trots hun bloemstukken" loading="lazy"><div class="klein"><img src="img/kamp2.webp" alt="Kinderen op kamp met een hond" loading="lazy"></div></div>
    <div class="info"><span class="nr">03 · KINDER- EN JEUGDKAMPEN</span><h3>Een vakantie vol bloemen</h3><p>Elke dag maken de kinderen hun eigen creaties, en elke dag gaat er iets mee naar huis. Materiaal en begeleiding zitten erbij.</p>
     <ul><li>Kinderkamp voor 8 tot 14 jaar, jeugdkamp met papier en pareltjes vanaf 12 jaar</li><li>4 dagen € 220, 3 dagen € 165, 2 dagen € 110</li><li>Kerst: 21 tot 23 december (8 tot 14) en 28 tot 30 december (12+)</li></ul>
-    <a class="btn" href="#boeken" data-boek="kamp" style="background:#0F2547;color:#fff">Schrijf in <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <a class="btn" href="#boeken" data-boek="kamp" style="background:#0F2547;color:#fff">Schrijf in</a></div>
   </article>
   <article class="paneel p-zijde" id="zijde">
    <div class="foto"><img src="img/zijde1.webp" alt="Etalage vol bloemen boven een zaak" loading="lazy"><div class="klein"><img src="img/zijde2.webp" alt="Bloemenboog boven de ingang van een praktijk" loading="lazy"></div></div>
    <div class="info"><span class="nr">04 · ZIJDEN BLOEMEN</span><h3>Altijd bloemen in je zaak, zonder omkijken</h3><p>Een zijden boeket in een passende vaas, en vijf keer per jaar een nieuw. Of een installatie op maat voor je etalage, horecazaak of kantoor.</p>
     <ul><li>Boeket met vaas voor € 35 per maand (excl. btw)</li><li>Nieuw in januari, april, juni, september en november</li><li>Installaties binnen en buiten op aanvraag</li></ul>
-    <a class="btn" href="#contact" style="background:#2A1A4D;color:#fff">Vraag het aan <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <a class="btn" href="#contact" style="background:#2A1A4D;color:#fff">Vraag het aan</a></div>
   </article>
   <article class="paneel p-shop" id="bloemen">
    <div class="foto"><img src="img/shop1.webp" alt="Groot kleurrijk boeket met verse bloemen" loading="lazy"><div class="klein"><img src="img/shop2.webp" alt="Droogboeket in warme tinten" loading="lazy"></div></div>
    <div class="info"><span class="nr">05 · SHOP</span><h3>Bloemen in huis, of om weg te geven</h3><p>Eén week per maand maak ik wilde boeketten met verse bloemen. Droogboeketten kan je het hele jaar bestellen, in jouw kleuren.</p>
     <ul><li>Levering in Leuven en 10 km rond, of afhalen in Heverlee</li><li>Droogbloemen verzenden kan</li><li>Bestellen gaat via mijn Instagram-shop</li></ul>
-    <a class="btn wit" href="#shop">Naar de shop <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <a class="btn wit" href="#shop">Naar de shop</a></div>
   </article>
  </div>
 </section>
@@ -636,7 +648,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
    <span class="tag"><i style="background:var(--zon)"></i>Nu in het atelier</span>
    <h2 style="margin-top:16px">Winterkransen <span class="hand">maken</span></h2>
    <p>Een avond met je handen in het groen, en naar huis met je eigen krans voor de deur of op tafel. Met verse materialen, droogbloemen of kunstbloemen, jij kiest.</p>
-   <a class="btn oranje" href="#boeken" data-boek="winter">Reserveer je plek <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+   <a class="btn oranje" href="#boeken" data-boek="winter">Reserveer je plek</a>
   </div>
   <div class="kransen">
    <figure class="op"><img src="img/win1.webp" alt="Groene krans met gedroogde sinaasappel" loading="lazy"></figure>
@@ -653,15 +665,15 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
   <div class="shop-kop">
    <div class="op"><span class="tag"><i></i>Shop</span><h2 class="sectiekop">Bloemen om <span class="hand">mee te nemen</span></h2></div>
    <div class="op"><p>Je bestelt via mijn Instagram-shop. Kies er je boeket, krans of cadeaubon, en ik maak het voor je klaar. Verse bloemen lever ik in Leuven en tot 10 km rond, of je haalt ze af in Heverlee.</p>
-   <a class="btn groen glans" href="https://www.instagram.com/hoybykaat/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>Open de Instagram-shop</a></div>
+   <a class="btn groen" href="https://www.instagram.com/hoybykaat/" target="_blank" rel="noopener">Open de Instagram-shop</a></div>
   </div>
   <div class="producten">
-   <a class="prod groot" href="https://www.instagram.com/hoybykaat/" target="_blank" rel="noopener"><div class="pf"><img src="img/s_wild.webp" alt="Kleurrijk wildboeket in de hand" loading="lazy"><span class="ptag" style="background:#FFE08A">Vers</span></div><div class="pi"><h3>Kleurrijk wildboeket</h3><p>Eén week per maand, vol seizoensbloemen. Nooit twee keer hetzelfde.</p><span class="pk">Bekijk in de shop <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-   <a class="prod" href="https://www.instagram.com/hoybykaat/" target="_blank" rel="noopener"><div class="pf"><img src="img/s_droog.webp" alt="Droogboeket in regenboogkleuren" loading="lazy"><span class="ptag" style="background:#F9D3C2">Droog</span></div><div class="pi"><h3>Droogboeket in jouw kleuren</h3><p>Geef je kleuren door of stuur een foto. Verzenden kan.</p><span class="pk">Bekijk in de shop <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-   <a class="prod" href="https://www.instagram.com/hoybykaat/" target="_blank" rel="noopener"><div class="pf"><img src="img/s_zijde.webp" alt="Zijden bloemen in vazen" loading="lazy"><span class="ptag" style="background:#D9CCF6">Zijde</span></div><div class="pi"><h3>Zijden boeket met vaas</h3><p>€ 35 per maand (excl. btw), vijf keer per jaar een nieuw boeket.</p><span class="pk">Bekijk in de shop <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-   <a class="prod" href="https://www.instagram.com/hoybykaat/" target="_blank" rel="noopener"><div class="pf"><img src="img/s_hoop.webp" alt="Hoop met droogbloemen" loading="lazy"><span class="ptag" style="background:#F9D3C2">Droog</span></div><div class="pi"><h3>Bloemenhoop</h3><p>Een ring vol droogbloemen, voor aan de muur of de deur.</p><span class="pk">Bekijk in de shop <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-   <a class="prod" href="https://www.instagram.com/hoybykaat/" target="_blank" rel="noopener"><div class="pf"><img src="img/s_papier.webp" alt="Papieren bloemen in pastel" loading="lazy"><span class="ptag" style="background:#FCD7E1">Papier</span></div><div class="pi"><h3>Papieren bloemen</h3><p>Handgemaakt van crêpepapier. Ze verwelken nooit.</p><span class="pk">Bekijk in de shop <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-   <a class="prod bon" href="https://www.instagram.com/hoybykaat/" target="_blank" rel="noopener"><div class="bon-in"><img src="img/logo.png" alt=""><span class="bon-lbl">Cadeaubon</span><h3>Geef een beetje <span class="hand">hoy!</span></h3><p>Voor bloemen of een workshop naar keuze. Afhalen of laten opsturen.</p><span class="pk">Bekijk in de shop <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div><i class="bon-glans"></i></a>
+   <a class="prod groot" href="https://www.instagram.com/hoybykaat/" target="_blank" rel="noopener"><div class="pf"><img src="img/s_wild.webp" alt="Kleurrijk wildboeket in de hand" loading="lazy"><span class="ptag" style="background:#FFE08A">Vers</span></div><div class="pi"><h3>Kleurrijk wildboeket</h3><p>Eén week per maand, vol seizoensbloemen. Nooit twee keer hetzelfde.</p><span class="pk">Bekijk in de shop</span></div></a>
+   <a class="prod" href="https://www.instagram.com/hoybykaat/" target="_blank" rel="noopener"><div class="pf"><img src="img/s_droog.webp" alt="Droogboeket in regenboogkleuren" loading="lazy"><span class="ptag" style="background:#F9D3C2">Droog</span></div><div class="pi"><h3>Droogboeket in jouw kleuren</h3><p>Geef je kleuren door of stuur een foto. Verzenden kan.</p><span class="pk">Bekijk in de shop</span></div></a>
+   <a class="prod" href="https://www.instagram.com/hoybykaat/" target="_blank" rel="noopener"><div class="pf"><img src="img/s_zijde.webp" alt="Zijden bloemen in vazen" loading="lazy"><span class="ptag" style="background:#D9CCF6">Zijde</span></div><div class="pi"><h3>Zijden boeket met vaas</h3><p>€ 35 per maand (excl. btw), vijf keer per jaar een nieuw boeket.</p><span class="pk">Bekijk in de shop</span></div></a>
+   <a class="prod" href="https://www.instagram.com/hoybykaat/" target="_blank" rel="noopener"><div class="pf"><img src="img/s_hoop.webp" alt="Hoop met droogbloemen" loading="lazy"><span class="ptag" style="background:#F9D3C2">Droog</span></div><div class="pi"><h3>Bloemenhoop</h3><p>Een ring vol droogbloemen, voor aan de muur of de deur.</p><span class="pk">Bekijk in de shop</span></div></a>
+   <a class="prod" href="https://www.instagram.com/hoybykaat/" target="_blank" rel="noopener"><div class="pf"><img src="img/s_papier.webp" alt="Papieren bloemen in pastel" loading="lazy"><span class="ptag" style="background:#FCD7E1">Papier</span></div><div class="pi"><h3>Papieren bloemen</h3><p>Handgemaakt van crêpepapier. Ze verwelken nooit.</p><span class="pk">Bekijk in de shop</span></div></a>
+   <a class="prod bon" href="https://www.instagram.com/hoybykaat/" target="_blank" rel="noopener"><div class="bon-in"><img src="img/logo.png" alt=""><span class="bon-lbl">Cadeaubon</span><h3>Geef een beetje <span class="hand">hoy!</span></h3><p>Voor bloemen of een workshop naar keuze. Afhalen of laten opsturen.</p><span class="pk">Bekijk in de shop</span></div><i class="bon-glans"></i></a>
   </div>
  </div>
 </section>
@@ -703,7 +715,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
    <p>In 2018 liet ik na dertig jaar mijn vaste job achter me. Spannend, maar het bracht me dichter bij een leven dat past bij wie ik ben: <strong>actief en creatief genieten van elke dag.</strong></p>
    <p>Hoy is Spaans voor vandaag. Vandaag leven, doen waar ik blij van word, nieuwe plekken ontdekken. En ik hou van een goeie begroeting: een hallo of een glimlach kan iemands dag maken.</p>
    <p>Mijn dagen zitten vol bloemen en mensen. Drukke bloemendagen geven me energie, en in mijn workshops deel ik graag een moment van rust en creativiteit.</p>
-   <a class="btn groen" href="#contact" style="margin-top:14px">Kom eens langs in het atelier <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+   <a class="btn groen" href="#contact" style="margin-top:14px">Kom eens langs in het atelier</a>
   </div>
  </div>
 </section>
@@ -768,6 +780,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
 
 <script src="hoy-data.js"></script>
 <script src="boek.js"></script>
+<script src="knop.js"></script>
 <script src="/assets/vendor/gsap.min.js"></script>
 <script src="/assets/vendor/ScrollTrigger.min.js"></script>
 <script src="/assets/vendor/lenis.min.js"></script>
