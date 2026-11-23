@@ -9,116 +9,143 @@
 <script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="img/hero.webp">
 <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--wit:#fffdf9;--room:#f8f3ec;--room2:#efe6da;--geel:#f4c51c;--geel2:#e2b100;--cacao:#22170f;--cacao2:#4b3a2c;--grijs:#75685c;--rood:#c8202e;--lijn:rgba(34,23,15,.12);--ease:cubic-bezier(.2,.7,.2,1)}
+:root{--wit:#fffdf9;--room:#f8f3ec;--room2:#efe6da;--geel:#f4c51c;--geel2:#e2b100;--cacao:#22170f;--cacao3:#150d08;--cacao2:#4b3a2c;--grijs:#75685c;--rood:#c8202e;--lijn:rgba(34,23,15,.12);--ease:cubic-bezier(.2,.7,.2,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Outfit',system-ui,sans-serif;background:var(--wit);color:var(--cacao);font-size:17.5px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit}
-h1,h2,h3{font-family:'Gloock',serif;font-weight:400;line-height:1.02;letter-spacing:-.015em}
-.wrap{width:min(1240px,92vw);margin:0 auto}
-.demo{background:var(--cacao);color:var(--room);font-size:13.5px;text-align:center;padding:9px 14px}
+h1,h2,h3{font-family:'Gloock',serif;font-weight:400;line-height:1.02;letter-spacing:-.015em;font-style:normal}
+.wrap{width:min(1280px,92vw);margin:0 auto}
+.demo{background:var(--cacao3);color:var(--room);font-size:13.5px;text-align:center;padding:9px 14px}
 .demo a{color:var(--geel);font-weight:600}
-.knop{display:inline-flex;align-items:center;gap:12px;border-radius:999px;padding:16px 26px;font-weight:600;font-size:15.5px;text-decoration:none;transition:transform .25s var(--ease),background .25s,box-shadow .25s;white-space:nowrap}
+.knop{display:inline-flex;align-items:center;gap:12px;border-radius:999px;padding:17px 28px;font-weight:600;font-size:15.5px;text-decoration:none;transition:transform .25s var(--ease),background .25s,box-shadow .25s;white-space:nowrap}
 .knop:hover{transform:translateY(-2px)}
 .knop svg{width:16px;height:16px}
-.k-geel{background:var(--geel);color:var(--cacao)}.k-geel:hover{background:var(--geel2)}
+.k-geel{background:var(--geel);color:var(--cacao);box-shadow:0 18px 40px -18px rgba(244,197,28,.8)}.k-geel:hover{background:var(--geel2)}
 .k-cacao{background:var(--cacao);color:var(--wit)}.k-cacao:hover{background:var(--cacao2)}
+.k-glas{background:rgba(255,253,249,.1);color:var(--wit);box-shadow:inset 0 0 0 1.5px rgba(255,253,249,.38);backdrop-filter:blur(8px)}.k-glas:hover{background:rgba(255,253,249,.18)}
 .k-lijn{box-shadow:inset 0 0 0 1.5px var(--lijn)}.k-lijn:hover{box-shadow:inset 0 0 0 1.5px var(--cacao)}
-.oog{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cacao2)}
+.oog{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--cacao2)}
 .oog i{width:10px;height:10px;border-radius:50%;background:var(--geel)}
 /* logo */
 .logo{display:inline-flex;align-items:center;gap:14px;text-decoration:none}
 .logo svg{width:52px;height:46px;flex:none}
 .logo b{display:block;font-weight:500;font-size:17px;letter-spacing:.2em;line-height:1}
-.logo small{display:block;font-size:9.5px;letter-spacing:.26em;margin-top:6px;color:var(--grijs)}
+.logo small{display:block;font-size:9.5px;letter-spacing:.26em;margin-top:6px;opacity:.7}
+
 /* hero */
-.hero{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);min-height:max(700px,calc(100svh - 38px));background:var(--room)}
-.hl{display:flex;flex-direction:column;padding:28px 64px 40px max(4vw,calc((100vw - 1240px)/2))}
-.nav{display:flex;align-items:center;gap:24px}
-.nav ul{list-style:none;display:flex;gap:24px;margin-left:auto;font-weight:500;font-size:15px}
-.nav ul a{text-decoration:none;opacity:.75}.nav ul a:hover{opacity:1}
-.htx{margin:auto 0;padding:56px 0 40px}
-.award{display:inline-flex;align-items:center;gap:12px;font-size:14px;font-weight:500;color:var(--cacao2)}
-.award span{background:var(--geel);color:var(--cacao);font-weight:700;border-radius:6px;padding:4px 9px;font-size:13px;letter-spacing:.04em}
-.hero h1{font-size:clamp(54px,5.8vw,92px);margin:24px 0 24px}
-.hero .lead{font-size:19px;color:var(--grijs);max-width:470px}
-.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-.huren{display:flex;gap:30px;flex-wrap:wrap;padding-top:22px;border-top:1px solid var(--lijn);font-size:14.5px;color:var(--grijs)}
-.huren b{color:var(--cacao);font-weight:600}
-.hr{position:relative;overflow:hidden}
-.hr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:46% 50%;transform:scale(1.08);transition:transform 2s var(--ease)}
-.hr.in img{transform:none}
+.hero{position:relative;isolation:isolate;overflow:hidden;background:var(--cacao3);color:var(--wit);min-height:max(760px,calc(100svh - 38px));display:flex;flex-direction:column}
+.hbg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:60% 50%;transform:scale(1.08);animation:zoom 2.6s var(--ease) forwards}
+@keyframes zoom{to{transform:scale(1)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(120% 90% at 0% 60%,rgba(21,13,8,.97) 0%,rgba(21,13,8,.9) 32%,rgba(21,13,8,.35) 60%,rgba(21,13,8,0) 80%),linear-gradient(0deg,rgba(21,13,8,.6) 0%,transparent 28%),linear-gradient(180deg,rgba(21,13,8,.55) 0%,transparent 22%)}
+.nav{display:flex;align-items:center;gap:24px;padding:26px 0}
+.nav ul{list-style:none;display:flex;gap:30px;margin-left:auto;font-weight:500;font-size:15px}
+.nav ul a{text-decoration:none;opacity:.8}.nav ul a:hover{opacity:1}
+.nav .knop{padding:12px 20px;font-size:14.5px}
+.hin{flex:1;display:flex;align-items:center;padding:30px 0 60px;position:relative}
+.htx{max-width:640px}
+.award{display:inline-flex;align-items:center;gap:12px;font-size:14px;font-weight:500;color:rgba(255,253,249,.85);background:rgba(255,253,249,.08);border:1px solid rgba(255,253,249,.18);border-radius:999px;padding:6px 16px 6px 6px;backdrop-filter:blur(8px)}
+.award span{background:var(--geel);color:var(--cacao);font-weight:700;border-radius:999px;padding:5px 12px;font-size:13px;letter-spacing:.04em}
+.hero h1{font-size:clamp(58px,6.6vw,108px);margin:28px 0 26px;line-height:.98}
+.hero h1 span{color:var(--geel)}
+.hero .lead{font-size:19.5px;color:rgba(255,253,249,.82);max-width:500px}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.huren{display:flex;gap:36px;flex-wrap:wrap;margin-top:48px;font-size:14.5px;color:rgba(255,253,249,.7)}
+.huren b{display:block;color:var(--wit);font-weight:500;font-size:16px}
+.zegel{position:absolute;right:2%;bottom:70px;width:178px;height:178px;border-radius:50%;background:var(--geel);color:var(--cacao);display:grid;place-items:center;text-align:center;box-shadow:0 30px 60px -24px rgba(0,0,0,.7)}
+.zegel svg{position:absolute;inset:0;width:100%;height:100%;animation:draai 26s linear infinite}
+.zegel text{font:600 12px 'Outfit',sans-serif;letter-spacing:3px;fill:var(--cacao);text-transform:uppercase}
+.zegel div{font-family:'Gloock';font-size:15px;line-height:1.15}
+.zegel div b{display:block;font-weight:400;font-size:40px;line-height:1}
+.zegel::after{content:"";position:absolute;inset:30px;border-radius:50%;border:1px solid rgba(34,23,15,.35)}
+@keyframes draai{to{transform:rotate(360deg)}}
+
 /* secties */
-.s{padding:130px 0}
-.kop{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:54px;flex-wrap:wrap}
-.kop h2{font-size:clamp(42px,4.8vw,70px);margin-top:16px;max-width:720px}
-.kop p{max-width:420px;color:var(--grijs)}
+.s{padding:140px 0}
+.kop{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:56px;flex-wrap:wrap}
+.kop h2{font-size:clamp(44px,5vw,76px);margin-top:16px;max-width:760px}
+.kop p{max-width:430px;color:var(--grijs)}
+
 /* pralines */
-.pr{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:70px;align-items:center}
-.pr h2{font-size:clamp(42px,4.6vw,66px);margin:16px 0 22px}
-.pr .lead{color:var(--grijs);font-size:18px}
-.kleuren{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin:34px 0 0}
+.kop2{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:60px;align-items:end;margin-bottom:56px}
+.kop2 h2{font-size:clamp(44px,5vw,76px);margin-top:16px}
+.kop2 p{color:var(--grijs)}
+.pg{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:330px 330px;gap:18px}
+.pg figure{position:relative;border-radius:32px;overflow:hidden;background:var(--room)}
+.pg img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.pg figure:hover img{transform:scale(1.04)}
+.pg .p1{grid-row:span 2}
+.pg figcaption{position:absolute;left:18px;bottom:18px;background:rgba(255,253,249,.95);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:500}
+.kleuren{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
 .kleuren li{display:flex;align-items:center;gap:10px;background:var(--room);border-radius:999px;padding:8px 16px 8px 8px;font-size:15px;font-weight:500}
 .kleuren i{width:26px;height:26px;border-radius:50%;box-shadow:inset -4px -5px 8px rgba(0,0,0,.25),inset 4px 4px 6px rgba(255,255,255,.45)}
-.prf{border-radius:36px;overflow:hidden;aspect-ratio:3/2.15;background:var(--room)}
-.prf img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-.prf:hover img{transform:scale(1.04)}
-.band{margin-top:22px;position:relative;border-radius:36px;overflow:hidden;min-height:440px;display:flex;align-items:flex-end}
-.band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
-.band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(34,23,15,.6) 0%,rgba(34,23,15,.12) 50%,rgba(34,23,15,0) 70%)}
-.band .tx{position:relative;z-index:2;padding:44px 48px;color:#fff;max-width:520px}
-.band h3{font-size:clamp(30px,3vw,44px);margin-bottom:10px}
-.band p{color:rgba(255,255,255,.86)}
+
+/* atelier */
+.atl{position:relative;isolation:isolate;min-height:max(620px,80vh);display:flex;align-items:center;color:var(--wit);overflow:hidden;background:var(--cacao3)}
+.atl>img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.atl::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(21,13,8,.9) 0%,rgba(21,13,8,.6) 45%,rgba(21,13,8,.15) 100%)}
+.atl .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px;align-items:center;padding:110px 0}
+.atl .oog{color:rgba(255,253,249,.75)}
+.atl h2{font-size:clamp(46px,5.4vw,84px);margin:16px 0 22px}
+.atl h2 span{color:var(--geel)}
+.atl p{font-size:18.5px;color:rgba(255,253,249,.82);max-width:500px}
+.atl .nibs{justify-self:end;width:min(100%,400px);aspect-ratio:1;border-radius:50%;overflow:hidden;border:10px solid rgba(255,253,249,.08);box-shadow:0 50px 80px -40px rgba(0,0,0,.8)}
+.atl .nibs img{width:100%;height:100%;object-fit:cover}
+
 /* award */
-.aw{background:var(--geel);border-radius:52px;margin:0 1.6vw;padding:110px 0}
-.aw .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:80px;align-items:center}
+.aw{background:var(--geel);border-radius:52px;margin:140px 1.6vw 0;padding:110px 0;position:relative;overflow:hidden}
+.aw::before{content:"2027";position:absolute;right:-2vw;bottom:-6vw;font-family:'Gloock';font-size:30vw;line-height:1;color:rgba(34,23,15,.06);pointer-events:none}
+.aw .wrap{position:relative;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:80px;align-items:center}
 .awf{border-radius:32px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 40px 60px -40px rgba(34,23,15,.6)}
 .awf img{width:100%;height:100%;object-fit:cover;object-position:50% 35%}
 .aw .oog i{background:var(--cacao)}
-.aw h2{font-size:clamp(44px,5vw,76px);margin:16px 0 24px}
+.aw h2{font-size:clamp(46px,5.2vw,80px);margin:16px 0 24px}
 .aw .lead{font-size:18.5px;color:var(--cacao2);max-width:540px}
-.awq{margin-top:34px;padding:28px 30px;background:var(--wit);border-radius:26px;max-width:560px}
-.awq p{font-family:'Gloock';font-size:23px;line-height:1.3}
+.awq{margin-top:34px;padding:30px 32px;background:var(--wit);border-radius:26px;max-width:580px;box-shadow:0 30px 50px -36px rgba(34,23,15,.5)}
+.awq p{font-family:'Gloock';font-size:24px;line-height:1.3}
 .awq small{display:block;margin-top:12px;color:var(--grijs);font-size:14px}
+
 /* cadeaus */
 .cg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.ck{background:var(--room);border-radius:30px;overflow:hidden;display:flex;flex-direction:column;transition:transform .4s var(--ease)}
-.ck:hover{transform:translateY(-6px)}
-.ck figure{aspect-ratio:4/4.4;overflow:hidden}
-.ck figure img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
-.ck:hover figure img{transform:scale(1.05)}
-.ck .tx{padding:24px 26px 28px}
-.ck h3{font-size:27px;margin-bottom:6px}
-.ck p{color:var(--grijs);font-size:15.5px}
-.ck .lbl{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--rood);margin-bottom:10px}
-.sint{margin-top:20px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:var(--cacao);color:var(--wit);border-radius:30px;overflow:hidden}
-.sint figure{position:relative;min-height:420px}
+.ck{position:relative;border-radius:32px;overflow:hidden;aspect-ratio:3/4;color:var(--wit);isolation:isolate}
+.ck img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.ck:hover img{transform:scale(1.05)}
+.ck::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(21,13,8,.82) 0%,rgba(21,13,8,.35) 32%,rgba(21,13,8,0) 55%)}
+.ck .tx{position:absolute;left:0;right:0;bottom:0;padding:28px 28px 30px}
+.ck .lbl{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;background:var(--wit);color:var(--rood);border-radius:999px;padding:5px 12px;margin-bottom:12px}
+.ck h3{font-size:32px;margin-bottom:6px}
+.ck p{color:rgba(255,253,249,.85);font-size:15.5px}
+.sint{margin-top:20px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:var(--cacao);color:var(--wit);border-radius:32px;overflow:hidden}
+.sint figure{position:relative;min-height:480px}
 .sint figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%}
-.sint .tx{padding:56px 54px;display:flex;flex-direction:column;justify-content:center}
+.sint .tx{padding:60px 56px;display:flex;flex-direction:column;justify-content:center}
 .sint .oog{color:rgba(255,253,249,.7)}
-.sint h3{font-size:clamp(34px,3.4vw,50px);margin:14px 0 16px}
+.sint h3{font-size:clamp(36px,3.6vw,54px);margin:14px 0 16px}
 .sint p{color:rgba(255,253,249,.75)}
 .sint .b2b{margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,253,249,.15);font-size:15.5px;color:rgba(255,253,249,.8)}
 .sint .b2b b{color:var(--geel);font-weight:600}
+
 /* reviews */
 .rv3{display:grid;grid-template-columns:minmax(0,.8fr) repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
-.sc{background:var(--room);border-radius:28px;padding:30px 28px;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
-.sc b{font-family:'Gloock';font-size:88px;line-height:.85;font-weight:400}
-.sc .st{color:var(--geel2);letter-spacing:3px}
-.sc span{font-size:15px;color:var(--grijs)}
-.rk{background:var(--wit);border:1px solid var(--lijn);border-radius:28px;padding:30px 28px;display:flex;flex-direction:column;gap:16px}
+.sc{background:var(--cacao);color:var(--wit);border-radius:28px;padding:30px 28px;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.sc b{font-family:'Gloock';font-size:92px;line-height:.85;font-weight:400;color:var(--geel)}
+.sc .st{color:var(--geel);letter-spacing:3px}
+.sc span{font-size:15px;color:rgba(255,253,249,.75)}
+.rk{background:var(--room);border-radius:28px;padding:30px 28px;display:flex;flex-direction:column;gap:16px}
 .rk .st{color:var(--geel2);letter-spacing:3px;font-size:14px}
 .rk p{font-size:16px;line-height:1.6}
 .rk .wie{margin-top:auto;font-size:14px;color:var(--grijs)}
 .rk .wie b{display:block;color:var(--cacao);font-size:15px;font-weight:600}
+
 /* bezoek */
-.bz{padding:0 0 130px}
+.bz{padding:0 0 140px}
 .bzk{background:var(--room);border-radius:44px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);overflow:hidden}
-.bzk .tx{padding:72px 64px}
-.bzk h2{font-size:clamp(42px,4.6vw,66px);margin:16px 0 18px}
+.bzk .tx{padding:76px 64px}
+.bzk h2{font-size:clamp(42px,4.6vw,68px);margin:16px 0 18px}
 .bzk .lead{color:var(--grijs);font-size:18px;max-width:480px}
 .info{display:grid;grid-template-columns:1fr 1fr;gap:26px 34px;margin:36px 0 36px;font-size:15.5px}
 .info h4{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--grijs);margin-bottom:8px}
@@ -127,10 +154,11 @@ h1,h2,h3{font-family:'Gloock',serif;font-weight:400;line-height:1.02;letter-spac
 .uren li{display:grid;grid-template-columns:96px 1fr;gap:10px}
 .uren li span:first-child{color:var(--grijs)}
 .uren .dicht span:last-child{color:var(--grijs)}
-.bzk figure{position:relative;min-height:600px}
+.bzk figure{position:relative;min-height:640px}
 .bzk figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
-.bzk figcaption{position:absolute;left:20px;bottom:20px;right:20px;background:rgba(255,253,249,.94);border-radius:20px;padding:16px 18px;font-size:14.5px;line-height:1.45}
+.bzk figcaption{position:absolute;left:20px;bottom:20px;right:20px;background:rgba(255,253,249,.95);border-radius:20px;padding:16px 18px;font-size:14.5px;line-height:1.45}
 .bzk figcaption b{display:block;font-weight:600}
+
 /* footer */
 .voet{background:var(--cacao);color:rgba(255,253,249,.62);padding:64px 0 36px;font-size:14.5px}
 .voet .wrap{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
@@ -140,53 +168,71 @@ h1,h2,h3{font-family:'Gloock',serif;font-weight:400;line-height:1.02;letter-spac
 .voet ul{list-style:none;display:flex;flex-direction:column;gap:8px}
 .voet a{text-decoration:none}.voet a:hover{color:var(--geel)}
 .voet .ond{grid-column:1/-1;border-top:1px solid rgba(255,253,249,.12);padding-top:22px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13.5px}
+
 /* reveal */
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.hr img{transform:none}}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.hbg,.zegel svg{animation:none;transform:none}}
 @media (max-width:1100px){
  .nav ul{display:none}
- .hero{grid-template-columns:1fr}
- .hl{padding:24px 4vw 46px}
- .hr{min-height:560px}
- .pr{grid-template-columns:1fr;gap:44px}
+ .nav .knop{margin-left:auto}
+ .hero::before{background:linear-gradient(180deg,rgba(21,13,8,.9) 0%,rgba(21,13,8,.82) 50%,rgba(21,13,8,.5) 100%)}
+ .zegel{width:150px;height:150px;bottom:40px}
+ .zegel div b{font-size:34px}
+ .kop2{grid-template-columns:1fr;gap:24px}
+ .pg{grid-template-columns:1fr 1fr;grid-template-rows:auto auto}
+ .pg .p1{grid-row:auto;grid-column:span 2;aspect-ratio:3/2}
+ .pg .p2,.pg .p3{aspect-ratio:1}
+ .atl .wrap{grid-template-columns:1fr;gap:40px}
+ .atl .nibs{justify-self:start;width:min(70%,320px)}
  .aw .wrap{grid-template-columns:1fr;gap:50px}
  .awf{order:2;max-width:560px;aspect-ratio:4/4.4}
  .cg{grid-template-columns:1fr 1fr}
- .cg .ck:last-child{grid-column:span 2}
- .cg .ck:last-child figure{aspect-ratio:16/8}
+ .cg .ck:last-child{grid-column:span 2;aspect-ratio:16/10}
  .rv3{grid-template-columns:1fr 1fr}
  .bzk{grid-template-columns:1fr}
- .bzk figure{min-height:480px}
+ .bzk figure{min-height:500px}
  .voet .wrap{grid-template-columns:1fr 1fr}
 }
 @media (max-width:640px){
  body{font-size:16.5px}
- .s{padding:88px 0}
- .hero h1{font-size:48px}
+ .s{padding:90px 0}
+ .nav{padding:18px 0}
+ .logo svg{width:42px;height:38px}
+ .logo b{font-size:14px}
+ .logo small{font-size:8px}
+ .nav .knop{padding:10px 14px;font-size:13.5px}
+ .hin{flex-direction:column;align-items:flex-start;gap:40px;padding-bottom:50px}
+ .hero h1{font-size:clamp(46px,13vw,58px)}
  .hero .lead{font-size:16.5px}
  .acts .knop{flex:1;justify-content:center}
- .huren{gap:6px 20px;font-size:14px}
- .hr{min-height:420px}
- .prf{border-radius:26px}
- .band{min-height:420px;border-radius:26px;align-items:flex-end}
- .band::after{background:linear-gradient(0deg,rgba(34,23,15,.75) 0%,rgba(34,23,15,.1) 60%)}
- .band .tx{padding:28px 24px}
- .aw{border-radius:32px;margin:0 10px;padding:84px 0}
+ .huren{gap:20px;margin-top:34px}
+ .zegel{position:relative;right:auto;bottom:auto;width:128px;height:128px}
+ .zegel text{font-size:10.5px;letter-spacing:2px}
+ .zegel div{font-size:12px}
+ .zegel div b{font-size:28px}
+ .zegel::after{inset:24px}
+ .pg{grid-template-columns:1fr;gap:14px}
+ .pg .p1{grid-column:auto;aspect-ratio:4/3}
+ .pg figure{border-radius:26px}
+ .atl .wrap{padding:84px 0}
+ .atl::before{background:linear-gradient(180deg,rgba(21,13,8,.92) 0%,rgba(21,13,8,.75) 60%,rgba(21,13,8,.5) 100%)}
+ .atl h2{font-size:clamp(40px,11vw,52px)}
+ .atl p{font-size:16.5px}
+ .aw{border-radius:32px;margin:90px 10px 0;padding:84px 0}
  .awq p{font-size:20px}
  .cg{grid-template-columns:1fr}
- .cg .ck:last-child{grid-column:auto}
- .cg .ck:last-child figure{aspect-ratio:4/4.4}
+ .cg .ck:last-child{grid-column:auto;aspect-ratio:3/4}
  .sint{grid-template-columns:1fr}
  .sint .tx{padding:40px 26px;order:-1}
- .sint figure{min-height:360px}
+ .sint figure{min-height:380px}
  .rv3{grid-template-columns:1fr}
- .sc b{font-size:70px}
- .bz{padding-bottom:88px}
+ .sc b{font-size:72px}
+ .bz{padding-bottom:90px}
  .bzk{border-radius:30px}
  .bzk .tx{padding:46px 24px}
  .info{grid-template-columns:1fr}
- .bzk figure{min-height:420px}
+ .bzk figure{min-height:440px}
  .voet .wrap{grid-template-columns:1fr}
 }
 </style>
@@ -196,39 +242,41 @@ h1,h2,h3{font-family:'Gloock',serif;font-weight:400;line-height:1.02;letter-spac
 
 <main id="top">
 <section class="hero">
-  <div class="hl">
-    <header class="nav">
-      <a class="logo" href="#top" aria-label="Chocolatier O"><svg viewBox="0 0 52 46" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="21" cy="23" r="19.5"/><circle cx="30" cy="23" r="19.5"/></svg><span><b>CHOCOLATIER O</b><small>BY OLIVIER VANDONINCK</small></span></a>
-      <ul>
-        <li><a href="#pralines">Pralines</a></li>
-        <li><a href="#cadeau">Cadeaus</a></li>
-        <li><a href="#bezoek">Winkel</a></li>
-      </ul>
-    </header>
+  <img class="hbg" src="img/hero.webp" alt="Glanzende pralines in geel, oranje, groen, blauw en koper in een witte doos" width="1600" height="1067" fetchpriority="high">
+  <header class="nav wrap">
+    <a class="logo" href="#top" aria-label="Chocolatier O"><svg viewBox="0 0 52 46" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="21" cy="23" r="19.5"/><circle cx="30" cy="23" r="19.5"/></svg><span><b>CHOCOLATIER O</b><small>BY OLIVIER VANDONINCK</small></span></a>
+    <ul>
+      <li><a href="#pralines">Pralines</a></li>
+      <li><a href="#award">Gault&amp;Millau</a></li>
+      <li><a href="#cadeau">Cadeaus</a></li>
+      <li><a href="#bezoek">Winkel</a></li>
+    </ul>
+    <a class="knop k-geel" href="https://wa.me/32477830818" target="_blank" rel="noopener">Bestellen</a>
+  </header>
+  <div class="wrap hin">
     <div class="htx">
       <span class="award rv"><span>Gault&amp;Millau</span>Discovery of the Year 2027</span>
-      <h1 class="rv" style="--d:1">Het leven is te kort voor saaie chocolade.</h1>
+      <h1 class="rv" style="--d:1">Het leven is te kort voor <span>saaie chocolade.</span></h1>
       <p class="lead rv" style="--d:2">Pralines van Olivier Vandoninck, in alle kleuren en zo glanzend als knikkers. Te koop in onze witte winkel in de Nieuwstraat in Geel.</p>
       <div class="acts rv" style="--d:3">
-        <a class="knop k-cacao" href="#bezoek">Kom proeven in Geel <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="knop k-lijn" href="https://wa.me/32477830818" target="_blank" rel="noopener">Bestel via WhatsApp</a>
+        <a class="knop k-geel" href="#bezoek">Kom proeven in Geel <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="knop k-glas" href="https://wa.me/32477830818" target="_blank" rel="noopener">Bestel via WhatsApp</a>
       </div>
+      <div class="huren rv" style="--d:4"><span><b>Nieuwstraat 103</b>Geel</span><span><b>Woensdag tot zaterdag</b>in de winkel</span><span><b>4,9 op Google</b>16 reviews</span></div>
     </div>
-    <div class="huren rv" style="--d:4"><span><b>Nieuwstraat 103</b>, Geel</span><span><b>Wo tot za</b> in de winkel, dinsdag productiedag</span></div>
-  </div>
-  <div class="hr rv">
-    <img src="img/hero.webp" alt="Glanzende pralines in geel, oranje, groen, blauw en koper in een witte doos" width="1600" height="1067" fetchpriority="high">
+    <div class="zegel rv" style="--d:3" aria-hidden="true">
+      <svg viewBox="0 0 178 178"><defs><path id="ring" d="M89,89 m-71,0 a71,71 0 1,1 142,0 a71,71 0 1,1 -142,0"/></defs><text><textPath href="#ring">Gault&amp;Millau · Discovery of the Year ·</textPath></text></svg>
+      <div><b>2027</b>Benelux</div>
+    </div>
   </div>
 </section>
 
 <section class="s" id="pralines">
   <div class="wrap">
-    <div class="pr">
-      <div>
-        <span class="oog rv"><i></i>Pralines</span>
-        <h2 class="rv" style="--d:1">Twaalf kleuren in één wit doosje.</h2>
-        <p class="lead rv" style="--d:2">Geen twee dezelfde. Gespikkeld geel, diep groen, hemelsblauw, rood als een kers. Elke praline krijgt zijn eigen jasje, zodat je doos er al feestelijk uitziet voor je ze opent.</p>
-        <ul class="kleuren rv" style="--d:3">
+    <div class="kop2">
+      <div><span class="oog rv"><i></i>Pralines</span><h2 class="rv" style="--d:1">Twaalf kleuren in één wit doosje.</h2></div>
+      <div class="rv" style="--d:2"><p>Geen twee dezelfde. Gespikkeld geel, diep groen, hemelsblauw, rood als een kers. Elke praline krijgt zijn eigen jasje, zodat je doos er al feestelijk uitziet voor je ze opent.</p>
+        <ul class="kleuren">
           <li><i style="background:#f2c21b"></i>Geel</li>
           <li><i style="background:#e85f1c"></i>Oranje</li>
           <li><i style="background:#5f7f1f"></i>Groen</li>
@@ -237,12 +285,24 @@ h1,h2,h3{font-family:'Gloock',serif;font-weight:400;line-height:1.02;letter-spac
           <li><i style="background:radial-gradient(circle at 30% 35%,#1d1d1d 0 2px,transparent 3px),radial-gradient(circle at 65% 60%,#1d1d1d 0 2px,transparent 3px),#efe6d2"></i>Gespikkeld</li>
         </ul>
       </div>
-      <div class="prf rv"><img src="img/doos12.webp" alt="Open witte doos van Chocolatier O met twaalf gekleurde pralines" width="1600" height="1067" loading="lazy" style="object-position:60% 50%"></div>
     </div>
-    <div class="band rv">
-      <img src="img/dozen.webp" alt="Twee dozen pralines op elkaar, vol kleur" width="1600" height="1067" loading="lazy">
-      <div class="tx"><h3>Om zelf te houden. Of niet.</h3><p>Een doosje pralines is het makkelijkste cadeau dat er bestaat. Zeker als het er zo uitziet.</p></div>
+    <div class="pg">
+      <figure class="p1 rv"><img src="img/dozen.webp" alt="Twee dozen pralines op elkaar, vol kleur" width="1600" height="1067" loading="lazy"><figcaption>Om zelf te houden. Of niet.</figcaption></figure>
+      <figure class="p2 rv" style="--d:1"><img src="img/doos12.webp" alt="Open witte doos van Chocolatier O met twaalf gekleurde pralines" width="1600" height="1067" loading="lazy" style="object-position:60% 50%"></figure>
+      <figure class="p3 rv" style="--d:2"><img src="img/stock-cacaovruchten.webp" alt="" width="1600" height="1200" loading="lazy"></figure>
     </div>
+  </div>
+</section>
+
+<section class="atl" aria-labelledby="atl-titel">
+  <img src="img/stock-chocolade.webp" alt="" width="1600" height="1066" loading="lazy">
+  <div class="wrap">
+    <div>
+      <span class="oog rv">Het atelier</span>
+      <h2 id="atl-titel" class="rv" style="--d:1">Op dinsdag blijft de deur dicht. <span>Dan maken we pralines.</span></h2>
+      <p class="rv" style="--d:2">Woensdag tot zaterdag sta je bij ons in de winkel. Op dinsdag trekken we ons terug in het atelier en vullen we de rekken aan, zodat er voor jou genoeg ligt.</p>
+    </div>
+    <div class="nibs rv" style="--d:2"><img src="img/stock-nibs.webp" alt="" width="1400" height="1400" loading="lazy"></div>
   </div>
 </section>
 
@@ -265,9 +325,9 @@ h1,h2,h3{font-family:'Gloock',serif;font-weight:400;line-height:1.02;letter-spac
       <p class="rv" style="--d:2">Een hart om in tweeën te breken, een doos met "veel liefs" op het deksel of gewoon een klassiek wit doosje. Wij pakken het mooi in.</p>
     </div>
     <div class="cg">
-      <article class="ck rv"><figure><img src="img/hartsnee.webp" alt="Rood chocoladehart, doorgesneden, gevuld met hazelnootpraliné" width="1600" height="2133" loading="lazy" style="object-position:50% 60%"></figure><div class="tx"><span class="lbl">Signature</span><h3>Het chocoladehart</h3><p>Glanzend rood vanbuiten, gevuld met hazelnootpraliné. Breek het en deel het.</p></div></article>
-      <article class="ck rv" style="--d:1"><figure><img src="img/veelliefs.webp" alt="Doos met roze en rode hartjes en de tekst veel liefs" width="1600" height="2133" loading="lazy" style="object-position:50% 45%"></figure><div class="tx"><span class="lbl">Cadeaudoos</span><h3>Veel liefs</h3><p>Pralines in een doos vol roze hartjes. De boodschap staat er al op.</p></div></article>
-      <article class="ck rv" style="--d:2"><figure><img src="img/stapel.webp" alt="Gestapelde witte doosjes met rode hartjes" width="1600" height="2133" loading="lazy" style="object-position:50% 50%"></figure><div class="tx"><span class="lbl">Klassiek</span><h3>Het witte doosje</h3><p>Strak, wit, met ons logo in reliëf. Voor een verjaardag, een bedankje of zomaar.</p></div></article>
+      <article class="ck rv"><img src="img/hartsnee.webp" alt="Rood chocoladehart, doorgesneden, gevuld met hazelnootpraliné" width="1600" height="2133" loading="lazy" style="object-position:50% 60%"><div class="tx"><span class="lbl">Signature</span><h3>Het chocoladehart</h3><p>Glanzend rood vanbuiten, gevuld met hazelnootpraliné. Breek het en deel het.</p></div></article>
+      <article class="ck rv" style="--d:1"><img src="img/veelliefs.webp" alt="Doos met roze en rode hartjes en de tekst veel liefs" width="1600" height="2133" loading="lazy" style="object-position:50% 45%"><div class="tx"><span class="lbl">Cadeaudoos</span><h3>Veel liefs</h3><p>Pralines in een doos vol roze hartjes. De boodschap staat er al op.</p></div></article>
+      <article class="ck rv" style="--d:2"><img src="img/stapel.webp" alt="Gestapelde witte doosjes met rode hartjes" width="1600" height="2133" loading="lazy" style="object-position:50% 40%"><div class="tx"><span class="lbl">Klassiek</span><h3>Het witte doosje</h3><p>Strak, wit, met ons logo in reliëf. Voor een verjaardag, een bedankje of zomaar.</p></div></article>
     </div>
     <div class="sint rv">
       <figure><img src="img/sint.webp" alt="Chocoladen Sinterklaas en Piet van dichtbij" width="1600" height="2134" loading="lazy"></figure>
@@ -301,7 +361,7 @@ h1,h2,h3{font-family:'Gloock',serif;font-weight:400;line-height:1.02;letter-spac
       <div class="tx">
         <span class="oog"><i></i>De winkel</span>
         <h2>Kom proeven in de Nieuwstraat.</h2>
-        <p class="lead">Een witte winkel met lichte rekken, vol doosjes en figuren. Op dinsdag zijn we dicht voor de winkel: dan maken we extra pralines, want het is druk.</p>
+        <p class="lead">Een witte winkel met lichte rekken, vol doosjes en figuren. Kom gerust binnen om rond te kijken, we helpen je graag kiezen.</p>
         <div class="info">
           <div><h4>Open</h4><ul class="uren"><li><span>Wo tot vr</span><span>10u tot 12u<br>13u tot 17u30</span></li><li><span>Zaterdag</span><span>10u tot 16u</span></li><li class="dicht"><span>Zo tot di</span><span>gesloten</span></li></ul></div>
           <div><h4>Adres</h4>Nieuwstraat 103<br>2440 Geel<br><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Chocolatier+O+Nieuwstraat+103+2440+Geel" target="_blank" rel="noopener">Route plannen</a></div>
@@ -309,7 +369,7 @@ h1,h2,h3{font-family:'Gloock',serif;font-weight:400;line-height:1.02;letter-spac
           <div><h4>Volg ons</h4><a href="https://www.instagram.com/chocolatier.o/" target="_blank" rel="noopener">@chocolatier.o</a></div>
         </div>
         <div class="acts" style="margin:0">
-          <a class="knop k-geel" href="https://wa.me/32477830818" target="_blank" rel="noopener">Bestel via WhatsApp</a>
+          <a class="knop k-cacao" href="https://wa.me/32477830818" target="_blank" rel="noopener">Bestel via WhatsApp</a>
           <a class="knop k-lijn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Chocolatier+O+Nieuwstraat+103+2440+Geel" target="_blank" rel="noopener">Route plannen</a>
         </div>
       </div>
