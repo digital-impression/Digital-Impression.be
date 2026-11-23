@@ -40,15 +40,20 @@ h1,h2,h3{font-family:'Young Serif',serif;font-weight:400;line-height:1.05;letter
 .nav .btn{padding:13px 22px;font-size:14.5px}
 
 /* hero */
-.hero{padding:70px 0 0;text-align:center}
+.hero{padding:34px 0 0;text-align:center}
 .hero .kl{color:var(--groen)}
-.hero h1{font-size:clamp(50px,6.4vw,96px);margin:24px auto 26px;max-width:12em}
+.hero h1{font-size:clamp(48px,5.4vw,80px);margin:20px auto 22px;max-width:15em}
 .hero p{font-size:19.5px;line-height:1.6;max-width:36em;margin:0 auto;color:#3a4038}
-.hero .acties{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:34px}
-.hero .score{display:inline-flex;align-items:center;gap:10px;margin-top:26px;font:500 15px/1 'Outfit';color:var(--grijs)}
-.hero .score b{color:var(--hout);letter-spacing:2px;font-weight:400}
-.rij{display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:20px;align-items:end;margin-top:70px}
+.hero .acties{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:30px}
+.rij .m{position:relative}
+.score{position:absolute;left:18px;bottom:18px;display:flex;align-items:center;gap:12px;background:var(--papier);border-radius:18px;padding:12px 16px;text-align:left;box-shadow:0 20px 40px -18px rgba(0,0,0,.45)}
+.score b{font:400 32px/1 'Young Serif'}
+.score span{font:500 13.5px/1.35 'Outfit'}
+.score i{display:block;font-style:normal;color:var(--hout);letter-spacing:2px;font-size:13px}
+.rij{display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:20px;align-items:end;margin-top:52px}
 .rij figure{border-radius:30px;overflow:hidden;box-shadow:var(--sch)}
+.rij .m{overflow:visible;box-shadow:none}
+.rij .m>img{border-radius:30px;box-shadow:var(--sch)}
 .rij img{width:100%;height:100%;object-fit:cover}
 .rij .z{aspect-ratio:4/4.9}
 .rij .m{aspect-ratio:1/1}
@@ -202,7 +207,9 @@ footer{background:var(--groen-d);color:#fff;margin-top:140px;padding:84px 0 30px
  .hero .acties{justify-content:flex-start}
  .rij{grid-template-columns:1fr 1fr;gap:12px;margin-top:44px}
  .rij .m{grid-column:1/-1;order:-1}
- .rij figure{border-radius:22px}
+ .rij figure,.rij .m>img{border-radius:22px}
+ .score{left:12px;bottom:12px;padding:10px 12px}
+ .score b{font-size:26px}
  .rij .z{aspect-ratio:1}
  .sec{padding:92px 0}
  .exp,.lok{margin-left:10px;margin-right:10px;border-radius:36px;padding:80px 0}
@@ -254,10 +261,9 @@ footer{background:var(--groen-d);color:#fff;margin-top:140px;padding:84px 0 30px
     <h1 class="rv" style="--d:1">Ontbijt en lunch in een rustig hoekje van Herentals.</h1>
     <p class="rv" style="--d:2">Elke maand een nieuwe kaart, met eitjes van De Pluimhoeve in Geel, brood van Broodboetiek Verlooy en spek van beenhouwer Peetermans in Olen. Alles maken we hier zelf klaar.</p>
     <div class="acties rv" style="--d:3"><a class="btn btn-g" href="https://www.gloriaherentals.be" target="_blank" rel="noopener">Reserveer een tafel <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-o" href="#kaart">Kaart van november</a></div>
-    <div class="score rv" style="--d:4"><b>★★★★★</b>4,6 op Google, uit 338 reviews</div>
     <div class="rij">
       <figure class="z z1 rv" style="--d:2"><img src="img/kimchi.webp" alt="Gegrilde kimchi toast met gesmolten kaas en spinazie" width="1080" height="864"></figure>
-      <figure class="m rv" style="--d:1"><img src="img/hero.webp" alt="Ontbijttafel bij GLORIA van bovenaf: brood, kaas, hesp, yoghurt met granola, gebak, sap en verse bloemen" width="1440" height="1440"></figure>
+      <figure class="m rv" style="--d:1"><img src="img/hero.webp" alt="Ontbijttafel bij GLORIA van bovenaf: brood, kaas, hesp, yoghurt met granola, gebak, sap en verse bloemen" width="1440" height="1440"><div class="score"><b>4,6</b><span><i>★★★★★</i>338 reviews op Google</span></div></figure>
       <figure class="z rv" style="--d:3"><img src="img/toog.webp" alt="De toog van GLORIA met koffiemolens, katoenbloemen en een roze bloempot" width="1600" height="1067"></figure>
     </div>
   </div>
