@@ -42,23 +42,42 @@ a{color:inherit}
 .nav .knop:hover{background:var(--sage);border-color:var(--sage);color:var(--ink)}
 
 /* hero */
-.hero{display:grid;grid-template-columns:1fr 1fr;min-height:max(680px,calc(100vh - 36px));background:var(--sage)}
-.h-l{position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:140px 64px 56px max(24px,calc((100vw - 1380px)/2 + 24px));background:var(--sage);isolation:isolate;overflow:hidden}
-.h-l .lbl{margin-bottom:26px}
-.h-l h1{font-size:clamp(76px,9.6vw,150px);margin-bottom:30px}
-.h-l h1 span{display:block;color:transparent;-webkit-text-stroke:2px var(--ink)}
-.h-l p{max-width:470px;font-size:19px;margin-bottom:34px}
+.nav{color:#fff}
+.nav .knop{color:var(--ink)}
+.hero{position:relative;background:var(--ink);color:#fff;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(50% 60% at 50% 55%,rgba(180,198,164,.16),transparent 70%),radial-gradient(40% 40% at 10% 90%,rgba(180,198,164,.08),transparent 70%)}
+.h-g{position:relative;width:min(1380px,100% - 48px);margin:0 auto;min-height:max(720px,calc(100svh - 36px - 62px));padding:104px 0 34px;display:grid;grid-template-columns:1fr minmax(320px,430px) 1fr;grid-template-rows:auto 1fr auto;column-gap:clamp(24px,3vw,48px)}
+.h1a,.h1b{display:block}
+.hero h1{display:contents}
+.h1a{grid-column:1/-1;grid-row:1;justify-self:center;font-size:clamp(84px,13.4vw,206px);color:#fff;position:relative;z-index:3;margin-bottom:-.24em;white-space:nowrap}
+.h1b{grid-column:1/-1;grid-row:3;justify-self:center;font-size:clamp(96px,15.6vw,240px);color:var(--sage);position:relative;z-index:3;margin-top:-.62em;white-space:nowrap;text-shadow:0 20px 60px rgba(0,0,0,.35)}
+.h-fw{grid-column:2;grid-row:2;position:relative;z-index:2;min-height:420px}
+.h-foto{position:absolute;inset:0;border-radius:220px 220px 26px 26px;overflow:hidden;box-shadow:0 60px 90px -50px rgba(0,0,0,.9)}
+.h-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 26%;animation:zoom 2.2s var(--ease) both}
+@keyframes zoom{from{transform:scale(1.1);opacity:.3}to{transform:none;opacity:1}}
+.h-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(18,18,18,.55))}
+.sticker{position:absolute;z-index:4;right:-44px;top:30%;background:var(--sage);color:var(--ink);padding:14px 18px 12px;border-radius:14px;font-size:24px;line-height:.95;transform:rotate(6deg);box-shadow:0 20px 40px -18px rgba(0,0,0,.6)}
+.sticker small{display:block;font-family:'Instrument Sans';font-style:normal;font-weight:500;font-size:11.5px;text-transform:none;letter-spacing:0;margin-top:6px}
+.h-l,.h-r{grid-row:2;align-self:center;position:relative;z-index:3;padding-bottom:8%}
+.h-l{grid-column:1}
+.h-r{grid-column:3;justify-self:end;text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:26px}
+.hero .lbl{color:var(--sage);margin-bottom:20px}
+.h-l p{font-size:18px;color:rgba(255,255,255,.78);max-width:25em;margin-bottom:28px}
 .acts{display:flex;gap:12px;flex-wrap:wrap}
-.h-score{display:flex;align-items:center;gap:14px;margin-top:54px;padding-top:22px;border-top:1px solid rgba(18,18,18,.22);font-size:14px}
-.h-score b{font-family:'Barlow Condensed';font-size:40px;font-style:italic;font-weight:800;line-height:1}
+.hero .k-zw{background:#fff;color:var(--ink);border-color:#fff}.hero .k-zw:hover{background:var(--sage);border-color:var(--sage)}
+.hero .k-lijn{border-color:rgba(255,255,255,.45);color:#fff}.hero .k-lijn:hover{background:#fff;color:var(--ink);border-color:#fff}
+.h-score{display:flex;align-items:center;gap:14px;font-size:14px;color:rgba(255,255,255,.72);text-align:left}
+.h-score b{font-family:'Barlow Condensed';font-size:64px;font-style:italic;font-weight:900;line-height:.8;color:#fff}
 .st{color:var(--ink);letter-spacing:2px;font-size:14px}
-.h-r{position:relative;overflow:hidden}
-.h-r img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform:scale(1.04);animation:zoom 9s var(--ease) forwards}
-@keyframes zoom{to{transform:scale(1)}}
-.h-r::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28),transparent 22%,transparent 70%,rgba(0,0,0,.35))}
-.tag{position:absolute;left:28px;bottom:28px;z-index:2;background:#fff;border-radius:16px;padding:14px 18px;font-size:14px;line-height:1.35;max-width:270px;box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
-.tag small{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#666;margin-bottom:3px}
-.tag b{font-weight:600}
+.hero .st{color:var(--sage)}
+.steden{list-style:none;display:grid;gap:10px;min-width:250px}
+.steden li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 0;border-top:1px solid rgba(255,255,255,.16);font-size:14px;color:rgba(255,255,255,.65)}
+.steden li b{font-family:'Barlow Condensed';font-style:italic;font-weight:800;font-size:26px;text-transform:uppercase;color:#fff;line-height:1}
+.band{background:var(--sage);color:var(--ink);overflow:hidden;white-space:nowrap}
+.band .loop{display:flex;width:max-content;animation:band 32s linear infinite}
+.band span{font-size:30px;padding:16px 0;display:inline-flex;align-items:center}
+.band span::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--ink);margin:0 30px}
+@keyframes band{to{transform:translateX(-50%)}}
 
 /* droog */
 .droog{padding:130px 0 120px}
@@ -199,19 +218,28 @@ footer{background:var(--ink);color:#fff;padding:80px 0 34px;overflow:hidden}
 
 .js .rv{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.h-r img{animation:none;transform:none}}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.h-foto img,.band .loop{animation:none;transform:none}}
 
 @media (max-width:1100px){
  .nav ul{display:none}
  .dr-g,.p-g,.e-g,.r-g{grid-template-columns:1fr;gap:56px}
  .dr-f{max-width:520px}
- .h-l{padding:130px 40px 48px 24px}
+ .h-g{display:flex;flex-direction:column;min-height:0;padding:92px 0 40px}
+ .h1a{order:1;font-size:clamp(64px,15vw,120px);margin-bottom:-.18em}
+ .h1a,.h1b{align-self:center}
+ .h-fw{order:2;width:100%;max-width:560px;align-self:center;aspect-ratio:4/4.6;min-height:0}
+ .h-foto{border-radius:180px 180px 22px 22px}
+ .sticker{right:-6px;top:24%;font-size:20px}
+ .h-l,.h-r{align-self:stretch}
+ .steden{max-width:420px}
+ .h1b{order:3;font-size:clamp(74px,18vw,150px);margin-top:-.56em}
+ .h-l{order:4;padding:26px 0 0}
+ .h-r{order:5;justify-self:auto;text-align:left;align-items:stretch;padding:34px 0 0;gap:20px}
+ .h-score{justify-content:flex-start}
+ .h-l,.h-r{width:min(100%,560px);align-self:center}
  .quote-st{right:14px}
 }
 @media (max-width:860px){
- .hero{grid-template-columns:1fr;min-height:0}
- .h-r{order:-1;height:62vh;min-height:420px}
- .h-l{padding:44px 24px 46px}
  .nav{position:absolute}
  .nav .knop{display:none}
  .logo{color:#fff}
@@ -221,9 +249,9 @@ footer{background:var(--ink);color:#fff;padding:80px 0 34px;overflow:hidden}
 @media (max-width:560px){
  body{font-size:16px}
  .wrap{width:calc(100% - 40px)}
- .h-l h1{font-size:74px}
  .h-l p{font-size:17px}
- .h-score{margin-top:36px}
+ .band span{font-size:22px;padding:12px 0}
+ .band span::after{margin:0 20px}
  .droog,.ext,.salons{padding:84px 0}
  .werk,.prijs,.rev{padding:84px 0}
  .kaart{flex-basis:78vw}.kaart.groot{flex-basis:78vw}
@@ -257,20 +285,26 @@ footer{background:var(--ink);color:#fff;padding:80px 0 34px;overflow:hidden}
 </div></nav>
 
 <header class="hero">
-  <div class="h-l">
-    <span class="lbl rv">Kapsalon in Gent &amp; Antwerpen</span>
-    <h1 class="d rv" style="--d:1">Ever had a<span>dry cut?</span></h1>
-    <p class="rv" style="--d:2">Wij knippen je haar droog. Zo zien we hoe het echt valt, waar je krul zit en wat je kruin doet. En daar knippen we op.</p>
-    <div class="acts rv" style="--d:3">
-      <a href="#salons" class="knop k-zw">Maak een afspraak <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a href="#prijzen" class="knop k-lijn">Wat kost het?</a>
+  <div class="h-g">
+    <h1><span class="h1a d rv">Ever had a</span><span class="h1b d rv" style="--d:2">dry cut?</span></h1>
+    <div class="h-fw rv" style="--d:1">
+      <div class="h-foto"><img src="img/hero.webp" alt="Lang rood haar met zachte lagen, geknipt en gekleurd bij Jitske Knipt" width="1536" height="2048" fetchpriority="high"></div>
+      <div class="sticker d" aria-hidden="true">Hair without limits<small>@jitskeknipt</small></div>
     </div>
-    <div class="h-score rv" style="--d:4"><b>4,8</b><div><span class="st">★★★★★</span><br>uit 686 reviews op Google</div></div>
+    <div class="h-l rv" style="--d:3">
+      <span class="lbl">Kapsalon in Gent &amp; Antwerpen</span>
+      <p>Wij knippen je haar droog. Zo zien we hoe het echt valt, waar je krul zit en wat je kruin doet. En daar knippen we op.</p>
+      <div class="acts">
+        <a href="#salons" class="knop k-zw">Maak een afspraak <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#prijzen" class="knop k-lijn">Wat kost het?</a>
+      </div>
+    </div>
+    <div class="h-r rv" style="--d:4">
+      <div class="h-score"><b>4,8</b><div><span class="st">★★★★★</span><br>uit 686 reviews op Google</div></div>
+      <ul class="steden"><li><b>Gent</b>Brabantdam 17</li><li><b>Antwerpen</b>Nationalestraat 148</li></ul>
+    </div>
   </div>
-  <div class="h-r">
-    <img src="img/hero.webp" alt="Lang rood haar met zachte lagen, geknipt en gekleurd bij Jitske Knipt" width="1536" height="2048">
-    <div class="tag"><small>Uit het salon in Gent</small><b>Kleur? We've got you.</b> Rood met lagen die vanzelf vallen.</div>
-  </div>
+  <div class="band" aria-hidden="true"><div class="loop"><div><span class="d">Droog knippen</span><span class="d">Kleur</span><span class="d">Krullen</span><span class="d">Extensions</span><span class="d">Barber</span><span class="d">Gent</span><span class="d">Antwerpen</span></div><div><span class="d">Droog knippen</span><span class="d">Kleur</span><span class="d">Krullen</span><span class="d">Extensions</span><span class="d">Barber</span><span class="d">Gent</span><span class="d">Antwerpen</span></div></div></div>
 </header>
 
 <main>
