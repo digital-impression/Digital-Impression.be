@@ -45,28 +45,47 @@ h1 mark,h2 mark{background:none;color:var(--geel)}
 .logo span{font:500 11.5px/1 'Montserrat';letter-spacing:.38em;margin-top:5px;margin-right:-.38em;color:currentColor}
 .logo span i{display:inline-block;font-style:normal;transform:scaleX(-1);letter-spacing:0;margin-left:-.02em;margin-right:.38em}
 
-/* hero */
-.hero{display:grid;grid-template-columns:1fr 1fr;min-height:min(calc(100svh - 38px),940px);background:var(--zwart);color:var(--wit)}
-.hero-l{display:flex;flex-direction:column;padding:26px clamp(22px,4vw,64px) 36px;position:relative;overflow:hidden}
-.hero-l::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;border:60px solid rgba(245,197,24,.08)}
-.kop{display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative;z-index:2}
-.nav{display:flex;gap:24px;font:600 14.5px/1 'Sora';color:rgba(255,255,255,.75)}
-.nav a:hover{color:var(--geel)}
-.hero-in{flex:1;display:flex;flex-direction:column;justify-content:center;padding:40px 0 34px;position:relative;z-index:2}
-.hero-in .lbl{color:rgba(255,255,255,.75)}
-.hero h1{font-size:clamp(48px,5.6vw,92px);margin:24px 0 14px}
-.emoji{font-size:28px;letter-spacing:6px;margin-bottom:20px}
-.hero .lead{color:rgba(255,255,255,.72);max-width:480px;font-size:clamp(16.5px,1.2vw,18.5px)}
-.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.hero-voet{display:grid;grid-template-columns:auto auto;justify-content:start;gap:12px;position:relative;z-index:2}
-.chip{display:flex;align-items:center;gap:12px;border:1px solid var(--lijnw);border-radius:14px;padding:12px 16px}
-.chip b{font:900 24px/1 'Montserrat';color:var(--geel)}
-.chip small{font-size:13px;line-height:1.35;color:rgba(255,255,255,.65)}
-.hero-r{position:relative;overflow:hidden}
-.hero-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;transform:scale(1.07);animation:zoom 2.6s var(--ease) forwards}
-@keyframes zoom{to{transform:scale(1)}}
-.hero-r .tag3m{position:absolute;right:22px;bottom:22px;background:var(--geel);color:var(--zwart);border-radius:16px;padding:14px 18px;font:800 13px/1.25 'Montserrat';max-width:220px;box-shadow:0 22px 44px -22px rgba(0,0,0,.6)}
-.hero-r .tag3m b{display:block;font-size:22px;letter-spacing:-.02em}
+/* hero: één compositie, foto loopt over in het zwart */
+.hero{position:relative;isolation:isolate;overflow:hidden;background:var(--zwart);color:var(--wit);min-height:min(calc(100svh - 38px),960px);display:flex;flex-direction:column}
+.hero::before{content:"";position:absolute;z-index:-1;left:38%;top:-10%;width:900px;height:900px;border-radius:50%;background:radial-gradient(closest-side,rgba(245,197,24,.13),transparent 70%);pointer-events:none}
+.h-foto{position:absolute;z-index:-2;top:0;right:0;bottom:0;width:58%;margin:0}
+.h-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 42%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 34%),linear-gradient(0deg,transparent 0,#000 22%);mask-image:linear-gradient(90deg,transparent 0,#000 34%),linear-gradient(0deg,transparent 0,#000 22%);-webkit-mask-composite:source-in;mask-composite:intersect;transform:scale(1.06);animation:hzoom 2.8s var(--ease) forwards}
+@keyframes hzoom{to{transform:scale(1)}}
+.h-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--zwart) 0,rgba(17,17,19,.55) 22%,transparent 46%);pointer-events:none}
+.kop{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:26px;position:relative;z-index:3}
+.nav{display:flex;align-items:center;gap:6px;padding:6px;border-radius:999px;background:rgba(17,17,19,.55);border:1px solid var(--lijnw);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);font:600 14px/1 'Sora'}
+.nav a{padding:11px 16px;border-radius:999px;color:rgba(255,255,255,.8);transition:background .3s,color .3s}
+.nav a:hover{color:var(--wit);background:rgba(255,255,255,.08)}
+.nav a.nav-k{background:var(--geel);color:var(--zwart);font-weight:700}
+.nav a.nav-k:hover{background:var(--geel2);color:var(--zwart)}
+.kop-m{display:none}
+.hero>.wrap{width:100%}
+.h-in{flex:1;display:grid;grid-template-columns:minmax(0,1fr);align-content:center;padding-top:clamp(40px,6vh,80px);padding-bottom:clamp(30px,5vh,56px);position:relative;z-index:2}
+.h-tekst{max-width:780px}
+.h-tekst .lbl{color:rgba(255,255,255,.78)}
+.hero h1{font-size:clamp(50px,6.1vw,98px);line-height:.92;letter-spacing:-.045em;margin:26px 0 26px;text-shadow:0 2px 30px rgba(17,17,19,.45)}
+.hero h1 .r2{display:block;padding-left:clamp(0px,5.2vw,84px)}
+.hero .lead{color:rgba(255,255,255,.74);max-width:470px;font-size:clamp(16.5px,1.2vw,18.5px)}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.stempel{position:absolute;z-index:3;left:40px;bottom:150px;width:148px;height:148px;border-radius:50%;background:var(--geel);color:var(--zwart);display:grid;place-items:center;box-shadow:0 26px 50px -20px rgba(0,0,0,.7),0 0 0 8px rgba(245,197,24,.14)}
+.stempel svg{position:absolute;inset:0;width:100%;height:100%;animation:draai 32s linear infinite}
+.stempel text{font:800 10.6px 'Montserrat';letter-spacing:.2em;fill:var(--zwart)}
+.stempel b{font:900 34px/1 'Montserrat';letter-spacing:-.04em}
+@keyframes draai{to{transform:rotate(360deg)}}
+.h-balk{position:relative;z-index:3;display:grid;grid-template-columns:auto auto 1fr;align-items:stretch;border-top:1px solid var(--lijnw);background:linear-gradient(180deg,rgba(17,17,19,.35),rgba(17,17,19,.78));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.h-balk>div{display:flex;align-items:center;gap:14px;padding:20px clamp(18px,2.4vw,34px)}
+.h-balk>div+div{border-left:1px solid var(--lijnw)}
+.h-balk>div:first-child{padding-left:0}
+.h-balk .g{font:900 30px/1 'Montserrat';letter-spacing:-.03em;color:var(--geel)}
+.h-balk small{display:block;font-size:13.5px;line-height:1.4;color:rgba(255,255,255,.66)}
+.h-balk strong{display:block;font:700 15px/1.3 'Sora';color:var(--wit)}
+.sterren{display:flex;gap:2px;color:var(--geel);margin-bottom:3px}
+.sterren svg{width:13px;height:13px}
+.h-balk .ic{width:42px;height:42px;flex:none;border-radius:50%;border:1px solid rgba(245,197,24,.45);display:grid;place-items:center;color:var(--geel)}
+.h-balk .ic svg{width:20px;height:20px}
+.h-balk .dl{justify-content:flex-end;gap:8px;flex-wrap:wrap}
+.h-balk .dl span{font:600 13px/1 'Sora';padding:9px 13px;border-radius:999px;border:1px solid var(--lijnw);color:rgba(255,255,255,.82);white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.stempel svg,.h-foto img{animation:none;transform:none}}
 
 /* algemeen */
 .sec{padding:clamp(80px,10vw,140px) 0}
@@ -169,7 +188,6 @@ h1 mark,h2 mark{background:none;color:var(--geel)}
 .ct-r .logo b{font-size:clamp(80px,9vw,140px);background:none;color:var(--zwart)}
 .ct-r .logo span{font-size:clamp(18px,1.8vw,26px)}
 .ct-r p{margin-top:28px;font:800 17px/1.4 'Montserrat';max-width:320px}
-.ct-r .em{font-size:30px;letter-spacing:8px;margin-top:10px}
 
 /* footer */
 .voet{padding:60px 0 34px}
@@ -180,10 +198,41 @@ h1 mark,h2 mark{background:none;color:var(--geel)}
 .voet ul a:hover{color:#B88A00}
 .voet-o{display:flex;justify-content:space-between;gap:20px;padding-top:24px;font-size:13.5px;color:var(--grijs)}
 
-@media (max-width:1060px){
-  .hero{grid-template-columns:1fr}
-  .hero-r{min-height:620px}
+@media (max-width:1200px){
+  .h-balk{grid-template-columns:auto auto}
+  .h-balk .dl{display:none}
+  .stempel{left:30px;bottom:120px;width:124px;height:124px}
+  .stempel b{font-size:28px}
+}
+@media (max-width:900px){
+  .hero{min-height:0}
+  .hero::before{left:10%;top:30%}
   .nav{display:none}
+  .kop-m{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:999px;background:var(--geel);color:var(--zwart);font:700 14px/1 'Sora'}
+  .kop-m svg{width:16px;height:16px}
+  .h-in{padding-top:clamp(40px,8vw,64px);padding-bottom:0}
+  .hero h1 .r2{padding-left:0}
+  .h-foto{position:relative;z-index:0;width:auto;height:min(118vw,640px);margin:-20px calc(-1*clamp(18px,3.6vw,44px)) 0}
+  .h-foto img{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 26%,#000 78%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 26%,#000 78%,transparent 100%);-webkit-mask-composite:source-over;mask-composite:add;object-position:50% 36%}
+  .h-foto::after{background:linear-gradient(180deg,var(--zwart) 0,transparent 30%)}
+  .stempel{left:auto;bottom:auto;right:calc(clamp(18px,3.6vw,44px) + 8px);top:24%;width:112px;height:112px}
+  .hero h1{font-size:clamp(46px,8.6vw,76px)}
+  .kop{order:0}.h-in{order:1}.h-foto{order:2}.h-sluit{order:3}
+  .stempel text{font-size:11.4px}
+  .stempel b{font-size:26px}
+  .h-balk{margin-top:-64px;grid-template-columns:1fr 1fr;background:rgba(17,17,19,.7);border:1px solid var(--lijnw);border-radius:18px}
+  .h-balk>div:first-child{padding-left:clamp(14px,3vw,24px)}
+  .h-balk>div{padding:16px clamp(14px,3vw,24px)}
+  .h-sluit{padding-bottom:clamp(36px,8vw,60px)}
+}
+@media (max-width:480px){
+  .hero h1{font-size:clamp(44px,12.4vw,58px)}
+  .h-balk .g{font-size:26px}
+  .h-balk .ic{display:none}
+  .h-balk strong{font-size:14px}
+  .h-balk small{font-size:12.5px}
+}
+@media (max-width:1060px){
   .kleur-grid,.ppf-grid,.ct{grid-template-columns:1fr}
   .dienst-grid{grid-template-columns:1fr 1fr}
   .proj-grid{grid-template-columns:1fr 1fr}
@@ -194,11 +243,7 @@ h1 mark,h2 mark{background:none;color:var(--geel)}
 }
 @media (max-width:640px){
   body{font-size:16px}
-  .hero-r{min-height:480px}
-  .hero h1{font-size:clamp(42px,12vw,56px)}
   .acts .knop{width:100%}
-  .hero-voet{grid-template-columns:1fr 1fr}
-  .chip{padding:10px 12px}
   .kleur-foto{aspect-ratio:4/4.8}
   .staal{grid-template-columns:52px 1fr auto;gap:14px}
   .staal .kl{width:52px;height:52px}
@@ -221,29 +266,34 @@ h1 mark,h2 mark{background:none;color:var(--geel)}
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
 <header class="hero">
-  <div class="hero-l">
-    <div class="kop">
-      <a class="logo" href="#top" aria-label="BRK Graphics"><b>BRK</b><span>G<i>R</i>APHICS</span></a>
-      <nav class="nav" aria-label="Hoofdmenu"><a href="#wrap">Wrap</a><a href="#ppf">PPF</a><a href="#diensten">Diensten</a><a href="#projecten">Projecten</a><a href="#contact">Contact</a></nav>
+  <figure class="h-foto"><img src="img/hero.webp" alt="Mercedes-AMG G 63 met full front PPF in de lichttunnel van BRK Graphics" width="1200" height="1500" fetchpriority="high">
+    <div class="stempel rv" style="--d:4" aria-label="3M Certified Graphics Installer">
+      <svg viewBox="0 0 148 148" aria-hidden="true"><defs><path id="rond" d="M74,74 m-56,0 a56,56 0 1,1 112,0 a56,56 0 1,1 -112,0"/></defs><text><textPath href="#rond">3M CERTIFIED · GRAPHICS INSTALLER ·</textPath></text></svg>
+      <b aria-hidden="true">3M</b>
     </div>
-    <div class="hero-in">
-      <span class="lbl rv">Carwrapping &amp; PPF · Lier</span>
-      <h1 class="rv" style="--d:1">Geef jouw wagen een <mark>nieuwe look.</mark></h1>
-      <div class="emoji rv" style="--d:2" aria-hidden="true">🏎🚗🚌🚙🚕</div>
-      <p class="lead rv" style="--d:2">Full wraps, PPF, chrome delete en belettering, onder het witte licht van onze studio in Lier. Van ontwerp tot uitvoering, met levenslange garantie op de montage.</p>
+  </figure>
+  <div class="wrap kop">
+    <a class="logo" href="#top" aria-label="BRK Graphics"><b>BRK</b><span>G<i>R</i>APHICS</span></a>
+    <nav class="nav" aria-label="Hoofdmenu"><a href="#wrap">Wrap</a><a href="#ppf">PPF</a><a href="#diensten">Diensten</a><a href="#projecten">Projecten</a><a class="nav-k" href="#contact">Offerte</a></nav>
+    <a class="kop-m" href="https://wa.me/32484259982" target="_blank" rel="noopener">Offerte<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+  <div class="wrap h-in">
+    <div class="h-tekst">
+      <span class="lbl rv">Carwrapping &amp; PPF studio</span>
+      <h1 class="rv" style="--d:1">Geef jouw wagen<span class="r2">een <mark>nieuwe look.</mark></span></h1>
+      <p class="lead rv" style="--d:2">Full wraps, PPF, chrome delete en belettering. Elke wagen gaat bij ons onder het witte licht van de lichttunnel, zodat we elk randje zien. Van ontwerp tot uitvoering, met levenslange garantie op de montage.</p>
       <div class="acts rv" style="--d:3">
         <a class="knop k-geel" href="https://wa.me/32484259982" target="_blank" rel="noopener">Vraag je offerte<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="knop k-lijn" href="#projecten">Bekijk projecten</a>
       </div>
     </div>
-    <div class="hero-voet rv" style="--d:4">
-      <div class="chip"><b>5,0</b><small>★★★★★<br>69 Google-reviews</small></div>
-      <div class="chip"><b>∞</b><small>levenslange garantie<br>op montage</small></div>
-    </div>
   </div>
-  <div class="hero-r">
-    <img src="img/hero.webp" alt="Mercedes-AMG G 63 met full front PPF in de lichttunnel van BRK Graphics" width="1200" height="1500" fetchpriority="high">
-    <div class="tag3m rv" style="--d:5"><b>3M Certified</b>Graphics Installer</div>
+  <div class="wrap h-sluit">
+    <div class="h-balk rv" style="--d:4">
+      <div><span class="g">5,0</span><span><span class="sterren"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span><small>69 Google-reviews</small></span></div>
+      <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></span><span><strong>Levenslange garantie</strong><small>op de montage</small></span></div>
+      <div class="dl"><span>Full wrap</span><span>PPF in glans of mat</span><span>Chrome delete</span><span>Bedrijfswagens</span></div>
+    </div>
   </div>
 </header>
 
@@ -274,7 +324,7 @@ h1 mark,h2 mark{background:none;color:var(--geel)}
   <div class="wrap ppf-grid">
     <div class="ppf-t">
       <span class="lbl rv">Paint Protection Film</span>
-      <h2 class="rv" style="--d:1">Bescherm je lak met onzichtbare kracht. 💪</h2>
+      <h2 class="rv" style="--d:1">Bescherm je lak met onzichtbare kracht.</h2>
       <p class="rv" style="--d:2">PPF beschermt je wagen tegen krassen, steenslag en zelfs strooizout in de winter. Kleine krasjes verdwijnen vanzelf onder invloed van warmte. En de film? Die is volledig onzichtbaar.</p>
       <div class="lagen rv" style="--d:3" aria-label="Opbouw van PPF">
         <div class="laag l1">PPF<small>Zelfherstellend, onzichtbaar, in glans of mat</small></div>
@@ -364,7 +414,6 @@ h1 mark,h2 mark{background:none;color:var(--geel)}
       <div class="ct-r">
         <span class="logo" aria-hidden="true"><b>BRK</b><span>G<i>R</i>APHICS</span></span>
         <p>Geef jouw wagen een nieuwe look.</p>
-        <div class="em" aria-hidden="true">🏎🚗🚌🚙🚕</div>
       </div>
     </div>
   </div>
