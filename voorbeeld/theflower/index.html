@@ -39,22 +39,32 @@ h1 em,h2 em{font-style:italic;font-weight:500;color:var(--blauw)}
 .nav .knop{padding:11px 20px}
 
 /* hero */
-.hero{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 112px);min-height:max(640px,calc(100svh - 112px))}
-.h-foto{position:relative;overflow:hidden}
-.h-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
-.h-foto .score{position:absolute;right:26px;bottom:26px;display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.94);border-radius:18px;padding:14px 20px;box-shadow:0 20px 40px -20px rgba(30,35,70,.5)}
+.hero{position:relative;overflow:hidden;isolation:isolate;background:radial-gradient(60% 70% at 78% 40%,#fff 0%,rgba(255,255,255,0) 60%),linear-gradient(180deg,var(--mist) 0%,#F6F5FA 100%)}
+.hero .b1{position:absolute;left:-150px;bottom:-170px;width:520px;opacity:.22;z-index:-1;transform:rotate(-14deg)}
+.h-g{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(40px,5vw,90px);align-items:center;min-height:max(620px,calc(100svh - 112px));padding:56px 0 64px;width:min(1280px,100% - 48px)}
+.h-merk{display:inline-flex;align-items:center;gap:12px;padding:7px 16px;background:linear-gradient(180deg,#C2A66A,#A88B4E);color:#fff;font-family:'Playfair Display',serif;font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;border-radius:4px;box-shadow:0 10px 24px -14px rgba(120,95,40,.8)}
+.h-merk i{width:5px;height:5px;background:#fff;transform:rotate(45deg);opacity:.85}
+.hero h1{font-size:clamp(54px,6.5vw,98px);font-weight:600;line-height:1;letter-spacing:-.02em;color:var(--diep);margin:28px 0 26px}
+.hero h1 span{color:var(--blauw)}
+.hero p{font-size:19px;color:#4B5180;max-width:30em;margin-bottom:36px}
+.acts{display:flex;gap:12px;flex-wrap:wrap}
+.hero .k-lijn{background:rgba(255,255,255,.7)}
+.h-feit{display:flex;gap:10px;margin-top:40px;flex-wrap:wrap}
+.h-feit span{display:inline-flex;align-items:center;gap:9px;font-size:14.5px;font-weight:500;color:var(--diep);background:rgba(255,255,255,.75);border:1px solid var(--line);border-radius:999px;padding:9px 16px 9px 12px}
+.h-feit svg{width:18px;height:18px;color:var(--blauw);flex:none}
+.h-foto{position:relative;justify-self:center;width:100%;max-width:500px}
+.h-boog{position:relative;aspect-ratio:4/5.2;border-radius:999px 999px 36px 36px;overflow:hidden;box-shadow:0 50px 90px -50px rgba(38,43,77,.7);outline:1px solid rgba(255,255,255,.6);outline-offset:-12px}
+.h-boog img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;animation:h-in 1.6s var(--ease) both}
+@keyframes h-in{from{transform:scale(1.08);opacity:.3}to{transform:none;opacity:1}}
+.h-foto .score{position:absolute;left:-46px;bottom:56px;display:flex;align-items:center;gap:14px;background:#fff;border-radius:20px;padding:14px 20px 14px 16px;box-shadow:0 26px 50px -24px rgba(30,35,70,.45)}
 .score b{font-family:'Playfair Display';font-size:36px;font-weight:700;line-height:1;color:var(--diep)}
 .score span{font-size:13px;color:#5a6088;line-height:1.35}
 .st{color:var(--goud);letter-spacing:2px}
-.h-tekst{position:relative;display:flex;flex-direction:column;justify-content:center;padding:70px max(24px,calc((100vw - 1360px)/2 + 24px)) 70px 72px;background:var(--wit);overflow:hidden;isolation:isolate}
-.h-tekst .b1{position:absolute;right:-170px;top:-150px;width:460px;opacity:.3;z-index:-1;transform:rotate(12deg)}
-.h-tekst .b2{position:absolute;right:-60px;bottom:-140px;width:380px;opacity:.32;z-index:-1}
-.hero h1{font-size:clamp(52px,5.6vw,86px);margin:22px 0 26px;max-width:600px}
-.hero p{font-size:19px;color:#4B5180;max-width:470px;margin-bottom:34px}
-.acts{display:flex;gap:12px;flex-wrap:wrap}
-.h-feit{display:flex;gap:26px;margin-top:46px;flex-wrap:wrap}
-.h-feit span{display:flex;align-items:center;gap:10px;font-size:15px;color:#4B5180}
-.h-feit svg{width:20px;height:20px;color:var(--blauw);flex:none}
+.stempel{position:absolute;right:-34px;top:16%;width:132px;height:132px;border-radius:50%;background:var(--diep);color:#fff;display:grid;place-items:center;box-shadow:0 24px 44px -20px rgba(38,43,77,.75)}
+.stempel svg.ring{position:absolute;inset:0;width:100%;height:100%;animation:draai 26s linear infinite}
+.stempel text{font:600 10px 'Figtree',sans-serif;letter-spacing:.12em;fill:#E3E6F5;text-transform:uppercase}
+.stempel .hart{width:40px;height:40px;color:#D9C08A}
+@keyframes draai{to{transform:rotate(360deg)}}
 
 /* prijzen */
 .prijs{padding:120px 0;background:var(--mist);position:relative;overflow:hidden;isolation:isolate}
@@ -171,18 +181,21 @@ footer{background:#fff;padding:60px 0 30px;border-top:1px solid var(--line)}
 
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.stempel svg.ring,.h-boog img{animation:none}}
 
 @media (max-width:1080px){
  .nav ul{display:none}.nav .knop{margin-left:auto}
  .p-g,.t-g,.b-g{grid-template-columns:1fr;gap:50px}
  .w-g{grid-template-columns:1fr 1fr}
- .h-tekst{padding:60px 40px}
+ .h-g{grid-template-columns:1fr 1fr;gap:40px}
+ .h-foto .score{left:-20px}
+ .stempel{right:-14px;width:112px;height:112px}
 }
 @media (max-width:820px){
- .hero{grid-template-columns:1fr}
- .h-foto{height:56vh;min-height:380px;order:2}
- .h-tekst{padding:50px 24px 54px}
+ .h-g{grid-template-columns:1fr;min-height:0;padding:44px 0 70px;gap:50px}
+ .h-foto{max-width:460px}
+ .h-foto .score{left:-10px;bottom:30px}
+ .stempel{right:-8px;top:10%}
  .w-kop{flex-direction:column;align-items:flex-start}
  .w-g{grid-template-columns:1fr}
  .p-foto{display:none}
@@ -193,9 +206,18 @@ footer{background:#fff;padding:60px 0 30px;border-top:1px solid var(--line)}
  .nav .wrap{height:64px}
  .nav .logo img{height:36px}
  .nav .knop{padding:9px 14px;font-size:14px}
- .hero h1{font-size:46px}
+ .h-g{width:calc(100% - 40px);padding:34px 0 60px}
+ .hero h1{font-size:clamp(42px,11.6vw,50px);margin:22px 0 20px}
+ .h-merk{font-size:11.5px;letter-spacing:.18em}
  .hero p{font-size:17px}
- .h-feit{gap:12px;flex-direction:column;margin-top:32px}
+ .h-feit{gap:8px;margin-top:28px}
+ .h-feit span{font-size:13.5px}
+ .h-foto{max-width:none;padding:0 8px}
+ .stempel{width:96px;height:96px;right:0}
+ .stempel text{font-size:8.6px}
+ .stempel .hart{width:30px;height:30px}
+ .h-foto .score{left:0;bottom:22px;padding:12px 16px 12px 14px}
+ .score b{font-size:30px}
  .prijs,.waarom,.team,.gal,.boek{padding:80px 0}
  .kaart{padding:26px 20px}
  .kaart .boven h3{font-size:26px}
@@ -221,22 +243,28 @@ footer{background:#fff;padding:60px 0 30px;border-top:1px solid var(--line)}
 </div></nav>
 
 <header class="hero">
-  <div class="h-foto">
-    <img src="img/hero.webp" alt="Hand met lichtblauwe nagels tussen witte hortensia's" width="1600" height="2133">
-    <div class="score"><b>4,7</b><span><span class="st">★★★★★</span><br>63 reviews op Google</span></div>
-  </div>
-  <div class="h-tekst">
-    <img class="b1" src="img/bloem1.webp" alt="" width="960" height="670">
-    <span class="mlbl rv">Nagels · wimpers · brows in Brugge</span>
-    <h1 class="rv" style="--d:1">Precies, proper en <em>héél veel kleurtjes</em></h1>
-    <p class="rv" style="--d:2">Manicure, BIAB, gellak, pedicure, wimpers en brows aan de Leopold I-laan. We nemen de tijd voor elke nagel, en we zijn elke dag open. Ook op zondag.</p>
-    <div class="acts rv" style="--d:3">
-      <a class="knop k-blauw" href="https://wa.me/32495460505" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Boek via WhatsApp</a>
-      <a class="knop k-lijn" href="#prijzen">Bekijk de prijzen</a>
-    </div>
-    <div class="h-feit rv" style="--d:4">
+  <img class="b1" src="img/bloem1.webp" alt="" width="960" height="670">
+  <div class="wrap h-g">
+    <div class="h-tekst">
+      <span class="h-merk rv"><i></i>Beauty studio in Brugge<i></i></span>
+      <h1 class="rv" style="--d:1">Elke dag blij<br> <span>met je nagels.</span></h1>
+      <p class="rv" style="--d:2">Manicure, BIAB, gellak, pedicure, wimpers en brows aan de Leopold I-laan. Zes stylisten met elk een eigen stijl, en we zijn elke dag open. Ook op zondag.</p>
+      <div class="acts rv" style="--d:3">
+        <a class="knop k-blauw" href="https://wa.me/32495460505" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Boek via WhatsApp</a>
+        <a class="knop k-lijn" href="#prijzen">Bekijk de prijzen</a>
+      </div>
+      <div class="h-feit rv" style="--d:4">
       <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Ma tot za 9 - 18u, zo vanaf 8u30</span>
       <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Leopold I-laan 25, Brugge</span>
+    </div>
+    </div>
+    <div class="h-foto rv" style="--d:2">
+      <div class="h-boog"><img src="img/hero.webp" alt="Hand met lichtblauwe nagels tussen witte hortensia's" width="1600" height="2133" fetchpriority="high"></div>
+      <div class="stempel" aria-hidden="true">
+        <svg class="ring" viewBox="0 0 132 132"><defs><path id="cirkel" d="M66 66m-48 0a48 48 0 1 1 96 0a48 48 0 1 1-96 0"/></defs><text><textPath href="#cirkel" textLength="296" lengthAdjust="spacing">The Flower · Beauty Studio · Brugge ·</textPath></text></svg>
+        <svg class="hart" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M20 20c-3-6-9-7-11-4s1 8 11 4Zm0 0c6-3 7-9 4-11s-8 1-4 11Zm0 0c3 6 9 7 11 4s-1-8-11-4Zm0 0c-6 3-7 9-4 11s8-1 4-11Z"/><circle cx="20" cy="20" r="2.2" fill="currentColor"/></svg>
+      </div>
+      <div class="score"><b>4,7</b><span><span class="st">★★★★★</span><br>63 reviews op Google</span></div>
     </div>
   </div>
 </header>
