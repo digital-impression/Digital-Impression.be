@@ -32,27 +32,46 @@ h1,h2,h3{font-family:'Young Serif',serif;font-weight:400;line-height:1.04;letter
 .oog svg{width:18px;height:18px}
 .logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none;font-weight:800;letter-spacing:.14em;font-size:14px}
 .logo svg{width:52px;height:52px;flex:none}
-/* hero */
-.hero{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);min-height:max(700px,calc(100svh - 38px));background:var(--creme)}
-.hl{display:flex;flex-direction:column;padding:22px 64px 40px max(4vw,calc((100vw - 1240px)/2))}
-.nav{display:flex;align-items:center;gap:24px}
-.nav ul{list-style:none;display:flex;gap:26px;margin-left:auto;font-weight:600;font-size:15px}
-.nav ul a{text-decoration:none;opacity:.72}.nav ul a:hover{opacity:1}
-.htx{margin:auto 0;padding:56px 0 46px}
-.groet{font-weight:800;font-size:13.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--rood);display:flex;align-items:center;gap:12px}
-.groet::before{content:"";width:34px;height:2px;background:var(--rood)}
-.hero h1{font-size:clamp(52px,5.3vw,88px);margin:22px 0 26px;max-width:640px}
-.hero h1 span{color:var(--rood)}
-.hero .lead{font-size:19px;color:var(--grijs);max-width:500px}
+/* hero: één doorlopend paneel, foto smelt in het espressobruin */
+.hero{position:relative;margin:14px;border-radius:40px;overflow:hidden;background:#2a1d16;color:var(--wit);min-height:max(700px,calc(100svh - 66px));display:flex;flex-direction:column;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(900px 620px at 12% 8%,rgba(201,138,62,.20),transparent 62%),radial-gradient(700px 500px at 0% 100%,rgba(179,38,30,.22),transparent 60%)}
+.hf{position:absolute;top:0;right:0;bottom:0;width:62%;z-index:-1}
+.hf img{width:100%;height:100%;object-fit:cover;object-position:40% 62%;-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.55) 16%,#000 34%);mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.55) 16%,#000 34%)}
+.hf::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(42,29,22,.92) 0,rgba(42,29,22,0) 30%),linear-gradient(180deg,rgba(42,29,22,.55) 0,rgba(42,29,22,0) 22%)}
+.nav{display:flex;align-items:center;gap:24px;padding:24px 34px 0 40px}
+.nav .logo{color:var(--wit)}
+.nav ul{list-style:none;display:flex;gap:6px;margin-left:auto;font-weight:600;font-size:15px;background:rgba(255,250,242,.12);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:999px;padding:6px}
+.nav ul a{display:block;text-decoration:none;padding:9px 16px;border-radius:999px;transition:background .25s}.nav ul a:hover{background:rgba(255,250,242,.16)}
+.hmid{flex:1;display:flex;align-items:center;padding:40px 40px 30px 72px}
+.htx{max-width:720px}
+.groet{font-weight:800;font-size:13.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--honing);display:flex;align-items:center;gap:12px}
+.groet::before{content:"";width:34px;height:2px;background:var(--honing)}
+.hero h1{font-size:clamp(54px,6vw,96px);margin:22px 0 26px;color:var(--wit);text-shadow:0 2px 30px rgba(42,29,22,.45)}
+.hero h1 span{color:var(--honing);display:block}
+.hero .lead{font-size:19px;color:rgba(255,250,242,.8);max-width:470px}
 .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-.hvoet{display:flex;gap:12px 30px;flex-wrap:wrap;padding-top:22px;border-top:1px solid var(--lijn);font-size:14.5px;color:var(--grijs)}
-.hvoet b{color:var(--ink)}
-.hvoet .st{color:var(--hout);letter-spacing:1px}
-.hf{position:relative;overflow:hidden;margin:14px 14px 14px 0;border-radius:34px}
-.hf img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 55%}
-.hf .zegel{position:absolute;left:26px;bottom:26px;display:flex;align-items:center;gap:14px;background:rgba(255,250,242,.94);border-radius:22px;padding:14px 20px 14px 14px;font-size:14px;line-height:1.35;box-shadow:0 20px 40px -24px rgba(42,33,27,.6)}
-.hf .zegel b{display:block;font-family:'Young Serif';font-weight:400;font-size:19px}
-.hf .zegel svg{width:44px;height:44px}
+.hvoet{display:flex;align-items:center;gap:14px 34px;flex-wrap:wrap;margin:0 22px 22px;padding:20px 26px 20px 50px;border-radius:26px;background:rgba(255,250,242,.08);border:1px solid rgba(255,250,242,.12);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);font-size:14.5px;color:rgba(255,250,242,.72)}
+.hvoet b{color:var(--wit)}
+.hvoet .st{color:var(--honing);letter-spacing:1px}
+.hvoet .pt{display:flex;align-items:center;gap:10px}
+.hvoet .pt svg{width:19px;height:19px;color:var(--honing);flex:none}
+.hvoet .k{margin-left:auto;color:var(--honing);font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px}
+.hvoet .k svg{width:16px;height:16px}
+.bon{position:absolute;right:40px;top:156px;width:290px;background:var(--wit);color:var(--ink);border-radius:24px;padding:22px 22px 18px;box-shadow:0 30px 60px -28px rgba(0,0,0,.7)}
+.bon .bt{display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1.5px dashed var(--lijn)}
+.bon .bt svg{width:40px;height:40px;flex:none}
+.bon .bt b{display:block;font-family:'Young Serif';font-weight:400;font-size:19px;line-height:1.1}
+.bon .bt small{font-size:13px;color:var(--grijs)}
+.bon ul{list-style:none;display:grid;gap:2px;padding-top:12px}
+.bon li{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;align-items:baseline;padding:8px 0;font-size:14px;color:var(--grijs)}
+.bon li+li{border-top:1px solid var(--lijn)}
+.bon li b{grid-row:span 2;font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--rood);background:var(--kraft);border-radius:999px;padding:5px 10px}
+.bon li strong{color:var(--ink);font-size:15.5px}
+.stempel{position:absolute;left:-58px;bottom:-74px;width:118px;height:118px;pointer-events:none;filter:drop-shadow(0 16px 24px rgba(0,0,0,.35))}
+.stempel svg{width:100%;height:100%}
+.stempel .rond{transform-origin:50% 50%;animation:draai 26s linear infinite}
+@keyframes draai{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.stempel .rond{animation:none}}
 /* secties */
 .s{padding:140px 0}
 .kop{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:56px;flex-wrap:wrap}
@@ -149,7 +168,8 @@ h1,h2,h3{font-family:'Young Serif',serif;font-weight:400;line-height:1.04;letter
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .js .rv.in{opacity:1;transform:none}
 @media (max-width:1100px){
-  .hl{padding-right:40px}
+  .hmid{padding-left:48px}
+  .bon{width:260px;right:28px}
   .bouw{grid-template-columns:repeat(2,minmax(0,1fr))}
   .bg{grid-template-columns:1fr 1fr}
   .bg .bord{grid-column:1/-1;order:-1}
@@ -159,11 +179,18 @@ h1,h2,h3{font-family:'Young Serif',serif;font-weight:400;line-height:1.04;letter
   .bof .quote{right:16px}
 }
 @media (max-width:900px){
-  .hero{grid-template-columns:1fr;min-height:0}
-  .hl{padding:20px 5vw 46px}
+  .hero{min-height:0;border-radius:32px;margin:10px}
+  .nav{padding:20px 22px 0 24px}
   .nav ul{display:none}
-  .htx{padding:44px 0 34px}
-  .hf{margin:0 14px 14px;min-height:560px}
+  .hmid{padding:44px 6vw 0;display:block}
+  .hf{order:3;position:relative;width:auto;height:540px;margin-top:8px}
+  .hf img{object-position:40% 60%;-webkit-mask-image:linear-gradient(180deg,transparent 0,rgba(0,0,0,.6) 14%,#000 30%);mask-image:linear-gradient(180deg,transparent 0,rgba(0,0,0,.6) 14%,#000 30%)}
+  .hf::after{background:linear-gradient(0deg,rgba(42,29,22,.95) 0,rgba(42,29,22,0) 34%)}
+  .nav{order:1}.hmid{order:2}
+  .bon{order:4;position:relative;top:auto;right:auto;margin:-170px 22px 0 auto;width:min(300px,calc(100% - 96px))}
+  .stempel{left:auto;right:12px;bottom:auto;top:-90px;width:100px;height:100px}
+  .hvoet{order:5;position:relative;margin:22px 14px 14px;padding:18px 22px}
+  .hvoet .k{margin-left:0}
   .s{padding:100px 0}
   .mk{grid-template-columns:1fr}
   .mkk{min-height:560px}
@@ -177,12 +204,14 @@ h1,h2,h3{font-family:'Young Serif',serif;font-weight:400;line-height:1.04;letter
 }
 @media (max-width:560px){
   body{font-size:16px}
-  .hero h1{font-size:46px}
+  .hero h1{font-size:47px}
   .hero .lead{font-size:17.5px}
   .knop{padding:15px 22px;font-size:15px}
   .acts .knop{flex:1 1 100%;justify-content:center}
-  .hf{min-height:460px;border-radius:26px}
-  .hf .zegel{left:14px;bottom:14px;right:14px}
+  .hmid{padding:36px 22px 0}
+  .hf{height:460px}
+  .bon{margin-top:-150px}
+  .hvoet{gap:10px 20px}
   .mkt{padding:26px 24px}
   .uur{gap:16px;flex-wrap:wrap}
   .kaart .wrap{width:calc(100% - 44px)}
@@ -205,33 +234,41 @@ h1,h2,h3{font-family:'Young Serif',serif;font-weight:400;line-height:1.04;letter
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
 <header class="hero" id="top">
-  <div class="hl">
-    <nav class="nav" aria-label="Hoofdmenu">
-      <a class="logo" href="#top" aria-label="Bakkie Gent"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="49" fill="#b3261e"/><circle cx="50" cy="50" r="40" fill="none" stroke="#f7efe2" stroke-width="1.6"/><text x="50" y="57" text-anchor="middle" font-family="Figtree,sans-serif" font-weight="800" font-size="19" letter-spacing="1.5" fill="#f7efe2">BAKKIE</text><path d="M40 68h20M44 32c0-3 2-4 2-7M50 32c0-3 2-4 2-7M56 32c0-3 2-4 2-7" stroke="#f7efe2" stroke-width="2" stroke-linecap="round" fill="none"/></svg>BAKKIE GENT</a>
-      <ul>
-        <li><a href="#markt">Markten</a></li>
-        <li><a href="#kaart">Kaart</a></li>
-        <li><a href="#bakkie2">Bakkie 2.0</a></li>
-        <li><a href="#boeken">Boeken</a></li>
-      </ul>
-    </nav>
+  <div class="hf">
+    <img src="img/hero.webp" alt="De houten bakfiets van Bakkie met espressomachine, bekertjes en een krijtbord vol koffies, voor een bakstenen muur" width="1400" height="1642" fetchpriority="high">
+  </div>
+  <nav class="nav" aria-label="Hoofdmenu">
+    <a class="logo" href="#top" aria-label="Bakkie Gent"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="49" fill="#b3261e"/><circle cx="50" cy="50" r="40" fill="none" stroke="#f7efe2" stroke-width="1.6"/><text x="50" y="57" text-anchor="middle" font-family="Figtree,sans-serif" font-weight="800" font-size="19" letter-spacing="1.5" fill="#f7efe2">BAKKIE</text><path d="M40 68h20M44 32c0-3 2-4 2-7M50 32c0-3 2-4 2-7M56 32c0-3 2-4 2-7" stroke="#f7efe2" stroke-width="2" stroke-linecap="round" fill="none"/></svg>BAKKIE GENT</a>
+    <ul>
+      <li><a href="#markt">Markten</a></li>
+      <li><a href="#kaart">Kaart</a></li>
+      <li><a href="#bakkie2">Bakkie 2.0</a></li>
+      <li><a href="#boeken">Boeken</a></li>
+    </ul>
+  </nav>
+  <div class="hmid">
     <div class="htx">
       <span class="groet">Good morning everybody</span>
       <h1>Specialty coffee van een <span>houten bakfiets</span></h1>
       <p class="lead">Elke vrijdag op de Vrijdagmarkt, elke zondag op het Ledebergplein. Een goeie koffie, een babbel en een glimlach erbij. En op aanvraag ook op je event of op kantoor.</p>
       <div class="acts">
         <a class="knop k-rood" href="#markt">Waar staat Bakkie <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="knop k-lijn" href="#boeken">Bakkie boeken</a>
+        <a class="knop k-licht" href="#boeken">Bakkie boeken</a>
       </div>
     </div>
-    <div class="hvoet">
-      <span><span class="st">★★★★★</span> <b>5,0</b> op Google · 55 reviews</span>
-      <span><b>Sinds 2021</b> op de Gentse markten</span>
-    </div>
   </div>
-  <div class="hf">
-    <img src="img/hero.webp" alt="De houten bakfiets van Bakkie met espressomachine, bekertjes en een krijtbord vol koffies, voor een bakstenen muur" width="1400" height="1642" fetchpriority="high">
-    <div class="zegel"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#b3261e"/><path d="M14 20h17v6a8.5 8.5 0 0 1-17 0Z" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/><path d="M31 21h2.5a3.5 3.5 0 0 1 0 7H31" stroke="#fff" stroke-width="2.2"/><path d="M18 16c0-2 1.5-2.5 1.5-4.5M23 16c0-2 1.5-2.5 1.5-4.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span><b>I see you here!</b>Vrijdag en zondag, tot 12u30</span></div>
+  <div class="bon">
+    <div class="bt"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#b3261e"/><path d="M14 20h17v6a8.5 8.5 0 0 1-17 0Z" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/><path d="M31 21h2.5a3.5 3.5 0 0 1 0 7H31" stroke="#fff" stroke-width="2.2"/><path d="M18 16c0-2 1.5-2.5 1.5-4.5M23 16c0-2 1.5-2.5 1.5-4.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span><b>I see you here!</b><small>Deze week aan de bakfiets</small></span></div>
+    <ul>
+      <li><b>Vr</b><strong>Vrijdagmarkt</strong><span>8u tot 12u30</span></li>
+      <li><b>Zo</b><strong>Markt van Ledeberg</strong><span>9u tot 12u30</span></li>
+    </ul>
+    <div class="stempel" aria-hidden="true"><svg viewBox="0 0 140 140"><g class="rond"><circle cx="70" cy="70" r="69" fill="#b3261e"/><defs><path id="rnd" d="M70 70m-52 0a52 52 0 1 1 104 0a52 52 0 1 1-104 0"/></defs><text font-family="Figtree,sans-serif" font-weight="800" font-size="12.5" letter-spacing="3.2" fill="#f7efe2"><textPath href="#rnd">GOOD MORNING EVERYBODY · SINDS 2021 · </textPath></text></g><circle cx="70" cy="70" r="34" fill="#f7efe2"/><path d="M55 64h26v9a13 13 0 0 1-26 0Z" stroke="#b3261e" stroke-width="3" stroke-linejoin="round" fill="none"/><path d="M81 66h3.5a5 5 0 0 1 0 10H81" stroke="#b3261e" stroke-width="3" fill="none"/><path d="M61 58c0-3 2-3.5 2-6.5M68 58c0-3 2-3.5 2-6.5M75 58c0-3 2-3.5 2-6.5" stroke="#b3261e" stroke-width="2.6" stroke-linecap="round" fill="none"/></svg></div>
+  </div>
+  <div class="hvoet">
+    <span><span class="st">★★★★★</span> <b>5,0</b> op Google · 55 reviews</span>
+    <span class="pt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3.5"/><circle cx="18" cy="17" r="3.5"/><path d="M6 17h6l3-8h3M12 17 9 9H6"/></svg><span><b>Sinds 2021</b> op de Gentse markten</span></span>
+    <a class="k" href="#boeken">Ook op je event of op kantoor <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </header>
 
