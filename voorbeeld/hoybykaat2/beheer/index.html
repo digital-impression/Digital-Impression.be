@@ -8,411 +8,371 @@
 <link rel="icon" href="../img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Figtree:wght@400;500;600;700&display=swap">
 <style>
-:root{--groen:#0B6B3E;--diep:#0E3B26;--creme:#F7F3EA;--papier:#FBF8F2;--oranje:#F26A2E;--zon:#FFC23D;--roze:#F4A6B7;--inkt:#1B241E;--mute:#68716A;--lijn:rgba(27,36,30,.1);--ease:cubic-bezier(.16,1,.3,1)}
+:root{--groen:#0B6B3E;--diep:#0E3B26;--creme:#F7F3EA;--wit:#fff;--inkt:#16201A;--grijs:#4E5751;--lijn:#D9D3C6;--rood:#B3261E;--roodz:#FBE9E7;--geel:#8A5A00;--geelz:#FFF1CC;--groenz:#DDF0E3;--blauw:#1D4F9C;--blauwz:#E3ECFA}
+html{font-size:19px}
+html.groot{font-size:22px}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Figtree,system-ui,sans-serif;background:var(--creme);color:var(--inkt);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
-button,input,select,textarea{font:inherit;color:inherit}
+body{font-family:Figtree,system-ui,sans-serif;background:var(--creme);color:var(--inkt);line-height:1.5;-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit;color:inherit}
 button{cursor:pointer}
-h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:400;letter-spacing:-.015em;line-height:1.05;color:var(--diep)}
-.hand{font-family:Caveat,cursive;font-weight:700;color:var(--oranje)}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;color:var(--diep);line-height:1.15;letter-spacing:-.01em}
+:focus-visible{outline:3px solid var(--oranje,#F26A2E);outline-offset:3px}
 
-/* login */
-.login{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:20px;background:radial-gradient(60% 60% at 20% 10%,#FFE3A6,rgba(255,227,166,0) 70%),radial-gradient(50% 60% at 90% 90%,#F9D3DE,rgba(249,211,222,0) 70%),var(--creme);transition:opacity .6s var(--ease),visibility .6s}
-.login.weg{opacity:0;visibility:hidden}
-.login-kaart{width:min(420px,100%);background:rgba(255,255,255,.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid #fff;border-radius:34px;padding:38px 34px;text-align:center;box-shadow:0 40px 80px -40px rgba(14,59,38,.45)}
-.login-kaart img{width:84px;height:84px;border-radius:50%;margin:0 auto 18px;box-shadow:0 0 0 8px rgba(11,107,62,.08)}
-.login-kaart h1{font-size:36px}
-.login-kaart p{color:var(--mute);margin:8px 0 24px}
-.login-kaart input{width:100%;border:1.5px solid var(--lijn);background:#fff;border-radius:16px;padding:14px 16px;font-size:16px;text-align:center;letter-spacing:.2em}
-.login-kaart input:focus{outline:none;border-color:var(--groen);box-shadow:0 0 0 4px rgba(11,107,62,.1)}
-.login-kaart .fout{color:#C0392B;font-size:13.5px;height:20px;margin-top:8px}
-.login-kaart small{display:block;margin-top:16px;color:var(--mute);font-size:12.5px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:12px 20px;font-weight:600;font-size:14.5px;text-decoration:none;transition:transform .3s var(--ease),background .3s}
-.btn:hover{transform:translateY(-2px)}
-.btn.groen{background:var(--groen);color:#fff}
-.btn.groen:hover{background:var(--diep)}
-.btn.wit{background:#fff;color:var(--diep);box-shadow:inset 0 0 0 1px var(--lijn)}
-.btn.vol{width:100%;padding:15px;margin-top:14px;font-size:16px}
-.btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2}
+/* knoppen: groot, altijd met tekst */
+.k{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3rem;padding:.6rem 1.3rem;border-radius:.8rem;border:2px solid transparent;font-weight:700;font-size:1rem;text-decoration:none;line-height:1.2;text-align:center}
+.k.hoofd{background:var(--groen);color:#fff}
+.k.hoofd:hover{background:var(--diep)}
+.k.rand{background:#fff;border-color:var(--groen);color:var(--groen)}
+.k.rand:hover{background:var(--groenz)}
+.k.gevaar{background:#fff;border-color:var(--rood);color:var(--rood)}
+.k.gevaar:hover{background:var(--roodz)}
+.k.gevaar.vol{background:var(--rood);color:#fff}
+.k.breed{width:100%}
 
-/* layout */
-.app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
-.zij{background:var(--diep);color:var(--creme);padding:24px 18px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
-.merk{display:flex;align-items:center;gap:12px;padding:4px 8px 26px}
-.merk img{width:44px;height:44px;border-radius:50%}
-.merk b{font:600 18px Fraunces,serif;display:block}
-.merk small{font-size:12px;opacity:.6}
-.nav{display:grid;gap:4px}
-.nav button{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;border:0;background:none;color:rgba(247,243,234,.72);font-weight:500;text-align:left;transition:background .25s,color .25s}
-.nav button:hover{background:rgba(247,243,234,.07);color:var(--creme)}
-.nav button.aan{background:var(--creme);color:var(--diep)}
-.nav svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.9;flex:none}
-.nav .tel{margin-left:auto;background:var(--oranje);color:#fff;font-size:12px;font-weight:700;border-radius:999px;padding:2px 8px}
-.zij .onder{margin-top:auto;display:grid;gap:8px}
-.zij .onder a{display:flex;align-items:center;gap:10px;color:rgba(247,243,234,.7);text-decoration:none;font-size:14px;padding:10px 14px;border-radius:12px}
-.zij .onder a:hover{background:rgba(247,243,234,.07);color:var(--creme)}
-.zij .onder svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.9}
-.hoofd{padding:30px 38px 60px;min-width:0}
-.top{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:28px;flex-wrap:wrap}
-.top h1{font-size:44px}
-.top h1 .hand{font-size:.8em}
-.top p{color:var(--mute);margin-top:6px}
-.top .acties{display:flex;gap:10px;flex-wrap:wrap}
-.paneel{display:none;animation:in .6s var(--ease)}
-.paneel.aan{display:block}
-@keyframes in{from{opacity:0;transform:translateY(12px)}}
+/* aanmelden */
+.login{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:1rem;background:var(--creme)}
+.login.weg{display:none}
+.login form{width:min(26rem,100%);background:#fff;border-radius:1.2rem;padding:2rem 1.6rem;text-align:center;border:1px solid var(--lijn)}
+.login img{width:5rem;height:5rem;border-radius:50%;margin:0 auto 1rem}
+.login h1{font-size:1.9rem}
+.login p{color:var(--grijs);margin:.4rem 0 1.4rem}
+.login label{display:block;text-align:left;font-weight:700;margin-bottom:.35rem}
+.login input{width:100%;min-height:3.2rem;border:2px solid var(--lijn);border-radius:.8rem;padding:.5rem 1rem;font-size:1.15rem}
+.login input:focus{border-color:var(--groen);outline:none}
+.login .fout{color:var(--rood);font-weight:600;min-height:1.6rem;margin:.5rem 0 .2rem;text-align:left}
+.login small{display:block;margin-top:1rem;color:var(--grijs);font-size:.85rem}
 
-/* kpi */
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:22px}
-.kpi{background:#fff;border-radius:24px;padding:20px 22px;position:relative;overflow:hidden}
-.kpi small{color:var(--mute);font-size:13px;font-weight:600}
-.kpi b{display:block;font:400 40px/1.1 Fraunces,serif;color:var(--diep);margin:8px 0 4px}
-.kpi span{font-size:12.5px;color:var(--mute)}
-.kpi span.op{color:#1E9E5A;font-weight:600}
-.kpi i{position:absolute;right:-18px;top:-18px;width:90px;height:90px;border-radius:50%;opacity:.5}
-.raster{display:grid;grid-template-columns:1.35fr 1fr;gap:18px}
-.kaart{background:#fff;border-radius:26px;padding:22px 24px}
-.kaart-kop{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:10px}
-.kaart-kop h2{font-size:24px}
-.kaart-kop a,.kaart-kop button.link{font-size:13.5px;font-weight:600;color:var(--groen);background:none;border:0;text-decoration:none}
-.sesrij{display:flex;align-items:center;gap:14px;padding:12px 0;border-top:1px solid var(--lijn)}
-.sesrij:first-of-type{border-top:0}
-.dg{width:52px;height:56px;border-radius:15px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;flex:none}
-.dg b{font:600 22px Fraunces,serif}
-.dg small{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
-.sesrij .w{flex:1;min-width:0}
-.sesrij .w b{font-weight:600;display:block}
-.sesrij .w small{color:var(--mute);font-size:13px}
-.bar{height:7px;border-radius:9px;background:rgba(14,59,38,.08);margin-top:7px;overflow:hidden}
-.bar i{display:block;height:100%;border-radius:9px;transition:width 1s var(--ease)}
-.sesrij .n{font-weight:700;font-size:13.5px;white-space:nowrap;text-align:right}
-.sesrij .n small{display:block;font-weight:500;color:var(--mute)}
-.feed{display:grid;gap:4px}
-.fr{display:flex;align-items:center;gap:12px;padding:10px;border-radius:16px;cursor:pointer;transition:background .2s}
-.fr:hover{background:var(--papier)}
-.av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:14px;color:var(--diep);flex:none}
-.fr .w{flex:1;min-width:0}
-.fr .w b{display:block;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.fr .w small{color:var(--mute);font-size:13px}
-.st{font-size:12px;font-weight:700;border-radius:999px;padding:4px 10px;white-space:nowrap}
-.st.nieuw{background:#FFF1CC;color:#9A6B00}
-.st.bevestigd{background:#DFE9FB;color:#2B5CB8}
-.st.betaald{background:#DCEFE2;color:#0B6B3E}
-.st.geannuleerd{background:#F1E3E3;color:#A33}
-.grafiek{display:flex;align-items:flex-end;gap:10px;height:150px;padding-top:10px}
-.grafiek div{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end}
-.grafiek i{width:100%;border-radius:10px 10px 4px 4px;background:linear-gradient(180deg,#2BB673,#0B6B3E);transition:height 1.2s var(--ease)}
-.grafiek small{font-size:11.5px;color:var(--mute)}
-.grafiek b{font-size:12px}
-.mini{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-.mini div{background:var(--papier);border-radius:16px;padding:12px 14px}
-.mini small{color:var(--mute);font-size:12.5px}
-.mini b{display:block;font:600 22px Fraunces,serif;color:var(--diep)}
+/* bovenbalk */
+.balk{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--lijn)}
+.balk .in{max-width:62rem;margin:0 auto;padding:.7rem 1.2rem;display:flex;align-items:center;gap:1rem}
+.merk{display:flex;align-items:center;gap:.7rem;font-family:Fraunces,serif;font-weight:600;font-size:1.2rem;color:var(--diep);margin-right:auto}
+.merk img{width:2.6rem;height:2.6rem;border-radius:50%}
+.klein{background:none;border:2px solid var(--lijn);border-radius:.7rem;min-height:2.6rem;padding:.3rem .8rem;font-weight:600;font-size:.9rem;color:var(--diep)}
+.klein:hover{border-color:var(--groen)}
 
-/* boekingen */
-.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:16px}
-.zoek{flex:1;min-width:200px;display:flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:0 16px;border:1px solid var(--lijn)}
-.zoek input{border:0;background:none;padding:11px 0;flex:1;min-width:0}
-.zoek input:focus{outline:none}
-.zoek svg{width:17px;height:17px;stroke:var(--mute);fill:none;stroke-width:2}
-.fchip{border:1px solid var(--lijn);background:#fff;border-radius:999px;padding:9px 14px;font-size:13.5px;font-weight:500}
-.fchip.aan{background:var(--diep);color:#fff;border-color:var(--diep)}
-.tabel{background:#fff;border-radius:24px;overflow:hidden}
-table{width:100%;border-collapse:collapse}
-th{text-align:left;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);padding:14px 16px;background:var(--papier)}
-td{padding:14px 16px;border-top:1px solid var(--lijn);vertical-align:middle}
-tbody tr{cursor:pointer;transition:background .2s}
-tbody tr:hover{background:var(--papier)}
-td .naam{display:flex;align-items:center;gap:10px}
-td .naam b{font-weight:600;display:block}
-td .naam small{color:var(--mute);font-size:12.5px}
-.actpil{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:500}
-.actpil i{width:9px;height:9px;border-radius:50%}
-.leeg{padding:40px;text-align:center;color:var(--mute)}
+.tabs{max-width:62rem;margin:0 auto;padding:0 1.2rem;display:flex;gap:.4rem}
+.tabs button{flex:1;white-space:nowrap;background:none;border:0;border-bottom:4px solid transparent;padding:.8rem .5rem .7rem;font-weight:700;font-size:1.02rem;color:var(--grijs)}
+.tabs button .tel{display:inline-block;min-width:1.6rem;padding:0 .45rem;margin-left:.35rem;border-radius:1rem;background:var(--rood);color:#fff;font-size:.8rem;line-height:1.6rem}
+.tabs button.aan{color:var(--diep);border-bottom-color:var(--groen)}
+.tabs button:hover{color:var(--diep)}
 
-/* agenda */
-.ag-kop{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.ag-kop h2{font-size:28px;text-transform:capitalize;flex:1}
-.ag-kop button{width:42px;height:42px;border-radius:50%;border:1px solid var(--lijn);background:#fff;font-size:18px}
-.ag{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
-.ag .wd{font-size:12px;font-weight:700;color:var(--mute);text-transform:uppercase;padding:4px 8px}
-.ag .dag{background:#fff;border-radius:16px;min-height:118px;padding:8px;display:flex;flex-direction:column;gap:4px}
-.ag .dag.uit{background:transparent}
-.ag .dag .nr{font-size:13px;font-weight:600;color:var(--mute);margin-bottom:2px}
-.ag .dag.nu .nr{background:var(--groen);color:#fff;border-radius:999px;width:26px;height:26px;display:grid;place-items:center}
-.ev{border-radius:10px;padding:5px 8px;font-size:12px;line-height:1.25;font-weight:600;cursor:pointer;border:0;text-align:left}
-.ev small{display:block;font-weight:500;opacity:.8}
+main{max-width:62rem;margin:0 auto;padding:1.6rem 1.2rem 4rem}
+.pagina{display:none}
+.pagina.aan{display:block}
+.kop{margin-bottom:1.4rem}
+.kop h1{font-size:2rem}
+.kop p{color:var(--grijs);font-size:1.05rem;margin-top:.25rem}
+h2{font-size:1.4rem;margin:2rem 0 .8rem}
 
-/* activiteiten */
-.acts{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.act{background:#fff;border-radius:26px;overflow:hidden}
-.act .af{height:120px;position:relative}
-.act .af img{width:100%;height:100%;object-fit:cover}
-.act .af::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,30,22,.65),rgba(14,30,22,0))}
-.act .af div{position:absolute;left:20px;bottom:14px;z-index:2;color:#fff}
-.act .af b{font:400 24px Fraunces,serif;display:block}
-.act .af small{opacity:.85}
-.act .ai{padding:14px 20px 18px}
-.act .sesrij .x{border:0;background:none;color:var(--mute);font-size:18px;padding:4px 6px}
-.nieuwe{display:grid;grid-template-columns:1.2fr 1fr .8fr .7fr auto;gap:8px;margin-top:12px;align-items:end}
-.nieuwe label{font-size:12px;font-weight:600;color:var(--mute);display:block;margin-bottom:4px}
-.nieuwe input,.nieuwe select{width:100%;border:1px solid var(--lijn);border-radius:12px;padding:10px 12px;background:var(--papier)}
-.opm{color:var(--mute);font-size:13.5px;padding:8px 0}
+/* kaarten */
+.kaart{background:#fff;border:1px solid var(--lijn);border-radius:1rem;padding:1.1rem 1.2rem;margin-bottom:.8rem}
+.melding{display:flex;align-items:center;gap:1rem;background:var(--geelz);border:2px solid #E8C66A;border-radius:1rem;padding:1rem 1.2rem;font-size:1.1rem;font-weight:600;color:#5C3D00}
+.melding.ok{background:var(--groenz);border-color:#9FD0AF;color:var(--diep)}
+.melding b{font-size:1.6rem;font-family:Fraunces,serif}
 
-/* detail */
-.lade{position:fixed;inset:0;z-index:40;visibility:hidden}
-.lade.open{visibility:visible}
-.lade .bg{position:absolute;inset:0;background:rgba(14,30,22,.35);opacity:0;transition:opacity .4s}
-.lade.open .bg{opacity:1}
-.lade .pan{position:absolute;right:12px;top:12px;bottom:12px;width:min(440px,calc(100% - 24px));background:var(--creme);border-radius:28px;padding:24px;overflow:auto;transform:translateX(110%);transition:transform .6s var(--ease)}
-.lade.open .pan{transform:none}
-.lade .x{position:absolute;right:16px;top:16px;width:40px;height:40px;border-radius:50%;border:0;background:#fff;font-size:22px}
-.lade h2{font-size:30px;margin:8px 0 4px;padding-right:40px}
-.rijen{background:#fff;border-radius:20px;padding:6px 16px;margin:18px 0}
-.rijen div{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-top:1px solid var(--lijn);font-size:14.5px}
-.rijen div:first-child{border-top:0}
-.rijen span{color:var(--mute)}
-.rijen b{font-weight:600;text-align:right}
-.knoppen{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.knoppen .btn{width:100%}
-.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,30px);opacity:0;background:var(--diep);color:#fff;border-radius:999px;padding:11px 20px;font-size:14px;transition:.4s var(--ease);z-index:60;pointer-events:none}
-.toast.aan{opacity:1;transform:translate(-50%,0)}
-.demo{font-size:12px;color:var(--mute);margin-top:10px}
+.boeking{display:grid;grid-template-columns:1fr auto;gap:.4rem 1rem;align-items:center}
+.boeking .naam{font-weight:700;font-size:1.15rem}
+.boeking .wat{color:var(--grijs)}
+.boeking .knoppen{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.5rem}
+.status{display:inline-block;padding:.2rem .7rem;border-radius:.5rem;font-weight:700;font-size:.88rem;white-space:nowrap}
+.status.nieuw{background:var(--geelz);color:var(--geel)}
+.status.bevestigd{background:var(--blauwz);color:var(--blauw)}
+.status.betaald{background:var(--groenz);color:var(--groen)}
+.status.geannuleerd{background:var(--roodz);color:var(--rood)}
 
-@media(max-width:1100px){.kpis{grid-template-columns:repeat(2,1fr)}.raster{grid-template-columns:1fr}.acts{grid-template-columns:1fr}.nieuwe{grid-template-columns:1fr 1fr}}
-@media(max-width:820px){
- .app{grid-template-columns:1fr}
- .zij{position:fixed;bottom:0;top:auto;left:0;right:0;height:auto;z-index:30;padding:8px 10px calc(8px + env(safe-area-inset-bottom));border-radius:22px 22px 0 0}
- .merk,.zij .onder{display:none}
- .nav{grid-template-columns:repeat(4,1fr)}
- .nav button{flex-direction:column;gap:4px;font-size:11.5px;padding:8px 4px;justify-content:center;position:relative}
- .nav .tel{position:absolute;top:2px;right:14%;margin:0}
- .hoofd{padding:22px 16px 110px}
- .top h1{font-size:34px}
- .kpi b{font-size:32px}
- .tabel{overflow-x:auto}
- table{min-width:640px}
- .ag{gap:4px}.ag .dag{min-height:74px;padding:5px;border-radius:10px}.ev{font-size:10.5px;padding:3px 5px}.ev small{display:none}
+.moment{display:grid;grid-template-columns:4.2rem 1fr auto;gap:1rem;align-items:center}
+.dag{text-align:center;border-radius:.8rem;padding:.4rem 0;background:var(--groenz);color:var(--diep);line-height:1.1}
+.dag b{display:block;font-size:1.6rem;font-family:Fraunces,serif}
+.dag span{font-size:.85rem;font-weight:700;text-transform:uppercase}
+.moment .titel{font-weight:700;font-size:1.1rem}
+.moment .sub{color:var(--grijs)}
+.vul{height:.6rem;border-radius:1rem;background:#EEE9DE;margin-top:.45rem;overflow:hidden;max-width:16rem}
+.vul i{display:block;height:100%;background:var(--groen);border-radius:1rem}
+.vul.vol i{background:var(--rood)}
+
+/* filters en zoeken */
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.9rem}
+.filters button{min-height:2.8rem;padding:.3rem 1rem;border-radius:.8rem;border:2px solid var(--lijn);background:#fff;font-weight:700;color:var(--diep)}
+.filters button.aan{background:var(--diep);border-color:var(--diep);color:#fff}
+.zoek{display:block;margin-bottom:1.2rem}
+.zoek span{display:block;font-weight:700;margin-bottom:.35rem}
+.zoek input{width:100%;min-height:3.2rem;border:2px solid var(--lijn);border-radius:.8rem;padding:.4rem 1rem;background:#fff}
+.zoek input:focus{border-color:var(--groen);outline:none}
+.leeg{text-align:center;color:var(--grijs);padding:2rem 1rem;font-size:1.05rem}
+
+/* data toevoegen */
+.veld{margin-bottom:1.1rem}
+.veld>span{display:block;font-weight:700;margin-bottom:.4rem}
+.keuze{display:flex;flex-wrap:wrap;gap:.5rem}
+.keuze button{min-height:3rem;padding:.4rem 1rem;border-radius:.8rem;border:2px solid var(--lijn);background:#fff;font-weight:600}
+.keuze button.aan{border-color:var(--groen);background:var(--groenz);color:var(--diep);font-weight:700}
+.veld input[type=date],.veld input[type=time]{min-height:3.2rem;border:2px solid var(--lijn);border-radius:.8rem;padding:.4rem .9rem;background:#fff;min-width:14rem}
+.rij2{display:flex;flex-wrap:wrap;gap:1.2rem}
+.teller{display:inline-flex;align-items:center;border:2px solid var(--lijn);border-radius:.8rem;background:#fff;overflow:hidden}
+.teller button{width:3.2rem;height:3.2rem;border:0;background:var(--creme);font-size:1.5rem;font-weight:700;color:var(--diep)}
+.teller output{min-width:3.4rem;text-align:center;font-size:1.25rem;font-weight:700}
+.act-kop{display:flex;align-items:center;gap:.9rem;margin-bottom:.5rem}
+.act-kop img{width:3.4rem;height:3.4rem;border-radius:.7rem;object-fit:cover}
+.act-kop b{font-size:1.15rem}
+.act-kop small{display:block;color:var(--grijs);font-size:.92rem}
+.datum-rij{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem 0;border-top:1px solid #EEE9DE}
+.datum-rij b{font-weight:700}
+.datum-rij span{color:var(--grijs);display:block}
+.opm{color:var(--grijs)}
+.demo{margin-top:2.5rem;color:var(--grijs);font-size:.9rem}
+.demo button{background:none;border:0;color:var(--groen);font-weight:700;text-decoration:underline;font-size:.9rem}
+
+/* venster */
+.venster{position:fixed;inset:0;z-index:40;display:none;align-items:flex-start;justify-content:center;padding:1.5rem 1rem;background:rgba(14,33,22,.55);overflow-y:auto}
+.venster.open{display:flex}
+.venster .doos{width:min(36rem,100%);background:#fff;border-radius:1.2rem;padding:1.5rem 1.4rem 1.4rem;margin:auto 0}
+.venster .sluit{float:right;margin:-.3rem -.2rem 0 1rem}
+.venster h2{margin:0 0 .3rem;font-size:1.6rem}
+.gegevens{margin:1.1rem 0;border-top:1px solid #EEE9DE}
+.gegevens div{display:grid;grid-template-columns:9rem 1fr;gap:1rem;padding:.6rem 0;border-bottom:1px solid #EEE9DE}
+.gegevens span{color:var(--grijs)}
+.gegevens b{font-weight:600}
+.gegevens a{color:var(--groen);font-weight:700}
+.doos .knoppen{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:1rem}
+.doos .knoppen .heel{grid-column:1/-1}
+.doos .vraag{font-size:1.15rem;margin:.6rem 0 1.2rem}
+.gasten div{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-bottom:1px solid #EEE9DE}
+.gasten a{color:var(--groen);font-weight:700;white-space:nowrap}
+
+.bericht{position:fixed;left:50%;bottom:1.5rem;transform:translateX(-50%);z-index:60;background:var(--diep);color:#fff;padding:.9rem 1.4rem;border-radius:.9rem;font-weight:700;font-size:1.05rem;box-shadow:0 10px 30px rgba(0,0,0,.25);display:none;max-width:calc(100% - 2rem);text-align:center}
+.bericht.aan{display:block}
+
+@media(max-width:640px){
+ html{font-size:17px}html.groot{font-size:20px}
+ .merk span{display:none}
+ .tabs button{font-size:.92rem;padding:.75rem .1rem .65rem}
+ .tabs button .tel{margin-left:.2rem;min-width:1.4rem;line-height:1.4rem;padding:0 .35rem}
+ .moment{grid-template-columns:3.8rem 1fr}
+ .moment>.k{grid-column:1/-1}
+ .boeking{grid-template-columns:1fr}
+ .gegevens div{grid-template-columns:1fr;gap:0}
+ .doos .knoppen{grid-template-columns:1fr}
+ .datum-rij{flex-wrap:wrap}
 }
 </style>
 </head>
 <body>
 
 <div class="login" id="login">
- <form class="login-kaart" id="loginForm">
+ <form id="loginForm">
   <img src="../img/logo.png" alt="Logo Hoy by Kaat">
-  <h1>Dag Kaat <span class="hand">hoy!</span></h1>
-  <p>Log in om je boekingen en je agenda te bekijken.</p>
-  <input id="code" type="password" placeholder="Je code" autocomplete="current-password" aria-label="Code">
-  <div class="fout" id="fout"></div>
-  <button class="btn groen vol" type="submit">Naar mijn atelier</button>
+  <h1>Dag Kaat</h1>
+  <p>Hier vind je al je boekingen en data.</p>
+  <label for="code">Je code</label>
+  <input id="code" type="password" autocomplete="current-password">
+  <div class="fout" id="fout" role="alert"></div>
+  <button class="k hoofd breed" type="submit">Aanmelden</button>
   <small>Voorbeeldversie: de code is <b>hoy</b></small>
  </form>
 </div>
 
-<div class="app">
- <aside class="zij">
-  <div class="merk"><img src="../img/logo.png" alt=""><div><b>Mijn atelier</b><small>Hoy by Kaat</small></div></div>
-  <nav class="nav" id="nav">
-   <button class="aan" data-p="overzicht"><svg viewBox="0 0 24 24"><path d="M4 13h6V4H4zM14 20h6v-9h-6zM4 20h6v-4H4zM14 8h6V4h-6z"/></svg>Overzicht</button>
-   <button data-p="boekingen"><svg viewBox="0 0 24 24"><path d="M8 7h12M8 12h12M8 17h12M4 7h.01M4 12h.01M4 17h.01"/></svg>Boekingen<span class="tel" id="telNieuw"></span></button>
-   <button data-p="agenda"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Agenda</button>
-   <button data-p="activiteiten"><svg viewBox="0 0 24 24"><path d="M12 3c2 3 2 5 0 8-2-3-2-5 0-8zM12 11c3-2 5-2 8 0-3 2-5 2-8 0zM12 11c-3-2-5-2-8 0 3 2 5 2 8 0zM12 11v10"/></svg>Activiteiten</button>
-  </nav>
-  <div class="onder">
-   <a href="../" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg>Bekijk de website</a>
-   <a href="https://www.instagram.com/hoybykaat/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>Instagram-shop</a>
-   <a href="#" id="uit"><svg viewBox="0 0 24 24"><path d="M15 4h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4M10 17l5-5-5-5M15 12H4"/></svg>Afmelden</a>
-  </div>
- </aside>
+<header class="balk">
+ <div class="in">
+  <div class="merk"><img src="../img/logo.png" alt=""><span>Mijn atelier</span></div>
+  <button class="klein" id="groter" type="button">Tekst groter</button>
+  <button class="klein" id="uit" type="button">Afmelden</button>
+ </div>
+ <nav class="tabs" aria-label="Menu">
+  <button data-p="start" class="aan" type="button">Overzicht</button>
+  <button data-p="boekingen" type="button">Boekingen<span class="tel" id="telNieuw" hidden></span></button>
+  <button data-p="data" type="button">Data</button>
+ </nav>
+</header>
 
- <main class="hoofd">
-  <!-- overzicht -->
-  <section class="paneel aan" id="p-overzicht">
-   <div class="top"><div><h1 id="groet">Goeiemiddag, Kaat <span class="hand">☀</span></h1><p id="vandaag"></p></div><div class="acties"><a class="btn wit" href="../#boeken" target="_blank" rel="noopener">Boekingspagina bekijken</a><button class="btn groen" data-ga="activiteiten"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Nieuwe datum</button></div></div>
-   <div class="kpis" id="kpis"></div>
-   <div class="raster">
-    <div class="kaart"><div class="kaart-kop"><h2>Eerstvolgende activiteiten</h2><button class="link" data-ga="agenda">Naar de agenda</button></div><div id="volgende"></div></div>
-    <div style="display:grid;gap:18px">
-     <div class="kaart"><div class="kaart-kop"><h2>Nieuwste boekingen</h2><button class="link" data-ga="boekingen">Alles bekijken</button></div><div class="feed" id="feed"></div></div>
-     <div class="kaart"><div class="kaart-kop"><h2>Boekingen per week</h2></div><div class="grafiek" id="grafiek"></div><div class="mini" id="mini"></div></div>
-    </div>
+<main>
+ <section class="pagina aan" id="p-start">
+  <div class="kop"><h1 id="groet">Dag Kaat</h1><p id="datumVandaag"></p></div>
+  <div id="melding"></div>
+  <h2>Nieuwe boekingen</h2>
+  <div id="nieuwLijst"></div>
+  <h2>Binnenkort in het atelier</h2>
+  <div id="binnenkort"></div>
+ </section>
+
+ <section class="pagina" id="p-boekingen">
+  <div class="kop"><h1>Boekingen</h1><p>Alles wat via je website binnenkwam. Klik op een boeking om ze te openen.</p></div>
+  <div class="filters" id="filters"></div>
+  <label class="zoek"><span>Zoek een naam</span><input id="zoek" type="search" autocomplete="off"></label>
+  <div id="lijst"></div>
+ </section>
+
+ <section class="pagina" id="p-data">
+  <div class="kop"><h1>Data</h1><p>Zet hier een nieuwe datum voor een workshop of kamp. Ze verschijnt meteen op je website.</p></div>
+  <form class="kaart" id="nieuw">
+   <h2 style="margin-top:0">Nieuwe datum toevoegen</h2>
+   <div class="veld"><span>1. Welke activiteit?</span><div class="keuze" id="kiesAct"></div></div>
+   <div class="rij2">
+    <label class="veld"><span>2. Welke dag?</span><input type="date" id="nDatum" required></label>
+    <label class="veld"><span>3. Hoe laat?</span><input type="time" id="nUur" value="14:00" required></label>
    </div>
-  </section>
-
-  <!-- boekingen -->
-  <section class="paneel" id="p-boekingen">
-   <div class="top"><div><h1>Boekingen</h1><p>Alles wat via de website binnenkwam. Klik op een boeking voor de details.</p></div><div class="acties"><button class="btn wit" id="export"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download als Excel</button></div></div>
-   <div class="filters" id="filters"></div>
-   <div class="tabel"><table><thead><tr><th>Klant</th><th>Activiteit</th><th>Wanneer</th><th>Aantal</th><th>Bedrag</th><th>Status</th></tr></thead><tbody id="tbody"></tbody></table></div>
-  </section>
-
-  <!-- agenda -->
-  <section class="paneel" id="p-agenda">
-   <div class="top"><div><h1>Agenda</h1><p>Je workshops, kampen en afspraken in één oogopslag.</p></div></div>
-   <div class="kaart"><div class="ag-kop"><button id="agVorige" aria-label="Vorige maand">‹</button><h2 id="agTitel"></h2><button id="agVolgende" aria-label="Volgende maand">›</button></div><div class="ag" id="ag"></div></div>
-  </section>
-
-  <!-- activiteiten -->
-  <section class="paneel" id="p-activiteiten">
-   <div class="top"><div><h1>Activiteiten</h1><p>Voeg nieuwe data toe. Ze verschijnen meteen op je website.</p></div></div>
-   <div class="kaart" style="margin-bottom:18px"><div class="kaart-kop"><h2>Nieuwe datum toevoegen</h2></div>
-    <form class="nieuwe" id="nieuwe">
-     <div><label for="nAct">Activiteit</label><select id="nAct"></select></div>
-     <div><label for="nDatum">Datum</label><input id="nDatum" type="date" required></div>
-     <div><label for="nUur">Uur</label><input id="nUur" type="time" value="14:00" required></div>
-     <div><label for="nPl">Plaatsen</label><input id="nPl" type="number" min="1" max="30" value="10" required></div>
-     <button class="btn groen" type="submit">Toevoegen</button>
-    </form>
+   <div class="veld"><span>4. Hoeveel plaatsen?</span>
+    <div class="teller"><button type="button" id="min" aria-label="Eén plaats minder">−</button><output id="nPl">10</output><button type="button" id="plus" aria-label="Eén plaats meer">+</button></div>
    </div>
-   <div class="acts" id="acts"></div>
-   <p class="demo">Voorbeeldversie: nieuwe boekingen en data worden op dit toestel bewaard. <a href="#" id="reset" style="color:var(--groen)">Zet de voorbeeldgegevens terug</a></p>
-  </section>
- </main>
-</div>
+   <button class="k hoofd" type="submit">Datum toevoegen</button>
+  </form>
+  <h2>Geplande data</h2>
+  <div id="acts"></div>
+  <p class="demo">Voorbeeldversie: wat je hier doet, wordt alleen op dit toestel bewaard. <button type="button" id="reset">Voorbeeld terugzetten</button></p>
+ </section>
+</main>
 
-<div class="lade" id="lade"><div class="bg" data-dicht></div><div class="pan" id="pan"></div></div>
-<div class="toast" id="toast"></div>
+<div class="venster" id="venster" role="dialog" aria-modal="true"><div class="doos" id="doos"></div></div>
+<div class="bericht" id="bericht" role="status"></div>
 
 <script src="../hoy-data.js"></script>
 <script>
 (function(){
-var H=window.HOY,MAAND=['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'];
-var KLEUR_AV=['#FFE3A6','#F9D3DE','#DCEFE2','#DFE9FB','#ECE4FA','#FBE3D6'];
+var H=window.HOY;
+var LABEL={nieuw:'Nieuw, nog bevestigen',bevestigd:'Bevestigd',betaald:'Betaald',geannuleerd:'Geannuleerd'};
+var MAAND=['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'];
+var $=function(id){return document.getElementById(id);};
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 function cap(s){return s.charAt(0).toUpperCase()+s.slice(1);}
 function uur(u){var p=u.split(':');return +p[0]+'u'+(p[1]!=='00'?p[1]:'');}
 function vandaag(){var d=new Date();d.setHours(0,0,0,0);return d;}
-function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
-function init(n){return n.split(/\s+/).filter(Boolean).slice(0,2).map(function(w){return w[0];}).join('').toUpperCase();}
-function avKleur(n){var s=0;for(var i=0;i<n.length;i++)s+=n.charCodeAt(i);return KLEUR_AV[s%KLEUR_AV.length];}
-function toast(t){var e=document.getElementById('toast');e.textContent=t;e.classList.add('aan');clearTimeout(e._t);e._t=setTimeout(function(){e.classList.remove('aan');},2200);}
-function wanneer(b){var s=b.sessie?H.sessie(b.sessie):null;return cap(H.datumKort(b.datum))+(s?(s.tot?' tot '+H.datumKort(s.tot):' · '+uur(s.uur)):(b.dagdeel?' · '+b.dagdeel.toLowerCase():''));}
+function dt(d){return new Date(d+'T12:00:00');}
+function lang(d){return cap(H.datumLang(d));}
+function wanneer(b){var s=b.sessie?H.sessie(b.sessie):null;
+ if(s&&s.tot)return lang(b.datum)+' tot '+H.datumLang(s.tot);
+ return lang(b.datum)+(s?', '+uur(s.uur):(b.dagdeel?', '+b.dagdeel.toLowerCase():''));}
+function personen(b,a){if(a.trouw)return 'Kennismakingsgesprek';var n=+b.aantal||0;return n+(a.kind?(n===1?' kind':' kinderen'):(n===1?' persoon':' personen'));}
+function bericht(t){var e=$('bericht');e.textContent=t;e.classList.add('aan');clearTimeout(e._t);e._t=setTimeout(function(){e.classList.remove('aan');},4000);}
 
-/* login */
-var login=document.getElementById('login');
+/* tekstgrootte */
+try{if(localStorage.getItem('hoy-groot'))document.documentElement.classList.add('groot');}catch(e){}
+function knopGroter(){$('groter').textContent=document.documentElement.classList.contains('groot')?'Tekst kleiner':'Tekst groter';}
+knopGroter();
+$('groter').onclick=function(){var g=document.documentElement.classList.toggle('groot');try{g?localStorage.setItem('hoy-groot','1'):localStorage.removeItem('hoy-groot');}catch(e){}knopGroter();};
+
+/* aanmelden */
+var login=$('login');
 try{if(sessionStorage.getItem('hoy-in'))login.classList.add('weg');}catch(e){}
-document.getElementById('loginForm').onsubmit=function(e){e.preventDefault();if(document.getElementById('code').value.trim().toLowerCase()==='hoy'){try{sessionStorage.setItem('hoy-in','1');}catch(x){}login.classList.add('weg');teken();}else{document.getElementById('fout').textContent='Die code klopt niet.';}};
-document.getElementById('uit').onclick=function(e){e.preventDefault();try{sessionStorage.removeItem('hoy-in');}catch(x){}login.classList.remove('weg');document.getElementById('code').value='';};
+$('loginForm').onsubmit=function(e){e.preventDefault();
+ if($('code').value.trim().toLowerCase()==='hoy'){try{sessionStorage.setItem('hoy-in','1');}catch(x){}login.classList.add('weg');teken();}
+ else{$('fout').textContent='Die code klopt niet. Probeer opnieuw.';}};
+$('uit').onclick=function(){try{sessionStorage.removeItem('hoy-in');}catch(x){}$('code').value='';$('fout').textContent='';login.classList.remove('weg');};
 
-/* navigatie */
-function ga(p){document.querySelectorAll('.nav button').forEach(function(b){b.classList.toggle('aan',b.dataset.p===p);});document.querySelectorAll('.paneel').forEach(function(s){s.classList.toggle('aan',s.id==='p-'+p);});window.scrollTo({top:0});}
-document.getElementById('nav').onclick=function(e){var b=e.target.closest('button');if(b)ga(b.dataset.p);};
-document.addEventListener('click',function(e){var g=e.target.closest('[data-ga]');if(g)ga(g.dataset.ga);});
+/* tabbladen */
+function ga(p){document.querySelectorAll('.tabs button').forEach(function(b){b.classList.toggle('aan',b.dataset.p===p);});
+ document.querySelectorAll('.pagina').forEach(function(s){s.classList.toggle('aan',s.id==='p-'+p);});scrollTo(0,0);}
+document.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){ga(b.dataset.p);};});
+
+/* één boeking als kaart */
+function kaart(b,snel){var a=H.actVan(b.act);
+ return '<div class="kaart boeking"><div><div class="naam">'+esc(b.naam)+'</div><div class="wat">'+esc(a.naam)+' · '+personen(b,a)+'</div><div class="wat">'+wanneer(b)+'</div></div>'+
+ '<span class="status '+b.status+'">'+LABEL[b.status]+'</span>'+
+ '<div class="knoppen"><button class="k rand" data-open="'+b.id+'">Openen</button>'+(snel&&b.status==='nieuw'?'<button class="k hoofd" data-snel="'+b.id+'">Bevestigen</button>':'')+'</div></div>';}
 
 /* overzicht */
-function overzicht(){
- var u=new Date().getHours();document.getElementById('groet').innerHTML=(u<12?'Goeiemorgen':u<18?'Goeiemiddag':'Goeienavond')+', Kaat <span class="hand">☀</span>';
- document.getElementById('vandaag').textContent=cap(new Date().toLocaleDateString('nl-BE',{weekday:'long',day:'numeric',month:'long',year:'numeric'}));
- var B=H.boekingen().filter(function(b){return b.status!=='geannuleerd';}),nu=vandaag();
- var nieuw=B.filter(function(b){return b.status==='nieuw';}).length;
- var komend=B.filter(function(b){return new Date(b.datum+'T23:00:00')>=nu;});
- var deeln=komend.filter(function(b){return b.act!=='trouw';}).reduce(function(t,b){return t+(+b.aantal||0);},0);
- var omzet=komend.reduce(function(t,b){return t+H.bedrag(b);},0);
- var kamp=H.sessies().filter(function(s){return s.act==='kamp'||s.act==='jeugd';}),kpl=kamp.reduce(function(t,s){return t+s.plaatsen;},0),kbz=kamp.reduce(function(t,s){return t+H.bezet(s.id);},0);
- var week=B.filter(function(b){return (new Date()-new Date(b.op))<7*864e5;}).length;
- document.getElementById('kpis').innerHTML=
-  kpi('Nieuwe aanvragen',nieuw,'wachten op jouw bevestiging','#FFE3A6')+
-  kpi('Deelnemers op komst',deeln,'in alle geplande activiteiten','#DCEFE2')+
-  kpi('Verwachte omzet',H.euro(omzet),'<span class="op">vanaf-prijzen, excl. materiaal</span>','#F9D3DE')+
-  kpi('Kerstkampen',Math.round(kbz/kpl*100)+'%',kbz+' van '+kpl+' plaatsen bezet','#DFE9FB');
- var tel=document.getElementById('telNieuw');tel.textContent=nieuw||'';tel.style.display=nieuw?'':'none';
- document.getElementById('volgende').innerHTML=H.sessies().filter(function(s){return new Date(s.datum+'T23:00:00')>=nu;}).slice(0,6).map(sesRij).join('')||'<p class="opm">Nog geen geplande data.</p>';
- var recent=H.boekingen().slice().sort(function(a,b){return b.op.localeCompare(a.op);}).slice(0,5);
- document.getElementById('feed').innerHTML=recent.map(function(b){var a=H.actVan(b.act);return '<div class="fr" data-id="'+b.id+'"><span class="av" style="background:'+avKleur(b.naam)+'">'+init(b.naam)+'</span><span class="w"><b>'+esc(b.naam)+'</b><small>'+esc(a.kort)+' · '+wanneer(b)+'</small></span><span class="st '+b.status+'">'+b.status+'</span></div>';}).join('');
- // grafiek: laatste 6 weken op basis van boekingsdatum
- var wk=[];for(var i=5;i>=0;i--){var e=new Date();e.setHours(23,59,0,0);e.setDate(e.getDate()-i*7);var s=new Date(e);s.setDate(s.getDate()-7);wk.push({s:s,e:e,n:0});}
- H.boekingen().forEach(function(b){var t=new Date(b.op);wk.forEach(function(w){if(t>w.s&&t<=w.e)w.n++;});});
- var mx=Math.max.apply(null,wk.map(function(w){return w.n;}).concat([1]));
- document.getElementById('grafiek').innerHTML=wk.map(function(w,i){return '<div><b>'+w.n+'</b><i style="height:0" data-h="'+Math.max(4,w.n/mx*100)+'%"></i><small>'+(i===5?'deze week':w.e.getDate()+' '+MAAND[w.e.getMonth()])+'</small></div>';}).join('');
- requestAnimationFrame(function(){document.querySelectorAll('#grafiek i').forEach(function(i){i.style.height=i.dataset.h;});});
- var ws=B.filter(function(b){return b.gelegenheid;}).reduce(function(m,b){m[b.gelegenheid]=(m[b.gelegenheid]||0)+1;return m;},{});
- var top=Object.keys(ws).sort(function(a,b){return ws[b]-ws[a];})[0];
- document.getElementById('mini').innerHTML='<div><small>Nieuw deze week</small><b>'+week+'</b></div><div><small>Populairste gelegenheid</small><b>'+(top||'·')+'</b></div>';
+function start(){
+ var u=new Date().getHours();$('groet').textContent=(u<12?'Goeiemorgen':u<18?'Goeiemiddag':'Goeienavond')+', Kaat';
+ $('datumVandaag').textContent='Vandaag is het '+new Date().toLocaleDateString('nl-BE',{weekday:'long',day:'numeric',month:'long'})+'.';
+ var nieuw=H.boekingen().filter(function(b){return b.status==='nieuw';}).sort(function(x,y){return y.op.localeCompare(x.op);});
+ $('melding').innerHTML=nieuw.length?'<div class="melding"><b>'+nieuw.length+'</b><span>'+(nieuw.length===1?'nieuwe boeking wacht':'nieuwe boekingen wachten')+' op je bevestiging.</span></div>':'<div class="melding ok"><span>Alles is bevestigd. Er wacht niets op je.</span></div>';
+ $('nieuwLijst').innerHTML=nieuw.length?nieuw.map(function(b){return kaart(b,true);}).join(''):'<p class="leeg">Geen nieuwe boekingen.</p>';
+ var t=$('telNieuw');t.hidden=!nieuw.length;t.textContent=nieuw.length;
+ /* komende momenten: sessies en afspraken */
+ var nu=vandaag(),m=[];
+ H.sessies().forEach(function(s){if(dt(s.tot||s.datum)>=nu)m.push({datum:s.datum,ses:s});});
+ H.boekingen().forEach(function(b){if(!b.sessie&&b.status!=='geannuleerd'&&dt(b.datum)>=nu)m.push({datum:b.datum,b:b});});
+ m.sort(function(x,y){return x.datum.localeCompare(y.datum);});
+ $('binnenkort').innerHTML=m.slice(0,6).map(moment).join('')||'<p class="leeg">Niets gepland.</p>';
 }
-function kpi(t,v,s,k){return '<div class="kpi"><i style="background:'+k+'"></i><small>'+t+'</small><b>'+v+'</b><span>'+s+'</span></div>';}
-function sesRij(s,x){var a=H.actVan(s.act),d=new Date(s.datum+'T12:00:00'),bz=H.bezet(s.id),pct=Math.min(100,Math.round(bz/s.plaatsen*100));
- return '<div class="sesrij"><span class="dg" style="background:'+a.zacht+';color:'+a.kleur+'"><b>'+d.getDate()+'</b><small>'+MAAND[d.getMonth()]+'</small></span><span class="w"><b>'+esc(a.naam)+'</b><small>'+cap(H.datumLang(s.datum))+(s.tot?' tot '+H.datumKort(s.tot):' · '+uur(s.uur))+'</small><span class="bar"><i style="width:'+pct+'%;background:'+(pct>=100?'#9AA39D':pct>=70?'#F26A2E':a.kleur)+'"></i></span></span><span class="n">'+bz+'/'+s.plaatsen+'<small>'+(bz>=s.plaatsen?'volzet':'nog '+(s.plaatsen-bz))+'</small></span>'+(x&&H.eigenSessie(s.id)?'<button class="x" data-wis="'+s.id+'" aria-label="Datum verwijderen">×</button>':'')+'</div>';}
+function moment(x){var d=dt(x.datum),a,titel,sub,extra='',knop;
+ if(x.ses){var s=x.ses;a=H.actVan(s.act);var bz=H.bezet(s.id),pct=Math.min(100,Math.round(bz/s.plaatsen*100));
+  titel=a.naam;sub=(s.tot?'Tot '+H.datumLang(s.tot)+', ':'')+'om '+uur(s.uur);
+  extra='<div class="sub"><b>'+bz+' van de '+s.plaatsen+'</b> plaatsen bezet'+(bz>=s.plaatsen?', volzet':'')+'</div><div class="vul'+(bz>=s.plaatsen?' vol':'')+'"><i style="width:'+pct+'%"></i></div>';
+  knop='<button class="k rand" data-wie="'+s.id+'">Wie komt er?</button>';}
+ else{var b=x.b;a=H.actVan(b.act);titel=a.naam+' · '+esc(b.naam);sub=(b.dagdeel?b.dagdeel.toLowerCase()+', ':'')+personen(b,a).toLowerCase();knop='<button class="k rand" data-open="'+b.id+'">Openen</button>';}
+ return '<div class="kaart moment"><div class="dag"><b>'+d.getDate()+'</b><span>'+MAAND[d.getMonth()]+'</span></div><div><div class="titel">'+esc(titel)+'</div><div class="sub">'+cap(d.toLocaleDateString('nl-BE',{weekday:'long'}))+', '+sub+'</div>'+extra+'</div>'+knop+'</div>';}
 
 /* boekingen */
-var filt={act:'alle',st:'alle',q:''};
-function filters(){
- var f='<label class="zoek"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="q" placeholder="Zoek op naam, e-mail of nummer" value="'+esc(filt.q)+'"></label>';
- f+=['alle'].concat(H.act.map(function(a){return a.id;})).map(function(id){var a=H.actVan(id);return '<button class="fchip'+(filt.act===id?' aan':'')+'" data-fa="'+id+'">'+(a?esc(a.kort):'Alles')+'</button>';}).join('');
- f+='<select class="fchip" id="fst" aria-label="Status"><option value="alle">Elke status</option>'+['nieuw','bevestigd','betaald','geannuleerd'].map(function(s){return '<option value="'+s+'"'+(filt.st===s?' selected':'')+'>'+cap(s)+'</option>';}).join('')+'</select>';
- var el=document.getElementById('filters');el.innerHTML=f;
- document.getElementById('q').oninput=function(e){filt.q=e.target.value;tabel();};
- document.getElementById('fst').onchange=function(e){filt.st=e.target.value;tabel();};
- el.querySelectorAll('[data-fa]').forEach(function(b){b.onclick=function(){filt.act=b.dataset.fa;filters();tabel();};});
+var filt='nieuw';
+function lijst(){
+ var alle=H.boekingen(),tel=function(s){return alle.filter(function(b){return s==='alle'||b.status===s;}).length;};
+ $('filters').innerHTML=[['nieuw','Nieuw'],['bevestigd','Bevestigd'],['betaald','Betaald'],['geannuleerd','Geannuleerd'],['alle','Alles']].map(function(f){return '<button type="button" data-f="'+f[0]+'" class="'+(filt===f[0]?'aan':'')+'">'+f[1]+' ('+tel(f[0])+')</button>';}).join('');
+ document.querySelectorAll('[data-f]').forEach(function(k){k.onclick=function(){filt=k.dataset.f;lijst();};});
+ var q=$('zoek').value.trim().toLowerCase();
+ var l=alle.filter(function(b){return (filt==='alle'||b.status===filt)&&(!q||b.naam.toLowerCase().indexOf(q)>-1);}).sort(function(x,y){return x.datum.localeCompare(y.datum);});
+ $('lijst').innerHTML=l.length?l.map(function(b){return kaart(b,true);}).join(''):'<p class="leeg">Hier staan geen boekingen.</p>';
 }
-function gefilterd(){var q=filt.q.toLowerCase();return H.boekingen().filter(function(b){return (filt.act==='alle'||b.act===filt.act)&&(filt.st==='alle'||b.status===filt.st)&&(!q||(b.naam+' '+b.mail+' '+b.id+' '+(b.kinderen||'')).toLowerCase().indexOf(q)>-1);}).sort(function(a,b){return b.op.localeCompare(a.op);});}
-function tabel(){
- var l=gefilterd();
- document.getElementById('tbody').innerHTML=l.length?l.map(function(b){var a=H.actVan(b.act);return '<tr data-id="'+b.id+'"><td><div class="naam"><span class="av" style="background:'+avKleur(b.naam)+'">'+init(b.naam)+'</span><span><b>'+esc(b.naam)+'</b><small>'+b.id+'</small></span></div></td><td><span class="actpil"><i style="background:'+a.kleur+'"></i>'+esc(a.kort)+'</span></td><td>'+wanneer(b)+'</td><td>'+(a.trouw?'·':b.aantal)+'</td><td>'+(a.prijs?H.euro(H.bedrag(b)):'gratis')+'</td><td><span class="st '+b.status+'">'+b.status+'</span></td></tr>';}).join(''):'<tr><td colspan="6" class="leeg">Geen boekingen gevonden.</td></tr>';
-}
-document.getElementById('export').onclick=function(){
- var r=[['Nummer','Naam','E-mail','Gsm','Activiteit','Datum','Moment','Aantal','Kinderen','Gelegenheid','Bedrag','Status','Opmerking','Geboekt op']];
- gefilterd().forEach(function(b){var a=H.actVan(b.act),s=b.sessie?H.sessie(b.sessie):null;r.push([b.id,b.naam,b.mail,b.gsm,a.naam,b.datum,s?s.uur:b.dagdeel,b.aantal,b.kinderen||'',b.gelegenheid||'',H.bedrag(b),b.status,b.opm||'',b.op.slice(0,16).replace('T',' ')]);});
- var csv='﻿'+r.map(function(x){return x.map(function(c){c=String(c);return /[;"\n]/.test(c)?'"'+c.replace(/"/g,'""')+'"':c;}).join(';');}).join('\r\n');
- var u=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));var l=document.createElement('a');l.href=u;l.download='boekingen-hoy-by-kaat.csv';document.body.appendChild(l);l.click();setTimeout(function(){URL.revokeObjectURL(u);l.remove();},400);toast('Boekingen gedownload');
-};
+$('zoek').oninput=function(){if($('zoek').value)filt='alle';lijst();};
 
-/* detail */
-var lade=document.getElementById('lade');
-document.addEventListener('click',function(e){var r=e.target.closest('[data-id]');if(r)detail(r.dataset.id);if(e.target.closest('[data-dicht]'))lade.classList.remove('open');});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')lade.classList.remove('open');});
+/* venster */
+var venster=$('venster');
+function open(html){$('doos').innerHTML='<button class="klein sluit" data-dicht type="button">Sluiten</button>'+html;venster.classList.add('open');var k=$('doos').querySelector('.sluit');k&&k.focus();}
+function dicht(){venster.classList.remove('open');}
+venster.addEventListener('click',function(e){if(e.target===venster||e.target.closest('[data-dicht]'))dicht();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')dicht();});
+
 function detail(id){
  var b=H.boekingen().filter(function(x){return x.id===id;})[0];if(!b)return;var a=H.actVan(b.act);
- var rij=function(k,v){return v?'<div><span>'+k+'</span><b>'+esc(v)+'</b></div>':'';};
- document.getElementById('pan').innerHTML='<button class="x" data-dicht aria-label="Sluiten">×</button><span class="st '+b.status+'">'+b.status+'</span><h2>'+esc(b.naam)+'</h2><p style="color:var(--mute)">'+b.id+' · geboekt op '+new Date(b.op).toLocaleDateString('nl-BE',{day:'numeric',month:'long'})+'</p>'+
- '<div class="rijen">'+rij('Activiteit',a.naam)+rij('Wanneer',wanneer(b))+(a.trouw?'':rij('Aantal',String(b.aantal)))+rij('Kinderen',b.kinderen)+rij('Trouwdatum',b.trouwdatum?new Date(b.trouwdatum+'T12:00:00').toLocaleDateString('nl-BE',{day:'numeric',month:'long',year:'numeric'}):'')+rij('Bloemen',b.stijl)+rij('Gelegenheid',b.gelegenheid)+(a.prijs?rij('Bedrag',(a.vanaf?'vanaf ':'')+H.euro(H.bedrag(b))):'')+'</div>'+
- '<div class="rijen">'+rij('E-mail',b.mail)+rij('Gsm',b.gsm)+rij('Nieuwsbrief',b.brief?'ja':'')+'</div>'+
- (b.opm?'<div class="rijen"><div style="display:block"><span>Opmerking</span><p style="margin-top:6px">'+esc(b.opm)+'</p></div></div>':'')+
- '<div class="knoppen"><button class="btn groen" data-zet="bevestigd">Bevestigen</button><button class="btn groen" data-zet="betaald" style="background:#1E9E5A">Betaald</button><a class="btn wit" href="mailto:'+esc(b.mail)+'?subject='+encodeURIComponent('Je boeking bij Hoy by Kaat ('+b.id+')')+'">Mail sturen</a><a class="btn wit" href="tel:'+esc(b.gsm.replace(/\s/g,''))+'">Bellen</a><button class="btn wit" data-zet="geannuleerd" style="grid-column:1/-1;color:#A33">Annuleren</button></div>';
- document.querySelectorAll('[data-zet]').forEach(function(k){k.onclick=function(){H.zetStatus(b.id,k.dataset.zet);toast('Status: '+k.dataset.zet);teken();detail(b.id);};});
- lade.classList.add('open');
+ var r=function(k,v){return v?'<div><span>'+k+'</span><b>'+v+'</b></div>':'';};
+ var tel=b.gsm.replace(/\s/g,'');
+ open('<h2>'+esc(b.naam)+'</h2><span class="status '+b.status+'">'+LABEL[b.status]+'</span>'+
+ '<div class="gegevens">'+r('Activiteit',esc(a.naam))+r('Wanneer',wanneer(b))+r(a.kind?'Kinderen':'Aantal',a.kind&&b.kinderen?esc(b.kinderen):personen(b,a))+
+  r('Trouwdatum',b.trouwdatum?dt(b.trouwdatum).toLocaleDateString('nl-BE',{day:'numeric',month:'long',year:'numeric'}):'')+r('Bloemen',esc(b.stijl))+r('Gelegenheid',esc(b.gelegenheid))+
+  (a.prijs?r('Bedrag',(a.vanaf?'vanaf ':'')+H.euro(H.bedrag(b))):'')+r('Opmerking',esc(b.opm))+
+  r('Gsm','<a href="tel:'+esc(tel)+'">'+esc(b.gsm)+'</a>')+r('E-mail','<a href="mailto:'+esc(b.mail)+'">'+esc(b.mail)+'</a>')+r('Geboekt op',new Date(b.op).toLocaleDateString('nl-BE',{day:'numeric',month:'long'}))+'</div>'+
+ '<div class="knoppen">'+
+  (b.status==='nieuw'?'<button class="k hoofd heel" data-zet="bevestigd">Bevestigen</button>':'')+
+  (b.status!=='betaald'&&b.status!=='geannuleerd'&&a.prijs?'<button class="k rand heel" data-zet="betaald">Markeer als betaald</button>':'')+
+  '<a class="k rand" href="tel:'+esc(tel)+'">Bellen</a><a class="k rand" href="mailto:'+esc(b.mail)+'?subject='+encodeURIComponent('Je boeking bij Hoy by Kaat')+'">Mail sturen</a>'+
+  (b.status!=='geannuleerd'?'<button class="k gevaar heel" data-annuleer>Boeking annuleren</button>':'<button class="k rand heel" data-zet="bevestigd">Toch terugzetten</button>')+
+ '</div>');
+ $('doos').querySelectorAll('[data-zet]').forEach(function(k){k.onclick=function(){zet(b.id,k.dataset.zet);};});
+ var an=$('doos').querySelector('[data-annuleer]');
+ if(an)an.onclick=function(){open('<h2>Boeking annuleren?</h2><p class="vraag">Wil je de boeking van <b>'+esc(b.naam)+'</b> voor '+esc(a.naam.toLowerCase())+' echt annuleren? De plaatsen komen dan weer vrij.</p><div class="knoppen"><button class="k rand" data-terug>Nee, terug</button><button class="k gevaar vol" data-ja>Ja, annuleren</button></div>');
+  $('doos').querySelector('[data-terug]').onclick=function(){detail(b.id);};
+  $('doos').querySelector('[data-ja]').onclick=function(){zet(b.id,'geannuleerd');};};
 }
+function zet(id,s){H.zetStatus(id,s);var b=H.boekingen().filter(function(x){return x.id===id;})[0];
+ bericht({bevestigd:'Bevestigd: ',betaald:'Betaald: ',geannuleerd:'Geannuleerd: '}[s]+b.naam);dicht();teken();}
 
-/* agenda */
-var agM=null;
-function agenda(){
- var nu=vandaag();if(agM===null)agM=nu.getFullYear()*12+nu.getMonth();
- var j=Math.floor(agM/12),m=agM%12,eerste=new Date(j,m,1),start=(eerste.getDay()+6)%7,dagen=new Date(j,m+1,0).getDate();
- document.getElementById('agTitel').textContent=eerste.toLocaleDateString('nl-BE',{month:'long',year:'numeric'});
- var ev={};
- H.sessies().forEach(function(s){var d0=new Date(s.datum+'T12:00:00'),d1=new Date((s.tot||s.datum)+'T12:00:00');for(var d=new Date(d0);d<=d1;d.setDate(d.getDate()+1)){var k=iso(d);(ev[k]=ev[k]||[]).push({t:'s',s:s});}});
- H.boekingen().filter(function(b){return !b.sessie&&b.status!=='geannuleerd';}).forEach(function(b){(ev[b.datum]=ev[b.datum]||[]).push({t:'b',b:b});});
- var h=['ma','di','wo','do','vr','za','zo'].map(function(w){return '<span class="wd">'+w+'</span>';}).join('');
- for(var i=0;i<start;i++)h+='<div class="dag uit"></div>';
- for(var d=1;d<=dagen;d++){var k=iso(new Date(j,m,d));
-  h+='<div class="dag'+(k===iso(nu)?' nu':'')+'"><span class="nr">'+d+'</span>'+(ev[k]||[]).map(function(e){
-   if(e.t==='s'){var a=H.actVan(e.s.act);return '<button class="ev" style="background:'+a.zacht+';color:'+a.kleur+'" data-ga="activiteiten">'+esc(a.kort)+'<small>'+uur(e.s.uur)+' · '+H.bezet(e.s.id)+'/'+e.s.plaatsen+'</small></button>';}
-   var a2=H.actVan(e.b.act);return '<button class="ev" style="background:'+a2.zacht+';color:'+a2.kleur+'" data-id="'+e.b.id+'">'+esc(a2.kort)+'<small>'+esc(e.b.naam.split(' ')[0])+' · '+e.b.dagdeel.toLowerCase()+'</small></button>';
-  }).join('')+'</div>';}
- document.getElementById('ag').innerHTML=h;
-}
-document.getElementById('agVorige').onclick=function(){agM--;agenda();};
-document.getElementById('agVolgende').onclick=function(){agM++;agenda();};
+function wie(sid){var s=H.sessie(sid),a=H.actVan(s.act);
+ var l=H.boekingen().filter(function(b){return b.sessie===sid&&b.status!=='geannuleerd';});
+ open('<h2>'+esc(a.naam)+'</h2><p class="opm">'+lang(s.datum)+', '+uur(s.uur)+' · '+H.bezet(sid)+' van de '+s.plaatsen+' plaatsen bezet</p><div class="gegevens gasten">'+
+ (l.length?l.map(function(b){return '<div><span><b>'+esc(b.naam)+'</b><br>'+(a.kind&&b.kinderen?esc(b.kinderen):personen(b,a))+'</span><a href="tel:'+esc(b.gsm.replace(/\s/g,''))+'">'+esc(b.gsm)+'</a></div>';}).join(''):'<p class="leeg">Nog niemand ingeschreven.</p>')+'</div>');}
 
-/* activiteiten */
-function acts(){
- var sel=document.getElementById('nAct');if(!sel.options.length)sel.innerHTML=H.act.filter(function(a){return a.type==='sessies';}).map(function(a){return '<option value="'+a.id+'">'+esc(a.naam)+'</option>';}).join('');
- document.getElementById('acts').innerHTML=H.act.map(function(a){
-  var l=H.sessies().filter(function(s){return s.act===a.id&&new Date(s.datum+'T23:00:00')>=vandaag();});
-  var bk=H.boekingen().filter(function(b){return b.act===a.id&&b.status!=='geannuleerd';});
-  return '<div class="act"><div class="af"><img src="../'+a.foto+'" alt=""><div><b>'+esc(a.naam)+'</b><small>'+(a.prijs?(a.vanaf?'vanaf ':'')+H.euro(a.prijs)+' '+a.eenheid:'gratis')+' · '+bk.length+' boekingen</small></div></div><div class="ai">'+
-  (a.type==='sessies'?(l.length?l.map(function(s){return sesRij(s,true);}).join(''):'<p class="opm">Geen geplande data. Voeg er hierboven een toe.</p>'):'<p class="opm">'+esc(a.uitleg)+' Klanten kiezen zelf een dag en een moment.</p>')+'</div></div>';
+document.addEventListener('click',function(e){
+ var o=e.target.closest('[data-open]');if(o){detail(o.dataset.open);return;}
+ var s=e.target.closest('[data-snel]');if(s){zet(s.dataset.snel,'bevestigd');return;}
+ var w=e.target.closest('[data-wie]');if(w){wie(w.dataset.wie);}
+});
+
+/* data */
+var kies=null,pl=10;
+function data(){
+ var sa=H.act.filter(function(a){return a.type==='sessies';});if(!kies)kies=sa[0].id;
+ $('kiesAct').innerHTML=sa.map(function(a){return '<button type="button" data-k="'+a.id+'" class="'+(kies===a.id?'aan':'')+'">'+esc(a.naam)+'</button>';}).join('');
+ document.querySelectorAll('[data-k]').forEach(function(k){k.onclick=function(){kies=k.dataset.k;data();};});
+ $('nPl').textContent=pl;
+ $('acts').innerHTML=H.act.map(function(a){
+  var l=H.sessies().filter(function(s){return s.act===a.id&&dt(s.datum)>=vandaag();});
+  var kop='<div class="act-kop"><img src="../'+a.foto+'" alt=""><div><b>'+esc(a.naam)+'</b><small>'+(a.prijs?(a.vanaf?'vanaf ':'')+H.euro(a.prijs)+' '+a.eenheid:'gratis')+'</small></div></div>';
+  if(a.type!=='sessies')return '<div class="kaart">'+kop+'<p class="opm">Hier kiezen klanten zelf een dag en een moment. Je hoeft niets toe te voegen.</p></div>';
+  return '<div class="kaart">'+kop+(l.length?l.map(function(s){var bz=H.bezet(s.id);
+   return '<div class="datum-rij"><div><b>'+lang(s.datum)+(s.tot?' tot '+H.datumLang(s.tot):'')+', '+uur(s.uur)+'</b><span>'+bz+' van de '+s.plaatsen+' plaatsen bezet</span></div>'+(H.eigenSessie(s.id)?'<button class="k gevaar" data-wis="'+s.id+'" type="button">Verwijderen</button>':'')+'</div>';}).join(''):'<p class="opm">Nog geen data gepland.</p>')+'</div>';
  }).join('');
- document.querySelectorAll('[data-wis]').forEach(function(b){b.onclick=function(e){e.stopPropagation();H.wisSessie(b.dataset.wis);toast('Datum verwijderd');teken();};});
+ document.querySelectorAll('[data-wis]').forEach(function(k){k.onclick=function(){var s=H.sessie(k.dataset.wis),a=H.actVan(s.act);
+  open('<h2>Datum verwijderen?</h2><p class="vraag">Wil je <b>'+esc(a.naam.toLowerCase())+'</b> op '+H.datumLang(s.datum)+' verwijderen? Ze verdwijnt dan ook van je website.</p><div class="knoppen"><button class="k rand" data-dicht>Nee, laten staan</button><button class="k gevaar vol" data-ja>Ja, verwijderen</button></div>');
+  $('doos').querySelector('[data-ja]').onclick=function(){H.wisSessie(s.id);dicht();bericht('De datum is verwijderd.');teken();};};});
 }
-document.getElementById('nieuwe').onsubmit=function(e){e.preventDefault();
- var o={act:document.getElementById('nAct').value,datum:document.getElementById('nDatum').value,uur:document.getElementById('nUur').value,plaatsen:+document.getElementById('nPl').value};
- if(!o.datum)return;H.nieuweSessie(o);toast('Datum toegevoegd, ze staat nu op je website');document.getElementById('nDatum').value='';teken();};
-document.getElementById('reset').onclick=function(e){e.preventDefault();H.reset();toast('Voorbeeldgegevens teruggezet');teken();};
+$('min').onclick=function(){pl=Math.max(1,pl-1);$('nPl').textContent=pl;};
+$('plus').onclick=function(){pl=Math.min(40,pl+1);$('nPl').textContent=pl;};
+$('nieuw').onsubmit=function(e){e.preventDefault();var d=$('nDatum').value;if(!d)return;
+ H.nieuweSessie({act:kies,datum:d,uur:$('nUur').value||'14:00',plaatsen:pl});
+ bericht('Gelukt! '+H.actVan(kies).naam+' op '+H.datumLang(d)+' staat nu op je website.');$('nDatum').value='';teken();};
+$('reset').onclick=function(){H.reset();bericht('Het voorbeeld is teruggezet.');teken();};
 
-function teken(){overzicht();filters();tabel();agenda();acts();}
+function teken(){start();lijst();data();}
 teken();
 window.addEventListener('storage',teken);
 })();
