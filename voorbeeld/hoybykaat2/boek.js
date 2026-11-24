@@ -25,7 +25,7 @@ function tegels(){
   if(v.vrij===null)sub=esc(v.txt);
   else if(v.vrij===0)sub='Volzet, nieuwe data volgen';
   else sub=cap(H.datumKort(v.s.datum))+(v.s.tot?' tot '+H.datumKort(v.s.tot):', '+uur(v.s.uur))+' · <em>'+(v.vrij<=3?'nog '+v.vrij+(v.vrij===1?' plekje':' plekjes'):v.vrij+' plekjes vrij')+'</em>';
-  return '<button type="button" class="akt" data-boek="'+a.id+'" style="--k:'+a.kleur+';--kz:'+a.zacht+'"><img src="'+a.foto+'" alt="" loading="lazy"><span class="ak-t"><b>'+esc(a.naam)+'</b><small>'+sub+'</small><small class="ak-pm">'+prijsTxt(a)+'</small></span><span class="ak-p">'+prijsTxt(a)+'</span><span class="ak-k">'+(a.trouw?'Plan':'Boek')+'</span></button>';
+  return '<button type="button" class="akt" data-boek="'+a.id+'" style="--k:'+a.kleur+';--kz:'+a.zacht+'"><img src="'+a.foto.replace('img/','img/t/')+'" alt="" loading="lazy"><span class="ak-t"><b>'+esc(a.naam)+'</b><small>'+sub+'</small><small class="ak-pm">'+prijsTxt(a)+'</small></span><span class="ak-p">'+prijsTxt(a)+'</span><span class="ak-k">'+(a.trouw?'Plan':'Boek')+'</span></button>';
  }).join('');
 }
 tegels();
@@ -74,14 +74,14 @@ function voetZet(terug,knop,ok,tot){
 
 function stap1(){
  inEl.innerHTML='<div class="stap"><h3>Wat wil je boeken?</h3><p class="uitleg">Kies een activiteit. In de volgende stap kies je je datum.</p><div class="keuze-lijst">'+
- H.act.map(function(a){return '<button type="button" class="kz" data-a="'+a.id+'"><img src="'+a.foto+'" alt=""><span><b>'+esc(a.naam)+'</b><small>'+esc(a.sub)+'</small></span><span class="kp" style="background:'+a.zacht+';color:'+a.kleur+'">'+prijsTxt(a)+'</span></button>';}).join('')+'</div></div>';
+ H.act.map(function(a){return '<button type="button" class="kz" data-a="'+a.id+'"><img src="'+a.foto.replace('img/','img/t/')+'" alt=""><span><b>'+esc(a.naam)+'</b><small>'+esc(a.sub)+'</small></span><span class="kp" style="background:'+a.zacht+';color:'+a.kleur+'">'+prijsTxt(a)+'</span></button>';}).join('')+'</div></div>';
  inEl.querySelectorAll('.kz').forEach(function(b){b.onclick=function(){if(st.act!==b.dataset.a){st.ses=null;st.datum=null;st.dagdeel=null;st.aantal=null;}st.act=b.dataset.a;st.stap=2;teken();};});
  voet.style.display='none';
 }
 
 function stap2(){
  var a=H.actVan(st.act);
- var h='<div class="stap"><div class="banner"><img src="'+a.foto+'" alt=""><div><b>'+esc(a.naam)+'</b><small>'+esc(a.uitleg)+'</small></div></div>';
+ var h='<div class="stap"><div class="banner"><img src="'+a.foto.replace('img/','img/t/')+'" alt=""><div><b>'+esc(a.naam)+'</b><small>'+esc(a.uitleg)+'</small></div></div>';
  if(a.type==='sessies'){
   var l=sesVan(a.id);
   h+='<span class="lbl">Kies je datum</span><div class="sessies">'+(l.length?l.map(function(s){var v=H.vrij(s),d=new Date(s.datum+'T12:00:00'),pct=Math.round((s.plaatsen-v)/s.plaatsen*100);
