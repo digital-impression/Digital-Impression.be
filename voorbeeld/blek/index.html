@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>BLEK · Tattoo &amp; Illustration in Asse</title>
-<meta name="description" content="BLEK is de privé tattoostudio van Sven in Asse: blackwork, illustratieve en graphic tattoos in een eigen herkenbare stijl. Enkel op afspraak. Eigen ontwerpen, flash en cover-ups.">
+<title>BLEK · Blackwork en illustratieve tattoos van Sven, Asse</title>
+<meta name="description" content="BLEK is de privé tattoostudio van Sven in Asse: blackwork, illustratieve en graphic tattoos in een eigen stijl. Enkel op afspraak. Eigen ontwerpen, unieke flash en cover-ups.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -13,169 +13,193 @@
 <style>
 :root{
   --zwart:#0D0D0D; --zwart-l:#1A1A1A; --papier:#F1EEE9; --grijs:#DCDAD6; --rood:#C8242C; --rood-d:#A11B22; --ink:#141414; --zacht:#6B6863;
-  --ease:cubic-bezier(.2,.7,.2,1); --r:18px;
+  --ease:cubic-bezier(.2,.7,.2,1); --r:16px;
+  --hex:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--papier);color:var(--ink);font:400 17px/1.65 'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-.wrap{width:min(1280px,100% - 48px);margin:0 auto}
+.wrap{width:min(1280px,100% - 56px);margin:0 auto}
 h1,h2,h3{font-family:'Big Shoulders Display',Impact,sans-serif;font-style:normal;font-weight:800;text-transform:uppercase;line-height:.92;letter-spacing:.005em;color:var(--ink)}
 h1,h2{text-wrap:balance}
-h1 span,h2 span{color:var(--rood)}
-.sp{display:inline-flex;align-items:center;gap:10px;font:600 12.5px/1 'IBM Plex Sans',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--rood)}
-.sp::before{content:"";width:10px;height:10px;background:currentColor;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)}
+.sp{display:inline-flex;align-items:center;gap:10px;font:600 12.5px/1 'IBM Plex Sans',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--rood)}
+.sp::before{content:"";width:10px;height:11px;background:currentColor;clip-path:var(--hex)}
 
 .demo{background:var(--zwart);color:var(--papier);font:500 13.5px/1.4 'IBM Plex Sans',sans-serif;text-align:center;padding:9px 16px;position:relative;z-index:60;border-bottom:1px solid #222}
 .demo a{text-decoration:underline;text-underline-offset:3px;color:#fff}
 
-.knop{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:17px 28px;font:600 15.5px/1 'IBM Plex Sans',sans-serif;transition:transform .35s var(--ease),background .3s,color .3s,border-color .3s;white-space:nowrap}
+/* knoppen met de schuine hoeken van het BLEK-zeshoek */
+.knop{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:18px 34px;font:600 15.5px/1 'IBM Plex Sans',sans-serif;white-space:nowrap;clip-path:polygon(16px 0,calc(100% - 16px) 0,100% 50%,calc(100% - 16px) 100%,16px 100%,0 50%);transition:background .3s,color .3s}
 .knop svg{width:19px;height:19px;flex:none}
-.knop:hover{transform:translateY(-2px)}
 .k-rood{background:var(--rood);color:#fff}
 .k-rood:hover{background:var(--rood-d)}
-.k-lijn-w{border:1.5px solid rgba(255,255,255,.45);color:#fff}
-.k-lijn-w:hover{background:#fff;color:var(--ink);border-color:#fff}
-.k-lijn{border:1.5px solid rgba(20,20,20,.25);color:var(--ink)}
-.k-lijn:hover{background:var(--ink);color:var(--papier);border-color:var(--ink)}
+.k-wit{background:var(--papier);color:var(--ink)}
+.k-wit:hover{background:#fff}
+.k-zwart{background:var(--ink);color:#fff}
+.k-zwart:hover{background:#000}
+.lijn{display:inline-flex;align-items:center;gap:10px;font:600 15px/1 'IBM Plex Sans',sans-serif;letter-spacing:.04em;padding-bottom:5px;border-bottom:1.5px solid var(--rood)}
+.lijn svg{width:16px;height:16px;transition:transform .35s var(--ease)}
+.lijn:hover svg{transform:translateX(4px)}
 
-/* HERO */
-.hero{display:grid;grid-template-columns:1.05fr .95fr;min-height:max(700px,calc(100svh - 38px));background:var(--zwart);color:#fff;position:relative}
-.hero-l{display:flex;flex-direction:column;padding:0 clamp(28px,5vw,80px) clamp(36px,4vw,56px);background:radial-gradient(700px 500px at 0% 100%,rgba(200,36,44,.16),transparent 60%)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:110px}
-.nav img{height:64px;width:auto}
-.nav ul{display:flex;gap:30px;list-style:none;font-size:14.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
-.nav ul a{opacity:.8;transition:opacity .3s}
+/* HERO: de tattoo in het zeshoek van het logo */
+.hero{background:var(--zwart);color:#fff;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(800px 600px at 78% 55%,rgba(200,36,44,.14),transparent 62%)}
+.nav{position:relative;display:flex;align-items:center;justify-content:space-between;height:104px;z-index:2}
+.nav img{height:60px;width:auto}
+.nav ul{display:flex;gap:32px;list-style:none;font-size:14px;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
+.nav ul a{opacity:.78;transition:opacity .3s}
 .nav ul a:hover{opacity:1}
-.hero-tekst{margin:auto 0;padding:30px 0 40px;max-width:620px}
+.hero-in{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,4vw,70px);align-items:center;min-height:calc(max(720px,100svh) - 38px - 104px);padding:10px 0 clamp(40px,5vw,70px)}
 .hero .sp{color:#fff}
 .hero .sp::before{background:var(--rood)}
-.hero h1{color:#fff;font-size:clamp(64px,7.4vw,128px);margin:22px 0 24px}
-.hero p{font-size:clamp(17px,1.35vw,20px);color:rgba(255,255,255,.82);max-width:30em}
-.hero .knoppen{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-.hero-r{position:relative;overflow:hidden;background:var(--grijs)}
-.hero-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scale(1.05);animation:zoom 16s var(--ease) forwards}
+.hero h1{color:#fff;font-size:clamp(64px,8.2vw,136px);margin:24px 0 26px}
+.hero h1 b{font-weight:800;color:var(--rood)}
+.hero p.lead{font-size:clamp(17px,1.3vw,19px);color:rgba(255,255,255,.78);max-width:30em}
+.hero .knoppen{display:flex;flex-wrap:wrap;align-items:center;gap:28px;margin-top:36px}
+.hero .stem{margin-top:44px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);max-width:31em;font-size:15px;color:rgba(255,255,255,.66)}
+.hero .stem b{color:#fff;font-weight:600}
+.hero .stem i{font-style:normal;color:var(--rood);letter-spacing:2px;margin-right:8px}
+.hexa{position:relative;justify-self:end;width:min(100%,600px);aspect-ratio:1/1}
+.hexa svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.hexa svg polygon{fill:none;stroke:rgba(255,255,255,.55);stroke-width:.35}
+.hexa .foto{position:absolute;top:0;bottom:0;left:6.7%;right:6.7%;clip-path:var(--hex);background:#222}
+.hexa .foto img{width:100%;height:100%;object-fit:cover;object-position:56% 46%;transform:scale(1.05);animation:zoom 16s var(--ease) forwards}
 @keyframes zoom{to{transform:scale(1)}}
-.hero .stem{position:absolute;left:24px;bottom:24px;max-width:330px;background:rgba(13,13,13,.86);border-radius:var(--r);padding:18px 20px;font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.88)}
-.hero .stem b{display:flex;gap:10px;align-items:center;font:800 26px/1 'Big Shoulders Display',sans-serif;color:#fff;margin-bottom:8px}
-.hero .stem b i{font-style:normal;font:500 13px/1 'IBM Plex Sans',sans-serif;color:var(--rood);letter-spacing:3px}
+.hexa figcaption{position:absolute;right:0;bottom:2%;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6)}
 
 /* WERK */
 .werk{padding:clamp(100px,11vw,150px) 0}
-.werk .kop{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,6vw,90px);align-items:end;margin-bottom:56px}
-.werk h2{font-size:clamp(54px,6.4vw,108px);margin-top:20px}
-.werk .kop p{font-size:18px;color:var(--zacht)}
-.port{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.port figure{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;background:var(--grijs)}
-.port figure:nth-child(2){transform:translateY(50px)}
-.port img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease),filter .6s}
-.port figure:hover img{transform:scale(1.05)}
-.port figcaption{position:absolute;left:14px;bottom:14px;background:var(--zwart);color:#fff;font:600 13.5px/1 'IBM Plex Sans',sans-serif;letter-spacing:.06em;padding:10px 14px;border-radius:999px}
-.stappen{margin-top:110px;display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--ink)}
-.stappen div{padding:28px 30px 0 0}
-.stappen b{display:block;font:800 22px/1 'Big Shoulders Display',sans-serif;color:var(--rood);letter-spacing:.06em;margin-bottom:12px}
-.stappen h3{font-size:34px;margin-bottom:10px}
-.stappen p{font-size:16px;color:var(--zacht);max-width:24em}
-
-/* COVER */
-.cover{background:var(--zwart);color:#fff;padding:clamp(100px,11vw,150px) 0}
-.cover .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(36px,6vw,110px);align-items:center}
-.cover figure{border-radius:var(--r);overflow:hidden;aspect-ratio:9/14;max-width:440px;position:relative}
-.cover img{width:100%;height:100%;object-fit:cover}
-.cover figure span{position:absolute;left:14px;top:14px;background:var(--rood);color:#fff;font:600 13px/1 'IBM Plex Sans',sans-serif;padding:9px 13px;border-radius:999px}
-.cover h2{color:#fff;font-size:clamp(54px,6.4vw,108px);margin:20px 0 24px}
-.cover p{font-size:18.5px;color:rgba(255,255,255,.8);max-width:31em}
-.cover p+p{margin-top:14px}
-.cover blockquote{margin-top:34px;padding-left:22px;border-left:3px solid var(--rood);font:700 clamp(24px,2.2vw,32px)/1.2 'Big Shoulders Display',sans-serif;text-transform:uppercase;letter-spacing:.01em;color:#fff;max-width:26em}
-.cover blockquote small{display:block;margin-top:10px;font:500 14px/1.4 'IBM Plex Sans',sans-serif;text-transform:none;letter-spacing:0;color:rgba(255,255,255,.6)}
+.kop{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,90px);align-items:end;margin-bottom:56px}
+.kop h2{font-size:clamp(56px,6.4vw,104px);margin-top:20px}
+.kop p{font-size:18px;color:var(--zacht);max-width:30em}
+.port{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:18px;align-items:start}
+.port figure{position:relative}
+.port .beeld{border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;background:var(--grijs)}
+.port figure:nth-child(2){margin-top:70px}
+.port img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.port figure:hover img{transform:scale(1.04)}
+.port figcaption{display:flex;justify-content:space-between;gap:12px;padding:14px 2px 0;font-size:14.5px;color:var(--zacht)}
+.port figcaption b{font:800 20px/1.1 'Big Shoulders Display',sans-serif;text-transform:uppercase;color:var(--ink);letter-spacing:.02em}
+.werkwijze{margin-top:clamp(80px,9vw,120px);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(40px,6vw,90px);align-items:start}
+.werkwijze h3{font-size:clamp(40px,4vw,60px)}
+.werkwijze .q{margin-top:22px;font-size:16.5px;color:var(--zacht);max-width:24em}
+.werkwijze .q b{color:var(--ink)}
+.stap{display:grid;grid-template-columns:64px 1fr;gap:22px;padding:24px 0;border-top:1.5px solid var(--ink)}
+.stap:last-child{border-bottom:1.5px solid var(--ink)}
+.stap .n{width:54px;height:60px;clip-path:var(--hex);background:var(--ink);color:#fff;display:grid;place-items:center;font:800 22px/1 'Big Shoulders Display',sans-serif}
+.stap h4{font:800 28px/1 'Big Shoulders Display',sans-serif;text-transform:uppercase;letter-spacing:.01em}
+.stap p{color:#45423E;font-size:16.5px;margin-top:8px;max-width:34em}
 
 /* FLASH */
-.flash{padding:clamp(100px,11vw,150px) 0;background:var(--grijs)}
-.flash .kop{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,6vw,90px);align-items:end;margin-bottom:50px}
-.flash h2{font-size:clamp(54px,6.4vw,108px);margin-top:20px}
-.flash .kop p{font-size:18px;color:#4d4a46}
-.vier{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.vier figure{border-radius:var(--r);overflow:hidden;background:var(--zwart);aspect-ratio:8/11;position:relative}
-.vier img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
-.vier figure:hover img{transform:scale(1.04) rotate(-1deg)}
-.vier figcaption{position:absolute;right:12px;top:12px;background:var(--papier);color:var(--ink);font:600 12px/1 'IBM Plex Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:8px 11px;border-radius:999px}
-.flash .noot{margin-top:28px;display:flex;flex-wrap:wrap;gap:14px 30px;align-items:center;justify-content:space-between;background:var(--papier);border-radius:var(--r);padding:22px 26px}
-.flash .noot p{font-size:16px;color:#3f3c39}
-.flash .noot b{color:var(--ink)}
+.flash{background:var(--zwart);color:#fff;padding:clamp(100px,11vw,150px) 0}
+.flash .kop h2{color:#fff}
+.flash .kop p{color:rgba(255,255,255,.72)}
+.vel{border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:clamp(16px,2vw,26px)}
+.vel-kop{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:0 4px 18px;margin-bottom:22px;border-bottom:1px dashed rgba(255,255,255,.2);font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.vel-kop img{height:40px;width:auto}
+.vier{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.vier figure{position:relative}
+.vier .beeld{border-radius:10px;overflow:hidden;aspect-ratio:8/10.4;background:#111}
+.vier img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;transition:transform .9s var(--ease)}
+.vier figure:hover img{transform:scale(1.04)}
+.vier figcaption{display:flex;justify-content:space-between;align-items:center;padding:12px 4px 0;font-size:13.5px;color:rgba(255,255,255,.7)}
+.vier figcaption b{font:800 19px/1 'Big Shoulders Display',sans-serif;color:#fff;letter-spacing:.04em}
+.vier figcaption span{display:inline-flex;align-items:center;gap:7px}
+.vier figcaption span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--rood)}
+.flash .noot{margin-top:34px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px 40px}
+.flash .noot p{font-size:17px;color:rgba(255,255,255,.8);max-width:40em}
+.flash .noot b{color:#fff}
+
+/* COVER-UP */
+.cover{padding:clamp(100px,11vw,150px) 0 0}
+.cover .wrap{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:clamp(36px,6vw,110px);align-items:center}
+.cover figure{border-radius:var(--r);overflow:hidden;aspect-ratio:9/13;max-width:420px;position:relative}
+.cover img{width:100%;height:100%;object-fit:cover}
+.cover h2{font-size:clamp(52px,6vw,96px);margin:20px 0 24px}
+.cover p{font-size:18px;color:#45423E;max-width:31em}
+.cover p+p{margin-top:14px}
+.cover blockquote{margin-top:34px;padding:24px 0 0;border-top:1.5px solid var(--ink);font:800 clamp(26px,2.4vw,34px)/1.12 'Big Shoulders Display',sans-serif;text-transform:uppercase;letter-spacing:.01em;max-width:24em}
+.cover blockquote small{display:block;margin-top:12px;font:500 14px/1.4 'IBM Plex Sans',sans-serif;text-transform:none;letter-spacing:0;color:var(--zacht)}
 
 /* STUDIO */
 .studio{padding:clamp(100px,11vw,150px) 0}
-.studio .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,100px);align-items:center}
-.studio .fotos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.studio .fotos figure{border-radius:var(--r);overflow:hidden;aspect-ratio:2/3}
-.studio .fotos figure:last-child{margin-top:70px}
-.studio img{width:100%;height:100%;object-fit:cover}
-.studio h2{font-size:clamp(54px,6.4vw,108px);margin:20px 0 24px}
-.studio .sub{font-size:18.5px;color:var(--zacht);max-width:30em}
-.revs{display:grid;gap:16px}
-.studioq{margin-top:34px;padding:26px 0 0;border-top:2px solid var(--ink);font:800 clamp(26px,2.4vw,36px)/1.1 'Big Shoulders Display',sans-serif;text-transform:uppercase;max-width:22em}
-.studioq small{display:block;margin-top:12px;font:500 14px/1 'IBM Plex Sans',sans-serif;text-transform:none;color:var(--zacht)}
-.revs article.uit{background:var(--zwart);color:#fff}
-.revs article.uit cite small{color:rgba(255,255,255,.6)}
-.revs article{background:#fff;border-radius:var(--r);padding:22px 24px;border:1px solid rgba(20,20,20,.07)}
-.revs .st{color:var(--rood);letter-spacing:3px;font-size:13px}
-.revs p{margin:8px 0 10px;font-size:16px}
-.revs cite{font-style:normal;font-weight:600;font-size:14px}
-.revs cite small{font-weight:400;color:var(--zacht);margin-left:6px}
+.studio .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,96px);align-items:start}
+.studio h2{font-size:clamp(52px,6vw,96px);margin:20px 0 22px}
+.studio .sub{font-size:18px;color:#45423E;max-width:30em}
+.studio ul{list-style:none;margin-top:30px;border-top:1.5px solid var(--ink)}
+.studio li{display:grid;grid-template-columns:190px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid rgba(20,20,20,.15);font-size:16px}
+.studio li b{font:800 20px/1.25 'Big Shoulders Display',sans-serif;text-transform:uppercase;letter-spacing:.02em}
+.studio li span{color:#45423E}
+.revs .groot{font:600 clamp(22px,2vw,27px)/1.42 'IBM Plex Sans',sans-serif;letter-spacing:-.01em}
+.revs cite{display:block;font-style:normal;font-weight:600;font-size:14.5px;margin-top:14px}
+.revs cite span{font-weight:400;color:var(--zacht)}
+.revs .score{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.revs .score strong{font:800 64px/1 'Big Shoulders Display',sans-serif}
+.revs .score span{font-size:14.5px;color:var(--zacht);line-height:1.4}
+.revs .score i{display:block;font-style:normal;color:var(--rood);letter-spacing:3px}
+.revs .klein{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:34px}
+.revs .klein blockquote{border-top:1.5px solid var(--rood);padding-top:16px;font-size:15.5px;color:#2a2826}
 
 /* AFSPRAAK */
 .afspraak{background:var(--zwart);color:#fff;padding:clamp(100px,11vw,150px) 0}
-.afspraak .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(36px,6vw,100px);align-items:center}
-.afspraak h2{color:#fff;font-size:clamp(54px,6.4vw,108px);margin:20px 0 22px}
-.afspraak .sub{font-size:18.5px;color:rgba(255,255,255,.8);max-width:31em}
-.info{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.info div{border:1px solid rgba(255,255,255,.14);border-radius:var(--r);padding:20px 22px}
-.info small{display:block;font:600 11.5px/1 'IBM Plex Sans',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--rood);margin-bottom:10px}
-.info p{font-size:16px;color:rgba(255,255,255,.88)}
-.afspraak .knoppen{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.bon{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/4.6}
-.bon img{width:100%;height:100%;object-fit:cover}
-.bon div{position:absolute;left:16px;right:16px;bottom:16px;background:var(--papier);color:var(--ink);border-radius:14px;padding:18px 20px}
-.bon b{display:block;font:800 26px/1 'Big Shoulders Display',sans-serif;text-transform:uppercase;margin-bottom:6px}
-.bon span{font-size:14.5px;color:var(--zacht)}
+.afspraak .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(40px,6vw,96px);align-items:center}
+.afspraak .sp{color:#fff}
+.afspraak .sp::before{background:var(--rood)}
+.afspraak h2{color:#fff;font-size:clamp(56px,6.6vw,110px);margin:20px 0 22px}
+.afspraak h2 b{font-weight:800;color:var(--rood)}
+.afspraak .sub{font-size:18px;color:rgba(255,255,255,.78);max-width:30em}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:36px;padding-top:28px;border-top:1px solid rgba(255,255,255,.16)}
+.info small{display:block;font:600 12px/1 'IBM Plex Sans',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--rood);margin-bottom:12px}
+.info p{color:rgba(255,255,255,.86)}
+.info a:hover{color:#fff;text-decoration:underline}
+.afspraak .knoppen{display:flex;flex-wrap:wrap;align-items:center;gap:26px;margin-top:36px}
+.afspraak .lijn{color:#fff}
+.bon{background:var(--zwart-l);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);overflow:hidden}
+.bon img{width:100%;aspect-ratio:4/3.6;object-fit:cover}
+.bon div{padding:24px 26px 26px}
+.bon b{display:block;font:800 30px/1 'Big Shoulders Display',sans-serif;text-transform:uppercase;letter-spacing:.02em}
+.bon span{display:block;margin-top:10px;font-size:15.5px;color:rgba(255,255,255,.72)}
 
-.voet{background:var(--zwart);color:rgba(255,255,255,.6);padding:0 0 50px;font-size:14px}
-.voet .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px;border-top:1px solid rgba(255,255,255,.12);padding-top:36px}
-.voet img{height:46px;width:auto}
+.voet{background:var(--zwart);color:rgba(255,255,255,.6);padding:10px 0 60px;font-size:14.5px}
+.voet .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px;border-top:1px solid rgba(255,255,255,.1);padding-top:34px}
+.voet img{height:52px;width:auto}
 .voet a{text-decoration:underline;text-underline-offset:3px}
 
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
-.js .port figure.rv:nth-child(2){transform:translateY(80px)}
-.js .port figure.rv.in:nth-child(2){transform:translateY(50px)}
 
 @media (max-width:1080px){
   .nav ul{display:none}
-  .hero{grid-template-columns:1fr;min-height:0}
-  .hero-r{min-height:70vh}
-  .werk .kop,.flash .kop,.cover .wrap,.studio .wrap,.afspraak .wrap{grid-template-columns:1fr}
-  .cover figure{order:2;max-width:none;aspect-ratio:4/5}
-  .bon{order:2}
-  .vier{grid-template-columns:1fr 1fr}
-  .stappen{grid-template-columns:1fr}
-  .stappen div{padding:24px 0;border-bottom:1px solid rgba(20,20,20,.15)}
+  .hero-in{grid-template-columns:minmax(0,1fr);min-height:0}
+  .hexa{justify-self:center;width:min(100%,520px)}
+  .kop,.werkwijze,.cover .wrap,.studio .wrap,.afspraak .wrap{grid-template-columns:minmax(0,1fr)}
+  .port{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .vier{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cover figure{max-width:none;aspect-ratio:4/4.4}
 }
 @media (max-width:720px){
   body{font-size:16.5px}
   .wrap{width:calc(100% - 36px)}
   .nav{height:88px}
-  .nav img{height:50px}
-  .hero-l{padding:0 18px 30px}
-  .hero-r{min-height:520px}
-  .hero .stem{left:14px;right:14px;bottom:14px}
-  .hero h1{font-size:clamp(54px,15vw,74px)}
-  .hero-tekst{padding:10px 0 20px}
-  .port{grid-template-columns:1fr 1fr;gap:10px}
-  .port figure:nth-child(2),.js .port figure.rv:nth-child(2),.js .port figure.rv.in:nth-child(2){transform:none}
-  .port figure:first-child{grid-column:1/-1;aspect-ratio:4/4.4}
-  .stappen{margin-top:60px}
+  .nav img{height:52px}
+  .hero h1{font-size:clamp(54px,15.6vw,72px)}
+  .sp{letter-spacing:.16em;font-size:11.5px}
+  .hexa figcaption{display:none}
+  .hero .knoppen{gap:20px}
+  .kop h2,.cover h2,.studio h2,.afspraak h2{font-size:clamp(46px,12.6vw,60px)}
+  .port{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+  .port figure:first-child{grid-column:1/-1}
+  .port figure:first-child .beeld{aspect-ratio:4/4.2}
+  .port figure:nth-child(2){margin-top:0}
+  .port figcaption{flex-direction:column;gap:2px;font-size:13.5px}
+  .stap{grid-template-columns:48px 1fr;gap:16px}
+  .stap .n{width:42px;height:48px;font-size:18px}
   .vier{gap:10px}
+  .vier figcaption{flex-direction:column;align-items:flex-start;gap:4px}
+  .studio li{grid-template-columns:1fr;gap:2px}
+  .revs .klein{grid-template-columns:1fr}
   .info{grid-template-columns:1fr}
   .voet .wrap{flex-direction:column;align-items:flex-start}
 }
@@ -186,59 +210,57 @@ h1 span,h2 span{color:var(--rood)}
 
 <main id="top">
 <section class="hero">
-  <div class="hero-l">
+  <div class="wrap">
     <header class="nav">
       <a href="#top" aria-label="BLEK Tattoo &amp; Illustration"><img src="img/logo.webp" alt="BLEK Tattoo &amp; Illustration" width="500" height="472"></a>
       <ul>
         <li><a href="#werk">Werk</a></li>
         <li><a href="#flash">Flash</a></li>
+        <li><a href="#studio">Studio</a></li>
         <li><a href="#afspraak">Afspraak</a></li>
       </ul>
     </header>
-    <div class="hero-tekst">
-      <span class="sp rv">Privéstudio in Asse · enkel op afspraak</span>
-      <h1 class="rv" style="--d:1">Blackwork met een <span>eigen hand.</span></h1>
-      <p class="rv" style="--d:2">Illustratieve en graphic tattoos, getekend voor jou. Bij BLEK werk ik alleen en op afspraak, zodat alle aandacht naar jouw tattoo gaat.</p>
-      <div class="knoppen rv" style="--d:3">
-        <a class="knop k-rood" href="https://wa.me/32476497892" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>Stuur een WhatsApp</a>
-        <a class="knop k-lijn-w" href="#werk">Bekijk het werk</a>
+    <div class="hero-in">
+      <div>
+        <span class="sp rv">Privéstudio in Asse · enkel op afspraak</span>
+        <h1 class="rv" style="--d:1">Blackwork met een <b>eigen hand.</b></h1>
+        <p class="lead rv" style="--d:2">Ik ben Sven. Ik teken illustratieve en graphic tattoos, elk ontwerp speciaal voor jou. In mijn studio werk ik alleen en op afspraak, dus alle aandacht gaat naar jouw tattoo.</p>
+        <div class="knoppen rv" style="--d:3">
+          <a class="knop k-rood" href="https://wa.me/32476497892" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>Stuur je idee via WhatsApp</a>
+          <a class="lijn" href="#werk">Bekijk het werk<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <p class="stem rv" style="--d:4"><i>★★★★★</i><b>5,0 uit 102 reviews op Google.</b> "Kalm op het moment zelf en goede info over de nazorg."</p>
       </div>
+      <figure class="hexa rv" style="--d:2">
+        <svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="0,50 25,6.7 75,6.7 100,50 75,93.3 25,93.3"/></svg>
+        <div class="foto"><img src="img/t-fret.webp" alt="Tattoo van een fret die op een halve maan ligt, met sterretjes, op een schouderblad"></div>
+        <figcaption>Fret op de maan</figcaption>
+      </figure>
     </div>
-  </div>
-  <div class="hero-r">
-    <img src="img/t-fret.webp" alt="Tattoo van een fret die op een halve maan ligt, met sterretjes, op een schouderblad">
-    <div class="stem rv" style="--d:4"><b>5,0 <i>★★★★★</i></b>"Kalm op het moment zelf en goede info over de nazorg." Marijke, een van 102 reviews op Google</div>
   </div>
 </section>
 
 <section class="werk" id="werk">
   <div class="wrap">
     <div class="kop">
-      <div class="rv"><span class="sp">Portfolio</span><h2>Eerst getekend, <span>dan gezet.</span></h2></div>
-      <p class="rv" style="--d:1">Elk stuk begint als tekening. Op Instagram zie je dat altijd terug: de tattoo vooraan, mijn lijntekening erachter. Een eigen stijl, geen ontwerp uit een map.</p>
+      <div class="rv"><span class="sp">Portfolio</span><h2>Eerst getekend, dan gezet.</h2></div>
+      <p class="rv" style="--d:1">Elk stuk begint bij mij als tekening. Op Instagram zie je dat altijd terug: de tattoo vooraan, mijn lijntekening erachter. Een eigen stijl, geen ontwerp uit een map.</p>
     </div>
     <div class="port">
-      <figure class="rv"><img src="img/t-draak.webp" alt="Blackwork tattoo van een draak met vegvísir op een onderarm" loading="lazy"><figcaption>Draak met vegvísir</figcaption></figure>
-      <figure class="rv" style="--d:1"><img src="img/t-peper.webp" alt="Tattoo van een peperkoekmannetje met kerstmuts en zuurstok, in kleur" loading="lazy"><figcaption>Peperkoekman, in kleur</figcaption></figure>
-      <figure class="rv" style="--d:2"><img src="img/t-mummie.webp" alt="Illustratieve tattoo van een mummie met een fakkel" loading="lazy"><figcaption>Mummie</figcaption></figure>
+      <figure class="rv"><div class="beeld"><img src="img/t-draak.webp" alt="Blackwork tattoo van een draak met vegvísir op een onderarm" loading="lazy"></div><figcaption><b>Draak met vegvísir</b><span>blackwork, onderarm</span></figcaption></figure>
+      <figure class="rv" style="--d:1"><div class="beeld"><img src="img/t-mummie.webp" alt="Illustratieve tattoo van een mummie met een fakkel" loading="lazy"></div><figcaption><b>Mummie</b><span>illustratief</span></figcaption></figure>
+      <figure class="rv" style="--d:2"><div class="beeld"><img src="img/t-peper.webp" alt="Tattoo van een peperkoekmannetje met kerstmuts en zuurstok, in kleur" loading="lazy"></div><figcaption><b>Peperkoekman</b><span>in kleur</span></figcaption></figure>
     </div>
-    <div class="stappen">
-      <div class="rv"><b>01</b><h3>Je idee</h3><p>Stuur een berichtje met wat je in gedachten hebt, de plaats en de grootte.</p></div>
-      <div class="rv" style="--d:1"><b>02</b><h3>Het ontwerp</h3><p>Ik werk je idee uit tot een persoonlijk ontwerp, met duidelijke info vooraf.</p></div>
-      <div class="rv" style="--d:2"><b>03</b><h3>De sessie</h3><p>Rustig, hygiënisch en met tijd voor vragen. Nazorg krijg je mee.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="cover">
-  <div class="wrap">
-    <figure class="rv"><img src="img/t-cover.webp" alt="Cover-up tattoo van een triceratops op een bovenarm" loading="lazy"><span>Cover-up</span></figure>
-    <div class="rv" style="--d:1">
-      <span class="sp">Cover-ups</span>
-      <h2>Van een oude tattoo <span>iets nieuws.</span></h2>
-      <p>Een tattoo waar je niet meer blij mee bent, hoeft niet te blijven. Voor een cover-up teken ik een ontwerp dat zoveel mogelijk vormen van de oude tattoo meeneemt.</p>
-      <p>Zoals deze triceratops: op maat getekend over een tattoo die er eerder stond.</p>
-      <blockquote>"De truc van een goede cover-up: het oog wegtrekken van de oude tattoo."<small>Sven, vrij vertaald uit zijn Instagram</small></blockquote>
+    <div class="werkwijze">
+      <div class="rv">
+        <h3>Zo werken we samen.</h3>
+        <p class="q"><b>"Duidelijke en transparante communicatie vooraf."</b> Dat schreef Stefanie in haar review, en zo hou ik het graag.</p>
+      </div>
+      <div class="rv" style="--d:1">
+        <div class="stap"><span class="n">1</span><div><h4>Je stuurt je idee</h4><p>Via WhatsApp of mail. Vertel wat je in gedachten hebt, waar de tattoo moet komen en hoe groot ongeveer.</p></div></div>
+        <div class="stap"><span class="n">2</span><div><h4>Ik teken je ontwerp</h4><p>Op basis van jouw ideeën werk ik een persoonlijk ontwerp uit, in mijn stijl. Je weet vooraf waar je aan toe bent.</p></div></div>
+        <div class="stap"><span class="n">3</span><div><h4>We zetten hem</h4><p>Eén klant tegelijk, in een rustige en hygiënische studio. Er is tijd voor vragen, en je krijgt goede info over de nazorg mee.</p></div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -246,16 +268,32 @@ h1 span,h2 span{color:var(--rood)}
 <section class="flash" id="flash">
   <div class="wrap">
     <div class="kop">
-      <div class="rv"><span class="sp">Flash</span><h2>Unieke ontwerpen, <span>één keer gezet.</span></h2></div>
-      <p class="rv" style="--d:1">Flash designs zijn kant-en-klare ontwerpen die ik heel graag zou tatoeëren. Ze worden maar één keer gezet, dus je bent zeker van een unieke tattoo. En met een kleine korting.</p>
+      <div class="rv"><span class="sp">Flash</span><h2>Unieke ontwerpen, één keer gezet.</h2></div>
+      <p class="rv" style="--d:1">Flash zijn kant-en-klare ontwerpen die ik heel graag zou tatoeëren. Elk ontwerp zet ik maar één keer, dus je bent zeker van een unieke tattoo. En je krijgt er een kleine korting bij.</p>
     </div>
-    <div class="vier">
-      <figure class="rv"><img src="img/f2.webp" alt="Flash-ontwerp van een vogeltje voor een rode cirkel" loading="lazy"><figcaption>Beschikbaar</figcaption></figure>
-      <figure class="rv" style="--d:1"><img src="img/f4.webp" alt="Flash-ontwerp van een kikker in een fles met rode bessen" loading="lazy"><figcaption>Beschikbaar</figcaption></figure>
-      <figure class="rv" style="--d:2"><img src="img/f3.webp" alt="Flash-ontwerp van een heremietkreeft met een huisje op zijn schelp" loading="lazy"><figcaption>Beschikbaar</figcaption></figure>
-      <figure class="rv" style="--d:3"><img src="img/f1.webp" alt="Flash-ontwerp van een klauw met een strik en een rode bol" loading="lazy"><figcaption>Beschikbaar</figcaption></figure>
+    <div class="vel rv">
+      <div class="vel-kop"><img src="img/logo.webp" alt="" width="500" height="472" loading="lazy"><span>Flash · nu beschikbaar</span></div>
+      <div class="vier">
+        <figure><div class="beeld"><img src="img/f2.webp" alt="Flash-ontwerp van een vogeltje voor een rode cirkel" loading="lazy"></div><figcaption><b>Vogeltje</b><span>beschikbaar</span></figcaption></figure>
+        <figure><div class="beeld"><img src="img/f4.webp" alt="Flash-ontwerp van een kikker in een fles met rode bessen" loading="lazy"></div><figcaption><b>Kikker in een fles</b><span>beschikbaar</span></figcaption></figure>
+        <figure><div class="beeld"><img src="img/f3.webp" alt="Flash-ontwerp van een heremietkreeft met een huisje op zijn schelp" loading="lazy"></div><figcaption><b>Heremietkreeft</b><span>beschikbaar</span></figcaption></figure>
+        <figure><div class="beeld"><img src="img/f1.webp" alt="Flash-ontwerp van een klauw met een strik en een rode bol" loading="lazy"></div><figcaption><b>Klauw met strik</b><span>beschikbaar</span></figcaption></figure>
+      </div>
     </div>
-    <div class="noot rv"><p><b>Iets gezien?</b> Stuur een DM voor de minimum grootte, de prijs en de plaatsing.</p><a class="knop k-lijn" href="https://www.instagram.com/blek.tt/" target="_blank" rel="noopener">Meer flash op Instagram</a></div>
+    <div class="noot rv"><p><b>Iets gezien?</b> Stuur me een DM voor de minimum grootte, de prijs en de plaatsing.</p><a class="knop k-wit" href="https://www.instagram.com/blek.tt/" target="_blank" rel="noopener">Meer flash op Instagram</a></div>
+  </div>
+</section>
+
+<section class="cover">
+  <div class="wrap">
+    <figure class="rv"><img src="img/t-cover.webp" alt="Cover-up tattoo van een triceratops op een bovenarm" loading="lazy"></figure>
+    <div class="rv" style="--d:1">
+      <span class="sp">Cover-ups</span>
+      <h2>Van een oude tattoo iets nieuws.</h2>
+      <p>Een tattoo waar je niet meer blij mee bent, hoeft niet te blijven. Voor een cover-up teken ik een ontwerp dat zoveel mogelijk vormen van de oude tattoo meeneemt.</p>
+      <p>Zoals deze triceratops: op maat getekend over een tattoo die er eerder stond.</p>
+      <blockquote>"De truc van een goede cover-up: het oog wegtrekken van de oude tattoo."<small>Sven, vrij vertaald uit zijn Instagram</small></blockquote>
+    </div>
   </div>
 </section>
 
@@ -263,16 +301,24 @@ h1 span,h2 span{color:var(--rood)}
   <div class="wrap">
     <div class="rv">
       <span class="sp">De studio</span>
-      <h2>Kalm, netjes <span>en met tijd.</span></h2>
-      <p class="sub">BLEK is het resultaat van een jarenlange droom en passie voor tattoos en illustraties. Een gezellige, hygiënische privéstudio in Asse, waar ik individueel en enkel op afspraak werk.</p>
-      <p class="studioq">Eén klant tegelijk. De aandacht gaat 100% naar jouw tattoo.</p>
+      <h2>Kalm, netjes en met tijd.</h2>
+      <p class="sub">BLEK is het resultaat van een jarenlange droom en passie voor tattoos en illustraties. Een gezellige, hygiënische privéstudio in Asse.</p>
+      <ul>
+        <li><b>Enkel op afspraak</b><span>Ik werk individueel, één klant tegelijk.</span></li>
+        <li><b>Eigen ontwerpen</b><span>Blackwork, illustratief en graphic, getekend voor jou.</span></li>
+        <li><b>Flash en cover-ups</b><span>Unieke flash met een kleine korting, en cover-ups op maat.</span></li>
+        <li><b>Giftcards</b><span>Voor eender welk bedrag, per post bij je thuis.</span></li>
+      </ul>
     </div>
     <div class="revs rv" style="--d:1">
-      <article><div class="st">★★★★★</div><p>"Ik was onmiddellijk gerustgesteld door de kalme en professionele uitstraling van Sven, duidelijke en transparante communicatie vooraf, hygiënisch salon, het ontwerp, ruimte voor vragen nadien. Kortom: een aanrader!"</p><cite>Stefanie Willems<small>Google</small></cite></article>
-      <article class="uit"><div class="st">★★★★★</div><p>"De studio zelf is netjes en je merkt dat hij echt zijn tijd neemt om tot een geweldig resultaat te komen."</p><cite>Sylke Ooms<small>Google</small></cite></article>
-      <article><div class="st">★★★★★</div><p>"Op basis van ideeën heeft Sven een persoonlijk ontwerp voor mij uitgewerkt. Professionele aanpak, stelt je op uw gemak, staat klaar voor advies en after care! Super content van het resultaat."</p><cite>Hanne Van Opdenbosch<small>Google</small></cite></article>
+      <div class="score"><strong>5,0</strong><span><i>★★★★★</i>uit 102 reviews op Google</span></div>
+      <p class="groot">"Ik was onmiddellijk gerustgesteld door de kalme en professionele uitstraling van Sven, duidelijke en transparante communicatie vooraf, hygiënisch salon, het ontwerp, ruimte voor vragen nadien. Kortom: een aanrader!"</p>
+      <cite>Stefanie Willems <span>op Google</span></cite>
+      <div class="klein">
+        <blockquote>"De studio zelf is netjes en je merkt dat hij echt zijn tijd neemt om tot een geweldig resultaat te komen."<cite>Sylke Ooms <span>op Google</span></cite></blockquote>
+        <blockquote>"Op basis van ideeën heeft Sven een persoonlijk ontwerp voor mij uitgewerkt. Professionele aanpak, stelt je op uw gemak, staat klaar voor advies en after care!"<cite>Hanne Van Opdenbosch <span>op Google</span></cite></blockquote>
+      </div>
     </div>
-
   </div>
 </section>
 
@@ -280,18 +326,18 @@ h1 span,h2 span{color:var(--rood)}
   <div class="wrap">
     <div class="rv">
       <span class="sp">Afspraak maken</span>
-      <h2>Hopelijk <span>tot snel.</span></h2>
-      <p class="sub">Een idee, een flash of een cover-up? Stuur een berichtje via WhatsApp of mail en we bekijken het samen.</p>
+      <h2>Hopelijk <b>tot snel.</b></h2>
+      <p class="sub">Een eigen idee, een flash of een cover-up? Stuur me een berichtje via WhatsApp of mail en we bekijken het samen.</p>
       <div class="info">
         <div><small>Studio</small><p>Prieelstraat 49<br>1730 Asse<br>Enkel op afspraak</p></div>
         <div><small>Contact</small><p><a href="tel:+32476497892">0476 49 78 92</a><br><a href="mailto:info@blektattoo.be">info@blektattoo.be</a><br><a href="https://www.instagram.com/blek.tt/" target="_blank" rel="noopener">@blek.tt</a></p></div>
       </div>
       <div class="knoppen">
         <a class="knop k-rood" href="https://wa.me/32476497892" target="_blank" rel="noopener">Stuur een WhatsApp</a>
-        <a class="knop k-lijn-w" href="mailto:info@blektattoo.be">Mail me</a>
+        <a class="lijn" href="mailto:info@blektattoo.be">Of mail me<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
-    <div class="bon rv" style="--d:1"><img src="img/bon.webp" alt="Waardebon van BLEK tussen groene planten" loading="lazy"><div><b>Giftcard</b><span>Een (gedeeltelijk) gratis sessie, voor eender welk bedrag. Wordt per post bij je thuis bezorgd.</span></div></div>
+    <div class="bon rv" style="--d:1"><img src="img/bon.webp" alt="Waardebon van BLEK tussen groene planten" loading="lazy"><div><b>Een tattoo cadeau doen?</b><span>Met een giftcard schenk je een (gedeeltelijk) gratis sessie, voor eender welk bedrag. Ik stuur hem per post naar je thuis.</span></div></div>
   </div>
 </section>
 </main>
