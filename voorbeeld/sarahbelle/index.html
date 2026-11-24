@@ -28,6 +28,8 @@ h1,h2,h3{font-family:'Gloock',serif;font-weight:400;line-height:1.04;letter-spac
 .lab{display:inline-block;font:600 12px/1.4 'Hanken Grotesk',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--fram2);margin-bottom:18px}
 .knop{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:16px 27px;font:600 15.5px/1 'Hanken Grotesk',sans-serif;text-decoration:none;transition:transform .35s var(--ease),background .3s,color .3s}
 .knop svg{width:18px;height:18px;flex:none}
+.knop .lak{width:20px;height:20px;border-radius:50%;flex:none;background:radial-gradient(circle at 35% 30%,#f3a5c4,#b5285e 55%,#5e1230);box-shadow:inset 0 0 0 2px rgba(255,255,255,.75);transition:transform .45s var(--ease)}
+.knop:hover .lak{transform:scale(1.18) rotate(20deg)}
 .knop.fram{background:var(--fram);color:#fff;box-shadow:0 14px 30px -14px rgba(181,40,94,.9)}
 .knop.fram:hover{background:#9c1f4f;transform:translateY(-2px)}
 .knop.rand{border:1.5px solid rgba(244,233,230,.45);color:#f4e9e6}
@@ -47,20 +49,23 @@ h1,h2,h3{font-family:'Gloock',serif;font-weight:400;line-height:1.04;letter-spac
 .menu a:hover{color:#fff}
 .nav .knop{padding:13px 22px;font-size:14.5px}
 
-.hero{position:relative;min-height:max(740px,100svh);display:flex;align-items:center;overflow:hidden;background:var(--nacht)}
-.hero .foto{position:absolute;top:0;bottom:0;right:0;width:58%}
-.hero .foto img{width:100%;height:100%;object-fit:cover;object-position:40% 40%;transform:scale(1.06);transition:transform 2.6s var(--ease)}
-.hero.in .foto img{transform:none}
-.hero .foto:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--nacht) 0%,rgba(10,9,9,.55) 22%,rgba(10,9,9,0) 48%),linear-gradient(0deg,rgba(10,9,9,.7) 0%,rgba(10,9,9,0) 30%)}
-.hero .wrap{position:relative;z-index:2;padding:150px 0 100px}
-.hero h1{font-size:clamp(50px,6.4vw,94px);max-width:8.2em;color:#fff}
+.hero{position:relative;background:var(--nacht);color:#fff;overflow:hidden}
+.hero:before{content:"";position:absolute;right:-10%;top:10%;width:60%;height:90%;background:radial-gradient(closest-side,rgba(181,40,94,.22),transparent);pointer-events:none}
+.hgrid{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,5vw,80px);align-items:center;min-height:max(760px,calc(100svh - 37px));padding:140px 0 70px}
+.hero h1{font-size:clamp(50px,5.6vw,88px);max-width:8.4em;color:#fff}
 .hero h1 b{font-weight:400;color:var(--fram2)}
-.hero p.lead{font-size:clamp(17px,1.4vw,19.5px);max-width:29em;margin:24px 0 34px;color:rgba(244,233,230,.82)}
+.hero p.lead{font-size:clamp(17px,1.3vw,19px);max-width:29em;margin:24px 0 34px;color:rgba(244,233,230,.8)}
 .hero .acties{display:flex;flex-wrap:wrap;gap:12px}
-.score{position:absolute;right:max(24px,calc((100vw - 1240px)/2));bottom:56px;z-index:3;background:rgba(23,19,20,.75);backdrop-filter:blur(10px);border:1px solid rgba(244,233,230,.16);border-radius:20px;padding:16px 20px;display:flex;gap:14px;align-items:center}
-.score strong{font:400 44px/1 'Gloock';color:#fff}
-.score span{display:block;font-size:13.5px;line-height:1.35;color:rgba(244,233,230,.7)}
-.score .st{color:var(--fram2);letter-spacing:2px}
+.hfeit{display:flex;align-items:center;gap:22px;margin-top:44px;padding-top:24px;border-top:1px solid rgba(244,233,230,.14);font-size:14.5px;color:rgba(244,233,230,.66);line-height:1.45}
+.hfeit strong{font:400 42px/1 'Gloock';color:#fff}
+.hfeit .st{color:var(--fram2);letter-spacing:2px;display:block}
+.hfeit .sc{display:flex;align-items:center;gap:12px}
+.hfeit i{width:1px;height:40px;background:rgba(244,233,230,.16)}
+.nagel{position:relative;justify-self:center;width:min(100%,440px)}
+.nagel:before{content:"";position:absolute;inset:-16px -16px -16px -16px;border:1.5px solid rgba(217,77,131,.55);border-radius:50% 50% 34px 34px / 34% 34% 34px 34px}
+.nagel img{position:relative;width:100%;height:auto;aspect-ratio:1/1.3;object-fit:cover;object-position:62% 60%;border-radius:50% 50% 30px 30px / 34% 34% 30px 30px;box-shadow:0 40px 80px -40px rgba(0,0,0,.9)}
+.nagel figcaption{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);white-space:nowrap;display:flex;align-items:center;gap:10px;background:rgba(10,9,9,.72);backdrop-filter:blur(8px);border:1px solid rgba(244,233,230,.16);border-radius:999px;padding:9px 16px 9px 10px;font-size:14px;color:#fff}
+.nagel figcaption i{width:20px;height:20px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#e98ab0,#8e1f4a 60%,#4d0f27);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6)}
 
 /* kleuren */
 .kleur{background:var(--blush);color:var(--inkt);padding:120px 0 0}
@@ -93,11 +98,14 @@ h1,h2,h3{font-family:'Gloock',serif;font-weight:400;line-height:1.04;letter-spac
 .kies p{color:rgba(255,255,255,.88);font-size:16.5px}
 .kies .knop{background:#fff;color:var(--fram);align-self:flex-start}
 .kies .knop:hover{background:var(--blush)}
-.diensten{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:56px;border-top:1px solid rgba(244,233,230,.14);border-bottom:1px solid rgba(244,233,230,.14)}
-.diensten div{padding:24px 20px 24px 0}
-.diensten div+div{padding-left:22px;border-left:1px solid rgba(244,233,230,.14)}
-.diensten b{display:block;font:400 21px/1.2 'Gloock';color:#fff;margin-bottom:6px}
-.diensten span{font-size:15px;color:rgba(244,233,230,.66);line-height:1.5;display:block}
+.diensten{margin-top:56px;display:grid;grid-template-columns:.8fr 2fr;gap:40px;align-items:start;border-top:1px solid rgba(244,233,230,.16);padding-top:40px}
+.diensten h3{font-size:clamp(30px,3vw,40px);color:#fff}
+.diensten h3+p{color:rgba(244,233,230,.62);font-size:15.5px;margin-top:10px;max-width:20em}
+.dlijst{list-style:none;counter-reset:d;display:grid;grid-template-columns:1fr 1fr;gap:0 44px}
+.dlijst li{counter-increment:d;display:grid;grid-template-columns:40px 1fr;gap:6px;padding:18px 0;border-bottom:1px solid rgba(244,233,230,.12)}
+.dlijst li:before{content:counter(d,decimal-leading-zero);font:600 12.5px/1.9 'Hanken Grotesk';letter-spacing:.1em;color:var(--fram2)}
+.dlijst b{display:block;font:400 21px/1.2 'Gloock';color:#fff;margin-bottom:4px}
+.dlijst span{font-size:15px;color:rgba(244,233,230,.66);line-height:1.5}
 
 /* tania */
 .tania{background:var(--blush);color:var(--inkt);padding:120px 0}
@@ -108,10 +116,12 @@ h1,h2,h3{font-family:'Gloock',serif;font-weight:400;line-height:1.04;letter-spac
 .tfoto .portret{position:absolute;left:-26px;bottom:-30px;width:168px;height:168px;border-radius:50%;object-fit:cover;border:6px solid var(--blush);box-shadow:0 20px 40px -18px rgba(28,21,23,.5)}
 .tania h2{font-size:clamp(40px,4.6vw,64px);max-width:9em}
 .tania p.in{color:#4a3c40;margin:20px 0 26px;max-width:31em;font-size:18px}
-.feiten{list-style:none;display:grid;gap:12px}
-.feiten li{display:flex;gap:14px;align-items:flex-start;background:#fff;border-radius:18px;padding:16px 18px;font-size:16px;color:#3e3236}
-.feiten i{width:34px;height:34px;flex:none;border-radius:50%;background:var(--blush2);color:var(--fram);display:grid;place-items:center}
-.feiten i svg{width:17px;height:17px}
+.weetjes{background:#fff;border-radius:var(--r);padding:26px 28px 14px;box-shadow:0 30px 60px -46px rgba(28,21,23,.5)}
+.weetjes>b{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font:400 22px/1.2 'Gloock';padding-bottom:12px;border-bottom:1.5px solid var(--inkt)}
+.weetjes>b span{font:600 11.5px/1 'Hanken Grotesk';letter-spacing:.18em;text-transform:uppercase;color:var(--fram)}
+.feiten{list-style:none}
+.feiten li{padding:14px 0;border-bottom:1px dashed rgba(28,21,23,.18);font-size:16px;color:#3e3236}
+.feiten li:last-child{border-bottom:0}
 .feiten b{color:var(--inkt)}
 
 /* reviews */
@@ -162,37 +172,32 @@ footer.voet{background:var(--nacht);padding:64px 0 32px}
   .stalen .staal:nth-child(n+4){display:none}
   .agrid{grid-template-columns:1fr 1fr}
   .kies{grid-column:1/-1}
-  .diensten{grid-template-columns:1fr 1fr}
-  .diensten div,.diensten div+div{padding:20px 16px 20px 0;border-left:0;border-bottom:1px solid rgba(244,233,230,.14)}
+  .diensten{grid-template-columns:1fr;gap:20px}
   .tgrid{grid-template-columns:1fr;gap:70px}
   .tfoto{order:2}
+  .hgrid{grid-template-columns:1fr;min-height:0;padding:130px 0 70px;gap:56px}
+  .nagel{width:min(100%,400px)}
   .rgrid{grid-template-columns:1fr 1fr}
   .rgrid .rk.groot{grid-column:1/-1}
   .agr{grid-template-columns:1fr}
   .agr .foto{min-height:480px}
-  .hero .foto{width:100%}
-  .hero .foto:after{background:linear-gradient(0deg,var(--nacht) 0%,rgba(10,9,9,.85) 40%,rgba(10,9,9,.1) 75%)}
-  .hero{align-items:flex-end}
-  .hero .wrap{padding:0 0 150px}
 }
 @media (max-width:640px){
   body{font-size:16.5px}
   .wrap{width:calc(100% - 36px)}
   .nav{top:56px}
   .nav .knop{display:none}
-  .hero{min-height:820px}
-  .hero h1{font-size:44px}
-  .hero .foto{height:62%;bottom:auto}
-  .hero .foto img{object-position:75% 75%}
-  .hero .foto:after{background:linear-gradient(0deg,var(--nacht) 0%,rgba(10,9,9,.4) 40%,rgba(10,9,9,0) 70%)}
-  .hero .wrap{padding:0 0 140px}
-  .score{left:18px;right:auto;bottom:36px}
+  .hero h1{font-size:clamp(40px,11vw,48px)}
+  .hgrid{padding:120px 0 56px}
+  .hfeit{flex-wrap:wrap;gap:14px}
+  .hfeit i{display:none}
+  .nagel{width:calc(100% - 40px)}
   .kleur{padding-top:84px}
   .stalen{grid-template-columns:1fr 1fr}
   .stalen .staal:nth-child(n+3){display:none}
   .art,.tania,.rev{padding:84px 0}
   .agrid{grid-template-columns:1fr}
-  .diensten{grid-template-columns:1fr}
+  .dlijst{grid-template-columns:1fr}
   .tfoto .portret{width:120px;height:120px;left:12px;bottom:-26px}
   .rgrid{grid-template-columns:1fr}
   .agr .tekst{padding:84px 20px 64px}
@@ -215,19 +220,23 @@ footer.voet{background:var(--nacht);padding:64px 0 32px}
 
 <main>
 <section class="hero" aria-labelledby="h1">
-  <div class="foto"><img src="img/hero.webp" alt="Close-up van nagels in een framboos-fuchsia cat eye met glitter, tegen een zwarte achtergrond" width="1200" height="1248" fetchpriority="high"></div>
-  <div class="wrap">
-    <span class="lab">Nagelstudio in Genk · al 19 jaar</span>
-    <h1 id="h1">Zo mooi dat ze vragen of ze <b>echt</b> zijn.</h1>
-    <p class="lead">Gelnagels, builder gel en handgeschilderde nail art bij Tania. Sommige klanten van het eerste uur zitten vandaag nog altijd bij haar in de stoel.</p>
-    <div class="acties">
-      <a class="knop fram" href="https://wa.me/32474914851" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.1.1.7-.1 1.2Z"/></svg>WhatsApp Tania</a>
-      <a class="knop rand" href="#kleur">Bekijk recente sets</a>
+  <div class="wrap hgrid">
+    <div>
+      <span class="lab">Nagelstudio in Genk · al 19 jaar</span>
+      <h1 id="h1">Zo mooi dat ze vragen of ze <b>echt</b> zijn.</h1>
+      <p class="lead">Ik ben Tania. In mijn studio aan huis zet ik gelnagels, builder gel en handgeschilderde nail art. Sommige klanten van het eerste uur zitten vandaag nog altijd bij mij in de stoel.</p>
+      <div class="acties">
+        <a class="knop fram" href="https://wa.me/32474914851" target="_blank" rel="noopener"><span class="lak"></span>Maak een afspraak</a>
+        <a class="knop rand" href="#kleur">Bekijk recente sets</a>
+      </div>
+      <div class="hfeit"><div class="sc"><strong>5,0</strong><span><span class="st">★★★★★</span>33 reviews op Google</span></div><i></i><span>Ambassadeur van<br>Nio Nails Store en Nellish</span></div>
     </div>
+    <figure class="nagel">
+      <img src="img/hero.webp" alt="Close-up van nagels in een framboos-fuchsia cat eye met glitter, tegen een zwarte achtergrond" width="1200" height="1248" fetchpriority="high">
+      <figcaption><i></i>Framboos cat eye</figcaption>
+    </figure>
   </div>
-  <div class="score"><strong>5,0</strong><div><span class="st">★★★★★</span><span>33 reviews<br>op Google</span></div></div>
 </section>
-
 <section class="kleur" id="kleur" aria-labelledby="t-k">
   <div class="wrap">
     <div class="kop">
@@ -256,11 +265,15 @@ footer.voet{background:var(--nacht);padding:64px 0 32px}
       <div class="kies rv" style="--d:2"><h3>Set 1 of set 2?</h3><p>Zie je een set die je wil? Stuur Tania een screenshot en plan je afspraak in.</p><a class="knop" href="https://wa.me/32474914851" target="_blank" rel="noopener">Stuur je favoriet</a></div>
     </div>
     <div class="diensten rv">
-      <div><b>Gelnagels</b><span>Verzorgd, sterk en in elke kleur die je wil.</span></div>
-      <div><b>Builder gel</b><span>Extra stevigheid voor je eigen nagels.</span></div>
-      <div><b>Cat eye</b><span>Die diepe glans die beweegt in het licht.</span></div>
-      <div><b>Nail art</b><span>Handgeschilderd, van één accent tot een volledige set.</span></div>
-      <div><b>Voeten</b><span>Ook je voeten krijgen dezelfde zorg.</span></div>
+      <div><h3>Wat je kan laten doen</h3><p>Alles op afspraak, in de studio aan de Barenzaallaan.</p></div>
+      <ul class="dlijst">
+        <li><div><b>Gelnagels</b><span>Verzorgd en sterk, in elke kleur die je wil.</span></div></li>
+        <li><div><b>Builder gel</b><span>Extra stevigheid voor je eigen nagels.</span></div></li>
+        <li><div><b>Cat eye</b><span>Die diepe glans die beweegt in het licht.</span></div></li>
+        <li><div><b>Handgeschilderde nail art</b><span>Van één accentnagel tot een volledige set.</span></div></li>
+        <li><div><b>Voeten</b><span>Je voeten krijgen dezelfde zorg als je handen.</span></div></li>
+        <li><div><b>Set van de week</b><span>Elke maandag twee nieuwe sets op Instagram. Jij kiest.</span></div></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -269,15 +282,15 @@ footer.voet{background:var(--nacht);padding:64px 0 32px}
   <div class="wrap tgrid">
     <div class="tfoto rv"><img class="groot" src="img/rood2.webp" alt="Een hand met rode gelnagels in de handen van Tania met zwarte handschoenen" width="900" height="864" loading="lazy"><img class="portret" src="img/tania.webp" alt="Portret van Tania" width="500" height="500" loading="lazy"></div>
     <div>
-      <span class="lab rv">Hallo, ik ben Tania</span>
+      <span class="lab rv">Over Tania</span>
       <h2 id="t-t" class="rv" style="--d:1">19 jaar nagels, en nog altijd even graag.</h2>
       <p class="in rv" style="--d:2">"Topkwaliteit nagels en handgeschilderde nail art: daar sta ik voor. De producten die ik gebruik moeten simpelweg the best of the best zijn, voor mezelf én voor mijn klanten."</p>
-      <ul class="feiten rv" style="--d:3">
-        <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 11c0-3 2-5 4-5l1-2 2 2c3 0 5 2 5 5v4a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3v-4Z"/><circle cx="10" cy="11" r=".8" fill="currentColor"/><circle cx="14" cy="11" r=".8" fill="currentColor"/></svg></i><span>Thuis wacht <b>Ginger</b>, volgens Tania de meest gekuste hond ter wereld.</span></li>
-        <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 9h12v4a6 6 0 0 1-6 6h0a6 6 0 0 1-6-6V9ZM17 10h1.5a2.5 2.5 0 0 1 0 5H17M4 4l16 16"/></svg></i><span>Koffie hoef je haar niet aan te bieden: ze begrijpt nog altijd niet wat mensen er lekker aan vinden.</span></li>
-        <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 6c-2-2-6-2-8 0v13c2-2 6-2 8 0 2-2 6-2 8 0V6c-2-2-6-2-8 0ZM12 6v13"/></svg></i><span>Ze kan verdwalen in boeken, boekhandels en kastelen. En ze houdt van quotes die je even laten stilstaan.</span></li>
-        <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3l2.6 5.6L20 9.5l-4 4 1 6-5-3-5 3 1-6-4-4 5.4-.9L12 3Z"/></svg></i><span>Ze is ambassadeur van <b>Nio Nails Store</b> en <b>Nellish</b> en werkt met merken als BIBLIOTEKA en Makear.</span></li>
-      </ul>
+      <div class="weetjes rv" style="--d:3"><b>Wat je nog niet wist<span>Uit haar eigen voorstelpost</span></b><ul class="feiten">
+        <li>Thuis wacht <b>Ginger</b>, volgens Tania de meest gekuste hond ter wereld.</li>
+        <li>Koffie hoef je haar niet aan te bieden: ze begrijpt nog altijd niet wat mensen er lekker aan vinden.</li>
+        <li>Ze kan verdwalen in boeken, boekhandels en kastelen. En ze houdt van quotes die je even laten stilstaan.</li>
+        <li>Ze is ambassadeur van <b>Nio Nails Store</b> en <b>Nellish</b> en werkt met merken als BIBLIOTEKA en Makear.</li>
+      </ul></div>
     </div>
   </div>
 </section>
@@ -336,7 +349,6 @@ footer.voet{background:var(--nacht);padding:64px 0 32px}
 
 <script>
 (function(){
-var h=document.querySelector('.hero');requestAnimationFrame(function(){h.classList.add('in')});
 var els=[].slice.call(document.querySelectorAll('.rv'));
 function kijk(){var H=innerHeight;els=els.filter(function(e){var r=e.getBoundingClientRect();if(r.top<H*.94&&r.bottom>0){e.classList.add('in');return false}return true});if(!els.length)removeEventListener('scroll',plan)}
 var t=0;function plan(){if(!t){t=requestAnimationFrame(function(){t=0;kijk()})}}
