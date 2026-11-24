@@ -21,20 +21,18 @@ function prijsTxt(a){if(!a.prijs)return 'Gratis';return (a.vanaf?'vanaf ':'')+H.
 /* ---------- tegels en eerstvolgende data ---------- */
 function tegels(){
  var t=document.getElementById('tegels');if(!t)return;
- t.innerHTML=H.act.map(function(a){var v=eerstVolgend(a);
-  var vr=v.vrij===null?'':(v.vrij===0?'<span class="vrij" style="background:#9AA39D">Volzet</span>':'<span class="vrij" style="background:'+(v.vrij<=3?'#E8682A':a.kleur)+'">'+(v.vrij<=3?'Nog '+v.vrij+' plekjes':v.vrij+' plekjes vrij')+'</span>');
-  return '<button type="button" class="tegel" data-boek="'+a.id+'"><div class="tf"><img src="'+a.foto+'" alt="'+esc(a.naam)+'" loading="lazy"><span class="prijs">'+prijsTxt(a)+'</span>'+vr+'</div><div class="ti"><h3>'+esc(a.naam)+'</h3><p>'+esc(a.sub)+'</p><div class="volg"><small>'+(a.type==='afspraak'?'Wanneer?':'Eerstvolgende')+'<b>'+esc(v.txt)+'</b></small><span class="pijlbol" style="background:'+a.kleur+'">'+PIJL+'</span></div></div></button>';
- }).join('');
- var e=document.getElementById('eerst');if(!e)return;
- e.innerHTML=H.sessies().filter(function(s){return toekomst(s)&&H.vrij(s)>0;}).slice(0,8).map(function(s){var a=H.actVan(s.act),d=new Date(s.datum+'T12:00:00');
-  return '<button type="button" class="chip" data-boek="'+s.act+'" data-ses="'+s.id+'"><span class="dag" style="background:'+a.kleur+'">'+d.getDate()+'</span><span><b style="font-weight:600">'+esc(a.kort)+'</b> <small>'+MAAND[d.getMonth()]+' · '+uur(s.uur)+' · nog '+H.vrij(s)+'</small></span></button>';
+ t.innerHTML=H.act.map(function(a){var v=eerstVolgend(a),sub;
+  if(v.vrij===null)sub=esc(v.txt);
+  else if(v.vrij===0)sub='Volzet, nieuwe data volgen';
+  else sub=cap(H.datumKort(v.s.datum))+(v.s.tot?' tot '+H.datumKort(v.s.tot):', '+uur(v.s.uur))+' · <em>'+(v.vrij<=3?'nog '+v.vrij+(v.vrij===1?' plekje':' plekjes'):v.vrij+' plekjes vrij')+'</em>';
+  return '<button type="button" class="akt" data-boek="'+a.id+'" style="--k:'+a.kleur+';--kz:'+a.zacht+'"><img src="'+a.foto+'" alt="" loading="lazy"><span class="ak-t"><b>'+esc(a.naam)+'</b><small>'+sub+'</small><small class="ak-pm">'+prijsTxt(a)+'</small></span><span class="ak-p">'+prijsTxt(a)+'</span><span class="ak-k">'+(a.trouw?'Plan':'Boek')+'</span></button>';
  }).join('');
 }
 tegels();
 
 /* ---------- 3D-kanteling op shopkaarten ---------- */
 if(matchMedia('(hover:hover)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
- document.querySelectorAll('.prod,.tegel').forEach(function(k){
+ document.querySelectorAll('.prod').forEach(function(k){
   k.addEventListener('mousemove',function(e){var r=k.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;k.style.transform='perspective(900px) rotateY('+(x*7)+'deg) rotateX('+(-y*7)+'deg) translateY(-6px)';});
   k.addEventListener('mouseleave',function(){k.style.transform='';});
  });

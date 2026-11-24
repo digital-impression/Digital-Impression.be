@@ -4,9 +4,9 @@
 var A=[
  {id:'ws',naam:'Bloemenworkshop',kort:'Workshop',sub:'Droog-, zijden of verse bloemen, op een moment dat jou past',prijs:55,eenheid:'per persoon',vanaf:true,foto:'img/b_ws.webp',type:'afspraak',kleur:'#D08E00',zacht:'#FFF1CC',max:16,
   uitleg:'Elke dag op afspraak. In de week vanaf 2 personen, in het weekend vanaf 4.'},
- {id:'winter',naam:'Winterkransen maken',kort:'Winterkrans',sub:'Met vers groen, droogbloemen of kunstbloemen',prijs:70,eenheid:'per persoon',vanaf:true,foto:'img/b_winter.webp',type:'sessies',kleur:'#0B6B3E',zacht:'#DCEFE2',
+ {id:'winter',naam:'Winterkransen maken',kort:'Winterkrans',sub:'Met vers groen, droogbloemen of kunstbloemen',prijs:70,eenheid:'per persoon',vanaf:false,foto:'img/b_winter.webp',type:'sessies',kleur:'#0B6B3E',zacht:'#DCEFE2',
   uitleg:'Seizoensworkshop van drie uur. Lichtjesslinger, materiaal, drankje en versnapering inbegrepen. Je gaat naar huis met je eigen krans.'},
- {id:'papier',naam:'Papieren- en parelbloemen',kort:'Papier & parels',sub:'Bloemen die nooit verwelken',prijs:55,eenheid:'per persoon',vanaf:true,foto:'img/b_papier.webp',type:'sessies',kleur:'#E8577A',zacht:'#FCE1E8',
+ {id:'papier',naam:'Papieren- en parelbloemen',kort:'Papier & parels',sub:'Bloemen die nooit verwelken',prijs:55,eenheid:'per persoon',vanaf:false,foto:'img/b_papier.webp',type:'sessies',kleur:'#E8577A',zacht:'#FCE1E8',
   uitleg:'Workshop van drie uur, vanaf 12 jaar. Je leert bloemen maken van crêpepapier en pareltjes. Drankje en versnapering inbegrepen.'},
  {id:'kamp',naam:'Kinderkamp',kort:'Kinderkamp',sub:'Voor kinderen van 8 tot 14 jaar',prijs:165,eenheid:'per kind, 3 dagen',vanaf:false,foto:'img/b_kamp.webp',type:'sessies',kleur:'#4F7FD9',zacht:'#DFE9FB',kind:true,
   uitleg:'Van 9 tot 16 uur. Materiaal en begeleiding inbegrepen. Lunch, drinkbus en tussendoortje zelf meebrengen.'},
