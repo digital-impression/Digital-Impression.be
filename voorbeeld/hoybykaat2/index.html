@@ -124,7 +124,8 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:400;letter-spacing:-.02e
 
 /* marquee */
 .loop{background:var(--groen);color:var(--creme);padding:14px 0;overflow:hidden;position:relative;z-index:5}
-.loop .spoor{display:flex;gap:26px;width:max-content;animation:loop 60s linear infinite;align-items:center}
+.loop .spoor{display:flex;gap:22px;justify-content:center;align-items:center;flex-wrap:nowrap;width:max-content;position:relative;left:50%;transform:translateX(-50%)}
+.loop{-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
 .loop span{font:italic 400 19px/1 Fraunces,serif;white-space:nowrap;letter-spacing:.01em;opacity:.92}
 .loop img{width:28px;height:28px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px rgba(247,243,234,.25)}
 @keyframes loop{to{transform:translateX(-50%)}}
@@ -327,6 +328,36 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
 @keyframes adem{0%,100%{opacity:.55;scale:.92}50%{opacity:.95;scale:1.06}}
 
 
+
+/* ===== diensten ===== */
+.diensten{padding:110px 0 120px;position:relative}
+.d-kop{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:42px}
+.d-kop h2{font-size:clamp(38px,4.4vw,62px);color:var(--diep);margin-top:14px;max-width:760px}
+.d-kop p{max-width:360px;color:var(--mute);font-size:17px}
+.d-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.dienst{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 1px 2px rgba(14,59,38,.06),0 18px 40px -30px rgba(14,59,38,.45);transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.dienst figure{aspect-ratio:1/1;overflow:hidden;position:relative;margin:0}
+.dienst figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.dienst .nr{position:absolute;top:12px;left:12px;background:#fff;color:var(--c);border-radius:999px;font:700 12.5px/1 Figtree,sans-serif;padding:7px 10px;letter-spacing:.04em}
+.dienst .t{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1;border-top:4px solid var(--c)}
+.dienst h3{font-size:25px;color:var(--diep);line-height:1.05}
+.dienst p{font-size:15px;color:var(--mute);line-height:1.45;margin:8px 0 16px;flex:1}
+.dienst .meer{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:14.5px;color:var(--c)}
+.dienst .meer svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;transition:transform .5s var(--ease)}
+.dienst:hover{transform:translateY(-6px);box-shadow:0 1px 2px rgba(14,59,38,.06),0 30px 60px -30px rgba(14,59,38,.55)}
+.dienst:hover figure img{transform:scale(1.07)}
+.dienst:hover .meer svg{transform:translateX(4px)}
+@media(max-width:1180px){.d-grid{grid-template-columns:repeat(3,1fr)}.dienst figure{aspect-ratio:4/3}}
+@media(max-width:700px){
+ .diensten{padding:72px 0 80px}
+ .d-kop{display:block;margin-bottom:26px}.d-kop p{margin-top:12px;font-size:16px}
+ .d-grid{grid-template-columns:1fr;gap:12px}
+ .dienst{flex-direction:row;border-radius:20px}
+ .dienst figure{width:112px;aspect-ratio:auto;flex:none}
+ .dienst .nr{display:none}
+ .dienst .t{padding:14px 16px;border-top:0;border-left:4px solid var(--c)}
+ .dienst h3{font-size:22px}.dienst p{font-size:14.5px;margin:5px 0 8px}
+}
 /* ===== boeken ===== */
 .boek{position:relative;padding:150px 0 130px;overflow:hidden}
 .mesh{position:absolute;inset:0;pointer-events:none;z-index:0}
@@ -540,21 +571,21 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
   <a class="logo" href="#top" aria-label="Hoy by Kaat"><img src="img/logo.png" alt="Logo Hoy by Kaat"><b>Hoy by Kaat</b></a>
   <ul class="menu">
    <li><a href="#kaat">Hoy!</a></li>
-   <li><a href="#huwelijk">Huwelijk</a></li>
+   <li><a href="huwelijk/">Huwelijk</a></li>
    <li class="drop"><button type="button" aria-expanded="false">Workshops <svg class="pijl" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
     <ul class="sub">
-     <li><a href="#boeken" data-boek="ws"><img src="img/ws2.webp" alt=""><span><b>Permanente workshops</b><small>Elke dag op afspraak, vanaf 2 personen</small></span></a></li>
-     <li><a href="#boeken" data-boek="papier"><img src="img/p3.webp" alt=""><span><b>Papieren- en parelbloemen</b><small>Bloemen die nooit verwelken</small></span></a></li>
-     <li><a href="#boeken" data-boek="winter"><img src="img/win2.webp" alt=""><span><b>Winterkransen</b><small>Vers, droog of met kunstbloemen</small></span></a></li>
+     <li><a href="workshops/"><img src="img/ws2.webp" alt=""><span><b>Permanente workshops</b><small>Elke dag op afspraak, vanaf 2 personen</small></span></a></li>
+     <li><a href="workshops/#papier"><img src="img/p3.webp" alt=""><span><b>Papieren- en parelbloemen</b><small>Bloemen die nooit verwelken</small></span></a></li>
+     <li><a href="workshops/#winter"><img src="img/win2.webp" alt=""><span><b>Winterkransen</b><small>Vers, droog of met kunstbloemen</small></span></a></li>
     </ul></li>
-   <li><a href="#kampen">Kampen</a></li>
-   <li><a href="#zijde">Zijden bloemen</a></li>
+   <li><a href="kampen/">Kampen</a></li>
+   <li><a href="zijden-bloemen/">Zijden bloemen</a></li>
    <li class="drop"><button type="button" aria-expanded="false">Shop <svg class="pijl" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
     <ul class="sub">
-     <li><a href="#shop"><img src="img/shop1.webp" alt=""><span><b>Verse bloemen</b><small>Levering in Leuven en 10 km rond</small></span></a></li>
-     <li><a href="#shop"><img src="img/shop2.webp" alt=""><span><b>Droogbloemen</b><small>Kies je kleuren, verzenden kan</small></span></a></li>
+     <li><a href="bloemen/"><img src="img/shop1.webp" alt=""><span><b>Verse bloemen</b><small>Levering in Leuven en 10 km rond</small></span></a></li>
+     <li><a href="bloemen/#droog"><img src="img/shop2.webp" alt=""><span><b>Droogbloemen</b><small>Kies je kleuren, verzenden kan</small></span></a></li>
      <li><a href="#shop"><img src="img/s_papier.webp" alt=""><span><b>Cadeaubon</b><small>Voor bloemen of een workshop</small></span></a></li>
-     <li><a href="#shop"><img src="img/s_zijde.webp" alt=""><span><b>Zijden bloemen</b><small>Abonnement voor je zaak</small></span></a></li>
+     <li><a href="zijden-bloemen/"><img src="img/s_zijde.webp" alt=""><span><b>Zijden bloemen</b><small>Abonnement voor je zaak</small></span></a></li>
     </ul></li>
    <li><a href="#contact">Contact</a></li>
   </ul>
@@ -566,11 +597,11 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
 <nav class="mobiel" id="mobiel" aria-hidden="true">
  <div class="rij"><b>Hoy by Kaat</b><button class="dicht" id="dicht" type="button" aria-label="Menu sluiten">×</button></div>
  <a class="h" href="#kaat">Hoy!</a>
- <a class="h" href="#huwelijk">Huwelijk</a>
- <details><summary>Workshops</summary><div><a href="#workshops">Permanente workshops</a><a href="#workshops">Papieren- en parelbloemen</a><a href="#winter">Winterkransen</a></div></details>
- <a class="h" href="#kampen">Kinder- en jeugdkampen</a>
- <a class="h" href="#zijde">Zijden bloemen</a>
- <details><summary>Shop</summary><div><a href="#shop">Verse bloemen</a><a href="#shop">Droogbloemen</a><a href="#shop">Cadeaubon</a><a href="#shop">Zijden bloemen</a></div></details>
+ <a class="h" href="huwelijk/">Huwelijk</a>
+ <details><summary>Workshops</summary><div><a href="workshops/">Permanente workshops</a><a href="workshops/#papier">Papieren- en parelbloemen</a><a href="workshops/#winter">Winterkransen</a></div></details>
+ <a class="h" href="kampen/">Kinder- en jeugdkampen</a>
+ <a class="h" href="zijden-bloemen/">Zijden bloemen</a>
+ <details><summary>Shop</summary><div><a href="bloemen/">Verse bloemen</a><a href="bloemen/#droog">Droogbloemen</a><a href="#shop">Cadeaubon</a><a href="zijden-bloemen/">Zijden bloemen</a></div></details>
  <a class="h" href="#contact">Contact</a>
  <a class="btn oranje" href="#boeken" data-boek="">Boek je moment</a>
 </nav>
@@ -597,43 +628,19 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
 </section>
 
 <div class="loop" aria-hidden="true"><div class="spoor">
- <span>verse bloemen</span><img src="img/g01.webp" alt=""><span>droogbloemen</span><img src="img/p1.webp" alt=""><span>zijde</span><img src="img/g13.webp" alt=""><span>workshops</span><img src="img/p3.webp" alt=""><span>huwelijken</span><img src="img/g02.webp" alt=""><span>kampen</span><img src="img/p2.webp" alt="">
- <span>verse bloemen</span><img src="img/g01.webp" alt=""><span>droogbloemen</span><img src="img/p1.webp" alt=""><span>zijde</span><img src="img/g13.webp" alt=""><span>workshops</span><img src="img/p3.webp" alt=""><span>huwelijken</span><img src="img/g02.webp" alt=""><span>kampen</span><img src="img/p2.webp" alt="">
+ <span>huwelijken</span><img src="img/g02.webp" alt=""><span>workshops</span><img src="img/p3.webp" alt=""><span>kampen</span><img src="img/p2.webp" alt=""><span>zijden bloemen</span><img src="img/g13.webp" alt=""><span>verse bloemen</span><img src="img/g01.webp" alt=""><span>droogbloemen</span><img src="img/p1.webp" alt=""><span>afscheid</span>
 </div></div>
 
-<section class="hor" id="aanbod" data-bg="#FBF2E8">
- <div class="wrap kop op"><div><span class="tag" style="color:var(--groen)"><i></i>Wat ik maak</span><h2 style="margin-top:14px">Vijf manieren om <span class="hand">bloemen</span><br>in je leven te halen</h2></div><p>Van de mooiste dag van je leven tot een vrolijk boeket op een gewone dinsdag. Alles maak ik zelf, in mijn atelier in Leuven.</p></div>
- <div class="baan" id="baan">
-  <article class="paneel p-trouw" id="huwelijk">
-   <div class="foto"><img src="img/trouw1.webp" alt="Bruid ruikt aan haar kleurrijke bruidsboeket" loading="lazy"><div class="klein"><img src="img/trouw2.webp" alt="Pastelkleurig bruidsboeket" loading="lazy"></div></div>
-   <div class="info"><span class="nr">01 · HUWELIJK</span><h3>Jullie dag, in jullie kleuren</h3><p>Van bruidsboeket en corsages tot tafels, bogen en ruimtedecoratie. In verse, droge of zijden bloemen, helemaal op jullie stijl afgestemd.</p>
-    <ul><li>Eerst een vrijblijvend gesprek over jullie wensen</li><li>Verse bloemen voor bruidswerk vanaf € 700</li><li>Droog- en zijden bloemen vanaf € 300</li></ul>
-    <a class="btn" href="#boeken" data-boek="trouw" style="background:#4A1E2A;color:#fff">Plan een gesprek</a></div>
-  </article>
-  <article class="paneel p-ws" id="workshops">
-   <div class="foto"><img src="img/ws1.webp" alt="Lange tafel vol mensen tijdens een bloemenworkshop" loading="lazy"><div class="klein"><img src="img/ws2.webp" alt="Groep vriendinnen met hun eigen kransen" loading="lazy"></div></div>
-   <div class="info"><span class="nr">02 · WORKSHOPS</span><h3>Zelf aan de slag, met alles binnen handbereik</h3><p>Je hoeft niets te kunnen. Ik leg alles stap voor stap uit en je gaat naar huis met je eigen creatie, in droog-, zijden of verse bloemen.</p>
-    <ul><li>Elke dag op afspraak, vanaf € 55 per persoon</li><li>In de week vanaf 2, in het weekend vanaf 4 personen</li><li>Vrijgezellen, verjaardag, teambuilding of Moederdag</li></ul>
-    <a class="btn" href="#boeken" data-boek="ws" style="background:#3B2A05;color:#FFD36B">Kies je datum</a></div>
-  </article>
-  <article class="paneel p-kamp" id="kampen">
-   <div class="foto"><img src="img/kamp1.webp" alt="Kinderen tonen trots hun bloemstukken" loading="lazy"><div class="klein"><img src="img/kamp2.webp" alt="Kinderen op kamp met een hond" loading="lazy"></div></div>
-   <div class="info"><span class="nr">03 · KINDER- EN JEUGDKAMPEN</span><h3>Een vakantie vol bloemen</h3><p>Elke dag maken de kinderen hun eigen creaties, en elke dag gaat er iets mee naar huis. Materiaal en begeleiding zitten erbij.</p>
-    <ul><li>Kinderkamp voor 8 tot 14 jaar, jeugdkamp met papier en pareltjes vanaf 12 jaar</li><li>4 dagen € 220, 3 dagen € 165, 2 dagen € 110</li><li>Kerst: 21 tot 23 december (8 tot 14) en 28 tot 30 december (12+)</li></ul>
-    <a class="btn" href="#boeken" data-boek="kamp" style="background:#0F2547;color:#fff">Schrijf in</a></div>
-  </article>
-  <article class="paneel p-zijde" id="zijde">
-   <div class="foto"><img src="img/zijde1.webp" alt="Etalage vol bloemen boven een zaak" loading="lazy"><div class="klein"><img src="img/zijde2.webp" alt="Bloemenboog boven de ingang van een praktijk" loading="lazy"></div></div>
-   <div class="info"><span class="nr">04 · ZIJDEN BLOEMEN</span><h3>Altijd bloemen in je zaak, zonder omkijken</h3><p>Een zijden boeket in een passende vaas, en vijf keer per jaar een nieuw. Of een installatie op maat voor je etalage, horecazaak of kantoor.</p>
-    <ul><li>Boeket met vaas voor € 35 per maand (excl. btw)</li><li>Nieuw in januari, april, juni, september en november</li><li>Installaties binnen en buiten op aanvraag</li></ul>
-    <a class="btn" href="#contact" style="background:#2A1A4D;color:#fff">Vraag het aan</a></div>
-  </article>
-  <article class="paneel p-shop" id="bloemen">
-   <div class="foto"><img src="img/shop1.webp" alt="Groot kleurrijk boeket met verse bloemen" loading="lazy"><div class="klein"><img src="img/shop2.webp" alt="Droogboeket in warme tinten" loading="lazy"></div></div>
-   <div class="info"><span class="nr">05 · SHOP</span><h3>Bloemen in huis, of om weg te geven</h3><p>Eén week per maand maak ik wilde boeketten met verse bloemen. Droogboeketten kan je het hele jaar bestellen, in jouw kleuren.</p>
-    <ul><li>Levering in Leuven en 10 km rond, of afhalen in Heverlee</li><li>Droogbloemen verzenden kan</li><li>Bestellen gaat via mijn Instagram-shop</li></ul>
-    <a class="btn wit" href="#shop">Naar de shop</a></div>
-  </article>
+<section class="diensten" id="aanbod" data-bg="#FBF2E8">
+ <div class="wrap">
+  <div class="d-kop op"><div><span class="tag" style="color:var(--groen)"><i></i>Wat ik doe</span><h2>Vijf manieren om <span class="hand">bloemen</span> in je leven te halen</h2></div><p>Alles maak ik zelf, in mijn atelier in Leuven. Kies wat bij je past en lees er meer over.</p></div>
+  <div class="d-grid">
+   <a class="dienst op" href="huwelijk/" style="--c:#C2456B"><figure><img src="img/trouw1.webp" alt="" loading="lazy"><span class="nr">01</span></figure><div class="t"><h3>Huwelijk</h3><p>Bruidsboeket, corsages, tafels en bogen. In verse, droge of zijden bloemen.</p><span class="meer">Meer info <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+   <a class="dienst op" href="workshops/" style="--c:#B57C00"><figure><img src="img/ws1.webp" alt="" loading="lazy"><span class="nr">02</span></figure><div class="t"><h3>Workshops</h3><p>Elke dag op afspraak, ook als je nog nooit met bloemen werkte. Vanaf €&nbsp;55.</p><span class="meer">Meer info <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+   <a class="dienst op" href="kampen/" style="--c:#3F6FC9"><figure><img src="img/kamp1.webp" alt="" loading="lazy"><span class="nr">03</span></figure><div class="t"><h3>Kampen</h3><p>Bloemenkampen in de vakanties, voor kinderen van 8 tot 14 en jongeren vanaf 12.</p><span class="meer">Meer info <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+   <a class="dienst op" href="zijden-bloemen/" style="--c:#7A55C4"><figure><img src="img/zijde2.webp" alt="" loading="lazy"><span class="nr">04</span></figure><div class="t"><h3>Zijden bloemen</h3><p>Een zijden boeket voor je zaak, vijf keer per jaar een nieuw. €&nbsp;35 per maand.</p><span class="meer">Meer info <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+   <a class="dienst op" href="bloemen/" style="--c:#E0561C"><figure><img src="img/shop1.webp" alt="" loading="lazy"><span class="nr">05</span></figure><div class="t"><h3>Bloemen bestellen</h3><p>Verse boeketten, droogbloemen en warme afscheidsbloemen, geleverd in Leuven.</p><span class="meer">Meer info <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+  </div>
  </div>
 </section>
 
@@ -656,7 +663,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
   <div class="op">
    <span class="tag"><i style="background:var(--zon)"></i>Nu in het atelier</span>
    <h2 style="margin-top:16px">Winterkransen <span class="hand">maken</span></h2>
-   <p>Een avond met je handen in het groen, en naar huis met je eigen krans voor de deur of op tafel. Met verse materialen, droogbloemen of kunstbloemen, jij kiest.</p>
+   <p>Drie gezellige uren met je handen in het groen, en naar huis met je eigen krans voor de deur of op tafel. Met verse materialen, droogbloemen of kunstbloemen, jij kiest.</p>
    <a class="btn oranje" href="#boeken" data-boek="winter">Reserveer je plek</a>
   </div>
   <div class="kransen">
@@ -765,9 +772,9 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
   <div class="f-grid">
    <div><a class="logo" href="#top"><img src="img/logo.png" alt=""><b>Hoy by Kaat</b></a><p class="slogan">Because flowers make the difference.</p><p class="klein">Nieuwe workshops en kampen als eerste in je mailbox?</p>
     <form class="nieuws" action="mailto:info@hoybykaat.be" method="get"><input type="hidden" name="subject" value="Inschrijving nieuwsbrief"><input type="email" name="body" placeholder="Je e-mailadres" required aria-label="E-mailadres"><button class="btn groen" type="submit">Schrijf in</button></form></div>
-   <div><h4>Activiteiten</h4><ul><li><a href="#workshops">Vaste workshops</a></li><li><a href="#winter">Seizoensworkshops</a></li><li><a href="#kampen">Kinderkampen</a></li><li><a href="#boeken" data-boek="">Boek je activiteit</a></li></ul></div>
-   <div><h4>Gelegenheden</h4><ul><li><a href="#huwelijk">Huwelijk</a></li><li><a href="#contact">Afscheid</a></li><li><a href="#shop">Geschenk</a></li><li><a href="#zijde">Voor je zaak</a></li></ul></div>
-   <div><h4>Shop</h4><ul><li><a href="#shop">Verse bloemen</a></li><li><a href="#shop">Droogbloemen</a></li><li><a href="#zijde">Zijden bloemen</a></li><li><a href="#shop">Cadeaubon</a></li><li><a href="#shop">Abonnement</a></li></ul></div>
+   <div><h4>Activiteiten</h4><ul><li><a href="workshops/">Vaste workshops</a></li><li><a href="workshops/#winter">Seizoensworkshops</a></li><li><a href="kampen/">Kinderkampen</a></li><li><a href="#boeken" data-boek="">Boek je activiteit</a></li></ul></div>
+   <div><h4>Gelegenheden</h4><ul><li><a href="huwelijk/">Huwelijk</a></li><li><a href="bloemen/#afscheid">Afscheid</a></li><li><a href="#shop">Geschenk</a></li><li><a href="zijden-bloemen/">Voor je zaak</a></li></ul></div>
+   <div><h4>Shop</h4><ul><li><a href="bloemen/">Verse bloemen</a></li><li><a href="bloemen/#droog">Droogbloemen</a></li><li><a href="zijden-bloemen/">Zijden bloemen</a></li><li><a href="#shop">Cadeaubon</a></li><li><a href="#shop">Abonnement</a></li></ul></div>
    <div><h4>Volg Hoy</h4><ul><li><a href="https://www.instagram.com/hoybykaat/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/Hoybykaat-2389456387784081/" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://g.page/r/CYx97H-aiHwWEBE/review" target="_blank" rel="noopener">Schrijf een review</a></li></ul></div>
   </div>
   <div class="reuzenhoy" aria-hidden="true">hoy!</div>
