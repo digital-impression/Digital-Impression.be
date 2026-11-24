@@ -86,6 +86,13 @@
       G.set(rest, { opacity: 0 });
       root.classList.add('ready');
       const tl = G.timeline({ delay: 0.75, onComplete: () => { G.set(cards, { clearProps: liveNow() ? 'opacity' : 'transform,translate,rotate,opacity' }); res(); } });
+      /* scrolt iemand al tijdens de intro, dan springt de intro meteen naar het einde zodat de scrollanimatie klaarstaat */
+      const skip = (e) => {
+        if (e && e.type === 'keydown' && !['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Space', 'End', 'Home', ' '].includes(e.key)) return;
+        if (tl.progress() < 1) tl.progress(1);
+        ['wheel', 'touchstart', 'keydown', 'scroll'].forEach((t) => window.removeEventListener(t, skip));
+      };
+      ['wheel', 'touchstart', 'keydown', 'scroll'].forEach((t) => window.addEventListener(t, skip, { passive: true }));
       { const t = T(lead); tl.to(lead, { x: t.x, y: t.y, rotation: t.rotation, scale: css ? t.scale : 1.06, duration: 0.9, ease: 'power3.out' }, 0); }
       rest.sort((a, b) => order(a) - order(b)).forEach((c, i) => {
         const t = T(c);
@@ -363,10 +370,12 @@
       tl.fromTo(phn, { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.2 * vh, ease: 'power3.out' }, Tb + 0.08 * vh);
       tl.fromTo(devCap, { opacity: 0 }, { opacity: 1, duration: 0.1 * vh }, Tb + 0.15 * vh);
       tl.to({}, { duration: 0 }, p(SE + 0.02 * vh));
+      root.classList.add('is-built');
     };
 
     const kill = () => {
       if (!tl) return;
+      root.classList.remove('is-built');
       tl.scrollTrigger && tl.scrollTrigger.kill(); tl.kill(); tl = null;
       typo.style.paddingBottom = '';
       deck.dataset.run = '1';
