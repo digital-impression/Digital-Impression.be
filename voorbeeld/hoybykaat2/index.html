@@ -336,28 +336,34 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
 .d-kop{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:42px}
 .d-kop h2{font-size:clamp(38px,4.4vw,62px);color:var(--diep);margin-top:14px;max-width:760px}
 .d-kop p{max-width:360px;color:var(--mute);font-size:17px}
-.d-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-.dienst{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 1px 2px rgba(14,59,38,.06),0 18px 40px -30px rgba(14,59,38,.45);transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
-.dienst figure{aspect-ratio:1/1;overflow:hidden;position:relative;margin:0}
+.d-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.dienst{display:flex;flex-direction:row;min-height:200px;text-decoration:none;color:inherit;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 1px 2px rgba(14,59,38,.06),0 18px 40px -30px rgba(14,59,38,.45);transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.dienst figure{width:38%;flex:none;overflow:hidden;position:relative;margin:0}
 .dienst figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
 .dienst .nr{position:absolute;top:12px;left:12px;background:#fff;color:var(--c);border-radius:999px;font:700 12.5px/1 Figtree,sans-serif;padding:7px 10px;letter-spacing:.04em}
-.dienst .t{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1;border-top:4px solid var(--c)}
+.dienst .t{padding:20px 22px;display:flex;flex-direction:column;flex:1;border-left:4px solid var(--c)}
 .dienst h3{font-size:25px;color:var(--diep);line-height:1.05}
-.dienst p{font-size:15px;color:var(--mute);line-height:1.45;margin:8px 0 16px;flex:1}
+.dienst p{font-size:15px;color:var(--mute);line-height:1.45;margin:8px 0 14px;flex:1}
+.dienst.maat{background:var(--diep)}
+.dienst.maat .t{border-left-color:var(--zon)}
+.dienst.maat h3{color:var(--creme)}
+.dienst.maat p{color:rgba(247,243,234,.75)}
+.dienst.maat .meer{color:var(--zon)}
+.dienst.maat .nr{color:var(--groen)}
 .dienst .meer{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:14.5px;color:var(--c)}
 .dienst .meer svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;transition:transform .5s var(--ease)}
 .dienst:hover{transform:translateY(-6px);box-shadow:0 1px 2px rgba(14,59,38,.06),0 30px 60px -30px rgba(14,59,38,.55)}
 .dienst:hover figure img{transform:scale(1.07)}
 .dienst:hover .meer svg{transform:translateX(4px)}
-@media(max-width:1180px){.d-grid{grid-template-columns:repeat(3,1fr)}.dienst figure{aspect-ratio:4/3}}
+@media(max-width:1180px){.d-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){
  .diensten{padding:72px 0 80px}
  .d-kop{display:block;margin-bottom:26px}.d-kop p{margin-top:12px;font-size:16px}
  .d-grid{grid-template-columns:1fr;gap:12px}
- .dienst{flex-direction:row;border-radius:20px}
- .dienst figure{width:112px;aspect-ratio:auto;flex:none}
+ .dienst{border-radius:20px;min-height:0}
+ .dienst figure{width:112px}
  .dienst .nr{display:none}
- .dienst .t{padding:14px 16px;border-top:0;border-left:4px solid var(--c)}
+ .dienst .t{padding:14px 16px}
  .dienst h3{font-size:22px}.dienst p{font-size:14.5px;margin:5px 0 8px}
 }
 .subnota{position:fixed;left:16px;right:16px;margin:0 auto;width:fit-content;bottom:24px;z-index:120;transform:translateY(30px);opacity:0;pointer-events:none;background:var(--diep);color:var(--creme);border-radius:20px;padding:16px 22px 16px 18px;display:flex;gap:14px;align-items:center;max-width:520px;box-shadow:0 24px 50px -20px rgba(14,59,38,.6);transition:opacity .4s var(--ease),transform .6s var(--ease)}
@@ -670,13 +676,14 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
 
 <section class="diensten" id="aanbod" data-bg="#FBF2E8">
  <div class="wrap">
-  <div class="d-kop op"><div><span class="tag" style="color:var(--groen)"><i></i>Wat ik doe</span><h2>Vijf manieren om <span class="hand">bloemen</span> in je leven te halen</h2></div><p>Alles maak ik zelf, in mijn atelier in Leuven. Kies wat bij je past en lees er meer over.</p></div>
+  <div class="d-kop op"><div><span class="tag" style="color:var(--groen)"><i></i>Wat ik doe</span><h2>Zes manieren om <span class="hand">bloemen</span> in je leven te halen</h2></div><p>Alles maak ik zelf, in mijn atelier in Leuven. Kies wat bij je past en lees er meer over.</p></div>
   <div class="d-grid">
    <a class="dienst op" href="#aanbod" data-sub="Huwelijk" style="--c:#C2456B"><figure><img src="img/trouw1.webp" alt="" loading="lazy"><span class="nr">01</span></figure><div class="t"><h3>Huwelijk</h3><p>Bruidsboeket, corsages, tafels en bogen. In verse, droge of zijden bloemen.</p><span class="meer">Meer info <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
    <a class="dienst op" href="#aanbod" data-sub="Workshops" style="--c:#B57C00"><figure><img src="img/ws1.webp" alt="" loading="lazy"><span class="nr">02</span></figure><div class="t"><h3>Workshops</h3><p>Elke dag op afspraak, ook als je nog nooit met bloemen werkte. Vanaf €&nbsp;55.</p><span class="meer">Meer info <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
    <a class="dienst op" href="#aanbod" data-sub="Kampen" style="--c:#3F6FC9"><figure><img src="img/kamp1.webp" alt="" loading="lazy"><span class="nr">03</span></figure><div class="t"><h3>Kampen</h3><p>Bloemenkampen in de vakanties, voor kinderen van 8 tot 14 en jongeren vanaf 12.</p><span class="meer">Meer info <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
    <a class="dienst op" href="#aanbod" data-sub="Zijden bloemen" style="--c:#7A55C4"><figure><img src="img/zijde2.webp" alt="" loading="lazy"><span class="nr">04</span></figure><div class="t"><h3>Zijden bloemen</h3><p>Een zijden boeket voor je zaak, vijf keer per jaar een nieuw. €&nbsp;35 per maand.</p><span class="meer">Meer info <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
    <a class="dienst op" href="#aanbod" data-sub="Bloemen bestellen" style="--c:#E0561C"><figure><img src="img/shop1.webp" alt="" loading="lazy"><span class="nr">05</span></figure><div class="t"><h3>Bloemen bestellen</h3><p>Verse boeketten, droogbloemen en warme afscheidsbloemen, geleverd in Leuven.</p><span class="meer">Meer info <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+   <a class="dienst op maat" href="#contact" style="--c:#0B6B3E"><figure><img src="img/veld.webp" alt="" loading="lazy"><span class="nr">06</span></figure><div class="t"><h3>Iets op maat</h3><p>Iets anders in gedachten? Een feest, een etalage of een idee dat nergens in past. Vertel het me, dan zoeken we samen.</p><span class="meer">Vertel het me <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
   </div>
  </div>
 </section>
