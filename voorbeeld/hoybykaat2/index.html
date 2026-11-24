@@ -86,16 +86,23 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:400;letter-spacing:-.02e
 .mobiel .btn{margin-top:28px;width:100%;justify-content:center}
 
 /* hero */
-.hero{position:relative;height:100svh;min-height:700px;overflow:hidden;display:grid;place-items:center;text-align:center;background:radial-gradient(120% 80% at 50% 110%,#FBD9DF 0%,rgba(251,217,223,0) 55%),radial-gradient(80% 60% at 90% 0%,#FFE3B0 0%,rgba(255,227,176,0) 60%),var(--creme)}
+.hero{position:relative;height:100svh;min-height:700px;padding-top:88px;overflow:hidden;display:grid;place-items:center;text-align:center;background:radial-gradient(120% 80% at 50% 110%,#FBD9DF 0%,rgba(251,217,223,0) 55%),radial-gradient(80% 60% at 90% 0%,#FFE3B0 0%,rgba(255,227,176,0) 60%),var(--creme)}
 #blaadjes{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3}
 .hero .tekst{position:relative;z-index:4;max-width:900px;padding:0 24px}
 .hero .tag{color:var(--groen);margin-bottom:22px}
-.hero h1{font-size:clamp(58px,9.2vw,148px);color:var(--diep);line-height:.92}
-.hero h1 .l{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1{font-size:clamp(54px,min(9.2vw,13vh),148px);color:var(--diep);line-height:.92}
+.hero h1 .l{display:block;overflow:hidden;padding:.04em .12em .24em;margin:0 -.12em -.18em}
 .hero h1 .l>span{display:inline-block}
 .hero h1 em{font-style:italic;color:var(--groen)}
-.hero h1 .hoy{font-family:Caveat,cursive;font-weight:700;font-style:normal;color:var(--oranje);font-size:.78em;display:inline-block;transform:rotate(-8deg);margin-left:.08em}
-.hero p{max-width:520px;margin:26px auto 34px;font-size:19px;color:var(--mute)}
+.hoybg{position:absolute;z-index:1;left:50%;top:50%;width:min(1180px,96vw);translate:-50% -46%;pointer-events:none;overflow:visible}
+.hoybg svg{width:100%;height:auto;overflow:visible;display:block;animation:hoyzweef 9s ease-in-out infinite}
+.hoybg text{font-family:Caveat,cursive;font-weight:700;font-size:330px;fill:rgba(242,106,46,0);stroke:rgba(242,106,46,.38);stroke-width:1.4;stroke-linejoin:round;stroke-dasharray:2600;stroke-dashoffset:2600;animation:hoyteken 3.6s cubic-bezier(.45,.05,.25,1) .4s forwards,hoyvul 1.8s ease 3s forwards}
+@keyframes hoyteken{to{stroke-dashoffset:0}}
+@keyframes hoyvul{to{fill:rgba(242,106,46,.1);stroke:rgba(242,106,46,0)}}
+@keyframes hoyzweef{0%,100%{transform:rotate(-7deg) translateY(0)}50%{transform:rotate(-5deg) translateY(-12px)}}
+@media(prefers-reduced-motion:reduce){.hoybg text{stroke-dashoffset:0;fill:rgba(242,106,46,.1);stroke:rgba(242,106,46,0)}}
+.hero p{max-width:520px;margin:clamp(16px,2.6vh,26px) auto clamp(22px,3.6vh,34px);font-size:19px;color:var(--mute)}
+@media(max-height:820px) and (min-width:861px){.hero .scrollhint{display:none!important}.hero .tag{margin-bottom:14px}}
 .hero .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .zweef{position:absolute;z-index:2;border-radius:26px;overflow:hidden;box-shadow:0 40px 70px -40px rgba(14,59,38,.55);will-change:transform}
 .zweef img{will-change:transform}
@@ -287,6 +294,7 @@ footer{padding:90px 0 30px}
  .logo img{width:42px;height:42px}
  .hero{min-height:840px;align-items:end;padding-bottom:96px}
  .hero h1{font-size:clamp(50px,14vw,72px)}
+ .hoybg{top:auto;bottom:250px;width:150vw;translate:-50% 0}
  .hero p{font-size:17px;margin:20px auto 28px}
  .hero .cta .btn{flex:1 1 100%;justify-content:center}
  .z1{width:40vw;top:9%;left:-10%}.z4{width:38vw;top:8%;right:-10%}
@@ -578,9 +586,10 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
  <figure class="zweef z6" data-d=".8"><img src="img/f6.webp" alt="Boeket met dahlia's en ridderspoor"></figure>
  <figure class="zweef z7" data-d="1.5"><img src="img/f7.webp" alt="Boeket met zonnebloemen"></figure>
  <div class="stempel" aria-hidden="true"><svg viewBox="0 0 200 200"><defs><path id="cirkel" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><circle cx="100" cy="100" r="98" fill="#fff"/><text font-family="Figtree" font-weight="700" font-size="15.5" letter-spacing="4.2" fill="#0B6B3E"><textPath href="#cirkel">HOY · VANDAAG · BLOEMEN · LEUVEN ·</textPath></text></svg><img src="img/logo.png" alt=""></div>
+ <div class="hoybg" aria-hidden="true"><svg viewBox="0 0 900 420"><text x="450" y="300" text-anchor="middle">hoy!</text></svg></div>
  <div class="tekst">
   <div class="tag op"><i></i>Bloemenatelier in Leuven</div>
-  <h1><span class="l"><span>Bloemen die</span></span><span class="l"><span>je dag <em>kleur</em></span></span><span class="l"><span>geven. <span class="hoy">hoy!</span></span></span></h1>
+  <h1><span class="l"><span>Bloemen die</span></span><span class="l"><span>je dag <em>kleur</em></span></span><span class="l"><span>geven.</span></span></h1>
   <p class="op">Om iets te vieren, om iemand te troosten, of om zelf eens met je handen in de bloemen te zitten. Bij Hoy kan je terecht voor grote en kleine momenten.</p>
   <div class="cta op"><a class="btn groen" href="#boeken" data-boek="">Boek een workshop</a><a class="btn wit" href="#shop">Naar de shop</a></div>
  </div>
