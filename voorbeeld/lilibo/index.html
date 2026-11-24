@@ -10,155 +10,175 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js')</script>
 <style>
-:root{--honing:#f0cb69;--honing-l:#f8e3a6;--oker:#b8891a;--creme:#f7f1e5;--papier:#fffcf5;--inkt:#2a2824;--grijs:#68635a;--lijn:#e6dcc7;--r:28px;--ease:cubic-bezier(.2,.7,.2,1)}
+:root{--honing:#f0cb69;--honing-l:#f8e3a6;--oker:#a87a12;--creme:#f7f1e5;--papier:#fffcf5;--inkt:#2a2824;--inkt2:#35322c;--grijs:#68635a;--lijn:#e3d8c1;--lijnd:rgba(255,255,255,.14);--r:26px;--ease:cubic-bezier(.2,.7,.2,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--creme);color:var(--inkt);font:400 17px/1.65 'Figtree',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{display:block;max-width:100%}
+img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 .wrap{width:min(1240px,100% - 48px);margin:0 auto}
-.demo{background:var(--inkt);color:var(--honing-l);font:500 13.5px/1.4 'Figtree',sans-serif;text-align:center;padding:9px 16px;position:relative;z-index:60}
+.demo{background:var(--inkt);color:var(--honing-l);font:500 13.5px/1.4 'Figtree',sans-serif;text-align:center;padding:9px 16px;position:relative;z-index:60;border-bottom:1px solid var(--lijnd)}
 .demo a{color:#fff;font-weight:700;text-underline-offset:3px}
-h1,h2,h3{font-family:'DM Serif Display',serif;font-weight:400;font-style:normal;line-height:1.03;letter-spacing:-.01em}
-.lab{display:inline-flex;align-items:center;gap:10px;font:700 12.5px/1 'Figtree';letter-spacing:.14em;text-transform:uppercase;color:var(--oker)}
+h1,h2,h3{font-family:'DM Serif Display',serif;font-weight:400;font-style:normal;line-height:1.04;letter-spacing:-.01em}
+h2{font-size:clamp(40px,4.4vw,62px)}
+.lab{display:inline-flex;align-items:center;gap:10px;font:700 12.5px/1 'Figtree';letter-spacing:.14em;text-transform:uppercase;color:var(--oker);margin-bottom:20px}
 .lab:before{content:"";width:22px;height:1.5px;background:currentColor}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:999px;font:600 15.5px/1 'Figtree';text-decoration:none;transition:transform .3s var(--ease),background .3s,color .3s}
+
+/* knoppen: honingpil met het briljantje uit hun logo */
+.btn{display:inline-flex;align-items:center;gap:11px;padding:16px 26px 16px 22px;border-radius:999px;font:600 15.5px/1 'Figtree';text-decoration:none;transition:transform .3s var(--ease),background .3s,color .3s,box-shadow .3s}
 .btn:hover{transform:translateY(-2px)}
-.btn svg{width:17px;height:17px;flex:none}
+.btn svg{width:18px;height:18px;flex:none;transition:transform .5s var(--ease)}
+.btn:hover svg{transform:rotate(-12deg) scale(1.08)}
 .btn-h{background:var(--honing);color:var(--inkt)}.btn-h:hover{background:#f6d885}
 .btn-i{background:var(--inkt);color:#fff}.btn-i:hover{background:#000}
-.btn-gl{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);background:rgba(255,255,255,.08)}
-.btn-o{color:var(--inkt);box-shadow:inset 0 0 0 1.5px rgba(42,40,36,.3)}
+.btn-o{color:var(--inkt);box-shadow:inset 0 0 0 1.5px rgba(42,40,36,.3);padding-left:26px}
+.btn-o:hover{box-shadow:inset 0 0 0 1.5px var(--inkt)}
+.btn-gl{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.4);padding-left:26px}
+.btn-gl:hover{box-shadow:inset 0 0 0 1.5px #fff}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
+.js .rv.in{opacity:1;transform:none}
 
-/* hero */
-.hero{position:relative;min-height:min(960px,100vh);color:#fff;display:flex;flex-direction:column;overflow:hidden;background:#2a2824}
-.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%;transform:scale(1.06);animation:zoom 18s var(--ease) forwards}
-@keyframes zoom{to{transform:scale(1)}}
-.hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(28,24,18,.88) 0%,rgba(28,24,18,.66) 34%,rgba(28,24,18,.12) 64%,rgba(28,24,18,0) 100%),linear-gradient(0deg,rgba(28,24,18,.7) 0%,transparent 34%)}
-.nav{position:relative;z-index:5;padding:24px 0}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;width:min(1380px,100% - 48px)}
-.nav .logo img{height:80px;width:auto}
+/* hero: tekst en werkbankfoto als één donker vlak */
+.hero{position:relative;background:var(--inkt);color:#fff;padding:0 0 22px;overflow:hidden}
+.nav{position:relative;z-index:5;padding:18px 0}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;width:min(1400px,100% - 44px)}
+.logo img{height:74px;width:auto;mix-blend-mode:screen}
 .nav ul{display:flex;gap:30px;list-style:none}
-.nav ul a{text-decoration:none;font:500 15px/1 'Figtree';opacity:.88}
-.nav ul a:hover{opacity:1}
-.nav .tel{font:600 14.5px/1 'Figtree';text-decoration:none;padding:12px 18px;border-radius:999px;background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-.h-in{position:relative;z-index:3;flex:1;display:flex;align-items:center;width:min(1380px,100% - 48px);margin:0 auto;padding:40px 0 60px}
-.h-in>div{max-width:720px}
-.h-in .lab{color:var(--honing)}
-.h-in h1{font-size:clamp(52px,5.7vw,90px);margin:22px 0 24px}
-.h-in h1 span{color:var(--honing)}
-.h-in p{font-size:19.5px;max-width:30em;color:rgba(255,255,255,.86)}
-.acties{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
-.h-bar{position:relative;z-index:3;border-top:1px solid rgba(255,255,255,.22);background:rgba(28,24,18,.34);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.h-bar .wrap{width:min(1380px,100% - 48px);display:flex;align-items:stretch;justify-content:space-between}
-.h-bar a{flex:1;text-decoration:none;padding:22px 22px 24px;border-right:1px solid rgba(255,255,255,.16);transition:background .3s}
-.h-bar a:first-child{padding-left:0}
-.h-bar a:hover{background:rgba(255,255,255,.06)}
-.h-bar small{display:block;font:600 11.5px/1 'Figtree';letter-spacing:.14em;text-transform:uppercase;color:var(--honing);margin-bottom:8px}
-.h-bar b{font:400 22px/1.15 'DM Serif Display'}
-.h-bar .sc{flex:none;display:flex;align-items:center;gap:14px;padding:18px 0 18px 28px;border:0}
-.h-bar .sc strong{font:400 44px/1 'DM Serif Display';color:#fff}
-.h-bar .sc span{font-size:14px;line-height:1.35;color:rgba(255,255,255,.8)}
-.h-bar .sc i{display:block;font-style:normal;color:var(--honing);letter-spacing:2px}
-
-section{position:relative}
-.sec{padding:140px 0}
+.nav ul a{text-decoration:none;font:500 15px/1 'Figtree';color:rgba(255,255,255,.82)}
+.nav ul a:hover{color:var(--honing)}
+.nav .btn{padding:12px 18px;font-size:14.5px}
+.h-grid{width:min(1400px,100% - 44px);margin:0 auto;display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(30px,4vw,64px);min-height:max(620px,calc(100svh - 38px - 110px - 22px))}
+.h-t{display:flex;flex-direction:column;justify-content:center;padding:20px 0 30px clamp(0px,1.6vw,24px)}
+.h-t .lab{color:var(--honing)}
+.h-t h1{font-size:clamp(50px,5.4vw,86px)}
+.h-t p{font-size:19px;max-width:28em;color:rgba(255,255,255,.8);margin:24px 0 34px}
+.acties{display:flex;gap:10px;flex-wrap:wrap}
+.soorten{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:50px;border-top:1px solid var(--lijnd)}
+.soorten li{padding:18px 14px 0 0}
+.soorten li+li{padding-left:14px;border-left:1px solid var(--lijnd)}
+.soorten a{text-decoration:none;display:block}
+.soorten img{width:46px;height:46px;border-radius:50%;object-fit:cover;margin-bottom:12px;box-shadow:0 0 0 2px var(--inkt),0 0 0 3px rgba(240,203,105,.5)}
+.soorten small{display:block;font:600 11px/1 'Figtree';letter-spacing:.14em;text-transform:uppercase;color:var(--honing);margin-bottom:6px}
+.soorten b{font:400 19px/1.15 'DM Serif Display'}
+.h-f{position:relative;border-radius:var(--r);overflow:hidden;background:#1d1b18}
+.h-f img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:80% 50%;transform:scale(1.05);transition:transform 2.4s var(--ease)}
+.hero.in .h-f img{transform:none}
+.h-f:after{content:"";position:absolute;inset:auto 0 0;height:34%;background:linear-gradient(0deg,rgba(28,24,18,.78),rgba(28,24,18,0))}
+.h-f figcaption{position:absolute;z-index:2;left:26px;right:26px;bottom:22px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;font-size:14.5px;color:rgba(255,255,255,.82)}
+.h-f figcaption b{display:block;font:400 20px/1.2 'DM Serif Display';color:#fff}
+.h-f .sc{display:flex;align-items:center;gap:10px;white-space:nowrap}
+.h-f .sc strong{font:400 34px/1 'DM Serif Display';color:#fff}
+.h-f .sc i{font-style:normal;color:var(--honing);letter-spacing:2px;display:block;font-size:12.5px}
 
 /* verhaal */
-.verhaal .g{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:center}
-.verhaal h2{font-size:clamp(44px,4.8vw,72px);margin:20px 0 26px}
-.verhaal p{color:var(--grijs);font-size:18px;margin-bottom:16px;max-width:30em}
-.verhaal .trots{font:400 23px/1.4 'DM Serif Display';color:var(--inkt);border-left:3px solid var(--honing);padding-left:20px;margin-top:28px}
+.sec{padding:130px 0}
+.verhaal .g{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,90px);align-items:center}
+.verhaal p{color:var(--grijs);max-width:31em;margin-top:16px}
+.verhaal h2{margin-bottom:8px}
+.trots{margin-top:30px!important;padding:22px 24px;background:var(--papier);border-radius:18px;font:400 22px/1.3 'DM Serif Display';color:var(--inkt)!important;position:relative}
+.trots small{display:block;font:500 13.5px/1.4 'Figtree';color:var(--grijs);margin-top:8px}
 .reeks{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:18px}
-.reeks figure{position:relative;border-radius:var(--r);overflow:hidden;background:#ddd}
-.reeks img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
-.reeks figure:hover img{transform:scale(1.04)}
-.reeks .a{grid-column:1;aspect-ratio:1.3}
-.reeks .b{grid-column:1;aspect-ratio:1.3}
+.reeks figure{position:relative}
 .reeks .c{grid-column:2;grid-row:1/3}
-.reeks figcaption{position:absolute;left:16px;top:16px;background:var(--papier);border-radius:999px;padding:8px 14px;font:700 12px/1 'Figtree';letter-spacing:.1em;text-transform:uppercase}
-.reeks .c figcaption{background:var(--honing)}
+.reeks .fr{border-radius:22px;overflow:hidden;background:#e9e2d2}
+.reeks img{width:100%;height:100%;object-fit:cover}
+.reeks .a .fr,.reeks .b .fr{aspect-ratio:5/4}
+.reeks .c .fr{height:calc(100% - 34px)}
+.reeks figcaption{display:flex;gap:10px;align-items:baseline;margin-top:10px;font-size:14.5px;color:var(--grijs)}
+.reeks figcaption b{font:400 17px/1 'DM Serif Display';color:var(--oker)}
 
 /* wat ik maak */
-.maak{background:var(--papier);border-radius:56px;margin:0 24px;padding:130px 0}
-.kopr{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:56px}
-.kopr h2{font-size:clamp(44px,4.8vw,72px);margin-top:18px;max-width:11em}
-.kopr p{max-width:25em;color:var(--grijs)}
-.kaarten{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.kaart{display:flex;flex-direction:column;text-decoration:none}
-.kaart .f{border-radius:24px;overflow:hidden;aspect-ratio:4/5;position:relative;background:#e9e2d2}
-.kaart .f img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
-.kaart:hover .f img{transform:scale(1.06)}
-.kaart .pil{position:absolute;left:14px;bottom:14px;background:rgba(255,252,245,.94);border-radius:999px;padding:8px 13px;font:600 13px/1 'Figtree'}
-.kaart h3{font-size:30px;margin:22px 0 10px}
-.kaart p{color:var(--grijs);font-size:15.5px;line-height:1.6}
-.kaart .m{margin-top:14px;font:600 14.5px/1 'Figtree';display:inline-flex;gap:8px;align-items:center;color:var(--inkt)}
-.kaart .m:after{content:"→";transition:transform .3s var(--ease)}
-.kaart:hover .m:after{transform:translateX(5px)}
+.maak{background:var(--papier);padding:130px 0;border-radius:44px 44px 0 0}
+.kopr{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;margin-bottom:56px}
+.kopr p{color:var(--grijs);max-width:30em}
+.mgrid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(30px,4vw,60px);align-items:start}
+.hoofd .fr{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;position:relative}
+.hoofd .fr img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.hoofd:hover .fr img{transform:scale(1.04)}
+.hoofd h3{font-size:40px;margin:28px 0 12px}
+.hoofd p{color:var(--grijs);max-width:32em}
+.fiche{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--lijn);border-radius:18px;overflow:hidden;background:var(--creme)}
+.fiche div{padding:16px 18px}
+.fiche div+div{border-left:1px solid var(--lijn)}
+.fiche small{display:block;font:700 11px/1.2 'Figtree';letter-spacing:.12em;text-transform:uppercase;color:var(--oker);margin-bottom:6px}
+.fiche span{font-size:15px;line-height:1.4}
+.rijen{display:grid;gap:0;border-top:1px solid var(--lijn)}
+.rij{display:grid;grid-template-columns:150px 1fr;gap:26px;padding:28px 0;border-bottom:1px solid var(--lijn);text-decoration:none;align-items:start}
+.rij .fr{border-radius:18px;overflow:hidden;aspect-ratio:1/1;background:#e9e2d2}
+.rij .fr img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.rij:hover .fr img{transform:scale(1.06)}
+.rij small{display:block;font:700 11px/1.2 'Figtree';letter-spacing:.12em;text-transform:uppercase;color:var(--oker);margin-bottom:8px}
+.rij h3{font-size:28px;margin-bottom:8px}
+.rij p{color:var(--grijs);font-size:16px}
+.nog{margin-top:30px;padding:26px 28px;border-radius:22px;background:var(--creme);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.nog b{display:block;font:400 22px/1.2 'DM Serif Display'}
+.nog span{font-size:15px;color:var(--grijs)}
+.rij .feit{display:inline-block;margin-top:12px;font-size:14px;font-weight:600;color:var(--inkt);border-bottom:1.5px solid var(--honing);padding-bottom:2px}
 
-/* collectieband */
-.band{position:relative;margin:24px 24px 0;border-radius:56px;overflow:hidden;min-height:640px;display:flex;align-items:center;color:#fff}
-.band>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 40%}
-.band:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(270deg,rgba(32,26,20,.82) 0%,rgba(32,26,20,.55) 38%,rgba(32,26,20,0) 66%)}
+/* collectie */
+.band{position:relative;min-height:640px;display:flex;align-items:center;color:#fff;overflow:hidden;background:var(--inkt)}
+.band>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 30%}
+.band:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(270deg,rgba(28,24,18,.86) 0%,rgba(28,24,18,.55) 36%,rgba(28,24,18,0) 62%)}
 .band .wrap{position:relative;z-index:2;display:flex;justify-content:flex-end}
 .band .t{max-width:470px}
 .band .lab{color:var(--honing)}
-.band h2{font-size:clamp(42px,4.4vw,64px);margin:18px 0 18px}
-.band p{color:rgba(255,255,255,.84);font-size:18px}
-.lijnen{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 30px}
-.lijnen a{text-decoration:none;border-radius:999px;padding:11px 16px;font:600 14px/1 'Figtree';box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.45);transition:background .3s,color .3s}
-.lijnen a:hover{background:var(--honing);color:var(--inkt);box-shadow:none}
+.band p{color:rgba(255,255,255,.84);margin:18px 0 26px}
+.lijnen{list-style:none;margin-bottom:30px;border-top:1px solid rgba(255,255,255,.22)}
+.lijnen a{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.22);text-decoration:none;font:400 22px/1.1 'DM Serif Display';transition:color .3s,padding .3s}
+.lijnen a:hover{color:var(--honing);padding-left:6px}
+.lijnen a span{font:500 13.5px/1 'Figtree';color:rgba(255,255,255,.6)}
 
 /* werkwijze */
-.werk{padding:140px 0 130px}
-.werk .g{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:56px;overflow:hidden;background:var(--honing)}
-.werk .f{position:relative;min-height:700px}
-.werk .f img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% 50%}
-.werk .t{padding:84px 72px}
-.werk .lab{color:var(--inkt)}
-.werk h2{font-size:clamp(42px,4.4vw,66px);margin:18px 0 18px}
-.werk .t>p{font-size:18px;color:#4c4231;max-width:28em}
-.stap{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:24px 0;border-top:1.5px solid rgba(42,40,36,.18)}
-.stap:first-of-type{margin-top:30px}
-.stap small{font:700 12px/1.5 'Figtree';letter-spacing:.12em;text-transform:uppercase;color:#6d5a2c;padding-top:4px}
-.stap b{display:block;font:400 25px/1.2 'DM Serif Display';margin-bottom:6px}
-.stap p{color:#4c4231;font-size:16px}
-.how{display:flex;gap:16px;align-items:center;margin-top:26px;padding-top:24px;border-top:1.5px solid rgba(42,40,36,.18);font-size:15px;color:#4c4231}
+.werk{padding:130px 0}
+.werk .g{display:grid;grid-template-columns:1fr 1fr;border-radius:40px;overflow:hidden;background:var(--honing)}
+.werk .t{padding:70px clamp(30px,4.6vw,66px)}
+.werk .lab{color:#6b5310}
+.werk .t>p{color:#4c4231;margin-top:16px;max-width:30em}
+.tijdlijn{list-style:none;margin-top:34px;position:relative}
+.tijdlijn:before{content:"";position:absolute;left:15px;top:14px;bottom:30px;width:1.5px;background:rgba(42,40,36,.25)}
+.tijdlijn li{position:relative;display:grid;grid-template-columns:32px 1fr;gap:20px;padding-bottom:26px}
+.tijdlijn i{width:32px;height:32px;border-radius:50%;background:var(--inkt);color:var(--honing);font:400 16px/32px 'DM Serif Display';text-align:center;font-style:normal;position:relative}
+.tijdlijn small{display:block;font:700 11.5px/1.2 'Figtree';letter-spacing:.12em;text-transform:uppercase;color:#6b5310;margin-bottom:4px}
+.tijdlijn b{display:block;font:400 23px/1.2 'DM Serif Display'}
+.tijdlijn p{color:#4c4231;font-size:15.5px;margin-top:4px}
+.how{display:flex;gap:16px;align-items:center;padding-top:24px;border-top:1.5px solid rgba(42,40,36,.18);font-size:15px;color:#4c4231}
 .how img{width:62px;height:62px;flex:none}
+.werk .f{position:relative;min-height:720px}
+.werk .f img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% 50%}
 
 /* reviews */
-.rv-k{display:grid;grid-template-columns:1.3fr .7fr;gap:60px;align-items:end;margin-bottom:54px}
-.rv-k blockquote{font:400 clamp(44px,5vw,76px)/1.04 'DM Serif Display'}
-.rv-k blockquote span{color:var(--oker)}
-.rv-k cite{display:block;margin-top:20px;font:600 15px/1 'Figtree';font-style:normal;color:var(--grijs)}
-.cijfer{justify-self:end;text-align:right}
-.cijfer b{font:400 104px/.85 'DM Serif Display'}
-.cijfer i{display:block;font-style:normal;color:var(--oker);letter-spacing:4px;font-size:20px;margin:12px 0 6px}
-.cijfer span{color:var(--grijs);font-size:15px;font-weight:500}
-.rv-g{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.rev{background:var(--papier);border-radius:var(--r);padding:34px 32px;display:flex;flex-direction:column;gap:18px;box-shadow:0 1px 0 rgba(0,0,0,.03),0 26px 50px -40px rgba(80,60,20,.55)}
-.rev .st{color:var(--oker);letter-spacing:3px}
-.rev blockquote{font-size:16.5px;line-height:1.65}
-.rev cite{margin-top:auto;font:700 15px/1.2 'Figtree';font-style:normal}
-.rev cite small{display:block;font-weight:500;color:var(--grijs);font-size:13px;margin-top:4px}
+.rev-g{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(30px,5vw,80px);align-items:start}
+.groot blockquote{font:400 clamp(40px,4.2vw,60px)/1.06 'DM Serif Display';margin-top:6px}
+.groot cite{display:block;font-style:normal;margin-top:18px;color:var(--grijs);font-size:15px}
+.cijfer{display:flex;align-items:center;gap:18px;margin-top:40px;padding-top:28px;border-top:1px solid var(--lijn)}
+.cijfer b{font:400 64px/1 'DM Serif Display'}
+.cijfer i{display:block;font-style:normal;color:var(--oker);letter-spacing:3px}
+.cijfer span{font-size:15px;color:var(--grijs)}
+.rlijst{display:grid;gap:16px}
+.rev{background:var(--papier);border-radius:22px;padding:28px 30px}
+.rev blockquote{font-size:16.5px}
+.rev cite{display:flex;justify-content:space-between;gap:12px;margin-top:16px;font-style:normal;font-weight:600;font-size:15px}
+.rev cite small{font-weight:400;color:var(--grijs);font-size:13.5px}
+.rev .st{color:var(--oker);letter-spacing:2px;font-size:13px;margin-bottom:10px}
 
 /* contact */
-.contact .g{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;align-items:stretch}
-.contact .f{border-radius:40px;overflow:hidden;min-height:660px;position:relative}
+.contact{padding:0 0 130px}
+.contact .g{display:grid;grid-template-columns:1fr 1.1fr;gap:18px}
+.contact .t{background:var(--papier);border-radius:40px;padding:60px clamp(28px,4vw,56px)}
+.contact .t>p{color:var(--grijs);margin:16px 0 30px;max-width:30em}
+.gegevens{list-style:none;border-top:1px solid var(--lijn);margin-bottom:32px}
+.gegevens li{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--lijn)}
+.gegevens small{font:700 11.5px/1.6 'Figtree';letter-spacing:.12em;text-transform:uppercase;color:var(--oker)}
+.gegevens a{text-decoration:none;font-weight:600}
+.gegevens a:hover{text-decoration:underline}
+.gegevens span{display:block;font-size:14.5px;color:var(--grijs)}
+.contact .f{border-radius:40px;overflow:hidden;min-height:640px;position:relative}
 .contact .f img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
-.contact .f figcaption{position:absolute;left:22px;right:22px;bottom:22px;background:rgba(255,252,245,.95);border-radius:20px;padding:18px 20px;font-size:15px;line-height:1.5;color:var(--grijs)}
-.contact .f figcaption b{color:var(--inkt);font-weight:700}
-.contact .t{background:var(--papier);border-radius:40px;padding:70px 64px;display:flex;flex-direction:column}
-.contact h2{font-size:clamp(44px,4.6vw,70px);margin:18px 0 18px}
-.contact .t>p{color:var(--grijs);font-size:18px;max-width:28em}
-.rij{display:flex;gap:16px;align-items:center;padding:18px 0;border-top:1px solid var(--lijn);font-weight:600;text-decoration:none}
-.rij:first-of-type{margin-top:30px}
-.rij i{width:46px;height:46px;border-radius:50%;background:var(--honing-l);display:grid;place-items:center;flex:none}
-.rij svg{width:19px;height:19px;stroke:var(--inkt)}
-.rij small{display:block;font-weight:400;color:var(--grijs);font-size:14.5px}
-.contact .acties{margin-top:auto;padding-top:30px}
+.contact .f:after{content:"";position:absolute;inset:auto 0 0;height:40%;background:linear-gradient(0deg,rgba(28,24,18,.75),rgba(28,24,18,0))}
+.contact .f figcaption{position:absolute;z-index:2;left:30px;right:30px;bottom:28px;color:rgba(255,255,255,.86);font-size:15.5px;max-width:30em}
+.contact .f figcaption b{display:block;font:400 26px/1.2 'DM Serif Display';color:#fff;margin-bottom:4px}
 
-footer{background:var(--inkt);color:#fff;margin-top:140px;padding:90px 0 30px}
+footer{background:var(--inkt);color:#fff;padding:90px 0 30px}
 .vt{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
 .vt .logo img{height:92px;width:auto}
 .vt p{color:rgba(255,255,255,.66);margin-top:20px;max-width:24em;font-size:15.5px}
@@ -167,62 +187,59 @@ footer{background:var(--inkt);color:#fff;margin-top:140px;padding:90px 0 30px}
 .vt a{text-decoration:none}.vt a:hover{text-decoration:underline}
 .vt-o{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:70px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);font-size:13.5px;color:rgba(255,255,255,.5)}
 
-.js .rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
-.js .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.hero>img{animation:none}}
-
 @media (max-width:1100px){
  .nav ul{display:none}
- .kopr{flex-direction:column;align-items:flex-start;gap:16px}
- .kopr h2{max-width:none}
- .kaarten{grid-template-columns:1fr 1fr;gap:34px 20px}
- .verhaal .g{grid-template-columns:1fr;gap:50px}
+ .h-grid{grid-template-columns:1fr 1fr}
+ .soorten{grid-template-columns:1fr 1fr;row-gap:20px}
+ .soorten li:nth-child(3){padding-left:0;border-left:0}
+ .verhaal .g,.mgrid,.rev-g,.contact .g{grid-template-columns:1fr}
+ .kopr{grid-template-columns:1fr;gap:14px}
  .werk .g{grid-template-columns:1fr}
- .werk .f{min-height:460px;order:2}
- .werk .t{padding:64px 48px}
- .rv-k{grid-template-columns:1fr;gap:30px}.cijfer{justify-self:start;text-align:left}
- .rv-g{grid-template-columns:1fr}
- .contact .g{grid-template-columns:1fr}
- .contact .f{min-height:520px;order:2}
+ .werk .f{min-height:480px}
  .vt{grid-template-columns:1fr 1fr}
- .h-bar a:nth-child(3),.h-bar a:nth-child(4){display:none}
 }
-@media (max-width:640px){
- body{font-size:16px}
+@media (max-width:860px){
+ .h-grid{grid-template-columns:1fr;min-height:0}
+ .h-t{padding:24px 0 10px}
+ .h-f{min-height:0;aspect-ratio:4/3}
+ .soorten{display:none}
+}
+@media (max-width:720px){
+ body{font-size:16.5px}
  .wrap{width:calc(100% - 36px)}
- .nav .wrap{width:calc(100% - 36px)}
- .nav .logo img{height:50px}
- .nav .tel{display:none}
- .hero{min-height:auto}
- .hero>img{object-position:72% 50%}
- .hero:before{background:linear-gradient(0deg,rgba(28,24,18,.92) 0%,rgba(28,24,18,.7) 55%,rgba(28,24,18,.35) 100%)}
- .h-in{width:calc(100% - 36px);padding:120px 0 40px}
- .h-in h1{font-size:46px}
- .h-in p{font-size:17px}
- .acties .btn{width:100%;justify-content:center}
- .h-bar .wrap{width:calc(100% - 36px);flex-wrap:wrap}
- .h-bar a{display:none}
- .h-bar .sc{padding:18px 0}
- .sec,.werk{padding:90px 0}
- .maak{margin:0 10px;border-radius:34px;padding:84px 0}
- .kopr{flex-direction:column;align-items:flex-start;gap:16px}
- .kaarten{grid-template-columns:1fr;gap:40px}
- .reeks{grid-template-columns:1fr 1fr;gap:10px}
- .reeks .a,.reeks .b{grid-column:auto;aspect-ratio:1}
- .reeks .c{grid-column:1/3;grid-row:auto;aspect-ratio:.9}
- .band{margin:10px 10px 0;border-radius:34px;min-height:auto;padding:300px 0 44px;align-items:flex-end}
- .band>img{height:62%;object-position:30% 30%}
- .band:before{background:linear-gradient(0deg,rgba(32,26,20,1) 0%,rgba(32,26,20,.95) 45%,rgba(32,26,20,0) 70%)}
- .werk .g{border-radius:34px}
- .werk .t{padding:48px 26px}
- .werk .f{min-height:340px}
- .stap{grid-template-columns:1fr;gap:6px}
- .contact .t{padding:48px 26px;border-radius:34px}
- .contact .f{border-radius:34px;min-height:440px}
- .rv-k blockquote{font-size:40px}
- .cijfer b{font-size:80px}
- .vt{grid-template-columns:1fr}
- footer{margin-top:90px}
+ .nav .wrap,.h-grid{width:calc(100% - 28px)}
+ .logo img{height:58px}
+ .nav .btn{padding:11px 14px;font-size:13.5px}
+ .h-t h1{font-size:clamp(42px,11.5vw,54px)}
+ .h-t p{font-size:16.5px;margin:20px 0 28px}
+ .acties .btn{flex:1 1 100%;justify-content:center}
+ .soorten{margin-top:36px}
+ .soorten b{font-size:17px}
+ .h-f{aspect-ratio:1/1;border-radius:20px}
+ .h-f figcaption{left:18px;right:18px;bottom:16px}
+ .h-f figcaption>span:first-child{display:none}
+ .sec,.maak,.werk{padding:84px 0}
+ .contact{padding-bottom:84px}
+ .reeks{grid-template-columns:1fr 1fr}
+ .reeks .c{grid-column:1/-1;grid-row:auto}
+ .reeks .c .fr{height:auto;aspect-ratio:4/5}
+ .fiche{grid-template-columns:1fr}
+ .fiche div+div{border-left:0;border-top:1px solid var(--lijn)}
+ .rij{grid-template-columns:96px 1fr;gap:18px}
+ .rij h3{font-size:24px}
+ .band{min-height:0;flex-direction:column;align-items:stretch}
+ .band>img{position:relative;height:420px}
+ .band:before{display:none}
+ .band .wrap{padding:48px 0 60px}
+ .band .wrap{order:-1}
+ .werk .g{border-radius:28px}
+ .werk .t{padding:44px 22px}
+ .werk .f{min-height:360px}
+ .contact .t,.contact .f{border-radius:28px}
+ .contact .t{padding:40px 22px}
+ .gegevens li{grid-template-columns:1fr;gap:2px}
+ .contact .f{min-height:460px}
+ .vt{grid-template-columns:1fr;gap:30px}
 }
 </style>
 </head>
@@ -230,28 +247,32 @@ footer{background:var(--inkt);color:#fff;margin-top:140px;padding:90px 0 30px}
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
 <header class="hero" id="top">
- <img src="img/hero.webp" alt="Lien aan haar werkbank in Atelier Lilibo, met hamer en ringdoorn">
  <nav class="nav"><div class="wrap">
-  <a class="logo" href="#top" aria-label="Atelier Lilibo"><img src="img/logo.webp" alt="Atelier Lilibo by Lien"></a>
+  <a class="logo" href="#top" aria-label="Atelier Lilibo"><img src="img/logo.webp" alt="Atelier Lilibo by Lien" width="433" height="260"></a>
   <ul><li><a href="#verhaal">Verhalen</a></li><li><a href="#maak">Wat ik maak</a></li><li><a href="#collectie">Collectie</a></li><li><a href="#werkwijze">Werkwijze</a></li><li><a href="#contact">Contact</a></li></ul>
-  <a class="tel" href="tel:+32478797161">0478 79 71 61</a>
+  <a class="btn btn-gl" href="tel:+32478797161">0478 79 71 61</a>
  </div></nav>
- <div class="h-in"><div>
-  <span class="lab rv">Goudsmid in Drongen · op afspraak</span>
-  <h1 class="rv" style="--d:1">Juwelen met betekenis, gemaakt aan <span>deze werkbank.</span></h1>
-  <p class="rv" style="--d:2">Ik ben Lien. In mijn atelier maak ik moedermelkjuwelen, trouwringen en nieuwe juwelen uit oud goud. Jij vertelt je verhaal, ik maak er iets van dat je elke dag draagt.</p>
-  <div class="acties rv" style="--d:3">
-   <a class="btn btn-h" href="https://wa.me/32478797161?text=Hallo%20Lien%2C%20ik%20plan%20graag%20een%20vrijblijvend%20ontwerpmoment."><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>Plan een ontwerpmoment</a>
-   <a class="btn btn-gl" href="#verhaal">Bekijk mijn werk</a>
+ <div class="h-grid">
+  <div class="h-t">
+   <span class="lab rv">Goudsmid in Drongen · op afspraak</span>
+   <h1 class="rv" style="--d:1">Juwelen met een verhaal erin.</h1>
+   <p class="rv" style="--d:2">Ik ben Lien. Aan mijn werkbank maak ik moedermelkjuwelen, trouwringen en nieuwe juwelen uit het goud dat al in je schuif ligt. Jij brengt het verhaal mee, ik maak er iets van dat je elke dag draagt.</p>
+   <div class="acties rv" style="--d:3">
+    <a class="btn btn-h" href="https://wa.me/32478797161?text=Hallo%20Lien%2C%20ik%20plan%20graag%20een%20vrijblijvend%20ontwerpmoment."><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M7 4h10l4 5-9 11L3 9z"/><path d="M3 9h18M9 4l3 16 3-16"/></svg>Plan een ontwerpmoment</a>
+    <a class="btn btn-gl" href="#verhaal">Bekijk mijn werk</a>
+   </div>
+   <ul class="soorten rv" style="--d:4">
+    <li><a href="#maak"><img src="img/melk.webp" alt="" width="1000" height="1250"><small>Koesteren</small><b>Moedermelk</b></a></li>
+    <li><a href="#maak"><img src="img/trouw.webp" alt="" width="1100" height="1375"><small>Samen</small><b>Trouwringen</b></a></li>
+    <li><a href="#maak"><img src="img/oorbel.webp" alt="" width="1100" height="1375"><small>Nieuw leven</small><b>Oud goud</b></a></li>
+    <li><a href="#maak"><img src="img/koester.webp" alt="" width="900" height="1125"><small>Herinneren</small><b>Rouwjuwelen</b></a></li>
+   </ul>
   </div>
- </div></div>
- <div class="h-bar"><div class="wrap">
-  <a href="#maak"><small>Koesteren</small><b>Moedermelk</b></a>
-  <a href="#maak"><small>Samen</small><b>Trouwringen</b></a>
-  <a href="#maak"><small>Nieuw leven</small><b>Oud goud</b></a>
-  <a href="#maak"><small>Herinneren</small><b>Rouwjuwelen</b></a>
-  <div class="sc"><strong>5,0</strong><span><i>★★★★★</i>62 reviews op Google</span></div>
- </div></div>
+  <figure class="h-f rv" style="--d:1">
+   <img src="img/hero.webp" alt="Lien aan haar werkbank in Atelier Lilibo, met hamer en ringdoorn" width="1600" height="899">
+   <figcaption><span><b>Aan de werkbank</b>Lien vormt een ring rond de ringdoorn.</span><span class="sc"><strong>5,0</strong><span><i>★★★★★</i>62 reviews op Google</span></span></figcaption>
+  </figure>
+ </div>
 </header>
 
 <section class="sec verhaal" id="verhaal">
@@ -261,12 +282,12 @@ footer{background:var(--inkt);color:#fff;margin-top:140px;padding:90px 0 30px}
    <h2 class="rv" style="--d:1">Vijf ringen, vijf verhalen, één nieuw juweel.</h2>
    <p class="rv" style="--d:2">Heidi vroeg me om vijf ringen om te vormen tot één hanger. Een familiestuk waarin alle vrouwen uit de familie samenkomen.</p>
    <p class="rv" style="--d:2">Uit elke ring haalde ik een stukje: alle edelstenen, twee kleine bloemetjes en een stukje structuur. Het overige goud smolt ik om. Daarna begon het puzzelen, tot alles samenkwam in één bloemenboeket.</p>
-   <p class="trots rv" style="--d:3">En ja, valt het op dat ik best wel trots ben op dit stukje?</p>
+   <p class="trots rv" style="--d:3">En ja, valt het op dat ik best wel trots ben op dit stukje?<small>Lien, over de hanger voor Heidi</small></p>
   </div>
   <div class="reeks">
-   <figure class="a rv"><img src="img/vijf.webp" alt="Vijf gouden familieringen naast elkaar" loading="lazy"><figcaption>Ervoor</figcaption></figure>
-   <figure class="b rv" style="--d:1"><img src="img/schets.webp" alt="Schets van de hanger met notities over de edelstenen" loading="lazy"><figcaption>De schets</figcaption></figure>
-   <figure class="c rv" style="--d:2"><img src="img/hanger.webp" alt="Gouden hanger in de vorm van een bloemenboeket met rode en blauwe steen" loading="lazy"><figcaption>Erna</figcaption></figure>
+   <figure class="a rv"><div class="fr"><img src="img/vijf.webp" alt="Vijf gouden familieringen naast elkaar" width="1080" height="626" loading="lazy"></div><figcaption><b>1</b>Vijf ringen uit de familie</figcaption></figure>
+   <figure class="b rv" style="--d:1"><div class="fr"><img src="img/schets.webp" alt="Schets van de hanger met notities over de edelstenen" width="1600" height="1600" loading="lazy"></div><figcaption><b>2</b>De schets, met alle stenen erop</figcaption></figure>
+   <figure class="c rv" style="--d:2"><div class="fr"><img src="img/hanger.webp" alt="Gouden hanger in de vorm van een bloemenboeket met rode en blauwe steen" width="1600" height="1800" loading="lazy"></div><figcaption><b>3</b>Eén bloemenboeket</figcaption></figure>
   </div>
  </div>
 </section>
@@ -275,29 +296,41 @@ footer{background:var(--inkt);color:#fff;margin-top:140px;padding:90px 0 30px}
  <div class="wrap">
   <div class="kopr">
    <div><span class="lab rv">Wat ik maak</span><h2 class="rv" style="--d:1">Elk juweel begint bij een gesprek.</h2></div>
-   <p class="rv" style="--d:2">Geen massaproductie, wel aandacht, rust en vakmanschap. Alles wordt met de hand gemaakt in mijn atelier in Drongen, in goud of zilver.</p>
+   <p class="rv" style="--d:2">Alles maak ik met de hand in mijn atelier in Drongen, in goud of zilver. Hieronder vind je waar mensen het vaakst voor aankloppen.</p>
   </div>
-  <div class="kaarten">
-   <a class="kaart rv" href="#contact"><div class="f"><img src="img/melk.webp" alt="Gouden ring met een druppel moedermelk en een blauwe saffier" loading="lazy"><span class="pil">10 ml moedermelk volstaat</span></div><h3>Moedermelk&shy;juwelen</h3><p>Een ring, oorbellen, hanger of armband. Voor Kim werd het een druppel moedermelk naast de geboortesteen van haar zoontje, een blauwe saffier.</p><span class="m">Meer weten</span></a>
-   <a class="kaart rv" href="#contact" style="--d:1"><div class="f"><img src="img/trouw.webp" alt="Twee gegraveerde trouwringen op verweerd hout" loading="lazy"><span class="pil">Met pasmoment en gravure</span></div><h3>Trouw- en verlovingsringen</h3><p>Hanna en Alexander verloofden zich aan de voet van de Mont Blanc. Die berg staat nu op zijn ring, en aan de binnenkant van de hare.</p><span class="m">Meer weten</span></a>
-   <a class="kaart rv" href="#contact" style="--d:2"><div class="f"><img src="img/oorbel.webp" alt="Gouden creolen met fijne ribbels" loading="lazy"><span class="pil">Jouw goud, volledig hergebruikt</span></div><h3>Juwelen uit oud goud</h3><p>Ik test je goud en vorm het om tot iets dat je wel weer draagt. Ook edelstenen uit oude juwelen krijgen vaak een nieuwe plek.</p><span class="m">Meer weten</span></a>
-   <a class="kaart rv" href="#contact" style="--d:3"><div class="f"><img src="img/koester.webp" alt="Fijne gouden ring met een donkere steen" loading="lazy"><span class="pil">Met as, haar of gravure</span></div><h3>Rouw&shy;juwelen</h3><p>Wanneer woorden tekortschieten. As of haar van je dierbare onder een steen of in een afgesloten deel, of gewoon een gravure die alleen jij begrijpt.</p><span class="m">Meer weten</span></a>
+  <div class="mgrid">
+   <article class="hoofd rv">
+    <div class="fr"><img src="img/melk.webp" alt="Gouden ring met een druppel moedermelk en een blauwe saffier" width="1000" height="1250" loading="lazy"></div>
+    <h3>Moedermelkjuwelen</h3>
+    <p>Een ring, oorbellen, een hanger of een armband. Voor Kim werd het een druppel moedermelk naast de geboortesteen van haar zoontje, een blauwe saffier. Zo heb je het elke dag bij je.</p>
+    <div class="fiche">
+     <div><small>Wat je meebrengt</small><span>10 ml moedermelk volstaat</span></div>
+     <div><small>Vorm</small><span>Ring, oorbellen, hanger of armband</span></div>
+     <div><small>Klaar</small><span>Na 6 à 8 weken</span></div>
+    </div>
+   </article>
+   <div class="rijen">
+    <a class="rij rv" style="--d:1" href="#contact"><div class="fr"><img src="img/trouw.webp" alt="Twee gegraveerde trouwringen op verweerd hout" width="1100" height="1375" loading="lazy"></div><div><small>Samen</small><h3>Trouw- en verlovingsringen</h3><p>Hanna en Alexander verloofden zich aan de voet van de Mont Blanc. Die berg staat nu op zijn ring, en aan de binnenkant van de hare.</p><span class="feit">Met pasmoment en gravure</span></div></a>
+    <a class="rij rv" style="--d:2" href="#contact"><div class="fr"><img src="img/oorbel.webp" alt="Gouden creolen met fijne ribbels" width="1100" height="1375" loading="lazy"></div><div><small>Nieuw leven</small><h3>Juwelen uit oud goud</h3><p>Ik test je goud en vorm het om tot iets dat je wel weer draagt. Ook de stenen uit oude juwelen krijgen vaak een nieuwe plek.</p><span class="feit">Jouw goud, volledig hergebruikt</span></div></a>
+    <a class="rij rv" style="--d:3" href="#contact"><div class="fr"><img src="img/koester.webp" alt="Fijne gouden ring met een donkere steen" width="900" height="1125" loading="lazy"></div><div><small>Herinneren</small><h3>Rouwjuwelen</h3><p>Voor wanneer woorden tekortschieten. As of haar van je dierbare onder een steen of in een afgesloten deel, of gewoon een gravure die alleen jij begrijpt.</p><span class="feit">Met as, haar of gravure</span></div></a>
+    <div class="nog rv" style="--d:4"><div><b>Iets anders in gedachten?</b><span>Een ontwerpmoment is vrijblijvend. Vertel gewoon wat je zoekt.</span></div><a class="btn btn-i" href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M7 4h10l4 5-9 11L3 9z"/><path d="M3 9h18M9 4l3 16 3-16"/></svg>Neem contact op</a></div>
+   </div>
   </div>
  </div>
 </section>
 
 <section class="band" id="collectie">
- <img src="img/model.webp" alt="Vrouw draagt een lange staafhanger en staafoorbellen uit de collectie Straight Forward" loading="lazy">
+ <img src="img/model.webp" alt="Vrouw draagt een lange staafhanger en staafoorbellen uit de collectie Straight Forward" width="1600" height="900" loading="lazy">
  <div class="wrap"><div class="t">
   <span class="lab rv">De vaste collectie</span>
   <h2 class="rv" style="--d:1">Of gewoon iets moois, klaar om te dragen.</h2>
-  <p class="rv" style="--d:2">Naast maatwerk maak ik drie vaste lijnen, met dezelfde zorg als een juweel op maat.</p>
-  <div class="lijnen rv" style="--d:3">
-   <a href="https://www.atelierlilibo.com/product-categorie/straight-forward/">Straight Forward</a>
-   <a href="https://www.atelierlilibo.com/product-categorie/morning-sun/">Morning Sun</a>
-   <a href="https://www.atelierlilibo.com/product-categorie/a-drip-of/">A Drip Of</a>
-  </div>
-  <a class="btn btn-h rv" style="--d:4" href="https://www.atelierlilibo.com/winkel/">Naar de webshop</a>
+  <p class="rv" style="--d:2">Naast maatwerk maak ik drie vaste lijnen, met dezelfde zorg als een juweel op maat. Je bestelt ze in de webshop.</p>
+  <ul class="lijnen rv" style="--d:3">
+   <li><a href="https://www.atelierlilibo.com/product-categorie/straight-forward/">Straight Forward <span>Bekijk</span></a></li>
+   <li><a href="https://www.atelierlilibo.com/product-categorie/morning-sun/">Morning Sun <span>Bekijk</span></a></li>
+   <li><a href="https://www.atelierlilibo.com/product-categorie/a-drip-of/">A Drip Of <span>Bekijk</span></a></li>
+  </ul>
+  <a class="btn btn-h rv" style="--d:4" href="https://www.atelierlilibo.com/winkel/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M7 4h10l4 5-9 11L3 9z"/><path d="M3 9h18M9 4l3 16 3-16"/></svg>Naar de webshop</a>
  </div></div>
 </section>
 
@@ -306,26 +339,30 @@ footer{background:var(--inkt);color:#fff;margin-top:140px;padding:90px 0 30px}
   <div class="t">
    <span class="lab rv">Zo werk ik</span>
    <h2 class="rv" style="--d:1">Rustig, en samen met jou.</h2>
-   <p class="rv" style="--d:2">Je hoeft niets voor te bereiden. Breng je verhaal mee, en eventueel het goud of de ringen die je wil laten omvormen.</p>
-   <div class="stap rv" style="--d:2"><small>Eerst</small><div><b>Een vrijblijvend ontwerpmoment</b><p>We nemen rustig de tijd om je verhaal en je wensen te bespreken.</p></div></div>
-   <div class="stap rv" style="--d:3"><small>Dan</small><div><b>Ontwerp en prijsvoorstel</b><p>Ik werk een ontwerp uit dat past bij je verhaal en je budget. Pas na jouw akkoord ga ik aan de slag.</p></div></div>
-   <div class="stap rv" style="--d:4"><small>Na 6 à 8 weken</small><div><b>Je juweel ophalen</b><p>Alles wordt met de hand gemaakt in mijn atelier. Voor trouwringen plannen we tussendoor een pasmoment.</p></div></div>
-   <div class="how rv" style="--d:5"><img src="img/how.webp" alt="House of Weddings Quality Label 2026" loading="lazy"><span>Officieel partner van het House of Weddings Kwaliteitslabel. Goudsmid geleerd bij Syntra West, en sindsdien blijf ik bijleren.</span></div>
+   <p class="rv" style="--d:2">Je hoeft niets voor te bereiden. Breng je verhaal mee, en het goud of de ringen die je wil laten omvormen als je die hebt.</p>
+   <ol class="tijdlijn rv" style="--d:3">
+    <li><i>1</i><div><small>Eerst</small><b>Een vrijblijvend ontwerpmoment</b><p>We nemen rustig de tijd voor je verhaal en je wensen.</p></div></li>
+    <li><i>2</i><div><small>Dan</small><b>Ontwerp en prijsvoorstel</b><p>Ik werk een ontwerp uit dat past bij je verhaal en je budget. Pas na jouw akkoord ga ik aan de slag.</p></div></li>
+    <li><i>3</i><div><small>Na 6 à 8 weken</small><b>Je juweel ophalen</b><p>Alles wordt met de hand gemaakt. Voor trouwringen plannen we tussendoor een pasmoment.</p></div></li>
+   </ol>
+   <div class="how rv" style="--d:4"><img src="img/how.webp" alt="House of Weddings Quality Label 2026" width="299" height="300" loading="lazy"><span>Officieel partner van het House of Weddings Kwaliteitslabel. Ik leerde het vak bij Syntra West, en sindsdien blijf ik bijleren.</span></div>
   </div>
-  <div class="f"><img src="img/solitair.webp" alt="Gouden verlovingsring met een kleine diamant, leunend tegen een wit blok" loading="lazy"></div>
+  <div class="f"><img src="img/solitair.webp" alt="Gouden verlovingsring met een kleine diamant, leunend tegen een wit blok" width="1600" height="899" loading="lazy"></div>
  </div>
 </section>
 
 <section class="sec" id="reviews" style="padding-top:0">
- <div class="wrap">
-  <div class="rv-k">
-   <div class="rv"><span class="lab">Op Google</span><blockquote style="margin-top:20px">“Een goudsmid met een <span>hart van goud.</span>”</blockquote><cite>Heidi Dekien, liet twee ringen maken</cite></div>
-   <div class="cijfer rv" style="--d:1"><b>5,0</b><i>★★★★★</i><span>uit 62 reviews</span></div>
+ <div class="wrap rev-g">
+  <div class="groot rv">
+   <span class="lab">Op Google</span>
+   <blockquote>“Een goudsmid met een hart van goud.”</blockquote>
+   <cite>Heidi Dekien, liet twee ringen maken</cite>
+   <div class="cijfer"><b>5,0</b><div><i>★★★★★</i><span>gemiddeld uit 62 reviews</span></div></div>
   </div>
-  <div class="rv-g">
-   <figure class="rev rv"><div class="st">★★★★★</div><blockquote>Lien heeft van mijn trouwring en van de ring van een overleden tante één prachtige ring gemaakt. Haar voorstel om de trouwring te 'hameren' was een schot in de roos. Ik ben er super blij mee!</blockquote><cite>Christel Verhoeven<small>Google-review</small></cite></figure>
-   <figure class="rev rv" style="--d:1"><div class="st">★★★★★</div><blockquote>Zeer mooie transformatie van oud goud met emotionele waarde naar nieuwe moderne armbandjes! Lien luistert heel goed en maakt dan direct een creatief voorstel binnen budget.</blockquote><cite>Hilde Willekens<small>Google-review</small></cite></figure>
-   <figure class="rev rv" style="--d:2"><div class="st">★★★★★</div><blockquote>Super blij met het koesterjuweel dat Lien maakte. Ze luistert naar je verhaal en denkt mee na zodat je buitenstapt met het juweel dat je in gedachten had. Dankzij haar draag ik mijn peter overal met me mee.</blockquote><cite>elien vermeesch<small>Google-review</small></cite></figure>
+  <div class="rlijst">
+   <figure class="rev rv" style="--d:1"><div class="st">★★★★★</div><blockquote>Lien heeft van mijn trouwring en van de ring van een overleden tante één prachtige ring gemaakt. Haar voorstel om de trouwring te 'hameren' was een schot in de roos. Ik ben er super blij mee!</blockquote><cite>Christel Verhoeven<small>Google-review</small></cite></figure>
+   <figure class="rev rv" style="--d:2"><div class="st">★★★★★</div><blockquote>Zeer mooie transformatie van oud goud met emotionele waarde naar nieuwe moderne armbandjes! Lien luistert heel goed en maakt dan direct een creatief voorstel binnen budget.</blockquote><cite>Hilde Willekens<small>Google-review</small></cite></figure>
+   <figure class="rev rv" style="--d:3"><div class="st">★★★★★</div><blockquote>Super blij met het koesterjuweel dat Lien maakte. Ze luistert naar je verhaal en denkt mee na zodat je buitenstapt met het juweel dat je in gedachten had. Dankzij haar draag ik mijn peter overal met me mee.</blockquote><cite>elien vermeesch<small>Google-review</small></cite></figure>
   </div>
  </div>
 </section>
@@ -336,22 +373,24 @@ footer{background:var(--inkt);color:#fff;margin-top:140px;padding:90px 0 30px}
    <span class="lab">Langskomen</span>
    <h2>Vertel me je verhaal.</h2>
    <p>Het atelier is open op afspraak. Stuur me een berichtje en we zoeken samen een moment voor je ontwerpgesprek.</p>
-   <a class="rij" href="https://maps.google.com/?q=Steenhuisdreef+70,+9031+Drongen"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></i><span>Steenhuisdreef 70, 9031 Drongen<small>Enkel op afspraak</small></span></a>
-   <a class="rij" href="tel:+32478797161"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></i><span>0478 79 71 61<small>Bellen of WhatsApp</small></span></a>
-   <a class="rij" href="mailto:lien@atelierlilibo.com"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></i><span>lien@atelierlilibo.com<small>Rechtstreeks naar Lien</small></span></a>
+   <ul class="gegevens">
+    <li><small>Atelier</small><div><a href="https://maps.google.com/?q=Steenhuisdreef+70,+9031+Drongen">Steenhuisdreef 70, 9031 Drongen</a><span>Enkel op afspraak</span></div></li>
+    <li><small>Bellen of WhatsApp</small><div><a href="tel:+32478797161">0478 79 71 61</a></div></li>
+    <li><small>Mail</small><div><a href="mailto:lien@atelierlilibo.com">lien@atelierlilibo.com</a><span>Komt rechtstreeks bij mij terecht</span></div></li>
+   </ul>
    <div class="acties">
-    <a class="btn btn-i" href="https://wa.me/32478797161?text=Hallo%20Lien%2C%20ik%20plan%20graag%20een%20vrijblijvend%20ontwerpmoment.">Stuur een berichtje</a>
+    <a class="btn btn-i" href="https://wa.me/32478797161?text=Hallo%20Lien%2C%20ik%20plan%20graag%20een%20vrijblijvend%20ontwerpmoment."><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M7 4h10l4 5-9 11L3 9z"/><path d="M3 9h18M9 4l3 16 3-16"/></svg>Stuur een berichtje</a>
     <a class="btn btn-o" href="https://www.instagram.com/atelierlilibo/">@atelierlilibo</a>
    </div>
   </div>
-  <figure class="f rv" style="--d:1"><img src="img/zoe.webp" alt="Gouden halsketting met een hangertje met moedermelk en een hangertje met initiaal" loading="lazy"><figcaption><b>Een halsketting voor Zoë.</b> Eén hangertje met moedermelk, één met de initiaal van haar zoontje, in het lettertype van zijn geboortekaartje.</figcaption></figure>
+  <figure class="f rv" style="--d:1"><img src="img/zoe.webp" alt="Gouden halsketting met een hangertje met moedermelk en een hangertje met initiaal" width="1600" height="2048" loading="lazy"><figcaption><b>Een halsketting voor Zoë</b>Eén hangertje met moedermelk, één met de initiaal van haar zoontje, in het lettertype van zijn geboortekaartje.</figcaption></figure>
  </div>
 </section>
 
 <footer>
  <div class="wrap">
   <div class="vt">
-   <div><a class="logo" href="#top"><img src="img/logo.webp" alt="Atelier Lilibo by Lien"></a><p>Handgemaakte juwelen met betekenis, op maat van jouw levensmoment. Goudsmid Lien Butsraen, Drongen.</p></div>
+   <div><a class="logo" href="#top"><img src="img/logo.webp" alt="Atelier Lilibo by Lien" width="433" height="260"></a><p>Handgemaakte juwelen met een verhaal erin. Goudsmid Lien Butsraen, Drongen.</p></div>
    <div><h4>Maatwerk</h4><ul><li><a href="#maak">Moedermelkjuwelen</a></li><li><a href="#maak">Trouwringen</a></li><li><a href="#maak">Oud goud</a></li><li><a href="#maak">Rouwjuwelen</a></li></ul></div>
    <div><h4>Collectie</h4><ul><li><a href="https://www.atelierlilibo.com/product-categorie/straight-forward/">Straight Forward</a></li><li><a href="https://www.atelierlilibo.com/product-categorie/morning-sun/">Morning Sun</a></li><li><a href="https://www.atelierlilibo.com/product-categorie/a-drip-of/">A Drip Of</a></li></ul></div>
    <div><h4>Contact</h4><ul><li>Steenhuisdreef 70</li><li>9031 Drongen</li><li><a href="tel:+32478797161">0478 79 71 61</a></li><li><a href="mailto:lien@atelierlilibo.com">lien@atelierlilibo.com</a></li></ul></div>
@@ -361,7 +400,8 @@ footer{background:var(--inkt);color:#fff;margin-top:140px;padding:90px 0 30px}
 </footer>
 
 <script>
-(function(){var els=[].slice.call(document.querySelectorAll('.rv'));
+(function(){var h=document.querySelector('.hero');requestAnimationFrame(function(){h.classList.add('in')});
+var els=[].slice.call(document.querySelectorAll('.rv'));
 function kijk(){var H=innerHeight;els=els.filter(function(e){var r=e.getBoundingClientRect();if(r.top<H*.94&&r.bottom>0){e.classList.add('in');return false}return true});if(!els.length)removeEventListener('scroll',plan)}
 var t=0;function plan(){if(!t){t=requestAnimationFrame(function(){t=0;kijk()})}}
 addEventListener('scroll',plan,{passive:true});addEventListener('resize',plan);kijk();setTimeout(kijk,300)})();
