@@ -4,152 +4,167 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>butan. · Ontbijt- en lunchbar in Diest</title>
-<meta name="description" content="butan. in de Ketelstraat in Diest: een ontbijt- en lunchbar met 26 plaatsen. Alles huisgemaakt, tot de kombucha toe. Funky, casual, no fuzz. Geen reservaties.">
+<title>butan. · Ontbijt en lunch in de Ketelstraat, Diest</title>
+<meta name="description" content="butan. in de Ketelstraat in Diest: ontbijt en lunch aan 26 plaatsen. Alles huisgemaakt, van de granola tot de kombucha. Geen reservaties, je wandelt gewoon binnen.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js')</script>
 <style>
 :root{
-  --beton:#DAD8D3; --beton-l:#ECEAE6; --wit:#F7F6F3; --ink:#1D1B1A; --zacht:#67625E;
-  --bes:#6E1E3A; --bes-d:#4A1227; --bes-l:#E9D3D9;
+  --beton:#DAD8D3; --beton-l:#E6E4DF; --wit:#F7F6F3; --ink:#1D1B1A; --zacht:#615C58;
+  --bes:#6E1E3A; --bes-d:#4A1227; --bes-l:#E9D3D9; --roze:#E7A9BC;
   --ease:cubic-bezier(.2,.7,.2,1); --r:22px;
+  --korrel:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.3 0 0 0 0 0.3 0 0 0 .2 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--wit);color:var(--ink);font:400 17px/1.65 'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-.wrap{width:min(1280px,100% - 48px);margin:0 auto}
-h1,h2,h3{font-family:'Syne',system-ui,sans-serif;font-style:normal;font-weight:800;text-transform:lowercase;line-height:.96;letter-spacing:-.035em;color:var(--ink)}
+.wrap{width:min(1300px,100% - 56px);margin:0 auto}
+h1,h2,h3{font-family:'Syne',system-ui,sans-serif;font-style:normal;font-weight:800;text-transform:lowercase;line-height:.98;letter-spacing:-.035em;color:var(--ink)}
 h1,h2{text-wrap:balance}
-.sp{font:700 12.5px/1.2 'Manrope',sans-serif;letter-spacing:.2em;text-transform:lowercase;color:var(--bes);display:inline-flex;align-items:center;gap:10px}
-.sp::before{content:"";width:22px;height:2px;background:currentColor}
+.sp{font:700 12.5px/1.2 'Manrope',sans-serif;letter-spacing:.18em;text-transform:lowercase;color:var(--bes);display:inline-flex;align-items:center;gap:10px}
+.sp::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
 
 .demo{background:var(--ink);color:var(--wit);font:500 13.5px/1.4 'Manrope',sans-serif;text-align:center;padding:9px 16px;position:relative;z-index:60}
 .demo a{text-decoration:underline;text-underline-offset:3px;color:#fff}
 
-.knop{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:17px 28px;font:700 15px/1 'Manrope',sans-serif;transition:transform .35s var(--ease),background .3s,color .3s,border-color .3s;white-space:nowrap}
-.knop svg{width:18px;height:18px;flex:none}
-.knop:hover{transform:translateY(-2px)}
+/* knoppen: het puntje van butan. schuift open tot een pijl */
+.knop{display:inline-flex;align-items:center;gap:14px;border-radius:999px;padding:9px 9px 9px 26px;font:700 15.5px/1 'Manrope',sans-serif;text-transform:lowercase;white-space:nowrap;transition:background .35s,color .35s,border-color .35s}
+.knop .pt{position:relative;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;flex:none;transition:transform .45s var(--ease)}
+.knop .pt::before{content:"";width:9px;height:9px;border-radius:50%;background:currentColor;transition:transform .45s var(--ease),opacity .3s}
+.knop .pt svg{position:absolute;width:17px;height:17px;opacity:0;transform:translateX(-6px);transition:opacity .3s,transform .45s var(--ease)}
+.knop:hover .pt::before{transform:scale(0);opacity:0}
+.knop:hover .pt svg{opacity:1;transform:none}
 .k-bes{background:var(--bes);color:#fff}
+.k-bes .pt{background:rgba(255,255,255,.14)}
 .k-bes:hover{background:var(--bes-d)}
-.k-lijn{border:1.5px solid rgba(29,27,26,.25);color:var(--ink)}
-.k-lijn:hover{background:var(--ink);color:var(--wit);border-color:var(--ink)}
-.k-wit{background:var(--wit);color:var(--bes-d)}
-.k-wit:hover{background:#fff}
+.k-lijn{border:1.5px solid rgba(29,27,26,.22);color:var(--ink);padding:7.5px 7.5px 7.5px 24px}
+.k-lijn .pt{background:var(--beton)}
+.k-lijn:hover{border-color:var(--ink)}
+.k-licht{background:var(--wit);color:var(--bes-d)}
+.k-licht .pt{background:var(--bes-l)}
 
 .merk{font:800 30px/1 'Syne',sans-serif;letter-spacing:-.04em;text-transform:lowercase}
 .merk i{font-style:normal;color:var(--bes)}
 
-/* HERO */
-.hero{display:grid;grid-template-columns:1fr 1fr;min-height:max(700px,calc(100svh - 38px));background:var(--beton);position:relative}
-.hero::before{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.3 0 0 0 0 0.3 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.hero-l{position:relative;display:flex;flex-direction:column;padding:0 clamp(28px,5vw,80px) clamp(36px,4vw,56px)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:96px}
-.nav ul{display:flex;gap:28px;list-style:none;font-size:15px;font-weight:600;text-transform:lowercase}
-.nav ul a{opacity:.75;transition:opacity .3s}
+/* HERO: kop en beeld als één tafel */
+.hero{background:var(--beton);position:relative;padding-bottom:clamp(14px,1.2vw,18px)}
+.hero::before{content:"";position:absolute;inset:0;opacity:.55;pointer-events:none;background-image:var(--korrel)}
+.hero>*{position:relative}
+.nav{display:flex;align-items:center;justify-content:space-between;height:92px}
+.nav ul{display:flex;gap:30px;list-style:none;font-size:15px;font-weight:600;text-transform:lowercase}
+.nav ul a{opacity:.72;transition:opacity .3s}
 .nav ul a:hover{opacity:1}
-.hero-tekst{margin:auto 0;padding:40px 0}
-.hero h1{font-size:clamp(54px,6vw,104px);margin:24px 0 26px}
-.hero h1 span{color:var(--bes)}
-.hero p{font-size:clamp(17px,1.3vw,19.5px);max-width:30em;color:#45403D}
-.hero .knoppen{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-.feit{display:flex;flex-wrap:wrap;gap:10px}
-.feit span{background:rgba(247,246,243,.7);border:1px solid rgba(29,27,26,.1);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:600;text-transform:lowercase}
-.hero-r{position:relative;overflow:hidden}
-.hero-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scale(1.05);animation:zoom 14s var(--ease) forwards}
+.nav .ig{font-size:14.5px;font-weight:700;border-bottom:1.5px solid currentColor;padding-bottom:2px}
+.hero-kop{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(30px,5vw,80px);align-items:end;padding:clamp(6px,1.4vw,22px) 0 clamp(28px,2.8vw,40px)}
+.hero h1{font-size:clamp(54px,7vw,112px);line-height:.9;margin-top:20px}
+.hero h1 b{font-weight:800;color:var(--bes)}
+.hero-zij p{font-size:clamp(16.5px,1.25vw,18.5px);color:#3F3A37;max-width:27em}
+.hero-zij .knoppen{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.hero-zij .score{margin-top:22px;font-size:14.5px;color:var(--zacht)}
+.hero-zij .score b{color:var(--ink);font-weight:700}
+.tafel{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:12px;margin:0 clamp(12px,1.2vw,18px);height:clamp(440px,58vh,640px)}
+.tafel figure{border-radius:24px;overflow:hidden;position:relative;background:#9aa3a3}
+.tafel img{width:100%;height:100%;object-fit:cover;transform:scale(1.05);animation:zoom 14s var(--ease) forwards}
+.tafel figure:nth-child(1) img{object-position:50% 30%}
 @keyframes zoom{to{transform:scale(1)}}
-.hero-r .score{position:absolute;right:28px;bottom:28px;background:var(--wit);border-radius:20px;padding:14px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 20px 40px -20px rgba(0,0,0,.4)}
-.hero-r .score b{font:800 26px/1 'Syne',sans-serif;color:var(--bes)}
-.hero-r .score span{font-size:13.5px;line-height:1.3;color:var(--zacht)}
+.tafel figcaption{position:absolute;left:14px;bottom:14px;background:rgba(247,246,243,.94);border-radius:999px;padding:9px 15px;font-size:13.5px;font-weight:700;text-transform:lowercase}
 
 /* KAART */
 .kaart{padding:clamp(100px,11vw,150px) 0}
-.kaart .kop{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,6vw,90px);align-items:end;margin-bottom:64px}
-.kaart h2{font-size:clamp(46px,5.4vw,90px);margin-top:20px}
-.kaart h2 span{color:var(--bes)}
-.kaart .kop p{font-size:18px;color:var(--zacht)}
-.borden{display:grid;grid-template-columns:repeat(12,1fr);gap:22px;align-items:start}
-.bord{grid-column:span 4}
-.bord.groot{grid-column:span 6}
-.bord:nth-child(2){margin-top:90px}
-.bord:nth-child(4){margin-top:70px}
-.bord .beeld{border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;background:var(--beton)}
-.bord.groot .beeld{aspect-ratio:4/4.3}
-.bord img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
-.bord:hover img{transform:scale(1.05)}
-.bord h3{font-size:25px;margin:20px 0 6px}
-.bord p{font-size:15.5px;color:var(--zacht);max-width:32em}
-.bord .dia{display:block;margin-top:10px;font-size:14.5px;color:var(--bes);font-weight:600}
+.kaart .kop{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(30px,6vw,90px);align-items:end;margin-bottom:60px}
+.kaart h2{font-size:clamp(44px,5.2vw,86px);margin-top:20px}
+.kaart .kop p{font-size:18px;color:var(--zacht);max-width:28em}
+.kaart .raster{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,3.4vw,52px);align-items:start}
+.menu{position:sticky;top:28px;background:#fff;border-radius:10px;padding:clamp(30px,3.2vw,46px);box-shadow:0 1px 0 rgba(29,27,26,.06),0 30px 60px -38px rgba(29,27,26,.35)}
+.menu .m-kop{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--ink);padding-bottom:16px;margin-bottom:6px}
+.menu .m-kop .merk{font-size:26px}
+.menu .m-kop .sz{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:lowercase;color:var(--zacht)}
+.menu h3{font:700 12.5px/1 'Manrope',sans-serif;letter-spacing:.18em;color:var(--bes);margin:26px 0 4px}
+.menu ul{list-style:none}
+.menu li{padding:13px 0;border-bottom:1px dashed rgba(29,27,26,.18)}
+.menu li:last-child{border-bottom:0}
+.menu li b{display:block;font:800 18px/1.15 'Syne',sans-serif;text-transform:lowercase;letter-spacing:-.02em}
+.menu li span{display:block;font-size:15px;line-height:1.5;color:var(--zacht);margin-top:4px}
+.menu li em{display:block;font-style:normal;font-size:14.5px;font-weight:600;color:var(--bes);margin-top:6px}
+.menu .m-voet{margin-top:20px;padding-top:16px;border-top:2px solid var(--ink);font-size:14px;color:var(--zacht)}
+.borden{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.borden figure{position:relative}
+.borden .beeld{border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;background:var(--beton)}
+.borden .breed{grid-column:1/-1}
+.borden .breed .beeld{aspect-ratio:16/10}
+.borden figure:nth-child(3){margin-top:70px}
+.borden img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.borden figure:hover img{transform:scale(1.04)}
+.borden figcaption{display:flex;justify-content:space-between;gap:14px;font-size:14.5px;color:var(--zacht);padding:12px 4px 0}
+.borden figcaption b{color:var(--ink);font-weight:700;text-transform:lowercase}
 
-/* FERMENT */
+/* FERMENTATIE */
 .ferm{background:var(--bes-d);color:var(--wit);padding:clamp(100px,11vw,150px) 0;position:relative;overflow:hidden}
-.ferm::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(800px 500px at 100% 0,rgba(255,255,255,.07),transparent 60%)}
-.ferm .wrap>*{min-width:0}
-.ferm .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,96px);align-items:center}
-.ferm .sp{color:var(--bes-l)}
-.ferm h2{color:var(--wit);font-size:clamp(38px,4.3vw,70px);margin:20px 0 20px}
-.ferm h2 span{color:#E7A9BC}
-.ferm .sub{font-size:18px;color:rgba(247,246,243,.8);max-width:30em}
-.lab{margin-top:36px;display:grid;gap:12px}
-.lab div{background:rgba(247,246,243,.07);border:1px solid rgba(247,246,243,.12);border-radius:18px;padding:18px 22px;transition:background .4s}
-.lab div:hover{background:rgba(247,246,243,.12)}
-.lab b{display:block;font:700 19px/1.2 'Syne',sans-serif;text-transform:lowercase;margin-bottom:4px}
-.lab span{font-size:15px;color:rgba(247,246,243,.75)}
-.fotos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.fotos figure{border-radius:var(--r);overflow:hidden;aspect-ratio:3/4}
-.fotos figure:nth-child(2){margin-top:70px}
-.fotos figure:nth-child(3){margin-top:-70px}
-.fotos img{width:100%;height:100%;object-fit:cover}
-.citaat{grid-column:1/-1;margin-top:30px;border-top:1px solid rgba(247,246,243,.18);padding-top:34px;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start}
-.citaat svg{width:46px;height:46px;color:#E7A9BC}
-.citaat p{font:700 clamp(24px,2.5vw,36px)/1.25 'Syne',sans-serif;letter-spacing:-.02em;text-transform:lowercase;max-width:30em}
-.citaat small{display:block;margin-top:12px;font:600 14px/1 'Manrope',sans-serif;color:var(--bes-l);text-transform:none}
+.ferm::before{content:"";position:absolute;inset:0;opacity:.35;pointer-events:none;background-image:var(--korrel)}
+.ferm .wrap{position:relative}
+.ferm .sp{color:var(--roze)}
+.ferm .kop{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,90px);align-items:end}
+.ferm h2{color:var(--wit);font-size:clamp(40px,4.6vw,76px);margin-top:20px}
+.ferm .kop p{font-size:18px;color:rgba(247,246,243,.8);max-width:29em}
+.proces{display:grid;grid-template-columns:1.05fr .9fr 1.05fr;gap:clamp(18px,2.4vw,34px);margin-top:70px;align-items:start}
+.proces li{list-style:none}
+.proces li:nth-child(2){margin-top:90px}
+.proces figure{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5}
+.proces img{width:100%;height:100%;object-fit:cover}
+.proces .stap{display:grid;grid-template-columns:auto 1fr;gap:16px;margin-top:22px}
+.proces .nr{font:700 15px/1 'Manrope',sans-serif;width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(231,169,188,.6);color:var(--roze);display:grid;place-items:center}
+.proces h3{color:var(--wit);font-size:22px;letter-spacing:-.02em}
+.proces p{font-size:15.5px;color:rgba(247,246,243,.75);margin-top:6px}
+.glas{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(30px,5vw,80px);align-items:center;margin-top:clamp(70px,8vw,110px);padding-top:clamp(50px,6vw,80px);border-top:1px solid rgba(247,246,243,.16)}
+.glas blockquote p{font:700 clamp(26px,2.7vw,40px)/1.2 'Syne',sans-serif;letter-spacing:-.025em;text-transform:lowercase}
+.glas blockquote footer{margin-top:16px;font-size:14.5px;font-weight:600;color:var(--bes-l)}
+.glas dl{margin-top:40px;display:grid;grid-template-columns:auto 1fr;gap:12px 26px;font-size:15.5px;border-top:1px solid rgba(247,246,243,.16);padding-top:26px}
+.glas dt{font-weight:700;text-transform:lowercase}
+.glas dd{color:rgba(247,246,243,.72)}
+.glas figure{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5}
+.glas figure img{width:100%;height:100%;object-fit:cover}
 
-/* STRAAT */
-.straat{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;padding:14px}
-.straat figure{border-radius:var(--r);overflow:hidden;height:clamp(420px,44vw,640px);position:relative}
+/* GASTEN */
+.gasten{padding:clamp(100px,11vw,150px) 0}
+.gasten .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(36px,6vw,100px);align-items:center}
+.gasten figure{border-radius:var(--r);overflow:hidden;aspect-ratio:3/4}
+.gasten figure img{width:100%;height:100%;object-fit:cover}
+.gasten h2{font-size:clamp(38px,4.3vw,70px);margin-top:20px}
+.gasten .lang{margin-top:22px;font-size:18px;line-height:1.6;max-width:34em;color:#3F3A37}
+.gasten .wie{margin-top:18px;font-size:15px;color:var(--zacht)}
+.gasten .wie b{color:var(--ink)}
+.gasten .meer{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.gasten blockquote{border-top:2px solid var(--ink);padding-top:20px}
+.gasten blockquote p{font-size:16.5px;line-height:1.6}
+.gasten blockquote footer{margin-top:12px;font-size:14px;font-weight:700}
+.gasten blockquote footer span{font-weight:500;color:var(--zacht)}
+.gasten .score{margin-top:40px;display:flex;align-items:center;gap:16px;font-size:15px;color:var(--zacht)}
+.gasten .score b{font:800 40px/1 'Syne',sans-serif;color:var(--bes);letter-spacing:-.03em}
+
+/* BINNEN */
+.binnen{background:var(--beton);position:relative;padding:clamp(100px,11vw,140px) 0}
+.binnen::before{content:"";position:absolute;inset:0;opacity:.55;pointer-events:none;background-image:var(--korrel)}
+.binnen .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(36px,6vw,96px);align-items:center}
+.binnen h2{font-size:clamp(40px,4.6vw,76px);margin-top:20px}
+.binnen .intro{font-size:18px;color:#3F3A37;margin-top:20px;max-width:28em}
+.regels{list-style:none;margin-top:34px;border-top:1.5px solid rgba(29,27,26,.2)}
+.regels li{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:15px 0;border-bottom:1.5px solid rgba(29,27,26,.2);font-size:16px}
+.regels li b{font:800 17px/1.4 'Syne',sans-serif;text-transform:lowercase;letter-spacing:-.01em}
+.regels li span{color:#3F3A37}
+.adres{margin-top:30px;font-size:17px;font-weight:700}
+.binnen .knoppen{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.straat{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.straat figure{border-radius:var(--r);overflow:hidden;aspect-ratio:3/4.3;position:relative}
+.straat figure:nth-child(2){margin-top:80px}
 .straat img{width:100%;height:100%;object-fit:cover}
-.straat .vlak{background:var(--beton);display:flex;flex-direction:column;justify-content:space-between;padding:clamp(28px,3vw,44px)}
-.straat .vlak h2{font-size:clamp(34px,3.1vw,50px)}
-.straat .vlak p{font-size:16.5px;color:#45403D}
-.straat .vlak ul{list-style:none;display:grid;gap:10px;margin-top:22px}
-.straat .vlak li{display:flex;gap:12px;align-items:center;font-weight:600;font-size:15.5px;text-transform:lowercase}
-.straat .vlak li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--bes);flex:none}
-.straat figcaption{position:absolute;left:18px;bottom:18px;background:var(--wit);font-weight:700;font-size:14px;padding:10px 16px;border-radius:999px;text-transform:lowercase}
+.straat figcaption{grid-column:1/-1;font-size:14.5px;color:var(--zacht);margin-top:-4px}
 
-/* REVIEWS */
-.rev{padding:clamp(100px,11vw,150px) 0}
-.rev .kop{text-align:center;max-width:820px;margin:0 auto 56px}
-.rev h2{font-size:clamp(44px,5vw,84px);margin-top:20px}
-.rev h2 span{color:var(--bes)}
-.rev .sp{justify-content:center}
-.drie{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.drie article{background:#fff;border-radius:var(--r);padding:30px 30px 28px;border:1px solid rgba(29,27,26,.07);display:flex;flex-direction:column}
-.drie .st{color:var(--bes);letter-spacing:3px;font-size:14px}
-.drie p{margin:12px 0 18px;font-size:17px;line-height:1.6;flex:1}
-.drie cite{font-style:normal;font-weight:700;font-size:14.5px}
-.drie cite small{font-weight:500;color:var(--zacht);margin-left:6px}
-
-/* BEZOEK */
-.bezoek{padding:0 0 clamp(100px,11vw,150px)}
-.bezoek .doos{background:var(--beton);border-radius:32px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);overflow:hidden;position:relative}
-.bezoek .tekst{padding:clamp(48px,6vw,90px)}
-.bezoek h2{font-size:clamp(38px,4.1vw,68px);margin:20px 0 22px}
-.bezoek h2 span{color:var(--bes)}
-.uren{display:grid;grid-template-columns:auto 1fr;gap:8px 34px;font-size:16.5px;margin-top:8px;text-transform:lowercase}
-.uren dt{font-weight:700}
-.uren dd{color:#45403D}
-.adres{margin-top:26px;font-size:17px;font-weight:600}
-.adres span{display:block;font-weight:400;color:var(--zacht);font-size:15.5px;margin-top:4px}
-.bezoek .knoppen{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.bezoek .beeld{position:relative;min-height:560px}
-.bezoek .beeld img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-
-.voet{padding:40px 0 60px;font-size:14.5px;color:var(--zacht)}
-.voet .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px;border-top:1px solid rgba(29,27,26,.12);padding-top:34px}
+.voet{background:var(--wit);padding:40px 0 60px;font-size:14.5px;color:var(--zacht)}
+.voet .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px}
 .voet a{text-decoration:underline;text-underline-offset:3px}
 
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
@@ -157,48 +172,39 @@ h1,h2{text-wrap:balance}
 
 @media (max-width:1080px){
   .nav ul{display:none}
-  .hero{grid-template-columns:1fr;min-height:0}
-  .hero-r{min-height:70vh}
-  .kaart .kop,.ferm .wrap{grid-template-columns:1fr}
-  .borden{grid-template-columns:1fr 1fr}
-  .bord,.bord.groot{grid-column:auto}
-  .bord:nth-child(n){margin-top:0}
-  .bord:nth-child(even){margin-top:60px}
-  .bord:nth-child(5){grid-column:1/-1}
-  .bord:nth-child(5) .beeld{aspect-ratio:16/10}
-  .fotos{order:2}
-  .straat{grid-template-columns:1fr 1fr}
-  .straat .vlak{grid-column:1/-1;order:-1;height:auto}
-  .drie{grid-template-columns:1fr}
-  .bezoek .doos{grid-template-columns:1fr}
-  .bezoek .beeld{min-height:440px}
+  .hero-kop{grid-template-columns:1fr;gap:26px}
+  .kaart .kop,.ferm .kop{grid-template-columns:minmax(0,1fr);gap:20px}
+  .kaart .raster{grid-template-columns:minmax(0,1fr)}
+  .menu{position:static}
+  .gasten .wrap,.binnen .wrap{grid-template-columns:minmax(0,1fr)}
+  .gasten figure{aspect-ratio:4/3.4;max-height:560px}
+  .glas{grid-template-columns:1fr}
+  .glas figure{aspect-ratio:16/12}
 }
 @media (max-width:720px){
   body{font-size:16.5px}
   .wrap{width:calc(100% - 36px)}
-  .hero-l{padding:0 18px 30px}
-  .nav{height:80px}
-  .hero h1{font-size:clamp(42px,11.6vw,58px)}
-  .kaart h2,.ferm h2,.rev h2,.bezoek h2{font-size:clamp(30px,8.6vw,40px)}
-  .straat .vlak h2{font-size:32px}
-  .hero-tekst{padding:16px 0 30px}
-  .hero-r{min-height:500px}
-  .hero-r .score{right:16px;bottom:16px}
-  .borden{grid-template-columns:1fr;gap:34px}
-  .bord:nth-child(even){margin-top:0}
-  .bord .beeld,.bord.groot .beeld{aspect-ratio:4/4.4}
-  .fotos{gap:10px}
-  .fotos figure:nth-child(2){margin-top:40px}
-  .fotos figure:nth-child(3){margin-top:-40px}
-  .citaat{grid-template-columns:1fr;gap:14px}
-  .straat{grid-template-columns:1fr;padding:10px;gap:10px}
-  .straat figure{height:440px}
-  .bezoek{padding-left:0;padding-right:0}
-  .bezoek .doos{border-radius:26px}
-  .uren{grid-template-columns:1fr;gap:2px}
-  .uren dd{margin-bottom:10px}
-  .bezoek .tekst{padding:40px 24px}
-  .bezoek .doos>*{min-width:0}
+  .nav{height:78px}
+  .nav .ig{display:none}
+  .hero h1{font-size:clamp(46px,13.4vw,64px);margin-top:16px}
+  .hero-kop{padding-top:6px}
+  .tafel{grid-template-columns:1fr 1fr;height:auto;gap:8px;margin:0 10px}
+  .tafel figure{border-radius:18px;aspect-ratio:3/3.6}
+  .tafel figure:first-child{grid-column:1/-1;aspect-ratio:4/3.6}
+  .tafel figcaption{left:10px;bottom:10px;font-size:12.5px;padding:7px 12px}
+  .kaart h2,.ferm h2,.binnen h2{font-size:clamp(31px,8.4vw,42px)}
+  .gasten h2{font-size:clamp(30px,8.4vw,40px)}
+  .borden{gap:12px}
+  .borden figure:nth-child(3){margin-top:0}
+  .borden figcaption{flex-direction:column;gap:2px;font-size:13.5px}
+  .proces{grid-template-columns:1fr;gap:44px;margin-top:46px}
+  .proces li:nth-child(2){margin-top:0}
+  .proces figure{aspect-ratio:4/3.6}
+  .gasten .meer{grid-template-columns:1fr;gap:26px}
+  .regels li{grid-template-columns:1fr;gap:2px}
+  .straat{gap:10px}
+  .straat figure:nth-child(2){margin-top:40px}
+  .knop{font-size:15px}
   .voet .wrap{flex-direction:column;align-items:flex-start}
 }
 </style>
@@ -208,113 +214,139 @@ h1,h2{text-wrap:balance}
 
 <main id="top">
 <section class="hero">
-  <div class="hero-l">
+  <div class="wrap">
     <header class="nav">
       <a href="#top" class="merk" aria-label="butan.">butan<i>.</i></a>
       <ul>
         <li><a href="#kaart">de kaart</a></li>
-        <li><a href="#fermentatie">fermentatie</a></li>
-        <li><a href="#bezoek">uren &amp; adres</a></li>
+        <li><a href="#fermentatie">kombucha &amp; cheong</a></li>
+        <li><a href="#binnen">uren &amp; adres</a></li>
       </ul>
+      <a class="ig" href="https://www.instagram.com/butan_diest/" target="_blank" rel="noopener">@butan_diest</a>
     </header>
-    <div class="hero-tekst">
-      <span class="sp rv">breakfast &amp; lunchbar in diest</span>
-      <h1 class="rv" style="--d:1">funky. casual. <span>no fuzz.</span></h1>
-      <p class="rv" style="--d:2">Ontbijt en lunch in de Ketelstraat, aan 26 plaatsen. Alles wat op je bord ligt maken we zelf, tot de kombucha in je glas toe.</p>
-      <div class="knoppen rv" style="--d:3">
-        <a class="knop k-bes" href="#kaart">wat er op tafel komt</a>
-        <a class="knop k-lijn" href="#bezoek">openingsuren</a>
+    <div class="hero-kop">
+      <div>
+        <span class="sp rv">breakfast &amp; lunchbar in de ketelstraat</span>
+        <h1 class="rv" style="--d:1">funky. casual. <b>no fuzz.</b></h1>
+      </div>
+      <div class="hero-zij rv" style="--d:2">
+        <p>Ontbijt en lunch aan 26 plaatsen. Alles maken we zelf, van de granola tot de kombucha. Reserveren hoeft niet: je wandelt gewoon binnen en schuift aan.</p>
+        <div class="knoppen">
+          <a class="knop k-bes" href="#kaart">wat er op tafel komt<span class="pt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+          <a class="knop k-lijn" href="#binnen">uren &amp; adres<span class="pt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        </div>
+        <p class="score"><b>4,8 op Google</b> uit 136 reviews</p>
       </div>
     </div>
-    <div class="feit rv" style="--d:4"><span>26 plaatsen</span><span>geen reservaties</span><span>al vijf jaar</span></div>
   </div>
-  <div class="hero-r">
-    <img src="img/hero.webp" alt="Twee kommen ontbijt van boven gezien op een grijze betonnen tafel: havermout met bessen en yoghurt met granola">
-    <div class="score"><b>4,8</b><span>uit 136 reviews<br>op Google</span></div>
+  <div class="tafel">
+    <figure><img src="img/hero.webp" alt="Twee kommen ontbijt van boven op een grijze betonnen tafel: havermout met bessen en yoghurt met granola"><figcaption>een kommeke havermout</figcaption></figure>
+    <figure><img src="img/muhammara.webp" alt="Toast met rode paprikatapenade, venkel en eetbare bloemen"><figcaption>toast muhammara</figcaption></figure>
+    <figure><img src="img/koekskes.webp" alt="Chocoladekoekjes op een grijs bord"><figcaption>feelgood koekskes</figcaption></figure>
   </div>
 </section>
 
 <section class="kaart" id="kaart">
   <div class="wrap">
     <div class="kop">
-      <div class="rv"><span class="sp">de kaart</span><h2>comfortfood, <span>voor ieder wat wils.</span></h2></div>
-      <p class="rv" style="--d:1">De kaart volgt het seizoen. Nu is het herfst, dus warme kommen, compote en koekskes uit de oven. Een greep uit wat er de voorbije weken op tafel kwam.</p>
+      <div class="rv"><span class="sp">de kaart</span><h2>comfortfood, voor ieder wat wils.</h2></div>
+      <p class="rv" style="--d:1">Onze kaart draait mee met het seizoen. Nu is het herfst, dus komen er warme kommen, compote en koekskes uit de oven. Dit stond de voorbije weken op tafel.</p>
     </div>
-    <div class="borden">
-      <article class="bord groot rv"><div class="beeld"><img src="img/havermout.webp" alt="Kom havermout met pruimencompote, bramencoulis, granola en bosbessen" loading="lazy"></div><h3>een kommeke havermout</h3><p>Huisgemaakte pruimencompote, bramencoulis, hazelnoot- en kardemomgranola, bosbessen en gepofte druifkes.</p><span class="dia">"da's lek ne knuffel van de herfst zelf"</span></article>
-      <article class="bord groot rv" style="--d:1"><div class="beeld"><img src="img/muhammara.webp" alt="Toast met rode paprikatapenade, venkel en eetbare bloemen" loading="lazy"></div><h3>toast muhammara</h3><p>Huisgemaakte tapenade van gegrilde paprika en walnoot, met geschaafde venkel. Lunch is served.</p></article>
-      <article class="bord rv"><div class="beeld"><img src="img/kom.webp" alt="Kom met yoghurt, compote en granola" loading="lazy"></div><h3>een kom comfortfood</h3><p>Romig, met paarse compote, een krokante crumble en een braam erop.</p></article>
-      <article class="bord rv" style="--d:1"><div class="beeld"><img src="img/koekskes.webp" alt="Chocoladekoekjes op een grijs bord" loading="lazy"></div><h3>feelgood koekskes</h3><p>Turn that frown upside down. Vers gebakken, voor bij je koffie.</p></article>
-      <article class="bord rv" style="--d:2"><div class="beeld"><img src="img/cake.webp" alt="Twee sneden cake met noten en bessen op een bord" loading="lazy"></div><h3>gezond zondigen</h3><p>Zoet, maar met een goed geweten. Wat er ligt, wisselt mee met het seizoen.</p></article>
+    <div class="raster">
+      <div class="menu rv">
+        <div class="m-kop"><span class="merk">butan<i>.</i></span><span class="sz">herfst</span></div>
+        <h3>ontbijt</h3>
+        <ul>
+          <li><b>een kommeke havermout</b><span>Pruimencompote, bramencoulis, granola met hazelnoot en kardemom, bosbessen en gepofte druifkes.</span></li>
+          <li><b>een kom comfortfood</b><span>Romig, met paarse compote, een krokante crumble en een braam erop.</span></li>
+        </ul>
+        <h3>lunch</h3>
+        <ul>
+          <li><b>toast muhammara</b><span>Huisgemaakte tapenade van gegrilde paprika en walnoot, met geschaafde venkel.</span><em>lunch is served.</em></li>
+        </ul>
+        <h3>zoet</h3>
+        <ul>
+          <li><b>feelgood koekskes</b><span>Vers gebakken, voor bij je koffie. Turn that frown upside down.</span></li>
+          <li><b>gezond zondigen</b><span>Zoet, maar met een goed geweten. Wat er ligt, wisselt mee met het seizoen.</span></li>
+        </ul>
+        <p class="m-voet">Alles huisgemaakt. Wat er vandaag op de kaart staat, zie je op onze Instagram.</p>
+      </div>
+      <div class="borden">
+        <figure class="breed rv"><div class="beeld"><img src="img/havermout.webp" alt="Kom havermout met pruimencompote, bramencoulis, granola en bosbessen" loading="lazy"></div><figcaption><b>een kommeke havermout</b><span>ontbijt</span></figcaption></figure>
+        <figure class="rv" style="--d:1"><div class="beeld"><img src="img/kom.webp" alt="Kom met yoghurt, compote en granola" loading="lazy"></div><figcaption><b>een kom comfortfood</b><span>ontbijt</span></figcaption></figure>
+        <figure class="rv" style="--d:1"><div class="beeld"><img src="img/taart.webp" alt="Taart met een korst van noten en bloemblaadjes, in punten gesneden" loading="lazy"></div><figcaption><b>huisgemaakte taart</b><span>zoet</span></figcaption></figure>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="ferm" id="fermentatie">
   <div class="wrap">
-    <div class="rv">
-      <span class="sp">fermentatie</span>
-      <h2>zelf gebrouwen <span>en gegist.</span></h2>
-      <p class="sub">Onze kombucha brouwen we zelf. Kneusjes fruit uit de keuken, kruiden en specerijen gaan op suiker en worden een siroopje. Geen poeders, geen synthetische smaakjes.</p>
-      <div class="lab">
-        <div><b>kombucha</b><span>Zelf gebrouwen, met een tweede fermentatie op onze eigen cheong.</span></div>
-        <div><b>cheong</b><span>Een gefermenteerd siroopje van alles en nog wat. Zoals sparrennaaldjes en bramen, sinds eind vorig jaar op suiker.</span></div>
-        <div><b>pumpkin spice latte</b><span>Met onze eigen siroop. Geen fan van koffie? Dan is een pumpkin spice melkske ook de moeite.</span></div>
-        <div><b>huisgemaakte drankskes</b><span>Passievrucht-ijsthee en granaatappellimonade, voor de warme dagen.</span></div>
-      </div>
+    <div class="kop">
+      <div class="rv"><span class="sp">kombucha &amp; cheong</span><h2>zelf gebrouwen en gegist.</h2></div>
+      <p class="rv" style="--d:1">Wat je bij ons drinkt, staat eerst maanden te trekken. Kneusjes fruit uit de keuken, kruiden en specerijen gaan op suiker en worden een siroopje. Geen poeders, geen synthetische smaakjes.</p>
     </div>
-    <div class="fotos rv" style="--d:1">
-      <figure><img src="img/cheong.webp" alt="Sparrennaalden en bramen in een zeef boven een fles" loading="lazy"></figure>
-      <figure><img src="img/siroop.webp" alt="Pumpkin spice siroop die door een zeef loopt" loading="lazy"></figure>
-      <figure><img src="img/drankskes.webp" alt="Drie glazen huisgemaakte limonade en ijsthee met munt" loading="lazy"></figure>
-      <figure><img src="img/ijsthee.webp" alt="Bokaal ijsthee met schijfjes sinaasappel" loading="lazy"></figure>
-    </div>
-    <div class="citaat rv">
-      <svg viewBox="0 0 48 48" fill="currentColor" aria-hidden="true"><path d="M8 34c0-9 4-16 12-20l2 3c-5 3-7 7-7 11h6v10H8v-4zm20 0c0-9 4-16 12-20l2 3c-5 3-7 7-7 11h6v10H28v-4z"/></svg>
-      <div><p>"pumpkin spice siroop. jawel, die maken we zelf, zonder poederkes of van dieje synthetische tuggel. en da proeft ge."</p><small>butan. op Instagram</small></div>
-    </div>
-  </div>
-</section>
-
-<div class="straat">
-  <div class="vlak rv">
-    <div><span class="sp">26 plaatsen</span><h2 style="margin-top:18px">'t gezelligste straatje in diest</h2></div>
-    <div><p>Zo noemen we de Ketelstraat, waar je ons vindt. Bij goed weer staat er ook een terrasje buiten.</p>
-    <ul><li>geen reservaties, gewoon binnenwandelen</li><li>huisgemaakt, van compote tot kombucha</li><li>ook de kleinste gasten zijn welkom</li></ul></div>
-  </div>
-  <figure class="rv" style="--d:1"><img src="img/straat.webp" alt="De Ketelstraat in Diest met vakwerkgevels en hangende parapluutjes" loading="lazy"><figcaption>ketelstraat 22</figcaption></figure>
-  <figure class="rv" style="--d:2"><img src="img/taart.webp" alt="Taart met een korst van noten en bloemblaadjes, in punten gesneden" loading="lazy"></figure>
-</div>
-
-<section class="rev">
-  <div class="wrap">
-    <div class="kop rv"><span class="sp">wat gasten zeggen</span><h2>"de borden zijn <span>net kunstwerken."</span></h2></div>
-    <div class="drie">
-      <article class="rv"><div class="st">★★★★★</div><p>"Deze ontbijt/lunch plek kan ik iedereen aanraden. De borden zijn net kunstwerken, niet alleen mooi maar nog super lekker ook. Alles is huisgemaakt, zelfs tot en met de Kombucha die ze zelf brouwen."</p><cite>Jack Vanaudenhove<small>Google</small></cite></article>
-      <article class="rv" style="--d:1"><div class="st">★★★★★</div><p>"De allerliefste mensen die deze zaak uitbaten, enorm veel passie voor lekker eten en een huiselijke liefdevolle sfeer! Enige ontbijt en lunch zaak die er toe doet in Diest en omstreken!"</p><cite>Nonni Verheyen<small>Google</small></cite></article>
-      <article class="rv" style="--d:2"><div class="st">★★★★★</div><p>"Als je graag eens iets anders dan "standaard" wil eten ben je hier aan het goede adres. Het eten wordt er met veel liefde klaargemaakt."</p><cite>Pascale Siemons<small>Google</small></cite></article>
-    </div>
-  </div>
-</section>
-
-<section class="bezoek" id="bezoek">
-  <div class="wrap">
-    <div class="doos rv">
-      <div class="tekst">
-        <span class="sp">kom langs</span>
-        <h2>tot in de <span>ketelstraat.</span></h2>
-        <dl class="uren">
-          <dt>dinsdag tot vrijdag</dt><dd>8u30 tot 17u</dd>
-          <dt>zaterdag</dt><dd>9u tot 17u</dd>
-          <dt>zondag en maandag</dt><dd>gesloten</dd>
+    <ol class="proces">
+      <li class="rv"><figure><img src="img/cheong.webp" alt="Sparrennaalden en bramen in een zeef boven een fles" loading="lazy"></figure>
+        <div class="stap"><span class="nr">1</span><div><h3>op suiker</h3><p>Voor onze cheong gaat er van alles en nog wat op suiker. Deze met sparrennaaldjes en bramen staat er al sinds eind vorig jaar.</p></div></div></li>
+      <li class="rv" style="--d:1"><figure><img src="img/siroop.webp" alt="Pumpkin spice siroop die door een zeef loopt" loading="lazy"></figure>
+        <div class="stap"><span class="nr">2</span><div><h3>door de zeef</h3><p>Zo maken we ook onze pumpkin spice siroop: met echte specerijen, zonder poederkes.</p></div></div></li>
+      <li class="rv" style="--d:2"><figure><img src="img/ijsthee.webp" alt="Bokaal ijsthee met schijfjes sinaasappel" loading="lazy"></figure>
+        <div class="stap"><span class="nr">3</span><div><h3>in je glas</h3><p>De kombucha brouwen we zelf en gaat voor een tweede fermentatie op onze eigen cheong. Daarna is hij klaar voor jou.</p></div></div></li>
+    </ol>
+    <div class="glas">
+      <div class="rv">
+        <blockquote><p>"pumpkin spice siroop. jawel, die maken we zelf, zonder poederkes of van dieje synthetische tuggel. en da proeft ge."</p><footer>butan. op Instagram</footer></blockquote>
+        <dl>
+          <dt>kombucha</dt><dd>zelf gebrouwen, tweede fermentatie op cheong</dd>
+          <dt>pumpkin spice latte</dt><dd>met onze eigen siroop, of als melkske zonder koffie</dd>
+          <dt>in de zomer</dt><dd>passievrucht-ijsthee en granaatappellimonade</dd>
         </dl>
-        <p class="adres">Ketelstraat 22, 3290 Diest<span>Reserveren kan niet. Kom gewoon binnen, er is plaats voor 26.</span></p>
-        <div class="knoppen">
-          <a class="knop k-bes" href="https://www.google.com/maps/search/?api=1&amp;query=butan+Ketelstraat+22+3290+Diest" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>route plannen</a>
-          <a class="knop k-lijn" href="https://www.instagram.com/butan_diest/" target="_blank" rel="noopener">@butan_diest</a>
-        </div>
       </div>
-      <div class="beeld"><img src="img/straat2.webp" alt="De Ketelstraat in Diest op een mistige ochtend" loading="lazy"></div>
+      <figure class="rv" style="--d:1"><img src="img/drankskes.webp" alt="Drie glazen huisgemaakte limonade en ijsthee met munt" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="gasten">
+  <div class="wrap">
+    <figure class="rv"><img src="img/cake.webp" alt="Een hand houdt een bord met twee sneden cake met noten en bessen" loading="lazy"></figure>
+    <div>
+      <div class="rv"><span class="sp">wat gasten zeggen</span>
+      <h2>"de borden zijn net kunstwerken."</h2>
+      <p class="lang">"Deze ontbijt/lunch plek kan ik iedereen aanraden. De borden zijn net kunstwerken, niet alleen mooi maar nog super lekker ook. Alles is huisgemaakt, zelfs tot en met de Kombucha die ze zelf brouwen."</p>
+      <p class="wie"><b>Jack Vanaudenhove</b> op Google</p></div>
+      <div class="meer">
+        <blockquote class="rv"><p>"De allerliefste mensen die deze zaak uitbaten, enorm veel passie voor lekker eten en een huiselijke liefdevolle sfeer!"</p><footer>Nonni Verheyen <span>op Google</span></footer></blockquote>
+        <blockquote class="rv" style="--d:1"><p>"Als je graag eens iets anders dan "standaard" wil eten ben je hier aan het goede adres. Het eten wordt er met veel liefde klaargemaakt."</p><footer>Pascale Siemons <span>op Google</span></footer></blockquote>
+      </div>
+      <p class="score rv"><b>4,8</b><span>gemiddeld op Google,<br>uit 136 reviews</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="binnen" id="binnen">
+  <div class="wrap">
+    <div class="rv">
+      <span class="sp">kom binnen</span>
+      <h2>'t gezelligste straatje van diest.</h2>
+      <p class="intro">Zo noemen wij de Ketelstraat. Je vindt ons op nummer 22, en bij goed weer staat er ook een terrasje buiten.</p>
+      <ul class="regels">
+        <li><b>reserveren</b><span>Kan niet, en hoeft ook niet. Je wandelt binnen en neemt een plekje.</span></li>
+        <li><b>plaats</b><span>26 stoelen, groot en klein. Ook de kleinste gasten zijn welkom.</span></li>
+        <li><b>di tot vr</b><span>8u30 tot 17u</span></li>
+        <li><b>zaterdag</b><span>9u tot 17u</span></li>
+        <li><b>zo en ma</b><span>Gesloten</span></li>
+      </ul>
+      <p class="adres">Ketelstraat 22, 3290 Diest</p>
+      <div class="knoppen">
+        <a class="knop k-bes" href="https://www.google.com/maps/search/?api=1&amp;query=butan+Ketelstraat+22+3290+Diest" target="_blank" rel="noopener">route plannen<span class="pt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <a class="knop k-lijn" href="https://www.instagram.com/butan_diest/" target="_blank" rel="noopener">@butan_diest<span class="pt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      </div>
+    </div>
+    <div class="straat rv" style="--d:1">
+      <figure><img src="img/straat.webp" alt="De Ketelstraat in Diest met hangende parapluutjes boven de straat" loading="lazy"></figure>
+      <figure><img src="img/straat2.webp" alt="De Ketelstraat in Diest op een mistige ochtend" loading="lazy"></figure>
     </div>
   </div>
 </section>
