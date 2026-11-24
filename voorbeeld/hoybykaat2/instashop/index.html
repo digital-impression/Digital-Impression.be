@@ -98,17 +98,29 @@ h1 .hand{font-family:Caveat,cursive;font-weight:700;color:var(--oranje);font-siz
 .pijl-tekst{position:absolute;left:50%;top:18px;translate:-50% 0;font:700 22px Caveat,cursive;color:var(--groen);white-space:nowrap}
 @media(max-width:1060px){.wrap{grid-template-columns:1fr;padding-top:40px}.toestellen{flex-wrap:wrap}}
 @media(max-width:720px){.voorbeeld{right:6px}.gsm.twee{display:none}.gsm{width:min(330px,100%);height:680px}.pijl-tekst{display:none}}
+.prijsvak{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0 8px}
+.prijsvak div{background:#fff;border-radius:20px;padding:16px 18px}
+.prijsvak small{display:block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0B6B3E}
+.prijsvak b{display:block;font:600 26px/1.15 Fraunces,serif;color:#0E3B26;margin-top:4px}
+.prijsvak span{display:block;font-size:14px;color:#5D665F;margin-top:2px}
+.btw{font-size:13px;color:#5D665F;margin-bottom:18px}
+@media(max-width:480px){.prijsvak{grid-template-columns:1fr}}
+.wrap>*{min-width:0}
+.toestellen{max-width:100%}
+@media(max-width:720px){.wrap{width:calc(100% - 36px);gap:40px}.voorbeeld{top:-14px}}
 </style>
 </head>
 <body>
 <div class="wrap">
  <div>
   <span class="lbl"><i></i>Voorbeeld voor Hoy by Kaat</span>
-  <h1>Je shop, gewoon <span class="hand">op Instagram</span></h1>
-  <p class="intro">Daar volgen al 4.597 mensen je werk. Met een shop op je profiel kunnen ze meteen zien wat te koop is, en vind je bestellingen gewoon in je berichten.</p>
-  <div class="stap"><b>1</b><div><h3>Een shop-tab op je profiel</h3><p>Al je boeketten, kransen, cadeaubonnen en workshops netjes op een rij, met foto, prijs en uitleg.</p></div></div>
-  <div class="stap"><b>2</b><div><h3>Producten taggen in je posts</h3><p>Post je een boeket of een reel, dan tag je het product. Wie het mooi vindt, tikt erop en ziet meteen de prijs.</p></div></div>
-  <div class="stap"><b>3</b><div><h3>Bestellen met een berichtje</h3><p>Je klant stuurt een bericht of gaat naar je website. Workshops en kampen worden er meteen geboekt.</p></div></div>
+  <h1>Je shop op Instagram</h1>
+  <p class="intro">4.597 mensen volgen je werk al op Instagram. Dit is wat ik voorstel:</p>
+  <div class="stap"><b>1</b><div><h3>Ik zet je shop op je profiel</h3><p>Je boeketten, cadeaubon en workshops, elk met een foto en een prijs.</p></div></div>
+  <div class="stap"><b>2</b><div><h3>Klanten tikken en sturen je een berichtje</h3><p>Workshops en kampen boeken ze rechtstreeks op je website.</p></div></div>
+  <div class="stap"><b>3</b><div><h3>Ik hou de shop voor je bij</h3><p>Nieuw product of andere prijs? Stuur het door, ik pas het aan.</p></div></div>
+  <div class="prijsvak"><div><small>Opzet</small><b>€ 99</b><span>eenmalig</span></div><div><small>Bijhouden</small><b>inbegrepen</b><span>in je onderhoud van € 39,99 per maand</span></div></div>
+  <p class="btw">Prijzen excl. btw.</p>
   <a class="terug" href="../#shop">← Terug naar de website</a>
  </div>
  <div class="toestellen">
@@ -130,16 +142,7 @@ h1 .hand{font-family:Caveat,cursive;font-weight:700;color:var(--oranje);font-siz
     <div class="nav"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"/></svg><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/></svg><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><img src="../img/logo.png" alt=""></div>
    </div>
   </div>
-  <div class="gsm twee">
-   <span class="pijl-tekst">tik op een product ↓</span>
-   <div class="scherm">
-    <span class="notch"></span>
-    <div class="status"><span>9:41</span><span>●●● 5G ▮</span></div>
-    <div class="kop"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg><b style="text-align:center">Product</b><svg viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg></div>
-    <div class="scroll" id="detail"></div>
-   </div>
-  </div>
- </div>
+</div>
 </div>
 <script>
 (function(){
@@ -147,7 +150,7 @@ var P=[
  {f:'s_wild',n:'Kleurrijk wildboeket',p:'Op aanvraag',c:'Boeketten',t:'Eén week per maand maak ik wilde boeketten met verse seizoensbloemen. Levering in Leuven en 10 km rond, of afhalen in Heverlee.'},
  {f:'s_droog',n:'Droogboeket in jouw kleuren',p:'Op aanvraag',c:'Droog & zijde',t:'Geef je kleuren door of stuur een foto. Geen onderhoud en lang mooi. Verzenden kan.'},
  {f:'s_zijde',n:'Zijden boeket met vaas',p:'€ 35 / maand',c:'Droog & zijde',t:'Voor je zaak: een zijden boeket in een passende vaas, en vijf keer per jaar een nieuw. Prijs excl. btw.'},
- {f:'b_winter',n:'Workshop winterkrans',p:'vanaf € 55 pp',c:'Workshops',t:'Maak je eigen krans met vers groen, droogbloemen of kunstbloemen. Je kiest je datum op de website.'},
+ {f:'b_winter',n:'Workshop winterkrans',p:'€ 70 pp',c:'Workshops',t:'Maak je eigen krans met vers groen, droogbloemen of kunstbloemen. Je kiest je datum op de website.'},
  {f:'s_hoop',n:'Bloemenhoop',p:'Op aanvraag',c:'Droog & zijde',t:'Een ring vol droogbloemen, voor aan de muur of de deur.'},
  {f:'b_ws',n:'Cadeaubon workshop',p:'vanaf € 55',c:'Cadeau',t:'Een workshop cadeau doen? De ontvanger kiest zelf een datum en de bloemen.'},
  {f:'s_papier',n:'Papieren bloemen',p:'Op aanvraag',c:'Droog & zijde',t:'Handgemaakt van crêpepapier. Ze verwelken nooit.'},
@@ -156,18 +159,14 @@ var P=[
 ];
 var POSTS=['i1','i2','i3','i4','i5','i6','i7','i8','i9'];
 var zak='<span class="zak"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span>';
-var r=document.getElementById('raster'),d=document.getElementById('detail'),sk=document.getElementById('shopkop'),gekozen=0,tab='shop';
+var r=document.getElementById('raster'),sk=document.getElementById('shopkop'),gekozen=0,tab='shop';
 function raster(){
  sk.style.display=tab==='shop'?'':'none';
- r.innerHTML=tab==='shop'?P.map(function(x,i){return '<button type="button" data-i="'+i+'"'+(i===gekozen?' class="aan"':'')+'><img src="../img/'+x.f+'.webp" alt="'+x.n+'">'+zak+'<span class="tag">'+x.p+'</span></button>';}).join('')
+ r.innerHTML=tab==='shop'?P.map(function(x,i){return '<button type="button" data-i="'+i+'"'+''+'><img src="../img/'+x.f+'.webp" alt="'+x.n+'">'+zak+'<span class="tag">'+x.p+'</span></button>';}).join('')
   :POSTS.map(function(f,i){return '<button type="button" data-i="'+(i%P.length)+'"><img src="../img/'+f+'.webp" alt="">'+(i%3===0?zak:'')+'</button>';}).join('');
 }
-function detail(){var x=P[gekozen];
- d.innerHTML='<div class="pfoto"><img src="../img/'+x.f+'.webp" alt="'+x.n+'"><span class="dots"><i></i><i></i><i></i></span></div><div class="pinfo"><small><img src="../img/logo.png" alt="">hoybykaat</small><h2>'+x.n+'</h2><span class="prijs">'+x.p+'</span><p>'+x.t+'</p><div class="pk"><span class="a">Bekijk op de website</span><span class="b">Stuur een bericht</span></div></div><div class="meer"><b>Meer van Hoy by Kaat</b><div>'+P.filter(function(y,i){return i!==gekozen;}).slice(0,3).map(function(y){return '<img src="../img/'+y.f+'.webp" alt="">';}).join('')+'</div></div>';
- d.scrollTop=0;}
-r.addEventListener('click',function(e){var b=e.target.closest('[data-i]');if(!b)return;gekozen=+b.dataset.i;raster();detail();});
 document.querySelectorAll('.tabs [data-t]').forEach(function(b){b.onclick=function(){tab=b.dataset.t;document.querySelectorAll('.tabs button').forEach(function(x){x.classList.toggle('aan',x===b);});raster();};});
-raster();detail();
+raster();
 })();
 </script>
 </body>
