@@ -3,325 +3,341 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>De Komeere · Ontbijt aan huis uit Haringe</title>
-<meta name="description" content="De Komeere uit Haringe brengt op zaterdag en zondag ontbijt aan huis in Poperinge en de Westhoek. Met streekproducten, huisgemaakte granola en een pop-up zomerbar in de voortuin.">
+<title>De Komeere · Ontbijt aan huis op zaterdag en zondag, uit Haringe</title>
+<meta name="description" content="De Komeere uit Haringe brengt op zaterdag en zondag ontbijt aan huis in Poperinge en de Westhoek. Boxen met een dialectnaam, huisgemaakte granola en een pop-up zomerbar in de voortuin van een vakwerkhuis uit 1634.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500,100;9..144,600,100;9..144,700,100&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js')</script>
 <style>
-:root{--roest:#a5482a;--roest-d:#83351c;--perzik:#f3c6a6;--perzik-l:#fbe6d6;--creme:#faf3ea;--papier:#fffbf5;--groen:#2f4a3a;--groen-d:#233a2c;--inkt:#2b211b;--grijs:#6f6158;--lijn:#ecdccb;--r:28px;--ease:cubic-bezier(.2,.7,.2,1)}
+:root{--roest:#a5482a;--roest-d:#83351c;--perzik:#f3c6a6;--perzik-l:#fbe6d6;--creme:#faf3ea;--papier:#fffbf5;--kraft:#e9d6bd;--groen:#2f4a3a;--groen-d:#233a2c;--inkt:#2b211b;--grijs:#6f6158;--lijn:#e6d4c1;--r:26px;--ease:cubic-bezier(.2,.7,.2,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--creme);color:var(--inkt);font:400 17px/1.65 'Nunito Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit}
-.wrap{width:min(1240px,100% - 48px);margin:0 auto}
+.wrap{width:min(1240px,100% - 56px);margin:0 auto}
 .demo{background:var(--roest-d);color:#ffe7d9;font:600 13.5px/1.4 'Nunito Sans',sans-serif;text-align:center;padding:9px 16px;position:relative;z-index:60}
 .demo a{color:#fff;font-weight:800;text-underline-offset:3px}
-h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;font-style:normal;font-variation-settings:'SOFT' 100;line-height:1.02;letter-spacing:-.02em}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;font-style:normal;font-variation-settings:'SOFT' 100;line-height:1.03;letter-spacing:-.02em}
+h1,h2{text-wrap:balance}
 .lab{display:inline-flex;align-items:center;gap:10px;font:800 12.5px/1 'Nunito Sans';letter-spacing:.14em;text-transform:uppercase;color:var(--roest)}
 .lab:before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:17px 27px;border-radius:999px;font:800 15.5px/1 'Nunito Sans';text-decoration:none;transition:transform .3s var(--ease),background .3s}
+
+/* knoppen met een stiksel, zoals het label op hun kraftzakjes */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:18px 28px;border-radius:999px;font:800 15.5px/1 'Nunito Sans';text-decoration:none;outline:1.5px dashed transparent;outline-offset:-6px;transition:background .3s,outline-color .3s,transform .3s var(--ease)}
 .btn:hover{transform:translateY(-2px)}
 .btn svg{width:18px;height:18px;flex:none}
-.btn-r{background:var(--roest);color:#fff}.btn-r:hover{background:var(--roest-d)}
-.btn-p{background:var(--perzik);color:var(--inkt)}
-.btn-gl{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6);background:rgba(255,255,255,.1);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-.btn-o{color:var(--inkt);box-shadow:inset 0 0 0 1.5px rgba(43,33,27,.3)}
+.btn-r{background:var(--roest);color:#fff;outline-color:rgba(255,231,217,.55)}
+.btn-r:hover{background:var(--roest-d)}
+.btn-o{color:var(--inkt);box-shadow:inset 0 0 0 1.5px rgba(43,33,27,.28)}
+.btn-o:hover{outline-color:rgba(43,33,27,.35)}
+.btn-p{background:var(--perzik);color:var(--inkt);outline-color:rgba(43,33,27,.28)}
+.btn-p:hover{background:#f6d2b8}
 
-/* hero */
-.hero{position:relative;min-height:min(940px,100vh);color:#fff;display:flex;flex-direction:column;overflow:hidden;background:#5c3a28}
-.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 50%;transform:scale(1.06);animation:zoom 18s var(--ease) forwards}
-@keyframes zoom{to{transform:scale(1)}}
-.hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(58,30,18,.88) 0%,rgba(58,30,18,.66) 36%,rgba(58,30,18,.1) 66%,rgba(58,30,18,0) 100%),linear-gradient(0deg,rgba(58,30,18,.55) 0%,transparent 35%)}
-.nav{position:relative;z-index:5;padding:22px 0}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;width:min(1380px,100% - 48px)}
-.nav .logo img{height:84px;width:auto}
-.nav ul{display:flex;gap:28px;list-style:none}
-.nav ul a{text-decoration:none;font:700 15px/1 'Nunito Sans';opacity:.9}
+/* HERO */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:calc(max(720px,100svh) - 38px);background:var(--creme)}
+.hero-l{display:flex;flex-direction:column;padding:0 clamp(28px,5vw,80px) clamp(36px,4vw,56px) max(28px,calc((100vw - 1240px)/2))}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0}
+.nav .logo img{height:78px;width:auto}
+.nav ul{display:flex;gap:24px;list-style:none}
+.nav ul a{text-decoration:none;font:700 15px/1 'Nunito Sans';opacity:.78}
 .nav ul a:hover{opacity:1}
-.h-in{position:relative;z-index:3;flex:1;display:flex;align-items:center;justify-content:space-between;gap:40px;width:min(1380px,100% - 48px);margin:0 auto;padding:30px 0 80px}
-.h-in .t{max-width:660px}
-.h-in .lab{color:var(--perzik)}
-.h-in h1{font-size:clamp(56px,6.4vw,100px);margin:22px 0 24px}
-.h-in h1 span{color:var(--perzik)}
-.h-in p{font-size:19.5px;max-width:30em;color:rgba(255,255,255,.88)}
+.hero-t{margin:auto 0;padding:34px 0 10px;max-width:600px}
+.hero h1{font-size:clamp(48px,4.9vw,80px);margin:22px 0 24px}
+.hero h1 span{color:var(--roest)}
+.hero p.intro{font-size:clamp(17px,1.3vw,19px);color:#4d4038;max-width:30em}
 .acties{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
-.bon{align-self:flex-end;flex:none;width:310px;background:var(--papier);color:var(--inkt);border-radius:24px;padding:24px 24px 22px;box-shadow:0 30px 60px -26px rgba(0,0,0,.6)}
-.bon small{font:800 11.5px/1 'Nunito Sans';letter-spacing:.14em;text-transform:uppercase;color:var(--roest)}
-.bon b{display:block;font:600 23px/1.15 'Fraunces';margin:10px 0 6px}
-.bon p{font-size:14.5px;color:var(--grijs)}
-.bon .sc{display:flex;align-items:center;gap:12px;margin-top:16px;padding-top:16px;border-top:1.5px dashed var(--lijn)}
-.bon .sc strong{font:600 34px/1 'Fraunces'}
-.bon .sc span{font-size:13.5px;color:var(--grijs);line-height:1.35}
-.bon .sc i{display:block;font-style:normal;color:var(--roest);letter-spacing:2px}
+.bonstrook{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;margin-top:40px;padding:18px 0;border-top:1.5px dashed var(--lijn);border-bottom:1.5px dashed var(--lijn);font-size:15px;color:var(--grijs);max-width:600px}
+.bonstrook b{display:block;font:600 21px/1.15 'Fraunces';color:var(--inkt)}
+.bonstrook .klok{width:46px;height:46px;border-radius:50%;background:var(--perzik-l);color:var(--roest);display:grid;place-items:center}
+.bonstrook .klok svg{width:22px;height:22px}
+.bonstrook .sc{text-align:right;line-height:1.3}
+.bonstrook .sc strong{display:block;font:600 28px/1 'Fraunces';color:var(--inkt)}
+.hero-r{position:relative;overflow:hidden;background:#7a5038}
+.hero-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform:scale(1.05);animation:zoom 18s var(--ease) forwards}
+@keyframes zoom{to{transform:scale(1)}}
 
-section{position:relative}
-.sec{padding:140px 0}
+/* BOXEN */
+.boxen{padding:clamp(100px,11vw,140px) 0;background:var(--papier)}
+.kopr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,90px);align-items:end;margin-bottom:56px}
+.kopr h2{font-size:clamp(42px,4.6vw,72px);margin-top:18px}
+.kopr p{color:var(--grijs);font-size:17.5px;max-width:30em}
+.bx{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.box{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);background:var(--creme);border-radius:var(--r);overflow:hidden;box-shadow:inset 0 0 0 1px var(--lijn)}
+.box .f{position:relative;min-height:320px}
+.box .f img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.box:hover .f img{transform:scale(1.05)}
+.box .t{position:relative;padding:30px 30px 28px;display:flex;flex-direction:column;border-left:2px dashed var(--lijn)}
+.box .wie{font:800 12px/1 'Nunito Sans';letter-spacing:.14em;text-transform:uppercase;color:var(--grijs)}
+.box h3{font-size:clamp(32px,2.8vw,40px);margin:14px 0 2px;color:var(--inkt)}
+.box .vt{font:700 14.5px/1.3 'Nunito Sans';color:var(--roest)}
+.box p{color:var(--grijs);font-size:15.5px;margin-top:14px;flex:1}
+.box .prijs{margin-top:22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.stempel{width:78px;height:78px;border-radius:50%;border:2px solid var(--roest);color:var(--roest);display:grid;place-items:center;font:600 22px/1 'Fraunces';position:relative;transform:rotate(-8deg)}
+.stempel::after{content:"";position:absolute;inset:4px;border-radius:50%;border:1px dashed rgba(165,72,42,.55)}
+.box .prijs a{font:800 14.5px/1 'Nunito Sans';color:var(--inkt);text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:3px}
+.box .prijs a:hover{color:var(--roest)}
+.best{margin-top:28px;display:flex;align-items:center;justify-content:space-between;gap:24px;background:var(--groen);color:#fff;border-radius:var(--r);padding:28px 34px}
+.best b{display:block;font:600 25px/1.2 'Fraunces'}
+.best span{color:rgba(255,255,255,.78);font-size:15.5px}
 
-/* verhaal */
-.verhaal .g{display:grid;grid-template-columns:1.15fr .85fr;gap:76px;align-items:center}
-.verhaal .f{position:relative}
-.verhaal .f .a{border-radius:36px;overflow:hidden;aspect-ratio:4/3}
-.verhaal .f .a img{width:100%;height:100%;object-fit:cover}
-.verhaal .f .jaar{position:absolute;right:-26px;bottom:-30px;background:var(--groen);color:#fff;border-radius:26px;padding:22px 26px;box-shadow:0 24px 40px -20px rgba(0,0,0,.45)}
-.verhaal .f .jaar b{display:block;font:600 52px/1 'Fraunces'}
-.verhaal .f .jaar span{font-size:14px;color:rgba(255,255,255,.8)}
-.verhaal h2{font-size:clamp(44px,4.6vw,70px);margin:18px 0 22px}
-.verhaal .t>p{color:var(--grijs);font-size:18px;margin-bottom:16px}
-.woord{margin-top:26px;background:var(--perzik-l);border-radius:24px;padding:24px 26px}
-.woord b{font:600 26px/1 'Fraunces';color:var(--roest)}
-.woord b small{font:700 14px/1 'Nunito Sans';color:var(--grijs);margin-left:8px}
-.woord p{margin-top:10px;font-size:16.5px}
-
-/* boxen */
-.boxen{background:var(--papier);border-radius:56px;margin:0 24px;padding:130px 0}
-.kopr{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:54px}
-.kopr h2{font-size:clamp(44px,4.8vw,74px);margin-top:18px;max-width:11em}
-.kopr p{max-width:25em;color:var(--grijs);font-size:18px}
-.bx{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.kaart{display:flex;flex-direction:column}
-.kaart .f{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5;background:#eee}
-.kaart .f img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
-.kaart:hover .f img{transform:scale(1.05)}
-.kaart .prijs{position:absolute;right:14px;top:14px;background:var(--roest);color:#fff;border-radius:999px;padding:9px 14px;font:800 15px/1 'Nunito Sans'}
-.kaart .wie{position:absolute;left:14px;bottom:14px;background:rgba(255,251,245,.95);border-radius:999px;padding:8px 13px;font:700 13px/1 'Nunito Sans'}
-.kaart h3{font-size:32px;margin:20px 0 2px}
-.kaart .vt{font:700 13.5px/1.3 'Nunito Sans';color:var(--roest);letter-spacing:.02em}
-.kaart p{color:var(--grijs);font-size:15.5px;margin-top:10px}
-.best{margin-top:44px;display:flex;align-items:center;justify-content:space-between;gap:24px;background:var(--groen);color:#fff;border-radius:26px;padding:26px 30px}
-.best b{font:600 26px/1.15 'Fraunces'}
-.best span{display:block;font-size:15.5px;color:rgba(255,255,255,.8);margin-top:4px}
-
-/* extra's band */
-.band{padding:24px 24px 0;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:14px}
-.band figure{position:relative;border-radius:32px;overflow:hidden;min-height:520px}
-.band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-.band figure:hover img{transform:scale(1.04)}
-.band figcaption{position:absolute;left:18px;bottom:18px;background:var(--papier);border-radius:999px;padding:10px 16px;font:700 14px/1 'Nunito Sans'}
-.extra{padding:90px 0 140px}
-.extra .g{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start}
-.extra h2{font-size:clamp(42px,4.4vw,66px);margin:18px 0 18px}
-.extra .t>p{color:var(--grijs);font-size:18px}
-.lijst{columns:2;column-gap:40px}
-.rg{break-inside:avoid;display:flex;align-items:baseline;gap:10px;padding:14px 0;border-bottom:1px solid var(--lijn)}
+/* EXTRA'S */
+.extra{padding:clamp(100px,11vw,140px) 0}
+.extra .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,90px);align-items:start}
+.extra h2{font-size:clamp(40px,4.2vw,66px);margin:18px 0 18px}
+.extra .intro{color:var(--grijs);font-size:17.5px;max-width:28em}
+.plank{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:40px}
+.plank figure{border-radius:22px;overflow:hidden;position:relative}
+.plank figure:first-child{grid-column:1/-1;aspect-ratio:16/10}
+.plank figure:not(:first-child){aspect-ratio:1/1}
+.plank img{width:100%;height:100%;object-fit:cover}
+.plank figcaption{position:absolute;left:12px;bottom:12px;background:rgba(255,251,245,.95);border-radius:999px;padding:8px 13px;font:700 13px/1 'Nunito Sans'}
+.prijslijst{background:var(--papier);border-radius:var(--r);padding:clamp(30px,3.4vw,48px);box-shadow:inset 0 0 0 1px var(--lijn)}
+.prijslijst h3{font-size:28px;display:flex;justify-content:space-between;align-items:baseline;padding-bottom:16px;border-bottom:2px solid var(--inkt)}
+.prijslijst h3 small{font:800 12px/1 'Nunito Sans';letter-spacing:.14em;text-transform:uppercase;color:var(--grijs)}
+.prijslijst .groep{font:800 12px/1 'Nunito Sans';letter-spacing:.14em;text-transform:uppercase;color:var(--roest);margin:26px 0 6px}
+.rg{display:flex;align-items:baseline;gap:12px;padding:11px 0;font-size:16.5px}
 .rg span{font-weight:700}
-.rg small{display:block;font-weight:400;color:var(--grijs);font-size:14px}
-.rg i{flex:1;border-bottom:1.5px dotted #d9c6b2;transform:translateY(-4px);min-width:14px}
-.rg b{font:600 19px/1 'Fraunces';color:var(--roest);white-space:nowrap}
+.rg span small{display:block;font-weight:400;font-size:14px;color:var(--grijs)}
+.rg i{flex:1;border-bottom:1.5px dotted rgba(43,33,27,.3);transform:translateY(-4px)}
+.rg b{font:600 19px/1 'Fraunces';color:var(--roest)}
+.prijslijst .noot{margin-top:22px;padding-top:18px;border-top:1.5px dashed var(--lijn);font-size:15px;color:var(--grijs)}
 
-/* levering */
-.lev{background:var(--groen);color:#fff;border-radius:56px;margin:0 24px;padding:120px 0;overflow:hidden}
-.lev .g{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+/* LEVERING */
+.lev{background:var(--groen);color:#fff;padding:clamp(100px,11vw,140px) 0;border-radius:var(--r) var(--r) 0 0;margin:0 clamp(0px,1vw,14px)}
+.lev .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(40px,6vw,90px);align-items:start}
 .lev .lab{color:var(--perzik)}
-.lev h2{font-size:clamp(44px,4.6vw,70px);margin:18px 0 20px}
-.lev .t>p{color:rgba(255,255,255,.82);font-size:18px;max-width:29em}
-.zones{display:grid;gap:14px}
-.zone{background:rgba(255,255,255,.08);border-radius:24px;padding:26px 28px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
-.zone h3{font-size:26px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
-.zone h3 em{font:800 13px/1 'Nunito Sans';font-style:normal;letter-spacing:.08em;text-transform:uppercase;background:var(--perzik);color:var(--inkt);border-radius:999px;padding:8px 12px}
-.zone ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.zone li{border-radius:999px;padding:8px 14px;background:rgba(255,255,255,.1);font-weight:600;font-size:14.5px}
-.zone.af{background:var(--perzik-l);color:var(--inkt);box-shadow:none}
-.zone.af p{color:var(--grijs);margin-top:8px;font-size:15.5px}
+.lev h2{font-size:clamp(40px,4.2vw,66px);margin:18px 0 20px}
+.lev .intro{color:rgba(255,255,255,.8);font-size:17.5px;max-width:28em}
+.lev blockquote{margin-top:40px;padding-top:26px;border-top:1px solid rgba(255,255,255,.16);font:500 22px/1.4 'Fraunces';font-variation-settings:'SOFT' 100}
+.lev blockquote cite{display:block;margin-top:12px;font:700 14px/1 'Nunito Sans';font-style:normal;color:var(--perzik)}
+.zones{display:grid;gap:0}
+.zone{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid rgba(255,255,255,.16)}
+.zone:first-child{border-top:1px solid rgba(255,255,255,.16)}
+.zone .kost{font:600 40px/1 'Fraunces';color:var(--perzik)}
+.zone .kost small{display:block;font:700 13px/1.3 'Nunito Sans';color:rgba(255,255,255,.7);margin-top:8px;letter-spacing:.02em}
+.zone ul{list-style:none;columns:2;column-gap:24px}
+.zone li{font-weight:600;font-size:16.5px;padding:4px 0;break-inside:avoid}
+.zone p{font-size:16.5px;color:rgba(255,255,255,.85)}
+.lev .vraag{margin-top:26px;font-size:15.5px;color:rgba(255,255,255,.75)}
+.lev .vraag a{color:#fff;font-weight:700}
 
-/* zomerbar */
-.zomer .g{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
-.zomer .f{border-radius:36px;overflow:hidden;aspect-ratio:3/4;position:relative}
-.zomer .f img{width:100%;height:100%;object-fit:cover}
-.zomer .f .pil{position:absolute;left:18px;top:18px;background:var(--papier);border-radius:999px;padding:10px 16px;font:800 13.5px/1 'Nunito Sans'}
-.zomer h2{font-size:clamp(44px,4.6vw,70px);margin:18px 0 20px}
-.zomer .t>p{color:var(--grijs);font-size:18px;max-width:30em}
-.revs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
-.rev{background:var(--papier);border-radius:24px;padding:26px;display:flex;flex-direction:column;gap:12px;box-shadow:0 26px 50px -42px rgba(120,60,30,.6)}
-.rev .st{color:var(--roest);letter-spacing:3px}
-.rev blockquote{font-size:15.5px}
-.rev cite{margin-top:auto;font:800 14.5px/1.2 'Nunito Sans';font-style:normal}
-.rev cite small{display:block;font-weight:600;color:var(--grijs);font-size:12.5px;margin-top:3px}
-.rev.w{grid-column:1/3;background:var(--roest);color:#fff}
-.rev.w .st{color:var(--perzik)}
-.rev.w blockquote{font:600 22px/1.35 'Fraunces'}
-.rev.w cite small{color:rgba(255,255,255,.75)}
+/* VERHAAL */
+.verhaal{padding:clamp(100px,11vw,140px) 0}
+.verhaal .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(40px,6vw,90px);align-items:center}
+.verhaal .f{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3.3}
+.verhaal .f img{width:100%;height:100%;object-fit:cover}
+.verhaal .jaar{display:flex;align-items:baseline;gap:16px;margin-top:20px;font-size:15px;color:var(--grijs)}
+.verhaal .jaar b{font:600 54px/1 'Fraunces';color:var(--groen)}
+.verhaal h2{font-size:clamp(40px,4.2vw,64px);margin:18px 0 20px}
+.verhaal p{font-size:17.5px;color:#4d4038}
+.lemma{margin-top:30px;background:var(--papier);border-radius:20px;padding:26px 28px;box-shadow:inset 0 0 0 1px var(--lijn)}
+.lemma .w{font:600 30px/1 'Fraunces';color:var(--roest)}
+.lemma .w small{font:700 14px/1 'Nunito Sans';color:var(--grijs);margin-left:10px}
+.lemma ol{list-style:none;margin-top:14px;display:grid;gap:10px}
+.lemma li{font-size:16px;padding-left:30px;position:relative}
+.lemma li b{position:absolute;left:0;top:0;font:600 17px/1.5 'Fraunces';color:var(--roest)}
+.lemma .nb{margin-top:16px;padding-top:14px;border-top:1.5px dashed var(--lijn);font-size:15px;color:var(--grijs)}
+.verhaal .sig{margin-top:22px;font:600 22px/1.2 'Fraunces';color:var(--inkt)}
 
-footer{background:var(--roest-d);color:#fff;margin-top:140px;padding:84px 0 28px;border-radius:56px 56px 0 0}
-.vtg{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
-.vtg .logo img{height:110px;width:auto}
-.vtg p{color:rgba(255,255,255,.78);margin-top:18px;max-width:24em;font-size:15.5px}
-.vtg h4{font:800 12.5px/1 'Nunito Sans';letter-spacing:.12em;text-transform:uppercase;color:var(--perzik);margin-bottom:16px}
-.vtg ul{list-style:none;display:grid;gap:9px;font-size:15.5px}
-.vtg a{text-decoration:none}.vtg a:hover{text-decoration:underline}
-.vt-o{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:64px;padding-top:22px;border-top:1px solid rgba(255,255,255,.2);font-size:13.5px;color:rgba(255,255,255,.65)}
+/* ZOMERBAR */
+.zomer{padding:0 0 clamp(100px,11vw,140px)}
+.zomer .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(40px,6vw,90px);align-items:center}
+.zomer .f{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;position:relative}
+.zomer .f img{width:100%;height:100%;object-fit:cover;object-position:50% 80%}
+.zomer h2{font-size:clamp(40px,4.2vw,64px);margin:18px 0 20px}
+.zomer .intro{font-size:17.5px;color:#4d4038;max-width:32em}
+.zomer .uur{display:flex;gap:18px;align-items:center;margin-top:28px;padding:20px 22px;background:var(--papier);border-radius:20px;box-shadow:inset 0 0 0 1px var(--lijn);font-size:15.5px;color:var(--grijs)}
+.zomer .uur b{display:block;font:600 22px/1.2 'Fraunces';color:var(--inkt)}
+.zomer .uur .klok{width:46px;height:46px;flex:none;border-radius:50%;background:var(--perzik-l);color:var(--roest);display:grid;place-items:center}
+.zomer .uur .klok svg{width:22px;height:22px}
+.zomer .revs{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:34px}
+.zomer .rev{border-top:2px solid var(--inkt);padding-top:16px}
+.zomer .rev .st{color:var(--roest);letter-spacing:3px;font-size:13px}
+.zomer .rev blockquote{font-size:15.5px;margin-top:6px}
+.zomer .rev cite{display:block;margin-top:8px;font-style:normal;font-weight:800;font-size:14px}
 
-.js .rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
+footer.vt{background:var(--inkt);color:rgba(255,255,255,.8);padding:80px 0 40px}
+.vtg{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.vtg .logo img{height:72px;width:auto}
+.vtg p{font-size:15px;margin-top:16px;max-width:24em}
+.vtg h4{font:600 20px/1 'Fraunces';color:#fff;margin-bottom:14px}
+.vtg ul{list-style:none;font-size:15px;display:grid;gap:6px}
+.vt-o{margin-top:60px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:14px;color:rgba(255,255,255,.6)}
+
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.hero>img{animation:none}}
 
-@media (max-width:1100px){
- .nav ul{display:none}
- .h-in{flex-direction:column;align-items:flex-start}
- .bon{align-self:flex-start}
- .verhaal .g{grid-template-columns:1fr;gap:70px}
- .verhaal .t{order:-1}
- .verhaal .f .jaar{right:16px}
- .kopr{flex-direction:column;align-items:flex-start;gap:16px}
- .bx{grid-template-columns:1fr 1fr;gap:36px 20px}
- .band{grid-template-columns:1fr 1fr}
- .band figure:first-child{grid-column:1/3}
- .band figure{min-height:380px}
- .extra .g{grid-template-columns:1fr;gap:30px}
- .lev .g{grid-template-columns:1fr;gap:40px}
- .zomer .g{grid-template-columns:1fr}
- .zomer .t{order:-1}
- .zomer .f{aspect-ratio:4/3}
- .vtg{grid-template-columns:1fr 1fr}
+@media (max-width:1560px){.nav ul{display:none}}
+@media (max-width:1000px){
+  .hero{grid-template-columns:minmax(0,1fr);min-height:0}
+  .hero-l{padding:0 28px 40px}
+  .hero-r{min-height:0;aspect-ratio:4/4.2;margin:0 14px 14px;border-radius:var(--r)}
+  .kopr,.extra .wrap,.lev .wrap,.verhaal .wrap,.zomer .wrap{grid-template-columns:minmax(0,1fr)}
+  .zomer .f{aspect-ratio:4/4.2}
+  .bx{grid-template-columns:minmax(0,1fr)}
+  .vtg{grid-template-columns:1fr 1fr}
 }
-@media (max-width:640px){
- body{font-size:16px}
- .wrap,.nav .wrap,.h-in{width:calc(100% - 36px)}
- .nav .logo img{height:64px}
- .nav .btn{display:none}
- .hero{min-height:auto}
- .hero:before{background:linear-gradient(0deg,rgba(58,30,18,.92) 0%,rgba(58,30,18,.72) 55%,rgba(58,30,18,.35) 100%)}
- .h-in{padding:90px 0 40px}
- .h-in h1{font-size:46px}
- .h-in p{font-size:17px}
- .acties .btn{width:100%;justify-content:center}
- .bon{width:100%}
- .sec{padding:90px 0}
- .boxen,.lev{margin:0 10px;border-radius:34px;padding:84px 0}
- .bx{grid-template-columns:1fr}
- .best{flex-direction:column;align-items:flex-start}
- .band{padding:10px 10px 0;grid-template-columns:1fr 1fr;gap:10px}
- .band figure{min-height:220px;border-radius:22px}
- .band figure:first-child{min-height:300px}
- .extra{padding:70px 0 90px}
- .lijst{columns:1}
- .revs{grid-template-columns:1fr}
- .rev.w{grid-column:auto}
- .vtg{grid-template-columns:1fr}
- footer{margin-top:90px;border-radius:34px 34px 0 0}
+@media (max-width:720px){
+  body{font-size:16.5px}
+  .wrap{width:calc(100% - 36px)}
+  .hero-l{padding:0 18px 34px}
+  .nav .logo img{height:62px}
+  .nav .btn{padding:12px 16px;font-size:14px}
+  .hero h1{font-size:clamp(40px,11vw,54px)}
+  .bonstrook{grid-template-columns:auto 1fr;gap:14px}
+  .bonstrook .sc{grid-column:1/-1;text-align:left;display:flex;align-items:center;gap:10px}
+  .bonstrook .sc strong{display:inline}
+  .hero-r{margin:0 10px 10px;aspect-ratio:4/4.6}
+  .kopr h2,.extra h2,.lev h2,.verhaal h2,.zomer h2{font-size:clamp(34px,9.4vw,44px)}
+  .box{grid-template-columns:minmax(0,1fr)}
+  .box .f{min-height:0;aspect-ratio:4/3.2}
+  .box .t{border-left:0;border-top:2px dashed var(--lijn);padding:24px 22px}
+  .best{flex-direction:column;align-items:flex-start;padding:26px 22px}
+  .zone{grid-template-columns:1fr;gap:12px}
+  .zone ul{columns:1}
+  .lev{margin:0}
+  .zomer .revs{grid-template-columns:1fr}
+  .vtg{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
-<header class="hero" id="top">
- <img src="img/hero.webp" alt="Een gedekte ontbijttafel van bovenaf met granola, yoghurt, fruit, broodjes en koffie">
- <nav class="nav"><div class="wrap">
-  <a class="logo" href="#top"><img src="img/logo-w.svg" alt="De Komeere, ontbijt en koffie"></a>
-  <ul><li><a href="#ontbijten">Ontbijten</a></li><li><a href="#extras">Extra's</a></li><li><a href="#levering">Levering</a></li><li><a href="#zomerbar">Zomerbar</a></li><li><a href="#verhaal">Over ons</a></li></ul>
-  <a class="btn btn-gl" href="https://wa.me/32497896999" style="padding:13px 20px">0497 89 69 99</a>
- </div></nav>
- <div class="h-in">
-  <div class="t">
-   <span class="lab rv" lang="en">Ontbijt aan huis · Haringe, Poperinge</span>
+<main id="top">
+<section class="hero">
+ <div class="hero-l">
+  <nav class="nav">
+   <a class="logo" href="#top"><img src="img/logo.svg" alt="De Komeere, ontbijt en koffie"></a>
+   <ul><li><a href="#ontbijten">Ontbijten</a></li><li><a href="#extras">Extra's</a></li><li><a href="#levering">Levering</a></li><li><a href="#zomerbar">Zomerbar</a></li></ul>
+   <a class="btn btn-o" href="tel:+32497896999" style="padding:13px 20px;white-space:nowrap">0497 89 69 99</a>
+  </nav>
+  <div class="hero-t">
+   <span class="lab rv">Ontbijt aan huis · zaterdag en zondag</span>
    <h1 class="rv" style="--d:1">Een goeie morgen begint met <span>De Komeere.</span></h1>
-   <p class="rv" style="--d:2">Op zaterdag en zondag brengen we een volle ontbijtbox tot aan je deur. Met brood, koffiekoeken, huisgemaakte granola en confituur, en producten van boeren uit de streek.</p>
+   <p class="intro rv" style="--d:2">Wij brengen je ontbijt in het weekend tot aan je deur. Met vers brood en koffiekoeken, onze eigen granola en confituur, en producten van boeren uit de streek.</p>
    <div class="acties rv" style="--d:3">
-    <a class="btn btn-r" href="https://wa.me/32497896999?text=Dag%20Liesbeth%2C%20ik%20wil%20graag%20een%20ontbijt%20bestellen."><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18l-2 13H5z"/><path d="M8 7a4 4 0 0 1 8 0"/></svg>Bestel je ontbijt</a>
-    <a class="btn btn-gl" href="#ontbijten">Bekijk de boxen</a>
+    <a class="btn btn-r" href="https://wa.me/32497896999?text=Dag%20Liesbeth%2C%20ik%20wil%20graag%20een%20ontbijt%20bestellen."><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h18l-2 13H5z"/><path d="M8 7a4 4 0 0 1 8 0"/></svg>Bestel je ontbijt</a>
+    <a class="btn btn-o" href="#ontbijten">Bekijk de boxen</a>
    </div>
   </div>
-  <div class="bon rv" style="--d:4">
-   <small>Voor dit weekend</small>
-   <b>Bestel tot donderdag, 23.59 uur</b>
-   <p>Levering op zaterdag- of zondagmorgen. Afhalen in Haringe kan ook.</p>
-   <div class="sc"><strong>4,9</strong><span><i>★★★★★</i>42 reviews op Google</span></div>
+  <div class="bonstrook rv" style="--d:4">
+   <span class="klok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+   <span><b>Bestel tot donderdag, 23.59 uur</b>en je ontbijt staat zaterdag of zondag aan je deur</span>
+   <span class="sc"><strong>4,9</strong>42 reviews op Google</span>
   </div>
  </div>
-</header>
-
-<section class="sec verhaal" id="verhaal">
- <div class="wrap g">
-  <div class="f rv">
-   <div class="a"><img src="img/huis.webp" alt="De witte vakwerkwoning van De Komeere met groene luiken en een rood pannendak" loading="lazy"></div>
-   <div class="jaar"><b>1634</b><span>beschermde vakwerkwoning</span></div>
-  </div>
-  <div class="t">
-   <span class="lab rv">Liesbeth en Brecht</span>
-   <h2 class="rv" style="--d:1">Vroege vogels in hartje Haringe.</h2>
-   <p class="rv" style="--d:2">We wonen in een vakwerkhuis uit 1634, in de volksmond 'plak en stak'. Omdat we allebei vroeg op zijn en een goede start van de dag belangrijk vinden, was ontbijt de logische stap. Met streekproducten, en met onze streektaal.</p>
-   <div class="woord rv" style="--d:3"><b>komeere <small>(West-Vlaams)</small></b><p>Een welbespraakte dame die het graag over Jan en alleman heeft. Daarom heeft elke box bij ons ook een dialectnaam.</p></div>
-  </div>
- </div>
+ <div class="hero-r"><img src="img/tafel.webp" alt="Een rijk gedekte ontbijttafel van bovenaf met broodjes, croissant, kaas, granola, confituur en koffie"></div>
 </section>
 
 <section class="boxen" id="ontbijten">
  <div class="wrap">
   <div class="kopr">
-   <div><span class="lab rv" lang="en">Onze ontbijten</span><h2 class="rv" style="--d:1">Kies je box. In 't dialect.</h2></div>
-   <p class="rv" style="--d:2">Met artisanale producten van lokale producenten, en een beetje van over de grens, die vlak naast ons dorp ligt. Groepen van meer dan tien personen stellen we op maat samen.</p>
+   <div><span class="lab rv">Onze ontbijten</span><h2 class="rv" style="--d:1">Kies je box. In 't dialect.</h2></div>
+   <p class="rv" style="--d:2">Met artisanale producten van lokale producenten, en een beetje van over de grens, die vlak naast ons dorp ligt. Komen jullie met meer dan tien? Dan stellen we het ontbijt op maat samen.</p>
   </div>
   <div class="bx">
-   <article class="kaart rv"><div class="f"><img src="img/box.webp" alt="Ontbijtbox met koffiekoeken, broodjes, confituur en fruit" loading="lazy"><span class="prijs">€ 26</span><span class="wie">1 persoon</span></div><h3>'n geweun</h3><span class="vt">Gewoon, maar dan goed</span><p>Ons klassieke ontbijt voor één, met alles erop en eraan.</p></article>
-   <article class="kaart rv" style="--d:1"><div class="f"><img src="img/tafel.webp" alt="Gedekte ontbijttafel met pannenkoekjes, brood, choco en koffie" loading="lazy"><span class="prijs">€ 62</span><span class="wie">2 personen</span></div><h3>'n zundagsjn</h3><span class="vt">Voor een echte zondag</span><p>Het uitgebreide ontbijt voor twee, om lang aan tafel te blijven.</p></article>
-   <article class="kaart rv" style="--d:2"><div class="f"><img src="img/pannenkoek.webp" alt="Stapel pannenkoekjes met blauwe bessen en aardbei" loading="lazy"><span class="prijs">€ 12</span><span class="wie">Kinderontbijt</span></div><h3>vo'n klièn</h3><span class="vt">Voor de kleintjes</span><p>Een eigen ontbijtje voor de kinderen aan tafel.</p></article>
-   <article class="kaart rv" style="--d:3"><div class="f"><img src="img/parfait.webp" alt="Yoghurt met granola en vers fruit in een glas, naast zakjes granola" loading="lazy"><span class="prijs">€ 26</span><span class="wie">1 persoon</span></div><h3>e nandern</h3><span class="vt">Eens iets anders</span><p>Ons ontbijt zonder gluten en zonder lactose.</p></article>
+   <article class="box rv"><div class="f"><img src="img/box.webp" alt="Ontbijtbox met koffiekoeken, broodjes, confituur en fruit" loading="lazy"></div><div class="t"><span class="wie">Voor 1 persoon</span><h3>'n geweun</h3><span class="vt">Gewoon, maar dan goed</span><p>Ons klassieke ontbijt voor één, met alles erop en eraan.</p><div class="prijs"><span class="stempel">€ 26</span><a href="https://wa.me/32497896999?text=Dag%20Liesbeth%2C%20ik%20wil%20graag%20'n%20geweun%20bestellen.">Bestel deze box</a></div></div></article>
+   <article class="box rv" style="--d:1"><div class="f"><img src="img/hero.webp" alt="Gedekte ontbijttafel voor twee van bovenaf, met granola, yoghurt, fruit en koffie" loading="lazy"></div><div class="t"><span class="wie">Voor 2 personen</span><h3>'n zundagsjn</h3><span class="vt">Voor een echte zondag</span><p>Het uitgebreide ontbijt voor twee, om lang aan tafel te blijven zitten.</p><div class="prijs"><span class="stempel">€ 62</span><a href="https://wa.me/32497896999?text=Dag%20Liesbeth%2C%20ik%20wil%20graag%20'n%20zundagsjn%20bestellen.">Bestel deze box</a></div></div></article>
+   <article class="box rv"><div class="f"><img src="img/pannenkoek.webp" alt="Stapel pannenkoekjes met blauwe bessen en aardbei" loading="lazy"></div><div class="t"><span class="wie">Kinderontbijt</span><h3>vo'n klièn</h3><span class="vt">Voor de kleintjes</span><p>Een eigen ontbijtje voor de kinderen aan tafel.</p><div class="prijs"><span class="stempel">€ 12</span><a href="https://wa.me/32497896999?text=Dag%20Liesbeth%2C%20ik%20wil%20graag%20vo'n%20kli%C3%A8n%20bestellen.">Bestel deze box</a></div></div></article>
+   <article class="box rv" style="--d:1"><div class="f"><img src="img/parfait.webp" alt="Yoghurt met granola en vers fruit in een glas, naast zakjes granola" loading="lazy"></div><div class="t"><span class="wie">Voor 1 persoon</span><h3>e nandern</h3><span class="vt">Eens iets anders</span><p>Ons ontbijt zonder gluten en zonder lactose.</p><div class="prijs"><span class="stempel">€ 26</span><a href="https://wa.me/32497896999?text=Dag%20Liesbeth%2C%20ik%20wil%20graag%20e%20nandern%20bestellen.">Bestel deze box</a></div></div></article>
   </div>
   <div class="best rv"><div><b>Bestellen voor zaterdag of zondag?</b><span>Dat kan tot donderdagavond 23.59 uur. Wij zorgen voor de rest.</span></div><a class="btn btn-p" href="https://wa.me/32497896999?text=Dag%20Liesbeth%2C%20ik%20wil%20graag%20een%20ontbijt%20bestellen.">Bestel via WhatsApp</a></div>
  </div>
 </section>
 
-<section id="extras">
- <div class="band">
-  <figure class="rv"><img src="img/koeken.webp" alt="Croissants, pains au chocolat en koffiekoeken" loading="lazy"><figcaption>Koffiekoeken</figcaption></figure>
-  <figure class="rv" style="--d:1"><img src="img/choco.webp" alt="Bokaal met huisgemaakte choco naast fruit en yoghurt" loading="lazy"><figcaption>Choco in de bokaal</figcaption></figure>
-  <figure class="rv" style="--d:2"><img src="img/potjes.webp" alt="Potjes confituur en granola op het aanrecht van De Komeere" loading="lazy"><figcaption>Huisgemaakte confituur</figcaption></figure>
- </div>
- <div class="extra"><div class="wrap g">
-  <div class="t"><span class="lab rv">Extra's</span><h2 class="rv" style="--d:1">Nog iets op je plank?</h2><p class="rv" style="--d:2">Onze granola's hebben elk een eigen naam. Ook los te bestellen, of als granolabox om iemand te verrassen.</p></div>
-  <div class="lijst rv" style="--d:2">
+<section class="extra" id="extras">
+ <div class="wrap">
+  <div>
+   <span class="lab rv">Extra's</span>
+   <h2 class="rv" style="--d:1">Nog iets op je plank?</h2>
+   <p class="intro rv" style="--d:2">Elke granola van ons heeft een eigen naam. Je bestelt ze bij je box, los, of in een granolabox om iemand mee te verrassen.</p>
+   <div class="plank rv" style="--d:2">
+    <figure><img src="img/potjes.webp" alt="Potjes confituur en granola op het aanrecht van De Komeere" loading="lazy"><figcaption>Uit onze keuken</figcaption></figure>
+    <figure><img src="img/koeken.webp" alt="Croissants, pains au chocolat en koffiekoeken" loading="lazy"><figcaption>Koffiekoeken</figcaption></figure>
+    <figure><img src="img/choco.webp" alt="Bokaal met huisgemaakte choco naast fruit en yoghurt" loading="lazy"><figcaption>Choco in de bokaal</figcaption></figure>
+   </div>
+  </div>
+  <div class="prijslijst rv" style="--d:1">
+   <h3>Extra's <small>bij je box of los</small></h3>
+   <p class="groep">Granola</p>
    <div class="rg"><span>Granola Elza</span><i></i><b>€ 7</b></div>
    <div class="rg"><span>Granola Ivonne</span><i></i><b>€ 8</b></div>
    <div class="rg"><span>Granola Gloria</span><i></i><b>€ 9</b></div>
    <div class="rg"><span>Granola Rosa</span><i></i><b>€ 9</b></div>
    <div class="rg"><span>Granola Noël</span><i></i><b>€ 9</b></div>
    <div class="rg"><span>De granolabox</span><i></i><b>€ 25</b></div>
+   <p class="groep">Erbij</p>
    <div class="rg"><span>Komeere-pannenkoekjes<small>4 stuks, met ahornsiroop € 5</small></span><i></i><b>€ 4</b></div>
    <div class="rg"><span>Hoeveboter</span><i></i><b>€ 2</b></div>
    <div class="rg"><span>Fles cava</span><i></i><b>€ 15</b></div>
-  </div>
- </div></div>
-</section>
-
-<section class="lev" id="levering">
- <div class="wrap g">
-  <div class="t">
-   <span class="lab rv">Levering</span>
-   <h2 class="rv" style="--d:1">Tot aan je deur, of je vakantiehuis.</h2>
-   <p class="rv" style="--d:2">We brengen je ontbijt op zaterdag- en zondagmorgen, ook naar de vele vakantiehuizen in de Westhoek. Staat jouw gemeente er niet bij? Vraag het gerust, dan bekijken we wat kan.</p>
-  </div>
-  <div class="zones">
-   <div class="zone rv"><h3>Gratis geleverd <em>€ 0</em></h3><ul><li>Poperinge en deelgemeenten</li><li>Stavele</li><li>Beveren a/d IJzer</li><li>Oost- en West-Vleteren</li></ul></div>
-   <div class="zone rv" style="--d:1"><h3>Met kleine toeslag <em>€ 5</em></h3><ul><li>Alveringem</li><li>Lo-Reninge</li><li>Woesten</li><li>Vlamertinge</li><li>Dikkebus</li><li>Westouter</li></ul></div>
-   <div class="zone af rv" style="--d:2"><h3>Zelf afhalen</h3><p>Gratis, op zaterdag en zondag aan het Haringeplein 5.</p></div>
+   <p class="noot">Zet het er gewoon bij als je je box bestelt.</p>
   </div>
  </div>
 </section>
 
-<section class="sec zomer" id="zomerbar">
- <div class="wrap g">
-  <div class="f rv"><img src="img/zomer.webp" alt="Taart en limonade op een tafeltje in de tuin, met het vakwerkhuis op de achtergrond" loading="lazy"><span class="pil">Juni tot eind september</span></div>
-  <div class="t">
-   <span class="lab rv">Pop-up zomerbar</span>
-   <h2 class="rv" style="--d:1">In de zomer schuif je aan in onze voortuin.</h2>
-   <p class="rv" style="--d:2">Met zicht op de kerk van Haringe: huisgemaakte taart en cake, koffie, streekbieren, wijn, picon en zelfgemaakte limonade. Op zaterdag en zondag van 11 tot 18 uur, een ideale tussenstop langs het Dode IJzerpad.</p>
-   <div class="revs">
-    <figure class="rev w rv"><div class="st">★★★★★</div><blockquote>“Zeer uitgebreid en lekker ontbijt aan de mobilehome “Oogenblik” gebracht. Ons weekendje Willem Vermandere kon niet stuk.”</blockquote><cite>Kris Verhofstede<small>Google-review</small></cite></figure>
-    <figure class="rev rv" style="--d:1"><div class="st">★★★★★</div><blockquote>Fijne tussenstop op onze fietstocht. Heel mooi kader, lekkere zelfgemaakte taart en Belgische wijn aan een correcte prijs.</blockquote><cite>Dominique De Meyst<small>Google-review</small></cite></figure>
-    <figure class="rev rv" style="--d:2"><div class="st">★★★★★</div><blockquote>Heel relax, vriendelijke bediening op een idyllisch plekje aan de start van de Oude Ijzerwandeling.</blockquote><cite>Wim Van Cappellen<small>Google-review</small></cite></figure>
+<section class="lev" id="levering">
+ <div class="wrap">
+  <div>
+   <span class="lab rv">Levering</span>
+   <h2 class="rv" style="--d:1">Tot aan je deur, of je vakantiehuis.</h2>
+   <p class="intro rv" style="--d:2">We rijden op zaterdag- en zondagmorgen, ook naar de vele vakantiehuizen in de Westhoek. Logeer je hier een weekend? Dan begin je het gewoon met een gedekte tafel.</p>
+   <blockquote class="rv" style="--d:3">"Zeer uitgebreid en lekker ontbijt aan de mobilehome "Oogenblik" gebracht. Ons weekendje Willem Vermandere kon niet stuk."<cite>Kris Verhofstede, op Google</cite></blockquote>
+  </div>
+  <div class="rv" style="--d:1">
+   <div class="zones">
+    <div class="zone"><div class="kost">€ 0<small>gratis geleverd</small></div><ul><li>Poperinge en deelgemeenten</li><li>Stavele</li><li>Beveren a/d IJzer</li><li>Oost- en West-Vleteren</li></ul></div>
+    <div class="zone"><div class="kost">€ 5<small>kleine toeslag</small></div><ul><li>Alveringem</li><li>Lo-Reninge</li><li>Woesten</li><li>Vlamertinge</li><li>Dikkebus</li><li>Westouter</li></ul></div>
+    <div class="zone"><div class="kost">€ 0<small>zelf afhalen</small></div><p>Op zaterdag en zondag aan het Haringeplein 5.</p></div>
+   </div>
+   <p class="vraag">Staat jouw gemeente er niet bij? <a href="https://wa.me/32497896999">Vraag het ons gerust</a>, dan bekijken we wat kan.</p>
+  </div>
+ </div>
+</section>
+
+<section class="verhaal" id="verhaal">
+ <div class="wrap">
+  <div class="rv">
+   <div class="f"><img src="img/huis.webp" alt="De witte vakwerkwoning van De Komeere met groene luiken en een rood pannendak" loading="lazy"></div>
+   <p class="jaar"><b>1634</b><span>Ons huis aan het Haringeplein, een beschermde vakwerkwoning.</span></p>
+  </div>
+  <div>
+   <span class="lab rv">Liesbeth en Brecht</span>
+   <h2 class="rv" style="--d:1">Vroege vogels in hartje Haringe.</h2>
+   <p class="rv" style="--d:2">We wonen in een vakwerkhuis uit 1634, in de volksmond 'plak en stak'. We zijn allebei vroeg uit de veren en vinden een goede start van de dag belangrijk. Ontbijt maken voor anderen was dan ook een logische stap. Met streekproducten, en in onze streektaal.</p>
+   <div class="lemma rv" style="--d:3">
+    <p class="w">komeere <small>West-Vlaams</small></p>
+    <ol><li><b>1</b>Een welbespraakte dame die het graag over Jan en alleman heeft.</li><li><b>2</b>Ons huis aan het Haringeplein: het huis van de Komeere.</li></ol>
+    <p class="nb">Daarom draagt elke box bij ons een naam in 't dialect.</p>
    </div>
   </div>
  </div>
 </section>
 
-<footer>
+<section class="zomer" id="zomerbar">
+ <div class="wrap">
+  <div class="f rv"><img src="img/zomer.webp" alt="Taart met aardbeien en limonade op een tafeltje in de tuin, met het vakwerkhuis op de achtergrond" loading="lazy"></div>
+  <div>
+   <span class="lab rv">Pop-up zomerbar</span>
+   <h2 class="rv" style="--d:1">In de zomer schuif je aan in onze voortuin.</h2>
+   <p class="intro rv" style="--d:2">Met zicht op de kerk van Haringe: huisgemaakte taart en cake, koffie, streekbieren, wijn, picon en zelfgemaakte limonade. Een ideale tussenstop als je langs het Dode IJzerpad fietst of wandelt.</p>
+   <div class="uur rv" style="--d:3"><span class="klok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><b>Zaterdag en zondag, 11 tot 18 uur</b>Van juni tot eind september</span></div>
+   <div class="revs">
+    <div class="rev rv"><div class="st">★★★★★</div><blockquote>"Fijne tussenstop op onze fietstocht. Heel mooi kader, lekkere zelfgemaakte taart en Belgische wijn aan een correcte prijs."</blockquote><cite>Dominique De Meyst, op Google</cite></div>
+    <div class="rev rv" style="--d:1"><div class="st">★★★★★</div><blockquote>"Heel relax, vriendelijke bediening op een idyllisch plekje aan de start van de Oude Ijzerwandeling."</blockquote><cite>Wim Van Cappellen, op Google</cite></div>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer class="vt">
  <div class="wrap">
   <div class="vtg">
    <div><a class="logo" href="#top"><img src="img/logo-w.svg" alt="De Komeere"></a><p>Ontbijt aan huis op zaterdag en zondag, en een pop-up zomerbar in de voortuin. Liesbeth Lietaer en Brecht Vandenberghe, Haringe.</p></div>
-   <div><h4 lang="en">Ontbijten</h4><ul><li>'n geweun · € 26</li><li>'n zundagsjn · € 62</li><li>vo'n klièn · € 12</li><li>e nandern · € 26</li></ul></div>
+   <div><h4>Ontbijten</h4><ul><li>'n geweun · € 26</li><li>'n zundagsjn · € 62</li><li>vo'n klièn · € 12</li><li>e nandern · € 26</li></ul></div>
    <div><h4>Bestellen</h4><ul><li>Tot donderdag 23.59 uur</li><li>Levering za en zo</li><li>Groepen op maat</li></ul></div>
    <div><h4>Contact</h4><ul><li>Haringeplein 5</li><li>8972 Haringe</li><li><a href="tel:+32497896999">0497 89 69 99</a></li><li><a href="mailto:info@dekomeere.be">info@dekomeere.be</a></li></ul></div>
   </div>
