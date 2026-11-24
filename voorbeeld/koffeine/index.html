@@ -1,373 +1,350 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl-BE">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Koffeine | Specialty koffiebar in Gent, naast Sint-Baafs</title>
-<meta name="description" content="Koffeine in de Lange Kruisstraat in Gent: specialty koffie, cinnamon buns op desem, carrot cake en een mezzanine met zicht op Sint-Baafs.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Koffeine · specialty koffie in de Lange Kruisstraat, Gent</title>
+<meta name="description" content="Koffeine in Gent: specialty koffie, cinnamon buns op desem, matcha en een mezzanine vol licht. Lange Kruisstraat 6.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400;500;600&display=swap">
 <style>
-:root{
-  --black:#121212;--char:#1d1d1d;--white:#ffffff;--cream:#f2eadb;--cobalt:#2340c4;--cobalt-d:#192f96;--grey:#6d6d6d;--line:rgba(18,18,18,.14);
-  --serif:"DM Serif Display",Georgia,serif;--sans:"Space Grotesk",system-ui,sans-serif;
-}
+:root{--k:#2341B0;--k2:#1B338C;--c:#F4EFE6;--c2:#EAE1D2;--i:#151515;--g:#5D5A55;--ease:cubic-bezier(.2,.8,.2,1);--r:26px;--pad:clamp(20px,4vw,56px)}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--sans);color:var(--black);background:var(--white);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth}
+body{font:400 17px/1.6 'Instrument Sans',system-ui,sans-serif;color:var(--i);background:var(--c);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
-a{color:inherit}
-h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02;letter-spacing:-.01em}
-.wrap{width:min(1260px,92vw);margin:0 auto}
-.tag{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
-
-.demo{background:var(--black);color:#ddd;font-size:13px;text-align:center;padding:9px 16px;border-bottom:1px solid #2b2b2b}
-.demo a{color:var(--cream);text-underline-offset:3px}
-
-/* knop: zoals het bordje aan de gevel */
-.btn{display:inline-flex;align-items:center;gap:14px;font:600 14px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:18px 22px 18px 24px;border:2px solid currentColor;transition:background .2s,color .2s}
-.btn svg{width:18px;height:18px;transition:transform .2s}
-.btn:hover svg{transform:translateX(4px)}
-.btn-cream{background:var(--cream);color:var(--black);border-color:var(--cream)}
-.btn-cream:hover{background:var(--white);border-color:var(--white)}
-.btn-ghost-l{color:var(--cream)}
-.btn-ghost-l:hover{background:var(--cream);color:var(--black);border-color:var(--cream)}
-.btn-black{background:var(--black);color:var(--white);border-color:var(--black)}
-.btn-black:hover{background:var(--cobalt);border-color:var(--cobalt)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1360px;margin:0 auto;padding:0 var(--pad)}
+.disp{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:850;letter-spacing:-.02em;line-height:.92;text-transform:uppercase}
+.demo{background:var(--i);color:#E9E4DA;font-size:13px;text-align:center;padding:9px 16px;line-height:1.4}
+.demo a{color:#fff;text-decoration:underline;text-underline-offset:3px}
 
 /* nav */
-.top{position:relative;background:var(--black)}
-.nav{position:absolute;inset:0 0 auto 0;z-index:4}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:24px 0}
-.mark{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--white)}
-.mark i{width:44px;height:44px;border-radius:50%;background:var(--white);display:grid;place-items:center}
-.mark i svg{width:22px;height:22px}
-.mark span{font-weight:600;letter-spacing:.32em;font-size:15px}
-.nav ul{display:flex;gap:32px;list-style:none;font-size:15px;color:var(--white)}
-.nav ul a{text-decoration:none;opacity:.85}
-.nav ul a:hover{opacity:1;text-decoration:underline;text-underline-offset:6px}
+.nav{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px var(--pad);max-width:1360px;margin:0 auto;color:var(--c)}
+.logo{display:flex;align-items:center;gap:12px;font-family:'Archivo';font-stretch:125%;font-weight:800;letter-spacing:.14em;font-size:14px}
+.logo svg{width:38px;height:38px}
+.nav ul{display:flex;gap:34px;list-style:none;font-size:15px}
+.nav ul a{position:relative;padding:4px 0}
+.nav ul a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1.5px;background:currentColor;transition:right .35s var(--ease)}
+.nav ul a:hover::after{right:0}
+.nav .route{border:1.5px solid rgba(244,239,230,.55);border-radius:99px;padding:9px 18px;font-size:14px;font-weight:500;transition:background .3s,color .3s}
+.nav .route:hover{background:var(--c);color:var(--k)}
+
+/* knoppen: rond kopje-detail rechts */
+.btn{display:inline-flex;align-items:center;gap:14px;height:56px;padding:0 8px 0 26px;border-radius:99px;font-weight:600;font-size:15.5px;transition:transform .35s var(--ease),background .3s,color .3s}
+.btn i{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;transition:transform .45s var(--ease),background .3s}
+.btn i svg{width:16px;height:16px}
+.btn:hover{transform:translateY(-2px)}
+.btn:hover i{transform:rotate(-45deg)}
+.btn-c{background:var(--c);color:var(--i)}.btn-c i{background:var(--i);color:var(--c)}
+.btn-k{background:var(--k);color:var(--c)}.btn-k i{background:var(--c);color:var(--k)}
+.btn-o{border:1.5px solid rgba(244,239,230,.5);color:var(--c);padding:0 26px}
+.btn-o:hover{background:rgba(244,239,230,.1)}
 
 /* hero */
-.hero{position:relative;min-height:min(920px,96vh);display:flex;align-items:flex-end;overflow:hidden}
-.hero-img{position:absolute;inset:0}
-.hero-img img{width:100%;height:100%;object-fit:cover;object-position:60% 50%}
-.hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,12,12,.92) 0%,rgba(12,12,12,.78) 30%,rgba(12,12,12,.2) 62%,rgba(12,12,12,0) 80%),linear-gradient(0deg,rgba(12,12,12,.55),rgba(12,12,12,0) 40%)}
-.hero-text{position:relative;z-index:2;color:var(--white);padding:150px 0 70px}
-.hero .tag{color:var(--cream);opacity:.85}
-.hero h1{font-size:clamp(46px,5.4vw,86px);max-width:13ch;margin:22px 0 26px;color:var(--white)}
-.hero p{max-width:30em;font-size:19px;color:#e9e9e9}
-.hero .acts{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
-.hero-meta{display:flex;gap:40px;margin-top:44px;padding-top:24px;border-top:1px solid rgba(255,255,255,.2);max-width:560px;font-size:15px;color:#cfcfcf}
-.hero-meta b{display:block;font-family:var(--serif);font-weight:400;font-size:34px;color:var(--white);line-height:1.1}
+.hero{background:var(--k);color:var(--c);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 600px at 15% 0%,rgba(255,255,255,.09),transparent 60%);pointer-events:none}
+.h-in{position:relative;max-width:1360px;margin:0 auto;padding:0 var(--pad);height:clamp(620px,calc(100vh - 140px),820px);display:grid;grid-template-columns:1fr 1fr;column-gap:56px}
+.h-txt{padding-top:clamp(28px,5vh,64px);position:relative;z-index:3;max-width:520px}
+.kick{display:flex;align-items:center;gap:12px;font-size:13.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;opacity:.85}
+.kick::before{content:"";width:28px;height:1.5px;background:currentColor}
+.h-txt h1{font-family:'Archivo';font-stretch:100%;font-weight:700;font-size:clamp(34px,3.6vw,54px);line-height:1.04;letter-spacing:-.025em;margin:22px 0 20px}
+.h-txt p.lead{font-size:18px;line-height:1.6;opacity:.86;max-width:440px}
+.h-btn{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.h-score{display:flex;align-items:center;gap:14px;margin-top:34px;font-size:14px;opacity:.9}
+.h-score b{font-family:'Archivo';font-stretch:125%;font-weight:800;font-size:26px;letter-spacing:-.02em}
+.h-score span{display:block;line-height:1.35}
+.h-pic{position:relative;z-index:1;margin-top:clamp(10px,2vh,24px);height:calc(100% - clamp(10px,2vh,24px));border-radius:999px 999px 0 0;overflow:hidden;background:var(--k2)}
+.h-pic img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scale(1.02)}
+.h-pic::after{content:"";position:absolute;inset:auto 0 0 0;height:42%;background:linear-gradient(to top,rgba(20,32,90,.55),transparent)}
+.h-word{position:absolute;z-index:4;left:var(--pad);right:var(--pad);bottom:-.13em;font-size:min(196px,calc((100vw - 2 * var(--pad)) / 6.55));color:var(--c);white-space:nowrap;text-align:center;pointer-events:none;max-width:1360px;margin:0 auto}
+.h-cap{position:absolute;z-index:3;right:calc(var(--pad) + 26px);top:clamp(46px,8vh,96px);writing-mode:vertical-rl;font-size:12px;letter-spacing:.2em;text-transform:uppercase;opacity:.8}
+
+/* sectiekoppen */
+.sec{padding:clamp(80px,10vw,140px) 0}
+.lab{display:inline-flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--k)}
+.lab::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+h2.disp{font-size:clamp(40px,5.6vw,84px);margin:18px 0 0}
+.intro{font-size:18px;color:var(--g);max-width:440px;margin-top:22px}
 
 /* toog */
-.sec{padding:130px 0}
-.bar{display:grid;grid-template-columns:1.15fr .85fr;gap:80px;align-items:start}
-.bar h2{font-size:clamp(40px,4.6vw,68px);margin:18px 0 26px;max-width:12ch}
-.bar .tag{color:var(--cobalt)}
-.bar-pic{position:relative}
-.bar-pic figure{overflow:hidden;aspect-ratio:4/3}
-.bar-pic img{width:100%;height:100%;object-fit:cover}
-.bar-pic figcaption{font-size:13px;color:var(--grey);margin-top:12px;letter-spacing:.04em}
-.board{background:var(--black);color:var(--white);padding:40px 40px 34px;margin-top:-60px;margin-left:40px;position:relative}
-.board h3{font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--cream);margin-bottom:16px}
-.board ul{list-style:none}
-.board li{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:18px}
-.board li:last-child{border-bottom:0}
-.board li span{color:#a9a9a9;font-size:14px;text-align:right}
-.bar-text p+p{margin-top:16px}
-.say{margin-top:40px;border-left:4px solid var(--cobalt);padding:6px 0 6px 26px}
-.say p{font-family:var(--serif);font-size:28px;line-height:1.2}
-.say cite{display:block;font-style:normal;font-size:14px;color:var(--grey);margin-top:10px}
-.matcha{display:grid;grid-template-columns:150px 1fr;gap:24px;align-items:center;margin-top:44px;padding-top:30px;border-top:1px solid var(--line)}
-.matcha img{width:150px;height:150px;object-fit:cover}
-.matcha p{font-size:16px}
+.toog .grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,5vw,80px);align-items:start;margin-top:56px}
+.menu{list-style:none;border-top:1.5px solid var(--i)}
+.menu li{display:grid;grid-template-columns:44px 1fr;gap:6px 14px;padding:20px 0;border-bottom:1px solid rgba(21,21,21,.16);transition:padding .35s var(--ease)}
+.menu li:hover{padding-left:8px}
+.menu small{font-size:12px;color:var(--k);font-weight:600;letter-spacing:.08em;padding-top:5px}
+.menu b{font-family:'Archivo';font-stretch:110%;font-weight:700;font-size:21px;letter-spacing:-.01em;line-height:1.2}
+.menu span{grid-column:2;color:var(--g);font-size:15.5px;line-height:1.5}
+.toog .pics{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.toog .p1{grid-column:1/-1;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3}
+.toog .p1 img,.toog .p2 img{width:100%;height:100%;object-fit:cover}
+.toog .p2{border-radius:var(--r);overflow:hidden;aspect-ratio:1/1}
+.toog .q{background:var(--i);color:var(--c);border-radius:var(--r);padding:30px;display:flex;flex-direction:column;justify-content:space-between}
+.toog .q p{font-family:'Archivo';font-stretch:100%;font-weight:600;font-size:clamp(20px,1.9vw,27px);line-height:1.22;letter-spacing:-.015em}
+.toog .q cite{font-style:normal;font-size:13.5px;opacity:.7;margin-top:18px;display:block}
 
-/* bij de koffie */
-.bake{background:var(--cream)}
-.bake-head{display:flex;justify-content:space-between;align-items:end;gap:40px;flex-wrap:wrap;margin-bottom:56px}
-.bake h2{font-size:clamp(40px,4.6vw,68px);margin-top:18px;max-width:13ch}
-.bake-head p{max-width:28em}
-.bake-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:24px}
-.bake-grid figure{overflow:hidden;position:relative}
-.bake-grid .b1{grid-row:span 2;aspect-ratio:3/4}
-.bake-grid .b2{aspect-ratio:16/9}
-.bake-grid img{width:100%;height:100%;object-fit:cover}
-.bake-grid figcaption{position:absolute;left:0;bottom:0;background:var(--black);color:var(--white);padding:12px 18px;font-size:14px;font-weight:500;letter-spacing:.04em}
-.pastry{background:var(--white);padding:34px 36px}
-.pastry h3{font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--cobalt);margin-bottom:14px}
-.pastry ul{list-style:none;columns:2;column-gap:30px}
-.pastry li{font-family:var(--serif);font-size:23px;padding:7px 0;break-inside:avoid}
-.pastry p{font-size:15px;color:var(--grey);margin-top:16px}
+/* gebak */
+.oven{background:var(--c2)}
+.oven .top{display:flex;justify-content:space-between;align-items:end;gap:40px;flex-wrap:wrap}
+.oven .grid{display:grid;grid-template-columns:5fr 7fr;gap:16px;margin-top:56px}
+.oven .bun{border-radius:var(--r);overflow:hidden;position:relative;min-height:620px}
+.oven .bun img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 88%}
+.tag{position:absolute;left:20px;bottom:20px;background:var(--c);color:var(--i);border-radius:99px;padding:9px 16px;font-size:14px;font-weight:600}
+.oven .rt{display:grid;grid-template-rows:auto 1fr;gap:16px}
+.oven .crs{border-radius:var(--r);overflow:hidden;position:relative;aspect-ratio:16/9}
+.oven .crs img{width:100%;height:100%;object-fit:cover}
+.bakes{background:var(--k);color:var(--c);border-radius:var(--r);padding:30px 34px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.bakes ul{list-style:none}
+.bakes li{font-family:'Archivo';font-stretch:115%;font-weight:750;font-size:clamp(22px,2.3vw,34px);letter-spacing:-.02em;line-height:1.18;text-transform:uppercase;display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid rgba(244,239,230,.2);padding:8px 0}
+.bakes li em{font-style:normal;font-family:'Instrument Sans';font-weight:500;font-size:13px;letter-spacing:.06em;opacity:.75;text-transform:none}
+.bakes p{font-size:15px;opacity:.85;max-width:420px}
 
-/* de plek */
-.place{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}
-.place-pics{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.place-pics figure{overflow:hidden;aspect-ratio:3/4.2}
-.place-pics figure:last-child{margin-top:70px}
-.place-pics img{width:100%;height:100%;object-fit:cover}
-.place h2{font-size:clamp(40px,4.6vw,68px);margin:18px 0 24px}
-.place .tag{color:var(--cobalt)}
-.facts{list-style:none;margin-top:34px;border-top:2px solid var(--black)}
-.facts li{display:grid;grid-template-columns:180px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--line)}
-.facts b{font-weight:600}
-
-/* wijn band */
-.band{background:var(--cobalt);color:var(--cream);padding:100px 0}
-.band .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:end}
-.band h2{font-size:clamp(40px,5vw,76px);color:var(--cream)}
-.band p{font-size:18px;color:#dfe3f7}
+/* zaak */
+.zaak .band{position:relative;margin-top:56px;border-radius:calc(var(--r) + 6px);overflow:hidden;aspect-ratio:16/8.2}
+.zaak .band img{width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+.label{position:absolute;left:24px;bottom:24px;width:min(360px,calc(100% - 48px));background:var(--c);border-radius:18px;padding:24px 26px}
+.label small{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--k);font-weight:600}
+.label b{display:block;font-family:'Archivo';font-stretch:110%;font-weight:750;font-size:22px;line-height:1.15;margin:8px 0}
+.label p{font-size:15px;color:var(--g);line-height:1.5}
+.feiten{display:grid;grid-template-columns:repeat(4,1fr);margin-top:28px;border-top:1.5px solid var(--i)}
+.feiten div{padding:22px 22px 0 0}
+.feiten div+div{padding-left:22px;border-left:1px solid rgba(21,21,21,.16)}
+.feiten b{display:block;font-family:'Archivo';font-stretch:110%;font-weight:700;font-size:19px}
+.feiten span{font-size:15px;color:var(--g)}
+.zaak .na{display:grid;grid-template-columns:5fr 7fr;gap:40px;margin-top:80px;align-items:center;border-radius:var(--r);background:var(--i);color:var(--c);padding:clamp(30px,4vw,54px)}
+.zaak .na h3{font-family:'Archivo';font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:clamp(28px,3.2vw,46px);line-height:.98;letter-spacing:-.02em}
+.zaak .na p{font-size:17px;opacity:.82;max-width:520px}
 
 /* reviews */
-.rev-head{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:30px;margin-bottom:50px}
-.rev-head h2{font-size:clamp(40px,4.6vw,68px);margin-top:18px}
-.rev-head .tag{color:var(--cobalt)}
-.score{text-align:right}
-.score b{font-family:var(--serif);font-weight:400;font-size:84px;line-height:1}
-.score span{display:block;font-size:14px;color:var(--grey)}
-.cards{display:grid;grid-template-columns:repeat(2,1fr);border-top:2px solid var(--black)}
-.cards blockquote{padding:34px 34px 30px 0;border-right:1px solid var(--line)}
-.cards blockquote+blockquote{padding-left:34px}
-.cards blockquote:last-child{border-right:0}
-.cards p{font-family:var(--serif);font-size:27px;line-height:1.2}
-.cards cite{display:block;font-style:normal;font-size:14px;color:var(--grey);margin-top:18px}
-.rev-note{font-size:14px;color:var(--grey);margin-top:26px}
+.rev{background:var(--k);color:var(--c);overflow:hidden}
+.rev .big{font-family:'Archivo';font-stretch:125%;font-weight:850;text-transform:uppercase;font-size:clamp(46px,8.4vw,128px);line-height:.92;letter-spacing:-.03em;margin-top:26px}
+.rev .big span{display:inline-block;color:var(--i);background:var(--c);padding:0 .12em;border-radius:.12em}
+.rev .who{display:flex;gap:16px;align-items:center;margin-top:26px;font-size:15px;opacity:.86}
+.rev .lab{color:var(--c)}
+.rev .row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:70px}
+.rev .card{border:1.5px solid rgba(244,239,230,.3);border-radius:var(--r);padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;transition:background .3s}
+.rev .card:hover{background:rgba(244,239,230,.07)}
+.rev .card p{font-size:19px;line-height:1.45}
+.rev .card cite{font-style:normal;font-size:14px;opacity:.7}
+.rev .score{background:var(--c);color:var(--i);border-color:var(--c)}
+.rev .score:hover{background:var(--c)}
+.rev .score b{font-family:'Archivo';font-stretch:125%;font-weight:850;font-size:76px;line-height:.9;letter-spacing:-.03em}
 
-/* bezoek */
-.visit{background:var(--black);color:#e9e9e9}
-.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px}
-.visit h2{color:var(--white);font-size:clamp(40px,4.6vw,68px);margin:18px 0 22px}
-.visit .tag{color:var(--cream)}
-.hours{list-style:none;border-top:1px solid rgba(255,255,255,.2)}
-.hours li{display:flex;justify-content:space-between;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.2);font-size:18px}
-.hours li span:last-child{color:var(--white);font-weight:500}
-.contact{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:40px;font-size:16px}
-.contact b{display:block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);margin-bottom:6px;font-weight:600}
-.contact a{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3)}
-.visit .acts{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+/* langskomen */
+.bezoek .grid{display:grid;grid-template-columns:5fr 6fr;gap:clamp(36px,6vw,96px);align-items:center}
+.bezoek .gev{border-radius:999px 999px var(--r) var(--r);overflow:hidden;aspect-ratio:4/5}
+.bezoek .gev img{width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.uren{margin-top:34px;border-top:1.5px solid var(--i)}
+.uren div{display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px solid rgba(21,21,21,.16);font-size:17px}
+.uren b{font-weight:600}
+.adres{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:30px;font-size:16px}
+.adres small{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--k);font-weight:600;margin-bottom:6px}
+.bezoek .h-btn .btn-o{color:var(--i);border-color:rgba(21,21,21,.35)}
+.bezoek .h-btn .btn-o:hover{background:rgba(21,21,21,.05)}
 
-footer{background:var(--black);color:#9a9a9a;font-size:14px;padding:0 0 46px}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;border-top:1px solid #2b2b2b;padding-top:28px}
-footer a{text-decoration:none}
+/* footer */
+footer{background:var(--i);color:var(--c);padding:70px 0 34px;overflow:hidden}
+footer .fw{font-size:min(190px,calc((100vw - 2 * var(--pad)) / 6.6));color:var(--k);text-align:center;line-height:.8;margin-top:56px}
+footer .cols{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;font-size:15px}
+footer .cols small{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.55;margin-bottom:10px}
+footer .cols a:hover{text-decoration:underline}
+footer .end{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13.5px;opacity:.6;margin-top:30px;border-top:1px solid rgba(244,239,230,.14);padding-top:22px}
 
-@media (max-width:1050px){
-  .nav ul{display:none}
-  .bar,.place,.visit-grid{grid-template-columns:1fr;gap:56px}
-  .bake-grid{grid-template-columns:1fr 1fr}
-  .band .wrap{grid-template-columns:1fr;gap:24px}
-  .cards{grid-template-columns:1fr}
-  .hero-img::after{background:linear-gradient(90deg,rgba(12,12,12,.9),rgba(12,12,12,.62))}
-  .cards blockquote,.cards blockquote+blockquote{padding:28px 0;border-right:0;border-bottom:1px solid var(--line)}
+/* reveal: enkel met js */
+.js [data-r]{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js [data-r].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js [data-r]{opacity:1;transform:none;transition:none}}
+
+@media (max-width:1100px){
+ .nav ul{display:none}
+ .h-in{column-gap:30px}
+ .oven .bun{min-height:520px}
+ .feiten{grid-template-columns:1fr 1fr}
+ .feiten div:nth-child(3){padding-left:0;border-left:0}
+ .feiten div{padding-bottom:20px}
+ .rev .row{grid-template-columns:1fr 1fr}
+ .rev .score{grid-column:1/-1}
 }
-@media (max-width:760px){
-  body{font-size:16px}
-  .nav{position:static}
-  .nav .wrap{padding:18px 0}
-  .hero{display:flex;flex-direction:column;min-height:0}
-  .hero-text{order:1}
-  .hero-img{order:2}
-  .hero-img{position:relative;aspect-ratio:4/3.6}
-  .hero-img::after{display:none}
-  .hero-img img{object-position:55% 50%}
-  .hero-text{padding:30px 0 46px}
-  .hero-meta{gap:26px;margin-top:40px}
-  .hero-meta b{font-size:28px}
-  .sec{padding:86px 0}
-  .board{margin:-40px 14px 0;padding:30px 24px}
-  .bake-grid{grid-template-columns:1fr}
-  .bake-grid .b1{grid-row:auto;aspect-ratio:4/4.4}
-  .pastry{padding:28px 24px}
-  .pastry ul{columns:1}
-  .place-pics figure:last-child{margin-top:40px}
-  .facts li{grid-template-columns:1fr;gap:2px}
-  .band{padding:76px 0}
-  .score{text-align:left}
-  .contact{grid-template-columns:1fr}
-  .matcha{grid-template-columns:100px 1fr}
-  .matcha img{width:100px;height:100px}
-  .btn{padding:16px 18px;font-size:13px}
+@media (max-width:820px){
+ .h-in{grid-template-columns:minmax(0,1fr);height:auto;padding-bottom:0}
+ .h-txt{max-width:none;padding-bottom:36px}
+ .h-pic{height:auto;aspect-ratio:4/4.6;margin:0}
+ .h-word{position:relative;left:auto;right:auto;bottom:auto;margin:-.56em 0 0;font-size:calc((100vw - 2 * var(--pad)) / 6.55);padding:0 0 .08em;line-height:.86}
+ .h-cap{display:none}
+ .toog .grid,.oven .grid,.zaak .na,.bezoek .grid{grid-template-columns:1fr}
+ .oven .bun{min-height:0;aspect-ratio:4/5}
+ .zaak .band{aspect-ratio:4/3.4}
+ .label{position:relative;left:auto;bottom:auto;width:auto;margin:-34px 14px 0}
+ .zaak .band{overflow:visible;border-radius:0;aspect-ratio:auto}
+ .zaak .band img{border-radius:var(--r);aspect-ratio:4/3.6}
+ footer .cols{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+ body{font-size:16px}
+ .nav .route{display:none}
+ .h-txt h1{font-size:36px}
+ .btn{height:52px}
+ .feiten{grid-template-columns:1fr}
+ .feiten div,.feiten div+div{padding:16px 0;border-left:0;border-bottom:1px solid rgba(21,21,21,.16)}
+ .rev .row{grid-template-columns:1fr}
+ .bakes{padding:26px 22px}
+ .toog .pics{grid-template-columns:1fr}
+ .toog .p2{aspect-ratio:4/3}
+ .adres{grid-template-columns:1fr}
+ footer .cols{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
-<div class="top">
-<header class="nav">
-  <div class="wrap">
-    <a class="mark" href="#top" aria-label="Koffeine">
-      <i><svg viewBox="0 0 24 24" fill="none" stroke="#121212" stroke-width="2.6" stroke-linecap="square"><path d="M7 3v18M7 12l9-9M7 12l9 9"/></svg></i>
-      <span>KOFFEINE</span>
-    </a>
-    <ul>
-      <li><a href="#toog">Koffie</a></li>
-      <li><a href="#gebak">Bij de koffie</a></li>
-      <li><a href="#plek">De plek</a></li>
-      <li><a href="#bezoek">Uren</a></li>
-    </ul>
+<header class="hero">
+ <nav class="nav">
+  <a class="logo" href="#top" aria-label="Koffeine"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#151515"/><path d="M14 10.5v19M14 20.5l9.5-10M17.2 17.2l7.8 12.3M25 29.5h-5.2M25 29.5v-5.2" stroke="#F4EFE6" stroke-width="3.2" fill="none" stroke-linecap="square"/></svg>KOFFEINE</a>
+  <ul><li><a href="#toog">Koffie</a></li><li><a href="#oven">Gebak</a></li><li><a href="#zaak">De zaak</a></li><li><a href="#langskomen">Langskomen</a></li></ul>
+  <a class="route" href="#langskomen">Route</a>
+ </nav>
+ <div class="h-in" id="top">
+  <div class="h-txt">
+   <p class="kick">Specialty coffee · Gent</p>
+   <h1>Goeie koffie onder hoge plafonds.</h1>
+   <p class="lead">Flat white met havermelk, een cinnamon bun op desem en een plek aan het raam. Of boven, op de mezzanine.</p>
+   <div class="h-btn">
+    <a class="btn btn-c" href="#toog">Wat we schenken <i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></i></a>
+    <a class="btn btn-o" href="#langskomen">Uren en adres</a>
+   </div>
+   <div class="h-score"><b>4,6</b><span>uit 633 reviews<br>op Google</span></div>
   </div>
+  <div class="h-pic"><img src="img/flat-whites.webp" alt="Twee flat whites met latte art op een houten plateau" width="1100" height="1466" fetchpriority="high"></div>
+  <div class="h-word disp" aria-hidden="true">Koffeine</div>
+ </div>
 </header>
 
-<main id="top">
-<section class="hero">
-  <figure class="hero-img"><img src="img/mezzanine.webp" alt="Het interieur van Koffeine met de stalen mezzanine en de grote ramen" width="2000" height="1331" fetchpriority="high"></figure>
-  <div class="wrap hero-text">
-    <span class="tag">Specialty coffee · Lange Kruisstraat 6</span>
-    <h1>Goeie koffie, een paar stappen van Sint-Baafs</h1>
-    <p>Espresso, filter of cold brew, met een cinnamon bun op desem ernaast. Beneden aan de grote ramen, of boven op de mezzanine.</p>
-    <div class="acts">
-      <a class="btn btn-cream" href="#bezoek">Uren en adres
-        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a>
-      <a class="btn btn-ghost-l" href="#toog">Wat we schenken</a>
-    </div>
-    <div class="hero-meta">
-      <div><b>4,6</b>uit 633 reviews op Google</div>
-      <div><b>7 op 7</b>open, ook op zondag</div>
-    </div>
+<main>
+<section class="sec toog" id="toog">
+ <div class="wrap">
+  <span class="lab">Aan de toog</span>
+  <h2 class="disp" data-r>Wat er uit<br>de machine komt</h2>
+  <div class="grid">
+   <div data-r>
+    <ul class="menu">
+     <li><small>01</small><b>Espresso en alles met melk</b><span>Flat white, cappuccino, latte. Havermelk staat altijd klaar.</span></li>
+     <li><small>02</small><b>Iets wat niet op de kaart staat</b><span>Zin in een cortado? Vraag het gewoon, we maken hem.</span></li>
+     <li><small>03</small><b>Matcha</b><span>Eerst door de zeef, dan opgeklopt. Zoals het hoort.</span></li>
+     <li><small>04</small><b>Thee en huisgemaakte ice tea</b><span>Specialty thee, of onze eigen ice tea.</span></li>
+     <li><small>05</small><b>Bio sappen en smoothies</b><span>Voor wie vandaag al genoeg cafeïne heeft gehad.</span></li>
+    </ul>
+   </div>
+   <div class="pics" data-r>
+    <div class="p1"><img src="img/toog.webp" alt="De espressomachine en molens op de toog van Koffeine" loading="lazy" width="1400" height="1050"></div>
+    <div class="p2"><img src="img/matcha.webp" alt="Matcha die door een zeefje gaat" loading="lazy" width="1000" height="1333"></div>
+    <div class="q"><p>"They make custom drinks even if they are not on the menu (say, cortado)."</p><cite>John C. op Google</cite></div>
+   </div>
   </div>
-</section>
-</div>
-
-<section class="sec" id="toog">
-  <div class="wrap bar">
-    <div class="bar-pic">
-      <figure><img src="img/toog.webp" alt="De espressomachine en molens op de toog van Koffeine" loading="lazy" width="1400" height="1050"></figure>
-      <div class="board">
-        <h3>Aan de toog</h3>
-        <ul>
-          <li>Espresso <span>en alles met melk</span></li>
-          <li>Filterkoffie</li>
-          <li>Cold brew</li>
-          <li>Thee en matcha</li>
-          <li>Ice tea <span>zelfgemaakt</span></li>
-          <li>Bio sappen en smoothies</li>
-        </ul>
-      </div>
-    </div>
-    <div class="bar-text">
-      <span class="tag">Koffie</span>
-      <h2>Zoals jij hem drinkt</h2>
-      <p>Bij ons draait alles om specialty coffee. Een strakke espresso, een flat white met havermelk of een rustige filter voor als je de tijd hebt.</p>
-      <p>Staat wat je zoekt niet op de kaart? Vraag het gewoon. Een cortado maken we ook als hij er niet bij staat.</p>
-      <div class="say">
-        <p>“They make custom drinks even if they are not on the menu (say, cortado).”</p>
-        <cite>John C., review op Google</cite>
-      </div>
-      <div class="matcha">
-        <img src="img/matcha.webp" alt="Matcha wordt gezeefd in een kom" loading="lazy" width="1000" height="1333">
-        <p>Geen koffiedrinker? Er is ook thee, matcha, zelfgemaakte ice tea en verse bio sappen.</p>
-      </div>
-    </div>
-  </div>
+ </div>
 </section>
 
-<section class="sec bake" id="gebak">
-  <div class="wrap">
-    <div class="bake-head">
-      <div>
-        <span class="tag" style="color:var(--cobalt)">Bij de koffie</span>
-        <h2>Iets zoets erbij hoort er gewoon bij</h2>
-      </div>
-      <p>Onze cinnamon buns maken we op desem. Daarnaast ligt er ontbijtgebak in de toonbank. Kom gerust eens kijken wat er vandaag is.</p>
-    </div>
-    <div class="bake-grid">
-      <figure class="b1"><img src="img/cinnamon-bun.webp" alt="Cinnamon bun met twee cappuccino's op een houten tafel" loading="lazy" width="1200" height="1600"><figcaption>Cinnamon bun op desem</figcaption></figure>
-      <figure class="b2"><img src="img/croissant.webp" alt="Almond croissant met een cortado en een latte op een plateau" loading="lazy" width="1400" height="788"><figcaption>Almond croissant</figcaption></figure>
-      <div class="pastry">
-        <h3>Vaak in de toonbank</h3>
-        <ul>
-          <li>Cinnamon buns</li>
-          <li>Carrot cake</li>
-          <li>Bananenbrood</li>
-          <li>Almond croissant</li>
-          <li>Egg tart</li>
-          <li>Ontbijtgebak</li>
-        </ul>
-        <p>Vegan of op havermelk? Zeg het aan de toog, dan zoeken we samen wat er kan.</p>
-      </div>
-    </div>
+<section class="sec oven" id="oven">
+ <div class="wrap">
+  <div class="top">
+   <div><span class="lab">Uit de oven</span><h2 class="disp" data-r>Iets erbij?</h2></div>
+   <p class="intro">Bij een goeie koffie hoort iets uit de toonbank. Kies aan de toog, we leggen het erbij.</p>
   </div>
+  <div class="grid">
+   <div class="bun" data-r><img src="img/cinnamon-bun.webp" alt="Cinnamon bun op desem naast twee cappuccino's" loading="lazy" width="1200" height="1600"><span class="tag">Cinnamon bun op desem</span></div>
+   <div class="rt">
+    <div class="crs" data-r><img src="img/croissant.webp" alt="Almond croissant en twee koffies op een plateau" loading="lazy" width="1400" height="788"><span class="tag">Almond croissant</span></div>
+    <div class="bakes" data-r>
+     <ul>
+      <li>Cinnamon bun <em>op desem</em></li>
+      <li>Almond croissant</li>
+      <li>Carrot cake</li>
+      <li>Bananenbrood</li>
+      <li>Egg tart</li>
+     </ul>
+     <p>Wat er ligt, wisselt met de dag. Vraag aan de toog wat er vers is.</p>
+    </div>
+   </div>
+  </div>
+ </div>
 </section>
 
-<section class="sec" id="plek">
-  <div class="wrap place">
-    <div>
-      <span class="tag">De plek</span>
-      <h2>Hoge muren, grote ramen en een mezzanine</h2>
-      <p>Koffeine zit in de Lange Kruisstraat, vlak bij de Sint-Baafskathedraal. Beneden zit je aan de ramen met zicht op de straat. Boven op de mezzanine is het rustiger. De hoge muren gebruiken we om werk van kunstenaars te tonen.</p>
-      <ul class="facts">
-        <li><b>Reserveren</b><span>Niet nodig, je loopt gewoon binnen</span></li>
-        <li><b>Groepen</b><span>Tot 8 personen</span></li>
-        <li><b>Je hond</b><span>Is welkom</span></li>
-        <li><b>Buiten</b><span>Terras bij mooi weer</span></li>
-      </ul>
-    </div>
-    <div class="place-pics">
-      <figure><img src="img/gevel.webp" alt="De open deur van Koffeine in de Lange Kruisstraat" loading="lazy" width="1000" height="1147"></figure>
-      <figure><img src="img/flat-whites.webp" alt="Twee flat whites op een houten plateau op het terras" loading="lazy" width="1100" height="1466"></figure>
-    </div>
+<section class="sec zaak" id="zaak">
+ <div class="wrap">
+  <span class="lab">De zaak</span>
+  <h2 class="disp" data-r>Beneden of<br>boven?</h2>
+  <div class="band" data-r>
+   <img src="img/mezzanine.webp" alt="De mezzanine en de zitplaatsen aan de grote ramen van Koffeine" loading="lazy" width="2000" height="1331">
+   <div class="label"><small>Lange Kruisstraat 6</small><b>Grote ramen, hoge muren</b><p>Beneden zit je in het licht van de straat. Boven op de mezzanine is het stiller. De hoge muren dienen als expositieruimte.</p></div>
   </div>
+  <div class="feiten" data-r>
+   <div><b>Geen reservaties</b><span>Gewoon binnenwandelen.</span></div>
+   <div><b>Groepen tot 8</b><span>Ook voor een kleine bende.</span></div>
+   <div><b>Hond welkom</b><span>Die van jou ook.</span></div>
+   <div><b>Terras</b><span>Zodra het weer meewil.</span></div>
+  </div>
+  <div class="na" data-r>
+   <h3>Na de koffie mag het ook een glas zijn</h3>
+   <p>Naast koffie schenken we Belgische bieren en Macedonische wijn. Handig als de afspraak uitloopt.</p>
+  </div>
+ </div>
 </section>
 
-<section class="band">
-  <div class="wrap">
-    <h2>Liever iets anders dan koffie? Er is ook bier en wijn.</h2>
-    <p>Naast koffie schenken we Belgische bieren en Macedonische wijn. Voor een rustig glas aan het einde van de middag, voor we sluiten.</p>
+<section class="sec rev">
+ <div class="wrap">
+  <span class="lab">Wat mensen schrijven</span>
+  <p class="big" data-r>"Best coffee<br>I've had <span>in Gent</span>"</p>
+  <div class="who">Shaun V. op Google</div>
+  <div class="row">
+   <div class="card score" data-r><b>4,6</b><span>gemiddeld uit 633 Google-reviews. Veel bezoekers schrijven in het Engels, we laten ze zoals ze zijn.</span></div>
+   <div class="card" data-r><p>"They offer oat milk as a vegan alternative and the pastries seemed fresh."</p><cite>Martina V. op Google</cite></div>
+   <div class="card" data-r><p>"They make custom drinks even if they are not on the menu."</p><cite>John C. op Google</cite></div>
   </div>
+ </div>
 </section>
 
-<section class="sec">
-  <div class="wrap">
-    <div class="rev-head">
-      <div>
-        <span class="tag">Wat gasten schrijven</span>
-        <h2>Ook toeristen vinden de weg</h2>
-      </div>
-      <div class="score"><b>4,6</b><span>uit 633 reviews op Google</span></div>
-    </div>
-    <div class="cards">
-      <blockquote><p>“best coffee I've had in Gent”</p><cite>Shaun V.</cite></blockquote>
-      <blockquote><p>“They offer oat milk as a vegan alternative and the pastries seemed fresh”</p><cite>Martina V.</cite></blockquote>
-    </div>
-    <p class="rev-note">Reviews letterlijk overgenomen van Google, in de taal waarin ze geschreven zijn.</p>
+<section class="sec bezoek" id="langskomen">
+ <div class="wrap grid">
+  <div class="gev" data-r><img src="img/gevel.webp" alt="De open deur van Koffeine in de Lange Kruisstraat" loading="lazy" width="1000" height="1146"></div>
+  <div data-r>
+   <span class="lab">Langskomen</span>
+   <h2 class="disp">Deur staat open</h2>
+   <div class="uren">
+    <div><b>Maandag tot vrijdag</b><span>8u30 tot 18u</span></div>
+    <div><b>Zaterdag</b><span>9u30 tot 18u</span></div>
+    <div><b>Zondag</b><span>9u30 tot 17u</span></div>
+   </div>
+   <div class="adres">
+    <div><small>Adres</small>Lange Kruisstraat 6<br>9000 Gent</div>
+    <div><small>Contact</small><a href="tel:+32485999178">0485 99 91 78</a><br><a href="mailto:koffeinegent@gmail.com">koffeinegent@gmail.com</a></div>
+   </div>
+   <div class="h-btn">
+    <a class="btn btn-k" href="https://www.google.com/maps/place/Koffeine/@51.052744,3.725758,17z/data=!3m1!4b1!4m6!3m5!1s0x47c371460ceb5ed9:0xef1b5f42fb06751b!8m2!3d51.052744!4d3.725758!16s%2Fg%2F11c5bk_t2k" target="_blank" rel="noopener">Route plannen <i><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></i></a>
+    <a class="btn btn-o" href="https://www.instagram.com/koffeinegent/" target="_blank" rel="noopener">Instagram</a>
+   </div>
   </div>
-</section>
-
-<section class="sec visit" id="bezoek">
-  <div class="wrap visit-grid">
-    <div>
-      <span class="tag">Langskomen</span>
-      <h2>Elke dag open</h2>
-      <ul class="hours">
-        <li><span>Maandag tot vrijdag</span><span>8u30 tot 18u</span></li>
-        <li><span>Zaterdag</span><span>9u30 tot 18u</span></li>
-        <li><span>Zondag</span><span>9u30 tot 17u</span></li>
-      </ul>
-    </div>
-    <div>
-      <div class="contact">
-        <div><b>Adres</b>Lange Kruisstraat 6<br>9000 Gent</div>
-        <div><b>Contact</b><a href="https://wa.me/32485999178">0485 99 91 78</a><br><a href="mailto:koffeinegent@gmail.com">koffeinegent@gmail.com</a></div>
-        <div><b>Volg ons</b><a href="https://www.instagram.com/koffeinegent/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/koffeinegent" target="_blank" rel="noopener">Facebook</a></div>
-        <div><b>Reserveren</b>Niet nodig</div>
-      </div>
-      <div class="acts">
-        <a class="btn btn-cream" href="https://www.google.com/maps/dir/?api=1&amp;destination=Koffeine+Lange+Kruisstraat+6+9000+Gent" target="_blank" rel="noopener">Route plannen
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a>
-        <a class="btn btn-ghost-l" href="https://wa.me/32485999178" target="_blank" rel="noopener">WhatsApp</a>
-      </div>
-    </div>
-  </div>
+ </div>
 </section>
 </main>
 
 <footer>
-  <div class="wrap">
-    <span>Koffeine · Lange Kruisstraat 6, 9000 Gent</span>
-    <span>Voorbeeldsite door Digital Impression</span>
+ <div class="wrap">
+  <div class="cols">
+   <div><a class="logo" href="#top"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#F4EFE6"/><path d="M14 10.5v19M14 20.5l9.5-10M17.2 17.2l7.8 12.3M25 29.5h-5.2M25 29.5v-5.2" stroke="#151515" stroke-width="3.2" fill="none" stroke-linecap="square"/></svg>KOFFEINE</a><p style="margin-top:16px;opacity:.7;max-width:300px">Specialty koffie en vers gebak in de Lange Kruisstraat, Gent.</p></div>
+   <div><small>Adres</small>Lange Kruisstraat 6<br>9000 Gent</div>
+   <div><small>Open</small>Ma tot vr 8u30 tot 18u<br>Za 9u30 tot 18u<br>Zo 9u30 tot 17u</div>
+   <div><small>Volg</small><a href="https://www.instagram.com/koffeinegent/" target="_blank" rel="noopener">Instagram</a><br><a href="https://www.facebook.com/koffeinegent" target="_blank" rel="noopener">Facebook</a></div>
   </div>
+  <div class="fw disp" aria-hidden="true">Koffeine</div>
+  <div class="end"><span>© Koffeine Gent</span><span>Voorbeeldsite door Digital Impression</span></div>
+ </div>
 </footer>
+<script>
+document.documentElement.classList.add('js');
+(function(){var els=document.querySelectorAll('[data-r]');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e)})})();
+</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
 <style>
 .di,.di *{box-sizing:border-box;margin:0;padding:0;border:0;background:none;box-shadow:none;text-shadow:none;text-transform:none;letter-spacing:normal;float:none;max-width:none;min-height:0;font:inherit;color:inherit;text-decoration:none;opacity:1;transform:none;filter:none;list-style:none}
