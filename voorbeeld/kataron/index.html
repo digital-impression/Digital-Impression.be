@@ -8,13 +8,14 @@
 <meta name="description" content="Kataron in Leuven: glutenvrije macarons met échte smaken, macarontaarten en macarontorens, gemaakt door Kato. Winkel in de Leopold Vanderkelenstraat en op zaterdag op de markt in Mechelen.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="img/hero.webp">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,600..900,100&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js')</script>
 <style>
 :root{
   --roze:#F298C1; --roze-d:#E06FA2; --roze-l:#F8C3D7; --roze-xl:#FDEAF1; --wit:#FFFDFB; --ink:#16100F; --zacht:#6E5A61;
   --ease:cubic-bezier(.2,.7,.2,1); --r:28px;
-  --streep:repeating-linear-gradient(90deg,var(--roze-l) 0 60px,#fff 60px 120px);
+  --streep:repeating-linear-gradient(90deg,var(--roze-l) 0 44px,#fff 44px 88px);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -30,70 +31,84 @@ h1 span,h2 span{color:var(--roze-d)}
 .demo{background:var(--ink);color:#fff;font:600 13.5px/1.4 'Nunito Sans',sans-serif;text-align:center;padding:9px 16px;position:relative;z-index:60}
 .demo a{text-decoration:underline;text-underline-offset:3px;color:var(--roze-l)}
 
-.knop{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:17px 28px;font:800 15.5px/1 'Nunito Sans',sans-serif;transition:transform .35s var(--ease),background .3s,color .3s,box-shadow .3s;white-space:nowrap}
+/* knoppen: een pil met een roze 'vulling' onderaan, zoals een macaron */
+.knop{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:17px 28px 19px;font:800 15.5px/1 'Nunito Sans',sans-serif;transition:transform .35s var(--ease),background .3s,color .3s,box-shadow .3s;white-space:nowrap}
 .knop svg{width:18px;height:18px;flex:none}
 .knop:hover{transform:translateY(-2px)}
-.k-ink{background:var(--ink);color:var(--roze-l)}
-.k-ink:hover{box-shadow:0 14px 30px -12px rgba(22,16,15,.6)}
-.k-wit{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.5px rgba(22,16,15,.15)}
-.k-wit:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
-.k-roze{background:var(--roze);color:var(--ink)}
-.k-roze:hover{background:var(--roze-d)}
+.k-ink{background:var(--ink);color:#fff;box-shadow:inset 0 -5px 0 var(--roze-d)}
+.k-ink:hover{box-shadow:inset 0 -5px 0 var(--roze-d),0 14px 30px -12px rgba(22,16,15,.6)}
+.k-wit{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.5px rgba(22,16,15,.15),inset 0 -5px 0 var(--roze-l)}
+.k-wit:hover{box-shadow:inset 0 0 0 1.5px var(--ink),inset 0 -5px 0 var(--roze-l)}
 
-/* HERO */
-.hero{display:grid;grid-template-columns:1.05fr .95fr;min-height:max(700px,calc(100svh - 38px));background:var(--streep);position:relative}
-.hero-l{display:flex;flex-direction:column;padding:0 clamp(28px,5vw,80px) clamp(36px,4vw,56px)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:104px}
-.nav img{height:66px;width:auto;background:rgba(255,255,255,.9);padding:8px 14px;border-radius:18px;box-sizing:content-box}
-.nav ul{display:flex;gap:10px;list-style:none;font-size:15px;font-weight:700}
-.nav ul a{background:rgba(255,255,255,.85);padding:10px 16px;border-radius:999px;transition:background .3s}
-.nav ul a:hover{background:#fff}
-.hero-tekst{margin:auto 0;padding:40px 0;max-width:600px}
-.hero h1{font-size:clamp(56px,6.2vw,104px);margin:22px 0 24px}
-.hero h1 span{color:var(--roze-d)}
-.hero .lead{display:inline;font-size:clamp(17px,1.35vw,20px);font-weight:600;line-height:1.9;background:#fff;box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:4px 10px;border-radius:8px}
-.hero .knoppen{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-.hero-r{position:relative;overflow:hidden}
-.hero-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;transform:scale(1.05);animation:zoom 14s var(--ease) forwards}
+/* HERO: een winkelgevel. Luifel bovenaan, tekst links, de toren in een boogvenster rechts op de toonbank */
+.hero{position:relative;background:var(--roze-xl);overflow:hidden;min-height:max(720px,calc(100svh - 38px));display:flex;flex-direction:column}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px clamp(20px,4vw,56px);background:#fff}
+.nav img{height:54px;width:auto}
+.nav ul{display:flex;gap:30px;list-style:none;font-size:15.5px;font-weight:700}
+.nav ul a{transition:color .3s}
+.nav ul a:hover{color:var(--roze-d)}
+.nav .knop{padding:13px 20px 15px;font-size:14.5px}
+.luifel{height:64px;background:var(--streep);-webkit-mask:linear-gradient(#000 0 0) top/100% calc(100% - 22px) no-repeat,radial-gradient(circle 22px at 50% 0,#000 97%,#0000) bottom left/44px 22px repeat-x;mask:linear-gradient(#000 0 0) top/100% calc(100% - 22px) no-repeat,radial-gradient(circle 22px at 50% 0,#000 97%,#0000) bottom left/44px 22px repeat-x;filter:drop-shadow(0 6px 0 rgba(224,111,162,.18))}
+.hero-in{flex:1;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(30px,5vw,80px);width:min(1260px,100% - 48px);margin:0 auto;align-items:end}
+.hero-tekst{align-self:center;padding:40px 0 70px;max-width:620px}
+.hero h1{font-size:clamp(54px,5.8vw,96px);margin:22px 0 24px}
+.hero .lead{font-size:clamp(17px,1.35vw,19.5px);color:var(--zacht);max-width:31em}
+.hero .knoppen{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.score{display:flex;align-items:center;gap:14px;margin-top:34px;font-size:14.5px;color:var(--zacht)}
+.score b{font:900 30px/1 'Fraunces',serif;font-variation-settings:'SOFT' 100;color:var(--ink)}
+.score i{font-style:normal;color:var(--roze-d);letter-spacing:2px;display:block;font-size:13px}
+.raam{position:relative;align-self:end;height:min(640px,calc(100svh - 38px - 86px - 58px - 40px));min-height:520px;border-radius:999px 999px 0 0;overflow:hidden;border:10px solid #fff;border-bottom:0;box-shadow:0 30px 70px -40px rgba(120,30,70,.55)}
+.raam img{width:100%;height:100%;object-fit:cover;object-position:50% 38%;transform:scale(1.05);animation:zoom 12s var(--ease) forwards}
 @keyframes zoom{to{transform:scale(1)}}
-.hero-r .badge{position:absolute;left:24px;bottom:24px;background:#fff;border-radius:22px;padding:14px 18px;display:flex;gap:12px;align-items:center;box-shadow:0 20px 40px -20px rgba(120,30,70,.45)}
-.hero-r .badge b{font:900 26px/1 'Fraunces',serif;font-variation-settings:'SOFT' 100}
-.hero-r .badge span{font-size:13.5px;line-height:1.3;color:var(--zacht)}
-.hero-r .badge i{font-style:normal;color:var(--roze-d);letter-spacing:2px;font-size:13px;display:block}
+.toonbank{height:22px;background:var(--ink);position:relative;z-index:2}
+.toonbank:before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--roze-d)}
 
 /* SMAKEN */
 .smaken{padding:clamp(100px,11vw,150px) 0 0}
 .smaken .kop{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,6vw,90px);align-items:end;margin-bottom:56px}
 .smaken h2{font-size:clamp(46px,5.4vw,90px);margin-top:20px}
 .smaken .kop p{font-size:18px;color:var(--zacht)}
-.muur{position:relative;margin:0 14px;border-radius:var(--r);overflow:hidden;height:clamp(460px,52vw,720px)}
+.smg{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:18px;align-items:stretch}
+.muur{border-radius:var(--r);overflow:hidden;min-height:560px}
 .muur img{width:100%;height:100%;object-fit:cover}
-.prijs{position:absolute;right:clamp(20px,4vw,56px);top:50%;transform:translateY(-50%);width:min(380px,calc(100% - 40px));background:var(--streep);border-radius:24px;padding:10px;box-shadow:0 40px 80px -30px rgba(60,10,30,.55)}
-.prijs .bin{background:rgba(255,255,255,.94);border-radius:18px;padding:26px 26px 22px}
-.prijs h3{font-size:30px;margin-bottom:12px}
-.prijs dl{display:grid;grid-template-columns:1fr auto;font-size:16.5px;font-weight:700}
-.prijs dt,.prijs dd{padding:11px 0;border-bottom:2px solid var(--roze-l)}
-.prijs dd{font:900 20px/1.2 'Fraunces',serif;font-variation-settings:'SOFT' 100}
-.prijs small{display:block;margin-top:14px;font-size:13.5px;color:var(--zacht)}
-.weetjes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px;padding:0 14px}
-.weetjes>div{background:var(--roze-xl);border-radius:22px;padding:24px 26px;display:flex;gap:16px;align-items:flex-start}
-.weetjes svg{width:30px;height:30px;flex:none;color:var(--roze-d)}
-.weetjes b{display:block;font:900 21px/1.2 'Fraunces',serif;font-variation-settings:'SOFT' 100;margin-bottom:4px}
-.weetjes span{font-size:15px;color:var(--zacht)}
+.bord{background:var(--streep);border-radius:var(--r);padding:12px;display:flex}
+.bord .bin{background:#fff;border-radius:20px;padding:30px 28px 26px;display:flex;flex-direction:column;width:100%}
+.bord h3{font-size:30px}
+.bord .sub{font-size:14px;color:var(--zacht);margin-top:4px}
+.bord dl{display:grid;grid-template-columns:1fr auto;font-size:17px;font-weight:700;margin-top:18px}
+.bord dt,.bord dd{padding:12px 0;border-bottom:2px dotted var(--roze-l)}
+.bord dd{font:900 21px/1.2 'Fraunces',serif;font-variation-settings:'SOFT' 100}
+.bord ul{list-style:none;margin-top:auto;padding-top:24px;display:grid;gap:10px;font-size:15.5px}
+.bord li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start}
+.bord li:before{content:"";width:18px;height:12px;margin-top:6px;border-radius:9px;background:linear-gradient(var(--roze) 0 40%,#fff 40% 60%,var(--roze) 60%)}
+.bord li b{font-weight:800}
 
 /* TAARTEN */
 .taarten{padding:clamp(100px,11vw,150px) 0}
-.taarten .kop{max-width:780px;margin-bottom:54px}
-.taarten h2{font-size:clamp(44px,5vw,84px);margin:20px 0 16px}
+.taarten .kop{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,6vw,90px);align-items:end;margin-bottom:54px}
+.taarten h2{font-size:clamp(44px,5vw,84px);margin-top:20px}
 .taarten .kop p{font-size:18px;color:var(--zacht)}
-.drie{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:18px}
-.kaart{position:relative;border-radius:var(--r);overflow:hidden;min-height:560px;display:flex;align-items:flex-end;padding:16px}
-.kaart img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
-.kaart:hover img{transform:scale(1.05)}
-.kaart .t{position:relative;background:#fff;border-radius:20px;padding:20px 22px;width:100%}
-.kaart h3{font-size:25px;margin-bottom:4px}
-.kaart p{font-size:15px;color:var(--zacht)}
-.quote{margin-top:26px;background:var(--roze-xl);border-radius:var(--r);padding:30px 36px;display:grid;grid-template-columns:auto 1fr auto;gap:26px;align-items:center}
+.tg{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:18px}
+.groot{position:relative;border-radius:var(--r);overflow:hidden;min-height:720px}
+.groot img,.klein img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.groot:hover img,.klein:hover img{transform:scale(1.04)}
+.label{position:absolute;left:16px;bottom:16px;right:16px;background:#fff;border-radius:20px;padding:18px 22px}
+.label h3{font-size:25px;margin-bottom:2px}
+.label p{font-size:15px;color:var(--zacht)}
+.tr{display:grid;grid-template-rows:auto 1fr;gap:18px}
+.kl2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.klein{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:3/3.8}
+.klein .label{padding:14px 16px}
+.klein .label h3{font-size:21px}
+.bon{background:#fff;border:2px solid var(--roze-l);border-radius:var(--r);padding:28px 30px;position:relative;display:flex;flex-direction:column}
+.bon:before{content:"";position:absolute;left:0;right:0;top:-2px;height:14px;background:radial-gradient(7px at 50% 0,var(--wit) 98%,transparent) 0 0/22px 14px repeat-x}
+.bon h3{font-size:26px}
+.bon>p{color:var(--zacht);font-size:15.5px;margin-top:4px}
+.velden{list-style:none;margin:16px 0 20px;display:grid;gap:0}
+.velden li{display:flex;justify-content:space-between;gap:20px;padding:11px 0;border-bottom:1.5px dashed var(--roze-l);font-weight:700;font-size:15.5px}
+.velden li span{color:var(--roze-d);font-weight:600}
+.bon .knop{align-self:flex-start;margin-top:auto}
+.quote{margin-top:18px;background:var(--roze-xl);border-radius:var(--r);padding:30px 36px;display:grid;grid-template-columns:auto 1fr auto;gap:26px;align-items:center}
 .quote .st{color:var(--roze-d);letter-spacing:3px;font-size:15px}
 .quote p{font:700 clamp(19px,1.6vw,23px)/1.45 'Nunito Sans',sans-serif}
 .quote cite{font-style:normal;font-weight:800;font-size:14.5px;white-space:nowrap}
@@ -102,17 +117,15 @@ h1 span,h2 span{color:var(--roze-d)}
 /* KATO */
 .kato{background:var(--ink);color:#fff;padding:clamp(100px,11vw,150px) 0;overflow:hidden}
 .kato .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(36px,6vw,100px);align-items:center}
-.kato .fotos{position:relative;display:grid;grid-template-columns:1.35fr .75fr;gap:16px;align-items:end}
+.kato .fotos{display:grid;grid-template-columns:1.35fr .75fr;gap:16px;align-items:end}
 .kato figure{border-radius:var(--r);overflow:hidden}
 .kato figure:first-child{aspect-ratio:4/5.2}
-.kato figure:last-child{aspect-ratio:3/4;margin-bottom:-60px}
+.kato figure:last-child{aspect-ratio:3/4}
 .kato img{width:100%;height:100%;object-fit:cover}
 .kato .sp{background:var(--roze);color:var(--ink)}
 .kato h2{color:#fff;font-size:clamp(56px,7vw,118px);margin:24px 0 24px}
-.kato h2 span{color:var(--roze)}
 .kato p{font-size:18.5px;color:rgba(255,255,255,.82);max-width:30em}
 .kato p+p{margin-top:14px}
-.kato .ondert{margin-top:26px;font-size:14.5px;color:var(--roze-l)}
 
 /* TRUCK */
 .truck{padding:clamp(100px,11vw,150px) 0 clamp(70px,7vw,100px)}
@@ -121,28 +134,33 @@ h1 span,h2 span{color:var(--roze-d)}
 .truck img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
 .truck h2{font-size:clamp(44px,5vw,84px);margin:20px 0 18px}
 .truck p{font-size:18px;color:var(--zacht);max-width:30em}
-.markt{margin-top:28px;display:flex;gap:16px;align-items:center;background:var(--roze-xl);border-radius:22px;padding:18px 22px}
-.markt svg{width:34px;height:34px;color:var(--roze-d);flex:none}
-.markt b{display:block;font-weight:800}
-.markt span{font-size:15px;color:var(--zacht)}
+.markt{margin-top:28px;border-top:2px solid var(--roze-l);display:grid;grid-template-columns:auto 1fr;gap:6px 28px;padding-top:20px;font-size:16.5px}
+.markt dt{font-weight:800}
+.markt dd{color:var(--zacht)}
 
 /* REVIEWS */
 .rev{padding:clamp(40px,5vw,60px) 0 clamp(100px,11vw,150px)}
-.rev .kop{text-align:center;margin-bottom:50px}
-.rev h2{font-size:clamp(44px,5vw,84px);margin-top:20px}
-.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.rgrid article{background:#fff;border-radius:var(--r);padding:30px 30px 26px;border:2px solid var(--roze-l);display:flex;flex-direction:column}
-.rgrid .st{color:var(--roze-d);letter-spacing:3px;font-size:14px}
-.rgrid p{margin:12px 0 18px;font-size:17px;flex:1}
-.rgrid cite{font-style:normal;font-weight:800;font-size:14.5px}
-.rgrid cite small{font-weight:600;color:var(--zacht);margin-left:6px}
+.rgrid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:18px}
+.rgroot{background:var(--streep);border-radius:var(--r);padding:12px}
+.rgroot .bin{background:#fff;border-radius:20px;padding:clamp(30px,4vw,52px);height:100%;display:flex;flex-direction:column}
+.rgroot .bin .sp{align-self:flex-start}
+.rgroot h2{font-size:clamp(40px,4.4vw,70px);margin:20px 0 26px}
+.rgroot p{font:700 clamp(20px,1.8vw,25px)/1.4 'Nunito Sans',sans-serif}
+.rgroot cite{margin-top:auto;padding-top:24px;font-style:normal;font-weight:800;font-size:15px}
+.rkl{display:grid;gap:18px}
+.rkl article{justify-content:center;background:#fff;border-radius:var(--r);padding:28px 30px 24px;border:2px solid var(--roze-l);display:flex;flex-direction:column}
+.st{color:var(--roze-d);letter-spacing:3px;font-size:14px}
+.rkl p{margin:10px 0 14px;font-size:17px}
+.rkl cite,.rgroot cite{font-style:normal;font-weight:800;font-size:14.5px}
+.rkl cite small,.rgroot cite small{font-weight:600;color:var(--zacht);margin-left:6px}
 
 /* BEZOEK */
 .bezoek{background:var(--streep);padding:clamp(80px,9vw,120px) 0}
 .bezoek .doos{background:#fff;border-radius:34px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);overflow:hidden;box-shadow:0 40px 90px -50px rgba(120,30,70,.5)}
 .bezoek .tekst{padding:clamp(40px,5vw,76px)}
 .bezoek h2{font-size:clamp(42px,4.6vw,76px);margin:20px 0 24px}
-.uren{display:grid;grid-template-columns:auto 1fr;gap:10px 36px;font-size:16.5px}
+.uren{display:grid;grid-template-columns:auto 1fr;gap:0 36px;font-size:16.5px;border-top:2px solid var(--roze-l)}
+.uren dt,.uren dd{padding:12px 0;border-bottom:2px solid var(--roze-l)}
 .uren dt{font-weight:800}
 .uren dd{color:var(--zacht)}
 .adres{margin-top:24px;font-weight:700;font-size:17px}
@@ -158,44 +176,44 @@ h1 span,h2 span{color:var(--roze-d)}
 
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
-.js .prijs.rv{transform:translateY(-44%)}
-.js .prijs.rv.in{transform:translateY(-50%)}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.raam img{animation:none;transform:none}}
 
 @media (max-width:1080px){
   .nav ul{display:none}
-  .hero{grid-template-columns:1fr;min-height:0}
-  .hero-r{min-height:66vh}
-  .smaken .kop,.kato .wrap,.truck .wrap{grid-template-columns:1fr}
+  .hero{min-height:0}
+  .hero-in{grid-template-columns:1fr;gap:0}
+  .hero-tekst{padding:40px 0 44px}
+  .raam{height:auto;min-height:0;aspect-ratio:4/4.4;max-width:560px;width:100%;margin:0 auto}
+  .smaken .kop,.taarten .kop,.kato .wrap,.truck .wrap{grid-template-columns:1fr}
+  .smg,.tg,.rgrid{grid-template-columns:1fr}
+  .groot{min-height:560px}
   .kato .fotos,.truck figure{order:2}
-  .kato figure:last-child{margin-bottom:0}
-  .drie{grid-template-columns:1fr 1fr}
-  .drie .kaart:first-child{grid-column:1/-1}
-  .rgrid{grid-template-columns:1fr}
   .bezoek .doos{grid-template-columns:1fr}
   .bezoek .beeld{min-height:460px}
-  .weetjes{grid-template-columns:1fr}
 }
 @media (max-width:720px){
   body{font-size:16.5px}
-  .wrap{width:calc(100% - 36px)}
-  .hero-l{padding:0 18px 30px}
-  .nav{height:88px}
-  .nav img{height:50px;padding:6px 10px}
-  .hero h1{font-size:clamp(44px,12.6vw,60px)}
-  .hero-tekst{padding:14px 0 30px}
-  .hero-r{min-height:520px}
-  .muur{height:auto;margin:0 10px;display:flex;flex-direction:column;background:var(--roze-xl)}
-  .muur img{height:340px}
-  .prijs{position:relative;right:auto;top:auto;transform:none;width:auto;margin:-60px 12px 12px}
-  .js .prijs.rv,.js .prijs.rv.in{transform:none}
-  .weetjes{padding:0 10px}
-  .drie{grid-template-columns:1fr}
-  .kaart{min-height:440px}
+  .wrap,.hero-in{width:calc(100% - 36px)}
+  .nav{padding:12px 18px}
+  .nav img{height:42px}
+  .nav .knop{padding:11px 16px 13px;font-size:13.5px}
+  .hero h1{font-size:clamp(44px,12.4vw,58px)}
+  .hero-tekst{padding:30px 0 40px}
+  .hero .knoppen .knop{flex:1 1 100%}
+  .raam{border-width:7px}
+  .muur{min-height:340px}
+  .bord .bin{padding:24px 20px}
+  .groot{min-height:460px}
+  .kl2{grid-template-columns:1fr 1fr;gap:10px}
+  .klein .label{left:8px;right:8px;bottom:8px;padding:10px 12px;border-radius:14px}
+  .klein .label h3{font-size:17px}
+  .klein .label p{display:none}
+  .bon{padding:24px 20px}
   .quote{grid-template-columns:1fr;gap:12px;padding:26px 24px}
   .kato h2{font-size:clamp(46px,13vw,64px)}
   .bezoek .doos{border-radius:26px}
-  .uren{grid-template-columns:1fr;gap:0}
-  .uren dd{margin-bottom:10px}
+  .uren{grid-template-columns:1fr}
+  .uren dt{border-bottom:0;padding-bottom:0}
   .voet .wrap{flex-direction:column;align-items:flex-start}
 }
 </style>
@@ -205,69 +223,85 @@ h1 span,h2 span{color:var(--roze-d)}
 
 <main id="top">
 <section class="hero">
-  <div class="hero-l">
-    <header class="nav">
-      <a href="#top" aria-label="Kataron, macarons by Kato"><img src="img/logo.webp" alt="Kataron, macarons by Kato" width="590" height="203"></a>
-      <ul>
-        <li><a href="#smaken">Macarons</a></li>
-        <li><a href="#taarten">Taarten</a></li>
-        <li><a href="#bezoek">Winkel</a></li>
-      </ul>
-    </header>
+  <header class="nav">
+    <a href="#top" aria-label="Kataron, macarons by Kato"><img src="img/logo.webp" alt="Kataron, macarons by Kato" width="590" height="203"></a>
+    <ul>
+      <li><a href="#smaken">Macarons</a></li>
+      <li><a href="#taarten">Taarten en torens</a></li>
+      <li><a href="#kato">Kato</a></li>
+      <li><a href="#bezoek">Winkel</a></li>
+    </ul>
+    <a class="knop k-ink" href="https://www.kataron.be" target="_blank" rel="noopener">Bestel online</a>
+  </header>
+  <div class="luifel" aria-hidden="true"></div>
+  <div class="hero-in">
     <div class="hero-tekst">
       <span class="sp rv">Macarons by Kato · Leuven</span>
-      <h1 class="rv" style="--d:1">Let's get this <span>macaron party</span> started!</h1>
-      <p class="rv" style="--d:2"><span class="lead">Glutenvrije macarons met échte smaken, macarontaarten en torens. Gebakken in Leuven, in een winkel vol roze strepen.</span></p>
+      <h1 class="rv" style="--d:1">Macarons, gewoon met <span>échte smaken.</span></h1>
+      <p class="lead rv" style="--d:2">Kato bakt ze glutenvrij en in alle kleuren, met elk seizoen een paar nieuwe smaken. Haal ze in onze roze winkel in Leuven, op zaterdag op de markt in Mechelen, of bestel ze online.</p>
       <div class="knoppen rv" style="--d:3">
-        <a class="knop k-ink" href="https://www.kataron.be" target="_blank" rel="noopener">Bestel online</a>
-        <a class="knop k-wit" href="#bezoek">Kom naar de winkel</a>
+        <a class="knop k-ink" href="https://www.kataron.be" target="_blank" rel="noopener">Bestel een doosje</a>
+        <a class="knop k-wit" href="#taarten">Taarten en torens</a>
       </div>
+      <div class="score rv" style="--d:4"><b>5,0</b><span><i>★★★★★</i>117 reviews op Google</span></div>
     </div>
+    <figure class="raam rv" style="--d:1"><img src="img/hero.webp" alt="Macarontoren in pastelkleuren met bloemen bovenop, voor een roze gestreepte muur" fetchpriority="high"></figure>
   </div>
-  <div class="hero-r">
-    <img src="img/hero.webp" alt="Macarontoren in pastelkleuren met bloemen bovenop, voor een roze gestreepte muur">
-    <div class="badge"><b>5,0</b><span><i>★★★★★</i>117 reviews op Google</span></div>
-  </div>
+  <div class="toonbank" aria-hidden="true"></div>
 </section>
 
 <section class="smaken" id="smaken">
   <div class="wrap kop">
-    <div class="rv"><span class="sp">Onze macarons</span><h2>Echte smaken, <span>niets artificieel.</span></h2></div>
+    <div class="rv"><span class="sp">Onze macarons</span><h2>Echte smaken, niets artificieel.</h2></div>
     <p class="rv" style="--d:1">Van klassiekers tot verrassende combinaties, en elk seizoen een paar nieuwe. Volgens onze klanten zijn ze ook net iets groter dan elders. Extra genieten dus.</p>
   </div>
-  <div class="muur rv">
-    <img src="img/muur.webp" alt="Rijen macarons in roze, groen, blauw en geel" loading="lazy">
-    <div class="prijs rv" style="--d:2"><div class="bin">
+  <div class="wrap smg">
+    <figure class="muur rv"><img src="img/muur.webp" alt="Rijen macarons in roze, groen, blauw en geel" loading="lazy"></figure>
+    <div class="bord rv" style="--d:1"><div class="bin">
       <h3>Prijslijst</h3>
+      <p class="sub">Zoals hij bij ons aan de muur hangt.</p>
       <dl>
         <dt>1 macaron</dt><dd>€ 2,20</dd>
         <dt>2 macarons</dt><dd>€ 4,40</dd>
         <dt>4 macarons</dt><dd>€ 8,80</dd>
         <dt>6 macarons</dt><dd>€ 13,20</dd>
       </dl>
-      <small>Zoals hij bij ons in de winkel aan de muur hangt.</small>
+      <ul>
+        <li><span><b>Allemaal glutenvrij</b>, ook de seizoenssmaken.</span></li>
+        <li><span><b>2 tot 3 weken houdbaar</b>, dus gerust een doosje op voorhand.</span></li>
+        <li><span><b>Online bestellen</b> kan ook, dan ben je zeker van je doosje.</span></li>
+      </ul>
     </div></div>
-  </div>
-  <div class="weetjes">
-    <div class="rv"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M8 8l16 16"/></svg><div><b>Allemaal glutenvrij</b><span>Elke macaron, ook de seizoenssmaken.</span></div></div>
-    <div class="rv" style="--d:1"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="7" width="22" height="20" rx="3"/><path d="M5 13h22M11 4v6M21 4v6"/></svg><div><b>2 tot 3 weken houdbaar</b><span>Dus gerust een doosje op voorhand.</span></div></div>
-    <div class="rv" style="--d:2"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10h20l-2 16H8z"/><path d="M12 10a4 4 0 0 1 8 0"/></svg><div><b>Online bestellen</b><span>Via onze webshop, zo ben je zeker van je doosje.</span></div></div>
   </div>
 </section>
 
 <section class="taarten" id="taarten">
   <div class="wrap">
-    <div class="kop rv"><span class="sp">Voor een feest</span><h2>Macarontaarten <span>en torens.</span></h2><p>Een cijfertaart voor een verjaardag, een toren voor een trouw, of een etagère vol hartjes. Vertel ons wat je wil, we luisteren goed.</p></div>
-    <div class="drie">
-      <article class="kaart rv"><img src="img/torens.webp" alt="Twee macarontorens met groene bloemen bovenop" loading="lazy"><div class="t"><h3>Macarontorens</h3><p>Voor een trouw of een groot feest, met bloemen bovenop.</p></div></article>
-      <article class="kaart rv" style="--d:1"><img src="img/cijfer.webp" alt="Macarontaart in de vorm van het cijfer 30" loading="lazy"><div class="t"><h3>Cijfertaarten</h3><p>Jouw leeftijd in macarons, room en fruit.</p></div></article>
-      <article class="kaart rv" style="--d:2"><img src="img/etagere.webp" alt="Etagère met rode en roze hartjesmacarons" loading="lazy"><div class="t"><h3>Op maat</h3><p>Hartjes, eigen kleuren of een speciale smaak.</p></div></article>
+    <div class="kop"><div class="rv"><span class="sp">Voor een feest</span><h2>Macarontaarten en torens.</h2></div><p class="rv" style="--d:1">Een cijfertaart voor een verjaardag, een toren voor een trouw, of een etagère vol hartjes. Vertel ons wat je wil, we luisteren goed.</p></div>
+    <div class="tg">
+      <article class="groot rv"><img src="img/torens.webp" alt="Twee macarontorens met groene bloemen bovenop" loading="lazy"><div class="label"><h3>Macarontorens</h3><p>Voor een trouw of een groot feest, met bloemen bovenop.</p></div></article>
+      <div class="tr">
+        <div class="kl2">
+          <article class="klein rv" style="--d:1"><img src="img/cijfer.webp" alt="Macarontaart in de vorm van het cijfer 30" loading="lazy"><div class="label"><h3>Cijfertaarten</h3><p>Jouw leeftijd in macarons, room en fruit.</p></div></article>
+          <article class="klein rv" style="--d:2"><img src="img/etagere.webp" alt="Etagère met rode en roze hartjesmacarons" loading="lazy"><div class="label"><h3>Op maat</h3><p>Hartjes, eigen kleuren of een speciale smaak.</p></div></article>
+        </div>
+        <div class="bon rv" style="--d:3">
+          <h3>Iets speciaals in gedachten?</h3>
+          <p>Stuur ons een mailtje. Dit helpt ons al een heel eind op weg:</p>
+          <ul class="velden">
+            <li>Voor wanneer?<span>datum van je feest</span></li>
+            <li>Voor hoeveel mensen?<span>ongeveer is goed</span></li>
+            <li>Welke kleuren of smaken?<span>of laat het aan Kato</span></li>
+          </ul>
+          <a class="knop k-ink" href="mailto:info@kataron.be?subject=Macarontaart">Mail ons je idee</a>
+        </div>
+      </div>
     </div>
     <div class="quote rv"><div class="st">★★★★★</div><p>"Ook voor ons trouwfeest hadden we een macarontaart laten maken met bloemstukje vanboven. Ze hebben echt goed naar onze wensen geluisterd en ze waren opnieuw heerlijk!"</p><cite>Kara S<small>Google</small></cite></div>
   </div>
 </section>
 
-<section class="kato">
+<section class="kato" id="kato">
   <div class="wrap">
     <div class="fotos rv">
       <figure><img src="img/kato.webp" alt="Kato in een rood-wit gestreepte trui naast de mixer in de bakkerij" loading="lazy"></figure>
@@ -275,7 +309,7 @@ h1 span,h2 span{color:var(--roze-d)}
     </div>
     <div class="rv" style="--d:1">
       <span class="sp">De oprichtster</span>
-      <h2>Komt <span>goeeeeee.</span></h2>
+      <h2>Komt goeeeeee.</h2>
       <p>Dat is het levensmotto van Kato, die Kataron begon. Een enorme optimist, iemand die amper stress kent en keihard werkt zonder daar veel woorden aan vuil te maken.</p>
       <p>Elke maand deelt ze een fotodump uit de bakkerij, met dingen als "90 soezen in 90 min" en een koukske op dinsdag. Fearless, een echte doorzetter.</p>
     </div>
@@ -286,19 +320,27 @@ h1 span,h2 span{color:var(--roze-d)}
   <div class="wrap">
     <div class="rv">
       <span class="sp">Onderweg</span>
-      <h2>Ook met onze <span>macaron-foodtruck.</span></h2>
+      <h2>Ook met onze macaron-foodtruck.</h2>
       <p>Je vindt ons niet alleen in de winkel. Met de foodtruck staan we op markten en op privé-events, met een toonbank vol kleur.</p>
-      <div class="markt"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h26l-2-6H5z"/><path d="M5 12v14h22V12"/><path d="M12 26v-8h8v8"/></svg><div><b>Elke zaterdag op de markt in Mechelen</b><span>Van 9u tot 13u.</span></div></div>
+      <dl class="markt">
+        <dt>Elke zaterdag</dt><dd>op de markt in Mechelen, van 9u tot 13u</dd>
+        <dt>Een event?</dt><dd>vraag of de truck naar jou kan komen: <a href="mailto:info@kataron.be" style="text-decoration:underline;text-underline-offset:3px">info@kataron.be</a></dd>
+      </dl>
     </div>
     <figure class="rv" style="--d:1"><img src="img/truck.webp" alt="Zicht vanuit de foodtruck van Kataron op de markt, met de toonbank vol macarons" loading="lazy"></figure>
   </div>
 </section>
 
 <section class="rev">
-  <div class="wrap">
-    <div class="kop rv"><span class="sp">5,0 uit 117 reviews</span><h2>Zonder twijfel <span>de lekkerste.</span></h2></div>
-    <div class="rgrid">
-      <article class="rv"><div class="st">★★★★★</div><p>"Zonder twijfel de lekkerste macarons!! Je krijgt zowel van de macarons als van de service/bediening de grootste glimlach op je gezicht. Ook altijd ideaal als kleine attentie voor vrienden of familie."</p><cite>Marijke De Crée<small>Google</small></cite></article>
+  <div class="wrap rgrid">
+    <div class="rgroot rv"><div class="bin">
+      <span class="sp">5,0 uit 117 reviews</span>
+      <h2>Zonder twijfel de lekkerste.</h2>
+      <div class="st">★★★★★</div>
+      <p style="margin-top:12px">"Zonder twijfel de lekkerste macarons!! Je krijgt zowel van de macarons als van de service/bediening de grootste glimlach op je gezicht. Ook altijd ideaal als kleine attentie voor vrienden of familie."</p>
+      <cite>Marijke De Crée<small>Google</small></cite>
+    </div></div>
+    <div class="rkl">
       <article class="rv" style="--d:1"><div class="st">★★★★★</div><p>"Super lekkere macarons, met échte smaken, niet artificieel. Ze zijn ook iets groter dan bij andere winkels ofzo, extra genieten."</p><cite>Julie Blanckaert<small>Google</small></cite></article>
       <article class="rv" style="--d:2"><div class="st">★★★★★</div><p>"Zeer lekkere macarons. Ook een macaron taart voor mijn verjaardag laten maken die heerlijk was!"</p><cite>Stef D'haeseleer<small>Google</small></cite></article>
     </div>
@@ -310,7 +352,7 @@ h1 span,h2 span{color:var(--roze-d)}
     <div class="doos rv">
       <div class="tekst">
         <span class="sp">De winkel</span>
-        <h2>Tot in de <span>roze winkel.</span></h2>
+        <h2>Tot in de roze winkel.</h2>
         <dl class="uren">
           <dt>Woensdag tot zaterdag</dt><dd>10u tot 18u</dd>
           <dt>Zondag tot dinsdag</dt><dd>gesloten</dd>
@@ -319,8 +361,7 @@ h1 span,h2 span{color:var(--roze-d)}
         <p class="adres">Leopold Vanderkelenstraat 3C, 3000 Leuven<span>Zeker zijn van je doosje? Bestel het dan vooraf via de webshop.</span></p>
         <div class="knoppen">
           <a class="knop k-ink" href="https://www.kataron.be" target="_blank" rel="noopener">Naar de webshop</a>
-          <a class="knop k-wit" href="mailto:info@kataron.be">info@kataron.be</a>
-          <a class="knop k-wit" href="https://www.google.com/maps/search/?api=1&amp;query=Kataron+Leopold+Vanderkelenstraat+3C+3000+Leuven" target="_blank" rel="noopener">Route</a>
+          <a class="knop k-wit" href="https://www.google.com/maps/search/?api=1&amp;query=Kataron+Leopold+Vanderkelenstraat+3C+3000+Leuven" target="_blank" rel="noopener">Route plannen</a>
         </div>
       </div>
       <div class="beeld"><img src="img/winkel.webp" alt="De winkel van Kataron met roze-witte strepen en een toonbank vol macarons" loading="lazy"></div>
@@ -331,7 +372,7 @@ h1 span,h2 span{color:var(--roze-d)}
 
 <footer class="voet"><div class="wrap">
   <b>kataron</b>
-  <span>Leopold Vanderkelenstraat 3C, 3000 Leuven · <a href="https://www.instagram.com/kataron.leuven/" target="_blank" rel="noopener">Instagram</a></span>
+  <span>Leopold Vanderkelenstraat 3C, 3000 Leuven · <a href="mailto:info@kataron.be">info@kataron.be</a> · <a href="https://www.instagram.com/kataron.leuven/" target="_blank" rel="noopener">Instagram</a></span>
   <span>Voorbeeldsite door Digital Impression</span>
 </div></footer>
 
