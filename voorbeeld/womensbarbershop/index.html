@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Wo-Men's Barbershop · 3 broers, 3 kappers in Leuven</title>
-<meta name="description" content="Wo-Men's Barbershop in Leuven: taper fades, krullen, mullets en baard, voor mannen en vrouwen. Twee zaken, in de Brusselsestraat en de Naamsestraat. Bel voor een afspraak.">
+<title>Wo-Men's Barbershop · Boek je kapper in Leuven</title>
+<meta name="description" content="Wo-Men's Barbershop in Leuven: taper fades, krullen, mullets en baard, voor mannen en vrouwen. Twee zaken, in de Brusselsestraat en de Naamsestraat. Boek je afspraak online.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,10 @@ h1,h2,h3{font-family:'Archivo',sans-serif;font-stretch:66%;font-weight:800;line-
 .knop{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:16px 28px;font:700 15.5px/1 'Archivo';text-decoration:none;transition:transform .35s var(--ease),background .3s,color .3s}
 .knop svg{width:18px;height:18px;flex:none}
 .knop.goud{background:var(--goud);color:var(--navy2)}
-.knop.goud:hover{background:#f0bd55;transform:translateY(-2px)}
+.knop.goud{background-image:repeating-linear-gradient(-45deg,transparent 0 10px,rgba(255,255,255,.0) 10px 20px);background-size:200% 100%}
+.knop.goud:hover{background-color:#f0bd55;background-image:repeating-linear-gradient(-45deg,rgba(255,255,255,.22) 0 8px,transparent 8px 16px);animation:paal 1.2s linear infinite;transform:translateY(-2px)}
+@keyframes paal{to{background-position:-45px 0}}
+@media (prefers-reduced-motion:reduce){.knop.goud:hover{animation:none}}
 .knop.glas{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.45);backdrop-filter:blur(6px)}
 .knop.glas:hover{background:#fff;color:var(--navy)}
 .knop.navy{background:var(--navy);color:#fff}
@@ -49,7 +52,7 @@ h1,h2,h3{font-family:'Archivo',sans-serif;font-stretch:66%;font-weight:800;line-
 .nav .knop{padding:13px 22px;font-size:14.5px}
 
 /* hero: drieluik */
-.hero{position:relative;min-height:max(760px,100svh);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:var(--navy2)}
+.hero{position:relative;min-height:max(720px,calc(100svh - 37px));color:#fff;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:var(--navy2)}
 .drie{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;background:var(--navy2)}
 .drie div{position:relative;overflow:hidden}
 .drie img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 2.4s var(--ease)}
@@ -60,16 +63,15 @@ h1,h2,h3{font-family:'Archivo',sans-serif;font-stretch:66%;font-weight:800;line-
 .drie small{position:absolute;top:120px;left:22px;z-index:2;font:700 12px/1 'Archivo';letter-spacing:.2em;text-transform:uppercase;background:rgba(9,16,36,.55);backdrop-filter:blur(6px);padding:9px 12px;border-radius:999px}
 .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(9,16,36,.96) 0%,rgba(9,16,36,.78) 30%,rgba(9,16,36,.15) 62%,rgba(9,16,36,.35) 100%)}
 .hero .wrap{position:relative;z-index:2}
-.hero .inh{display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px;padding-bottom:56px}
+.hero .inh{padding-bottom:52px;max-width:1260px}
 .hero .lab{color:var(--goud)}
-.hero h1{font-size:clamp(64px,10.4vw,170px);line-height:.86}
+.hero h1{font-size:clamp(64px,9vw,148px);line-height:.86}
 .hero h1 span{color:var(--goud)}
 .hero p.lead{font-size:clamp(17px,1.35vw,19.5px);max-width:34em;margin:26px 0 32px;color:rgba(255,255,255,.86)}
 .hero .acties{display:flex;flex-wrap:wrap;gap:12px}
-.score{background:var(--room);color:var(--ink);border-radius:20px;padding:18px 24px 18px 20px;display:flex;align-items:center;gap:16px;box-shadow:0 22px 44px -20px rgba(0,0,0,.6)}
-.score strong{font:900 50px/1 'Archivo';font-stretch:66%;color:var(--navy)}
-.score span{display:block;font-size:13.5px;line-height:1.4;color:var(--zacht)}
-.score .st{color:var(--goud2);letter-spacing:3px;font-size:15px}
+.score{display:flex;align-items:center;gap:10px;margin-top:28px;font-size:15px;color:rgba(255,255,255,.75)}
+.score strong{font-weight:800;color:#fff}
+.score .st{color:var(--goud);letter-spacing:2px}
 
 /* stijlen */
 .stijl{padding:120px 0 110px}
@@ -110,12 +112,14 @@ h1,h2,h3{font-family:'Archivo',sans-serif;font-stretch:66%;font-weight:800;line-
 
 /* broers */
 .broers{padding:120px 0}
-.bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.br{background:#fff;border-radius:var(--r);padding:34px 30px 30px;box-shadow:0 20px 40px -32px rgba(18,26,46,.5);display:flex;flex-direction:column}
-.br .nr{width:54px;height:54px;border-radius:50%;background:var(--navy);color:var(--goud);display:grid;place-items:center;font:800 24px/1 'Archivo';font-stretch:70%;margin-bottom:24px}
-.br h3{font-size:46px;margin-bottom:12px}
-.br p{color:var(--zacht);font-size:16px}
-.br .tag{margin-top:auto;padding-top:22px;font:700 13px/1 'Archivo';letter-spacing:.14em;text-transform:uppercase;color:var(--goud2)}
+.bgrid{border-top:2px solid var(--navy)}
+.br{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) auto;gap:clamp(20px,4vw,60px);align-items:center;padding:30px 0;border-bottom:1px solid var(--lijn)}
+.br h3{font-size:clamp(56px,7vw,104px);line-height:.85;display:flex;align-items:baseline;gap:16px}
+.br h3 small{font:700 13px/1 'Archivo';font-stretch:100%;letter-spacing:.16em;color:var(--goud2)}
+.br p{color:var(--zacht);font-size:17px;max-width:34em}
+.br .tag{font:700 13px/1.3 'Archivo';letter-spacing:.14em;text-transform:uppercase;color:var(--navy);text-align:right;max-width:200px}
+.br:hover h3{color:var(--goud2)}
+.br h3{transition:color .35s}
 .sfeer{margin-top:18px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;background:var(--room2);border-radius:var(--r);padding:28px 32px}
 .sfeer i{width:58px;height:58px;border-radius:50%;background:var(--goud);display:grid;place-items:center;color:var(--navy2)}
 .sfeer i svg{width:26px;height:26px}
@@ -155,6 +159,67 @@ h1,h2,h3{font-family:'Archivo',sans-serif;font-stretch:66%;font-weight:800;line-
 .zk.bel .tel{font:900 46px/1 'Archivo';font-stretch:66%;margin:14px 0 10px;text-decoration:none;display:block}
 .zk.bel .acties{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:24px}
 
+
+/* boeken */
+.boek{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:18px;align-items:start}
+.bk{min-width:0;background:var(--room);color:var(--ink);border-radius:26px;padding:clamp(22px,3vw,40px)}
+.stap{padding:26px 0;border-top:1px solid var(--lijn)}
+.stap:first-child{padding-top:4px;border-top:0}
+.stap legend,.stap .tt{display:flex;align-items:baseline;gap:12px;font:800 26px/1 'Archivo';font-stretch:70%;text-transform:uppercase;margin-bottom:16px;padding:0}
+.stap legend i,.stap .tt i{font-style:normal;font:700 12px/1 'Archivo';letter-spacing:.16em;color:var(--goud2)}
+fieldset.stap{border:0;border-top:1px solid var(--lijn);margin:0;min-width:0}
+fieldset.stap:first-child{border-top:0}
+.stap legend{float:left;width:100%}
+.stap legend+*{clear:both}
+.keus{display:grid;gap:10px}
+.keus.k2{grid-template-columns:1fr 1fr}
+.keus.k4{grid-template-columns:repeat(4,1fr)}
+.keus.k3{grid-template-columns:repeat(3,1fr)}
+.keus label{position:relative;cursor:pointer}
+.keus input{position:absolute;opacity:0;pointer-events:none}
+.keus .t{display:flex;flex-direction:column;justify-content:center;gap:3px;height:100%;min-height:64px;padding:14px 16px;border-radius:16px;background:#fff;border:1.5px solid transparent;box-shadow:0 1px 0 var(--lijn);transition:border-color .25s,background .25s,transform .25s var(--ease)}
+.keus .t b{font-weight:700;font-size:16px;line-height:1.25}
+.keus .t small{font-size:13.5px;color:var(--zacht);line-height:1.35}
+.keus label:hover .t{border-color:rgba(18,26,46,.25)}
+.keus input:checked+.t{border-color:var(--navy);background:var(--navy);color:#fff}
+.keus input:checked+.t small{color:rgba(255,255,255,.7)}
+.keus input:focus-visible+.t{outline:2px solid var(--goud2);outline-offset:2px}
+.keus .kap .t{flex-direction:row;align-items:center;justify-content:flex-start;gap:12px}
+.keus .kap .mono{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--room2);color:var(--navy);font:800 18px/1 'Archivo';font-stretch:70%}
+.keus .kap input:checked+.t .mono{background:var(--goud);color:var(--navy2)}
+.dagen{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x proximity;padding:2px 2px 8px;margin:0 -2px;scrollbar-width:thin}
+.dagen label{flex:0 0 auto;scroll-snap-align:start}
+.dagen .t{width:74px;min-height:0;padding:12px 6px;align-items:center;text-align:center}
+.dagen .t small{text-transform:uppercase;font-size:11.5px;letter-spacing:.1em;font-weight:700}
+.dagen .t b{font:800 28px/1 'Archivo';font-stretch:70%}
+.dagen .t em{font-style:normal;font-size:12.5px;color:var(--zacht)}
+.dagen input:checked+.t em{color:rgba(255,255,255,.7)}
+.uren-k{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px;margin-top:14px}
+.uren-k .t{min-height:0;padding:11px 6px;align-items:center;font-weight:700;font-size:15.5px}
+.leeg{font-size:15px;color:var(--zacht);margin-top:12px}
+.velden{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.velden label{font-size:13.5px;font-weight:600;color:var(--zacht)}
+.velden input{display:block;width:100%;margin-top:6px;border:1.5px solid transparent;background:#fff;border-radius:14px;padding:15px 16px;font:500 16.5px/1.3 'Archivo';color:var(--ink);box-shadow:0 1px 0 var(--lijn);outline:none;transition:border-color .25s}
+.velden input:focus{border-color:var(--navy)}
+.stap.fout{animation:schud .4s}
+.stap.fout legend,.stap.fout .tt{color:#B3261E}
+@keyframes schud{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.ticket{position:sticky;top:24px;background:var(--goud);color:var(--navy2);border-radius:26px;padding:30px 28px 28px;overflow:hidden}
+.ticket h3{font-size:34px}
+.ticket dl{margin-top:18px}
+.ticket dl div{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid rgba(9,16,36,.16);font-size:15px}
+.ticket dt{color:rgba(9,16,36,.62)}
+.ticket dd{font-weight:700;text-align:right}
+.ticket dd.nog{font-weight:500;color:rgba(9,16,36,.45)}
+.ticket .knip{position:relative;margin:22px -28px 0;border-top:2px dashed rgba(9,16,36,.28)}
+.ticket .knip:before,.ticket .knip:after{content:"";position:absolute;top:-14px;width:26px;height:26px;border-radius:50%;background:var(--navy)}
+.ticket .knip:before{left:-13px}.ticket .knip:after{right:-13px}
+.ticket button{margin-top:22px;width:100%;justify-content:center;border:0;cursor:pointer;background:var(--navy2);color:#fff;font-family:'Archivo'}
+.ticket button:hover{background:var(--navy3)}
+.ticket .noot{margin-top:14px;font-size:13.5px;line-height:1.5;color:rgba(9,16,36,.7)}
+.ticket .melding{margin-top:12px;font-size:14px;font-weight:700;color:#7a1a12;min-height:0}
+.zk2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+
 /* footer */
 .voet{background:var(--room);padding:70px 0 32px}
 .voet .rij{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
@@ -174,9 +239,10 @@ h1,h2,h3{font-family:'Archivo',sans-serif;font-stretch:66%;font-weight:800;line-
   .douche .foto{min-height:520px;order:2}
   .band{grid-template-columns:repeat(3,1fr)}
   .zgrid{grid-template-columns:1fr 1fr}
-  .br h3{font-size:36px}
-  .br{padding:26px 20px}
-  .zk.bel{grid-column:1/-1}
+  .br{grid-template-columns:1fr;gap:10px}
+  .br .tag{text-align:left;max-width:none;color:var(--goud2)}
+  .boek{grid-template-columns:minmax(0,1fr)}
+  .ticket{position:relative;top:0}
   .rgrid{grid-template-columns:1fr 1fr}
   .rk.groot{grid-column:1/-1}
   .kop{grid-template-columns:1fr;gap:16px}
@@ -190,10 +256,9 @@ h1,h2,h3{font-family:'Archivo',sans-serif;font-stretch:66%;font-weight:800;line-
   .drie{grid-template-columns:1fr 1fr;grid-template-rows:1fr}
   .drie div:nth-child(3){display:none}
   .drie small{top:104px;left:12px;font-size:10.5px}
-  .hero .inh{grid-template-columns:1fr;gap:24px;padding-bottom:34px}
+  .hero .inh{padding-bottom:34px}
+  .score{flex-wrap:wrap}
   .hero h1{font-size:72px}
-  .score{justify-self:start;padding:14px 18px}
-  .score strong{font-size:40px}
   .stijl,.broers,.zaken{padding:84px 0}
   .rev{padding-bottom:84px}
   .kaarten{grid-template-columns:1fr 1fr;gap:12px}
@@ -207,6 +272,11 @@ h1,h2,h3{font-family:'Archivo',sans-serif;font-stretch:66%;font-weight:800;line-
   .band figure:nth-child(n+5){display:none}
   .bgrid,.zgrid,.rgrid{grid-template-columns:1fr}
   .zk h3{font-size:36px}
+  .keus.k4,.keus.k3{grid-template-columns:1fr 1fr}
+  .velden,.zk2{grid-template-columns:1fr}
+  .bk{border-radius:22px;padding:20px 16px}
+  .ticket{padding:26px 22px 24px}
+  .ticket .knip{margin-left:-22px;margin-right:-22px}
   .zk{padding:28px 22px;min-width:0}
   .rk.groot strong{font-size:80px}
   .sfeer{grid-template-columns:1fr;gap:16px;padding:24px}
@@ -222,9 +292,9 @@ h1,h2,h3{font-family:'Archivo',sans-serif;font-stretch:66%;font-weight:800;line-
   <div class="wrap">
     <a class="merk" href="#top" aria-label="Wo-Men's Barbershop"><b>WO-MEN'S</b><span>BARBERSHOP</span></a>
     <nav class="menu" aria-label="Hoofdmenu">
-      <a href="#knippen">Wat we knippen</a><a href="#broers">De broers</a><a href="#reviews">Reviews</a><a href="#zaken">Twee zaken</a>
+      <a href="#knippen">Wat we knippen</a><a href="#broers">De broers</a><a href="#reviews">Reviews</a><a href="#zaken">Twee zaken</a><a href="#boeken">Boeken</a>
     </nav>
-    <a class="knop goud" href="tel:+32487228646">Bel voor een afspraak</a>
+    <a class="knop goud" href="#boeken">Boek een afspraak</a>
   </div>
 </header>
 
@@ -240,13 +310,10 @@ h1,h2,h3{font-family:'Archivo',sans-serif;font-stretch:66%;font-weight:800;line-
       <h1 class="rv" style="--d:1">3 broers.<br><span>3 kappers.</span></h1>
       <p class="lead rv" style="--d:2">Mjahed, Bawar en Renjbar knippen fades, krullen, mullets en baarden. Voor mannen, en voor vrouwen: daar staat de Wo in onze naam voor.</p>
       <div class="acties rv" style="--d:3">
-        <a class="knop goud" href="tel:+32487228646"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>0487 22 86 46</a>
-        <a class="knop glas" href="#knippen">Bekijk ons werk</a>
+        <a class="knop goud" href="#boeken"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Boek je afspraak</a>
+        <a class="knop glas" href="tel:+32487228646">Of bel 0487 22 86 46</a>
       </div>
-    </div>
-    <div class="score rv" style="--d:4">
-      <strong>4,8</strong>
-      <div><span class="st">★★★★★</span><span>418 reviews op Google</span></div>
+      <p class="score"><span class="st" aria-hidden="true">★★★★★</span><strong>4,8</strong> uit 418 reviews op Google</p>
     </div>
   </div>
 </section>
@@ -266,7 +333,7 @@ h1,h2,h3{font-family:'Archivo',sans-serif;font-stretch:66%;font-weight:800;line-
     </div>
     <div class="dames rv">
       <p><b>Ook voor vrouwen.</b> Wo-Men's betekent wat het zegt: we knippen en stylen dames even graag. En de haarproducten die we gebruiken, kan je bij ons ook kopen.</p>
-      <a class="knop navy" href="tel:+32487228646">Maak een afspraak</a>
+      <a class="knop navy" href="#boeken">Boek voor dames</a>
     </div>
   </div>
 </section>
@@ -300,9 +367,9 @@ h1,h2,h3{font-family:'Archivo',sans-serif;font-stretch:66%;font-weight:800;line-
       <p class="rv" style="--d:2">Geen ketenzaak, geen wisselende gezichten. Je wordt geknipt door een van de drie, en na een paar keer weet hij precies hoe jij het wil.</p>
     </div>
     <div class="bgrid">
-      <article class="br rv"><span class="nr">1</span><h3>Mjahed</h3><p>Meer dan twaalf jaar ervaring. Knipt en stylet mannen en vrouwen, van klassiek tot de nieuwste trend.</p><span class="tag">Het contact met mensen</span></article>
-      <article class="br rv" style="--d:1"><span class="nr">2</span><h3>Bawar</h3><p>Oog voor detail. Wil dat je niet alleen een kapsel meeneemt, maar ook een moment dat je bijblijft.</p><span class="tag">Altijd nieuwe technieken</span></article>
-      <article class="br rv" style="--d:2"><span class="nr">3</span><h3>Renjbar</h3><p>Luistert eerst, knipt dan. Volgens een klant een echte perfectionist, die tussendoor vraagt of het zo goed is.</p><span class="tag">Met een glimlach de deur uit</span></article>
+      <article class="br rv"><h3>Mjahed<small>01</small></h3><p>Meer dan twaalf jaar ervaring. Knipt en stylet mannen en vrouwen, van klassiek tot de nieuwste trend.</p><span class="tag">Het contact met mensen</span></article>
+      <article class="br rv" style="--d:1"><h3>Bawar<small>02</small></h3><p>Oog voor detail. Wil dat je niet alleen een kapsel meeneemt, maar ook een moment dat je bijblijft.</p><span class="tag">Altijd nieuwe technieken</span></article>
+      <article class="br rv" style="--d:2"><h3>Renjbar<small>03</small></h3><p>Luistert eerst, knipt dan. Volgens een klant een echte perfectionist, die tussendoor vraagt of het zo goed is.</p><span class="tag">Met een glimlach de deur uit</span></article>
     </div>
     <div class="sfeer rv">
       <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M6 2v2M10 2v2M14 2v2"/></svg></i>
@@ -327,21 +394,77 @@ h1,h2,h3{font-family:'Archivo',sans-serif;font-stretch:66%;font-weight:800;line-
   </div>
 </section>
 
-<section class="zaken" id="zaken">
+<section class="zaken" id="boeken">
   <div class="wrap">
     <div class="kop">
-      <div><span class="lab rv">Twee zaken in Leuven</span><h2 class="rv" style="--d:1">Kies de stoel die het dichtst bij je is.</h2></div>
-      <p class="rv" style="--d:2">Eén in de Brusselsestraat, één in de Naamsestraat. Bel en we zoeken samen een moment dat past.</p>
+      <div><span class="lab rv">Afspraak maken</span><h2 class="rv" style="--d:1">Boek je stoel.</h2></div>
+      <p class="rv" style="--d:2">Kies je zaak, je kapper en een moment dat past. Je bericht staat meteen klaar in WhatsApp, wij bevestigen je afspraak zo snel we kunnen.</p>
     </div>
-    <div class="zgrid">
+    <form class="boek" id="boek" novalidate>
+      <div class="bk rv">
+        <fieldset class="stap" data-stap="zaak">
+          <legend><i>01</i>Welke zaak?</legend>
+          <div class="keus k2">
+            <label><input type="radio" name="zaak" value="Brusselsestraat 72"><span class="t"><b>Brusselsestraat 72</b><small>Wo-Men's 1, Leuven</small></span></label>
+            <label><input type="radio" name="zaak" value="Naamsestraat 161"><span class="t"><b>Naamsestraat 161</b><small>Wo-Men's 2, Leuven</small></span></label>
+          </div>
+        </fieldset>
+        <fieldset class="stap" data-stap="kapper">
+          <legend><i>02</i>Bij wie?</legend>
+          <div class="keus k4">
+            <label class="kap"><input type="radio" name="kapper" value="Mjahed"><span class="t"><span class="mono">M</span><b>Mjahed</b></span></label>
+            <label class="kap"><input type="radio" name="kapper" value="Bawar"><span class="t"><span class="mono">B</span><b>Bawar</b></span></label>
+            <label class="kap"><input type="radio" name="kapper" value="Renjbar"><span class="t"><span class="mono">R</span><b>Renjbar</b></span></label>
+            <label class="kap"><input type="radio" name="kapper" value="Eerste vrije kapper"><span class="t"><span class="mono">?</span><b>Eerste vrije</b></span></label>
+          </div>
+        </fieldset>
+        <fieldset class="stap" data-stap="dienst">
+          <legend><i>03</i>Wat mag het zijn?</legend>
+          <div class="keus k3">
+            <label><input type="radio" name="dienst" value="Knippen"><span class="t"><b>Knippen</b><small>Fade, taper of klassiek</small></span></label>
+            <label><input type="radio" name="dienst" value="Knippen en baard"><span class="t"><b>Knippen en baard</b><small>Kapsel en contouren</small></span></label>
+            <label><input type="radio" name="dienst" value="Baard"><span class="t"><b>Enkel baard</b><small>Bijwerken en lijnen</small></span></label>
+            <label><input type="radio" name="dienst" value="Krullen knippen"><span class="t"><b>Krullen</b><small>Knippen en in model</small></span></label>
+            <label><input type="radio" name="dienst" value="Mullet"><span class="t"><b>Mullet</b><small>Kort opzij, lang in de nek</small></span></label>
+            <label><input type="radio" name="dienst" value="Dames knippen en stylen"><span class="t"><b>Dames</b><small>Knippen en stylen</small></span></label>
+          </div>
+        </fieldset>
+        <fieldset class="stap" data-stap="moment">
+          <legend><i>04</i>Wanneer?</legend>
+          <div class="dagen keus" id="dagen" role="radiogroup" aria-label="Kies een dag"></div>
+          <div class="uren-k keus" id="tijden" role="radiogroup" aria-label="Kies een uur"></div>
+          <p class="leeg" id="tijd-leeg">Kies eerst een dag, dan zie je de vrije uren.</p>
+          <noscript><p class="leeg">Bel ons op 0487 22 86 46 voor een moment dat past.</p></noscript>
+        </fieldset>
+        <div class="stap" data-stap="jij">
+          <p class="tt"><i>05</i>Wie mogen we verwachten?</p>
+          <div class="velden">
+            <label>Je naam<input name="naam" autocomplete="name" placeholder="Voornaam en naam"></label>
+            <label>Je gsm<input name="gsm" type="tel" inputmode="tel" autocomplete="tel" placeholder="04.. .. .. .."></label>
+          </div>
+        </div>
+      </div>
+      <aside class="ticket rv" style="--d:1" aria-live="polite">
+        <h3>Jouw afspraak</h3>
+        <dl>
+          <div><dt>Zaak</dt><dd class="nog" data-v="zaak">nog kiezen</dd></div>
+          <div><dt>Kapper</dt><dd class="nog" data-v="kapper">nog kiezen</dd></div>
+          <div><dt>Dienst</dt><dd class="nog" data-v="dienst">nog kiezen</dd></div>
+          <div><dt>Wanneer</dt><dd class="nog" data-v="moment">nog kiezen</dd></div>
+        </dl>
+        <div class="knip" aria-hidden="true"></div>
+        <button class="knop" type="submit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.3-.4.8-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/></svg>Bevestig via WhatsApp</button>
+        <p class="melding" id="melding" role="alert"></p>
+        <p class="noot">Je afspraak staat vast zodra we ze bevestigen. Liever bellen? <a href="tel:+32487228646"><b>0487 22 86 46</b></a></p>
+      </aside>
+    </form>
+    <div class="zk2" id="zaken">
       <article class="zk rv"><span class="nr">Wo-Men's 1</span><h3>Brusselsestraat 72</h3><p>3000 Leuven</p>
         <ul><li><span>Maandag</span>12u tot 19u</li><li><span>Dinsdag tot vrijdag</span>10u tot 19u</li><li><span>Zaterdag</span>10u tot 17u</li><li><span>Zondag</span>Gesloten</li></ul>
         <a class="r" href="https://www.google.com/maps/search/?api=1&query=Wo-Men%27s+Barbershop+Brusselsestraat+72+Leuven" target="_blank" rel="noopener">Route plannen</a></article>
-      <article class="zk rv" style="--d:1"><span class="nr">Wo-Men's 2</span><h3>Naamsestraat 161</h3><p>3000 Leuven, onze tweede zaak in de Naamsestraat.</p>
-        <ul><li><span>Instagram</span><a href="https://www.instagram.com/womensbarbershop2/" target="_blank" rel="noopener">@womensbarbershop2</a></li></ul>
+      <article class="zk rv" style="--d:1"><span class="nr">Wo-Men's 2</span><h3>Naamsestraat 161</h3><p>3000 Leuven, onze tweede zaak, met een eigen Instagram.</p>
+        <ul><li><span>Instagram</span><a href="https://www.instagram.com/womensbarbershop2/" target="_blank" rel="noopener">@womensbarbershop2</a></li><li><span>Afspraak</span><a href="tel:+32487228646">0487 22 86 46</a></li></ul>
         <a class="r" href="https://www.google.com/maps/search/?api=1&query=Naamsestraat+161+3000+Leuven" target="_blank" rel="noopener">Route plannen</a></article>
-      <article class="zk bel rv" style="--d:2"><span class="nr">Afspraak maken</span><a class="tel" href="tel:+32487228646">0487 22 86 46</a><p>Bel gewoon even. We helpen je meteen verder, ook voor een afspraak in de andere zaak.</p>
-        <div class="acties"><a class="knop navy" href="tel:+32487228646">Nu bellen</a><a class="knop navy" href="https://www.instagram.com/womensbarbershop/" target="_blank" rel="noopener">Instagram</a></div></article>
     </div>
   </div>
 </section>
@@ -366,6 +489,64 @@ var els=[].slice.call(document.querySelectorAll('.rv'));
 function kijk(){var H=innerHeight;els=els.filter(function(e){var r=e.getBoundingClientRect();if(r.top<H*.94&&r.bottom>0){e.classList.add('in');return false}return true});if(!els.length)removeEventListener('scroll',plan)}
 var t=0;function plan(){if(!t){t=requestAnimationFrame(function(){t=0;kijk()})}}
 addEventListener('scroll',plan,{passive:true});addEventListener('resize',plan);kijk();setTimeout(kijk,300)})();
+</script>
+<script>
+(function(){
+  var f=document.getElementById('boek');if(!f)return;
+  var TEL='32487228646';
+  /* uren van Google (Brusselsestraat); 0 = zondag */
+  var UREN={1:[12,19],2:[10,19],3:[10,19],4:[10,19],5:[10,19],6:[10,17]};
+  var DAG=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+  var KORT=['zo','ma','di','wo','do','vr','za'];
+  var MAAND=['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
+  var dagen=document.getElementById('dagen'),tijden=document.getElementById('tijden'),leeg=document.getElementById('tijd-leeg'),mld=document.getElementById('melding');
+  var keuze={dag:null,uur:null};
+  function hm(m){var u=Math.floor(m/60),r=m%60;return u+'u'+(r?('0'+r).slice(-2):'')}
+  function slots(d){
+    var u=UREN[d.getDay()];if(!u)return[];
+    var uit=[],nu=new Date(),zelfde=d.toDateString()===nu.toDateString(),grens=nu.getHours()*60+nu.getMinutes()+60;
+    for(var m=u[0]*60;m<=u[1]*60-30;m+=30){if(!zelfde||m>=grens)uit.push(m)}
+    return uit;
+  }
+  var d=new Date();d.setHours(0,0,0,0);var n=0,html='';
+  for(var i=0;i<21&&n<14;i++){
+    var x=new Date(d);x.setDate(d.getDate()+i);
+    if(!slots(x).length)continue;
+    html+='<label><input type="radio" name="dag" value="'+x.toISOString()+'"><span class="t"><small>'+(i===0?'vandaag':i===1?'morgen':KORT[x.getDay()])+'</small><b>'+x.getDate()+'</b><em>'+MAAND[x.getMonth()].slice(0,3)+'</em></span></label>';
+    n++;
+  }
+  dagen.innerHTML=html;
+  function toonUren(){
+    var x=new Date(keuze.dag),l=slots(x);
+    tijden.innerHTML=l.map(function(m){return '<label><input type="radio" name="uur" value="'+m+'"><span class="t">'+hm(m)+'</span></label>'}).join('');
+    leeg.style.display=l.length?'none':'';
+    keuze.uur=null;
+  }
+  function zet(k,v){var e=f.querySelector('[data-v="'+k+'"]');e.textContent=v||'nog kiezen';e.classList.toggle('nog',!v)}
+  function moment(){
+    if(!keuze.dag)return'';
+    var x=new Date(keuze.dag),t=DAG[x.getDay()]+' '+x.getDate()+' '+MAAND[x.getMonth()];
+    return keuze.uur!==null?t+' om '+hm(keuze.uur):t;
+  }
+  f.addEventListener('change',function(e){
+    var t=e.target;mld.textContent='';
+    var st=t.closest('.stap');if(st)st.classList.remove('fout');
+    if(t.name==='zaak'||t.name==='kapper'||t.name==='dienst'){zet(t.name,t.value)}
+    if(t.name==='dag'){keuze.dag=t.value;toonUren();zet('moment',moment())}
+    if(t.name==='uur'){keuze.uur=+t.value;zet('moment',moment())}
+  });
+  function waarde(nm){var e=f.querySelector('[name="'+nm+'"]:checked');return e?e.value:''}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var naam=f.naam.value.trim(),gsm=f.gsm.value.trim();
+    var mis=[['zaak',!waarde('zaak'),'Kies een zaak.'],['kapper',!waarde('kapper'),'Kies je kapper, of de eerste vrije.'],['dienst',!waarde('dienst'),'Kies wat je wil laten doen.'],['moment',!keuze.dag||keuze.uur===null,'Kies een dag en een uur.'],['jij',!naam||gsm.replace(/\D/g,'').length<9,'Vul je naam en je gsm-nummer in.']];
+    for(var i=0;i<mis.length;i++){if(mis[i][1]){
+      var st=f.querySelector('[data-stap="'+mis[i][0]+'"]');st.classList.remove('fout');void st.offsetWidth;st.classList.add('fout');
+      mld.textContent=mis[i][2];st.scrollIntoView({behavior:'smooth',block:'center'});return}}
+    var txt='Hallo Wo-Men\'s! Ik wil graag een afspraak maken.\n\nZaak: '+waarde('zaak')+'\nKapper: '+waarde('kapper')+'\nDienst: '+waarde('dienst')+'\nWanneer: '+moment()+'\n\nNaam: '+naam+'\nGsm: '+gsm+'\n\nLaten jullie weten of het past? Merci!';
+    window.open('https://wa.me/'+TEL+'?text='+encodeURIComponent(txt),'_blank','noopener');
+  });
+})();
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
 <style>
