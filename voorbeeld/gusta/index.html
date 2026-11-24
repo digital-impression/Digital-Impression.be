@@ -238,44 +238,100 @@ footer{background:var(--lila);color:var(--inkt);margin-top:140px;padding:84px 0 
  .vt{grid-template-columns:1fr}
  footer{margin-top:90px}
 }
+
+/* hero (24/11): één beeld, Jasmien aan de brander over de volle breedte, lila etiketband onderaan */
+.hero{position:relative;background:var(--espresso);color:#fff;display:flex;flex-direction:column;min-height:max(720px,calc(100svh - 38px));overflow:hidden}
+.h-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:78% 40%;transform:scale(1.05);animation:zoom 14s var(--ease) forwards}
+.hero:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:
+  linear-gradient(90deg,rgba(28,19,16,.94) 0%,rgba(28,19,16,.82) 30%,rgba(28,19,16,.35) 54%,rgba(28,19,16,0) 72%),
+  linear-gradient(180deg,rgba(28,19,16,.55) 0%,rgba(28,19,16,0) 22%)}
+.hero .nav .woordmerk{color:#fff}
+.hero .nav ul a{color:#fff;opacity:.85}
+.hero .nav ul a:hover{opacity:1}
+.hero .nav .btn-l{padding:13px 20px}
+.h-in{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;width:min(1380px,100% - 48px);margin:0 auto;padding:30px 0 56px}
+.h-in .lab{color:var(--lila)}
+.h-in h1{font-size:clamp(54px,5.5vw,90px);max-width:8.6em;margin:22px 0 24px;color:#fff}
+.h-in h1 span{color:var(--lila)}
+.h-in p{font-size:clamp(17px,1.35vw,19px);max-width:30em;color:rgba(255,255,255,.84)}
+.h-in .acties{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn-w{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.5);backdrop-filter:blur(6px)}
+.btn-w:hover{background:#fff;color:var(--inkt)}
+.h-bar{position:relative;z-index:2;background:var(--lila);color:var(--inkt)}
+.h-bar ul{list-style:none;width:min(1380px,100% - 48px);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.h-bar li{padding:22px 24px;border-left:1px solid rgba(42,31,25,.16);display:flex;flex-direction:column;gap:2px}
+.h-bar li:first-child{border-left:0;padding-left:0}
+.h-bar b{font:400 24px/1.1 'Young Serif'}
+.h-bar span{font-size:14px;color:#4a3d52}
+.h-bar .st{color:#5e4689;letter-spacing:2px;font-size:13px;margin-left:6px}
+
+/* etiket in de koffiekaart blijft; extra: wie-wat-waarom naamkaart */
+.naam small{display:block;font:800 12px/1 'Manrope';letter-spacing:.14em;text-transform:uppercase;color:var(--lila-d);margin-bottom:10px}
+
+@media (max-width:1100px){
+ .h-bar ul{grid-template-columns:1fr 1fr}
+ .h-bar li:nth-child(3){border-left:0;padding-left:0}
+ .h-bar li:nth-child(n+3){border-top:1px solid rgba(42,31,25,.16)}
+}
+@media (max-width:820px){
+ .hero{min-height:0}
+ .hero:before{background:linear-gradient(180deg,rgba(28,19,16,1) 0%,rgba(28,19,16,1) 100%);height:0}
+ .h-bg{position:relative;inset:auto;order:3;height:auto;aspect-ratio:4/3.2;object-position:72% 40%;transform:none;animation:none;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 22%);mask-image:linear-gradient(180deg,transparent 0,#000 22%)}
+ .h-in{order:2;padding:24px 0 34px}
+ .h-bar{order:4}
+}
+@media (max-width:640px){
+ .h-in{width:calc(100% - 36px)}
+ .h-in h1{font-size:clamp(42px,11.6vw,54px)}
+ .hero .h-bar{width:100%}
+ .h-bar ul{width:calc(100% - 36px)}
+ .h-bar li{padding:16px 14px}
+ .h-bar b{font-size:20px}
+}
+
 </style>
 </head>
 <body>
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
 <header class="hero" id="top">
+ <img class="h-bg" src="img/hero.webp" alt="Jasmien aan de Giesen-koffiebrander, met de trommel vol vers gebrande bonen" width="1600" height="900" fetchpriority="high">
  <nav class="nav"><div class="wrap">
   <a class="woordmerk" href="#top" aria-label="Café Gusta"><b>café gusta</b><small>koffiebranderij</small></a>
   <ul><li><a href="#koffie">Koffie</a></li><li><a href="#costarica">Costa Rica</a></li><li><a href="#jasmien">Over mij</a></li><li><a href="#zaak">Voor je zaak</a></li><li><a href="#bezoek">Winkel</a></li></ul>
-  <a class="btn btn-e" href="https://cafegusta.be/product-categorie/koffie/" style="padding:13px 20px">Webshop</a>
+  <a class="btn btn-l" href="https://cafegusta.be/product-categorie/koffie/">Webshop</a>
  </div></nav>
- <div class="h-g">
-  <div class="h-t">
-   <span class="lab rv">Koffiebranderij · Oudenaarde</span>
-   <h1 class="rv" style="--d:1">Gusta, zoals in me gusta.</h1>
-   <p class="rv" style="--d:2">Ik ben Jasmien. Op mijn Giesen-brander rooster ik specialty coffee, tien kilo per keer, altijd licht gebrand en elke week vers. Voor bij jou thuis, voor je zaak of voor je hele vereniging.</p>
-   <div class="acties rv" style="--d:3">
-    <a class="btn btn-e" href="https://cafegusta.be/product-categorie/koffie/"><svg class="boon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><ellipse cx="12" cy="12" rx="6" ry="9" transform="rotate(35 12 12)"/><path d="M8.2 5.6c3.6 2.6 1.4 7.8 7.6 12.8"/></svg>Naar de webshop</a>
-    <a class="btn btn-gl" href="#zaak">Koffie voor je zaak</a>
-   </div>
-   <div class="h-sc rv" style="--d:4"><b>5,0</b><span><i>★★★★★</i>27 reviews op Google</span></div>
+ <div class="h-in">
+  <span class="lab rv">Koffiebranderij · Kortrijkstraat 294b</span>
+  <h1 class="rv" style="--d:1">Koffie die ik <span>deze week</span> nog gebrand heb.</h1>
+  <p class="rv" style="--d:2">Ik ben Jasmien. Elke week rooster ik op mijn Giesen, tien kilo per keer en altijd licht, zodat je de boon nog proeft. In bonen of gemalen, voor bij jou thuis, voor je zaak of voor je hele club.</p>
+  <div class="acties rv" style="--d:3">
+   <a class="btn btn-l" href="https://cafegusta.be/product-categorie/koffie/"><svg class="boon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><ellipse cx="12" cy="12" rx="6.5" ry="9" transform="rotate(35 12 12)"/><path d="M8.5 17.5c2.5-2 4.5-8.5 7-11"/></svg>Naar de webshop</a>
+   <a class="btn btn-w" href="#zaak">Koffie voor je zaak</a>
   </div>
-  <figure class="h-f"><img src="img/hero.webp" alt="Jasmien aan de Giesen-koffiebrander met een trommel vol vers gebrande bonen" fetchpriority="high"><figcaption><span>Jasmien aan de Giesen W15</span><span>Kortrijkstraat 294b</span></figcaption></figure>
+ </div>
+ <div class="h-bar rv" style="--d:4">
+  <ul>
+   <li><b>Giesen W15</b><span>de brander in de branderij</span></li>
+   <li><b>10 kilo</b><span>per branding</span></li>
+   <li><b>Elke week</b><span>vers, en altijd licht gebrand</span></li>
+   <li><b>5,0<span class="st" aria-hidden="true">★★★★★</span></b><span>uit 27 reviews op Google</span></li>
+  </ul>
  </div>
 </header>
 
 <section class="sec" id="koffie">
  <div class="wrap">
   <div class="kopr">
-   <div><span class="lab rv">Uit de branderij</span><h2 class="rv" style="--d:1">Elke week vers gebrand.</h2></div>
-   <p class="rv" style="--d:2">In bonen of gemalen, in verschillende formaten. Een greep uit wat er nu in de rekken staat.</p>
+   <div><span class="lab rv">In de rekken</span><h2 class="rv" style="--d:1">Wat er nu vers in de zakken zit.</h2></div>
+   <p class="rv" style="--d:2">Zes van de vijftien koffies uit de webshop, in bonen of gemalen. Twijfel je welke bij jou past? Kom proeven in de winkel, of stuur me hoe jij je koffie zet.</p>
   </div>
   <div class="kg">
    <div class="brand rv">
-    <figure><img src="img/bonen.webp" alt="Vers gebrande bonen worden uit een emmer in de koeltrommel gegoten" loading="lazy"></figure>
+    <figure><img src="img/bonen.webp" alt="Vers gebrande bonen worden uit een emmer in de koeltrommel gegoten" width="1200" height="1200" loading="lazy"></figure>
     <div class="etiket">
-     <small>Zo branden we</small>
-     <h3>Klein, licht en vers.</h3>
+     <small>Zo brand ik</small>
+     <h3>Klein, licht en elke week.</h3>
      <dl>
       <dt>Brander</dt><dd>Giesen W15</dd>
       <dt>Per branding</dt><dd>10 kilo</dd>
@@ -287,14 +343,14 @@ footer{background:var(--lila);color:var(--inkt);margin-top:140px;padding:84px 0 
    </div>
    <div>
     <div class="kaart">
-    <a class="kr uit rv" href="https://cafegusta.be/product-categorie/koffie/"><span class="land">Costa Rica · Villa Sarchi</span><h3>Hacienda Sonora<span class="tag">Uitgelicht</span></h3><span class="p"><small>vanaf</small>€ 10,20</span><p>Suikerzoet en elegant, met tonen van karamel en honing en een milde fruitzuurgraad.</p></a>
-    <a class="kr rv" href="https://cafegusta.be/product-categorie/koffie/"><span class="land">Huisblend</span><h3>Gusta's blend</h3><span class="p"><small>vanaf</small>€ 9,00</span><p>Onze eigen blend, de koffie met onze naam erop.</p></a>
-    <a class="kr rv" href="https://cafegusta.be/product-categorie/koffie/"><span class="land">Ethiopië · bio</span><h3>Guji</h3><span class="p"><small>vanaf</small>€ 9,90</span><p>Een single origin uit het zuiden van Ethiopië.</p></a>
-    <a class="kr rv" href="https://cafegusta.be/product-categorie/koffie/"><span class="land">Kenia</span><h3>Kiamutuira</h3><span class="p"><small>vanaf</small>€ 10,20</span><p>Een single origin uit Kenia, licht gebrand zoals al onze koffie.</p></a>
-    <a class="kr rv" href="https://cafegusta.be/product-categorie/koffie/"><span class="land">Blend</span><h3>Cyclista</h3><span class="p"><small>vanaf</small>€ 8,80</span><p>Voor de koffiestop na de rit, of de rit na de koffie.</p></a>
-    <a class="kr rv" href="https://cafegusta.be/product-categorie/koffie/"><span class="land">Colombia · cafeïnevrij</span><h3>Tumbaga deca</h3><span class="p"><small>vanaf</small>€ 9,70</span><p>Alle smaak, zonder de cafeïne. Ook 's avonds een goede tas.</p></a>
+    <a class="kr uit rv" href="https://cafegusta.be/product-categorie/koffie/"><span class="land">Costa Rica · Villa Sarchi</span><h3>Hacienda Sonora<span class="tag">Nieuw binnen</span></h3><span class="p"><small>vanaf</small>€ 10,20</span><p>Suikerzoet en elegant, met tonen van karamel en honing en een milde fruitzuurgraad.</p></a>
+    <a class="kr rv" href="https://cafegusta.be/product-categorie/koffie/"><span class="land">Huisblend</span><h3>Gusta's blend</h3><span class="p"><small>vanaf</small>€ 9,00</span><p>De blend met onze naam op de zak.</p></a>
+    <a class="kr rv" href="https://cafegusta.be/product-categorie/koffie/"><span class="land">Ethiopië · bio</span><h3>Guji</h3><span class="p"><small>vanaf</small>€ 9,90</span><p>Single origin uit het zuiden van Ethiopië.</p></a>
+    <a class="kr rv" href="https://cafegusta.be/product-categorie/koffie/"><span class="land">Kenia</span><h3>Kiamutuira</h3><span class="p"><small>vanaf</small>€ 10,20</span><p>Single origin uit Kenia, licht gebrand zoals alles hier.</p></a>
+    <a class="kr rv" href="https://cafegusta.be/product-categorie/koffie/"><span class="land">Blend</span><h3>Cyclista</h3><span class="p"><small>vanaf</small>€ 8,80</span><p>Voor de koffiestop halverwege de rit.</p></a>
+    <a class="kr rv" href="https://cafegusta.be/product-categorie/koffie/"><span class="land">Colombia · cafeïnevrij</span><h3>Tumbaga deca</h3><span class="p"><small>vanaf</small>€ 9,70</span><p>Zonder cafeïne, dus ook om tien uur 's avonds.</p></a>
     </div>
-    <div class="meer rv"><span>Liever thuis geleverd? Dat kan via de webshop.</span><a class="btn btn-e" href="https://cafegusta.be/product-categorie/koffie/"><svg class="boon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><ellipse cx="12" cy="12" rx="6" ry="9" transform="rotate(35 12 12)"/><path d="M8.2 5.6c3.6 2.6 1.4 7.8 7.6 12.8"/></svg>Alle koffies in de webshop</a></div>
+    <div class="meer rv"><span>Liever aan huis? Bestel in de webshop en we leveren bij je thuis.</span><a class="btn btn-e" href="https://cafegusta.be/product-categorie/koffie/">Alle 15 koffies</a></div>
    </div>
   </div>
  </div>
@@ -302,15 +358,15 @@ footer{background:var(--lila);color:var(--inkt);margin-top:140px;padding:84px 0 
 
 <section class="cr" id="costarica">
  <div class="cr-band">
-  <figure class="rv"><img src="img/kersen.webp" alt="Rijpe rode koffiebessen aan een struik" loading="lazy"><figcaption>Rijpe koffiebessen</figcaption></figure>
-  <figure class="rv" style="--d:1"><img src="img/hand.webp" alt="Hand met een opengesneden koffiebes en twee bonen" loading="lazy"><figcaption>Van bes tot boon</figcaption></figure>
-  <figure class="rv" style="--d:2"><img src="img/pluk.webp" alt="Hand die koffiebessen plukt tussen de bladeren" loading="lazy"><figcaption>Aan de voet van de Poás</figcaption></figure>
+  <figure class="rv"><img src="img/kersen.webp" alt="Rijpe rode koffiebessen aan een struik" width="1600" height="1916" loading="lazy"><figcaption>Rijpe koffiebessen</figcaption></figure>
+  <figure class="rv" style="--d:1"><img src="img/hand.webp" alt="Hand met een opengesneden koffiebes en twee bonen" width="1600" height="1816" loading="lazy"><figcaption>Van bes tot boon</figcaption></figure>
+  <figure class="rv" style="--d:2"><img src="img/pluk.webp" alt="Hand die koffiebessen plukt tussen de bladeren" width="1600" height="1873" loading="lazy"><figcaption>Aan de voet van de Poás</figcaption></figure>
  </div>
  <div class="wrap g">
-  <div><span class="lab rv">Op bezoek bij de boer</span><h2 class="rv" style="--d:1">Hacienda Sonora, Costa Rica.</h2></div>
+  <div><span class="lab rv">Op bezoek bij de boer</span><h2 class="rv" style="--d:1">Hacienda Sonora, aan de voet van de Poás.</h2></div>
   <div class="t">
-   <p class="rv">Drie jaar geleden stond ik op deze koffieboerderij aan de voet van de Poás-vulkaan. Alberto's grootvader begon er bijna honderd jaar geleden met een suikerrietfabriek. Vandaag leiden Alberto en zijn zoon Diego de boerderij.</p>
-   <p class="rv" style="--d:1">Ze verwerken hun koffie enkel natural of honey. Dat vraagt veel tijd en vakmanschap, en je proeft het: funky en fruitig. Voor ons is het de eerste keer met de zeldzame Villa Sarchi-boon.</p>
+   <p class="rv">Drie jaar geleden stond ik zelf op deze boerderij in Costa Rica. Alberto's grootvader begon er bijna honderd jaar geleden met een suikerrietfabriek. Vandaag zorgen Alberto en zijn zoon Diego voor de koffie.</p>
+   <p class="rv" style="--d:1">Ze verwerken alles natural of honey. Dat kost tijd en vakmanschap, en je proeft het meteen: funky en fruitig. Het is ook de eerste keer dat ik met de zeldzame Villa Sarchi-boon werk.</p>
    <ul class="noten rv" style="--d:2"><li><b>Natural, honey</b>zo verwerken ze hun koffie</li><li><b>25 liter</b>water bespaard per kilo koffie</li><li><b>100% groen</b>stroom uit een eigen waterkrachtcentrale</li></ul>
    <a class="btn btn-l rv" style="--d:3" href="https://cafegusta.be/product-categorie/koffie/">Proef Hacienda Sonora</a>
   </div>
@@ -320,39 +376,39 @@ footer{background:var(--lila);color:var(--inkt);margin-top:140px;padding:84px 0 
 <section class="sec jas" id="jasmien">
  <div class="wrap g">
   <div class="f">
-   <div class="a rv"><img src="img/cupping.webp" alt="Jasmien ruikt aan koffie tijdens een cupping" loading="lazy"></div>
-   <div class="b rv" style="--d:1"><img src="img/espresso.webp" alt="Espresso loopt in twee zwarte Café Gusta-kopjes" loading="lazy"></div>
+   <div class="a rv"><img src="img/cupping.webp" alt="Jasmien ruikt aan koffie tijdens een cupping" width="854" height="854" loading="lazy"></div>
+   <div class="b rv" style="--d:1"><img src="img/espresso.webp" alt="Espresso loopt in twee zwarte Café Gusta-kopjes" width="960" height="960" loading="lazy"></div>
   </div>
   <div class="t">
    <span class="lab rv">Over mij</span>
-   <h2 class="rv" style="--d:1">Ik, da's Jasmien.</h2>
-   <p class="rv" style="--d:2">Na mijn studies werkte ik een paar jaar in een koffiebar in Australië, het koffieland bij uitstek. Toen ik terugkwam, wist ik het: koffie, da's mijn passie. En daar wil ik iedereen van laten meegenieten.</p>
-   <p class="rv" style="--d:2">Café Gusta is een kleine, lokale branderij. Kwaliteit gaat hier altijd voor kwantiteit.</p>
-   <div class="naam rv" style="--d:3"><p>Gusta, zoals in <em>me gusta</em>: ik vind het leuk. En zoals in Gusta'tje: de koosnaam die ik van mijn pépé kreeg.</p></div>
+   <h2 class="rv" style="--d:1">Het begon achter een toog in Australië.</h2>
+   <p class="rv" style="--d:2">Na mijn studies werkte ik een paar jaar in een koffiebar in Australië. Daar leerde ik hoe goed een gewone tas koffie kan zijn. Toen ik terugkwam, wou ik dat hier ook.</p>
+   <p class="rv" style="--d:2">Café Gusta is klein, en dat blijft zo. Ik brand liever wat minder, maar dan wel goed.</p>
+   <div class="naam rv" style="--d:3"><small>Waarom Gusta?</small><p>Mijn pépé noemde me altijd Gusta'tje. Dat het in het Spaans ook nog eens "ik vind het lekker" betekent, is mooi meegenomen.</p></div>
   </div>
  </div>
 </section>
 
 <section class="zaak" id="zaak">
  <div class="wrap g">
-  <div class="f"><img src="img/toog.webp" alt="Twee baristas lachend achter de toog van Café Gusta" loading="lazy"></div>
+  <div class="f"><img src="img/toog.webp" alt="Twee baristas lachend achter de toog van Café Gusta" width="960" height="960" loading="lazy"></div>
   <div class="t">
-   <span class="lab rv">Voor bedrijven en horeca</span>
-   <h2 class="rv" style="--d:1">Koffie voor je zaak of kantoor.</h2>
-   <p class="rv" style="--d:2">We zoeken samen de koffie die bij je zaak past, en zorgen dat je team hem ook goed zet. Tot je gasten vragen waar hij vandaan komt.</p>
+   <span class="lab rv">Voor bedrijven, horeca en clubs</span>
+   <h2 class="rv" style="--d:1">Goede koffie op je werk, of achter je toog.</h2>
+   <p class="rv" style="--d:2">We zoeken samen welke koffie bij jullie past, en zorgen dat iedereen hem goed leert zetten. Een klant schreef ons dat de gasten nu vaak vragen waar de koffie vandaan komt. Zo hoort het.</p>
    <ol>
-    <li class="rv"><span><b>Een blend op maat</b>Je eigen persoonlijke blend. Daar zijn we in gespecialiseerd.</span></li>
-    <li class="rv" style="--d:1"><span><b>Professionele machines</b>Van trouwe partners, met een barista-opleiding bij de installatie.</span></li>
-    <li class="rv" style="--d:2"><span><b>Opleidingen en events</b>Onze barista traint je team, op maat van wat je nodig hebt.</span></li>
+    <li class="rv"><span><b>Een eigen blend</b>We proeven samen tot jullie blend er staat. Daar zijn we in gespecialiseerd.</span></li>
+    <li class="rv" style="--d:1"><span><b>De juiste machine</b>Van vaste partners, met een barista-opleiding bij de installatie.</span></li>
+    <li class="rv" style="--d:2"><span><b>Opleidingen en events</b>Onze barista traint je team. Ook voor een event kan je bij ons terecht.</span></li>
    </ol>
-   <a class="btn btn-e rv" href="https://wa.me/32494933202?text=Dag%20Jasmien%2C%20ik%20zoek%20koffie%20voor%20mijn%20zaak.">Plan een gesprek met Jasmien</a>
+   <a class="btn btn-e rv" href="https://wa.me/32494933202?text=Dag%20Jasmien%2C%20ik%20zoek%20koffie%20voor%20onze%20zaak.">Stuur Jasmien een berichtje</a>
   </div>
  </div>
 </section>
 
 <section class="sec" id="reviews" style="padding-top:0">
  <div class="wrap">
-  <div class="rv-k"><div><span class="lab rv">Op Google</span><h2 class="rv" style="--d:1">Wie het proeft, koopt niets anders meer.</h2></div><div class="cijfer rv" style="--d:2"><b>5,0</b><i>★★★★★</i><span>uit 27 reviews</span></div></div>
+  <div class="rv-k"><div><span class="lab rv">Op Google</span><h2 class="rv" style="--d:1">Wat klanten erover schrijven.</h2></div><div class="cijfer rv" style="--d:2"><b>5,0</b><i>★★★★★</i><span>uit 27 reviews</span></div></div>
   <div class="rv-g">
    <figure class="rev groot rv"><div class="st">★★★★★</div><blockquote>"Via een evenement met mijn Triatlon Team heb ik Café Gusta leren kennen (trouwens zeker een aanrader voor iedere vereniging), en sindsdien koop ik niets anders meer. De leveringen aan huis zijn super vlot (...)"</blockquote><cite>Jari Geerts<small>Google-review</small></cite></figure>
    <div class="rv-r">
@@ -368,21 +424,21 @@ footer{background:var(--lila);color:var(--inkt);margin-top:140px;padding:84px 0 
  <div class="wrap g">
   <div class="uren rv">
    <span class="lab">De winkel</span>
-   <h2>Spring eens binnen.</h2>
+   <h2>Kom proeven in de branderij.</h2>
    <ul class="ul">
     <li><span>Dinsdag</span><span>14 tot 18 uur</span></li>
     <li><span>Donderdag</span><span>14 tot 18 uur</span></li>
     <li><span>Zaterdag</span><span>14 tot 17 uur</span></li>
     <li><span>Andere momenten</span><span>op afspraak</span></li>
    </ul>
-   <p class="vn">In juli en augustus is de winkel gesloten. Op zaterdag helpt Annelies je graag bij je keuze.</p>
+   <p class="vn">In juli en augustus is de winkel dicht. Op zaterdag helpt Annelies je graag kiezen.</p>
   </div>
   <div class="adres rv" style="--d:1">
    <span class="lab">Waar</span>
    <h2>Kortrijkstraat 294b, Oudenaarde.</h2>
-   <p>Proeven, ruiken en een zakje meenemen. Liever thuis geleverd? Dat kan via de webshop.</p>
-   <a class="rij" href="https://wa.me/32494933202"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></i><span>0494 93 32 02<small>Bellen of WhatsApp</small></span></a>
-   <a class="rij" href="mailto:info@cafegusta.be"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></i><span>info@cafegusta.be<small>Ook voor offertes</small></span></a>
+   <p>Ruiken, proeven en een zak meenemen. Liever aan huis? Dat kan via de webshop.</p>
+   <a class="rij" href="https://wa.me/32494933202"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></i><span>0494 93 32 02<small>Bellen of WhatsApp</small></span></a>
+   <a class="rij" href="mailto:info@cafegusta.be"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></i><span>info@cafegusta.be<small>Ook voor offertes</small></span></a>
    <div class="acties"><a class="btn btn-e" href="https://maps.google.com/?q=Caf%C3%A9+Gusta+Kortrijkstraat+294b+9700+Oudenaarde">Route plannen</a><a class="btn btn-o" href="https://www.instagram.com/cafe_gusta/">@cafe_gusta</a></div>
   </div>
  </div>
@@ -391,7 +447,7 @@ footer{background:var(--lila);color:var(--inkt);margin-top:140px;padding:84px 0 
 <footer>
  <div class="wrap">
   <div class="vt">
-   <div><a class="woordmerk" href="#top"><b>café gusta</b><small>koffiebranderij</small></a><p>Kleine, lokale koffiebranderij in Oudenaarde. Voor particulieren, bedrijven en horeca.</p></div>
+   <div><a class="woordmerk" href="#top"><b>café gusta</b><small>koffiebranderij</small></a><p>Kleine koffiebranderij in Oudenaarde. Voor thuis, voor bedrijven, horeca en clubs.</p></div>
    <div><h4>Webshop</h4><ul><li><a href="https://cafegusta.be/product-categorie/koffie/">Koffie</a></li><li><a href="https://cafegusta.be/product-categorie/thee/">Thee</a></li><li><a href="https://cafegusta.be/product-categorie/accessoires/">Accessoires</a></li></ul></div>
    <div><h4>Winkel</h4><ul><li>Di en do 14 tot 18 uur</li><li>Za 14 tot 17 uur</li><li>Of op afspraak</li></ul></div>
    <div><h4>Contact</h4><ul><li>Kortrijkstraat 294b</li><li>9700 Oudenaarde</li><li><a href="tel:+32494933202">0494 93 32 02</a></li><li><a href="mailto:info@cafegusta.be">info@cafegusta.be</a></li></ul></div>
