@@ -7,7 +7,6 @@
 <meta name="description" content="Sjolaa in Mechelen: pralines, Mechelse Maantjes en chocoladeworkshops van drie uur, door chocolatiers Johan Pouliart en Katrien Verslycke. Opgenomen in Gault&Millau.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="img/hero.webp">
 <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@600;700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js')</script>
 <style>
@@ -20,176 +19,152 @@ a{color:inherit}
 .wrap{width:min(1240px,100% - 48px);margin:0 auto}
 .demo{background:var(--oranje);color:#fff;font:500 13.5px/1.4 'DM Sans',sans-serif;text-align:center;padding:9px 16px;position:relative;z-index:60}
 .demo a{color:#fff;font-weight:700;text-underline-offset:3px}
-h1,h2,h3{font-family:'Gabarito',sans-serif;font-weight:800;font-style:normal;line-height:.98;letter-spacing:-.025em}
+h1,h2,h3{font-family:'Gabarito',sans-serif;font-weight:800;line-height:.98;letter-spacing:-.025em}
 .lab{display:inline-flex;align-items:center;gap:10px;font:700 12.5px/1 'DM Sans';letter-spacing:.14em;text-transform:uppercase;color:var(--oranje-d)}
-.lab:before{content:"";width:12px;height:12px;flex:none;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M15 3a9 9 0 1 0 6 15.7A8 8 0 0 1 15 3z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M15 3a9 9 0 1 0 6 15.7A8 8 0 0 1 15 3z'/%3E%3C/svg%3E") center/contain no-repeat}
-
-/* knoppen: pil met een maantje dat bij hover een kwartslag draait */
-.btn{display:inline-flex;align-items:center;gap:11px;padding:17px 26px;border-radius:999px;font:700 15.5px/1 'DM Sans';text-decoration:none;white-space:nowrap;transition:background .3s,color .3s,box-shadow .3s}
-.btn svg{width:18px;height:18px;flex:none;transition:transform .5s var(--ease)}
-.btn:hover svg{transform:rotate(-35deg)}
+.lab:before{content:"";width:10px;height:10px;border-radius:50% 50% 50% 0;background:currentColor;transform:rotate(-45deg)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:17px 27px;border-radius:999px;font:700 15.5px/1 'DM Sans';text-decoration:none;transition:transform .3s var(--ease),background .3s}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:18px;height:18px;flex:none}
 .btn-o{background:var(--oranje);color:#fff}.btn-o:hover{background:var(--oranje-d)}
-.btn-c{background:var(--choco);color:#fff}.btn-c:hover{background:var(--choco2)}
+.btn-c{background:var(--choco);color:#fff}
 .btn-w{background:#fff;color:var(--choco)}
-.btn-gl{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55)}.btn-gl:hover{box-shadow:inset 0 0 0 1.5px #fff;background:rgba(255,255,255,.08)}
-.btn-l{color:var(--choco);box-shadow:inset 0 0 0 1.5px rgba(44,25,17,.3)}.btn-l:hover{box-shadow:inset 0 0 0 1.5px var(--choco)}
+.btn-gl{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55);background:rgba(255,255,255,.08);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.btn-l{color:var(--choco);box-shadow:inset 0 0 0 1.5px rgba(44,25,17,.3)}
 
-/* hero: één beeld, tekst links op het donkere deel, gegevensregel als onderrand van het beeld */
-.hero{position:relative;min-height:min(900px,calc(100svh - 38px));color:#fff;display:flex;flex-direction:column;overflow:hidden;background:var(--choco)}
-.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%;transform:scale(1.05);animation:zoom 14s var(--ease) forwards}
+/* hero */
+.hero{position:relative;min-height:min(940px,100vh);color:#fff;display:flex;flex-direction:column;overflow:hidden;background:var(--choco)}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform:scale(1.06);animation:zoom 18s var(--ease) forwards}
 @keyframes zoom{to{transform:scale(1)}}
-.hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(36,20,12,.94) 0%,rgba(36,20,12,.86) 30%,rgba(36,20,12,.35) 62%,rgba(36,20,12,.08) 100%),linear-gradient(0deg,rgba(36,20,12,.85) 0%,rgba(36,20,12,0) 30%)}
+.hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(36,20,12,.92) 0%,rgba(36,20,12,.72) 38%,rgba(36,20,12,.15) 70%,rgba(36,20,12,.05) 100%),linear-gradient(0deg,rgba(36,20,12,.6) 0%,transparent 35%)}
 .nav{position:relative;z-index:5;padding:22px 0}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;width:min(1380px,100% - 48px)}
-.nav .logo img{height:56px;width:auto}
-.nav ul{display:flex;gap:30px;list-style:none}
-.nav ul a{text-decoration:none;font:600 15px/1 'DM Sans';opacity:.86;transition:opacity .2s}
+.nav .logo img{height:58px;width:auto}
+.nav ul{display:flex;gap:28px;list-style:none}
+.nav ul a{text-decoration:none;font:600 15px/1 'DM Sans';opacity:.88}
 .nav ul a:hover{opacity:1}
-.h-in{position:relative;z-index:3;flex:1;display:flex;align-items:center;width:min(1380px,100% - 48px);margin:0 auto;padding:20px 0 56px}
-.h-in .t{max-width:660px}
+.h-in{position:relative;z-index:3;flex:1;display:flex;align-items:center;width:min(1380px,100% - 48px);margin:0 auto;padding:30px 0 50px}
+.h-in .t{max-width:700px}
 .h-in .lab{color:var(--goud)}
-.h-in h1{font-size:clamp(58px,7vw,112px);margin:22px 0 26px}
+.h-in h1{font-size:clamp(58px,6.8vw,110px);margin:22px 0 24px}
 .h-in h1 span{color:var(--oranje)}
-.h-in p{font-size:19px;max-width:31em;color:rgba(255,255,255,.86)}
-.acties{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
-.h-rand{position:relative;z-index:3;border-top:1px solid rgba(255,255,255,.18)}
-.h-rand ul{width:min(1380px,100% - 48px);margin:0 auto;list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
-.h-rand li{padding:22px 24px 26px 0;font-size:14.5px;line-height:1.4;color:rgba(255,255,255,.72)}
-.h-rand li+li{padding-left:24px;border-left:1px solid rgba(255,255,255,.18)}
-.h-rand b{display:block;font:800 21px/1.15 'Gabarito';color:#fff;letter-spacing:-.01em;margin-bottom:3px}
-.h-rand .gm b{color:#f6c418}
+.h-in p{font-size:19.5px;max-width:30em;color:rgba(255,255,255,.86)}
+.acties{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+.h-bar{position:relative;z-index:3;width:min(1380px,100% - 48px);margin:0 auto 34px;display:flex;gap:14px;flex-wrap:wrap}
+.h-bar div{display:flex;align-items:center;gap:12px;background:rgba(255,251,246,.96);color:var(--inkt);border-radius:20px;padding:14px 20px}
+.h-bar b{font:800 30px/1 'Gabarito'}
+.h-bar span{font-size:14px;font-weight:600;line-height:1.3}
+.h-bar i{display:block;font-style:normal;color:var(--oranje);letter-spacing:2px;font-size:13px}
+.h-bar .gm{background:#f6c418}
+.h-bar .gm b{font-size:20px;letter-spacing:-.01em}
 
 section{position:relative}
 .sec{padding:140px 0}
-.kopr{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:56px}
-.kopr h2{font-size:clamp(46px,5.2vw,82px);margin-top:18px;max-width:10.5em}
+.kopr{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:52px}
+.kopr h2{font-size:clamp(48px,5.4vw,86px);margin-top:18px;max-width:10em}
 .kopr p{max-width:25em;color:var(--grijs);font-size:18px}
 
 /* workshops */
-.ws .g{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:24px;align-items:stretch}
-.ws .fotos{display:grid;grid-template-columns:1.1fr .9fr;grid-template-rows:1fr 1fr;gap:14px;min-height:660px}
+.ws .g{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+.ws .fotos{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:14px;min-height:640px}
 .ws .fotos figure{border-radius:28px;overflow:hidden;position:relative}
 .ws .fotos figure:first-child{grid-row:1/3}
 .ws .fotos img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-.ws .fotos figure:hover img{transform:scale(1.04)}
-.ws .fotos figcaption{position:absolute;left:14px;bottom:14px;background:var(--papier);border-radius:999px;padding:8px 14px;font:700 13px/1 'DM Sans'}
-/* ticket */
-.ticket{position:relative;background:var(--choco);color:#fff;border-radius:28px;display:flex;flex-direction:column;overflow:hidden}
-.ticket .top{padding:40px 38px 30px}
-.ticket .top small{font:700 12.5px/1 'DM Sans';letter-spacing:.14em;text-transform:uppercase;color:var(--goud)}
-.ticket .prijs{display:flex;align-items:baseline;gap:12px;margin-top:14px}
-.ticket .prijs b{font:900 84px/.9 'Gabarito';color:var(--oranje);letter-spacing:-.03em}
-.ticket .prijs span{color:rgba(255,255,255,.74);font-size:16px}
-.ticket .top p{margin-top:14px;color:rgba(255,255,255,.82);font-size:16px;max-width:24em}
-.ticket .knip{position:relative;height:0;border-top:2px dashed rgba(255,255,255,.22);margin:0 22px}
-.ticket .knip:before,.ticket .knip:after{content:"";position:absolute;top:-15px;width:28px;height:28px;border-radius:50%;background:var(--creme)}
-.ticket .knip:before{left:-37px}.ticket .knip:after{right:-37px}
-.ticket dl{padding:24px 38px 8px;display:grid;grid-template-columns:auto 1fr;gap:0 18px}
-.ticket dt,.ticket dd{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:15.5px}
-.ticket dt{font-weight:700;color:#fff;white-space:nowrap}
-.ticket dd{color:rgba(255,255,255,.76)}
-.ticket dl>:nth-last-child(-n+2){border-bottom:0}
-.ticket .voet{margin-top:auto;padding:20px 38px 36px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-.ticket .voet small{font-size:13.5px;color:rgba(255,255,255,.6);max-width:17em;line-height:1.45}
+.ws .fotos figure:hover img{transform:scale(1.05)}
+.ws .kaart{background:var(--choco);color:#fff;border-radius:28px;padding:44px 40px;display:flex;flex-direction:column}
+.ws .kaart .prijs{display:flex;align-items:baseline;gap:12px}
+.ws .kaart .prijs b{font:900 80px/1 'Gabarito';color:var(--oranje)}
+.ws .kaart .prijs span{color:rgba(255,255,255,.75)}
+.ws .kaart h3{font-size:34px;margin:12px 0 18px}
+.ws ul{list-style:none;display:grid;gap:12px;margin-bottom:30px}
+.ws li{display:flex;gap:12px;font-size:16px;color:rgba(255,255,255,.86)}
+.ws li:before{content:"";width:20px;height:20px;flex:none;margin-top:2px;border-radius:50%;background:var(--oranje) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/13px no-repeat}
+.ws .kaart .btn{margin-top:auto;align-self:flex-start}
+.ws .noot{margin-top:18px;font-size:14px;color:rgba(255,255,255,.6)}
 
 /* maantjes */
 .mn{background:var(--oranje);color:#fff;border-radius:56px;margin:0 24px;padding:120px 0;overflow:hidden}
-.mn .g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:center}
+.mn .g{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
 .mn .lab{color:#fff}
-.mn h2{font-size:clamp(50px,5.6vw,90px);margin:18px 0 24px}
-.mn .leg{font-size:18px;color:rgba(255,255,255,.94);max-width:29em}
-.mn .leg strong{font-weight:700}
-.mn .jaar{display:flex;align-items:center;gap:16px;margin-top:26px;font-size:15px;color:rgba(255,255,255,.86)}
-.mn .jaar b{font:900 44px/1 'Gabarito';color:#fff;letter-spacing:-.02em}
-.mn .f{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:14px}
-.mn .f figure{border-radius:28px;overflow:hidden}
-.mn .f .a{grid-column:1/3;aspect-ratio:16/10}
-.mn .f .b{aspect-ratio:1}
-.mn .f img{width:100%;height:100%;object-fit:cover}
-.prijsk{background:var(--papier);color:var(--inkt);border-radius:28px;padding:22px 24px;display:flex;flex-direction:column}
-.prijsk h3{font:800 20px/1.1 'Gabarito';margin-bottom:6px}
-.prijsk div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:9px 0;border-bottom:1px dashed var(--lijn);font-size:14.5px}
-.prijsk div:last-of-type{border:0}
-.prijsk b{font:800 17px/1 'Gabarito';color:var(--oranje-d);white-space:nowrap}
-.prijsk small{display:block;color:var(--grijs);font-size:12.5px;line-height:1.3}
-.prijsk a{margin-top:auto;padding-top:10px;font:700 14px/1 'DM Sans';color:var(--choco);text-underline-offset:4px}
+.mn h2{font-size:clamp(50px,5.6vw,90px);margin:18px 0 22px}
+.mn .leg{font-size:18px;color:rgba(255,255,255,.92);max-width:29em}
+.mn .leg em{font-style:normal;font-weight:700}
+.mn .f{position:relative}
+.mn .f .a{border-radius:32px;overflow:hidden;aspect-ratio:4/3.4}
+.mn .f .a img{width:100%;height:100%;object-fit:cover}
+.mn .f .b{position:absolute;left:-40px;bottom:-50px;width:52%;border-radius:24px;overflow:hidden;border:8px solid var(--oranje);box-shadow:0 26px 40px -20px rgba(0,0,0,.4)}
+.mn .f .b img{width:100%;aspect-ratio:1;object-fit:cover}
+.pak{margin-top:34px;background:rgba(255,255,255,.12);border-radius:24px;padding:10px 24px}
+.pak div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.2);font-size:16px}
+.pak div:last-child{border:0}
+.pak b{font:800 21px/1 'Gabarito';white-space:nowrap}
+.pak small{display:block;color:rgba(255,255,255,.75);font-size:13.5px}
 
-/* pralines */
-.pr{padding:140px 0 0}
-.pr .g{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:70px;align-items:start}
-.pr h2{font-size:clamp(46px,5vw,78px);margin:18px 0 22px}
-.pr .intro{color:var(--grijs);font-size:18px;max-width:27em}
-.tab{margin-top:34px;display:grid;gap:12px}
-.tab div{display:grid;grid-template-columns:86px 1fr;gap:20px;align-items:center;background:var(--papier);border-radius:22px;padding:14px 22px 14px 14px;box-shadow:0 22px 44px -40px rgba(70,35,15,.8)}
-.tab i{display:block;height:58px;border-radius:12px;background:var(--k);box-shadow:inset 0 -6px 0 rgba(0,0,0,.12),inset 0 2px 0 rgba(255,255,255,.25);background-image:linear-gradient(90deg,transparent 32%,rgba(0,0,0,.1) 33%,transparent 34%,transparent 65%,rgba(0,0,0,.1) 66%,transparent 67%)}
-.tab b{display:block;font:800 22px/1.1 'Gabarito'}
-.tab span{color:var(--grijs);font-size:15.5px}
-.buurt{margin-top:30px;padding-top:24px;border-top:1px solid var(--lijn);font-size:16px;color:var(--grijs)}
-.buurt b{color:var(--inkt);font-weight:700}
-.pr .fotos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.pr .fotos figure{border-radius:28px;overflow:hidden;position:relative}
-.pr .fotos .a{grid-column:1/3;aspect-ratio:4/3}
-.pr .fotos .b,.pr .fotos .c{aspect-ratio:4/5}
-.pr .fotos img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-.pr .fotos figure:hover img{transform:scale(1.04)}
-.pr .fotos figcaption{position:absolute;left:14px;bottom:14px;background:var(--papier);border-radius:999px;padding:8px 14px;font:700 13px/1 'DM Sans'}
+/* pralines band */
+.band{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:12px;padding:140px 12px 0}
+.band figure{border-radius:30px;overflow:hidden;height:560px;position:relative}
+.band img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.band figure:hover img{transform:scale(1.04)}
+.band figcaption{position:absolute;left:16px;bottom:16px;background:var(--papier);border-radius:999px;padding:9px 15px;font:700 13.5px/1 'DM Sans'}
+.choc{padding:70px 0 140px}
+.choc .g{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px}
+.choc h2{font-size:clamp(46px,5vw,78px);margin-top:18px}
+.drie{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.drie div{border-radius:24px;padding:26px 24px;background:var(--papier);box-shadow:0 24px 48px -42px rgba(70,35,15,.7)}
+.drie div:nth-child(1){border-top:6px solid #efe3cf}
+.drie div:nth-child(2){border-top:6px solid #a8693f}
+.drie div:nth-child(3){border-top:6px solid #3a1f14}
+.drie b{display:block;font:800 24px/1 'Gabarito';margin-bottom:8px}
+.drie p{font-size:15px;color:var(--grijs)}
+.lokaal{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lokaal span{background:var(--papier);border-radius:999px;padding:10px 15px;font:600 14px/1 'DM Sans'}
+.lokaal em{font-style:normal;color:var(--grijs);font-size:14.5px;margin-right:4px}
 
 /* wij */
-.wij .g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;align-items:center}
-.wij .f{display:grid;grid-template-columns:1.35fr 1fr;gap:14px;align-items:end}
-.wij .f figure{border-radius:30px;overflow:hidden}
-.wij .f .a{aspect-ratio:4/4.6}
-.wij .f .b{aspect-ratio:3/4.2}
-.wij .f img{width:100%;height:100%;object-fit:cover}
-.wij .f .a img{object-position:50% 40%}
-.wij .f .b img{object-position:50% 30%}
-.wij .f figcaption{font:600 13.5px/1.35 'DM Sans';color:var(--grijs);padding:12px 4px 0}
-.wij h2{font-size:clamp(48px,5.2vw,82px);margin:18px 0 24px}
+.wij .g{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.wij .f{position:relative;padding-right:60px}
+.wij .f .a{border-radius:36px;overflow:hidden;aspect-ratio:1}
+.wij .f .a img{width:100%;height:100%;object-fit:cover}
+.wij .f .b{position:absolute;right:0;bottom:-40px;width:38%;border-radius:24px;overflow:hidden;border:8px solid var(--creme)}
+.wij .f .b img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 30%}
+.wij h2{font-size:clamp(48px,5.2vw,82px);margin:18px 0 22px}
 .wij .t>p{font-size:18px;color:var(--grijs);margin-bottom:16px;max-width:29em}
-.naam{margin-top:28px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;padding:24px 0 0;border-top:1px solid var(--lijn)}
-.naam b{font:900 40px/1 'Gabarito';color:var(--oranje);letter-spacing:.01em}
-.naam p{font-size:16.5px;color:var(--grijs)}
+.naam{margin-top:26px;background:var(--choco);color:#fff;border-radius:24px;padding:26px 28px}
+.naam b{font:900 34px/1 'Gabarito';color:var(--oranje);letter-spacing:.02em}
+.naam p{margin-top:10px;font-size:16.5px;color:rgba(255,255,255,.85)}
 
 /* reviews */
 .rv-k{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:46px}
 .rv-k h2{font-size:clamp(46px,5vw,78px);margin-top:18px;max-width:11em}
-.cijfer{display:flex;align-items:center;gap:16px}
-.cijfer b{font:900 96px/.85 'Gabarito';color:var(--oranje);letter-spacing:-.03em}
-.cijfer i{display:block;font-style:normal;color:var(--oranje);letter-spacing:4px;font-size:18px}
+.cijfer{text-align:right}
+.cijfer b{font:900 104px/.85 'Gabarito';color:var(--oranje)}
+.cijfer i{display:block;font-style:normal;color:var(--oranje);letter-spacing:4px;font-size:20px;margin:12px 0 4px}
 .cijfer span{color:var(--grijs);font-size:15px;font-weight:600}
-.rv-g{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px}
-.rev{background:var(--papier);border-radius:var(--r);padding:30px 30px 28px;display:flex;flex-direction:column;gap:14px;box-shadow:0 26px 50px -44px rgba(70,35,15,.7)}
-.rev.groot{background:var(--choco);color:#fff;padding:44px 44px 40px;justify-content:space-between}
-.rev.groot blockquote{font:700 clamp(24px,2.3vw,32px)/1.25 'Gabarito';letter-spacing:-.01em}
-.rev.groot cite small{color:rgba(255,255,255,.6)}
-.rv-r{display:grid;gap:18px}
-.rev .st{color:var(--oranje);letter-spacing:3px;font-size:15px}
-.rev blockquote{font-size:16px}
-.rev cite{font:700 14.5px/1.2 'DM Sans';font-style:normal}
+.rv-g{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.rev{background:var(--papier);border-radius:var(--r);padding:30px 28px;display:flex;flex-direction:column;gap:14px;box-shadow:0 26px 50px -44px rgba(70,35,15,.7)}
+.rev .st{color:var(--oranje);letter-spacing:3px}
+.rev blockquote{font-size:15.5px}
+.rev cite{margin-top:auto;font:700 14.5px/1.2 'DM Sans';font-style:normal}
 .rev cite small{display:block;font-weight:500;color:var(--grijs);font-size:12.5px;margin-top:3px}
 
 /* bezoek */
-.bz{padding-bottom:20px}
-.bz .kaart{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:var(--choco);color:#fff;border-radius:40px;overflow:hidden}
-.bz .links{padding:60px 56px}
-.bz .lab{color:var(--goud)}
-.bz h2{font-size:clamp(40px,4.2vw,62px);margin:16px 0 18px}
-.bz .links>p{color:rgba(255,255,255,.76);font-size:17px;max-width:26em}
-.ul{list-style:none;margin-top:28px;border-top:1px solid rgba(255,255,255,.14)}
-.ul li{display:flex;justify-content:space-between;gap:14px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.14);font-weight:600}
-.ul li span:last-child{color:rgba(255,255,255,.7);font-weight:500;text-align:right}
-.vn{margin-top:16px;font-size:14.5px;color:rgba(255,255,255,.6)}
-.rechts{background:var(--papier);color:var(--inkt);margin:14px;border-radius:30px;padding:46px 44px;display:flex;flex-direction:column;justify-content:center}
-.rechts h3{font-size:30px;margin-bottom:6px}
-.rechts>p{color:var(--grijs)}
+.bz .g{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.uren{background:var(--choco);color:#fff;border-radius:40px;padding:56px}
+.uren .lab{color:var(--goud)}
+.uren h2,.adres h2{font-size:clamp(40px,4.2vw,62px);margin:16px 0 24px}
+.ul{list-style:none}
+.ul li{display:flex;justify-content:space-between;gap:14px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.12);font-weight:600}
+.ul li span:last-child{color:rgba(255,255,255,.7);font-weight:500}
+.uren .vn{margin-top:20px;font-size:14.5px;color:rgba(255,255,255,.62)}
+.adres{background:var(--papier);border-radius:40px;padding:56px;box-shadow:0 30px 60px -50px rgba(70,35,15,.7)}
+.adres>p{color:var(--grijs);font-size:17px}
 .rij{display:flex;gap:16px;align-items:center;padding:17px 0;border-top:1px solid var(--lijn);font-weight:700;text-decoration:none}
-.rij:first-of-type{margin-top:22px}
+.rij:first-of-type{margin-top:24px}
 .rij i{width:44px;height:44px;border-radius:50%;background:#fde3d2;display:grid;place-items:center;flex:none}
 .rij svg{width:19px;height:19px;stroke:var(--oranje-d)}
 .rij small{display:block;font-weight:500;color:var(--grijs);font-size:14px}
-.rechts .acties{margin-top:0;padding-top:26px}
+.adres .acties{margin-top:26px}
 
-footer{background:var(--choco);color:#fff;margin-top:120px;padding:80px 0 28px}
+footer{background:var(--choco);color:#fff;margin-top:140px;padding:80px 0 28px}
 .vt{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
 .vt .logo img{height:76px;width:auto}
 .vt p{color:rgba(255,255,255,.72);margin-top:18px;max-width:24em;font-size:15.5px}
@@ -204,53 +179,45 @@ footer{background:var(--choco);color:#fff;margin-top:120px;padding:80px 0 28px}
 
 @media (max-width:1100px){
  .nav ul{display:none}
- .hero:before{background:linear-gradient(0deg,rgba(36,20,12,.96) 0%,rgba(36,20,12,.82) 55%,rgba(36,20,12,.45) 100%)}
- .h-rand ul{grid-template-columns:1fr 1fr}
- .h-rand li:nth-child(3){padding-left:0;border-left:0}
- .h-rand li:nth-child(n+3){border-top:1px solid rgba(255,255,255,.18)}
+ .hero:before{background:linear-gradient(0deg,rgba(36,20,12,.94) 0%,rgba(36,20,12,.7) 55%,rgba(36,20,12,.35) 100%)}
  .kopr,.rv-k{flex-direction:column;align-items:flex-start;gap:16px}
+ .cijfer{text-align:left}
  .ws .g{grid-template-columns:1fr}
- .mn .g{grid-template-columns:1fr;gap:56px}
- .pr .g{grid-template-columns:1fr;gap:50px}
- .wij .g{grid-template-columns:1fr;gap:56px}
+ .mn .g{grid-template-columns:1fr;gap:70px}
+ .mn .f .b{left:16px}
+ .band{grid-template-columns:1fr 1fr}
+ .band figure:nth-child(2){grid-column:1/3;grid-row:1;height:460px}
+ .band figure{height:400px}
+ .choc .g{grid-template-columns:1fr;gap:30px}
+ .wij .g{grid-template-columns:1fr;gap:70px}
  .wij .t{order:-1}
- .rv-g{grid-template-columns:1fr}
- .bz .kaart{grid-template-columns:1fr}
+ .rv-g{grid-template-columns:1fr 1fr}
+ .bz .g{grid-template-columns:1fr}
  .vt{grid-template-columns:1fr 1fr}
 }
 @media (max-width:640px){
  body{font-size:16px}
- .wrap,.nav .wrap,.h-in,.h-rand ul{width:calc(100% - 36px)}
+ .wrap,.nav .wrap,.h-in,.h-bar{width:calc(100% - 36px)}
  .nav .logo img{height:44px}
  .nav .btn{display:none}
  .hero{min-height:auto}
- .h-in{padding:60px 0 40px}
- .h-in h1{font-size:clamp(44px,12vw,52px)}
+ .h-in{padding:110px 0 30px}
+ .h-in h1{font-size:46px}
  .h-in p{font-size:17px}
  .acties .btn{width:100%;justify-content:center}
- .h-rand li{padding:16px 12px 18px 0;font-size:13.5px}
- .h-rand li+li{padding-left:12px}
- .h-rand li:nth-child(3){padding-left:0}
- .h-rand b{font-size:18px}
  .sec{padding:90px 0}
- .ws .fotos{min-height:440px;gap:8px}
- .ticket .top,.ticket .voet{padding-left:24px;padding-right:24px}
- .ticket dl{padding:20px 24px 4px;grid-template-columns:1fr}
- .ticket dt{border-bottom:0;padding-bottom:2px}
- .ticket .knip:before{left:-23px}.ticket .knip:after{right:-23px}
- .ticket .knip{margin:0 8px}
- .ticket .prijs b{font-size:68px}
+ .ws .fotos{min-height:420px;gap:8px}
+ .ws .kaart{padding:34px 24px}
  .mn{margin:0 10px;border-radius:34px;padding:84px 0}
- .mn .f{grid-template-columns:1fr}
- .mn .f .a{grid-column:auto}
- .pr{padding-top:90px}
- .tab div{grid-template-columns:64px 1fr;gap:16px}
- .tab i{height:48px}
- .naam{grid-template-columns:1fr;gap:8px}
- .cijfer b{font-size:72px}
- .rev.groot{padding:34px 26px}
- .bz .links{padding:44px 24px}
- .rechts{margin:8px;padding:34px 22px}
+ .mn .f .b{width:46%}
+ .band{padding:90px 10px 0;gap:8px}
+ .band figure,.band figure:nth-child(2){height:300px;border-radius:22px}
+ .band figure:nth-child(2){height:340px}
+ .choc{padding:50px 0 90px}
+ .drie{grid-template-columns:1fr}
+ .wij .f{padding-right:30px}
+ .rv-g{grid-template-columns:1fr}
+ .uren,.adres{padding:40px 24px;border-radius:32px}
  .vt{grid-template-columns:1fr}
  footer{margin-top:90px}
 }
@@ -260,7 +227,7 @@ footer{background:var(--choco);color:#fff;margin-top:120px;padding:80px 0 28px}
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
 <header class="hero" id="top">
- <img src="img/hero.webp" alt="Rijen goudkleurige Mechelse Maantjes van chocolade" fetchpriority="high">
+ <img src="img/hero.webp" alt="Rijen goudkleurige Mechelse Maantjes van chocolade">
  <nav class="nav"><div class="wrap">
   <a class="logo" href="#top"><img src="img/logo-w.webp" alt="Sjolaa"></a>
   <ul><li><a href="#workshops">Workshops</a></li><li><a href="#maantjes">Mechelse Maantjes</a></li><li><a href="#pralines">Pralines</a></li><li><a href="#wij">Over ons</a></li><li><a href="#bezoek">Winkel</a></li></ul>
@@ -268,51 +235,43 @@ footer{background:var(--choco);color:#fff;margin-top:120px;padding:80px 0 28px}
  </div></nav>
  <div class="h-in"><div class="t">
   <span class="lab rv">De Mechelse Stadssjocoladerij</span>
-  <h1 class="rv" style="--d:1">Hier maken we <span>chocolade.</span></h1>
-  <p class="rv" style="--d:2">Kom gerust meedoen. Johan en Katrien maken pralines met verse room en boter, en hun eigen Mechelse Maantjes. Op een workshop sta je drie uur mee in het atelier en neem je je eigen doos mee naar huis.</p>
+  <h1 class="rv" style="--d:1">Het ambacht van vroeger, <span>met de stijl van vandaag.</span></h1>
+  <p class="rv" style="--d:2">Pralines met verse room en boter, onze eigen Mechelse Maantjes en workshops waar je drie uur lang met je handen in de chocolade zit. Aan de rand van Mechelen, en er is altijd parkeerplaats.</p>
   <div class="acties rv" style="--d:3">
-   <a class="btn btn-o" href="#workshops"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15 3a9 9 0 1 0 6 15.7A8 8 0 0 1 15 3z"/></svg>Boek een workshop</a>
+   <a class="btn btn-o" href="#workshops">Boek een workshop</a>
    <a class="btn btn-gl" href="https://sjolaa.be/webshop">Naar de webshop</a>
   </div>
  </div></div>
- <div class="h-rand rv" style="--d:4"><ul>
-  <li class="gm"><b>Gault&amp;Millau</b>bij de beste chocolatiers van België</li>
-  <li><b>4,9 op Google</b>uit 277 reviews</li>
-  <li><b>Wo tot za</b>van 10 tot 18 uur</li>
-  <li><b>Geerdegemvaart 137</b>parkeerplaats voor de deur</li>
- </ul></div>
+ <div class="h-bar rv" style="--d:4">
+  <div class="gm"><b>Gault&amp;Millau</b><span>Opgenomen bij de beste<br>chocolatiers van België</span></div>
+  <div><b>4,9</b><span><i>★★★★★</i>277 reviews op Google</span></div>
+ </div>
 </header>
 
 <section class="sec ws" id="workshops">
  <div class="wrap">
   <div class="kopr">
    <div><span class="lab rv">Chocoladeworkshops</span><h2 class="rv" style="--d:1">Drie uur chocolade, en een doos vol om mee te nemen.</h2></div>
-   <p class="rv" style="--d:2">Je werkt aan onze tafels, met onze chocolade, naast een chocolatier met 35 jaar ervaring. Onze workshops zitten vaak maanden op voorhand vol, dus kijk tijdig in de agenda.</p>
+   <p class="rv" style="--d:2">Gegeven door een chocolatier met 35 jaar ervaring. Onze workshops zitten vaak maanden op voorhand vol, dus kijk tijdig in de agenda.</p>
   </div>
   <div class="g">
    <div class="fotos">
-    <figure class="rv"><img src="img/handen.webp" alt="Handen die pralines vullen en decoreren tijdens een workshop" loading="lazy"><figcaption>Zelf vullen en versieren</figcaption></figure>
+    <figure class="rv"><img src="img/handen.webp" alt="Handen die pralines vullen en decoreren tijdens een workshop" loading="lazy"></figure>
     <figure class="rv" style="--d:1"><img src="img/kommen.webp" alt="Kommen gesmolten witte en pure chocolade met gekleurde vullingen" loading="lazy"></figure>
-    <figure class="rv" style="--d:2"><img src="img/zaal.webp" alt="Het workshopatelier van Sjolaa met lange werktafels" loading="lazy"><figcaption>Ons atelier</figcaption></figure>
+    <figure class="rv" style="--d:2"><img src="img/zaal.webp" alt="Het workshopatelier van Sjolaa met lange werktafels" loading="lazy"></figure>
    </div>
-   <div class="ticket rv" style="--d:1">
-    <div class="top">
-     <small>Chocoladeworkshop</small>
-     <div class="prijs"><b>€ 75</b><span>per persoon</span></div>
-     <p>Koffie, thee, water en proevertjes zitten erbij. Wat je maakt, gaat mee naar huis.</p>
-    </div>
-    <div class="knip" aria-hidden="true"></div>
-    <dl>
-     <dt>Duur</dt><dd>3 uur, in ons eigen atelier</dd>
-     <dt>Mee naar huis</dt><dd>creaties ter waarde van € 35 à € 40</dd>
-     <dt>Alleen of met een paar</dt><dd>sluit aan bij een workshop in vrije inschrijving</dd>
-     <dt>Groep van 10 tot 25</dt><dd>je kiest zelf een datum, wo tot za</dd>
-     <dt>Kinderen</dt><dd>van 8 tot 13 jaar, samen met een volwassene</dd>
-    </dl>
-    <div class="voet">
-     <a class="btn btn-o" href="https://sjolaa.be/chocoladeworkshop/"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15 3a9 9 0 1 0 6 15.7A8 8 0 0 1 15 3z"/></svg>Bekijk de agenda</a>
-     <small>Op zaterdag om 10 uur en om 14.30 uur.</small>
-    </div>
+   <div class="kaart rv" style="--d:1">
+    <div class="prijs"><b>€ 75</b><span>per persoon</span></div>
+    <h3>Zo verloopt een workshop</h3>
+    <ul>
+     <li>Drie uur chocoladebeleving, in ons eigen atelier</li>
+     <li>Koffie, thee, water en proevertjes inbegrepen</li>
+     <li>Je neemt je eigen creaties ter waarde van € 35 à € 40 mee naar huis</li>
+     <li>Alleen of met minder dan 10? Sluit aan bij een workshop in vrije inschrijving</li>
+     <li>Van 10 tot 25 personen kies je zelf een datum, van woensdag tot zaterdag</li>
+    </ul>
+    <a class="btn btn-o" href="https://sjolaa.be/chocoladeworkshop/">Bekijk de agenda</a>
+    <p class="noot">Kinderen van 8 tot 13 jaar kunnen mee met een volwassene. Op zaterdag om 10 uur en om 14.30 uur.</p>
    </div>
   </div>
  </div>
@@ -323,96 +282,87 @@ footer{background:var(--choco);color:#fff;margin-top:120px;padding:80px 0 28px}
   <div class="t">
    <span class="lab rv">Ons streekproduct</span>
    <h2 class="rv" style="--d:1">Mechelse Maantjes.</h2>
-   <p class="leg rv" style="--d:2">In de nacht van 27 op 28 januari 1687 scheen de maan rood door de mist op de Sint-Romboutstoren. <strong>"Brand, brand, de toren staat in brand!"</strong> riep een dronkaard. Heel Mechelen kwam blussen, tot de maan zachtjes verder schoof. Sindsdien zijn de Mechelaars maneblussers.</p>
-   <p class="leg rv" style="--d:2;margin-top:14px">Wij maakten er een maantje van, in wit, melk en puur. Een cadeautje dat meteen zegt waar het vandaan komt.</p>
-   <div class="jaar rv" style="--d:3"><b>1687</b><span>het jaar dat Mechelen<br>de maan probeerde te blussen</span></div>
-  </div>
-  <div class="f">
-   <figure class="a rv"><img src="img/drie.webp" alt="Mechelse Maantjes in pure, melk en witte chocolade naast elkaar" loading="lazy"></figure>
-   <figure class="b rv" style="--d:1"><img src="img/doos.webp" alt="Geschenkdoos van de Mechelse Maantjes met witte, melk en pure maantjes" loading="lazy"></figure>
-   <div class="prijsk rv" style="--d:2">
-    <h3>Zo zitten ze verpakt</h3>
+   <p class="leg rv" style="--d:2">In de nacht van 27 op 28 januari 1687 scheen de maan rood door de mist op de Sint-Romboutstoren. <em>“Brand, brand, de toren staat in brand!”</em> riep een dronkaard. Heel Mechelen kwam blussen, tot de maan zachtjes verder schoof. Sindsdien zijn de Mechelaars maneblussers. En daar maakten wij een maantje van, in wit, melk en puur.</p>
+   <div class="pak rv" style="--d:3">
     <div><span>Schuifdoosje<small>15 maantjes, 5 van elke kleur</small></span><b>€ 9,90</b></div>
-    <div><span>Schuifdoos XL<small>25 maantjes, legende in NL en EN</small></span><b>€ 16,50</b></div>
-    <div><span>Zakje<small>18 in één kleur, bij de koffie</small></span><b>€ 9,30</b></div>
+    <div><span>Schuifdoos XL<small>25 maantjes, met de legende in NL en EN</small></span><b>€ 16,50</b></div>
+    <div><span>Zakje<small>18 maantjes in één kleur, voor bij de koffie</small></span><b>€ 9,30</b></div>
     <div><span>Mica doosje<small>6 maantjes</small></span><b>€ 5,25</b></div>
-    <a href="https://sjolaa.be/webshop">In de webshop</a>
    </div>
+  </div>
+  <div class="f">
+   <div class="a rv"><img src="img/drie.webp" alt="Mechelse Maantjes in pure, melk en witte chocolade naast elkaar" loading="lazy"></div>
+   <div class="b rv" style="--d:1"><img src="img/doos.webp" alt="Geschenkdoos van de Mechelse Maantjes met witte, melk en pure maantjes" loading="lazy"></div>
   </div>
  </div>
 </section>
 
-<section class="pr" id="pralines">
- <div class="wrap g">
+<section id="pralines">
+ <div class="band">
+  <figure class="rv"><img src="img/gieten.webp" alt="Een chocolatier giet gesmolten chocolade in een kom" loading="lazy"><figcaption>In het atelier</figcaption></figure>
+  <figure class="rv" style="--d:1"><img src="img/pralines.webp" alt="Rijen pralines met strepen, bolletjes en hartjes" loading="lazy"><figcaption>Pralines</figcaption></figure>
+  <figure class="rv" style="--d:2"><img src="img/werk.webp" alt="Een chocolatier van Sjolaa vult pralinevormen aan de werktafel" loading="lazy"><figcaption>Met de hand gevuld</figcaption></figure>
+ </div>
+ <div class="choc"><div class="wrap g">
+  <div><span class="lab rv">Pralines</span><h2 class="rv" style="--d:1">Met onze eigen chocolade.</h2></div>
   <div>
-   <span class="lab rv">Pralines</span>
-   <h2 class="rv" style="--d:1">Met onze eigen chocolade.</h2>
-   <p class="intro rv" style="--d:2">We werken met onze eigen chocolade, in drie smaken die net iets anders zijn dan wat je gewoon bent. De vullingen maken we met verse room en boter.</p>
-   <div class="tab rv" style="--d:3">
-    <div><i style="--k:#efe2cc"></i><p><b>Wit</b><span>Minder zoet dan een gewone witte chocolade.</span></p></div>
-    <div><i style="--k:#a8693f"></i><p><b>Melk</b><span>Lichter van kleur, smeuïger, met een subtiele caramel.</span></p></div>
-    <div><i style="--k:#3a1f14"></i><p><b>Puur</b><span>60% cacao in plaats van de gewone 52%. Iets krachtiger.</span></p></div>
+   <div class="drie rv" style="--d:1">
+    <div><b>Wit</b><p>Minder zoet dan een gewone witte chocolade.</p></div>
+    <div><b>Melk</b><p>Lichter van kleur, smeuïger, met een subtiele caramel.</p></div>
+    <div><b>Puur</b><p>60% cacao in plaats van de gewone 52%. Iets krachtiger.</p></div>
    </div>
-   <p class="buurt rv" style="--d:4"><b>Uit de buurt:</b> lokale koffie, honing van Zoetgoud en bier en whisky van Het Anker, voor onze bier- en whiskypralines. Onze dozen zijn zonder strik en op FSC-papier.</p>
+   <div class="lokaal rv" style="--d:2"><em>Uit de buurt:</em><span>lokale koffie</span><span>honing van Zoetgoud</span><span>bier en whisky van Het Anker</span></div>
+   <div class="lokaal rv" style="--d:3"><em>En verder:</em><span>bier- en whiskypralines</span><span>dozen zonder strik, op FSC-papier</span></div>
   </div>
-  <div class="fotos">
-   <figure class="a rv"><img src="img/pralines.webp" alt="Rijen pralines met strepen, bolletjes en hartjes" loading="lazy" style="object-position:50% 40%"></figure>
-   <figure class="b rv" style="--d:1"><img src="img/gieten.webp" alt="Een chocolatier giet gesmolten chocolade in een kom" loading="lazy"><figcaption>In het atelier</figcaption></figure>
-   <figure class="c rv" style="--d:2"><img src="img/werk.webp" alt="Een chocolatier van Sjolaa vult pralinevormen aan de werktafel" loading="lazy" style="object-position:50% 40%"><figcaption>Met de hand gevuld</figcaption></figure>
-  </div>
- </div>
+ </div></div>
 </section>
 
-<section class="sec wij" id="wij">
+<section class="sec wij" id="wij" style="padding-top:0">
  <div class="wrap g">
   <div class="f">
-   <figure class="a rv"><img src="img/duo.webp" alt="Johan en Katrien in hun Sjolaa-schort met chocolade in de hand" loading="lazy"></figure>
-   <figure class="b rv" style="--d:1"><img src="img/gm.webp" alt="Katrien en Johan met hun Gault&amp;Millau-vermelding" loading="lazy"><figcaption>Bij Gault&amp;Millau, met de gids in de hand.</figcaption></figure>
+   <div class="a rv"><img src="img/duo.webp" alt="Johan en Katrien in hun Sjolaa-schort met chocolade in de hand" loading="lazy"></div>
+   <div class="b rv" style="--d:1"><img src="img/gm.webp" alt="Katrien en Johan met hun Gault&amp;Millau-vermelding" loading="lazy"></div>
   </div>
   <div class="t">
    <span class="lab rv">Wie zijn de Sjolaatjes?</span>
    <h2 class="rv" style="--d:1">Johan en Katrien. Man en vrouw.</h2>
    <p class="rv" style="--d:2">Johan is een bakkerszoon die de stiel met de paplepel kreeg. Thuis begon hij met doopsuiker en truffels, tot zijn hobbyruimte te klein werd. Van onze garage maakten we een winkel met atelier, bewust aan de rand van Mechelen.</p>
    <p class="rv" style="--d:2">We zijn een kleine zaak, en dat willen we zo houden. Je vindt ons in de winkel, tijdens een workshop, aan de telefoon of via de mail.</p>
-   <div class="naam rv" style="--d:3"><b>Sjolaa?</b><p>Zo zei onze oudste dochter 'chocolade' toen ze leerde spreken. De jongste maakte er later kokola van. Was ook mooi geweest.</p></div>
+   <div class="naam rv" style="--d:3"><b>SJOLAA?</b><p>Zo zei onze oudste dochter 'chocolade' toen ze leerde spreken. De jongste maakte er later kokola van. Was ook mooi geweest.</p></div>
   </div>
  </div>
 </section>
 
-<section class="sec" id="reviews" style="padding-top:20px">
+<section class="sec" id="reviews" style="padding-top:40px">
  <div class="wrap">
-  <div class="rv-k"><div><span class="lab rv">Op Google</span><h2 class="rv" style="--d:1">Wat mensen na een workshop zeggen.</h2></div><div class="cijfer rv" style="--d:2"><b>4,9</b><p><i>★★★★★</i><span>uit 277 reviews</span></p></div></div>
+  <div class="rv-k"><div><span class="lab rv">Op Google</span><h2 class="rv" style="--d:1">Heel moeilijk om je vingers niet af te likken.</h2></div><div class="cijfer rv" style="--d:2"><b>4,9</b><i>★★★★★</i><span>uit 277 reviews</span></div></div>
   <div class="rv-g">
-   <figure class="rev groot rv"><div class="st">★★★★★</div><blockquote>"Heel fijne en leerzame ervaring om samen met mijn dochter en 2 kleindochters chocolade te maken. Er komt heel wat bij kijken. Heldere uitleg door behulpzame en professionele chocolatiers."</blockquote><cite>Rita Deneyer<small>Google-review</small></cite></figure>
-   <div class="rv-r">
-    <figure class="rev rv" style="--d:1"><div class="st">★★★★★</div><blockquote>"Basis praline workshop. Leuk, gezellig, maar vooral alle info die je verwacht om eventueel zelf aan de slag te gaan! Hygiëne is top, alle materiaal wordt voorzien (...)"</blockquote><cite>Cedric Vanasbroeck<small>Google-review</small></cite></figure>
-    <figure class="rev rv" style="--d:2"><div class="st">★★★★★</div><blockquote>"Wij hebben een hele leuke chocolade workshop gevolgd. We mochten 3 dingen maken en veel chocola eten. Een aanrader!!"</blockquote><cite>Birgitvanderkloot<small>Google-review</small></cite></figure>
-    <figure class="rev rv" style="--d:3"><div class="st">★★★★★</div><blockquote>"Heel vriendelijk en super lekkere chocolade! Hele leuke activiteit!"</blockquote><cite>Joke Michiels<small>Google-review</small></cite></figure>
-   </div>
+   <figure class="rev rv"><div class="st">★★★★★</div><blockquote>Heel fijne en leerzame ervaring om samen met mijn dochter en 2 kleindochters chocolade te maken. Er komt heel wat bij kijken. Heldere uitleg door behulpzame en professionele chocolatiers.</blockquote><cite>Rita Deneyer<small>Google-review</small></cite></figure>
+   <figure class="rev rv" style="--d:1"><div class="st">★★★★★</div><blockquote>Basis praline workshop. Leuk, gezellig, maar vooral alle info die je verwacht om eventueel zelf aan de slag te gaan! Hygiëne is top, alle materiaal wordt voorzien (...)</blockquote><cite>Cedric Vanasbroeck<small>Google-review</small></cite></figure>
+   <figure class="rev rv" style="--d:2"><div class="st">★★★★★</div><blockquote>Wij hebben een hele leuke chocolade workshop gevolgd. We mochten 3 dingen maken en veel chocola eten. Een aanrader!!</blockquote><cite>Birgitvanderkloot<small>Google-review</small></cite></figure>
+   <figure class="rev rv" style="--d:3"><div class="st">★★★★★</div><blockquote>Heel vriendelijk en super lekkere chocolade! Hele leuke activiteit!</blockquote><cite>Joke Michiels<small>Google-review</small></cite></figure>
   </div>
  </div>
 </section>
 
 <section class="bz" id="bezoek">
- <div class="wrap">
-  <div class="kaart rv">
-   <div class="links">
-    <span class="lab">De winkel</span>
-    <h2>Geerdegemvaart 137, Mechelen.</h2>
-    <p>Aan de rand van de stad, met altijd parkeerplaats voor de deur. Winkel en atelier zitten onder hetzelfde dak.</p>
-    <ul class="ul">
-     <li><span>Woensdag tot zaterdag</span><span>10 tot 18 uur</span></li>
-     <li><span>Zondag, maandag en dinsdag</span><span>gesloten</span></li>
-    </ul>
-    <p class="vn">Rond de feestdagen zijn we soms ook op maandag en dinsdag open.</p>
-   </div>
-   <div class="rechts">
-    <h3>Even bellen of mailen?</h3>
-    <p>Voor een workshop op maat, een bedrijfsgeschenk of gewoon een vraag.</p>
-    <a class="rij" href="tel:+3215347404"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></i><span>015 34 74 04<small>Bel de winkel</small></span></a>
-    <a class="rij" href="mailto:info@sjolaa.be"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></i><span>info@sjolaa.be<small>Workshops op maat en bedrijven</small></span></a>
-    <div class="acties"><a class="btn btn-c" href="https://maps.google.com/?q=Sjolaa+Geerdegemvaart+137+2800+Mechelen"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15 3a9 9 0 1 0 6 15.7A8 8 0 0 1 15 3z"/></svg>Route plannen</a><a class="btn btn-l" href="https://sjolaa.be/webshop">Webshop</a></div>
-   </div>
+ <div class="wrap g">
+  <div class="uren rv">
+   <span class="lab">De winkel</span>
+   <h2>Woensdag tot zaterdag.</h2>
+   <ul class="ul">
+    <li><span>Woensdag tot zaterdag</span><span>10 tot 18 uur</span></li>
+    <li><span>Zondag, maandag en dinsdag</span><span>gesloten</span></li>
+   </ul>
+   <p class="vn">Rond de feestdagen zijn we soms ook op maandag en dinsdag open.</p>
+  </div>
+  <div class="adres rv" style="--d:1">
+   <span class="lab">Waar</span>
+   <h2>Geerdegemvaart 137, Mechelen.</h2>
+   <p>Aan de rand van de stad, met altijd parkeerplaats voor de deur. Liever thuis? Bestel in de webshop.</p>
+   <a class="rij" href="tel:+3215347404"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></i><span>015 34 74 04<small>Bel de winkel</small></span></a>
+   <a class="rij" href="mailto:info@sjolaa.be"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></i><span>info@sjolaa.be<small>Voor workshops op maat en bedrijven</small></span></a>
+   <div class="acties"><a class="btn btn-c" href="https://maps.google.com/?q=Sjolaa+Geerdegemvaart+137+2800+Mechelen">Route plannen</a><a class="btn btn-l" href="https://sjolaa.be/webshop">Webshop</a></div>
   </div>
  </div>
 </section>
