@@ -282,12 +282,20 @@ footer{padding:90px 0 30px}
  .f-grid>div:first-child{grid-column:1/-1}
  .portret{max-width:520px}
 }
+@media(max-width:860px) and (min-width:641px){
+ .hero{height:auto;min-height:0;display:block;padding:calc(150px + 32vw*1.25) 0 80px}
+ .hero .scrollhint,.stempel,.z3,.z5,.z6,.z7{display:none}
+ .zweef{border-radius:24px}
+ .z1{width:32vw;max-width:280px;aspect-ratio:4/5;left:50%;right:auto;top:110px;bottom:auto;translate:-50% 0;rotate:-2deg;z-index:3}
+ .z2{width:23vw;max-width:200px;aspect-ratio:3/4;left:9%;right:auto;top:160px;bottom:auto;rotate:-9deg;border-radius:24px}
+ .z4{width:23vw;max-width:200px;aspect-ratio:3/4;right:9%;left:auto;top:160px;rotate:8deg}
+}
 @media(max-width:640px){
  body{font-size:16px}
  .wrap{width:calc(100% - 36px)}
  .nav{top:10px}
  .logo img{width:42px;height:42px}
- .hero{height:auto;min-height:0;display:block;padding:338px 0 60px}
+ .hero{height:auto;min-height:0;display:block;padding:calc(122px + 44vw*1.25) 0 60px}
  .hero .tekst{padding:0 20px}
  .hero h1{font-size:clamp(50px,14vw,72px)}
   .hero p{font-size:16.5px;margin:16px auto 24px;max-width:340px}
@@ -345,7 +353,15 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
 .dienst h3{font-size:25px;color:var(--diep);line-height:1.05}
 .dienst p{font-size:15px;color:var(--mute);line-height:1.45;margin:8px 0 14px;flex:1}
 .dienst.maat{background:var(--diep)}
-.dienst.maat .t{border-left:0;padding:26px 30px;justify-content:center}
+.dienst.maat .t{border-left:0;padding:26px 40% 26px 30px;position:relative;z-index:1;justify-content:center}
+.dienst.maat{position:relative;overflow:hidden}
+.dienst.maat .tekening{position:absolute;right:-18px;bottom:-8px;height:108%;width:auto;fill:none;stroke:rgba(247,243,234,.42);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none;transform-origin:50% 100%;transition:transform 1.2s var(--ease)}
+.dienst.maat .tekening *{stroke-dasharray:1;stroke-dashoffset:1}
+.dienst.maat.getekend .tekening *{animation:tekenlijn 2.2s cubic-bezier(.45,.05,.25,1) forwards}
+.dienst.maat.getekend .tekening ellipse,.dienst.maat.getekend .tekening circle{animation-delay:.9s}
+@keyframes tekenlijn{to{stroke-dashoffset:0}}
+.dienst.maat:hover .tekening{transform:rotate(-4deg) scale(1.04)}
+@media(prefers-reduced-motion:reduce){.dienst.maat .tekening *{stroke-dashoffset:0}}
 .dienst.maat h3{color:var(--creme)}
 .dienst.maat p{color:rgba(247,243,234,.75)}
 .dienst.maat .meer{color:var(--zon)}
@@ -365,6 +381,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
  .dienst .nr{display:none}
  .dienst .t{padding:14px 16px}
  .dienst h3{font-size:22px}.dienst p{font-size:14.5px;margin:5px 0 8px}
+ .dienst.maat .t{padding:22px 33% 22px 22px}
+ .dienst.maat .tekening{height:112%;right:-34px;stroke:rgba(247,243,234,.32)}
 }
 .subnota{position:fixed;left:16px;right:16px;margin:0 auto;width:fit-content;bottom:24px;z-index:120;transform:translateY(30px);opacity:0;pointer-events:none;background:var(--diep);color:var(--creme);border-radius:20px;padding:16px 22px 16px 18px;display:flex;gap:14px;align-items:center;max-width:520px;box-shadow:0 24px 50px -20px rgba(14,59,38,.6);transition:opacity .4s var(--ease),transform .6s var(--ease)}
 .subnota.aan{opacity:1;transform:none}
@@ -683,7 +701,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;op
    <a class="dienst op" href="#aanbod" data-sub="Kampen" style="--c:#3F6FC9"><figure><img src="img/kamp1.webp" alt="" loading="lazy"><span class="nr">03</span></figure><div class="t"><h3>Kampen</h3><p>Bloemenkampen in de vakanties, voor kinderen van 8 tot 14 en jongeren vanaf 12.</p><span class="meer">Meer info <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
    <a class="dienst op" href="#aanbod" data-sub="Zijden bloemen" style="--c:#7A55C4"><figure><img src="img/zijde2.webp" alt="" loading="lazy"><span class="nr">04</span></figure><div class="t"><h3>Zijden bloemen</h3><p>Een zijden boeket voor je zaak, vijf keer per jaar een nieuw. €&nbsp;35 per maand.</p><span class="meer">Meer info <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
    <a class="dienst op" href="#aanbod" data-sub="Bloemen bestellen" style="--c:#E0561C"><figure><img src="img/shop1.webp" alt="" loading="lazy"><span class="nr">05</span></figure><div class="t"><h3>Bloemen bestellen</h3><p>Verse boeketten, droogbloemen en warme afscheidsbloemen, geleverd in Leuven.</p><span class="meer">Meer info <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-   <a class="dienst op maat" href="#contact" style="--c:#0B6B3E"><div class="t"><h3>Iets op maat</h3><p>Iets anders in gedachten? Een feest, een etalage of een idee dat nergens in past. Vertel het me, dan zoeken we samen.</p><span class="meer">Vertel het me <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+   <a class="dienst op maat" href="#contact" style="--c:#0B6B3E"><svg class="tekening" viewBox="0 0 200 230" aria-hidden="true"><path pathLength="1" d="M100 228C100 180 96 130 100 84"/><path pathLength="1" d="M100 228C106 186 128 150 150 122"/><path pathLength="1" d="M100 228C92 188 70 160 52 134"/><path pathLength="1" d="M100 168C84 158 77 145 79 132C92 138 100 151 100 168Z"/><path pathLength="1" d="M117 178C131 172 140 161 142 149C129 151 119 163 117 178Z"/><path pathLength="1" d="M76 190C62 188 52 180 49 170C61 169 72 176 76 190Z"/><ellipse pathLength="1" cx="100" cy="42" rx="6" ry="13" transform="rotate(0 100 62)"/><ellipse pathLength="1" cx="100" cy="42" rx="6" ry="13" transform="rotate(45 100 62)"/><ellipse pathLength="1" cx="100" cy="42" rx="6" ry="13" transform="rotate(90 100 62)"/><ellipse pathLength="1" cx="100" cy="42" rx="6" ry="13" transform="rotate(135 100 62)"/><ellipse pathLength="1" cx="100" cy="42" rx="6" ry="13" transform="rotate(180 100 62)"/><ellipse pathLength="1" cx="100" cy="42" rx="6" ry="13" transform="rotate(225 100 62)"/><ellipse pathLength="1" cx="100" cy="42" rx="6" ry="13" transform="rotate(270 100 62)"/><ellipse pathLength="1" cx="100" cy="42" rx="6" ry="13" transform="rotate(315 100 62)"/><circle pathLength="1" cx="100" cy="62" r="8"/><path pathLength="1" d="M139 118C136 104 140 93 145 88C147 96 150 99 152 99C154 99 157 96 159 88C164 93 168 104 165 118C161 127 143 127 139 118Z"/><circle pathLength="1" cx="48" cy="118" r="17"/><circle pathLength="1" cx="49" cy="117" r="10.5"/><circle pathLength="1" cx="50" cy="116" r="4.5"/><path pathLength="1" d="M86 214C78 206 70 210 74 216C78 221 86 216 92 212M114 214C122 206 130 210 126 216C122 221 114 216 108 212M92 212H108"/></svg><div class="t"><h3>Iets op maat</h3><p>Iets anders in gedachten? Een feest, een etalage of een idee dat nergens in past. Vertel het me, dan zoeken we samen.</p><span class="meer">Vertel het me <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
   </div>
  </div>
 </section>
@@ -879,6 +897,8 @@ document.getElementById('burger').onclick=function(){zet(true);};
 document.getElementById('dicht').onclick=function(){zet(false);};
 mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){zet(false);});});
 
+/* tekening in het blok op maat */
+(function(){var m=document.querySelector('.dienst.maat');if(!m)return;if(!('IntersectionObserver' in window)){m.classList.add('getekend');return;}var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){setTimeout(function(){m.classList.add('getekend');},300);io.disconnect();}},{threshold:.5});io.observe(m);})();
 /* diensten: melding dat er een eigen pagina komt */
 (function(){var n=document.getElementById('subnota');document.querySelectorAll('[data-sub]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();n.querySelector('b').textContent=a.dataset.sub;n.style.setProperty('--c',getComputedStyle(a).getPropertyValue('--c'));n.classList.add('aan');clearTimeout(n._t);n._t=setTimeout(function(){n.classList.remove('aan');},4200);});});})();
 /* zin in woorden splitsen */
