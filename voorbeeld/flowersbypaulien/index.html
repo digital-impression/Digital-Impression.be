@@ -4,264 +4,305 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Flowers by Paulien · Bloemen in Westerlo</title>
+<title>Flowers by Paulien · Verse en zijden bloemen in Westerlo</title>
 <meta name="description" content="Flowers by Paulien in Westerlo: wilde boeketten, verse en zijden bloemen, interieurdecoratie, trouwbloemen en een bloemenabonnement van 20 euro per maand.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap">
-<link rel="preload" as="image" href="img/hero.webp">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400,50;9..144,500,50;9..144,600,50&family=Epilogue:wght@400;500;600&display=swap">
+<link rel="preload" as="image" href="img/hero-distel.webp">
 <style>
 :root{
-  --wit:#FBF8F2;--zand:#F3EDE2;--mos:#3F4C36;--mos2:#2E3927;--salie:#B9C6A8;--salie2:#E3EAD8;
-  --blos:#F2D6CA;--oranje:#C9612F;--oranje2:#AE5023;--ink:#2B3326;--mut:#677061;--line:rgba(43,51,38,.13);
-  --f:'Epilogue',system-ui,sans-serif;
+  --steen:#EBDFCB;--steen2:#E2D4BC;--room:#F7F1E6;--papier:#FBF8F2;
+  --mos:#2F3A28;--mos2:#232C1E;--salie:#B7C3A3;--salie2:#DFE5D3;--blos:#EFD2C4;
+  --oranje:#C25A2A;--oranje2:#A84A1F;--distel:#5E66A8;
+  --ink:#2A3224;--mut:#6B6F60;--line:rgba(42,50,36,.14);
+  --kop:'Fraunces',Georgia,serif;--f:'Epilogue',system-ui,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font:400 17px/1.65 var(--f);color:var(--ink);background:var(--wit);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font:400 17px/1.65 var(--f);color:var(--ink);background:var(--papier);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
-h1,h2,h3{font-family:var(--f);font-weight:600;font-style:normal;letter-spacing:-.035em;line-height:1.02}
-.wrap{max-width:1260px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
-.label{display:inline-flex;align-items:center;gap:9px;font:500 14px/1 var(--f);color:var(--oranje)}
-.label::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+h1,h2,h3{font-family:var(--kop);font-weight:500;font-style:normal;letter-spacing:-.02em;line-height:1.02;font-variation-settings:"opsz" 144,"SOFT" 50}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(20px,4.5vw,64px)}
+.label{display:inline-flex;align-items:center;gap:10px;font:500 13px/1 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--oranje)}
+.label svg{width:14px;height:14px}
 
 .demo{background:var(--mos);color:rgba(251,248,242,.82);font:500 13px/1.4 var(--f);text-align:center;padding:9px 16px}
 .demo a{color:#fff;text-underline-offset:3px}
 
-/* knoppen: zachte pil met een steeltje */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 24px 16px 20px;border-radius:999px;font:600 15.5px/1 var(--f);text-decoration:none;transition:background .2s,transform .2s}
-.btn svg{width:18px;height:18px;transition:transform .35s}
-.btn:hover svg{transform:rotate(-18deg)}
+/* knoppen: afgerond als een bloemblad, met een steeltje dat meegroeit */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:17px 28px;border-radius:999px 999px 999px 8px;font:600 15.5px/1 var(--f);text-decoration:none;transition:background .25s,color .25s,border-radius .45s var(--ease)}
+.btn svg{width:17px;height:17px;transition:transform .45s var(--ease)}
+.btn:hover{border-radius:8px 999px 999px 999px}
+.btn:hover svg{transform:rotate(-14deg)}
 .btn-oranje{background:var(--oranje);color:#fff}
 .btn-oranje:hover{background:var(--oranje2)}
-.btn-salie{background:var(--salie2);color:var(--mos2)}
-.btn-salie:hover{background:#D7E1C9}
-.btn-wit{background:var(--wit);color:var(--mos2)}
-.btn-wit:hover{background:#fff}
-.btn-lijn{color:var(--wit);box-shadow:inset 0 0 0 1.5px rgba(251,248,242,.5)}
-.btn-lijn:hover{background:rgba(251,248,242,.08)}
+.btn-mos{background:var(--mos);color:var(--room)}
+.btn-mos:hover{background:var(--mos2)}
+.btn-room{background:var(--room);color:var(--mos)}
+.btn-room:hover{background:#fff}
+.lnk{display:inline-flex;align-items:center;gap:10px;font:600 15.5px/1 var(--f);text-decoration:none;padding:6px 0;border-bottom:1.5px solid currentColor;transition:gap .35s var(--ease)}
+.lnk:hover{gap:15px}
+.lnk svg{width:15px;height:15px}
 
-/* nav */
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:86px;gap:20px}
-.logo{text-decoration:none;line-height:1}
-.logo small{display:block;font:500 12px/1 var(--f);color:var(--mut);letter-spacing:.02em;margin-bottom:4px}
-.logo b{font:700 24px/1 var(--f);letter-spacing:-.04em;color:var(--mos2)}
-.nav ul{display:flex;gap:30px;list-style:none;font:500 15px/1 var(--f)}
-.nav ul a{text-decoration:none;color:var(--mut)}
-.nav ul a:hover{color:var(--ink)}
-
-/* hero */
-.hero{padding:clamp(8px,1.6vw,24px) 0 clamp(20px,3vw,40px)}
-.hero .kop{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4.4fr);gap:clamp(30px,4vw,64px);align-items:end;margin-bottom:clamp(24px,2.6vw,36px)}
-.hero .label{margin-bottom:18px}
-.hero h1{font-size:clamp(44px,5.1vw,78px);text-wrap:balance}
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#DACDB3 0%,#E6D7C1 26%,#EBDEC9 52%,#EEE2CF 100%);isolation:isolate}
+.hero .vak{position:absolute;top:0;right:0;bottom:0;height:100%;aspect-ratio:2/3;z-index:0}
+.hero .foto{position:absolute;inset:0;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 24%);mask-image:linear-gradient(90deg,transparent 0,#000 24%)}
+.hero .foto img{width:100%;height:100%;object-fit:cover}
+.hero>.wrap{position:relative;z-index:1}
+.hero nav{display:flex;align-items:center;justify-content:space-between;height:96px}
+.merk{text-decoration:none;color:var(--mos);display:flex;flex-direction:column;line-height:1}
+.merk small{font:500 12px/1 var(--f);letter-spacing:.2em;text-transform:uppercase;color:var(--mut);margin-bottom:6px}
+.merk b{font:500 30px/1 var(--kop);letter-spacing:-.02em;font-variation-settings:"opsz" 144,"SOFT" 50}
+.hero nav ul{display:flex;align-items:center;gap:30px;list-style:none;font:500 15px/1 var(--f)}
+.hero nav ul a:not(.btn){text-decoration:none;color:var(--mos)}
+.hero nav ul a:not(.btn):hover{color:var(--oranje)}
+.hero nav .btn{padding:13px 20px;font-size:14.5px}
+.hero .kern{min-height:min(calc(100svh - 133px),760px);display:flex;flex-direction:column;justify-content:center;padding:20px 0 90px;max-width:620px}
+.hero .label{margin-bottom:26px}
+.hero h1{font-size:clamp(48px,6.4vw,98px);color:var(--mos);margin-bottom:28px;line-height:.98}
 .hero h1 span{color:var(--oranje)}
-.hero .rechts p{font-size:17.5px;color:#4f584a;margin-bottom:22px}
-.hero .knoppen{display:flex;flex-wrap:wrap;gap:10px}
-.hero .knoppen .btn{padding:15px 20px 15px 17px}
-.hero .beeld{position:relative;border-radius:28px;overflow:hidden;height:clamp(360px,calc(100svh - 440px),560px)}
-.hero .beeld img{width:100%;height:100%;object-fit:cover;object-position:50% 46%}
-.hero .abo{position:absolute;right:22px;bottom:22px;display:flex;align-items:center;gap:16px;background:var(--wit);border-radius:20px;padding:14px 20px 14px 14px;text-decoration:none;box-shadow:0 20px 40px -20px rgba(0,0,0,.4)}
-.hero .abo .ico{width:52px;height:52px;border-radius:14px;background:var(--salie2);color:var(--mos);display:grid;place-items:center;flex:none}
-.hero .abo .ico svg{width:24px;height:24px}
-.hero .abo small{display:block;font-size:13px;color:var(--mut)}
-.hero .abo b{display:block;font-size:17px;letter-spacing:-.02em}
-.hero .abo i{font-style:normal;font-weight:700;color:var(--oranje)}
+.hero p.lead{font-size:19px;line-height:1.6;color:#4b4f42;max-width:470px;margin-bottom:38px}
+.hero .knoppen{display:flex;flex-wrap:wrap;align-items:center;gap:26px}
+.hero .knoppen .lnk{color:var(--mos)}
+/* het labeltje aan de steeltjes */
+.hanger{position:absolute;z-index:2;right:52.4%;top:67.4%;display:flex;flex-direction:column;align-items:flex-end;text-decoration:none;color:var(--mos);transform:rotate(7deg);transform-origin:100% 0;transition:transform .8s var(--ease)}
+.hanger:hover{transform:rotate(3deg)}
+.hanger .touw{display:block;width:2px;height:58px;margin-right:21px;background:repeating-linear-gradient(180deg,#b89a6a 0 6px,#d6bf96 6px 9px);border-radius:2px}
+.hanger .kaartje{position:relative;display:block;background:#F6EEE0;padding:32px 22px 18px;clip-path:polygon(0 14px,14px 0,calc(100% - 14px) 0,100% 14px,100% 100%,0 100%);filter:drop-shadow(0 12px 18px rgba(47,58,40,.22));min-width:212px}
+.hanger .kaartje::before{content:"";position:absolute;right:17px;top:12px;width:10px;height:10px;border-radius:50%;background:#d9c9ad;box-shadow:inset 0 1px 2px rgba(0,0,0,.3)}
+.hanger small{display:block;font:500 11.5px/1 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-bottom:6px}
+.hanger b{display:block;font:500 30px/1 var(--kop);font-variation-settings:"opsz" 144,"SOFT" 50}
+.hanger span{display:block;font-size:13.5px;color:var(--mut);margin-top:4px}
+.hero .voet{position:absolute;left:0;right:0;bottom:0}
+.hero .voet .rij{display:flex;gap:34px;align-items:center;padding:22px 0 26px;border-top:1px solid rgba(47,58,40,.18);max-width:620px;font-size:14.5px;color:#55594b}
+.hero .voet b{font:500 22px/1 var(--kop);color:var(--mos);margin-right:8px}
 
-/* abonnement */
-.abonnement{padding:clamp(80px,10vw,130px) 0}
-.abonnement .doos{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);background:var(--salie2);border-radius:32px;overflow:hidden}
-.abonnement .foto{position:relative;min-height:520px}
-.abonnement .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.abonnement .info{padding:clamp(34px,5vw,70px)}
-.abonnement h2{font-size:clamp(38px,4.4vw,62px);margin:18px 0 18px}
-.abonnement .info>p{color:#4f584a;max-width:520px;margin-bottom:30px}
-.prijs{display:flex;align-items:center;gap:22px;background:var(--wit);border-radius:22px;padding:20px 24px;margin-bottom:28px;max-width:520px}
-.prijs .bedrag{font:700 54px/1 var(--f);letter-spacing:-.05em;color:var(--mos2)}
-.prijs .bedrag sup{font-size:22px;vertical-align:top;margin-right:3px;position:relative;top:6px}
-.prijs div{font-size:15.5px;color:var(--mut);line-height:1.45}
-.prijs div b{display:block;color:var(--ink);font-size:17px}
-.zo{list-style:none;counter-reset:z;margin-bottom:32px;max-width:520px}
-.zo li{counter-increment:z;display:grid;grid-template-columns:40px 1fr;align-items:start;padding:12px 0;border-top:1px solid rgba(63,76,54,.16);font-size:16.5px}
-.zo li::before{content:counter(z);width:28px;height:28px;border-radius:50%;background:var(--mos);color:var(--wit);display:grid;place-items:center;font:600 13px/1 var(--f)}
+/* ---------- aanbod ---------- */
+.aanbod{padding:clamp(96px,11vw,160px) 0}
+.aanbod .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(48px,7vw,120px);align-items:start}
+.aanbod .groot{position:sticky;top:30px}
+.aanbod .groot img{width:100%;aspect-ratio:4/5.4;object-fit:cover;border-radius:999px 999px 18px 18px}
+.aanbod h2{font-size:clamp(42px,4.8vw,72px);color:var(--mos);margin:20px 0 22px}
+.aanbod .intro{font-size:18px;color:var(--mut);max-width:520px;margin-bottom:48px}
+.soorten{list-style:none;border-top:1px solid var(--line)}
+.soorten li{display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:26px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line)}
+.soorten img{width:96px;height:118px;object-fit:cover;border-radius:999px 999px 10px 10px}
+.soorten h3{font-size:clamp(26px,2.4vw,34px);color:var(--mos);margin-bottom:6px}
+.soorten p{color:var(--mut);font-size:16px;max-width:430px}
+.soorten .nr{font:500 15px/1 var(--kop);color:var(--oranje);align-self:start;padding-top:6px}
 
-/* aanbod */
-.aanbod{padding:0 0 clamp(80px,10vw,130px)}
-.aanbod .kop{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:40px}
-.aanbod h2{font-size:clamp(38px,4.4vw,62px);margin-top:16px;max-width:640px}
-.aanbod .kop p{color:#4f584a;max-width:400px}
-.duo{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:20px}
-.kaart{border-radius:28px;overflow:hidden;background:var(--zand);display:flex;flex-direction:column}
-.kaart .img{position:relative;aspect-ratio:16/11;overflow:hidden}
-.kaart .img img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.16,1,.3,1)}
-.kaart:hover .img img{transform:scale(1.03)}
-.kaart .txt{padding:28px 30px 32px}
-.kaart h3{font-size:clamp(26px,2.4vw,34px);margin-bottom:10px}
-.kaart p{color:#4f584a;max-width:520px}
-.kaart.zijde{background:var(--blos)}
-.kaart.zijde .img{aspect-ratio:auto;flex:1;min-height:320px}
-.kaart .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.kaart .tags span{font:500 13.5px/1 var(--f);padding:9px 13px;border-radius:999px;background:rgba(255,255,255,.65)}
+/* ---------- abonnement ---------- */
+.abo{background:var(--mos);color:var(--room);padding:clamp(96px,11vw,150px) 0;position:relative;overflow:hidden}
+.abo .wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(48px,7vw,120px);align-items:center}
+.abo .label{color:#E9A57F}
+.abo h2{font-size:clamp(42px,5vw,76px);margin:20px 0 24px}
+.abo .intro{font-size:18px;color:rgba(247,241,230,.78);max-width:500px;margin-bottom:40px}
+.bon{display:grid;grid-template-columns:auto minmax(0,1fr);gap:30px;align-items:center;padding:28px 0;border-top:1px solid rgba(247,241,230,.18);border-bottom:1px solid rgba(247,241,230,.18);margin-bottom:34px;max-width:540px}
+.bon .bedrag{font:500 clamp(84px,8vw,118px)/.8 var(--kop);letter-spacing:-.04em;font-variation-settings:"opsz" 144,"SOFT" 50}
+.bon .bedrag sup{font-size:.36em;vertical-align:top;margin-right:4px;position:relative;top:.2em}
+.bon b{display:block;font:500 20px/1.25 var(--kop);margin-bottom:6px}
+.bon span{font-size:15.5px;color:rgba(247,241,230,.72)}
+.zo{list-style:none;counter-reset:z;display:grid;gap:14px;margin-bottom:40px;max-width:540px}
+.zo li{counter-increment:z;display:grid;grid-template-columns:38px 1fr;align-items:baseline;font-size:16.5px;color:rgba(247,241,230,.88)}
+.zo li::before{content:counter(z);font:500 22px/1 var(--kop);color:#E9A57F}
+.abo .beeld{position:relative}
+.abo .beeld img{width:100%;aspect-ratio:3/4.3;object-fit:cover;border-radius:999px 999px 18px 18px}
+.abo .beeld::after{content:"";position:absolute;inset:-14px -14px auto;height:60%;border:1px solid rgba(247,241,230,.22);border-bottom:0;border-radius:999px 999px 0 0;pointer-events:none}
 
-/* trouw */
-.trouw{background:var(--mos);color:var(--wit);padding:clamp(80px,10vw,130px) 0;overflow:hidden}
-.trouw .wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(40px,7vw,100px);align-items:center}
-.trouw .label{color:var(--blos)}
-.trouw h2{font-size:clamp(38px,4.6vw,64px);margin:18px 0 22px}
-.trouw p{color:rgba(251,248,242,.8);max-width:520px;margin-bottom:16px;font-size:18px}
-.trouw blockquote{margin:34px 0 34px;padding:26px 28px;border-radius:22px;background:rgba(251,248,242,.08);font:500 clamp(20px,1.9vw,25px)/1.4 var(--f);letter-spacing:-.02em;max-width:560px}
-.trouw blockquote small{display:block;margin-top:14px;font:400 14.5px/1 var(--f);color:rgba(251,248,242,.6);letter-spacing:0}
-.trouw .foto img{border-radius:200px 200px 28px 28px;width:100%;aspect-ratio:4/5;object-fit:cover}
+/* ---------- blijvend: beeldband ---------- */
+.blijf{padding:clamp(96px,11vw,150px) 0 clamp(80px,9vw,120px);background:var(--room)}
+.blijf .kop{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:40px;align-items:end;margin-bottom:48px}
+.blijf h2{font-size:clamp(42px,4.8vw,72px);color:var(--mos);margin-top:20px}
+.blijf .kop p{color:var(--mut);font-size:17px}
+.band{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:end}
+.band figure{min-width:0}
+.band img{width:100%;object-fit:cover;border-radius:16px}
+.band .a img{aspect-ratio:5/4.6}
+.band .b img{aspect-ratio:3/4.6;border-radius:999px 999px 16px 16px}
+.band .c img{aspect-ratio:3/4}
+.band figcaption{margin-top:12px;font-size:14px;color:var(--mut)}
 
-/* reviews */
-.reviews{padding:clamp(80px,10vw,130px) 0}
-.reviews .wrap{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(30px,5vw,70px);align-items:start}
-.reviews h2{font-size:clamp(36px,4vw,56px);margin:16px 0 26px}
-.score{display:inline-flex;align-items:center;gap:16px;background:var(--salie2);border-radius:20px;padding:16px 22px}
-.score b{font:700 46px/1 var(--f);letter-spacing:-.05em}
-.score span{font-size:14.5px;color:var(--mut);line-height:1.4}
-.score i{display:block;font-style:normal;color:var(--oranje);letter-spacing:2px}
-.revs{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.rev{background:var(--zand);border-radius:26px;padding:32px 30px;display:flex;flex-direction:column;justify-content:space-between;gap:30px}
-.rev blockquote{font:500 clamp(21px,2vw,27px)/1.35 var(--f);letter-spacing:-.025em}
-.rev .wie{display:flex;align-items:center;gap:12px;font-size:15px;color:var(--mut)}
-.rev .wie i{width:38px;height:38px;border-radius:50%;background:var(--salie);color:var(--mos2);display:grid;place-items:center;font:600 15px/1 var(--f);font-style:normal}
-.rev .wie b{color:var(--ink);font-weight:600}
-.rev.b{background:var(--blos)}
+/* ---------- trouw ---------- */
+.trouw{padding:clamp(96px,11vw,150px) 0;background:var(--blos)}
+.trouw .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(48px,7vw,120px);align-items:center}
+.trouw .beeld img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:18px}
+.trouw h2{font-size:clamp(40px,4.6vw,68px);color:var(--mos);margin:20px 0 22px}
+.trouw p{font-size:18px;color:#5b5047;max-width:520px;margin-bottom:34px}
+.trouw blockquote{font:500 clamp(24px,2.3vw,32px)/1.25 var(--kop);color:var(--mos);max-width:560px;padding-top:28px;border-top:1px solid rgba(47,58,40,.2);margin-bottom:12px;font-variation-settings:"opsz" 144,"SOFT" 50}
+.trouw .wie{font-size:15px;color:#6f6257;margin-bottom:36px}
+.trouw .wie b{color:var(--mos);font-weight:600}
 
-/* langs */
-.langs{padding:0 0 clamp(80px,10vw,130px)}
-.langs .doos{position:relative;border-radius:32px;overflow:hidden;min-height:560px;display:flex;align-items:flex-end;color:var(--wit)}
-.langs .doos>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%}
-.langs .doos::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(46,57,39,.88) 0%,rgba(46,57,39,.62) 45%,rgba(46,57,39,.05) 80%)}
-.langs .in{position:relative;z-index:1;padding:clamp(32px,5vw,64px);max-width:640px}
-.langs .label{color:var(--blos)}
-.langs h2{font-size:clamp(38px,4.6vw,64px);margin:16px 0 26px}
-.uren{list-style:none;margin-bottom:26px;max-width:440px}
-.uren li{display:flex;justify-content:space-between;gap:20px;padding:11px 0;border-bottom:1px solid rgba(251,248,242,.2);font-size:16.5px}
-.uren li span{color:rgba(251,248,242,.82)}
-.langs .adres{font-size:16.5px;color:rgba(251,248,242,.85);margin-bottom:28px}
-.langs .adres b{color:#fff;font-weight:600}
-.langs .knoppen{display:flex;flex-wrap:wrap;gap:12px}
+/* ---------- reviews ---------- */
+.reviews{padding:clamp(96px,11vw,150px) 0}
+.reviews .wrap{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(48px,6vw,100px);align-items:start}
+.reviews h2{font-size:clamp(38px,4vw,58px);color:var(--mos);margin:20px 0 30px}
+.reviews .score{display:flex;align-items:baseline;gap:14px;padding-top:22px;border-top:1px solid var(--line)}
+.reviews .score b{font:500 72px/.9 var(--kop);color:var(--mos);letter-spacing:-.03em}
+.reviews .score span{font-size:15px;color:var(--mut)}
+.revs{display:grid;gap:0;border-top:2px solid var(--mos)}
+.rev{display:grid;grid-template-columns:minmax(0,1fr) 180px;gap:30px;padding:34px 0;border-bottom:1px solid var(--line)}
+.rev blockquote{font:500 clamp(24px,2.4vw,34px)/1.22 var(--kop);color:var(--mos);font-variation-settings:"opsz" 144,"SOFT" 50}
+.rev figcaption{font-size:15px;color:var(--mut);padding-top:8px}
+.rev figcaption b{display:block;color:var(--ink);font-weight:600}
 
-footer{border-top:1px solid var(--line)}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-top:24px;padding-bottom:28px;font-size:14px;color:var(--mut)}
-footer b{color:var(--mos2);font-weight:700;letter-spacing:-.03em;margin-right:8px;font-size:16px}
-footer a{color:var(--ink);text-decoration:none}
+/* ---------- langs ---------- */
+.langs{padding:0 0 clamp(96px,11vw,150px)}
+.langs .doos{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);background:var(--steen);border-radius:24px;overflow:hidden}
+.langs .beeld{position:relative;min-height:520px}
+.langs .beeld img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.langs .in{padding:clamp(36px,5vw,72px)}
+.langs h2{font-size:clamp(38px,4.2vw,62px);color:var(--mos);margin:18px 0 30px}
+.uren{list-style:none;border-top:1px solid rgba(47,58,40,.2);margin-bottom:30px;max-width:520px}
+.uren li{display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px solid rgba(47,58,40,.2);font-size:16.5px}
+.uren li span{color:#55594b}
+.adres{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:34px;max-width:520px;font-size:16px;color:#444838}
+.adres small{display:block;font:500 12px/1 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-bottom:8px}
+.adres a{text-decoration:none}
+.langs .knoppen{display:flex;flex-wrap:wrap;align-items:center;gap:26px}
+.langs .lnk{color:var(--mos)}
 
-@media (max-width:1000px){
-  .nav ul{display:none}
-  .hero .kop{grid-template-columns:1fr;gap:22px}
-  .abonnement .doos,.trouw .wrap,.reviews .wrap{grid-template-columns:1fr}
-  .abonnement .foto{min-height:380px;order:2}
-  .duo{grid-template-columns:1fr}
-  .kaart.zijde .img{aspect-ratio:16/11;flex:none;min-height:0}
-  .trouw .foto{max-width:460px}
-  .langs .doos::after{background:linear-gradient(0deg,rgba(46,57,39,.94) 0%,rgba(46,57,39,.82) 60%,rgba(46,57,39,.35) 100%)}
+footer{background:var(--mos2);color:rgba(247,241,230,.62);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;padding-top:26px;padding-bottom:28px}
+footer b{font:500 20px/1 var(--kop);color:var(--room);margin-right:12px;font-variation-settings:"opsz" 144,"SOFT" 50}
+footer a{color:var(--room);text-decoration:none}
+
+@media (max-width:1100px){
+  .hero nav ul li:not(:last-child){display:none}
+  .hero .kern{max-width:520px}
+  .hero h1{font-size:clamp(46px,6vw,76px)}
+}
+@media (max-width:900px){
+  .hero{background:var(--steen)}
+  .hero .vak{position:relative;height:auto;width:min(100%,560px);margin:-30px 0 0 auto}
+  .hero .foto{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 18%);mask-image:linear-gradient(180deg,transparent 0,#000 18%)}
+  .hero .kern{min-height:0;padding:20px 0 0;max-width:none}
+  .hero .voet{position:relative}
+  .hero .voet .rij{max-width:none;flex-wrap:wrap;gap:10px 28px}
+  .aanbod .wrap,.abo .wrap,.trouw .wrap,.reviews .wrap,.langs .doos{grid-template-columns:1fr}
+  .aanbod .groot{position:relative;top:0;max-width:440px;order:2}
+  .abo .beeld{max-width:440px}
+  .blijf .kop{grid-template-columns:1fr}
+  .band{grid-template-columns:1fr 1fr}
+  .band .a{grid-column:1/3}
+  .trouw .beeld{order:2;max-width:480px}
+  .langs .beeld{min-height:340px;order:2}
 }
 @media (max-width:620px){
   body{font-size:16.5px}
-  .nav .wrap{height:74px}
-  .hero h1{font-size:clamp(40px,11.5vw,54px)}
-  .hero .beeld{height:auto;aspect-ratio:4/5;border-radius:22px}
-  .hero .abo{left:12px;right:12px;bottom:12px;padding:12px 14px 12px 12px}
-  .hero .abo .ico{width:44px;height:44px}
-  .btn{width:100%}
-  .nav .btn{width:auto;padding:12px 16px}
-  .prijs{flex-direction:column;align-items:flex-start;gap:8px}
-  .revs{grid-template-columns:1fr}
-  .kaart .txt{padding:24px 22px 26px}
-  .langs .doos{min-height:0}
-  .langs .doos::after{background:linear-gradient(0deg,rgba(46,57,39,.94) 0%,rgba(46,57,39,.82) 60%,rgba(46,57,39,.35) 100%)}
-  .langs .in{padding:120px 22px 30px}
+  .hero nav{height:80px}
+  .hero nav ul{display:none}
+  .hero h1{font-size:clamp(42px,12vw,56px)}
+  .hero p.lead{font-size:17px}
+  .hero .knoppen .btn{width:100%}
+  .hanger{right:auto;left:47.4%;align-items:flex-start;transform:rotate(-6deg);transform-origin:0 0}
+  .hanger .touw{margin:0 0 0 21px;height:40px}
+  .hanger .kaartje::before{right:auto;left:17px}
+  .hanger .kaartje{min-width:0;max-width:168px;padding:30px 16px 14px}
+  .hanger b{font-size:24px}
+  .hanger span{font-size:12.5px}
+  .soorten li{grid-template-columns:72px minmax(0,1fr);gap:18px}
+  .soorten img{width:72px;height:92px}
+  .soorten .nr{display:none}
+  .bon{grid-template-columns:1fr;gap:14px}
+  .rev{grid-template-columns:1fr;gap:12px}
+  .adres{grid-template-columns:1fr}
+  .langs .btn,.abo .btn,.trouw .btn{width:100%}
 }
 </style>
 </head>
 <body>
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="steel" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 22V9"/><path fill="currentColor" d="M12 13c-4.5 0-6.5-2.6-7-6 3.9-.2 6.6 1.6 7 6Zm0-3c.3-4 2.7-6.6 7-7-.2 4-2.7 6.9-7 7Z"/></symbol></defs></svg>
-
-<header class="nav">
-  <div class="wrap">
-    <a class="logo" href="#top"><small>Flowers by</small><b>Paulien</b></a>
-    <ul>
-      <li><a href="#abonnement">Abonnement</a></li>
-      <li><a href="#aanbod">Vers en zijde</a></li>
-      <li><a href="#trouw">Trouwbloemen</a></li>
-      <li><a href="#langs">Langskomen</a></li>
-    </ul>
-    <a class="btn btn-salie" href="https://wa.me/32495700066" target="_blank" rel="noopener"><svg><use href="#steel"/></svg>WhatsApp</a>
-  </div>
-</header>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="steel" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M12 22V11M12 11c0-3.5 2.6-6 6-6 0 3.5-2.6 6-6 6Zm0 4c0-2.8-2.2-5-5-5 0 2.8 2.2 5 5 5Z"/></symbol>
+<symbol id="pijl" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</defs></svg>
 
 <main id="top">
 <section class="hero">
   <div class="wrap">
-    <div class="kop">
-      <div>
-        <span class="label">Bloemen in Westerlo</span>
-        <h1>Wilde boeketten en bloemen die <span>blijven</span></h1>
+    <nav>
+      <a class="merk" href="#top"><small>Flowers by</small><b>Paulien</b></a>
+      <ul>
+        <li><a href="#aanbod">Bloemen</a></li>
+        <li><a href="#abonnement">Abonnement</a></li>
+        <li><a href="#trouw">Trouwen</a></li>
+        <li><a href="#langs">Langskomen</a></li>
+        <li><a class="btn btn-mos" href="https://wa.me/32495700066" target="_blank" rel="noopener"><svg><use href="#steel"/></svg>WhatsApp</a></li>
+      </ul>
+    </nav>
+    <div class="kern">
+      <span class="label"><svg><use href="#steel"/></svg>Bloemen in Westerlo</span>
+      <h1>Wilde boeketten, vers of in <span>zijde</span></h1>
+      <p class="lead">Ik ben Paulien. Ik maak boeketten om weg te geven, zijden bloemen die blijven staan en bloemen voor je trouwdag.</p>
+      <div class="knoppen">
+        <a class="btn btn-oranje" href="https://wa.me/32495700066?text=Hoi%20Paulien%2C%20ik%20wil%20graag%20een%20boeket%20bestellen." target="_blank" rel="noopener"><svg><use href="#steel"/></svg>Bestel via WhatsApp</a>
+        <a class="lnk" href="#aanbod">Wat ik maak<svg><use href="#pijl"/></svg></a>
       </div>
-      <div class="rechts">
-        <p>Ik ben Paulien. Ik werk met verse en zijden bloemen: boeketten om weg te geven, decoratie voor in huis en bloemen voor een trouwdag.</p>
-        <div class="knoppen">
-          <a class="btn btn-oranje" href="https://wa.me/32495700066" target="_blank" rel="noopener"><svg><use href="#steel"/></svg>Bestel via WhatsApp</a>
-          <a class="btn btn-salie" href="#abonnement">Het abonnement</a>
-        </div>
-      </div>
-    </div>
-    <div class="beeld">
-      <img src="img/hero.webp" alt="Kleurrijk boeket met zonnebloem, kamille en anemonen op een houten ondergrond" width="2000" height="1500" fetchpriority="high">
-      <a class="abo" href="#abonnement"><span class="ico"><svg><use href="#steel"/></svg></span><span><small>Bloemenabonnement</small><b>Boeket maat M, <i>€ 20</i> per maand</b></span></a>
     </div>
   </div>
-</section>
-
-<section class="abonnement" id="abonnement">
-  <div class="wrap">
-    <div class="doos">
-      <div class="foto"><img src="img/abonnement.webp" alt="Boeket in bruin papier in een uitgestoken hand" loading="lazy" width="1200" height="1200"></div>
-      <div class="info">
-        <span class="label">Bloemenabonnement</span>
-        <h2>Elke maand verse bloemen op tafel</h2>
-        <p>Geen gedoe met onthouden of kiezen. Met het abonnement maak ik elke maand een vers boeket voor je, in maat M.</p>
-        <div class="prijs"><span class="bedrag"><sup>€</sup>20</span><div><b>per maand</b>voor een boeket maat M</div></div>
-        <ol class="zo">
-          <li>Stuur me een berichtje dat je wil starten.</li>
-          <li>Elke maand staat er een vers boeket voor je klaar.</li>
-          <li>Ophalen of laten brengen? Dat spreken we samen af.</li>
-        </ol>
-        <a class="btn btn-oranje" href="https://wa.me/32495700066?text=Hoi%20Paulien%2C%20ik%20heb%20interesse%20in%20het%20bloemenabonnement." target="_blank" rel="noopener"><svg><use href="#steel"/></svg>Ik wil het abonnement</a>
-      </div>
+  <div class="vak">
+    <figure class="foto"><img src="img/hero-distel.webp" alt="Hand die een wild boeket met distels en grassen vasthoudt tegen een zandkleurige muur" width="1400" height="2100" fetchpriority="high"></figure>
+    <a class="hanger" href="#abonnement"><i class="touw"></i><span class="kaartje"><small>Bloemenabonnement</small><b>€ 20 / maand</b><span>elke maand een boeket maat M</span></span></a>
+  </div>
+  <div class="voet">
+    <div class="wrap">
+      <div class="rij"><span><b>4,7</b>op Google</span><span>Maandag dicht, dinsdag 9 tot 19 uur</span></div>
     </div>
   </div>
 </section>
 
 <section class="aanbod" id="aanbod">
   <div class="wrap">
+    <figure class="groot"><img src="img/pioenen.webp" alt="Boeket met pioenen en roze bloemen in een roze vaas voor een blauwe muur" loading="lazy" width="1200" height="1800"></figure>
+    <div>
+      <span class="label"><svg><use href="#steel"/></svg>Wat ik maak</span>
+      <h2>Voor iemand anders, of gewoon voor jezelf</h2>
+      <p class="intro">Een verjaardag, een bedankje of iets moois voor in je living. Zeg me waarvoor het is, dan denk ik mee.</p>
+      <ul class="soorten">
+        <li><img src="img/veldboeketje.webp" alt="Klein veldboeket in een hand" loading="lazy" width="900" height="1350"><div><h3>Verse boeketten</h3><p>Vol en een beetje wild. Om weg te geven, of zomaar.</p></div><span class="nr">01</span></li>
+        <li><img src="img/eucalyptus.webp" alt="Boeket met eucalyptus en zachte bloemen in een witte vaas" loading="lazy" width="900" height="1199"><div><h3>Zijden bloemen</h3><p>Voor wie iets wil dat niet verwelkt en het hele jaar mooi blijft.</p></div><span class="nr">02</span></li>
+        <li><img src="img/hazenstaart.webp" alt="Pluimen in een witte geribbelde vaas" loading="lazy" width="900" height="1350"><div><h3>Interieurdecoratie</h3><p>Een stuk voor op de kast, de tafel of de vensterbank.</p></div><span class="nr">03</span></li>
+        <li><img src="img/gipskruid.webp" alt="Takje gipskruid in een bruin glazen flesje" loading="lazy" width="900" height="1352"><div><h3>Trouwbloemen</h3><p>Eerst samen brainstormen, dan bloemen die bij jullie dag passen.</p></div><span class="nr">04</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="abo" id="abonnement">
+  <div class="wrap">
+    <div>
+      <span class="label"><svg><use href="#steel"/></svg>Bloemenabonnement</span>
+      <h2>Elke maand verse bloemen op tafel</h2>
+      <p class="intro">Geen gedoe met onthouden of kiezen. Met het abonnement maak ik elke maand een vers boeket voor je.</p>
+      <div class="bon"><span class="bedrag"><sup>€</sup>20</span><div><b>per maand</b><span>voor een boeket in maat M</span></div></div>
+      <ol class="zo">
+        <li>Stuur me een berichtje dat je wil starten.</li>
+        <li>Elke maand staat er een vers boeket voor je klaar.</li>
+        <li>Ophalen of laten brengen? Dat spreken we samen af.</li>
+      </ol>
+      <a class="btn btn-room" href="https://wa.me/32495700066?text=Hoi%20Paulien%2C%20ik%20heb%20interesse%20in%20het%20bloemenabonnement." target="_blank" rel="noopener"><svg><use href="#steel"/></svg>Ik wil het abonnement</a>
+    </div>
+    <figure class="beeld"><img src="img/vensterbank.webp" alt="Kleurrijk boeket in een glazen vaas op een zonnige vensterbank" loading="lazy" width="1200" height="1800"></figure>
+  </div>
+</section>
+
+<section class="blijf" id="zijde">
+  <div class="wrap">
     <div class="kop">
       <div>
-        <span class="label">Vers en zijde</span>
-        <h2>Voor iemand anders, of gewoon voor jezelf</h2>
+        <span class="label"><svg><use href="#steel"/></svg>Bloemen die blijven</span>
+        <h2>Zijde en decoratie voor in huis</h2>
       </div>
-      <p>Een boeket voor een verjaardag of een bedankje, of iets moois voor in je living. Zeg me waarvoor het is, dan denk ik mee.</p>
+      <p>Niet iedereen heeft tijd om water te geven. Zijden bloemen en interieurstukken blijven staan, seizoen na seizoen.</p>
     </div>
-    <div class="duo">
-      <article class="kaart">
-        <div class="img"><img src="img/vers.webp" alt="Glazen vaas met een vol veldboeket bij een open deur" loading="lazy" width="1200" height="1200"></div>
-        <div class="txt">
-          <h3>Verse boeketten</h3>
-          <p>Vol en een beetje wild. Voor een verjaardag, een bedankje of zomaar, omdat het kan.</p>
-        </div>
-      </article>
-      <article class="kaart zijde">
-        <div class="img"><img src="img/droog.webp" alt="Gedroogde grassen in een aardewerken vaas met schaduw op de muur" loading="lazy" width="1200" height="1047"></div>
-        <div class="txt">
-          <h3>Zijde en interieur</h3>
-          <p>Zijden bloemen en decoratie voor in huis, voor wie iets wil dat niet verwelkt.</p>
-        </div>
-      </article>
+    <div class="band">
+      <figure class="a"><img src="img/roze-vaas.webp" alt="Roze gipskruid in een roze vaas tegen een zachtgroene muur" loading="lazy" width="1400" height="1400"></figure>
+      <figure class="b"><img src="img/hortensia.webp" alt="Gedroogde hortensia in een houten vaas" loading="lazy" width="1000" height="1499"></figure>
+      <figure class="c"><img src="img/strobloemen.webp" alt="Gele strobloemen in een glazen vaas bij het raam" loading="lazy" width="1200" height="1806"></figure>
     </div>
   </div>
 </section>
@@ -269,32 +310,27 @@ footer a{color:var(--ink);text-decoration:none}
 <section class="trouw" id="trouw">
   <div class="wrap">
     <div>
-      <span class="label">Trouwbloemen</span>
+      <span class="label"><svg><use href="#steel"/></svg>Trouwbloemen</span>
       <h2>Trouwen? Dan brainstormen we eerst samen</h2>
       <p>Van een bruidsboeket tot de bloemen op tafel. We gaan samen zitten, jij vertelt hoe je dag eruit moet zien, en dan zoeken we wat bij jullie past.</p>
-      <blockquote>"Trouwbloemen die de verwachtingen overtreffen!! Met Paulien is het gezellig out-of-the-box brainstormen"<small>Maxime B. op Google</small></blockquote>
-      <a class="btn btn-wit" href="https://wa.me/32495700066?text=Hoi%20Paulien%2C%20ik%20heb%20een%20vraag%20over%20trouwbloemen." target="_blank" rel="noopener"><svg><use href="#steel"/></svg>Vraag naar de mogelijkheden</a>
+      <blockquote>"Trouwbloemen die de verwachtingen overtreffen!! Met Paulien is het gezellig out-of-the-box brainstormen"</blockquote>
+      <p class="wie"><b>Maxime B.</b> op Google</p>
+      <a class="btn btn-mos" href="https://wa.me/32495700066?text=Hoi%20Paulien%2C%20ik%20heb%20een%20vraag%20over%20trouwbloemen." target="_blank" rel="noopener"><svg><use href="#steel"/></svg>Vraag naar de mogelijkheden</a>
     </div>
-    <div class="foto"><img src="img/trouw.webp" alt="Zacht roze boeket van gedroogde bloemen en grassen" loading="lazy" width="1000" height="1261"></div>
+    <figure class="beeld"><img src="img/veld-boeket.webp" alt="Hand die een wild boeket omhooghoudt boven een zomers veld" loading="lazy" width="1200" height="1596"></figure>
   </div>
 </section>
 
 <section class="reviews" id="reviews">
   <div class="wrap">
     <div>
-      <span class="label">Reviews</span>
+      <span class="label"><svg><use href="#steel"/></svg>Reviews</span>
       <h2>Wat klanten over Paulien zeggen</h2>
-      <div class="score"><b>4,7</b><span><i>★★★★★</i>op Google, uit 18 reviews</span></div>
+      <div class="score"><b>4,7</b><span>op Google,<br>uit 18 reviews</span></div>
     </div>
     <div class="revs">
-      <figure class="rev">
-        <blockquote>"Kent haar vak, maakt prachtige volle wildboeketten."</blockquote>
-        <figcaption class="wie"><i>J</i><span><b>Jelle H.</b> op Google</span></figcaption>
-      </figure>
-      <figure class="rev b">
-        <blockquote>"We lieten Paulien de bloemen verzorgen voor ons huwelijk vorig jaar."</blockquote>
-        <figcaption class="wie"><i>W</i><span><b>Wim M.</b> op Google</span></figcaption>
-      </figure>
+      <figure class="rev"><blockquote>"Kent haar vak, maakt prachtige volle wildboeketten."</blockquote><figcaption><b>Jelle H.</b>op Google</figcaption></figure>
+      <figure class="rev"><blockquote>"We lieten Paulien de bloemen verzorgen voor ons huwelijk vorig jaar."</blockquote><figcaption><b>Wim M.</b>op Google</figcaption></figure>
     </div>
   </div>
 </section>
@@ -302,19 +338,22 @@ footer a{color:var(--ink);text-decoration:none}
 <section class="langs" id="langs">
   <div class="wrap">
     <div class="doos">
-      <img src="img/vaas.webp" alt="Pluimen in een beige vaas op een ronde tafel" loading="lazy" width="1600" height="2400">
+      <div class="beeld"><img src="img/zonlicht.webp" alt="Gedroogde grassen in een aardewerken vaas in het zonlicht" loading="lazy" width="1400" height="1222"></div>
       <div class="in">
-        <span class="label">Langskomen</span>
+        <span class="label"><svg><use href="#steel"/></svg>Langskomen</span>
         <h2>Tot in de Boerenkrijglaan</h2>
         <ul class="uren">
           <li><b>Maandag</b><span>gesloten</span></li>
           <li><b>Dinsdag</b><span>9 tot 19 uur</span></li>
           <li><b>Andere dagen</b><span>stuur even een berichtje</span></li>
         </ul>
-        <p class="adres"><b>Boerenkrijglaan 159</b>, 2260 Westerlo<br>WhatsApp: 0495 70 00 66</p>
+        <div class="adres">
+          <div><small>Adres</small>Boerenkrijglaan 159<br>2260 Westerlo</div>
+          <div><small>WhatsApp</small><a href="https://wa.me/32495700066" target="_blank" rel="noopener">0495 70 00 66</a></div>
+        </div>
         <div class="knoppen">
           <a class="btn btn-oranje" href="https://wa.me/32495700066" target="_blank" rel="noopener"><svg><use href="#steel"/></svg>Stuur Paulien een berichtje</a>
-          <a class="btn btn-lijn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Boerenkrijglaan+159+2260+Westerlo" target="_blank" rel="noopener">Route plannen</a>
+          <a class="lnk" href="https://www.google.com/maps/dir/?api=1&amp;destination=Boerenkrijglaan+159+2260+Westerlo" target="_blank" rel="noopener">Route plannen<svg><use href="#pijl"/></svg></a>
         </div>
       </div>
     </div>
