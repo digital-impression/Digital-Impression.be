@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Manifest Paradise · Bloemen, planten en bonsai in Leuven</title>
-<meta name="description" content="Manifest Paradise in de Diestsestraat in Leuven: snijbloemen en boeketten, een urban jungle vol kamerplanten, House of Bonsai, bonsaiworkshops en tuinarchitectuur.">
+<title>Manifest Paradise · Bloemen, kamerplanten en House of Bonsai in Leuven</title>
+<meta name="description" content="Manifest Paradise in de Diestsestraat in Leuven: snijbloemen en boeketten, een urban jungle vol kamerplanten, House of Bonsai, bonsaiworkshops en tuinarchitectuur door Peter Neukermans.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,142 +12,170 @@
 <script>document.documentElement.classList.add('js')</script>
 <style>
 :root{
-  --rood:#e2432c;--rood2:#c63520;--munt:#79c596;--munt2:#d9efdf;--bos:#123a2b;--bos2:#0c2a1f;--room:#f6f2e8;--wit:#fffdf8;--zand:#cdb38b;
-  --ink:#13241c;--zacht:#5b6b62;--lijn:rgba(19,36,28,.13);
-  --ease:cubic-bezier(.2,.7,.2,1);--r:26px;
+  --rood:#e2432c;--rood2:#c63520;--munt:#79c596;--munt2:#dcefe1;--bos:#123a2b;--bos2:#0c2a1f;--room:#f6f2e8;--wit:#fffdf8;--zand:#cdb38b;
+  --ink:#13241c;--zacht:#56665d;--lijn:rgba(19,36,28,.14);
+  --ease:cubic-bezier(.2,.7,.2,1);--r:22px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--room);color:var(--ink);font:400 17px/1.65 'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit}
-h1,h2,h3{font-family:'Gabarito',sans-serif;font-weight:700;line-height:1;letter-spacing:-.02em}
+h1,h2,h3{font-family:'Gabarito',sans-serif;font-weight:700;line-height:1.02;letter-spacing:-.02em}
 .wrap{width:min(1260px,100% - 48px);margin:0 auto}
 .demo{background:var(--bos2);color:rgba(255,255,255,.75);font:500 13.5px/1.4 'DM Sans',sans-serif;text-align:center;padding:9px 16px;position:relative;z-index:60}
 .demo a{color:var(--munt);font-weight:700;text-underline-offset:3px}
-.lab{display:inline-flex;align-items:center;gap:10px;font:700 12.5px/1 'DM Sans';letter-spacing:.18em;text-transform:uppercase;color:var(--rood);margin-bottom:18px}
-.lab img{width:18px;height:18px}
-.knop{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:16px 28px;font:700 15.5px/1 'DM Sans';text-decoration:none;transition:transform .35s var(--ease),background .3s,color .3s}
+.lab{display:inline-flex;align-items:center;gap:10px;font:700 12.5px/1 'DM Sans';letter-spacing:.16em;text-transform:uppercase;color:var(--rood);margin-bottom:20px}
+.lab img{width:20px;height:20px}
+
+/* knoppen: plantlabel met gaatje */
+.knop{position:relative;display:inline-flex;align-items:center;gap:10px;border-radius:8px 999px 999px 8px;padding:16px 28px 16px 40px;font:700 15.5px/1 'DM Sans';text-decoration:none;transition:transform .35s var(--ease),background .3s,color .3s}
+.knop:before{content:"";position:absolute;left:15px;top:50%;width:9px;height:9px;margin-top:-4.5px;border-radius:50%;background:var(--gat,var(--room));box-shadow:inset 0 1px 2px rgba(0,0,0,.25)}
 .knop svg{width:18px;height:18px;flex:none}
-.knop.rood{background:var(--rood);color:#fff;box-shadow:0 14px 30px -14px rgba(226,67,44,.85)}
-.knop.rood:hover{background:var(--rood2);transform:translateY(-2px)}
-.knop.wit{background:#fff;color:var(--bos)}
-.knop.wit:hover{transform:translateY(-2px)}
-.knop.glas{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.5);backdrop-filter:blur(6px)}
-.knop.glas:hover{background:#fff;color:var(--bos)}
+.knop.rood{background:var(--rood);color:#fff}
+.knop.rood:hover{background:var(--rood2);transform:translateX(3px)}
+.knop.wit{background:var(--wit);color:var(--bos)}
+.knop.wit:hover{transform:translateX(3px)}
+.knop.lijn{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.45)}
+.knop.lijn:before{background:transparent;border:1.5px solid rgba(255,255,255,.6);box-shadow:none}
+.knop.lijn:hover{background:rgba(255,255,255,.1)}
 .knop.bos{background:var(--bos);color:#fff}
-.knop.bos:hover{background:var(--bos2);transform:translateY(-2px)}
-.js .rv{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
+.knop.bos:hover{background:var(--bos2);transform:translateX(3px)}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
 
 /* nav */
 .nav{position:absolute;top:38px;left:0;right:0;z-index:20}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:20px}
-.merk{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;font:800 22px/1 'Gabarito';letter-spacing:.04em}
-.merk img{width:44px;height:44px}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:22px}
+.merk{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;font:800 21px/1 'Gabarito';letter-spacing:.05em}
+.merk img{width:42px;height:42px}
 .merk span{color:var(--zand)}
-.menu{display:flex;gap:4px;background:rgba(12,42,31,.38);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px}
-.menu a{color:#fff;text-decoration:none;font:500 14.5px/1 'DM Sans';padding:11px 18px;border-radius:999px;transition:background .3s}
+.menu{display:flex;gap:2px;background:rgba(12,42,31,.42);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px}
+.menu a{color:#fff;text-decoration:none;font:500 14.5px/1 'DM Sans';padding:11px 17px;border-radius:999px;transition:background .3s}
 .menu a:hover{background:rgba(255,255,255,.16)}
-.nav .knop{padding:13px 22px;font-size:14.5px}
 
-/* hero */
-.hero{position:relative;min-height:max(760px,100svh);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:var(--bos2)}
-.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%;transform:scale(1.06);transition:transform 2.6s var(--ease)}
-.hero.in>img{transform:none}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,42,31,.88) 0%,rgba(12,42,31,.62) 38%,rgba(12,42,31,.1) 70%),linear-gradient(0deg,rgba(12,42,31,.7) 0%,rgba(12,42,31,0) 40%),linear-gradient(180deg,rgba(12,42,31,.5) 0%,rgba(12,42,31,0) 22%)}
-.hero .wrap{position:relative;z-index:2}
-.hero .inh{display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px;padding-bottom:60px}
-.hero .lab{color:var(--munt)}
-.hero h1{font-size:clamp(52px,6.6vw,100px);max-width:9.6em}
+/* hero: groen paneel en winkelfoto als één vlak */
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);min-height:clamp(720px,100svh,960px);background:var(--bos);color:#fff;overflow:hidden}
+.hero .paneel{position:relative;display:flex;flex-direction:column;justify-content:center;padding:130px clamp(28px,5vw,84px) 0 max(24px,calc((100vw - 1260px)/2))}
+.hero h1{font-size:clamp(46px,4.9vw,76px);max-width:8.6em}
 .hero h1 span{color:var(--munt)}
-.hero p.lead{font-size:clamp(17px,1.35vw,19.5px);max-width:32em;margin:24px 0 32px;color:rgba(255,255,255,.88)}
+.hero .lead{font-size:clamp(17px,1.3vw,19px);max-width:29em;margin:26px 0 34px;color:rgba(255,255,255,.84)}
 .hero .acties{display:flex;flex-wrap:wrap;gap:12px}
-.score{background:var(--room);color:var(--ink);border-radius:22px;padding:18px 24px 18px 20px;display:flex;align-items:center;gap:16px;box-shadow:0 22px 44px -20px rgba(0,0,0,.6)}
-.score strong{font:800 48px/1 'Gabarito';color:var(--rood)}
-.score span{display:block;font-size:13.5px;line-height:1.4;color:var(--zacht)}
-.score .st{color:#e7a33a;letter-spacing:3px;font-size:15px}
+.hero .acties .knop{--gat:var(--bos)}
+.hero .voetje{margin-top:44px;padding:0 0 10px;display:flex;flex-wrap:wrap;gap:14px 34px;align-items:center;font-size:15px;color:rgba(255,255,255,.72)}
+.hero .voetje b{color:#fff;font:700 17px/1 'Gabarito'}
+.hero .voetje .st{color:#f0b54a;letter-spacing:2px;margin-right:6px}
+.hero .strepen{position:absolute;left:0;right:0;bottom:0;height:10px;background:linear-gradient(90deg,var(--munt) 0 34%,transparent 34% 36%,var(--munt) 36% 60%,transparent 60% 62%,var(--munt) 62% 76%,transparent 76%);opacity:.55}
+.hero .beeld{position:relative;overflow:hidden}
+.hero .beeld img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%;transform:scale(1.05);transition:transform 2.6s var(--ease)}
+.hero.in .beeld img{transform:none}
+.hero .beeld:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,58,43,.55) 0%,rgba(18,58,43,0) 18%),linear-gradient(180deg,rgba(12,42,31,.55) 0%,rgba(12,42,31,0) 24%)}
+.hero figcaption{position:absolute;right:28px;bottom:26px;z-index:2;font-size:13.5px;color:rgba(255,255,255,.9);text-shadow:0 1px 10px rgba(0,0,0,.5)}
 
-/* drie */
-.drie{padding:120px 0 110px}
-.kop{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;margin-bottom:52px}
-.kop h2{font-size:clamp(42px,4.8vw,70px);max-width:10em}
+/* rondgang */
+.rond{padding:130px 0 120px}
+.kop{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:end;margin-bottom:64px}
+.kop h2{font-size:clamp(40px,4.5vw,66px);max-width:11em}
 .kop p{color:var(--zacht);max-width:31em}
-.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.dk{background:var(--wit);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 0 var(--lijn),0 26px 50px -40px rgba(19,36,28,.6)}
-.dk figure{aspect-ratio:4/4.4;overflow:hidden;position:relative}
-.dk figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
-.dk:hover figure img{transform:scale(1.05)}
-.dk .t{padding:26px 28px 30px}
-.dk h3{font-size:30px;margin-bottom:10px}
-.dk p{color:var(--zacht);font-size:16px}
-.dk ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.dk li{font-size:13.5px;background:var(--munt2);color:var(--bos);border-radius:999px;padding:7px 12px;font-weight:500}
-.dk.hl{background:var(--bos);color:#fff}
-.dk.hl p{color:rgba(255,255,255,.76)}
-.dk.hl li{background:rgba(255,255,255,.1);color:#fff}
+.route{display:grid;grid-template-columns:1fr 1.22fr 1fr;gap:28px;position:relative}
+.route:before{content:"";position:absolute;left:18px;right:18px;top:18px;border-top:2px dashed rgba(18,58,43,.28)}
+.stop{position:relative}
+.stop .nr{position:relative;z-index:1;width:38px;height:38px;border-radius:50%;background:var(--bos);color:#fff;display:grid;place-items:center;font:700 16px/1 'Gabarito';margin-bottom:26px;box-shadow:0 0 0 7px var(--room)}
+.stop .waar{font:700 12.5px/1 'DM Sans';letter-spacing:.14em;text-transform:uppercase;color:var(--rood)}
+.stop h3{font-size:30px;margin:10px 0 12px}
+.stop p{color:var(--zacht);font-size:16px;max-width:27em}
+.stop figure{margin-top:24px;border-radius:var(--r);overflow:hidden;background:#dfe6dd}
+.stop figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.stop:hover figure img{transform:scale(1.04)}
+.stop:nth-child(1) figure{aspect-ratio:3/4}
+.stop:nth-child(2) figure{aspect-ratio:4/3.9}
+.stop:nth-child(3) figure{aspect-ratio:3/4}
+.soorten{margin-top:14px;font-size:15px;color:var(--ink);line-height:1.6}
+.soorten span{color:var(--zacht)}
 
-/* workshop */
-.ws{background:var(--rood);color:#fff;display:grid;grid-template-columns:1fr 1fr;min-height:760px}
-.ws .foto{position:relative;overflow:hidden}
-.ws .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.ws .tekst{padding:110px clamp(28px,6vw,100px);display:flex;flex-direction:column;justify-content:center}
-.ws .lab{color:#ffe1d6}
-.ws h2{font-size:clamp(42px,4.6vw,68px);max-width:9em}
-.ws p.in2{margin:20px 0 30px;color:rgba(255,255,255,.88);max-width:30em}
-.avond{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px}
-.avond div{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:20px;padding:20px 22px}
-.avond b{display:block;font:700 22px/1.1 'Gabarito';margin-bottom:6px}
-.avond span{font-size:15px;color:rgba(255,255,255,.85);line-height:1.5}
-.prijsr{display:flex;flex-wrap:wrap;align-items:center;gap:18px 26px;margin-top:8px}
-.prijsr strong{font:800 54px/1 'Gabarito'}
-.prijsr small{display:block;font-size:14.5px;color:rgba(255,255,255,.85);max-width:16em;line-height:1.4}
+/* bonsai */
+.bonsai{background:var(--bos);color:#fff;padding:130px 0}
+.bonsai .grid{display:grid;grid-template-columns:1.02fr 1fr;gap:70px;align-items:center}
+.bonsai .fotos{position:relative}
+.bonsai .fotos img{width:100%;height:auto;aspect-ratio:4/5;border-radius:var(--r);object-fit:cover}
+.bonsai .lab{color:var(--munt)}
+.bonsai h2{font-size:clamp(40px,4.4vw,64px);max-width:9.5em}
+.bonsai .in2{color:rgba(255,255,255,.8);margin:20px 0 34px;max-width:31em}
+.label{position:relative;background:var(--wit);color:var(--ink);border-radius:16px 16px 16px 16px;padding:30px 32px 30px 62px;max-width:520px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.label:before{content:"";position:absolute;left:24px;top:34px;width:14px;height:14px;border-radius:50%;background:var(--bos);box-shadow:inset 0 1px 3px rgba(0,0,0,.5)}
+.label:after{content:"";position:absolute;left:30px;top:48px;bottom:30px;border-left:1.5px dashed var(--lijn)}
+.label .t{font:700 13px/1 'DM Sans';letter-spacing:.14em;text-transform:uppercase;color:var(--rood);margin-bottom:6px}
+.label h3{font-size:27px;margin-bottom:16px}
+.label dl{display:grid;grid-template-columns:auto 1fr;gap:0 22px;font-size:15.5px}
+.label dt{font-weight:700;padding:10px 0;border-top:1px solid var(--lijn)}
+.label dd{color:var(--zacht);padding:10px 0;border-top:1px solid var(--lijn)}
+.label .prijs{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:18px}
+.label .prijs strong{font:800 42px/1 'Gabarito';color:var(--bos)}
+.label .prijs strong small{font:500 14px 'DM Sans';color:var(--zacht);margin-left:6px}
+.label .knop{--gat:var(--wit)}
 
-/* band */
-.band{display:grid;grid-template-columns:repeat(6,1fr);background:var(--bos2)}
-.band figure{aspect-ratio:3/4;overflow:hidden}
-.band img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
-.band figure:hover img{transform:scale(1.06)}
+/* peter en tom */
+.duo{padding:130px 0 110px}
+.duo .grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:76px;align-items:start}
+.duo .fotos{display:grid;gap:16px}
+.duo .fotos img{width:100%;height:auto;border-radius:var(--r);object-fit:cover}
+.duo .fotos .a{aspect-ratio:3/2}
+.duo .fotos .b{aspect-ratio:3/2;object-position:50% 72%}
+.duo h2{font-size:clamp(40px,4.4vw,64px);max-width:10em}
+.duo .tekst p{color:var(--zacht);margin-top:18px;max-width:33em}
+.duo .tekst p b{color:var(--ink);font-weight:700}
+.citaat{margin:34px 0 0;padding:4px 0 4px 26px;border-left:3px solid var(--rood)}
+.citaat q{display:block;font:600 24px/1.32 'Gabarito';color:var(--bos);quotes:none;max-width:19em}
+.citaat small{display:block;margin-top:10px;color:var(--zacht);font-size:14px}
+.plan{margin-top:40px;border-radius:var(--r);padding:30px 32px;background-color:var(--wit);background-image:linear-gradient(rgba(121,197,150,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(121,197,150,.22) 1px,transparent 1px);background-size:22px 22px;border:1px solid var(--lijn)}
+.plan h3{font-size:25px;margin-bottom:8px}
+.plan p{margin:0 0 16px!important;font-size:16px}
+.plan ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0 24px;margin-bottom:22px}
+.plan li{padding:9px 0;border-bottom:1px solid var(--lijn);font-weight:500;font-size:15.5px}
+.plan .knop{--gat:var(--wit)}
 
-/* verhaal */
-.verhaal{padding:120px 0}
-.verhaal .grid{display:grid;grid-template-columns:1fr 1.05fr;gap:72px;align-items:center}
-.verhaal .fotos{position:relative}
-.verhaal .fotos .groot{border-radius:var(--r);width:100%;aspect-ratio:4/5;height:auto;object-fit:cover}
-.verhaal .fotos .klein{position:absolute;right:-26px;bottom:-40px;width:58%;height:auto;border-radius:20px;border:6px solid var(--room);box-shadow:0 26px 50px -30px rgba(19,36,28,.6)}
-.verhaal h2{font-size:clamp(40px,4.4vw,64px);max-width:10em}
-.verhaal .tekst p{color:var(--zacht);margin-top:18px;max-width:32em}
-.verhaal .tekst p b{color:var(--ink)}
-.duoq{margin-top:30px;background:var(--munt2);border-radius:22px;padding:26px 28px}
-.duoq q{display:block;font:600 22px/1.35 'Gabarito';color:var(--bos);quotes:none}
-.duoq small{display:block;margin-top:10px;color:var(--zacht);font-size:14px}
-.tuin{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
-.tuin span{border:1px solid var(--lijn);border-radius:999px;padding:9px 14px;font-size:14.5px;font-weight:500}
+/* beeldband */
+.band{display:grid;grid-template-columns:1.15fr .85fr 1.1fr .85fr 1.15fr;height:440px;gap:10px;padding:0 10px}
+.band figure{overflow:hidden;border-radius:14px;position:relative}
+.band img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.band figure:hover img{transform:scale(1.05)}
+.band figcaption{position:absolute;left:14px;bottom:12px;font-size:13px;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.bandkop{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:26px}
+.bandkop h2{font-size:clamp(32px,3.2vw,46px)}
+.bandkop a{font-weight:700;color:var(--bos);text-underline-offset:4px;font-size:15.5px}
 
 /* reviews */
-.rev{padding:0 0 120px}
-.rgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.rk{background:var(--wit);border-radius:var(--r);padding:28px 26px;display:flex;flex-direction:column;gap:16px;box-shadow:0 1px 0 var(--lijn),0 24px 44px -36px rgba(19,36,28,.5)}
-.rk .st{color:#e7a33a;letter-spacing:3px;font-size:14px}
-.rk p{flex:1;font-size:16px}
-.rk b{font-size:15px}
-.rk b small{display:block;font-weight:400;color:var(--zacht);font-size:13px}
+.rev{padding:120px 0}
+.rev .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:start}
+.rev .groot q{display:block;font:600 clamp(28px,2.8vw,40px)/1.22 'Gabarito';letter-spacing:-.01em;quotes:none;color:var(--bos)}
+.rev .groot .wie{margin-top:24px;font-size:15px;color:var(--zacht)}
+.rev .groot .wie b{color:var(--ink)}
+.rev .score{display:flex;align-items:center;gap:16px;margin-bottom:34px}
+.rev .score strong{font:800 56px/1 'Gabarito';color:var(--rood)}
+.rev .score span{font-size:14.5px;color:var(--zacht);line-height:1.4}
+.rev .score .st{display:block;color:#e7a33a;letter-spacing:3px;font-size:15px}
+.rev .klein{display:grid;gap:16px}
+.rk{background:var(--wit);border-radius:var(--r);padding:26px 28px;border:1px solid var(--lijn)}
+.rk p{font-size:16px}
+.rk b{display:block;margin-top:14px;font-size:14.5px}
+.rk b span{font-weight:400;color:var(--zacht)}
 
 /* contact */
-.contact{background:var(--bos);color:#fff;padding:110px 0}
-.contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.contact{background:var(--bos);color:#fff;padding:120px 0}
+.contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
 .contact .lab{color:var(--munt)}
-.contact h2{font-size:clamp(42px,4.6vw,66px);max-width:9em}
-.contact .in2{color:rgba(255,255,255,.76);margin:18px 0 26px;max-width:30em}
-.uren{list-style:none;margin-bottom:30px;max-width:420px}
-.uren li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.13);font-size:15.5px}
-.uren li span{color:rgba(255,255,255,.6)}
+.contact h2{font-size:clamp(40px,4.4vw,64px);max-width:9em}
+.contact .in2{color:rgba(255,255,255,.78);margin:18px 0 28px;max-width:30em}
+.uren{list-style:none;margin-bottom:32px;max-width:430px}
+.uren li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:15.5px}
+.uren li span{color:rgba(255,255,255,.62)}
+.uren li.dicht{color:rgba(255,255,255,.45)}
 .contact .acties{display:flex;flex-wrap:wrap;gap:12px}
-.contact .foto{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5}
+.contact .acties .knop{--gat:var(--bos)}
+.contact .foto{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;position:relative}
 .contact .foto img{width:100%;height:100%;object-fit:cover}
-.contact .adres{position:absolute;left:20px;bottom:20px;right:20px;background:var(--room);color:var(--ink);border-radius:18px;padding:16px 20px;display:flex;align-items:center;gap:14px;font-size:15px;line-height:1.4}
-.contact .adres img{width:40px;height:40px}
-.contact .adres b{display:block}
+.contact .foto figcaption{position:absolute;left:0;right:0;bottom:0;padding:60px 26px 22px;background:linear-gradient(0deg,rgba(12,42,31,.85),rgba(12,42,31,0));font-size:15px;line-height:1.45}
+.contact .foto figcaption b{display:block;font:700 19px/1.2 'Gabarito'}
 
 /* footer */
 .voet{background:var(--room);padding:70px 0 32px}
@@ -163,18 +191,20 @@ h1,h2,h3{font-family:'Gabarito',sans-serif;font-weight:700;line-height:1;letter-
 
 @media (max-width:1080px){
   .menu{display:none}
-  .dgrid{grid-template-columns:1fr 1fr}
-  .dk:last-child{grid-column:1/-1}
-  .dk:last-child figure{aspect-ratio:16/9}
-  .ws{grid-template-columns:1fr}
-  .ws .foto{min-height:480px;order:2}
-  .band{grid-template-columns:repeat(3,1fr)}
-  .verhaal .grid,.contact .grid{grid-template-columns:1fr;gap:60px}
-  .verhaal .fotos{max-width:600px;order:2}
-  .verhaal .fotos .klein{right:16px}
-  .rgrid{grid-template-columns:1fr 1fr}
-  .contact .foto{max-width:520px}
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero .paneel{padding:150px 24px 0}
+  .hero .beeld{height:62vh;min-height:440px}
+  .hero .strepen{display:none}
   .kop{grid-template-columns:1fr;gap:16px}
+  .route{grid-template-columns:1fr 1fr}
+  .route .stop:nth-child(3){grid-column:1/-1}
+  .route .stop:nth-child(3) figure{aspect-ratio:16/9}
+  .route:before{display:none}
+  .bonsai .grid,.duo .grid,.contact .grid,.rev .grid{grid-template-columns:1fr;gap:56px}
+  .bonsai .fotos{order:2;max-width:560px}
+  .band{grid-template-columns:repeat(3,1fr);grid-template-rows:300px 300px;height:auto}
+  .band figure:first-child{grid-row:span 2}
+  .contact .foto{max-width:520px}
   .voet .rij{grid-template-columns:1fr 1fr}
 }
 @media (max-width:720px){
@@ -182,26 +212,24 @@ h1,h2,h3{font-family:'Gabarito',sans-serif;font-weight:700;line-height:1;letter-
   .wrap{width:calc(100% - 36px)}
   .nav .knop{display:none}
   .merk{font-size:18px}
-  .merk img{width:38px;height:38px}
-  .hero{min-height:max(720px,100svh)}
-  .hero:after{background:linear-gradient(0deg,rgba(12,42,31,.95) 0%,rgba(12,42,31,.75) 45%,rgba(12,42,31,.4) 75%),linear-gradient(180deg,rgba(12,42,31,.6) 0%,rgba(12,42,31,0) 30%)}
-  .hero .inh{grid-template-columns:1fr;gap:24px;padding-bottom:34px}
-  .hero h1{font-size:46px}
-  .score{justify-self:start;padding:14px 18px}
-  .score strong{font-size:40px}
-  .drie,.verhaal,.contact{padding:84px 0}
-  .rev{padding-bottom:84px}
-  .dgrid{grid-template-columns:1fr}
-  .dk:last-child figure{aspect-ratio:4/4.4}
-  .ws{grid-template-columns:minmax(0,1fr)}
-  .ws h2{font-size:38px}
-  .ws .tekst{padding:80px 22px}
-  .ws .foto{min-height:380px}
-  .avond{grid-template-columns:1fr}
-  .band{grid-template-columns:1fr 1fr}
-  .band figure:nth-child(n+5){display:none}
-  .verhaal .fotos .klein{right:10px;bottom:-22px;width:52%}
-  .rgrid{grid-template-columns:1fr}
+  .merk img{width:36px;height:36px}
+  .hero .paneel{padding:128px 18px 0}
+  .hero h1{font-size:44px}
+  .hero .voetje{padding:26px 0 30px;gap:10px 22px}
+  .hero .beeld{height:440px;min-height:0}
+  .rond,.bonsai,.duo,.rev,.contact{padding:84px 0}
+  .route{grid-template-columns:1fr;gap:44px}
+  .route .stop:nth-child(n) figure{aspect-ratio:4/3.6}
+  .label{padding:26px 22px 26px 52px}
+  .label:before{left:18px}
+  .label:after{left:24px}
+  .label dl{grid-template-columns:1fr;gap:0}
+  .label dd{border-top:0;padding-top:0}
+  .plan{padding:24px 22px}
+  .plan ul{grid-template-columns:1fr}
+  .band{grid-template-columns:1fr 1fr;grid-template-rows:260px 200px 200px}
+  .band figure:first-child{grid-row:auto;grid-column:1/-1}
+  .bandkop{flex-direction:column;align-items:flex-start}
   .voet .rij{grid-template-columns:1fr;gap:28px}
 }
 </style>
@@ -213,99 +241,137 @@ h1,h2,h3{font-family:'Gabarito',sans-serif;font-weight:700;line-height:1;letter-
   <div class="wrap">
     <a class="merk" href="#top"><img src="img/zon.webp" alt="" width="492" height="492">MANIFEST <span>PARADISE</span></a>
     <nav class="menu" aria-label="Hoofdmenu">
-      <a href="#winkel">Winkel</a><a href="#workshop">Bonsaiworkshop</a><a href="#verhaal">Peter en Tom</a><a href="#bezoek">Bezoek</a>
+      <a href="#winkel">De winkel</a><a href="#bonsai">Bonsai</a><a href="#peter-en-tom">Peter en Tom</a><a href="#bezoek">Bezoek</a>
     </nav>
-    <a class="knop rood" href="https://wa.me/32495578203" target="_blank" rel="noopener">Stuur een bericht</a>
   </div>
 </header>
 
 <section class="hero" aria-label="Manifest Paradise">
-  <img src="img/hero.webp" alt="De winkel van Manifest Paradise: een lange gang vol kamerplanten en bonsai onder grote witte hanglampen" width="1600" height="2000">
-  <div class="wrap inh">
-    <div>
-      <span class="lab rv">Diestsestraat 118C · Leuven</span>
-      <h1 class="rv" style="--d:1">Zie je bonsai in de Diestsestraat? <span>Dan ben je bij ons.</span></h1>
-      <p class="lead rv" style="--d:2">Snijbloemen en boeketten vooraan, een urban jungle achteraan en tientallen bonsai ertussen. Peter en Tom helpen je kiezen, en zeggen je ook waar je plant het best staat.</p>
-      <div class="acties rv" style="--d:3">
-        <a class="knop rood" href="#bezoek">Kom langs</a>
-        <a class="knop glas" href="#workshop">Bonsaiworkshop</a>
-      </div>
+  <div class="paneel">
+    <span class="lab rv" style="color:var(--munt)"><img src="img/zon.webp" alt="" width="20" height="20">Bloemen, planten en bonsai</span>
+    <h1 class="rv" style="--d:1">Bloemen vooraan, <span>bonsai</span> tot achteraan.</h1>
+    <p class="lead rv" style="--d:2">Een boeket voor vanavond, een Alocasia voor je living of een bonsai die jaren met je meegaat. Peter en Tom helpen je kiezen en zeggen je eerlijk waar je plant thuis het best staat.</p>
+    <div class="acties rv" style="--d:3">
+      <a class="knop rood" href="#bezoek">Kom langs in de winkel</a>
+      <a class="knop lijn" href="#bonsai">Bonsaiworkshop</a>
     </div>
-    <div class="score rv" style="--d:4">
-      <strong>4,9</strong>
-      <div><span class="st">★★★★★</span><span>103 reviews op Google</span></div>
+    <div class="voetje rv" style="--d:4">
+      <span><span class="st">★★★★★</span><b>4,9</b> uit 103 Google-reviews</span>
+      <span>Diestsestraat 118C, Leuven</span>
     </div>
   </div>
+  <figure class="beeld">
+    <img src="img/hero.webp" alt="De winkel van Manifest Paradise: een lange gang vol kamerplanten en bonsai onder grote witte hanglampen" width="1600" height="2000" fetchpriority="high">
+    <figcaption>De winkel in de Diestsestraat</figcaption>
+  </figure>
 </section>
 
 <main>
-<section class="drie" id="winkel">
+<section class="rond" id="winkel">
   <div class="wrap">
     <div class="kop">
-      <div><span class="lab rv"><img src="img/zon.webp" alt="" width="18" height="18">In de winkel</span><h2 class="rv" style="--d:1">Bloemen, een jungle en een huis vol bonsai.</h2></div>
-      <p class="rv" style="--d:2">Wie binnenstapt, ruikt eerst de bloemen. Wie doorloopt, staat tussen de palmen en varens. En overal staan bonsai, voor binnen en voor buiten.</p>
+      <div><span class="lab rv">Wandel even mee</span><h2 class="rv" style="--d:1">Loop gerust door tot helemaal achteraan.</h2></div>
+      <p class="rv" style="--d:2">Van buitenaf lijkt het een bloemenwinkel. Eenmaal binnen gaat het nog een heel eind door: eerst de emmers met verse bloemen, dan de tafels vol bonsai, en achteraan een kleine jungle voor wie groen in huis wil.</p>
     </div>
-    <div class="dgrid">
-      <article class="dk rv"><figure><img src="img/bloemen.webp" alt="Kleurrijk bloemstuk met rozen, anthurium en orchideeën" width="1000" height="1250" loading="lazy"></figure><div class="t"><h3>Bloemen</h3><p>Snijbloemen, boeketten en bloemstukken op bestelling. We leveren ook aan huis.</p><ul><li>Boeketten</li><li>Bloemstukken</li><li>Levering</li></ul></div></article>
-      <article class="dk rv" style="--d:1"><figure><img src="img/jungle.webp" alt="Rij kamerplanten met mosstokken voor de beschilderde muur met een paradijstuin" width="1000" height="1250" loading="lazy"></figure><div class="t"><h3>Urban jungle</h3><p>Achteraan in de winkel: orchideeën, bromelia's, Tillandsia's, varens, palmen, Strelitzia's, Alocasia's, cactussen en terrariums. Potten vind je er ook.</p><ul><li>Kamerplanten</li><li>Terras en balkon</li><li>Potten</li></ul></div></article>
-      <article class="dk hl rv" style="--d:2"><figure><img src="img/bonsai.webp" alt="Bonsai met een kronkelende stam in een lage, donkere schaal" width="1000" height="908" loading="lazy"></figure><div class="t"><h3>House of Bonsai</h3><p>Tientallen soorten, voor binnen en voor buiten. Met uitleg erbij, zodat je boompje het bij jou ook goed doet.</p><ul><li>Binnen</li><li>Buiten</li><li>Advies</li></ul></div></article>
+    <div class="route">
+      <article class="stop rv">
+        <span class="nr">1</span>
+        <span class="waar">Vooraan</span>
+        <h3>Bloemen en boeketten</h3>
+        <p>Snijbloemen per steel, een boeket terwijl je wacht of een bloemstuk op bestelling. Niet in de buurt? We brengen het ook aan huis.</p>
+        <figure><img src="img/b6.webp" alt="Emmers met verse bloemen en pampas vooraan in de winkel" width="720" height="1280" loading="lazy"></figure>
+      </article>
+      <article class="stop rv" style="--d:1">
+        <span class="nr">2</span>
+        <span class="waar">In het midden</span>
+        <h3>House of Bonsai</h3>
+        <p>Tientallen bonsai, voor op de vensterbank en voor buiten op het terras. Elk boompje gaat mee met uitleg over water, licht en snoeien.</p>
+        <figure><img src="img/bonsai.webp" alt="Bonsai met een kronkelende stam in een lage, donkere schaal, met een label aan een tak" width="1000" height="908" loading="lazy"></figure>
+      </article>
+      <article class="stop rv" style="--d:2">
+        <span class="nr">3</span>
+        <span class="waar">Achteraan</span>
+        <h3>Urban jungle</h3>
+        <p>Voor de muurschildering van het paradijs staan de kamerplanten, met potten om ze in te zetten.</p>
+        <p class="soorten">Orchideeën, bromelia's, Tillandsia's, varens, palmen, Strelitzia's, Alocasia's, cactussen <span>en terrariums.</span></p>
+        <figure><img src="img/jungle.webp" alt="Rij kamerplanten met mosstokken voor de beschilderde muur met een paradijstuin" width="1000" height="1250" loading="lazy"></figure>
+      </article>
     </div>
   </div>
 </section>
 
-<section class="ws" id="workshop">
-  <div class="tekst">
-    <span class="lab rv">Tweedelige bonsaiworkshop</span>
-    <h2 class="rv" style="--d:1">Twee donderdagavonden. Eén eigen bonsai.</h2>
-    <p class="in2 rv" style="--d:2">In de winkel, tussen de bomen. De eerste avond: wat is bonsai, hoe worden ze gemaakt en verzorgd, welke stijlen en soorten zijn er. De tweede avond krijgt iedereen een eigen bonsai om mee aan de slag te gaan. Je gaat naar huis met een fris geknipt boompje.</p>
-    <div class="avond rv" style="--d:3">
-      <div><b>Avond 1</b><span>Donderdag van 19u tot 20u30. Theorie, stijlen, soorten, tips en tricks.</span></div>
-      <div><b>Avond 2</b><span>De donderdag erna. Aan de slag met je eigen bonsai.</span></div>
-    </div>
-    <div class="prijsr rv" style="--d:4">
-      <strong>€ 90</strong><small>per persoon, inclusief bonsaiboompje, schaar en meststof</small>
-      <a class="knop wit" href="mailto:info@manifestparadise.be?subject=Bonsaiworkshop">Inschrijven via mail</a>
-    </div>
-  </div>
-  <div class="foto"><img src="img/rek.webp" alt="Rekken met bonsai en jonge boompjes in de winkel" width="1000" height="1333" loading="lazy"></div>
-</section>
-
-<div class="band" aria-label="Uit de winkel">
-  <figure><img src="img/b1.webp" alt="Rond bloemstuk met roze dahlia's en rozen" width="1000" height="1250" loading="lazy"></figure>
-  <figure><img src="img/b2.webp" alt="Begonia met zilvergevlekte bladeren" width="1000" height="1250" loading="lazy"></figure>
-  <figure><img src="img/b3.webp" alt="Bloemstuk in dieprood en roze op de winkelvloer" width="1000" height="1250" loading="lazy"></figure>
-  <figure><img src="img/b4.webp" alt="Yucca in een grijze pot" width="1000" height="1250" loading="lazy"></figure>
-  <figure><img src="img/b5.webp" alt="Bloeiende Heliconia tussen grote groene bladeren" width="1000" height="1011" loading="lazy"></figure>
-  <figure><img src="img/b6.webp" alt="Emmers met verse bloemen en pampas in de winkel" width="720" height="1280" loading="lazy"></figure>
-</div>
-
-<section class="verhaal" id="verhaal">
+<section class="bonsai" id="bonsai">
   <div class="wrap grid">
     <div class="fotos rv">
-      <img class="groot" src="img/werk.webp" alt="Grote witte bloemschaal op de toonbank, met bonsai in de rekken erachter" width="1000" height="1250" loading="lazy">
-      <img class="klein" src="img/duo.webp" alt="Peter en Tom samen in de winkel" width="750" height="500" loading="lazy">
+      <img src="img/rek.webp" alt="Rekken met bonsai en jonge boompjes in de winkel" width="1000" height="1333" loading="lazy">
+    </div>
+    <div>
+      <span class="lab rv">Bonsaiworkshop in twee avonden</span>
+      <h2 class="rv" style="--d:1">Na twee donderdagen staat er een bonsai van jou thuis.</h2>
+      <p class="in2 rv" style="--d:2">We geven de workshop gewoon in de winkel, tussen de bomen. De eerste avond vertellen we wat bonsai is, hoe ze gemaakt en verzorgd worden en welke stijlen en soorten er zijn. De tweede avond krijg je een eigen boompje en ga je er zelf mee aan de slag. Je neemt het mee naar huis, vers geknipt.</p>
+      <div class="label rv" style="--d:3">
+        <p class="t">Workshop</p>
+        <h3>Bonsai voor beginners</h3>
+        <dl>
+          <dt>Avond 1</dt><dd>Donderdag, 19u tot 20u30. Theorie, stijlen, soorten, tips en tricks.</dd>
+          <dt>Avond 2</dt><dd>De donderdag erna. Je werkt aan je eigen bonsai.</dd>
+          <dt>Inbegrepen</dt><dd>Je bonsaiboompje, een schaar en meststof.</dd>
+        </dl>
+        <div class="prijs">
+          <strong>€ 90<small>per persoon</small></strong>
+          <a class="knop rood" href="mailto:info@manifestparadise.be?subject=Inschrijving%20bonsaiworkshop">Inschrijven via mail</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="duo" id="peter-en-tom">
+  <div class="wrap grid">
+    <div class="fotos rv">
+      <img class="a" src="img/duo.webp" alt="Peter en Tom samen in de winkel" width="750" height="500" loading="lazy">
+      <img class="b" src="img/werk.webp" alt="Grote witte bloemschaal op de toonbank, met bonsai in de rekken erachter" width="1000" height="1250" loading="lazy">
     </div>
     <div class="tekst">
       <span class="lab rv">Peter en Tom</span>
-      <h2 class="rv" style="--d:1">Kies manifest voor Paradise.</h2>
-      <p class="rv" style="--d:2">Peter maakte op zijn achtste al bloemstukken en won er op zijn elfde een wedstrijd mee. Zijn grootouders hadden vroeger zelf een bloemen- en plantenwinkel. In '98 studeerde hij met onderscheiding af als landschaps- en tuinarchitect, met een stage bij het ontwerpbureau van de stad Barcelona.</p>
-      <p class="rv" style="--d:3">Tom kwam via een leercontract in een bloemenwinkel terecht en vond er zijn vak. Twee verschillende achtergronden, één winkel. En die vullen elkaar aan.</p>
-      <div class="duoq rv" style="--d:4"><q>Tom zet een plant waar hij het mooiste staat. Peter zet hem waar hij het beste kan groeien.</q><small>Zo werken ze samen, volgens henzelf</small></div>
-      <div class="tuin rv" style="--d:5"><span>Ook tuinarchitectuur</span><span>Tuinwerken</span><span>Gevel, terras en balkon</span></div>
+      <h2 class="rv" style="--d:1">Twee vakmannen, één winkel.</h2>
+      <p class="rv" style="--d:2">Peter maakte op zijn achtste al bloemstukken en won er op zijn elfde een wedstrijd mee. Zijn grootouders hadden zelf een bloemen- en plantenwinkel, dus het zat er vroeg in. In '98 studeerde hij met onderscheiding af als <b>landschaps- en tuinarchitect</b>, met een stage bij het ontwerpbureau van de stad Barcelona.</p>
+      <p class="rv" style="--d:3">Tom kwam via een leercontract in een bloemenwinkel terecht en vond er zijn vak. Hij kijkt naar kleur en vorm, Peter naar licht en grond. Daarom vragen ze je ook waar je plant thuis komt te staan.</p>
+      <div class="citaat rv" style="--d:4"><q>Tom zet een plant waar hij het mooiste staat. Peter zet hem waar hij het beste kan groeien.</q><small>Zo werken ze samen, in hun eigen woorden</small></div>
+      <div class="plan rv" style="--d:5">
+        <h3>Ook voor je tuin</h3>
+        <p>Peter tekent en legt ook tuinen aan. Van een ontwerp op papier tot de planten in de grond.</p>
+        <ul><li>Tuinarchitectuur</li><li>Tuinwerken</li><li>Gevels</li><li>Terras en balkon</li></ul>
+        <a class="knop bos" href="mailto:info@manifestparadise.be?subject=Vraag%20over%20onze%20tuin">Vraag Peter naar je tuin</a>
+      </div>
     </div>
+  </div>
+</section>
+
+<section aria-label="Uit de winkel">
+  <div class="wrap bandkop">
+    <h2 class="rv">Wat er deze herfst over de toonbank ging.</h2>
+    <a class="rv" href="https://www.instagram.com/manifestparadise.be/" target="_blank" rel="noopener">Meer op Instagram</a>
+  </div>
+  <div class="band">
+    <figure><img src="img/bloemen.webp" alt="Kleurrijk bloemstuk met rozen, anthurium en orchideeën" width="1000" height="1250" loading="lazy"><figcaption>Bloemstuk op bestelling</figcaption></figure>
+    <figure><img src="img/b1.webp" alt="Rond bloemstuk met roze dahlia's en rozen" width="1000" height="1250" loading="lazy"></figure>
+    <figure><img src="img/b5.webp" alt="Bloeiende Heliconia tussen grote groene bladeren" width="1000" height="1011" loading="lazy"><figcaption>Heliconia</figcaption></figure>
+    <figure><img src="img/b2.webp" alt="Begonia met zilvergevlekte bladeren" width="1000" height="1250" loading="lazy"></figure>
+    <figure><img src="img/b3.webp" alt="Bloemstuk in dieprood en roze op de winkelvloer" width="1000" height="1250" loading="lazy"></figure>
   </div>
 </section>
 
 <section class="rev" aria-label="Reviews">
-  <div class="wrap">
-    <div class="kop">
-      <div><span class="lab rv">4,9 uit 103 reviews</span><h2 class="rv" style="--d:1">Zo klinkt een bezoekje.</h2></div>
+  <div class="wrap grid">
+    <div class="groot rv">
+      <div class="score"><strong>4,9</strong><span><span class="st">★★★★★</span>103 reviews op Google</span></div>
+      <q>Wat een gepassioneerde man! Passie en liefde voor de bonsai in overvloed. Doet deugd om in deze consumptiemaatschappij nog eens zo een verkoper tegen te komen.</q>
+      <p class="wie"><b>Inge Deschuyffeleer</b>, op Google</p>
     </div>
-    <div class="rgrid">
-      <div class="rk rv"><span class="st">★★★★★</span><p>"Wat een gepassioneerde man! Passie en liefde voor de bonsai in overvloed. Doet deugd om in deze consumptiemaatschappij nog eens zo een verkoper tegen te komen."</p><b>Inge Deschuyffeleer<small>Google-review</small></b></div>
-      <div class="rk rv" style="--d:1"><span class="st">★★★★★</span><p>"Uitzonderlijke service met de glimlach! De winkel is uiterst verzorgd, een streling voor het oog. Men geeft met veel plezier gepersonaliseerd advies."</p><b>Emilie Stevens<small>Google-review</small></b></div>
-      <div class="rk rv" style="--d:2"><span class="st">★★★★★</span><p>"Wat een mooie nieuwe locatie. Super mooi boeketje laten maken. De geur van echte bloemen, de kleuren en de coole bonsai bomen. Tot binnenkort, heb een nieuwe meerwaarde gevonden in Leuven"</p><b>Bram Parola<small>Google-review</small></b></div>
-      <div class="rk rv" style="--d:3"><span class="st">★★★★★</span><p>"AI stuurde me vandaag naar Manifest Paradise voor m'n zoektocht naar een zonnevanger die ik dringend nodig had om cadeau te doen. Al vaak aan het winkeltje gepasseerd, nog nooit binnen..."</p><b>Kristin Grisez<small>Google-review</small></b></div>
+    <div class="klein">
+      <div class="rk rv" style="--d:1"><p>"Wat een mooie nieuwe locatie. Super mooi boeketje laten maken. De geur van echte bloemen, de kleuren en de coole bonsai bomen."</p><b>Bram Parola <span>op Google</span></b></div>
+      <div class="rk rv" style="--d:2"><p>"Uitzonderlijke service met de glimlach! De winkel is uiterst verzorgd, een streling voor het oog. Men geeft met veel plezier gepersonaliseerd advies."</p><b>Emilie Stevens <span>op Google</span></b></div>
     </div>
   </div>
 </section>
@@ -315,23 +381,23 @@ h1,h2,h3{font-family:'Gabarito',sans-serif;font-weight:700;line-height:1;letter-
     <div>
       <span class="lab rv">Kom langs</span>
       <h2 class="rv" style="--d:1">Diestsestraat 118C, tussen station en centrum.</h2>
-      <p class="in2 rv" style="--d:2">Een boeket bestellen of een vraag over je plant? Stuur een berichtje of bel even. Bloemen leveren we ook aan huis.</p>
+      <p class="in2 rv" style="--d:2">Even binnenspringen mag altijd. Een boeket bestellen of een vraag over een plant die thuis gele blaadjes krijgt? Stuur een berichtje of bel, dan helpen we je verder.</p>
       <ul class="uren rv" style="--d:3">
-        <li><span>Maandag</span>Gesloten</li>
+        <li class="dicht"><span>Maandag</span>Gesloten</li>
         <li><span>Dinsdag</span>10u tot 18u</li>
-        <li><span>Woensdag</span>Gesloten</li>
+        <li class="dicht"><span>Woensdag</span>Gesloten</li>
         <li><span>Donderdag tot zaterdag</span>10u tot 18u</li>
-        <li><span>Zondag</span>Gesloten</li>
+        <li class="dicht"><span>Zondag</span>Gesloten</li>
       </ul>
       <div class="acties rv" style="--d:4">
         <a class="knop rood" href="https://wa.me/32495578203" target="_blank" rel="noopener">0495 57 82 03</a>
-        <a class="knop glas" href="mailto:info@manifestparadise.be">info@manifestparadise.be</a>
+        <a class="knop lijn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Diestsestraat+118C+3000+Leuven" target="_blank" rel="noopener">Route plannen</a>
       </div>
     </div>
-    <div class="foto rv" style="--d:2">
-      <img src="img/gang.webp" alt="De winkel met hanglampen, planten aan beide kanten en bonsai op de toonbank" width="799" height="999" loading="lazy">
-      <div class="adres"><img src="img/zon.webp" alt="" width="40" height="40"><div><b>Manifest Paradise</b>Diestsestraat 118C, 3000 Leuven</div></div>
-    </div>
+    <figure class="foto rv" style="--d:2">
+      <img src="img/b4.webp" alt="Yucca met een dikke stam op de toonbank, voor de muurschildering van het paradijs" width="1000" height="1250" loading="lazy">
+      <figcaption><b>Manifest Paradise</b>Diestsestraat 118C, 3000 Leuven<br>info@manifestparadise.be</figcaption>
+    </figure>
   </div>
 </section>
 </main>
@@ -339,7 +405,7 @@ h1,h2,h3{font-family:'Gabarito',sans-serif;font-weight:700;line-height:1;letter-
 <footer class="voet">
   <div class="wrap">
     <div class="rij">
-      <div><a href="#top" class="merk"><img src="img/zon.webp" alt="" width="492" height="492">MANIFEST <span>PARADISE</span></a><p class="zin">Bloemen, planten en House of Bonsai in Leuven. Plus tuinarchitectuur en tuinwerken.</p></div>
+      <div><a href="#top" class="merk"><img src="img/zon.webp" alt="" width="492" height="492">MANIFEST <span>PARADISE</span></a><p class="zin">Bloemen, kamerplanten en House of Bonsai in Leuven. Plus tuinarchitectuur en tuinwerken.</p></div>
       <div><h4>Winkel</h4><ul><li>Diestsestraat 118C</li><li>3000 Leuven</li></ul></div>
       <div><h4>Contact</h4><ul><li><a href="https://wa.me/32495578203">0495 57 82 03</a></li><li><a href="mailto:info@manifestparadise.be">info@manifestparadise.be</a></li></ul></div>
       <div><h4>Volg ons</h4><ul><li><a href="https://www.instagram.com/manifestparadise.be/" target="_blank" rel="noopener">@manifestparadise.be</a></li></ul></div>
