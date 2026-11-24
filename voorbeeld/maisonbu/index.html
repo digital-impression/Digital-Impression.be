@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Maison BU · Hair, beauty en Bar BU in Hasselt</title>
-<meta name="description" content="Maison BU aan de Havermarkt in Hasselt: kapsalon, beautylab en Bar BU onder één dak. Team Maison BU by Kristof Buelens.">
+<title>Maison BU · Kapsalon, beautylab en Bar BU aan de Havermarkt in Hasselt</title>
+<meta name="description" content="Maison BU aan de Havermarkt in Hasselt: kapsalon, beautylab en Bar BU in één huis. Team Maison BU by Kristof Buelens.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,206 +12,281 @@
 <script>document.documentElement.classList.add('js')</script>
 <style>
 :root{
-  --esp:#22150f;--esp2:#2f1e16;--cog:#a4521f;--cog2:#8a4318;--perzik:#f2c7a5;--room:#f7f1ea;--greige:#ebe2d7;--wit:#fffcf8;
-  --ink:#22150f;--zacht:#6f5d52;--lijn:rgba(34,21,15,.14);
-  --ease:cubic-bezier(.2,.7,.2,1);--r:24px;
+  --esp:#22150f;--esp2:#2f1e16;--esp3:#3a271d;--cog:#a4521f;--cog2:#8a4318;--perzik:#f2c7a5;--room:#f7f1ea;--greige:#ebe2d7;--wit:#fffcf8;
+  --ink:#22150f;--zacht:#6f5d52;--lijn:rgba(34,21,15,.14);--lijnl:rgba(255,255,255,.14);
+  --ease:cubic-bezier(.2,.7,.2,1);--r:22px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--room);color:var(--ink);font:400 17.5px/1.65 'Jost',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit}
-h1,h2,h3{font-family:'Bodoni Moda',Georgia,serif;font-weight:500;line-height:1.02;letter-spacing:-.01em}
+h1,h2,h3{font-family:'Bodoni Moda',Georgia,serif;font-weight:500;line-height:1.04;letter-spacing:-.01em;font-style:normal}
 .wrap{width:min(1260px,100% - 48px);margin:0 auto}
-.demo{background:var(--esp);color:rgba(255,255,255,.72);font:400 13.5px/1.4 'Jost',sans-serif;text-align:center;padding:9px 16px;position:relative;z-index:60}
+.demo{background:var(--esp);color:rgba(255,255,255,.72);font:400 13.5px/1.4 'Jost',sans-serif;text-align:center;padding:9px 16px;position:relative;z-index:60;border-bottom:1px solid rgba(255,255,255,.08)}
 .demo a{color:var(--perzik);font-weight:600;text-underline-offset:3px}
-.lab{display:inline-block;font:500 12.5px/1 'Jost';letter-spacing:.32em;text-transform:uppercase;color:var(--cog);margin-bottom:20px}
-.knop{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:16px 28px;font:500 15px/1 'Jost';letter-spacing:.06em;text-decoration:none;transition:transform .35s var(--ease),background .3s,color .3s}
-.knop.cog{background:var(--cog);color:#fff}
-.knop.cog:hover{background:var(--cog2);transform:translateY(-2px)}
-.knop.licht{background:var(--room);color:var(--esp)}
-.knop.licht:hover{background:#fff;transform:translateY(-2px)}
-.knop.rand{border:1px solid rgba(255,255,255,.5);color:#fff}
-.knop.rand:hover{background:#fff;color:var(--esp)}
-.knop.donker{background:var(--esp);color:#fff}
+.lab{display:inline-block;font:500 12.5px/1 'Jost';letter-spacing:.3em;text-transform:uppercase;color:var(--cog);margin-bottom:20px}
+
+/* knoppen: pil met een fijne binnenrand, zoals de rand van een salonspiegel */
+.knop{position:relative;display:inline-flex;align-items:center;gap:12px;border-radius:999px;padding:17px 30px;font:500 15px/1 'Jost';letter-spacing:.08em;text-decoration:none;transition:transform .35s var(--ease),background .3s,color .3s,box-shadow .3s}
+.knop svg{width:16px;height:16px;transition:transform .35s var(--ease)}
+.knop:hover svg{transform:translateX(4px)}
+.knop.cog{background:var(--cog);color:#fff;box-shadow:inset 0 0 0 4px var(--cog),inset 0 0 0 5px rgba(255,255,255,.38)}
+.knop.cog:hover{background:var(--cog2);box-shadow:inset 0 0 0 4px var(--cog2),inset 0 0 0 5px rgba(255,255,255,.55);transform:translateY(-2px)}
+.knop.rand{color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.45)}
+.knop.rand:hover{background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px #fff}
+.knop.donker{background:var(--esp);color:#fff;box-shadow:inset 0 0 0 4px var(--esp),inset 0 0 0 5px rgba(242,199,165,.4)}
 .knop.donker:hover{background:var(--esp2);transform:translateY(-2px)}
-.js .rv{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
+.knop.lijn{color:var(--esp);box-shadow:inset 0 0 0 1px rgba(34,21,15,.35)}
+.knop.lijn:hover{box-shadow:inset 0 0 0 1px var(--esp);background:rgba(34,21,15,.04)}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
 
-/* hero */
-.hero{position:relative;display:grid;grid-template-columns:1.12fr .88fr;min-height:max(760px,calc(100svh - 38px));background:var(--esp);color:#fff;overflow:hidden}
-.hero .foto{position:relative;overflow:hidden}
-.hero .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 28%;transform:scale(1.06);transition:transform 2.6s var(--ease)}
-.hero.in .foto img{transform:none}
-.hero .foto:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(34,21,15,0) 60%,rgba(34,21,15,.9) 100%),linear-gradient(180deg,rgba(34,21,15,.55) 0%,rgba(34,21,15,0) 20%)}
-.hero .paneel{position:relative;display:flex;flex-direction:column;padding:28px clamp(26px,4vw,64px) 52px 8px}
-.navr{display:flex;justify-content:flex-end;gap:28px;align-items:center}
-.navr a{color:rgba(255,255,255,.82);text-decoration:none;font:500 13.5px/1 'Jost';letter-spacing:.2em;text-transform:uppercase}
+/* hero: één compositie, beeld rechts dat in het donkere vlak overloopt */
+.hero{position:relative;background:var(--esp);color:#fff;overflow:hidden;min-height:max(720px,calc(100svh - 38px));display:flex;flex-direction:column}
+.hero .beeld{position:absolute;top:0;right:0;bottom:0;width:58%;overflow:hidden}
+.hero .beeld img{margin-left:-2px;width:calc(100% + 4px)!important}
+.hero .beeld img{width:100%;height:100%;object-fit:cover;object-position:50% 26%;transform:scale(1.05);transition:transform 2.6s var(--ease)}
+.hero.in .beeld img{transform:none}
+.hero .beeld:after{content:"";position:absolute;inset:-2px;background:linear-gradient(90deg,var(--esp) 0%,rgba(34,21,15,.72) 18%,rgba(34,21,15,0) 52%),linear-gradient(180deg,rgba(34,21,15,.6) 0%,rgba(34,21,15,0) 18%,rgba(34,21,15,0) 70%,rgba(34,21,15,.85) 100%)}
+.kopbalk{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px clamp(24px,3.4vw,56px)}
+.merk{display:flex;align-items:center;gap:14px;text-decoration:none;font:500 15px/1 'Jost';letter-spacing:.42em}
+.merk i{display:block;width:1px;height:22px;background:rgba(255,255,255,.4)}
+.merk small{font-size:11.5px;letter-spacing:.3em;color:rgba(255,255,255,.62)}
+.navr{display:flex;gap:30px;align-items:center}
+.navr a{color:rgba(255,255,255,.82);text-decoration:none;font:500 13px/1 'Jost';letter-spacing:.22em;text-transform:uppercase;transition:color .3s}
 .navr a:hover{color:var(--perzik)}
-.woord{position:absolute;top:26px;left:clamp(24px,3vw,48px);z-index:3;color:#fff;text-decoration:none;font:500 15px/1 'Jost';letter-spacing:.42em}
-.hero .inh{margin-top:auto;display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:end}
-.hero .inh>img{width:84px;height:auto;opacity:.95}
+.navr .knop{padding:13px 22px;font-size:13px}
+.hero .inh{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;padding:20px clamp(24px,3.4vw,56px) 0;max-width:min(720px,54%)}
 .hero .lab{color:var(--perzik)}
-.hero h1{font-size:clamp(46px,4.6vw,76px)}
-.hero h1 span{color:var(--perzik)}
-.hero p.lead{color:rgba(255,255,255,.8);margin:22px 0 30px;max-width:27em}
+.hero h1{font-size:clamp(50px,5.6vw,86px);line-height:.98;letter-spacing:-.02em}
+.hero p.lead{color:rgba(255,255,255,.8);margin:28px 0 34px;max-width:28em;font-size:18px}
 .hero .acties{display:flex;flex-wrap:wrap;gap:12px}
-.score{position:absolute;left:clamp(24px,3vw,48px);bottom:40px;z-index:3;background:var(--room);color:var(--ink);border-radius:20px;padding:16px 22px 16px 18px;display:flex;align-items:center;gap:14px}
-.score strong{font:600 44px/1 'Bodoni Moda';color:var(--cog)}
-.score span{display:block;font-size:13.5px;line-height:1.4;color:var(--zacht)}
-.score .st{color:#c98a2a;letter-spacing:3px;font-size:15px}
+.hero .voet{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:0;margin:56px clamp(24px,3.4vw,56px) 0;border-top:1px solid var(--lijnl);max-width:min(720px,calc(54% - 56px))}
+.hero .voet div{padding:20px 34px 30px 0;margin-right:34px;border-right:1px solid var(--lijnl);font-size:14px;line-height:1.45;color:rgba(255,255,255,.66)}
+.hero .voet div:last-child{border-right:0;margin-right:0}
+.hero .voet b{display:block;font:500 22px/1.2 'Bodoni Moda';color:#fff;margin-bottom:4px}
+.hero .voet b span{color:#d9a35c;font:400 14px/1 'Jost';letter-spacing:2px;margin-left:6px;vertical-align:3px}
 
-/* drie werelden */
-.werelden{padding:120px 0 110px}
-.kop{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;margin-bottom:52px}
-.kop h2{font-size:clamp(42px,4.6vw,66px);max-width:11em}
+/* maison: drie ruimtes, ongelijk opgebouwd */
+.maison{padding:130px 0 120px}
+.kop{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end;margin-bottom:56px}
+.kop h2{font-size:clamp(42px,4.6vw,68px);max-width:11em}
 .kop p{color:var(--zacht);max-width:31em}
-.wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.wk{background:var(--wit);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 0 var(--lijn),0 26px 50px -40px rgba(34,21,15,.6)}
-.wk figure{aspect-ratio:4/5;overflow:hidden;position:relative}
-.wk figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
-.wk:hover figure img{transform:scale(1.05)}
-.wk figure span{position:absolute;top:16px;left:16px;background:var(--room);font:500 12px/1 'Jost';letter-spacing:.24em;text-transform:uppercase;padding:10px 14px;border-radius:999px}
-.wk .t{padding:26px 28px 28px}
-.wk h3{font-size:34px;margin-bottom:10px}
-.wk p{color:var(--zacht);font-size:16px}
-.wk ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.wk li{font-size:13.5px;border:1px solid var(--lijn);border-radius:999px;padding:7px 12px}
+.hair{display:grid;grid-template-columns:1fr 1.08fr;background:var(--wit);border-radius:var(--r);overflow:hidden;box-shadow:0 1px 0 var(--lijn),0 34px 60px -46px rgba(34,21,15,.6)}
+.hair figure{position:relative;min-height:620px}
+.hair figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.hair .t{padding:56px 56px 50px;display:flex;flex-direction:column}
+.nr{font:500 13px/1 'Jost';letter-spacing:.26em;text-transform:uppercase;color:var(--cog);display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.nr:after{content:"";flex:1;height:1px;background:var(--lijn)}
+.hair h3{font-size:clamp(36px,3.4vw,50px);margin-bottom:16px}
+.hair .t>p{color:var(--zacht);max-width:30em}
+.dienst{list-style:none;margin-top:30px;border-top:1px solid var(--lijn)}
+.dienst li{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:17px 0;border-bottom:1px solid var(--lijn)}
+.dienst b{font:500 20px/1.3 'Bodoni Moda'}
+.dienst span{color:var(--zacht);font-size:16px}
+.merken{margin-top:auto;padding-top:30px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;font-size:13.5px;color:var(--zacht);letter-spacing:.04em}
+.merken strong{font:500 15px/1 'Jost';letter-spacing:.32em;text-transform:uppercase;color:var(--ink)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
+.paneel{display:grid;grid-template-columns:.86fr 1fr;border-radius:var(--r);overflow:hidden;background:var(--wit);box-shadow:0 1px 0 var(--lijn),0 30px 54px -46px rgba(34,21,15,.6)}
+.paneel.bar{background:var(--esp);color:#fff}
+.paneel figure{position:relative;min-height:400px}
+.paneel figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.paneel .t{padding:38px 34px 34px;display:flex;flex-direction:column}
+.paneel h3{font-size:34px;margin-bottom:12px}
+.paneel p{color:var(--zacht);font-size:16px}
+.paneel.bar p{color:rgba(255,255,255,.72)}
+.paneel.bar .nr{color:var(--perzik)}
+.paneel.bar .nr:after{background:var(--lijnl)}
+.mini{list-style:none;margin-top:auto;padding-top:22px}
+.mini li{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid var(--lijn);font-size:15px}
+.paneel.bar .mini li{border-color:var(--lijnl)}
+.mini li span{color:var(--zacht)}
+.paneel.bar .mini li span{color:rgba(255,255,255,.6)}
 
-/* band */
-.band{display:grid;grid-template-columns:repeat(5,1fr);background:var(--esp)}
-.band figure{position:relative;aspect-ratio:2/3;overflow:hidden}
-.band img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease),filter .6s}
-.band figure:hover img{transform:scale(1.05)}
-.band figcaption{position:absolute;left:16px;right:16px;bottom:16px;z-index:2;color:#fff;font:500 18px/1.2 'Bodoni Moda'}
-.band figcaption small{display:block;font:400 13px/1.4 'Jost';opacity:.82;margin-top:4px}
-.band figure:after{content:"";position:absolute;inset:auto 0 0;height:45%;background:linear-gradient(0deg,rgba(34,21,15,.75),rgba(34,21,15,0))}
+/* recent werk */
+.werk{background:var(--esp);color:#fff;padding:100px 0 0}
+.werk .kop{margin-bottom:44px}
+.werk .kop p{color:rgba(255,255,255,.7)}
+.werk .lab{color:var(--perzik)}
+.werk .kop a{color:var(--perzik);text-underline-offset:4px}
+.strook{display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr 1.25fr;gap:4px}
+.strook figure{position:relative;aspect-ratio:3/5;overflow:hidden;background:var(--esp2)}
+.strook figure:nth-child(1),.strook figure:nth-child(5){aspect-ratio:auto}
+.strook img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.strook figure:hover img{transform:scale(1.04)}
+.strook figure:after{content:"";position:absolute;inset:auto 0 0;height:42%;background:linear-gradient(0deg,rgba(34,21,15,.82),rgba(34,21,15,0))}
+.strook figcaption{position:absolute;left:20px;right:20px;bottom:20px;z-index:2;font:500 20px/1.2 'Bodoni Moda'}
+.strook figcaption small{display:block;font:400 13.5px/1.4 'Jost';color:rgba(255,255,255,.75);margin-top:6px}
 
-/* prijzen */
+/* prijzen: de prijslijst als gedrukte kaart */
 .prijzen{background:var(--cog);color:#fff;padding:120px 0}
 .prijzen .lab{color:var(--perzik)}
-.prijzen .kop p{color:rgba(255,255,255,.84)}
-.pk{background:var(--wit);color:var(--ink);border-radius:var(--r);padding:34px 36px}
+.prijzen .kop p{color:rgba(255,255,255,.86)}
+.lijst{background:var(--wit);color:var(--ink);border-radius:var(--r);padding:44px 48px 40px;box-shadow:0 40px 80px -50px rgba(34,21,15,.8)}
+.lijst .boven{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-bottom:22px;margin-bottom:8px;border-bottom:2px solid var(--esp)}
+.lijst .boven img{width:30px;height:auto}
+.lijst .boven div{display:flex;align-items:center;gap:18px}
+.lijst .boven b{font:500 26px/1.1 'Bodoni Moda'}
+.lijst .boven small{display:block;font:500 12px/1.3 'Jost';letter-spacing:.24em;text-transform:uppercase;color:var(--zacht);margin-top:5px}
+.lijst .boven em{font-style:normal;font-size:14px;color:var(--zacht);text-align:right;max-width:16em}
+.pgrid{display:grid;grid-template-columns:1.55fr 1fr;gap:56px}
 .ptabel{width:100%;border-collapse:collapse}
-.ptabel th{font:500 12px/1 'Jost';letter-spacing:.24em;text-transform:uppercase;color:var(--zacht);text-align:right;padding:0 0 14px;border-bottom:1px solid var(--lijn)}
+.ptabel th{font:500 12px/1 'Jost';letter-spacing:.22em;text-transform:uppercase;color:var(--zacht);text-align:right;padding:18px 0 14px;border-bottom:1px solid var(--lijn)}
 .ptabel th:first-child{text-align:left}
-.ptabel td{padding:15px 0;border-bottom:1px solid var(--lijn);text-align:right;font:500 17px/1.3 'Jost';white-space:nowrap}
+.ptabel td{padding:15px 0;border-bottom:1px dotted rgba(34,21,15,.25);text-align:right;font:500 17px/1.3 'Jost';white-space:nowrap;font-variant-numeric:tabular-nums}
 .ptabel td:first-child{text-align:left;white-space:normal}
 .ptabel td b{font:500 21px/1.2 'Bodoni Moda'}
 .ptabel td small{display:block;font-size:14px;color:var(--zacht);font-weight:400}
 .ptabel tr:last-child td{border-bottom:0}
-.ptabel th+th,.ptabel td+td{padding-left:14px}
-.pduo{display:grid;grid-template-columns:1.5fr 1fr;gap:20px}
-.pside{display:grid;gap:20px;align-content:start}
-.pside .pk{padding:28px 30px}
-.pside h3{font-size:26px;margin-bottom:8px}
+.ptabel th+th,.ptabel td+td{padding-left:16px}
+.pside h3{font-size:25px;padding:18px 0 10px;border-bottom:1px solid var(--lijn)}
+.pside h3+ul{margin-bottom:22px}
 .pside ul{list-style:none}
-.pside li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--lijn);font-size:15.5px}
-.pside li:last-child{border-bottom:0}
-.pside li em{font-style:normal;font-weight:600;color:var(--cog2)}
-.pnoot{margin-top:22px;color:rgba(255,255,255,.88);font-size:15.5px;max-width:62em}
+.pside li{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px dotted rgba(34,21,15,.25);font-size:15.5px}
+.pside li em{font-style:normal;font-weight:600;color:var(--cog2);white-space:nowrap}
+.inbegrepen{margin-top:26px;padding:20px 24px;border-radius:16px;background:var(--room);display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;font-size:15.5px;color:var(--zacht)}
+.inbegrepen b{font:500 19px/1.2 'Bodoni Moda';color:var(--ink)}
+.pnoot{margin-top:24px;color:rgba(255,255,255,.9);font-size:15.5px;max-width:62em}
 
-/* private */
-.priv{padding:120px 0}
-.priv .grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-.priv .foto{position:relative}
-.priv .foto .hoofd{border-radius:var(--r);width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
-.priv .deur{position:absolute;right:-24px;bottom:-30px;width:30%;border-radius:18px;border:6px solid var(--room);box-shadow:0 26px 50px -30px rgba(34,21,15,.7)}
+/* private en membership */
+.priv{padding:130px 0}
+.priv .grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:72px;align-items:start}
+.priv .foto{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5}
+.priv .foto img{width:100%;height:100%;object-fit:cover}
+.priv .foto figcaption{position:absolute;left:24px;bottom:22px;right:24px;color:#fff;font-size:14px;letter-spacing:.06em;z-index:2}
+.priv .foto:after{content:"";position:absolute;inset:auto 0 0;height:30%;background:linear-gradient(0deg,rgba(34,21,15,.6),transparent)}
 .priv h2{font-size:clamp(42px,4.4vw,64px)}
-.priv .in2{color:var(--zacht);margin:20px 0 28px;max-width:31em}
+.priv .in2{color:var(--zacht);margin:22px 0 30px;max-width:31em}
 .vorm{list-style:none;border-top:1px solid var(--lijn)}
-.vorm li{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--lijn)}
+.vorm li{display:grid;grid-template-columns:170px 1fr;gap:20px;padding:17px 0;border-bottom:1px solid var(--lijn)}
 .vorm b{font:500 20px/1.3 'Bodoni Moda'}
 .vorm span{color:var(--zacht);font-size:16px}
-.member{margin-top:30px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px;background:var(--esp);color:#fff;border-radius:var(--r);padding:26px 30px}
-.member b{font:500 24px/1.2 'Bodoni Moda'}
-.member p{color:rgba(255,255,255,.75);font-size:15.5px;margin-top:4px;max-width:32em}
+.member{margin-top:44px;display:grid;grid-template-columns:270px 1fr;gap:34px;align-items:center}
+.kaart{position:relative;aspect-ratio:1.586/1;border-radius:16px;background:linear-gradient(135deg,#2f1e16 0%,#1a100b 60%,#2b1a12 100%);color:#fff;padding:20px 22px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 30px 50px -30px rgba(34,21,15,.9),inset 0 0 0 1px rgba(242,199,165,.22);overflow:hidden}
+.kaart:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(242,199,165,.12) 50%,transparent 60%)}
+.kaart img{width:22px;height:auto;opacity:.95}
+.kaart span{font:500 11px/1.3 'Jost';letter-spacing:.3em;text-transform:uppercase;color:var(--perzik)}
+.kaart b{display:block;font:500 15px/1.2 'Jost';letter-spacing:.32em;margin-top:4px}
+.member h3{font-size:28px;margin-bottom:8px}
+.member ul{list-style:none;margin:6px 0 20px}
+.member li{position:relative;padding:5px 0 5px 22px;color:var(--zacht);font-size:15.5px}
+.member li:before{content:"";position:absolute;left:0;top:15px;width:10px;height:1px;background:var(--cog)}
 
 /* reviews */
-.rev{padding:0 0 120px}
-.rgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.rk{background:var(--wit);border-radius:var(--r);padding:28px 26px;display:flex;flex-direction:column;gap:16px;box-shadow:0 1px 0 var(--lijn),0 24px 44px -36px rgba(34,21,15,.5)}
-.rk .st{color:#c98a2a;letter-spacing:3px;font-size:14px}
-.rk p{flex:1;font-size:16px}
-.rk b{font-weight:600;font-size:15px}
-.rk b small{display:block;font-weight:400;color:var(--zacht);font-size:13px}
+.rev{background:var(--greige);padding:120px 0}
+.rgrid{display:grid;grid-template-columns:1.05fr 1fr;gap:20px}
+.groot{background:var(--esp);color:#fff;border-radius:var(--r);padding:52px 50px;display:flex;flex-direction:column;justify-content:space-between;gap:40px;position:relative;overflow:hidden}
+.groot p{font:500 clamp(26px,2.4vw,34px)/1.3 'Bodoni Moda';letter-spacing:-.005em;position:relative}
+.groot .st,.rk .st{color:#d9a35c;letter-spacing:3px;font-size:14px}
+.wie{font-size:15px;font-weight:600}
+.wie small{display:block;font-weight:400;color:rgba(255,255,255,.6);font-size:13.5px}
+.rlijst{display:grid;gap:20px}
+.rk{background:var(--wit);border-radius:var(--r);padding:30px 32px;display:grid;grid-template-columns:1fr auto;gap:10px 20px}
+.rk p{grid-column:1/-1;font-size:16.5px}
+.rk .wie small{color:var(--zacht)}
+.rbron{margin-top:30px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:15px;color:var(--zacht)}
+.rbron b{font:500 30px/1 'Bodoni Moda';color:var(--ink)}
 
 /* contact */
-.contact{background:var(--esp);color:#fff;padding:110px 0}
-.contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.contact{background:var(--esp);color:#fff;padding:120px 0}
+.contact .grid{display:grid;grid-template-columns:1fr 1.05fr;gap:72px;align-items:center}
 .contact .lab{color:var(--perzik)}
 .contact h2{font-size:clamp(42px,4.4vw,64px)}
-.contact .in2{color:rgba(255,255,255,.75);margin:18px 0 30px;max-width:30em}
+.contact .in2{color:rgba(255,255,255,.75);margin:20px 0 32px;max-width:30em}
 .contact .acties{display:flex;flex-wrap:wrap;gap:12px}
-.ckaart{background:var(--esp2);border-radius:var(--r);overflow:hidden;display:grid;grid-template-columns:.8fr 1fr}
-.ckaart img{width:100%;height:100%;object-fit:cover}
-.ckaart .t{padding:28px 28px}
-.ckaart h3{font-size:26px;margin-bottom:6px}
-.ckaart p{color:rgba(255,255,255,.72);font-size:15.5px}
-.uren{list-style:none;margin-top:16px}
-.uren li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:14.5px}
-.uren li span{color:rgba(255,255,255,.6)}
+.adres{display:grid;grid-template-columns:2fr 1fr;gap:4px;border-radius:var(--r);overflow:hidden}
+.adres figure{position:relative;height:clamp(240px,24vw,330px);overflow:hidden;background:var(--esp2)}
+.adres figure img{width:100%;height:100%;object-fit:cover}
+.adres figure.deur img{object-position:50% 50%}
+.adres .uren{grid-column:1/-1;background:var(--esp2);padding:30px 32px}
+.adres h3{font-size:26px;margin-bottom:4px}
+.adres p{color:rgba(255,255,255,.7);font-size:15.5px}
+.urenl{list-style:none;margin-top:18px;display:grid;grid-template-columns:1fr 1fr;column-gap:34px}
+.urenl li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--lijnl);font-size:14.5px}
+.urenl li span{color:rgba(255,255,255,.6)}
 
 /* footer */
-.voet{background:var(--greige);padding:70px 0 32px}
-.voet .rij{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px}
-.voet .logo{display:flex;gap:18px;align-items:flex-end}
-.voet .logo img{width:44px;height:auto}
-.voet .zin{color:var(--zacht);max-width:20em;font-size:15.5px}
-.voet h4{font:500 12px/1 'Jost';letter-spacing:.26em;text-transform:uppercase;color:var(--cog);margin-bottom:14px}
-.voet ul{list-style:none}
-.voet li{padding:4px 0;font-size:15.5px}
-.voet li a{text-decoration:none}
-.voet .onder{margin-top:54px;padding-top:22px;border-top:1px solid var(--lijn);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:14px;color:var(--zacht)}
+.voetb{background:var(--greige);padding:70px 0 32px}
+.voetb .rij{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px}
+.voetb .logo{display:flex;gap:18px;align-items:flex-end}
+.voetb .logo img{width:44px;height:auto}
+.voetb .zin{color:var(--zacht);max-width:20em;font-size:15.5px}
+.voetb h4{font:500 12px/1 'Jost';letter-spacing:.26em;text-transform:uppercase;color:var(--cog);margin-bottom:14px}
+.voetb ul{list-style:none}
+.voetb li{padding:4px 0;font-size:15.5px}
+.voetb li a{text-decoration:none}
+.voetb .onder{margin-top:54px;padding-top:22px;border-top:1px solid var(--lijn);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:14px;color:var(--zacht)}
 
+@media (max-width:1180px){
+  .navr a:not(.knop){display:none}
+  .hero .beeld{width:62%}
+  .hero .inh{max-width:62%}
+  .hero .voet{max-width:calc(62% - 56px)}
+  .hero .voet div{padding-right:22px;margin-right:22px}
+}
 @media (max-width:1080px){
-  .navr{display:none}
-  .hero{grid-template-columns:1fr 1fr}
-  .hero .inh{grid-template-columns:1fr}
-  .hero .inh>img{display:none}
-  .wgrid{grid-template-columns:1fr 1fr}
-  .wk:last-child{grid-column:1/-1}
-  .wk:last-child figure{aspect-ratio:16/9}
-  .band{grid-template-columns:repeat(3,1fr)}
-  .band figure:nth-child(n+4){display:none}
-  .pduo{grid-template-columns:1fr}
-  .pside{grid-template-columns:1fr 1fr}
+  .hair{grid-template-columns:1fr}
+  .hair figure{min-height:0;aspect-ratio:16/10}
+  .hair .t{padding:40px 36px}
+  .duo{grid-template-columns:1fr}
+  .strook{grid-template-columns:repeat(3,1fr)}
+  .strook figure:nth-child(1),.strook figure:nth-child(5){aspect-ratio:3/5}
+  .strook figure:nth-child(n+4){display:none}
+  .pgrid{grid-template-columns:1fr;gap:10px}
   .priv .grid,.contact .grid{grid-template-columns:1fr;gap:56px}
   .priv .foto{max-width:640px}
-  .priv .deur{right:16px}
-  .rgrid{grid-template-columns:1fr 1fr}
+  .rgrid{grid-template-columns:1fr}
   .kop{grid-template-columns:1fr;gap:16px}
-  .voet .rij{grid-template-columns:1fr 1fr}
+  .voetb .rij{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  .hero{min-height:0}
+  .hero .beeld{position:relative;width:100%;height:clamp(420px,70vw,620px);order:3}
+  .hero .beeld:after{background:linear-gradient(180deg,var(--esp) 0%,rgba(34,21,15,0) 30%,rgba(34,21,15,0) 80%,rgba(34,21,15,.5) 100%)}
+  .hero .inh{max-width:none;padding-top:36px}
+  .hero .voet{max-width:none;order:2;margin-top:44px;margin-bottom:0}
 }
 @media (max-width:720px){
   body{font-size:16.5px}
   .wrap{width:calc(100% - 36px)}
-  .hero{grid-template-columns:1fr;min-height:0}
-  .hero .foto{min-height:540px;order:2}
-  .hero .foto:after{background:linear-gradient(180deg,rgba(34,21,15,.9) 0%,rgba(34,21,15,0) 30%)}
-  .hero .paneel{padding:84px 20px 44px}
-  .woord{top:24px;left:20px}
-  .score{left:18px;bottom:18px;top:auto}
-  .hero h1{font-size:44px}
-  .werelden,.priv,.prijzen,.contact{padding:84px 0}
-  .rev{padding-bottom:84px}
-  .wgrid{grid-template-columns:1fr}
-  .wk:last-child figure{aspect-ratio:4/5}
-  .band{grid-template-columns:1fr 1fr}
-  .band figure:nth-child(3){display:none}
-  .pk{padding:24px 18px}
+  .kopbalk{padding:20px 18px}
+  .merk small,.merk i{display:none}
+  .navr .knop{padding:11px 16px;font-size:12px;letter-spacing:.06em}
+  .hero .inh{padding:26px 18px 0}
+  .hero h1{font-size:clamp(44px,12vw,56px)}
+  .hero p.lead{font-size:16.5px;margin:22px 0 28px}
+  .hero .acties .knop{flex:1 1 100%;justify-content:center}
+  .hero .voet{margin:38px 18px 0;grid-template-columns:1fr 1fr}
+  .hero .voet div{padding:16px 14px 22px 0;margin-right:14px}
+  .hero .voet div:nth-child(2){border-right:0;margin-right:0}
+  .hero .voet div:nth-child(3){display:none}
+  .hero .voet b{font-size:19px}
+  .maison,.priv,.prijzen,.contact,.rev{padding:84px 0}
+  .werk{padding-top:84px}
+  .hair .t{padding:30px 22px}
+  .dienst li,.vorm li{grid-template-columns:1fr;gap:2px}
+  .paneel{grid-template-columns:1fr}
+  .paneel figure{min-height:0;aspect-ratio:4/3}
+  .paneel .t{padding:28px 22px}
+  .strook{grid-template-columns:1fr 1fr}
+  .strook figure:nth-child(3){display:none}
+  .lijst{padding:26px 18px 24px}
+  .lijst .boven{flex-direction:column;align-items:flex-start}
+  .lijst .boven em{text-align:left}
   .ptabel td b{font-size:17px}
   .ptabel td,.ptabel th{font-size:14.5px}
   .ptabel th{letter-spacing:.04em;font-size:11px}
   .ptabel th+th,.ptabel td+td{padding-left:8px}
-  .pside{grid-template-columns:1fr}
-  .vorm li{grid-template-columns:1fr;gap:4px}
+  .inbegrepen{grid-template-columns:1fr;gap:6px}
   .priv .foto{order:2}
-  .priv .deur{right:10px;bottom:-20px;width:44%}
-  .rgrid{grid-template-columns:1fr}
-  .ckaart{grid-template-columns:1fr}
-  .ckaart img{aspect-ratio:1/1}
-  .voet .rij{grid-template-columns:1fr;gap:28px}
+  .member{grid-template-columns:1fr;gap:24px}
+  .kaart{max-width:300px}
+  .groot{padding:34px 26px}
+  .rk{padding:24px 22px}
+  .adres .uren{padding:24px 20px}
+  .urenl{grid-template-columns:1fr}
+  .voetb .rij{grid-template-columns:1fr;gap:28px}
 }
 </style>
 </head>
@@ -219,61 +294,104 @@ h1,h2,h3{font-family:'Bodoni Moda',Georgia,serif;font-weight:500;line-height:1.0
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
 <section class="hero" aria-label="Maison BU">
-  <a class="woord" href="#top">MAISON BU</a>
-  <div class="foto">
-    <img src="img/hero.webp" alt="Portret van een vrouw met haar dat over haar gezicht waait, in warme tinten" width="1400" height="2100">
-    <div class="score rv" style="--d:5"><strong>4,6</strong><div><span class="st">★★★★★</span><span>162 reviews op Google</span></div></div>
-  </div>
-  <div class="paneel">
-    <nav class="navr" aria-label="Hoofdmenu"><a href="#maison">Maison</a><a href="#prijzen">Prijzen</a><a href="#private">Private</a><a href="#contact">Contact</a></nav>
-    <div class="inh">
-      <img src="img/logo-wit.webp" alt="" width="230" height="740">
-      <div>
-        <span class="lab rv">Havermarkt 31 · Hasselt</span>
-        <h1 class="rv" style="--d:1">Een nieuwe coupe, <span>een heel ander gevoel.</span></h1>
-        <p class="lead rv" style="--d:2">Kapsalon, beautylab en Bar BU onder één dak. Kristof Buelens en zijn team kijken naar uw gelaatsvorm, uw stijl en wat u zelf graag wil.</p>
-        <div class="acties rv" style="--d:3">
-          <a class="knop cog" href="mailto:hi@maisonbu.be?subject=Afspraak">Maak een afspraak</a>
-          <a class="knop rand" href="#prijzen">Bekijk de prijzen</a>
-        </div>
-      </div>
+  <div class="beeld"><img src="img/hero.webp" alt="Portret van een vrouw met haar dat over haar gezicht waait, in warme tinten" width="1400" height="2100"></div>
+  <header class="kopbalk">
+    <a class="merk" href="#top">MAISON BU <i></i><small>HASSELT</small></a>
+    <nav class="navr" aria-label="Hoofdmenu"><a href="#maison">Het huis</a><a href="#prijzen">Prijzen</a><a href="#private">Private</a><a href="#contact">Contact</a><a class="knop cog" href="mailto:hi@maisonbu.be?subject=Afspraak">Afspraak</a></nav>
+  </header>
+  <div class="inh">
+    <span class="lab rv">Hair · Beauty · Bar BU</span>
+    <h1 class="rv" style="--d:1">Een nieuwe coupe.<br> Een ander gevoel.</h1>
+    <p class="lead rv" style="--d:2">Kapsalon, beautylab en een eigen bar in één huis aan de Havermarkt. Kristof Buelens en zijn team kijken eerst naar u: uw gelaatsvorm, uw stijl en hoe u uw haar thuis draagt.</p>
+    <div class="acties rv" style="--d:3">
+      <a class="knop cog" href="mailto:hi@maisonbu.be?subject=Afspraak">Maak een afspraak <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+      <a class="knop rand" href="#prijzen">Bekijk de prijslijst</a>
     </div>
+  </div>
+  <div class="voet rv" style="--d:4">
+    <div><b>4,6<span>★★★★★</span></b>162 reviews op Google</div>
+    <div><b>Havermarkt 31</b>3500 Hasselt</div>
+    <div><b>Di tot za</b>Vrijdag tot 20u</div>
   </div>
 </section>
 
 <main>
-<section class="werelden" id="maison">
+<section class="maison" id="maison">
   <div class="wrap">
     <div class="kop">
       <div><span class="lab rv">Maison BU legt de nadruk op U</span><h2 class="rv" style="--d:1">Haar, huid en een glas champagne.</h2></div>
-      <p class="rv" style="--d:2">Terwijl uw kleur inwerkt, boekt u een manicure. Na de brushing schuift u aan voor een lunch of een apero. En een schouder- en hoofdmassage hoort er altijd bij.</p>
+      <p class="rv" style="--d:2">Terwijl uw kleur inwerkt, krijgt u een manicure. Na de brushing schuift u aan voor een lunch of een apero. U blijft gewoon in hetzelfde huis.</p>
     </div>
-    <div class="wgrid">
-      <article class="wk rv"><figure><img src="img/hair.webp" alt="Vrouw met lange, zacht gekleurde golven, van opzij" width="1000" height="1778" loading="lazy"><span>Hair</span></figure><div class="t"><h3>Artlab en Brushlab</h3><p>Kleur, snit en brushing die helemaal op u is afgestemd. We werken met Balmain, Oribe en Oway.</p><ul><li>Balayage</li><li>Extensions</li><li>Barber</li></ul></div></article>
-      <article class="wk rv" style="--d:1"><figure><img src="img/beauty.webp" alt="Vrouw met de hand in de nek, ogen dicht" width="1000" height="1250" loading="lazy"><span>Beauty</span></figure><div class="t"><h3>Beautylab</h3><p>Gelaatsverzorging van Evidens, nagels met Koh en make-up voor een gala of uw trouwdag.</p><ul><li>Gelaat</li><li>Nail lab</li><li>Bridal</li></ul></div></article>
-      <article class="wk rv" style="--d:2"><figure><img src="img/bar.webp" alt="Hand met een wijnglas waarin de wijn rondwalst" width="1000" height="1500" loading="lazy"><span>Bar BU</span></figure><div class="t"><h3>Bar BU</h3><p>Koffie, apero en champagne, met een barmenu voor ontbijt en lunch. Ook voor een vrijgezellen of netwerkevent.</p><ul><li>Ontbijt</li><li>Lunch</li><li>Events</li></ul></div></article>
+
+    <article class="hair rv">
+      <figure><img src="img/hair.webp" alt="Vrouw met lange, zacht gekleurde golven, van opzij" width="1000" height="1778" loading="lazy"></figure>
+      <div class="t">
+        <span class="nr">01 · Hair</span>
+        <h3>Artlab en Brushlab</h3>
+        <p>We beginnen nooit met de schaar. Eerst praten we: wat u mooi vindt, wat u stoort, hoeveel tijd u 's ochtends aan uw haar wil geven. Pas dan kiezen we kleur en snit.</p>
+        <ul class="dienst">
+          <li><b>Artlab</b><span>Kleur, klassieke balayage, highlights in ombre, sunkissed of baby.</span></li>
+          <li><b>Brushlab</b><span>Brushing en blowouts, van elke dag tot de Victoria's Secret blowout voor de feestdagen.</span></li>
+          <li><b>Barber</b><span>Deluxe scheren met een gezichtsmassage, of uw baard netjes in vorm.</span></li>
+          <li><b>Extensions</b><span>Altijd eerst een intake, dan weet u precies wat het wordt en wat het kost.</span></li>
+        </ul>
+        <div class="merken"><span>We werken met</span><strong>Balmain</strong><strong>Oribe</strong><strong>Oway</strong></div>
+      </div>
+    </article>
+
+    <div class="duo">
+      <article class="paneel rv">
+        <figure><img src="img/beauty.webp" alt="Vrouw met de hand in de nek, ogen dicht" width="1000" height="1250" loading="lazy"></figure>
+        <div class="t">
+          <span class="nr">02 · Beauty</span>
+          <h3>Beautylab</h3>
+          <p>Gelaatsverzorging met Evidens, nagels met Koh en make-up voor een gala of uw trouwdag.</p>
+          <ul class="mini"><li>Manicure<span>30 min</span></li><li>Biab<span>30 min</span></li><li>Bruidsmake-up<span>op afspraak</span></li></ul>
+        </div>
+      </article>
+      <article class="paneel bar rv" style="--d:1">
+        <figure><img src="img/bar.webp" alt="Hand met een wijnglas waarin de wijn rondwalst" width="1000" height="1500" loading="lazy"></figure>
+        <div class="t">
+          <span class="nr">03 · Bar BU</span>
+          <h3>Bar BU</h3>
+          <p>Een koffie bij het binnenkomen, een glas champagne bij het buitengaan. Ook voor een vrijgezellen of een netwerkevent.</p>
+          <ul class="mini"><li>Ontbijt<span>barmenu</span></li><li>Lunch<span>barmenu</span></li><li>Apero en champagne<span>aan de bar</span></li></ul>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<div class="band" aria-label="Recent werk van Maison BU">
-  <figure><img src="img/k1.webp" alt="Lange donkere golven met een warme bruintint" width="900" height="1600" loading="lazy"><figcaption>Rijke bruintint<small>Meer diepte, meer glans</small></figcaption></figure>
-  <figure><img src="img/k2.webp" alt="Bob in een warme koperkleur" width="900" height="1603" loading="lazy"><figcaption>Cowboy Coper<small>Dé herfstkleur van het seizoen</small></figcaption></figure>
-  <figure><img src="img/k3.webp" alt="Lachende gast met een nieuwe bob" width="900" height="1600" loading="lazy"><figcaption>Van lang naar bob<small>Een nieuwe coupe, een ander gevoel</small></figcaption></figure>
-  <figure><img src="img/k4.webp" alt="Volume en zachte golven bij een feestelijke blowout" width="528" height="934" loading="lazy"><figcaption>Victoria's Secret blowout<small>Volume voor de feestdagen</small></figcaption></figure>
-  <figure><img src="img/disco.webp" alt="Discoballen die in de zaak hangen" width="900" height="1600" loading="lazy"><figcaption>Feestseizoen<small>De discoballen hangen al</small></figcaption></figure>
-</div>
+<section class="werk" aria-labelledby="werk-t">
+  <div class="wrap">
+    <div class="kop">
+      <div><span class="lab rv">Recent uit de stoel</span><h2 id="werk-t" class="rv" style="--d:1">Zo gaan onze gasten de deur uit.</h2></div>
+      <p class="rv" style="--d:2">Een greep uit het najaar. Meer nieuw werk vindt u op <a href="https://www.instagram.com/maison_bu/" target="_blank" rel="noopener">@maison_bu</a>.</p>
+    </div>
+  </div>
+  <div class="strook">
+    <figure><img src="img/k1.webp" alt="Lange donkere golven met een warme bruintint" width="900" height="1600" loading="lazy"><figcaption>Rijke bruintint<small>Meer diepte, meer glans</small></figcaption></figure>
+    <figure><img src="img/k2.webp" alt="Bob in een warme koperkleur" width="900" height="1603" loading="lazy"><figcaption>Cowboy Coper<small>De herfstkleur van dit seizoen</small></figcaption></figure>
+    <figure><img src="img/k3.webp" alt="Lachende gast met een nieuwe bob" width="900" height="1600" loading="lazy"><figcaption>Van lang naar bob<small>Zacht volume, net onder de kin</small></figcaption></figure>
+    <figure><img src="img/k4.webp" alt="Volume en zachte golven bij een feestelijke blowout" width="528" height="934" loading="lazy"><figcaption>Victoria's Secret blowout<small>Volume voor de feestdagen</small></figcaption></figure>
+    <figure><img src="img/disco.webp" alt="Discoballen die in de zaak hangen" width="900" height="1600" loading="lazy"><figcaption>Feestseizoen<small>De discoballen hangen al</small></figcaption></figure>
+  </div>
+</section>
 
 <section class="prijzen" id="prijzen">
   <div class="wrap">
     <div class="kop">
       <div><span class="lab rv">Prijzen</span><h2 class="rv" style="--d:1">Alles inbegrepen, ook de massage.</h2></div>
-      <p class="rv" style="--d:2">Elk arrangement bevat een voedend bad en een massageverzorging. Kort, medium of lang haar: u ziet meteen wat het kost.</p>
+      <p class="rv" style="--d:2">Geen verrassingen aan de kassa. Kort, medium of lang haar: u ziet hier meteen wat uw afspraak kost.</p>
     </div>
-    <div class="pduo">
-      <div class="pk rv">
+    <div class="lijst rv">
+      <div class="boven">
+        <div><img src="img/logo-donker.webp" alt="" width="230" height="740"><div><b>Prijslijst</b><small>Maison BU · augustus 2026</small></div></div>
+        <em>Prijzen per arrangement, volgens de lengte van uw haar.</em>
+      </div>
+      <div class="pgrid">
         <table class="ptabel">
-          <thead><tr><th>Arrangement</th><th>Kort</th><th>Medium</th><th>Lang</th></tr></thead>
+          <thead><tr><th>Hair</th><th>Kort</th><th>Medium</th><th>Lang</th></tr></thead>
           <tbody>
             <tr><td><b>Snit</b><small>met styling</small></td><td>€ 105</td><td>€ 105</td><td>€ 105</td></tr>
             <tr><td><b>Snit en brushing</b></td><td>€ 153</td><td>€ 166</td><td>€ 186</td></tr>
@@ -284,11 +402,14 @@ h1,h2,h3{font-family:'Bodoni Moda',Georgia,serif;font-weight:500;line-height:1.0
             <tr><td><b>Keratinebehandeling</b><small>met snit en brushing</small></td><td>€ 330</td><td>€ 362</td><td>€ 397</td></tr>
           </tbody>
         </table>
+        <div class="pside">
+          <h3>Nail lab</h3>
+          <ul><li>Manicure, 30 min<em>€ 56</em></li><li>Biab, 30 min<em>€ 78</em></li><li>Gel, 60 min<em>€ 88</em></li></ul>
+          <h3>Barber en make-up</h3>
+          <ul><li>Deluxe scheren met gezichtsmassage<em>€ 69</em></li><li>Baard vormgeven<em>€ 36</em></li><li>Galamake-up<em>€ 98</em></li><li>Bruidsmake-up<em>€ 131</em></li></ul>
+        </div>
       </div>
-      <div class="pside">
-        <div class="pk rv" style="--d:1"><h3>Nail lab</h3><ul><li>Manicure, 30 min<em>€ 56</em></li><li>Biab, 30 min<em>€ 78</em></li><li>Gel, 60 min<em>€ 88</em></li></ul></div>
-        <div class="pk rv" style="--d:2"><h3>Barber en make-up</h3><ul><li>Deluxe scheren met gezichtsmassage<em>€ 69</em></li><li>Baard vormgeven<em>€ 36</em></li><li>Galamake-up<em>€ 98</em></li><li>Bruidsmake-up<em>€ 131</em></li></ul></div>
-      </div>
+      <div class="inbegrepen"><b>Bij elk arrangement</b><span>Een voedend bad en een massageverzorging voor schouders en hoofdhuid. Dat staat niet apart op de rekening.</span></div>
     </div>
     <p class="pnoot rv">Nieuw bij Maison BU? U start met een intake van 15 minuten. Extensions bespreken we tijdens die intake, net als de prijs.</p>
   </div>
@@ -296,21 +417,25 @@ h1,h2,h3{font-family:'Bodoni Moda',Georgia,serif;font-weight:500;line-height:1.0
 
 <section class="priv" id="private">
   <div class="wrap grid">
+    <figure class="foto rv"><img src="img/e2.webp" alt="Vrouw met een strakke bob, van achteren, in een zwarte jurk" width="900" height="1350" loading="lazy"><figcaption>Private hairdressing, elke dag te boeken</figcaption></figure>
     <div>
       <span class="lab rv">Private en membership</span>
       <h2 class="rv" style="--d:1">Het hele salon, alleen voor u.</h2>
-      <p class="in2 rv" style="--d:2">Liever in alle rust, met onze volle aandacht? Een private afspraak boekt u elke dag. Ook voor een groep.</p>
+      <p class="in2 rv" style="--d:2">Soms wil je gewoon geen andere stoelen naast je. Dan zetten we het salon voor u alleen klaar, of voor uw groep.</p>
       <ul class="vorm rv" style="--d:3">
-        <li><b>Private booking</b><span>Uw coiffure in privésfeer, zonder andere gasten.</span></li>
+        <li><b>Private booking</b><span>Uw coiffure in alle rust, zonder andere gasten in het salon.</span></li>
         <li><b>Impact building</b><span>Een nieuwe look voor uw team, met advies om die zelf te onderhouden.</span></li>
         <li><b>Trouwfeest</b><span>De naaste familie volledig gestyled, in het salon of op locatie.</span></li>
-        <li><b>Bubbels</b><span>Met vrienden, een andere manier van uitgaan.</span></li>
+        <li><b>Bubbels</b><span>Met vriendinnen samen onder de föhn, en daarna aan de bar.</span></li>
       </ul>
-      <div class="member rv" style="--d:4"><div><b>BU membership, vanaf € 1.250</b><p>10 % membervoordeel, een maand gratis extensions, workshops, een jaarlijks event en twee keer persoonlijk stijladvies.</p></div><a class="knop licht" href="mailto:hi@maisonbu.be?subject=Membership">Vraag info</a></div>
-    </div>
-    <div class="foto rv" style="--d:2">
-      <img class="hoofd" src="img/e2.webp" alt="Vrouw met een strakke bob, van achteren, in een zwarte jurk" width="900" height="1350" loading="lazy">
-      <img class="deur" src="img/deur.webp" alt="De deur van Maison BU met de letters BU in goud" width="216" height="432" loading="lazy">
+      <div class="member rv" style="--d:4">
+        <div class="kaart" aria-hidden="true"><img src="img/logo-wit.webp" alt="" width="230" height="740"><div><span>Membership</span><b>MAISON BU</b></div></div>
+        <div>
+          <h3>BU membership, vanaf <span style="white-space:nowrap">€ 1.250</span></h3>
+          <ul><li>10 % membervoordeel op elke afspraak</li><li>Een maand gratis extensions</li><li>Workshops en een jaarlijks event</li><li>Twee keer per jaar persoonlijk stijladvies</li></ul>
+          <a class="knop donker" href="mailto:hi@maisonbu.be?subject=Membership">Vraag info over het membership</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -318,14 +443,21 @@ h1,h2,h3{font-family:'Bodoni Moda',Georgia,serif;font-weight:500;line-height:1.0
 <section class="rev" id="reviews">
   <div class="wrap">
     <div class="kop">
-      <div><span class="lab rv">4,6 uit 162 reviews</span><h2 class="rv" style="--d:1">Wat gasten zeggen.</h2></div>
+      <div><span class="lab rv">Wat gasten zeggen</span><h2 class="rv" style="--d:1">Ze kijken echt naar u.</h2></div>
+      <p class="rv" style="--d:2">Dat schrijven gasten het vaakst over hun bezoek. Vier reviews van Google, woord voor woord.</p>
     </div>
     <div class="rgrid">
-      <div class="rk rv"><span class="st">★★★★★</span><p>"Wat een fantastische salon! Kristof en zijn team stralen rust, kwaliteit en eerlijk advies uit. Ze kijken écht naar je gezichtsvorm en wat bij je past, en geven tips over producten."</p><b>Viviane Stoltz<small>Google-review</small></b></div>
-      <div class="rk rv" style="--d:1"><span class="st">★★★★★</span><p>"Verwennerij van hoofd tot hart! Zodra je binnenstapt bij Maison Bu voel je het meteen: professionalisme, gastvrijheid en pure vakkennis. Mara straalt iedere keer als de zon."</p><b>ilaria sarcinella<small>Google-review</small></b></div>
-      <div class="rk rv" style="--d:2"><span class="st">★★★★★</span><p>"Super tevreden! Een fantastisch team van Specialisten! Je merkt de passie voor hun vak en dat ze op de hoogte zijn van de nieuwste trends. Ik krijg de hele dag door complimentjes over mijn haar."</p><b>Mariam Soghomonyan<small>Google-review</small></b></div>
-      <div class="rk rv" style="--d:3"><span class="st">★★★★★</span><p>"10/10. Het was van A tot Z super, de ontvangst waar echt geluisterd wordt naar je wensen en behoeften. Dan een kleurenanalyse (Mara, echtgenote van Kristof)."</p><b>Isabel Van der Borght<small>Google-review</small></b></div>
+      <figure class="groot rv">
+        <div><span class="st">★★★★★</span><p style="margin-top:20px">"Wat een fantastische salon! Kristof en zijn team stralen rust, kwaliteit en eerlijk advies uit. Ze kijken écht naar je gezichtsvorm en wat bij je past, en geven tips over producten."</p></div>
+        <figcaption class="wie">Viviane Stoltz<small>Google-review</small></figcaption>
+      </figure>
+      <div class="rlijst">
+        <figure class="rk rv" style="--d:1"><span class="st">★★★★★</span><p>"10/10. Het was van A tot Z super, de ontvangst waar echt geluisterd wordt naar je wensen en behoeften. Dan een kleurenanalyse (Mara, echtgenote van Kristof)."</p><figcaption class="wie">Isabel Van der Borght<small>Google-review</small></figcaption></figure>
+        <figure class="rk rv" style="--d:2"><span class="st">★★★★★</span><p>"Verwennerij van hoofd tot hart! Zodra je binnenstapt bij Maison Bu voel je het meteen: professionalisme, gastvrijheid en pure vakkennis. Mara straalt iedere keer als de zon."</p><figcaption class="wie">ilaria sarcinella<small>Google-review</small></figcaption></figure>
+        <figure class="rk rv" style="--d:3"><span class="st">★★★★★</span><p>"Je merkt de passie voor hun vak en dat ze op de hoogte zijn van de nieuwste trends. Ik krijg de hele dag door complimentjes over mijn haar."</p><figcaption class="wie">Mariam Soghomonyan<small>Google-review</small></figcaption></figure>
+      </div>
     </div>
+    <div class="rbron rv"><b>4,6</b><span>gemiddeld uit 162 reviews op Google</span></div>
   </div>
 </section>
 
@@ -333,18 +465,20 @@ h1,h2,h3{font-family:'Bodoni Moda',Georgia,serif;font-weight:500;line-height:1.0
   <div class="wrap grid">
     <div>
       <span class="lab rv">Afspraak</span>
-      <h2 class="rv" style="--d:1">Wij kijken ernaar uit u te verwelkomen.</h2>
-      <p class="in2 rv" style="--d:2">Mail ons of bel naar het salon. Een tafel aan Bar BU reserveert u op dezelfde manier.</p>
+      <h2 class="rv" style="--d:1">Kom eens binnen aan de Havermarkt.</h2>
+      <p class="in2 rv" style="--d:2">Mail ons of bel naar het salon. Zeg erbij of het uw eerste keer is, dan plannen we de intake mee in. Een tafel aan Bar BU reserveert u op dezelfde manier.</p>
       <div class="acties rv" style="--d:3">
         <a class="knop cog" href="mailto:hi@maisonbu.be">hi@maisonbu.be</a>
         <a class="knop rand" href="tel:+3211720755">011 72 07 55</a>
+        <a class="knop rand" href="https://www.google.com/maps?cid=143073267163500374" target="_blank" rel="noopener">Route</a>
       </div>
     </div>
-    <div class="ckaart rv" style="--d:2">
-      <img src="img/gevel.webp" alt="Het statige herenhuis van Maison BU aan de Havermarkt" width="500" height="500" loading="lazy">
-      <div class="t">
+    <div class="adres rv" style="--d:2">
+      <figure><img src="img/gevel.webp" alt="Het statige herenhuis van Maison BU aan de Havermarkt" width="500" height="500" loading="lazy"></figure>
+      <figure class="deur"><img src="img/deur.webp" alt="De deur van Maison BU met de letters BU in goud" width="216" height="432" loading="lazy"></figure>
+      <div class="uren">
         <h3>Havermarkt 31 tot 33</h3><p>3500 Hasselt</p>
-        <ul class="uren">
+        <ul class="urenl">
           <li><span>Di tot do</span>9u tot 13u, 14u tot 18u</li>
           <li><span>Vrijdag</span>9u tot 13u, 14u tot 20u</li>
           <li><span>Zaterdag</span>9u tot 16u</li>
@@ -356,7 +490,7 @@ h1,h2,h3{font-family:'Bodoni Moda',Georgia,serif;font-weight:500;line-height:1.0
 </section>
 </main>
 
-<footer class="voet">
+<footer class="voetb">
   <div class="wrap">
     <div class="rij">
       <div class="logo"><img src="img/logo-donker.webp" alt="Maison BU" width="230" height="740" loading="lazy"><p class="zin">Team Maison BU by Kristof Buelens. Hair, beauty en Bar BU aan de Havermarkt.</p></div>
