@@ -166,16 +166,15 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:400;letter-spacing:-.02e
 .p-shop{background:#F26A2E;color:#fff}
 
 /* winter */
-.winter{background:var(--diep);color:var(--creme);border-radius:56px;margin:150px 20px 0;padding:120px 0;position:relative;overflow:hidden}
-.winter .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
-.winter h2{font-size:clamp(46px,5.6vw,88px);color:var(--creme)}
+.winter{background:var(--diep);color:var(--creme);border-radius:44px;margin:110px 20px 0;padding:64px 0;position:relative;overflow:hidden}
+.winter .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+.winter h2{font-size:clamp(38px,4.2vw,62px);color:var(--creme)}
 .winter h2 .hand{color:var(--zon);font-size:.82em}
-.winter p{opacity:.8;font-size:18px;margin:24px 0 30px;max-width:460px}
+.winter p{opacity:.8;font-size:17px;margin:16px 0 24px;max-width:440px}
 .winter .tag{color:var(--zon)}
-.kransen{display:grid;grid-template-columns:1fr 1fr;gap:18px;position:relative}
-.kransen figure{border-radius:28px;overflow:hidden;aspect-ratio:3/4;position:relative}
-.kransen figure:nth-child(2){margin-top:70px}
-.kransen figure:nth-child(3){margin-top:-70px}
+.kransen{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;position:relative}
+.kransen figure{border-radius:20px;overflow:hidden;aspect-ratio:3/4;position:relative;margin:0}
+
 .kransen img{width:100%;height:100%;object-fit:cover}
 .gloed{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,194,61,.55),rgba(255,194,61,0) 65%);width:520px;height:520px;filter:blur(10px);animation:gloed 5s ease-in-out infinite alternate;pointer-events:none}
 @keyframes gloed{from{opacity:.35;transform:scale(.9)}to{opacity:.8;transform:scale(1.08)}}
@@ -315,8 +314,9 @@ footer{padding:90px 0 30px}
  .hor .kop{padding-bottom:30px}
  .paneel{border-radius:30px}
  .paneel .klein{width:38%;right:14px;bottom:14px}
- .winter{margin:100px 10px 0;border-radius:36px;padding:80px 0}
- .kransen figure:nth-child(2){margin-top:40px}.kransen figure:nth-child(3){margin-top:-40px}
+ .winter{margin:80px 10px 0;border-radius:30px;padding:48px 0 56px}
+ .winter .wrap{gap:30px}
+ .kransen{gap:8px}.kransen figure{border-radius:14px}
  .gal{padding:110px 0 80px}
  .kolommen{grid-template-columns:repeat(2,1fr);height:760px}
  .kol:nth-child(3){display:none}
@@ -1004,7 +1004,7 @@ mm.add('(max-width:1060px)',function(){
 gsap.utils.toArray('.kol').forEach(function(k){gsap.fromTo(k,{y:0},{y:+k.dataset.s,ease:'none',scrollTrigger:{trigger:'.kolommen',start:'top bottom',end:'bottom top',scrub:true}});});
 /* parallax foto's */
 gsap.utils.toArray('[data-p]').forEach(function(im){gsap.fromTo(im,{yPercent:-8},{yPercent:8,ease:'none',scrollTrigger:{trigger:im.parentElement,start:'top bottom',end:'bottom top',scrub:true}});});
-gsap.from('.kransen figure',{y:120,rotate:function(i){return i%2?6:-6;},stagger:.1,duration:1.4,ease:'expo.out',scrollTrigger:{trigger:'.kransen',start:'top 80%'}});
+gsap.from('.kransen figure',{opacity:0,scale:.9,rotate:function(i){return i%2?5:-5;},stagger:.08,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:'.kransen',start:'top 85%'}});
 gsap.from('.reuzenhoy',{yPercent:40,opacity:0,duration:1.6,ease:'expo.out',scrollTrigger:{trigger:'.reuzenhoy',start:'top 95%'}});
 addEventListener('load',function(){ScrollTrigger.refresh();});
 })();
