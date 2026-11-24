@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sisters Beauty Aalst · Huid, PMU, brows en nagels</title>
-<meta name="description" content="Sisters Beauty in de Pontstraat in Aalst: Hydra Facial, HIFU, laserontharing, powder brows en PMU, brow lamination, nagels en lashes. Door Siham en Delfin.">
+<title>Sisters Beauty Aalst · Huid, brows en PMU, laser en nagels</title>
+<meta name="description" content="Sisters Beauty in de Pontstraat in Aalst. Siham en Delfin doen Hydra Facial, HIFU, laserontharing, powder brows en PMU, nagels en lashes. Ook 's avonds open.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,8 +12,8 @@
 <script>document.documentElement.classList.add('js')</script>
 <style>
 :root{
-  --mag:#d3196c;--mag2:#b50f58;--roze:#fbe7ef;--blush:#fdf4f7;--pruim:#3a0d24;--pruim2:#4c1531;--goud:#c9a04e;--wit:#fff;
-  --ink:#2a1020;--zacht:#7a5d6b;--lijn:rgba(42,16,32,.12);
+  --mag:#d3196c;--mag2:#b50f58;--roze:#fbe7ef;--blush:#fdf4f7;--pruim:#3a0d24;--pruim2:#4c1531;--wit:#fff;
+  --ink:#2a1020;--zacht:#76586a;--lijn:rgba(42,16,32,.12);
   --ease:cubic-bezier(.2,.7,.2,1);--r:28px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -21,140 +21,169 @@ html{scroll-behavior:smooth}
 body{background:var(--blush);color:var(--ink);font:400 17px/1.65 'Nunito Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit}
-h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-height:1.05;letter-spacing:-.01em}
-.wrap{width:min(1260px,100% - 48px);margin:0 auto}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-style:normal;line-height:1.06;letter-spacing:-.01em}
+.wrap{width:min(1240px,100% - 48px);margin:0 auto}
 .demo{background:var(--pruim);color:rgba(255,255,255,.76);font:400 13.5px/1.4 'Nunito Sans',sans-serif;text-align:center;padding:9px 16px;position:relative;z-index:60}
 .demo a{color:#ff9fc6;font-weight:700;text-underline-offset:3px}
-.lab{display:inline-block;font:800 12px/1 'Nunito Sans';letter-spacing:.2em;text-transform:uppercase;color:var(--mag);margin-bottom:18px}
-.knop{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:16px 28px;font:700 15.5px/1 'Nunito Sans';text-decoration:none;transition:transform .35s var(--ease),background .3s,color .3s}
-.knop svg{width:18px;height:18px;flex:none}
-.knop.mag{background:var(--mag);color:#fff;box-shadow:0 14px 30px -14px rgba(211,25,108,.8)}
-.knop.mag:hover{background:var(--mag2);transform:translateY(-2px)}
-.knop.wit{background:#fff;color:var(--mag2)}
-.knop.wit:hover{transform:translateY(-2px)}
-.knop.glas{background:rgba(255,255,255,.14);color:#fff;border:1.5px solid rgba(255,255,255,.55);backdrop-filter:blur(6px)}
-.knop.glas:hover{background:#fff;color:var(--mag2)}
-.knop.rand{border:1.5px solid var(--mag);color:var(--mag)}
-.knop.rand:hover{background:var(--mag);color:#fff}
-.js .rv{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
+.lab{display:inline-flex;align-items:center;gap:10px;font:800 12px/1 'Nunito Sans';letter-spacing:.2em;text-transform:uppercase;color:var(--mag);margin-bottom:18px}
+.lab:before{content:"";width:22px;height:1.5px;background:currentColor;opacity:.6}
+
+/* knoppen: zachte pil met een rond icoon dat meeschuift */
+.knop{display:inline-flex;align-items:center;gap:14px;border-radius:999px;padding:7px 8px 7px 26px;min-height:58px;font:700 15.5px/1 'Nunito Sans';text-decoration:none;transition:background .3s,color .3s,box-shadow .3s}
+.knop i{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;flex:none;transition:transform .45s var(--ease)}
+.knop i svg{width:18px;height:18px}
+.knop:hover i{transform:translateX(4px) rotate(-8deg)}
+.knop.mag{background:var(--mag);color:#fff;box-shadow:0 16px 30px -16px rgba(211,25,108,.9)}
+.knop.mag i{background:#fff;color:var(--mag)}
+.knop.mag:hover{background:var(--mag2)}
+.knop.wit{background:#fff;color:var(--pruim)}
+.knop.wit i{background:var(--mag);color:#fff}
+.knop.lijn{padding:7px 26px;border:1.5px solid rgba(255,255,255,.5);color:#fff}
+.knop.lijn:hover{background:#fff;color:var(--pruim)}
+.knop.donker{padding:7px 26px;border:1.5px solid var(--lijn);color:var(--ink);background:#fff}
+.knop.donker:hover{border-color:var(--mag);color:var(--mag)}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
 
-/* nav */
-.nav{position:absolute;top:38px;left:0;right:0;z-index:20}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:18px}
+/* hero: één kader met foto, tekst en een uitgesneden hoek */
+.hero{padding:14px 14px 0}
+.hk{position:relative;border-radius:34px;overflow:hidden;min-height:max(720px,calc(100svh - 52px));background:var(--pruim);color:#fff;display:flex;flex-direction:column}
+.hk>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 38%}
+.hk:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(58,13,36,.92) 0%,rgba(58,13,36,.74) 32%,rgba(58,13,36,.1) 62%,rgba(58,13,36,0) 80%),linear-gradient(0deg,rgba(58,13,36,.5) 0%,rgba(58,13,36,0) 34%),linear-gradient(180deg,rgba(58,13,36,.55) 0%,rgba(58,13,36,0) 20%);pointer-events:none}
+.nav{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px 0 26px}
 .merk{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
-.merk img{width:62px;height:62px;border-radius:50%;background:#fff;padding:4px}
+.merk img{width:58px;height:58px;border-radius:50%;background:#fff;padding:4px}
 .merk b{font:700 20px/1.05 'Playfair Display';display:block}
 .merk small{font:700 10.5px/1 'Nunito Sans';letter-spacing:.3em}
-.menu{display:flex;gap:4px;background:rgba(58,13,36,.3);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:6px}
-.menu a{color:#fff;text-decoration:none;font:600 14.5px/1 'Nunito Sans';padding:11px 18px;border-radius:999px;transition:background .3s}
-.menu a:hover{background:rgba(255,255,255,.18)}
-.nav .knop{padding:13px 22px;font-size:14.5px}
-
-/* hero */
-.hero{position:relative;min-height:max(760px,100svh);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:var(--pruim)}
-.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%;transform:scale(1.06);transition:transform 2.6s var(--ease)}
-.hero.in>img{transform:none}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(58,13,36,.9) 0%,rgba(58,13,36,.62) 38%,rgba(58,13,36,.05) 70%),linear-gradient(0deg,rgba(58,13,36,.65) 0%,rgba(58,13,36,0) 40%),linear-gradient(180deg,rgba(58,13,36,.5) 0%,rgba(58,13,36,0) 22%)}
-.hero .wrap{position:relative;z-index:2}
-.hero .inh{display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px;padding-bottom:62px}
-.hero .lab{color:#ffb3d1}
-.hero h1{font-size:clamp(50px,6.4vw,96px);max-width:9em}
-.hero h1 span{color:#ff9fc6}
-.hero p.lead{font-size:clamp(17px,1.35vw,19.5px);max-width:32em;margin:24px 0 32px;color:rgba(255,255,255,.88)}
-.hero .acties{display:flex;flex-wrap:wrap;gap:12px}
-.score{background:#fff;color:var(--ink);border-radius:22px;padding:18px 24px 18px 20px;display:flex;align-items:center;gap:16px;box-shadow:0 22px 44px -20px rgba(0,0,0,.5)}
-.score strong{font:700 48px/1 'Playfair Display';color:var(--mag)}
-.score span{display:block;font-size:13.5px;line-height:1.4;color:var(--zacht)}
-.score .st{color:#e1a83b;letter-spacing:3px;font-size:15px}
+.menu{display:flex;gap:2px}
+.menu a{color:#fff;text-decoration:none;font:600 15px/1 'Nunito Sans';padding:12px 16px;border-radius:999px;transition:background .3s}
+.menu a:hover{background:rgba(255,255,255,.14)}
+.nav .knop{min-height:50px;padding:5px 6px 5px 20px;font-size:14.5px}
+.nav .knop i{width:38px;height:38px}
+.hk-tekst{position:relative;z-index:2;margin-top:auto;padding:0 clamp(26px,5vw,72px) clamp(48px,6vw,76px);max-width:760px}
+.hk-tekst .lab{color:#ffb3d1}
+.hero h1{font-size:clamp(54px,6.6vw,100px);line-height:1}
+.hero h1 span{display:block;color:#ff9fc6}
+.hero .lead{font-size:clamp(17px,1.3vw,19px);max-width:30em;margin:26px 0 34px;color:rgba(255,255,255,.88)}
+.acties{display:flex;flex-wrap:wrap;gap:12px}
+.hoek{position:absolute;z-index:3;right:0;bottom:0;background:var(--blush);color:var(--ink);border-radius:30px 0 0 0;padding:22px 30px 18px 28px;display:flex;align-items:center;gap:26px}
+.hoek:before,.hoek:after{content:"";position:absolute;width:30px;height:30px;background:radial-gradient(circle at 0 0,transparent 29.5px,var(--blush) 30px)}
+.hoek:before{right:0;bottom:100%}
+.hoek:after{right:100%;bottom:0}
+.hoek strong{font:700 46px/1 'Playfair Display';color:var(--mag)}
+.hoek .sc{display:flex;align-items:center;gap:14px}
+.hoek .st{display:block;color:#e1a83b;letter-spacing:3px;font-size:14px;line-height:1}
+.hoek small{display:block;font-size:13.5px;color:var(--zacht);margin-top:5px;line-height:1.3}
+.hoek .adr{border-left:1px solid var(--lijn);padding-left:24px;font-size:14.5px;line-height:1.45}
+.hoek .adr b{display:block;font-weight:800}
 
 /* behandelingen */
-.beh{padding:120px 0 110px}
-.kop{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;margin-bottom:52px}
-.kop h2{font-size:clamp(42px,4.6vw,66px);max-width:11em}
-.kop p{color:var(--zacht);max-width:31em}
-.bgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.bk{background:#fff;border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 0 var(--lijn),0 26px 50px -40px rgba(58,13,36,.55)}
-.bk figure{aspect-ratio:1/1.05;overflow:hidden;position:relative}
-.bk figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
-.bk:hover figure img{transform:scale(1.05)}
-.bk figure span{position:absolute;left:14px;top:14px;background:rgba(255,255,255,.94);font:700 12px/1 'Nunito Sans';padding:9px 12px;border-radius:999px;color:var(--ink)}
-.bk .t{padding:22px 24px 26px}
-.bk h3{font-size:25px;margin-bottom:12px}
-.bk ul{list-style:none}
-.bk li{display:flex;gap:10px;align-items:flex-start;padding:5px 0;font-size:15px;line-height:1.45}
-.bk li:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--mag);margin-top:7px;flex:none}
-.bk.hl{background:var(--mag);color:#fff}
-.bk.hl li:before{background:#fff}
-.bk.hl figure span{background:var(--pruim);color:#fff}
+.beh{padding:130px 0 110px}
+.kop{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:end;margin-bottom:54px}
+.kop h2{font-size:clamp(40px,4.4vw,62px);max-width:12em}
+.kop p{color:var(--zacht);max-width:30em}
+.rijen{display:grid;gap:16px}
+.rij{display:grid;grid-template-columns:300px 1fr 1.05fr;gap:clamp(24px,3.4vw,48px);align-items:center;background:#fff;border-radius:var(--r);padding:16px clamp(20px,3vw,40px) 16px 16px;box-shadow:0 1px 0 var(--lijn),0 30px 60px -48px rgba(58,13,36,.6)}
+.rij figure{border-radius:20px;overflow:hidden;aspect-ratio:4/3.1}
+.rij figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.rij:hover figure img{transform:scale(1.05)}
+.rij .nr{font:800 12.5px/1 'Nunito Sans';letter-spacing:.18em;color:var(--mag)}
+.rij h3{font-size:clamp(28px,2.4vw,34px);margin:12px 0 12px}
+.rij p{color:var(--zacht);font-size:16px;max-width:28em}
+.rij p a{color:var(--mag2);font-weight:700;text-underline-offset:3px}
+.pl{list-style:none;border-top:1px solid var(--lijn)}
+.pl li{display:flex;align-items:baseline;gap:12px;padding:11px 0;border-bottom:1px solid var(--lijn);font-size:15.5px;line-height:1.35}
+.pl li:last-child{border-bottom:0}
+.pl li span{flex:1}
+.pl li b{font:700 19px/1 'Playfair Display';color:var(--mag);white-space:nowrap}
+.pl li em{font-style:normal;font-size:13px;color:var(--zacht);white-space:nowrap}
+.rij.uit{background:var(--pruim);color:#fff}
+.rij.uit p{color:rgba(255,255,255,.74)}
+.rij.uit p a{color:#ff9fc6}
+.rij.uit .nr{color:#ff9fc6}
+.rij.uit .pl,.rij.uit .pl li{border-color:rgba(255,255,255,.14)}
+.boek{margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;padding:8px 8px 8px 30px;border-radius:999px;background:var(--roze)}
+.boek p{font-size:16px}
+.boek p b{color:var(--mag2)}
 
 /* brows */
-.brows{background:var(--pruim);color:#fff;display:grid;grid-template-columns:1fr 1fr;min-height:780px}
-.brows .duo{display:grid;grid-template-columns:1.3fr 1fr;gap:4px}
-.brows .duo div{position:relative;overflow:hidden}
-.brows .duo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.brows .tekst{padding:110px clamp(28px,6vw,96px);display:flex;flex-direction:column;justify-content:center}
+.brows{background:var(--pruim);color:#fff;padding:120px 0}
+.brows .grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,6vw,90px);align-items:center}
 .brows .lab{color:#ff9fc6}
-.brows h2{font-size:clamp(42px,4.6vw,66px);max-width:9em}
-.brows .tekst .knop{align-self:flex-start}
-.brows p.in2{margin:20px 0 28px;color:rgba(255,255,255,.8);max-width:30em}
-.pmul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:34px}
-.pmul li{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:16px 18px}
-.pmul b{display:block;font:700 19px/1.2 'Playfair Display';margin-bottom:4px}
-.pmul span{font-size:14.5px;color:rgba(255,255,255,.72);line-height:1.45}
+.brows h2{font-size:clamp(40px,4.4vw,62px);max-width:10em}
+.brows .in2{margin:20px 0 34px;color:rgba(255,255,255,.8);max-width:30em}
+.fiche{background:#fffaf6;color:var(--ink);border-radius:22px;padding:26px 28px 22px;position:relative;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.fiche:before{content:"";position:absolute;left:28px;right:28px;top:0;height:6px;border-radius:0 0 6px 6px;background:repeating-linear-gradient(90deg,var(--mag) 0 18px,transparent 18px 26px)}
+.fiche .fk{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1.5px solid var(--ink);padding-bottom:12px;margin-bottom:4px}
+.fiche .fk b{font:700 22px/1.1 'Playfair Display'}
+.fiche .fk span{font:800 11.5px/1 'Nunito Sans';letter-spacing:.16em;text-transform:uppercase;color:var(--zacht)}
+.fiche dl{display:grid;grid-template-columns:auto 1fr;font-size:15px;line-height:1.45}
+.fiche dt,.fiche dd{padding:12px 0;border-bottom:1px dashed rgba(42,16,32,.2)}
+.fiche dt{font-weight:800;padding-right:22px;white-space:nowrap}
+.fiche dd{color:var(--zacht)}
+.fiche dl>*:nth-last-child(-n+2){border-bottom:0}
+.brows .acties{margin-top:30px}
+.duo{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:auto auto;gap:14px}
+.duo figure{border-radius:24px;overflow:hidden;position:relative}
+.duo figure img{width:100%;height:100%;object-fit:cover}
+.duo .a{grid-row:1/3;aspect-ratio:3/4.3}
+.duo .b{aspect-ratio:1/1.08}
+.duo figcaption{position:absolute;left:14px;bottom:14px;background:rgba(58,13,36,.72);backdrop-filter:blur(8px);font:700 13px/1 'Nunito Sans';padding:9px 13px;border-radius:999px}
+.duo .noot{background:var(--pruim2);border-radius:24px;padding:24px 24px;font-size:15.5px;line-height:1.5;color:rgba(255,255,255,.82)}
+.duo .noot b{display:block;font:700 21px/1.2 'Playfair Display';color:#fff;margin-bottom:8px}
 
-/* prijzen */
-.prijs{padding:120px 0 110px}
-.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.pk{background:#fff;border-radius:var(--r);padding:34px 32px 30px;box-shadow:0 1px 0 var(--lijn),0 26px 50px -40px rgba(58,13,36,.55);display:flex;flex-direction:column}
-.pk .cat{font:800 12px/1 'Nunito Sans';letter-spacing:.18em;text-transform:uppercase;color:var(--zacht)}
-.pk h3{font-size:30px;margin:12px 0 10px}
-.pk p{color:var(--zacht);font-size:15.5px;flex:1}
-.pk strong{display:block;font:700 54px/1 'Playfair Display';color:var(--mag);margin-top:22px}
-.pk.hl{background:var(--roze)}
-.pnoot{margin-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;background:var(--roze);border-radius:var(--r);padding:22px 28px}
-.pnoot p{max-width:52em}
-.pnoot b{color:var(--mag2)}
-
-/* zussen */
-.zus{padding:0 0 120px}
-.zus .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
-.zus .fotos{position:relative}
-.zus .fotos .groot{border-radius:var(--r);width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:50% 40%}
-.zus .fotos .klein{position:absolute;right:-20px;bottom:0;width:44%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:22px;border:6px solid var(--blush);box-shadow:0 26px 50px -30px rgba(58,13,36,.6)}
-.zus h2{font-size:clamp(40px,4.4vw,62px)}
-.zus p{color:var(--zacht);margin-top:18px;max-width:31em}
-.zus q{display:block;margin-top:28px;padding:24px 26px;background:#fff;border-radius:22px;border-left:4px solid var(--mag);font:600 21px/1.4 'Playfair Display';quotes:none}
-.mardin{margin-top:18px;font-size:15.5px;color:var(--zacht)}
-.mardin b{color:var(--ink)}
+/* verhaal */
+.ver{padding:130px 0 120px}
+.ver .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(40px,6vw,88px);align-items:center}
+.ver figure{border-radius:var(--r);overflow:hidden;position:relative}
+.ver figure img{width:100%;height:auto;aspect-ratio:16/10.5;object-fit:cover;object-position:50% 45%}
+.ver figcaption{position:absolute;left:18px;bottom:18px;right:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.ver figcaption span{background:rgba(255,255,255,.94);border-radius:999px;padding:10px 16px;font:700 14px/1 'Nunito Sans'}
+.ver h2{font-size:clamp(40px,4.4vw,60px)}
+.ver p{color:var(--zacht);margin-top:18px;max-width:30em}
+.citaat{margin-top:28px;padding:24px 28px;background:#fff;border-radius:22px;box-shadow:0 1px 0 var(--lijn)}
+.citaat p{margin:0;color:var(--ink);font:600 20px/1.45 'Playfair Display'}
+.citaat small{display:block;margin-top:10px;font-size:14px;color:var(--zacht)}
+.opl{margin-top:70px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:28px;padding:30px 34px;border-radius:var(--r);background:var(--roze)}
+.opl .ic{width:64px;height:64px;border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--mag)}
+.opl .ic svg{width:28px;height:28px}
+.opl h3{font-size:26px;margin-bottom:6px}
+.opl p{color:var(--zacht);margin:0;max-width:40em}
 
 /* reviews */
-.rev{background:var(--roze);padding:110px 0}
-.rgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.rk{background:#fff;border-radius:var(--r);padding:28px 26px;display:flex;flex-direction:column;gap:16px}
-.rk .st{color:#e1a83b;letter-spacing:3px;font-size:14px}
-.rk p{flex:1;font-size:16px}
-.rk b{font-size:15px}
-.rk b small{display:block;font-weight:400;color:var(--zacht);font-size:13px}
+.rev{background:#fff;padding:120px 0}
+.rev .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,90px);align-items:start}
+.groot{background:var(--roze);border-radius:var(--r);padding:clamp(30px,4vw,52px)}
+.groot .st,.rl .st{color:#e1a83b;letter-spacing:3px;font-size:15px}
+.groot p{font:600 clamp(23px,2.2vw,30px)/1.38 'Playfair Display';margin:22px 0 26px}
+.groot b,.rl b{font-size:15px}
+.groot b small,.rl b small{font-weight:400;color:var(--zacht);margin-left:8px;font-size:13.5px}
+.rev h2{font-size:clamp(40px,4.4vw,60px);margin-bottom:8px}
+.rev .sub{color:var(--zacht);margin-bottom:26px}
+.rl{list-style:none}
+.rl li{padding:22px 0;border-top:1px solid var(--lijn)}
+.rl li p{margin:8px 0 10px;font-size:16.5px}
 
 /* contact */
-.contact{background:var(--mag);color:#fff;padding:110px 0}
-.contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.contact .lab{color:#ffd3e4}
-.contact h2{font-size:clamp(42px,4.6vw,66px);max-width:9em}
-.contact .in2{color:rgba(255,255,255,.88);margin:18px 0 28px;max-width:30em}
-.contact .acties{display:flex;flex-wrap:wrap;gap:12px}
+.contact{padding:0 14px 14px}
+.ck{background:var(--mag);color:#fff;border-radius:34px;padding:clamp(56px,7vw,100px) 0}
+.ck .grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.ck .lab{color:#ffd3e4}
+.ck h2{font-size:clamp(40px,4.6vw,64px);max-width:9em}
+.ck .in2{color:rgba(255,255,255,.9);margin:20px 0 30px;max-width:30em}
 .ukaart{background:#fff;color:var(--ink);border-radius:var(--r);padding:32px 34px}
-.ukaart h3{font-size:28px;margin-bottom:4px}
-.ukaart p{color:var(--zacht);margin-bottom:16px}
+.ukaart h3{font-size:28px}
+.ukaart .ad{color:var(--zacht);margin:2px 0 16px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.ukaart .ad a{color:var(--mag2);font-weight:700;text-underline-offset:3px}
 .ukaart ul{list-style:none}
-.ukaart li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--lijn);font-size:15.5px}
+.ukaart li{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--lijn);font-size:15.5px}
 .ukaart li:last-child{border-bottom:0}
 .ukaart li span{color:var(--zacht)}
+.ukaart li.dicht{color:var(--zacht)}
 
 /* footer */
-.voet{background:var(--pruim);color:rgba(255,255,255,.82);padding:70px 0 32px}
-.voet .rij{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.voet{background:var(--pruim);color:rgba(255,255,255,.82);padding:70px 0 32px;margin-top:0}
+.voet .rij2{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
 .voet .zin{margin-top:16px;max-width:24em;font-size:15.5px;color:rgba(255,255,255,.62)}
 .voet h4{font:800 12px/1 'Nunito Sans';letter-spacing:.18em;text-transform:uppercase;color:#ff9fc6;margin-bottom:14px}
 .voet ul{list-style:none}
@@ -164,72 +193,82 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-heigh
 
 @media (max-width:1080px){
   .menu{display:none}
-  .bgrid{grid-template-columns:1fr 1fr}
-  .brows{grid-template-columns:1fr}
-  .brows .duo{min-height:520px;order:2}
-  .pgrid{grid-template-columns:1fr 1fr}
-  .pk:last-child{grid-column:1/-1}
-  .zus .grid,.contact .grid{grid-template-columns:1fr;gap:56px}
-  .zus .fotos{max-width:640px;order:2}
-  .zus .fotos .klein{right:16px}
-  .rgrid{grid-template-columns:1fr 1fr}
+  .rij{grid-template-columns:240px 1fr;align-items:start}
+  .rij .pl{grid-column:1/-1}
+  .brows .grid,.ver .grid,.rev .grid,.ck .grid{grid-template-columns:1fr;gap:56px}
   .kop{grid-template-columns:1fr;gap:16px}
-  .voet .rij{grid-template-columns:1fr 1fr}
+  .voet .rij2{grid-template-columns:1fr 1fr}
 }
-@media (max-width:720px){
+@media (max-width:900px){
+  .hk{min-height:0}
+  .hk>img{position:relative;order:3;height:auto;aspect-ratio:16/11;object-position:64% 40%}
+  .hk:after{display:none}
+  .hk-tekst{order:2;margin-top:0;padding:70px 40px 44px}
+  .hoek .adr{display:none}
+}
+@media (max-width:760px){
   body{font-size:16.5px}
   .wrap{width:calc(100% - 36px)}
-  .nav .knop{display:none}
-  .merk img{width:52px;height:52px}
+  .hero{padding:10px 10px 0}
+  .hk{border-radius:26px}
+  .hk>img{aspect-ratio:1/1.02}
+  .nav{padding:16px 16px 0}
+  .nav .knop span{display:none}
+  .nav .knop{padding:5px;min-height:0}
+  .merk img{width:50px;height:50px}
   .merk b{font-size:17px}
-  .hero{min-height:max(720px,100svh)}
-  .hero>img{object-position:68% 40%}
-  .hero:after{background:linear-gradient(0deg,rgba(58,13,36,.95) 0%,rgba(58,13,36,.78) 45%,rgba(58,13,36,.25) 75%),linear-gradient(180deg,rgba(58,13,36,.55) 0%,rgba(58,13,36,0) 25%)}
-  .hero .inh{grid-template-columns:1fr;gap:24px;padding-bottom:34px}
-  .hero h1{font-size:46px}
-  .score{justify-self:start;padding:14px 18px}
-  .score strong{font-size:40px}
-  .beh,.prijs,.rev,.contact{padding:84px 0}
-  .zus{padding-bottom:84px}
-  .bgrid{grid-template-columns:1fr}
-  .brows .tekst{padding:80px 22px}
-  .brows .duo{min-height:420px}
-  .pmul{grid-template-columns:1fr}
-  .pgrid{grid-template-columns:1fr}
-  .pnoot{padding:20px}
-  .zus .fotos .klein{right:10px;width:48%}
-  .rgrid{grid-template-columns:1fr}
+  .hk-tekst{padding:52px 22px 34px}
+  .hero h1{font-size:clamp(44px,12vw,54px)}
+  .hero .lead{margin:20px 0 26px}
+  .hoek{padding:16px 20px 14px 18px;gap:16px;border-radius:24px 0 0 0}
+  .hoek:before,.hoek:after{width:24px;height:24px;background:radial-gradient(circle at 0 0,transparent 23.5px,var(--blush) 24px)}
+  .hoek strong{font-size:36px}
+  .hoek .adr{display:none}
+  .beh,.ver,.rev,.brows{padding:84px 0}
+  .rij{grid-template-columns:1fr;padding:12px 12px 8px}
+  .rij .t{padding:4px 8px}
+  .rij .pl{padding:0 8px}
+  .boek{border-radius:24px;padding:22px}
+  .duo .a{aspect-ratio:3/4;grid-row:auto}
+  .duo .b{aspect-ratio:3/4}
+  .duo .noot{grid-column:1/-1}
+  .ver figcaption span+span{display:none}
+  .fiche{padding:24px 20px 18px}
+  .fiche dl{grid-template-columns:1fr}
+  .fiche dt{padding-bottom:0;border-bottom:0}
+  .fiche dd{padding-top:4px}
+  .opl{grid-template-columns:1fr;padding:26px 22px;gap:18px}
   .ukaart{padding:26px 22px}
-  .voet .rij{grid-template-columns:1fr;gap:28px}
+  .contact{padding:0 10px 10px}
+  .ck{border-radius:26px}
+  .voet .rij2{grid-template-columns:1fr;gap:28px}
+  .knop{min-height:54px}
 }
 </style>
 </head>
 <body id="top">
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
-<header class="nav">
-  <div class="wrap">
-    <a class="merk" href="#top"><img src="img/logo.webp" alt="Sisters Beauty Aalst" width="270" height="270"><span><b>Sisters Beauty</b><small>AALST</small></span></a>
-    <nav class="menu" aria-label="Hoofdmenu"><a href="#behandelingen">Behandelingen</a><a href="#brows">Brows en PMU</a><a href="#prijzen">Prijzen</a><a href="#contact">Contact</a></nav>
-    <a class="knop mag" href="https://wa.me/32492483847" target="_blank" rel="noopener">Afspraak via WhatsApp</a>
-  </div>
-</header>
-
 <section class="hero" aria-label="Sisters Beauty Aalst">
-  <img src="img/hero.webp" alt="Vrouw met gesloten ogen tijdens een gelaatsverzorging, de schoonheidsspecialiste draagt roze handschoenen" width="1600" height="1067">
-  <div class="wrap inh">
-    <div>
-      <span class="lab rv">Pontstraat 59 · Aalst</span>
+  <div class="hk">
+    <img src="img/hero.webp" alt="Klant met gesloten ogen tijdens een gelaatsverzorging, de handen van de schoonheidsspecialiste in roze handschoenen" width="1600" height="1067">
+    <header class="nav">
+      <a class="merk" href="#top"><img src="img/logo.webp" alt="Sisters Beauty Aalst" width="270" height="270"><span><b>Sisters Beauty</b><small>AALST</small></span></a>
+      <nav class="menu" aria-label="Hoofdmenu"><a href="#behandelingen">Behandelingen</a><a href="#brows">Brows en PMU</a><a href="#salon">Over ons</a><a href="#contact">Contact</a></nav>
+      <a class="knop mag" href="https://wa.me/32492483847" target="_blank" rel="noopener"><span>Afspraak via WhatsApp</span><i><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.5Z"/></svg></i></a>
+    </header>
+    <div class="hk-tekst">
+      <span class="lab rv">Schoonheidssalon in Aalst</span>
       <h1 class="rv" style="--d:1">Be-you-tiful. <span>Be your best.</span></h1>
-      <p class="lead rv" style="--d:2">Siham en Delfin verzorgen je huid, je brows en je nagels in de Pontstraat. Van een Hydra Facial tot powder brows, met toestellen die ze elk jaar opnieuw uitkiezen.</p>
+      <p class="lead rv" style="--d:2">Bij Siham en Delfin kom je voor je huid, je brows en je nagels. Van een Hydra Facial tot powder brows die 's ochtends al klaarstaan. En op vrijdag ben je welkom tot negen uur 's avonds.</p>
       <div class="acties rv" style="--d:3">
-        <a class="knop mag" href="https://wa.me/32492483847" target="_blank" rel="noopener">Maak een afspraak</a>
-        <a class="knop glas" href="#behandelingen">Alle behandelingen</a>
+        <a class="knop mag" href="https://sistersbeauty.salonized.com" target="_blank" rel="noopener">Boek je afspraak<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+        <a class="knop lijn" href="#behandelingen">Bekijk de behandelingen</a>
       </div>
     </div>
-    <div class="score rv" style="--d:4">
-      <strong>4,7</strong>
-      <div><span class="st">★★★★★</span><span>171 reviews op Google</span></div>
+    <div class="hoek">
+      <div class="sc"><strong>4,7</strong><div><span class="st">★★★★★</span><small>171 reviews<br>op Google</small></div></div>
+      <div class="adr"><b>Pontstraat 59</b>9300 Aalst</div>
     </div>
   </div>
 </section>
@@ -238,102 +277,122 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-heigh
 <section class="beh" id="behandelingen">
   <div class="wrap">
     <div class="kop">
-      <div><span class="lab rv">Behandelingen</span><h2 class="rv" style="--d:1">Van gezicht tot vingertoppen.</h2></div>
-      <p class="rv" style="--d:2">Twijfel je wat je huid nodig heeft? Stuur een berichtje of kom langs. We bekijken samen welke behandeling bij jou past.</p>
+      <div><span class="lab rv">Behandelingen</span><h2 class="rv" style="--d:1">Van je gezicht tot je vingertoppen.</h2></div>
+      <p class="rv" style="--d:2">Weet je niet goed wat je huid nodig heeft? Stuur een berichtje of kom eens langs, dan kijken we eerst samen welke behandeling bij jou past.</p>
     </div>
-    <div class="bgrid">
-      <article class="bk rv"><figure><img src="img/huid.webp" alt="Serum wordt met een pipet op het gezicht aangebracht" width="1600" height="1067" loading="lazy"><span>Huid</span></figure><div class="t"><h3>Gelaat</h3><ul><li>Hydra Facial</li><li>Luxe gelaatsverzorging</li><li>Acne en anti-aging</li><li>Fruitzuurpeeling en dermapen</li><li>BB Glow</li></ul></div></article>
-      <article class="bk hl rv" style="--d:1"><figure><img src="img/brows.webp" alt="Close-up van verzorgde powder brows" width="1000" height="1218" loading="lazy"><span>Onze specialiteit</span></figure><div class="t"><h3>Brows en PMU</h3><ul><li>Powder brows</li><li>Lippigmentatie en eyeliner</li><li>Brow lamination en hennabrows</li><li>Epileren met touw</li></ul></div></article>
-      <article class="bk rv" style="--d:2"><figure><img src="img/laser.webp" alt="Behandeling met een rolroller op de wang, met roze handschoenen" width="1067" height="1600" loading="lazy"><span>Toestellen</span></figure><div class="t"><h3>Laser en lichaam</h3><ul><li>Laserontharing</li><li>HIFU-huidverstrakking</li><li>EM-Contouring</li><li>Salulit-cavitatie</li></ul></div></article>
-      <article class="bk rv" style="--d:3"><figure><img src="img/nagels.webp" alt="Manicure in de salon met roze handschoenen" width="1600" height="1067" loading="lazy"><span>Afwerking</span></figure><div class="t"><h3>Nagels en lashes</h3><ul><li>Manicure en nagels</li><li>Lash lift en wimperextensions</li><li>Keratinebehandeling</li><li>Tanden bleken</li></ul></div></article>
+    <div class="rijen">
+      <article class="rij rv">
+        <figure><img src="img/huid.webp" alt="Serum wordt met een pipet op een gezicht aangebracht" width="1600" height="1067" loading="lazy"></figure>
+        <div class="t"><span class="nr">01 · GELAAT</span><h3>Een frisse, gezonde huid</h3><p>Met een Hydra Facial halen we onzuiverheden en dode huidcellen tot diep uit je poriën en krijgt je huid meteen vocht terug. Ook voor acne en fijne lijntjes heb je bij ons een eigen behandeling.</p></div>
+        <ul class="pl"><li><span>Hydra Facial</span><b>€ 155</b></li><li><span>Microneedling met zalm-DNA en Hydra Facial</span><b>€ 325</b></li><li><span>Luxe gelaatsverzorging</span></li><li><span>Acne- en anti-agingbehandeling</span></li><li><span>Fruitzuurpeeling, dermapen en BB Glow</span></li></ul>
+      </article>
+      <article class="rij rv">
+        <figure><img src="img/laser.webp" alt="Behandeling op de wang met een roller, met roze handschoenen" width="1067" height="1600" loading="lazy" style="object-position:50% 30%"></figure>
+        <div class="t"><span class="nr">02 · TOESTELLEN</span><h3>Laser, HIFU en contouring</h3><p>We ontharen met een medische ICE diode laser: definitief, en sneller dan je denkt. HIFU werkt met gefocuste ultrasound en zet je eigen collageen aan het werk, zodat je huid stevig aanvoelt.</p></div>
+        <ul class="pl"><li><span>HIFU volledig gezicht</span><b>€ 299</b></li><li><span>Definitieve laserontharing</span></li><li><span>EM-Contouring</span></li><li><span>Cavitatie</span></li></ul>
+      </article>
+      <article class="rij uit rv">
+        <figure><img src="img/brows.webp" alt="Close-up van pas gezette powder brows" width="1000" height="1218" loading="lazy"></figure>
+        <div class="t"><span class="nr">03 · BROWS EN PMU</span><h3>Wenkbrauwen, lippen en lijntjes</h3><p>Ons visitekaartje. Powder brows, lippigmentatie of een eyeliner die blijft staan. Meer daarover <a href="#brows">hieronder</a>.</p></div>
+        <ul class="pl"><li><span>Powder brows</span></li><li><span>Lippigmentatie en eyeliner</span></li><li><span>Brow lamination en henna brows</span></li><li><span>Epileren met touw</span></li></ul>
+      </article>
+      <article class="rij rv">
+        <figure><img src="img/nagels.webp" alt="Manicure aan de nageltafel in de salon" width="1600" height="1067" loading="lazy"></figure>
+        <div class="t"><span class="nr">04 · AFWERKING</span><h3>Nagels, lashes en meer</h3><p>Een uitgebreide manicure, een lash lift voor open ogen of een keratinebehandeling voor je haar. De kleine dingen die je hele week net iets mooier maken.</p></div>
+        <ul class="pl"><li><span>Manicure en nagels</span></li><li><span>Lash lift en wimpers</span></li><li><span>Keratinebehandeling</span></li><li><span>Tanden bleken</span></li></ul>
+      </article>
     </div>
+    <div class="boek rv"><p><b>De andere prijzen</b> zie je meteen bij het online boeken. Liever eerst iets vragen? Stuur ons een WhatsApp.</p><a class="knop mag" href="https://sistersbeauty.salonized.com" target="_blank" rel="noopener">Online boeken<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a></div>
   </div>
 </section>
 
 <section class="brows" id="brows">
-  <div class="tekst">
-    <span class="lab rv">Brows en PMU</span>
-    <h2 class="rv" style="--d:1">Wakker worden met mooie wenkbrauwen.</h2>
-    <p class="in2 rv" style="--d:2">Een van de zussen is PMU master. Powder brows geven je wenkbrauwen een zachte, gepoederde vulling die er elke ochtend al staat. Liever iets tijdelijks? Dan is brow lamination of henna een goed begin.</p>
-    <ul class="pmul rv" style="--d:3">
-      <li><b>Powder brows</b><span>Zacht en vol, zonder harde lijnen.</span></li>
-      <li><b>Lippigmentatie</b><span>Meer kleur en een mooie lijn.</span></li>
-      <li><b>Eyeliner</b><span>Een permanente lijn langs je wimpers.</span></li>
-      <li><b>Brow lamination</b><span>Verzorgd, voller en mooi gevormd.</span></li>
-    </ul>
-    <a class="knop wit rv" style="--d:4" href="https://wa.me/32492483847" target="_blank" rel="noopener">Vraag naar powder brows</a>
-  </div>
-  <div class="duo">
-    <div><img src="img/klant.webp" alt="Klant op de behandeltafel met pas gezette wenkbrauwen" width="1086" height="1018" loading="lazy"></div>
-    <div><img src="img/pmu.webp" alt="Schoonheidsspecialiste aan het werk met een PMU-pen" width="888" height="874" loading="lazy"></div>
-  </div>
-</section>
-
-<section class="prijs" id="prijzen">
-  <div class="wrap">
-    <div class="kop">
-      <div><span class="lab rv">Prijzen</span><h2 class="rv" style="--d:1">Drie behandelingen die je meteen ziet.</h2></div>
-      <p class="rv" style="--d:2">Een greep uit wat het vaakst gevraagd wordt. Voor de prijs van andere behandelingen stuur je ons gewoon een berichtje.</p>
-    </div>
-    <div class="pgrid">
-      <div class="pk rv"><span class="cat">Gelaat</span><h3>Hydra Facial</h3><p>Hydrodermabrasie: dieptereiniging, exfoliatie en hydratatie in één behandeling.</p><strong>€ 155</strong></div>
-      <div class="pk hl rv" style="--d:1"><span class="cat">Huidverstrakking</span><h3>HIFU volledig gezicht</h3><p>Gefocuste ultrasound die de huid van binnenuit stevigheid geeft.</p><strong>€ 299</strong></div>
-      <div class="pk rv" style="--d:2"><span class="cat">Combinatie</span><h3>Microneedling zalm-DNA en Hydra Facial</h3><p>Microneedling met zalm-DNA, gecombineerd met een Hydra Facial in één afspraak.</p><strong>€ 325</strong></div>
-    </div>
-    <div class="pnoot rv"><p><b>Zelf schoonheidsspecialiste?</b> Sisters Beauty geeft ook opleidingen en verkoopt de producten waarmee ze werken.</p><a class="knop rand" href="https://wa.me/32492483847" target="_blank" rel="noopener">Vraag info</a></div>
-  </div>
-</section>
-
-<section class="zus" id="zussen">
   <div class="wrap grid">
-    <div class="tekst">
-      <span class="lab rv">Siham en Delfin</span>
-      <h2 class="rv" style="--d:1">Geen gewone beautysalon.</h2>
-      <p class="rv" style="--d:2">Wat begon als interesse in cosmetica, groeide tijdens hun opleidingen uit tot een volwaardig salon. Schoonheidsspecialiste en PMU master, samen in de Pontstraat.</p>
-      <q class="rv" style="--d:3">We gaan elk jaar op zoek naar nieuwe technieken en beauty equipment, zodat onze klanten de beste behandelingen krijgen.</q>
-      <p class="mardin rv" style="--d:4"><b>Met roots in Mardin.</b> "Wanneer we Mardin missen, wat doen we dan? We brengen een stukje Mardin naar België!"</p>
+    <div>
+      <span class="lab rv">Brows en PMU</span>
+      <h2 class="rv" style="--d:1">Wakker worden met je wenkbrauwen al klaar.</h2>
+      <p class="in2 rv" style="--d:2">Powder brows geven je wenkbrauwen een zachte, gepoederde vulling zonder harde lijnen. Je ziet ze 's ochtends staan voor je ook maar één potlood hebt vastgehad. Nog niet zeker? Dan beginnen we met iets tijdelijks.</p>
+      <div class="fiche rv" style="--d:3">
+        <div class="fk"><b>Wat past bij jou?</b><span>Behandelfiche</span></div>
+        <dl>
+          <dt>Powder brows</dt><dd>Semi-permanent. Een zachte poedervulling, ook als je zelf weinig haartjes hebt.</dd>
+          <dt>Brow lamination</dt><dd>Tijdelijk. Je eigen haartjes worden in model gelegd, voller en netjes.</dd>
+          <dt>Henna brows</dt><dd>Tijdelijk. Kleurt haar en huid, voor wie meer diepte wil zonder te pigmenteren.</dd>
+          <dt>Lippen en eyeliner</dt><dd>Semi-permanent. Wat meer kleur op je lippen of een fijne lijn langs je wimpers.</dd>
+        </dl>
+      </div>
+      <div class="acties rv" style="--d:4"><a class="knop wit" href="https://wa.me/32492483847?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20powder%20brows" target="_blank" rel="noopener">Vraag naar powder brows<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a></div>
     </div>
-    <div class="fotos rv" style="--d:2">
-      <img class="groot" src="img/zussen.webp" alt="Siham en Delfin in hun salon, naast de kast met verzorgingsproducten" width="1600" height="898" loading="lazy">
+    <div class="duo rv" style="--d:2">
+      <figure class="a"><img src="img/klant.webp" alt="Klant op de behandeltafel met pas gezette wenkbrauwen" width="1086" height="1018" loading="lazy" style="object-position:40% 50%"><figcaption>Net gezet</figcaption></figure>
+      <figure class="b"><img src="img/pmu.webp" alt="Schoonheidsspecialiste aan het werk met een PMU-pen" width="888" height="874" loading="lazy"><figcaption>Met de PMU-pen</figcaption></figure>
+      <div class="noot"><b>"Precies zoals ik het wou."</b>Wafa liet haar wenkbrauwen bij ons zetten en gaf vijf sterren op Google.</div>
+    </div>
+  </div>
+</section>
+
+<section class="ver" id="salon">
+  <div class="wrap">
+    <div class="grid">
+      <figure class="rv"><img src="img/zussen.webp" alt="Siham en Delfin in hun salon, naast de kast met verzorgingsproducten" width="1600" height="898" loading="lazy"><figcaption><span>Siham en Delfin</span><span>Schoonheidsspecialiste en PMU master</span></figcaption></figure>
+      <div>
+        <span class="lab rv">Over ons</span>
+        <h2 class="rv" style="--d:1">We wilden geen gewone salon.</h2>
+        <p class="rv" style="--d:2">Het begon met een interesse in cosmetica. Tijdens onze opleidingen werd dat meer dan een hobby, en zo stonden we op een dag in ons eigen salon in de Pontstraat. Elk jaar gaan we op zoek naar nieuwe technieken en toestellen, zodat jij de beste behandeling krijgt die er is.</p>
+        <div class="citaat rv" style="--d:3"><p>"Wanneer we Mardin missen, wat doen we dan? We brengen een stukje Mardin naar België!"</p><small>Siham en Delfin, over hun roots</small></div>
+      </div>
+    </div>
+    <div class="opl rv">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5-10-5Z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg></div>
+      <div><h3>Zelf schoonheidsspecialiste?</h3><p>We geven ook opleidingen en verkopen de producten waarmee we zelf elke dag werken. Vraag gerust wat er op de planning staat.</p></div>
+      <a class="knop donker" href="https://wa.me/32492483847?text=Hallo%2C%20ik%20heb%20interesse%20in%20een%20opleiding" target="_blank" rel="noopener">Vraag info</a>
     </div>
   </div>
 </section>
 
 <section class="rev" aria-label="Reviews">
-  <div class="wrap">
-    <div class="kop">
-      <div><span class="lab rv">4,7 uit 171 reviews</span><h2 class="rv" style="--d:1">In de watten gelegd.</h2></div>
+  <div class="wrap grid">
+    <div class="groot rv">
+      <span class="st">★★★★★</span>
+      <p>"Het personeel is heel vriendelijk, professioneel en neemt echt de tijd voor je. Ze werken heel zorgvuldig en zorgen ervoor dat je je op je gemak voelt. Het resultaat is precies zoals ik wilde."</p>
+      <b>Berfe<small>Google-review</small></b>
     </div>
-    <div class="rgrid">
-      <div class="rk rv"><span class="st">★★★★★</span><p>"Ik ben ontzettend tevreden! Het personeel is heel vriendelijk, professioneel en neemt echt de tijd voor je. Ze werken heel zorgvuldig en zorgen ervoor dat je je op je gemak voelt. Het resultaat is precies zoals ik wilde."</p><b>Berfe<small>Google-review</small></b></div>
-      <div class="rk rv" style="--d:1"><span class="st">★★★★★</span><p>"Ik had een heel fijne ervaring bij Sisters Beauty in Aalst! Ik heb een facial en een lash lift laten uitvoeren, en ben heel tevreden met het resultaat."</p><b>Dakota Heyvaert Buys<small>Google-review</small></b></div>
-      <div class="rk rv" style="--d:2"><span class="st">★★★★★</span><p>"Super tevreden met het resultaat! Je wordt als klant in de watten gelegd gaande van een zeer uitgebreide en professionele manicure tot de plaatsing van de nagels. Een echte aanrader!"</p><b>Dorthy Van Saen<small>Google-review</small></b></div>
-      <div class="rk rv" style="--d:3"><span class="st">★★★★★</span><p>"Super tevreden met mijn wenkbrauwen! Ze zijn prachtig gedaan en precies zoals ik het wou. Heel mooi resultaat en zeker een aanrader!"</p><b>Wafa Bou<small>Google-review</small></b></div>
+    <div>
+      <span class="lab rv">4,7 uit 171 reviews</span>
+      <h2 class="rv" style="--d:1">In de watten gelegd.</h2>
+      <p class="sub rv" style="--d:2">Dat schrijven onze klanten, niet wij.</p>
+      <ul class="rl rv" style="--d:3">
+        <li><span class="st">★★★★★</span><p>"Ik heb een facial en een lash lift laten uitvoeren, en ben heel tevreden met het resultaat."</p><b>Dakota Heyvaert Buys<small>Google-review</small></b></li>
+        <li><span class="st">★★★★★</span><p>"Je wordt als klant in de watten gelegd, gaande van een zeer uitgebreide en professionele manicure tot de plaatsing van de nagels."</p><b>Dorthy Van Saen<small>Google-review</small></b></li>
+      </ul>
     </div>
   </div>
 </section>
 
 <section class="contact" id="contact">
-  <div class="wrap grid">
-    <div>
-      <span class="lab rv">Afspraak</span>
-      <h2 class="rv" style="--d:1">Tijd voor jezelf? Stuur ons een berichtje.</h2>
-      <p class="in2 rv" style="--d:2">Via WhatsApp of telefoon plannen we je afspraak. Ook 's avonds kan je bij ons terecht, op vrijdag zelfs tot 21u.</p>
-      <div class="acties rv" style="--d:3">
-        <a class="knop wit" href="https://wa.me/32492483847" target="_blank" rel="noopener">WhatsApp</a>
-        <a class="knop glas" href="tel:+32492483847">0492 48 38 47</a>
+  <div class="ck">
+    <div class="wrap grid">
+      <div>
+        <span class="lab rv">Afspraak maken</span>
+        <h2 class="rv" style="--d:1">Tijd voor jezelf? Wij maken plaats.</h2>
+        <p class="in2 rv" style="--d:2">Boek online, bel ons of stuur een WhatsApp. Overdag geen tijd? Op maandag, dinsdag en donderdag zijn we open tot acht uur, op vrijdag tot negen.</p>
+        <div class="acties rv" style="--d:3">
+          <a class="knop wit" href="https://wa.me/32492483847" target="_blank" rel="noopener">Stuur een WhatsApp<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+          <a class="knop lijn" href="tel:+32492483847">0492 48 38 47</a>
+        </div>
       </div>
-    </div>
-    <div class="ukaart rv" style="--d:2">
-      <h3>Pontstraat 59</h3><p>9300 Aalst</p>
-      <ul>
-        <li><span>Maandag en dinsdag</span>9u30 tot 20u</li>
-        <li><span>Woensdag</span>Gesloten</li>
-        <li><span>Donderdag</span>9u30 tot 20u</li>
-        <li><span>Vrijdag</span>9u30 tot 21u</li>
-        <li><span>Zaterdag</span>10u tot 17u</li>
-        <li><span>Zondag</span>Gesloten</li>
-      </ul>
+      <div class="ukaart rv" style="--d:2">
+        <h3>Pontstraat 59</h3>
+        <div class="ad"><span>9300 Aalst</span><a href="https://www.google.com/maps?cid=17876062968272962277" target="_blank" rel="noopener">Plan je route</a></div>
+        <ul>
+          <li><span>Maandag en dinsdag</span>9u30 tot 20u</li>
+          <li class="dicht"><span>Woensdag</span>gesloten</li>
+          <li><span>Donderdag</span>9u30 tot 20u</li>
+          <li><span>Vrijdag</span>9u30 tot 21u</li>
+          <li><span>Zaterdag</span>10u tot 17u</li>
+          <li class="dicht"><span>Zondag</span>gesloten</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -341,10 +400,10 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-heigh
 
 <footer class="voet">
   <div class="wrap">
-    <div class="rij">
+    <div class="rij2">
       <div><a href="#top" class="merk"><img src="img/logo.webp" alt="Sisters Beauty Aalst" width="270" height="270" loading="lazy"><span><b>Sisters Beauty</b><small>AALST</small></span></a><p class="zin">Huid, brows en PMU, laser, nagels en lashes. Be-you-tiful, be your best.</p></div>
       <div><h4>Salon</h4><ul><li>Pontstraat 59</li><li>9300 Aalst</li></ul></div>
-      <div><h4>Contact</h4><ul><li><a href="tel:+32492483847">0492 48 38 47</a></li><li><a href="https://wa.me/32492483847">WhatsApp</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="tel:+32492483847">0492 48 38 47</a></li><li><a href="https://wa.me/32492483847">WhatsApp</a></li><li><a href="https://sistersbeauty.salonized.com" target="_blank" rel="noopener">Online boeken</a></li></ul></div>
       <div><h4>Volg ons</h4><ul><li><a href="https://www.instagram.com/sisters_beautyaalst/" target="_blank" rel="noopener">@sisters_beautyaalst</a></li></ul></div>
     </div>
     <div class="onder"><span>© Sisters Beauty Aalst</span><span>Voorbeeldsite door Digital Impression</span></div>
@@ -353,7 +412,6 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-heigh
 
 <script>
 (function(){
-var h=document.querySelector('.hero');requestAnimationFrame(function(){h.classList.add('in')});
 var els=[].slice.call(document.querySelectorAll('.rv'));
 function kijk(){var H=innerHeight;els=els.filter(function(e){var r=e.getBoundingClientRect();if(r.top<H*.94&&r.bottom>0){e.classList.add('in');return false}return true});if(!els.length)removeEventListener('scroll',plan)}
 var t=0;function plan(){if(!t){t=requestAnimationFrame(function(){t=0;kijk()})}}
