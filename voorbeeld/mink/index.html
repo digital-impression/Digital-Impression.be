@@ -10,188 +10,179 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js')</script>
 <style>
-:root{--rood:#d63a2a;--rood-d:#a92a1e;--boter:#f5cf63;--roze:#f3c3c9;--blauw:#3f63b8;--creme:#fbf3e7;--papier:#fffaf2;--inkt:#1f1915;--grijs:#6a5f56;--r:30px;--ease:cubic-bezier(.2,.7,.2,1)}
+:root{--rood:#d63a2a;--rood-d:#a92a1e;--boter:#f5cf63;--roze:#f3c3c9;--creme:#fbf3e7;--papier:#fffaf2;--inkt:#1f1915;--grijs:#6a5f56;--lijn:rgba(31,25,21,.14);--ease:cubic-bezier(.2,.7,.2,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--creme);color:var(--inkt);font:400 17px/1.65 'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{display:block;max-width:100%}
-a{color:inherit}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--creme);color:var(--inkt);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-style:normal;letter-spacing:-.035em;line-height:.95}
+h2{font-size:clamp(44px,5vw,76px)}
 .wrap{width:min(1240px,100% - 48px);margin:0 auto}
-.demo{background:var(--rood-d);color:#ffe6df;font:500 13.5px/1.4 'DM Sans',sans-serif;text-align:center;padding:9px 16px;position:relative;z-index:60}
-.demo a{color:#fff;font-weight:700;text-underline-offset:3px}
-h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;line-height:.98;letter-spacing:-.03em}
-.lab{display:inline-flex;align-items:center;gap:9px;font:700 13px/1 'DM Sans';letter-spacing:.08em;text-transform:uppercase;color:var(--rood)}
-.lab:before{content:"";width:9px;height:9px;border-radius:50%;background:currentColor}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:17px 27px;border-radius:999px;font:700 15.5px/1 'DM Sans';text-decoration:none;transition:transform .3s var(--ease),background .3s}
-.btn:hover{transform:translateY(-2px)}
-.btn svg{width:17px;height:17px;flex:none}
-.btn-r{background:var(--rood);color:#fff}.btn-r:hover{background:var(--rood-d)}
-.btn-b{background:var(--boter);color:var(--inkt)}
-.btn-w{background:#fff;color:var(--inkt)}
-.btn-gl{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6);background:rgba(255,255,255,.1);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.demo{background:var(--rood-d);color:#fff;font-size:13.5px;text-align:center;padding:9px 16px}
+.demo a{color:var(--boter);font-weight:700}
+.lab{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rood);margin-bottom:18px}
+.lab::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+/* knoppen als sticker: dikke rand en een harde schaduw, een beetje chaos */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border:2px solid var(--inkt);border-radius:14px;font-weight:700;font-size:15.5px;box-shadow:4px 4px 0 var(--inkt);transition:transform .2s var(--ease),box-shadow .2s var(--ease),background .2s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--inkt)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--inkt)}
+.btn svg{width:17px;height:17px}
+.b-rood{background:var(--rood);color:#fff}
+.b-boter{background:var(--boter);color:var(--inkt)}
+.b-papier{background:var(--papier);color:var(--inkt)}
+.logo{display:inline-flex;align-items:center;gap:12px;font-family:'Bricolage Grotesque';font-weight:800;font-size:24px;letter-spacing:-.02em}
+.logo img{width:46px;height:46px;border-radius:50%;border:2px solid var(--inkt);background:#fff}
 
-/* hero */
-.hero{position:relative;min-height:min(940px,100vh);display:flex;flex-direction:column;color:#fff;overflow:hidden;background:#3a2414}
-.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform:scale(1.06);animation:zoom 18s var(--ease) forwards}
-@keyframes zoom{to{transform:scale(1)}}
-.hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(32,18,10,.84) 0%,rgba(32,18,10,.55) 42%,rgba(32,18,10,.05) 75%),linear-gradient(0deg,rgba(32,18,10,.75) 0%,transparent 40%)}
-.nav{position:relative;z-index:5;padding:22px 0}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;width:min(1380px,100% - 48px)}
-.logo{display:flex;align-items:center;gap:12px;text-decoration:none;font:800 24px/1 'Bricolage Grotesque';letter-spacing:-.02em}
-.logo img{width:58px;height:58px;border-radius:50%;box-shadow:0 8px 20px -8px rgba(0,0,0,.5)}
-.nav ul{display:flex;gap:6px;list-style:none;background:rgba(255,255,255,.12);border-radius:999px;padding:6px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)}
-.nav ul a{display:block;text-decoration:none;font:600 14.5px/1 'DM Sans';padding:11px 16px;border-radius:999px;transition:background .3s}
-.nav ul a:hover{background:rgba(255,255,255,.16)}
-.h-in{position:relative;z-index:3;flex:1;display:flex;align-items:flex-end;width:min(1380px,100% - 48px);margin:0 auto;padding:40px 0 70px;gap:40px;justify-content:space-between}
-.h-in .t{max-width:760px}
-.h-in .lab{color:var(--boter)}
-.h-in h1{font-size:clamp(58px,6.8vw,110px);margin:22px 0 24px}
-.h-in h1 span{color:var(--boter);display:block}
-.h-in p{font-size:19.5px;max-width:31em;color:rgba(255,255,255,.88)}
-.acties{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
-.score{flex:none;background:var(--papier);color:var(--inkt);border-radius:26px;padding:20px 24px 20px 20px;display:flex;align-items:center;gap:16px;box-shadow:0 30px 50px -24px rgba(0,0,0,.6);transform:rotate(2deg)}
-.score img{width:62px;height:62px;border-radius:50%}
-.score b{display:block;font:800 40px/1 'Bricolage Grotesque'}
-.score i{font-style:normal;color:var(--rood);letter-spacing:2px;font-size:15px}
-.score span{display:block;font-size:14px;color:var(--grijs);font-weight:500}
+/* HERO: kop, tekst en de toonbank vol buns als een affiche */
+.hero{background:var(--creme);padding-bottom:14px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 0}
+.nav ul{list-style:none;display:flex;gap:28px;font-weight:600;font-size:15px}
+.nav ul a:hover{color:var(--rood)}
+.nav .btn{padding:11px 18px;font-size:14.5px;box-shadow:3px 3px 0 var(--inkt)}
+.hk{padding:clamp(20px,4vh,50px) 0 clamp(26px,4vh,44px)}
+.hero .lab{margin-bottom:22px}
+.hero h1{font-size:clamp(56px,7.4vw,118px);max-width:12.5em}
+.hero h1 span{color:var(--rood)}
+.hrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 60px;align-items:end;margin-top:30px}
+.hrow p{font-size:19px;color:var(--grijs);max-width:32em}
+.acties{display:flex;flex-wrap:wrap;gap:14px}
+.hfoto{position:relative;margin:0 14px;border-radius:28px;overflow:hidden;height:clamp(320px,46vh,520px);border:2px solid var(--inkt)}
+.hfoto img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+.hfoto figcaption{position:absolute;left:0;right:0;bottom:0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 30px;padding:60px 28px 20px;background:linear-gradient(0deg,rgba(31,25,21,.72),transparent);color:#fff;font-size:15px}
+.hfoto figcaption b{font-weight:700}
+.hfoto .st{color:var(--boter);letter-spacing:2px}
 
-section{position:relative}
-.sec{padding:130px 0}
+/* TOONBANK */
+.toon{padding:clamp(100px,11vw,150px) 0}
+.kopr{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:24px 70px;align-items:end;margin-bottom:54px}
+.kopr p{color:var(--grijs)}
+.bento{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:300px 300px;gap:16px}
+.bento figure{position:relative;border-radius:22px;overflow:hidden;border:2px solid var(--inkt);background:var(--inkt)}
+.bento img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.bento figure:hover img{transform:scale(1.04)}
+.bento .a{grid-row:1/3}
+.bento .d{grid-column:2/4}
+.bordje{position:absolute;left:16px;bottom:16px;background:var(--inkt);color:#fff;border-radius:6px;padding:9px 13px 8px;font-size:14px;line-height:1.3;max-width:calc(100% - 32px)}
+.bordje b{display:block;font-family:'Bricolage Grotesque';font-weight:700;font-size:18px;letter-spacing:-.01em}
+.bordje span{color:rgba(255,255,255,.75)}
 
-/* toonbank band */
-.toon{padding:120px 0 0}
-.kopr{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:50px}
-.kopr h2{font-size:clamp(46px,5.4vw,84px);margin-top:16px;max-width:10em}
-.kopr p{max-width:25em;color:var(--grijs);font-size:18px}
-.strip{display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr;gap:14px;padding:0 14px}
-.strip figure{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:3/4;background:#eadfcd}
-.strip figure:first-child{aspect-ratio:auto}
-.strip img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
-.strip figure:hover img{transform:scale(1.05)}
-.strip figcaption{position:absolute;left:14px;bottom:14px;background:var(--papier);border-radius:999px;padding:9px 15px;font:700 14px/1 'DM Sans'}
-.strip figure:first-child figcaption{background:var(--boter)}
-
-/* siroop */
-.siroop{padding:130px 0}
-.siroop .g{display:grid;grid-template-columns:1.1fr .9fr;border-radius:48px;overflow:hidden;background:var(--rood);color:#fff}
-.siroop .f{position:relative;min-height:680px}
-.siroop .f img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.siroop .f .sticker{position:absolute;right:28px;top:28px;background:var(--boter);color:var(--inkt);border-radius:999px;padding:12px 18px;font:800 16px/1 'Bricolage Grotesque';transform:rotate(-4deg);box-shadow:0 14px 24px -12px rgba(0,0,0,.5)}
-.siroop .t{padding:80px 64px;display:flex;flex-direction:column;justify-content:center}
+/* SIROOP */
+.siroop{background:var(--rood);color:#fff;padding:clamp(100px,11vw,150px) 0}
+.sg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,90px);align-items:center}
+.sfoto{border-radius:28px;overflow:hidden;border:2px solid var(--inkt);box-shadow:10px 10px 0 var(--inkt)}
+.sfoto img{width:100%;aspect-ratio:4/4.4;object-fit:cover}
 .siroop .lab{color:var(--boter)}
-.siroop h2{font-size:clamp(44px,4.6vw,72px);margin:18px 0 20px}
-.siroop .t>p{font-size:18px;color:rgba(255,255,255,.88);max-width:28em}
-.quote{margin:28px 0 30px;padding:22px 24px;border-radius:22px;background:rgba(0,0,0,.14);font:700 21px/1.35 'Bricolage Grotesque';letter-spacing:-.01em}
-.quote small{display:block;font:500 13.5px/1.3 'DM Sans';color:rgba(255,255,255,.7);margin-top:10px;letter-spacing:0}
-.kaart{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.kaart li{background:rgba(255,255,255,.12);border-radius:16px;padding:14px 16px;font-weight:600;font-size:15.5px;display:flex;align-items:center;gap:10px}
-.kaart li:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--boter);flex:none}
+.siroop h2{margin-bottom:24px}
+.siroop p{color:rgba(255,255,255,.88);max-width:30em}
+.zegt{margin-top:30px;font-family:'Bricolage Grotesque';font-weight:700;font-size:30px;line-height:1.1;letter-spacing:-.02em;color:var(--boter)}
+.zegt small{display:block;margin-top:8px;font:500 14px/1.4 'DM Sans';letter-spacing:0;color:rgba(255,255,255,.75)}
+.menu{margin-top:36px;background:var(--papier);color:var(--inkt);border:2px solid var(--inkt);border-radius:18px;padding:22px 26px;display:grid;grid-template-columns:1fr 1fr;gap:0 30px}
+.menu h3{grid-column:1/-1;font-size:22px;letter-spacing:-.02em;padding-bottom:10px;margin-bottom:6px;border-bottom:2px solid var(--inkt)}
+.menu li{list-style:none;padding:9px 0;border-bottom:1px dashed var(--lijn);font-weight:600;font-size:15.5px}
+.menu li small{display:block;font-weight:400;color:var(--grijs);font-size:13.5px}
 
-/* hoek */
-.hoek .g{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
-.hoek .fotos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.hoek .fotos figure{border-radius:28px;overflow:hidden;background:#eadfcd}
-.hoek .fotos img{width:100%;height:100%;object-fit:cover}
-.hoek .fotos .a{grid-column:1/3;aspect-ratio:16/10}
-.hoek .fotos .b,.hoek .fotos .c{aspect-ratio:1}
-.hoek h2{font-size:clamp(44px,4.8vw,74px);margin:18px 0 22px}
-.hoek .t>p{color:var(--grijs);font-size:18px;margin-bottom:16px;max-width:29em}
-.mama{margin-top:30px;background:var(--papier);border-radius:26px;padding:26px 28px;display:flex;gap:18px;align-items:flex-start;box-shadow:0 26px 50px -40px rgba(110,50,20,.6)}
-.mama img{width:56px;height:56px;border-radius:50%;flex:none}
-.mama p{font-size:16.5px}
-.mama p em{font-style:normal;font-weight:700}
-.mama small{display:block;color:var(--grijs);font-size:13.5px;margin-top:8px}
+/* DE ZAAK */
+.zaak{padding:clamp(100px,11vw,150px) 0}
+.zg{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(40px,6vw,90px);align-items:center}
+.collage{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.collage figure{border-radius:22px;overflow:hidden;border:2px solid var(--inkt)}
+.collage img{width:100%;height:100%;object-fit:cover}
+.collage .a{grid-column:1/-1;aspect-ratio:16/10}
+.collage .b,.collage .c{aspect-ratio:1/1}
+.zaak h2{margin-bottom:22px}
+.zaak p{color:var(--grijs);max-width:31em}
+.zaak p+p{margin-top:14px}
+.baas{margin-top:34px;background:var(--boter);border:2px solid var(--inkt);border-radius:20px;padding:24px 26px;display:grid;grid-template-columns:54px 1fr;gap:18px;align-items:start}
+.baas img{width:54px;height:54px;border-radius:50%;border:2px solid var(--inkt);background:#fff}
+.baas q{display:block;quotes:none;font-family:'Bricolage Grotesque';font-weight:700;font-size:21px;line-height:1.25;letter-spacing:-.015em}
+.baas small{display:block;margin-top:10px;font-size:14px;color:var(--inkt);opacity:.75}
 
-/* reviews */
-.rev-s{padding:0 0 130px}
-.rev-g{display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:auto auto;gap:18px}
-.rev{background:var(--papier);border-radius:var(--r);padding:30px 30px;display:flex;flex-direction:column;gap:14px;box-shadow:0 26px 50px -42px rgba(110,50,20,.6)}
-.rev .st{color:var(--rood);letter-spacing:3px}
-.rev blockquote{font-size:16.5px}
-.rev cite{margin-top:auto;font:700 15px/1.2 'DM Sans';font-style:normal}
-.rev cite small{display:block;font-weight:500;color:var(--grijs);font-size:13px;margin-top:3px}
-.rev.groot{grid-row:1/3;background:var(--boter);justify-content:space-between;padding:40px}
-.rev.groot blockquote{font:800 clamp(40px,4vw,62px)/1 'Bricolage Grotesque';letter-spacing:-.03em}
-.rev.groot .meer{font-size:16.5px;max-width:24em}
-.rev.groot .sc{display:flex;align-items:center;gap:14px;padding-top:22px;border-top:1.5px solid rgba(31,25,21,.2)}
-.rev.groot .sc b{font:800 52px/1 'Bricolage Grotesque'}
-.rev.groot .sc span{font-size:14.5px;font-weight:500}
+/* REVIEWS */
+.rev{padding:0 0 clamp(100px,11vw,150px)}
+.rg{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:20px 60px;align-items:start}
+.groot{background:var(--boter);border:2px solid var(--inkt);border-radius:26px;padding:40px 38px;box-shadow:8px 8px 0 var(--inkt)}
+.groot .st{color:var(--rood-d);letter-spacing:3px}
+.groot blockquote{font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(46px,4.6vw,70px);line-height:.95;letter-spacing:-.035em;margin:16px 0 20px}
+.groot p{font-size:16px}
+.groot .sc{display:flex;align-items:center;gap:14px;margin-top:26px;padding-top:22px;border-top:2px solid var(--inkt)}
+.groot .sc b{font-family:'Bricolage Grotesque';font-weight:800;font-size:52px;line-height:1}
+.groot .sc span{font-size:14px;line-height:1.35}
+.rl{display:grid;grid-template-columns:1fr 1fr;gap:0 34px}
+.rl figure{padding:24px 0;border-bottom:2px solid var(--inkt)}
+.rl figure:nth-child(-n+2){padding-top:6px}
+.rl .st{color:var(--rood);letter-spacing:2px;font-size:14px}
+.rl blockquote{margin:10px 0 12px;font-size:16.5px;line-height:1.55}
+.rl cite{font-style:normal;font-weight:700;font-size:14.5px}
 
-/* bezoek */
-.bezoek .g{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.uren{background:var(--inkt);color:#fff;border-radius:40px;padding:56px}
-.uren .lab{color:var(--boter)}
-.uren h2,.adres h2{font-size:clamp(40px,4.2vw,62px);margin:16px 0 26px}
-.ul{list-style:none;display:grid;gap:2px}
-.ul li{display:flex;justify-content:space-between;gap:14px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.12);font-weight:600;font-size:16.5px}
-.ul li span:last-child{color:rgba(255,255,255,.7);font-weight:500}
-.ul li.d span:last-child{color:rgba(255,255,255,.4)}
-.adres{position:relative;border-radius:40px;overflow:hidden;min-height:560px;color:#fff;display:flex;align-items:flex-end}
-.adres>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.adres:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(25,14,8,.9) 0%,rgba(25,14,8,.45) 50%,rgba(25,14,8,.05) 100%)}
-.adres .in{position:relative;z-index:2;padding:48px}
+/* BEZOEK */
+.bezoek{padding:0 0 clamp(100px,11vw,140px)}
+.bg{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);border:2px solid var(--inkt);border-radius:28px;overflow:hidden;background:var(--papier)}
+.uren{padding:clamp(34px,4.6vw,64px)}
+.uren h2{font-size:clamp(40px,4vw,60px);margin-bottom:26px}
+.ul{list-style:none;border-top:2px solid var(--inkt)}
+.ul li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--lijn);font-weight:600}
+.ul li span+span{font-weight:400;color:var(--grijs)}
+.ul li.d,.ul li.d span{color:#a59a90}
+.adres{position:relative;min-height:600px;color:#fff;display:flex;align-items:flex-end;border-left:2px solid var(--inkt)}
+.adres img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.adres::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(31,25,21,.85),rgba(31,25,21,.05) 65%)}
+.adres .in{position:relative;z-index:2;padding:clamp(30px,4vw,52px)}
 .adres .lab{color:var(--boter)}
-.adres p{color:rgba(255,255,255,.85);font-size:18px;max-width:26em}
+.adres h2{font-size:clamp(38px,3.8vw,56px);margin-bottom:14px}
+.adres p{color:rgba(255,255,255,.86);max-width:30em}
+.adres .acties{margin-top:26px}
 
-footer{background:var(--rood);color:#fff;margin-top:130px;padding:80px 0 28px}
-.vt{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
-.vt .logo{font-size:34px}
-.vt .logo img{width:84px;height:84px}
-.vt p{color:rgba(255,255,255,.82);margin-top:20px;max-width:23em;font-size:15.5px}
-.vt h4{font:700 12.5px/1 'DM Sans';letter-spacing:.1em;text-transform:uppercase;color:var(--boter);margin-bottom:16px}
-.vt ul{list-style:none;display:grid;gap:9px;font-size:15.5px}
-.vt a{text-decoration:none}.vt a:hover{text-decoration:underline}
-.vt-o{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:64px;padding-top:22px;border-top:1px solid rgba(255,255,255,.22);font-size:13.5px;color:rgba(255,255,255,.7)}
+footer{background:var(--rood);color:#fff;padding:80px 0 34px}
+.vt{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px}
+footer p{margin-top:16px;color:rgba(255,255,255,.85);max-width:330px;font-size:15.5px}
+footer h4{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--boter);margin-bottom:14px}
+footer ul{list-style:none;display:grid;gap:7px;font-size:15.5px}
+.vt-o{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:50px;padding-top:24px;border-top:1px solid rgba(255,255,255,.25);font-size:13.5px;color:rgba(255,255,255,.75)}
 
-.js .rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
-.js .score.rv{transform:translateY(26px) rotate(2deg)}.js .score.rv.in{transform:rotate(2deg)}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.hero>img{animation:none}}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
 
-@media (max-width:1100px){
- .nav ul{display:none}
- .h-in{flex-direction:column;align-items:flex-start}
- .kopr{flex-direction:column;align-items:flex-start;gap:16px}
- .strip{grid-template-columns:1fr 1fr}
- .strip figure:first-child{aspect-ratio:3/4}
- .siroop .g{grid-template-columns:1fr}
- .siroop .t{order:-1;padding:64px 48px}
- .siroop .f{min-height:480px}
- .hoek .g{grid-template-columns:1fr;gap:50px}
- .hoek .t{order:-1}
- .rev-g{grid-template-columns:1fr 1fr}
- .rev.groot{grid-column:1/3;grid-row:auto}
- .bezoek .g{grid-template-columns:1fr}
- .vt{grid-template-columns:1fr 1fr}
+@media (max-width:1000px){
+  .nav ul{display:none}
+  .hrow{grid-template-columns:1fr}
+  .kopr,.sg,.zg,.rg,.bg{grid-template-columns:minmax(0,1fr)}
+  .bento{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .bento figure{aspect-ratio:4/4.4}
+  .bento .a{grid-row:auto;grid-column:1/-1;aspect-ratio:16/11}
+  .bento .d{grid-column:1/-1;aspect-ratio:16/10}
+  .sfoto{order:2;max-width:560px}
+  .collage{order:2}
+  .adres{border-left:0;border-top:2px solid var(--inkt);min-height:480px}
+  .vt{grid-template-columns:1fr 1fr}
+  .vt>div:first-child{grid-column:1/-1}
 }
 @media (max-width:640px){
- body{font-size:16px}
- .wrap,.nav .wrap,.h-in{width:calc(100% - 36px)}
- .logo img{width:48px;height:48px}
- .hero{min-height:auto}
- .hero>img{object-position:60% 50%}
- .hero:before{background:linear-gradient(0deg,rgba(32,18,10,.92) 0%,rgba(32,18,10,.72) 55%,rgba(32,18,10,.3) 100%)}
- .h-in{padding:150px 0 40px}
- .h-in h1{font-size:50px}
- .h-in p{font-size:17px}
- .acties .btn{width:100%;justify-content:center}
- .score{transform:none}
- .toon{padding-top:90px}
- .strip{padding:0 10px;gap:10px}
- .strip figure{border-radius:20px}
- .siroop,.sec{padding:90px 0}
- .siroop .g{border-radius:32px}
- .siroop .t{padding:46px 26px}
- .siroop .f{min-height:340px}
- .kaart li{font-size:14.5px;padding:12px 12px}
- .rev-g{grid-template-columns:1fr}
- .rev.groot{grid-column:auto;padding:30px}
- .rev-s{padding-bottom:90px}
- .uren{padding:40px 26px;border-radius:32px}
- .adres{border-radius:32px;min-height:460px}
- .adres .in{padding:32px 26px}
- .vt{grid-template-columns:1fr}
- footer{margin-top:90px}
+  body{font-size:16.5px}
+  .wrap{width:calc(100% - 32px)}
+  .logo{font-size:21px}
+  .logo img{width:40px;height:40px}
+  .nav .btn{padding:10px 14px;font-size:14px}
+  .hero h1{font-size:52px}
+  .hrow p{font-size:17.5px}
+  .acties .btn{flex:1 1 100%;justify-content:center}
+  .hfoto{margin:0 10px;height:340px;border-radius:22px}
+  .hfoto figcaption{padding:50px 18px 16px;font-size:14px;flex-direction:column}
+  h2{font-size:42px}
+  .bento{gap:12px}
+  .bento .b,.bento .c{aspect-ratio:3/4}
+  .bordje{left:10px;bottom:10px;max-width:calc(100% - 20px)}
+  .bordje span{display:none}
+  .sfoto{box-shadow:6px 6px 0 var(--inkt)}
+  .menu{grid-template-columns:1fr;padding:18px 20px}
+  .zegt{font-size:25px}
+  .baas{grid-template-columns:1fr;padding:22px}
+  .baas q{font-size:19px}
+  .groot{padding:30px 24px;box-shadow:6px 6px 0 var(--inkt)}
+  .rl{grid-template-columns:1fr}
+  .rl figure:nth-child(2){padding-top:24px}
+  .vt{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -199,116 +190,129 @@ footer{background:var(--rood);color:#fff;margin-top:130px;padding:80px 0 28px}
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
 <header class="hero" id="top">
- <img src="img/hero.webp" alt="Een toonbank vol zelfgebakken cinnamon buns met parelsuiker">
- <nav class="nav"><div class="wrap">
-  <a class="logo" href="#top"><img src="img/logo.webp" alt="Logo van MINK: een mok in een gestreepte trui">MINK</a>
-  <ul><li><a href="#toonbank">Toonbank</a></li><li><a href="#siroop">Pumpkin spice</a></li><li><a href="#hoek">De zaak</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#bezoek">Bezoek</a></li></ul>
-  <a class="btn btn-gl" href="https://ig.me/m/mink.antwerp" style="padding:13px 20px">Stuur een DM</a>
- </div></nav>
- <div class="h-in">
-  <div class="t">
-   <span class="lab rv">Koffiebar · Kleine Beer Straat, Antwerpen</span>
-   <h1 class="rv" style="--d:1">A little coffee, a little chaos. <span>And a whole lot of MINK.</span></h1>
-   <p class="rv" style="--d:2">Zelfgebakken cinnamon buns, cookies die niet te zoet zijn, matcha en een koffie die een gast een 6 op 5 gaf. Gewoon binnenlopen, van dinsdag tot zaterdag.</p>
-   <div class="acties rv" style="--d:3">
-    <a class="btn btn-r" href="#bezoek"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Kom langs</a>
-    <a class="btn btn-gl" href="#toonbank">Wat ligt er in de toonbank?</a>
+ <div class="wrap">
+  <nav class="nav">
+   <a class="logo" href="#top"><img src="img/logo.webp" alt="Logo van MINK: een mok in een gestreepte trui" width="150" height="150">MINK</a>
+   <ul><li><a href="#toonbank">Toonbank</a></li><li><a href="#siroop">Pumpkin spice</a></li><li><a href="#zaak">De zaak</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#bezoek">Bezoek</a></li></ul>
+   <a class="btn b-boter" href="https://ig.me/m/mink.antwerp" target="_blank" rel="noopener">Stuur een DM</a>
+  </nav>
+  <div class="hk">
+   <span class="lab">Koffiebar · Kleine Beer Straat, Antwerpen</span>
+   <h1>A little coffee, a little chaos. And a whole lot of <span>MINK.</span></h1>
+   <div class="hrow">
+    <p>Cinnamon buns die we zelf bakken, cookies die niet te zoet zijn, matcha, en een koffie waar een gast een 6 op 5 voor gaf. Gewoon binnenlopen, van dinsdag tot zaterdag.</p>
+    <div class="acties">
+     <a class="btn b-rood" href="#bezoek"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Kom langs</a>
+     <a class="btn b-papier" href="#toonbank">Wat ligt er in de toonbank?</a>
+    </div>
    </div>
   </div>
-  <div class="score rv" style="--d:4"><img src="img/logo.webp" alt=""><div><b>4,9</b><i>★★★★★</i><span>63 reviews op Google</span></div></div>
  </div>
+ <figure class="hfoto">
+  <img src="img/hero.webp" alt="Een toonbank vol zelfgebakken cinnamon buns met parelsuiker" width="1600" height="1200" fetchpriority="high">
+  <figcaption><span><b>Zelfgebakken:</b> cinnamon buns met parelsuiker</span><span><span class="st">★★★★★</span> <b>4,9</b> uit 63 reviews op Google</span></figcaption>
+ </figure>
 </header>
 
+<main>
 <section class="toon" id="toonbank">
- <div class="wrap kopr">
-  <div><span class="lab rv">De toonbank</span><h2 class="rv" style="--d:1">Zelfgebakken, en niet te zoet.</h2></div>
-  <p class="rv" style="--d:2">From the first cup to the last pastry, made with love and a little madness.</p>
- </div>
- <div class="strip">
-  <figure class="rv"><img src="img/koeken.webp" alt="Croissants, pains au chocolat en Deense koeken met rood fruit" loading="lazy"><figcaption>Koffiekoeken</figcaption></figure>
-  <figure class="rv" style="--d:1"><img src="img/cookies.webp" alt="Grote chocolate chip cookies" loading="lazy"><figcaption>Cookies</figcaption></figure>
-  <figure class="rv" style="--d:2"><img src="img/matcha.webp" alt="Matcha latte met latte art en een koekje" loading="lazy"><figcaption>Matcha latte</figcaption></figure>
-  <figure class="rv" style="--d:3"><img src="img/choco.webp" alt="Warme chocomelk met latte art in een witte mok" loading="lazy"><figcaption>Warme choco</figcaption></figure>
+ <div class="wrap">
+  <div class="kopr">
+   <div><span class="lab rv">De toonbank</span><h2 class="rv" style="--d:1">Zelfgebakken, en niet te zoet.</h2></div>
+   <p class="rv" style="--d:2">From the first cup to the last pastry, made with love and a little madness. De buns, de cookies en het gebak in de toonbank bakken we zelf.</p>
+  </div>
+  <div class="bento">
+   <figure class="a rv"><img src="img/koeken.webp" alt="Croissants, pains au chocolat en Deense koeken met rood fruit" width="1600" height="1708" loading="lazy"><figcaption class="bordje"><b>Koffiekoeken</b><span>croissants, pains au chocolat en koeken met rood fruit</span></figcaption></figure>
+   <figure class="b rv" style="--d:1"><img src="img/cookies.webp" alt="Grote chocolate chip cookies" width="1600" height="1596" loading="lazy"><figcaption class="bordje"><b>Cookies</b><span>groot, en niet te zoet</span></figcaption></figure>
+   <figure class="c rv" style="--d:2"><img src="img/matcha.webp" alt="Matcha latte met latte art en een koekje" width="1600" height="1596" loading="lazy"><figcaption class="bordje"><b>Matcha latte</b><span>met een koekje erbij</span></figcaption></figure>
+   <figure class="d rv" style="--d:3"><img src="img/toog.webp" alt="De glazen toonbank van MINK vol croissants en koeken" width="1600" height="1200" loading="lazy" style="object-position:50% 55%"><figcaption class="bordje"><b>De toonbank</b><span>kijk gerust even rond voor je kiest</span></figcaption></figure>
+  </div>
  </div>
 </section>
 
 <section class="siroop" id="siroop">
- <div class="wrap g">
-  <div class="f"><img src="img/rood.webp" alt="Latte met latte art in een rood kopje op een gele schotel" loading="lazy"><span class="sticker">Zelf gemaakt</span></div>
-  <div class="t">
+ <div class="wrap sg">
+  <figure class="sfoto rv"><img src="img/rood.webp" alt="Latte met latte art in een rood kopje op een gele schotel" width="1600" height="1200" loading="lazy"></figure>
+  <div>
    <span class="lab rv">Het seizoen van de pompoen</span>
    <h2 class="rv" style="--d:1">Onze pumpkin spice-siroop was in één week op.</h2>
-   <p class="rv" style="--d:2">De siroop voor onze pumpkin spice latte maken we zelf. De batch van vorige week was tot de laatste druppel weg, dus stond er meteen een nieuwe op het vuur.</p>
-   <div class="quote rv" style="--d:3">“Pumpkin spice season must go on!!!”<small>Uit onze Instagram, na een uitverkochte week</small></div>
-   <ul class="kaart rv" style="--d:4"><li>Koffie en latte</li><li>Pumpkin spice latte</li><li>Matcha latte</li><li>Warme chocomelk</li><li>Thee</li><li>Cinnamon buns</li></ul>
+   <p class="rv" style="--d:2">De siroop voor onze pumpkin spice latte maken we zelf. De eerste batch was tot de laatste druppel weg, dus stond er meteen een nieuwe op het vuur.</p>
+   <p class="zegt rv" style="--d:3">"Pumpkin spice season must go on!!!"<small>Uit onze Instagram, na een uitverkochte week</small></p>
+   <div class="menu rv" style="--d:4">
+    <h3>Aan de toog</h3>
+    <ul><li>Koffie en latte</li><li>Pumpkin spice latte<small>zolang het seizoen duurt</small></li><li>Matcha latte</li></ul>
+    <ul><li>Warme chocomelk</li><li>Thee</li><li>Cinnamon buns, cookies en koeken</li></ul>
+   </div>
   </div>
  </div>
 </section>
 
-<section class="sec hoek" id="hoek" style="padding-top:0">
- <div class="wrap g">
-  <div class="fotos">
-   <figure class="a rv"><img src="img/raam.webp" alt="Het raam van MINK met het logo, gasten binnen aan tafel" loading="lazy"></figure>
-   <figure class="b rv" style="--d:1"><img src="img/kopjes.webp" alt="Stapels kopjes in rood, geel, oranje en groen" loading="lazy"></figure>
-   <figure class="c rv" style="--d:2"><img src="img/mokken.webp" alt="Witte mokken met het MINK-handschrift" loading="lazy"></figure>
+<section class="zaak" id="zaak">
+ <div class="wrap zg">
+  <div class="collage">
+   <figure class="a rv"><img src="img/raam.webp" alt="Het raam van MINK met het logo, gasten binnen aan tafel" width="1600" height="1200" loading="lazy"></figure>
+   <figure class="b rv" style="--d:1"><img src="img/kopjes.webp" alt="Stapels kopjes in rood, geel, oranje en groen" width="1600" height="1200" loading="lazy"></figure>
+   <figure class="c rv" style="--d:2"><img src="img/mokken.webp" alt="Witte mokken met het MINK-handschrift" width="1600" height="1200" loading="lazy"></figure>
   </div>
-  <div class="t">
+  <div>
    <span class="lab rv">Our favourite little corner</span>
    <h2 class="rv" style="--d:1">Een gezellige tent, met een hoekje voor de kids.</h2>
-   <p class="rv" style="--d:2">Gekleurde kopjes, mokken met ons eigen handschrift en een raam dat we zelf beschilderen. Kom je met de kinderen, dan is er een klein speelhoekje met aparte speeldoosjes.</p>
-   <div class="mama rv" style="--d:3"><img src="img/logo.webp" alt=""><p>“See you all at MINK for good coffee, our usual freshly baked pastries and <em>a barista who could really use a day off from her main job.</em>”<small>De eigenares, die naast MINK ook mama en voltijds chauffeur is</small></p></div>
+   <p class="rv" style="--d:2">Gekleurde kopjes, mokken met ons eigen handschrift en een raam waar MINK op geschilderd staat. Je komt hier voor de koffie, en je blijft voor een praatje aan de toog.</p>
+   <p class="rv" style="--d:2">Kom je met de kinderen? Er is een klein speelhoekje met aparte speeldoosjes, zodat jij in alle rust je koffie kan drinken. Of toch bijna.</p>
+   <div class="baas rv" style="--d:3"><img src="img/logo.webp" alt="" width="150" height="150"><div><q>See you all at MINK for good coffee, our usual freshly baked pastries and a barista who could really use a day off from her main job.</q><small>De eigenares, die naast MINK ook mama en voltijds chauffeur is</small></div></div>
   </div>
  </div>
 </section>
 
-<section class="rev-s" id="reviews">
- <div class="wrap">
-  <div class="rev-g">
-   <figure class="rev groot rv"><div><div class="st" style="color:var(--rood-d)">★★★★★</div><blockquote style="margin-top:18px">“Koffie was een echte 6 op 5!”</blockquote></div><p class="meer">Daarnaast ook nog eens een enorm vriendelijke barista achter de toog. Absolute aanrader! <b>Greg R</b></p><div class="sc"><b>4,9</b><span>gemiddeld uit 63 reviews<br>op Google</span></div></figure>
-   <figure class="rev rv" style="--d:1"><div class="st">★★★★★</div><blockquote>Hele lekkere koffie, fijne eigenaresse, prettige sfeer. Zeker een aanrader, zo'n leuke gemoedelijke tent.</blockquote><cite>Rikki Alphenaar<small>Google-review</small></cite></figure>
-   <figure class="rev rv" style="--d:2"><div class="st">★★★★★</div><blockquote>Leuke plek voor koffie. Heerlijke zelfgebakken gebak. Niet te zoet! Met een klein speelhoekje en aparte speeldoosjes voor kinderen.</blockquote><cite>Stijn Vander Stichele<small>Google-review</small></cite></figure>
-   <figure class="rev rv" style="--d:1"><div class="st">★★★★★</div><blockquote>Interessante drankjes met lekkere gebakjes. Iets simpel, met dat tikkeltje extra.</blockquote><cite>Xuân-An Bui<small>Google-review</small></cite></figure>
-   <figure class="rev rv" style="--d:2"><div class="st">★★★★★</div><blockquote>Knusse sfeer, lieve eigenaresse en heerlijke koffie!</blockquote><cite>Louise Lefèvre<small>Google-review</small></cite></figure>
+<section class="rev" id="reviews">
+ <div class="wrap rg">
+  <figure class="groot rv"><div class="st">★★★★★</div><blockquote>"Koffie was een echte 6 op 5!"</blockquote><p>Daarnaast ook nog eens een enorm vriendelijke barista achter de toog. Absolute aanrader! <b>Greg R</b></p><div class="sc"><b>4,9</b><span>gemiddeld uit 63 reviews<br>op Google</span></div></figure>
+  <div class="rl">
+   <figure class="rv"><div class="st">★★★★★</div><blockquote>Hele lekkere koffie, fijne eigenaresse, prettige sfeer. Zeker een aanrader, zo'n leuke gemoedelijke tent.</blockquote><cite>Rikki Alphenaar</cite></figure>
+   <figure class="rv" style="--d:1"><div class="st">★★★★★</div><blockquote>Leuke plek voor koffie. Heerlijke zelfgebakken gebak. Niet te zoet! Met een klein speelhoekje en aparte speeldoosjes voor kinderen.</blockquote><cite>Stijn Vander Stichele</cite></figure>
+   <figure class="rv"><div class="st">★★★★★</div><blockquote>Interessante drankjes met lekkere gebakjes. Iets simpel, met dat tikkeltje extra.</blockquote><cite>Xuân-An Bui</cite></figure>
+   <figure class="rv" style="--d:1"><div class="st">★★★★★</div><blockquote>Knusse sfeer, lieve eigenaresse en heerlijke koffie!</blockquote><cite>Louise Lefèvre</cite></figure>
   </div>
  </div>
 </section>
 
 <section class="bezoek" id="bezoek">
- <div class="wrap g">
-  <div class="uren rv">
-   <span class="lab">Open</span>
-   <h2>Dinsdag tot zaterdag.</h2>
-   <ul class="ul">
-    <li><span>Dinsdag</span><span>8.30 tot 16 uur</span></li>
-    <li><span>Woensdag</span><span>9 tot 16 uur</span></li>
-    <li><span>Donderdag</span><span>9 tot 16 uur</span></li>
-    <li><span>Vrijdag</span><span>9 tot 17 uur</span></li>
-    <li><span>Zaterdag</span><span>9 tot 17 uur</span></li>
-    <li class="d"><span>Zondag en maandag</span><span>gesloten</span></li>
-   </ul>
-  </div>
-  <div class="adres rv" style="--d:1">
-   <img src="img/toog.webp" alt="De glazen toonbank van MINK vol croissants en koeken" loading="lazy">
-   <div class="in">
-    <span class="lab">Waar</span>
-    <h2>Kleine Beer Straat 20, Antwerpen.</h2>
-    <p>Gewoon binnenlopen en aanschuiven. Een vraag? Stuur ons een berichtje op Instagram.</p>
-    <div class="acties">
-     <a class="btn btn-b" href="https://maps.google.com/?q=MINK+Kleine+Beer+Straat+20+2018+Antwerpen">Route plannen</a>
-     <a class="btn btn-gl" href="https://ig.me/m/mink.antwerp">@mink.antwerp</a>
+ <div class="wrap">
+  <div class="bg rv">
+   <div class="uren">
+    <span class="lab">Open</span>
+    <h2>Dinsdag tot zaterdag.</h2>
+    <ul class="ul">
+     <li><span>Dinsdag</span><span>8.30 tot 16 uur</span></li>
+     <li><span>Woensdag en donderdag</span><span>9 tot 16 uur</span></li>
+     <li><span>Vrijdag en zaterdag</span><span>9 tot 17 uur</span></li>
+     <li class="d"><span>Zondag en maandag</span><span>gesloten</span></li>
+    </ul>
+   </div>
+   <div class="adres">
+    <img src="img/choco.webp" alt="Warme chocomelk met latte art in een witte mok" width="1600" height="1200" loading="lazy">
+    <div class="in">
+     <span class="lab">Waar</span>
+     <h2>Kleine Beer Straat 20, Antwerpen.</h2>
+     <p>Gewoon binnenlopen en aanschuiven. Een vraag? Stuur ons een berichtje op Instagram.</p>
+     <div class="acties">
+      <a class="btn b-boter" href="https://maps.google.com/?q=MINK+Kleine+Beer+Straat+20+2018+Antwerpen" target="_blank" rel="noopener">Route plannen</a>
+      <a class="btn b-papier" href="https://ig.me/m/mink.antwerp" target="_blank" rel="noopener">@mink.antwerp</a>
+     </div>
     </div>
    </div>
   </div>
  </div>
 </section>
+</main>
 
 <footer>
  <div class="wrap">
   <div class="vt">
-   <div><a class="logo" href="#top"><img src="img/logo.webp" alt="">MINK</a><p>A little coffee, a little chaos, and a whole lot of MINK. Koffiebar in de Kleine Beer Straat, Antwerpen.</p></div>
+   <div><a class="logo" href="#top"><img src="img/logo.webp" alt="" width="150" height="150">MINK</a><p>A little coffee, a little chaos, and a whole lot of MINK. Koffiebar in de Kleine Beer Straat, Antwerpen.</p></div>
    <div><h4>Op de kaart</h4><ul><li>Koffie en matcha</li><li>Cinnamon buns</li><li>Cookies en koeken</li><li>Pumpkin spice latte</li></ul></div>
    <div><h4>Open</h4><ul><li>Di 8.30 tot 16 uur</li><li>Wo en do 9 tot 16 uur</li><li>Vr en za 9 tot 17 uur</li><li>Zo en ma gesloten</li></ul></div>
-   <div><h4>Zeg hallo</h4><ul><li>Kleine Beer Straat 20</li><li>2018 Antwerpen</li><li><a href="https://www.instagram.com/mink.antwerp/">Instagram</a></li></ul></div>
+   <div><h4>Zeg hallo</h4><ul><li>Kleine Beer Straat 20</li><li>2018 Antwerpen</li><li><a href="https://www.instagram.com/mink.antwerp/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
   </div>
   <div class="vt-o"><span>© MINK Antwerpen</span><span>Voorbeeldsite door Digital Impression</span></div>
  </div>
