@@ -10,8 +10,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap">
 <style>
-:root{--zee:#123B46;--diep:#0C2B34;--zand:#F3E9DA;--schelp:#FBF7F0;--boei:#E2603A;--boei2:#C94E2A;--inkt:#16252A;--grijs:#5B6A6E;--lijn:rgba(18,59,70,.14);
-  --kop:'Bricolage Grotesque',system-ui,sans-serif;--tekst:'Instrument Sans',system-ui,sans-serif;--r:22px}
+:root{--zee:#123B46;--diep:#0C2B34;--zand:#F3E9DA;--schelp:#FBF7F0;--kraft:#E4CBA3;--boei:#E2603A;--boei2:#C94E2A;--inkt:#16252A;--grijs:#5B6A6E;--lijn:rgba(18,59,70,.14);
+  --kop:'Bricolage Grotesque',system-ui,sans-serif;--tekst:'Instrument Sans',system-ui,sans-serif;--r:24px;--schaduw:0 30px 60px -36px rgba(12,43,52,.55)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font:400 17px/1.65 var(--tekst);color:var(--inkt);background:var(--schelp);-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -19,239 +19,301 @@ img{display:block;max-width:100%}
 a{color:inherit}
 h1,h2,h3{font-family:var(--kop);font-style:normal;font-weight:800;letter-spacing:-.025em;line-height:1.02;color:var(--zee)}
 .wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
-.demo{background:var(--diep);color:var(--zand);font-size:13.5px;text-align:center;padding:9px 14px;position:relative;z-index:5}
+.demo{background:var(--diep);color:var(--zand);font-size:13.5px;text-align:center;padding:9px 14px;position:relative;z-index:5;border-bottom:1px solid rgba(243,233,218,.1)}
 .demo a{color:#fff;font-weight:600}
 .over{display:inline-flex;align-items:center;gap:10px;font:600 13px/1 var(--tekst);letter-spacing:.14em;text-transform:uppercase;color:var(--boei2)}
 .over::before{content:"";width:26px;height:8px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 8'%3E%3Cpath d='M1 5c3-4 5-4 8 0s5 4 8 0 5-4 8 0' fill='none' stroke='%23C94E2A' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat}
-
-/* knoppen: zeepbel-pil met golfje */
-.knop{display:inline-flex;align-items:center;gap:12px;padding:15px 24px 15px 26px;border-radius:999px;font:600 16px/1 var(--tekst);text-decoration:none;transition:transform .25s,background .25s,color .25s;white-space:nowrap}
-.knop svg{width:22px;height:10px;transition:transform .35s}
-.knop:hover svg{transform:translateX(4px)}
-.knop.vol{background:var(--boei);color:#fff;box-shadow:0 10px 24px -12px rgba(201,78,42,.8)}
-.knop.vol:hover{background:var(--boei2)}
-.knop.lijn{border:1.5px solid currentColor;padding:13.5px 22px}
-.knop.lijn:hover{background:rgba(255,255,255,.08)}
-
-/* kop */
-header{position:relative;z-index:4;background:var(--zee);color:var(--zand)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:78px}
-.merk{display:flex;align-items:center;gap:11px;text-decoration:none;font:800 26px/1 var(--kop);letter-spacing:-.02em;color:#fff}
-.merk small{display:block;font:500 11px/1 var(--tekst);letter-spacing:.2em;text-transform:uppercase;color:rgba(243,233,218,.7);margin-top:5px}
-.merk svg{width:36px;height:36px}
-nav{display:flex;gap:34px;font-weight:500;font-size:15.5px}
-nav a{text-decoration:none;opacity:.85}
-nav a:hover{opacity:1}
-header .knop{padding:12px 20px;font-size:15px}
-
-/* hero */
-.hero{background:var(--zee);color:var(--zand);position:relative}
-.hero-in{display:grid;grid-template-columns:1fr 1.02fr;min-height:min(820px,calc(100vh - 115px))}
-.hero-tekst{padding:clamp(48px,6vw,96px) clamp(24px,5vw,72px) clamp(48px,5vw,80px) max(calc((100vw - 1240px)/2 + 48px),clamp(20px,4vw,48px));display:flex;flex-direction:column;justify-content:center}
-.hero .over{color:#F09A7C}
-.hero .over::before{filter:brightness(1.6)}
-.hero h1{color:#fff;font-size:clamp(46px,5.5vw,84px);margin:22px 0 26px;max-width:9.5em}
-.hero h1 span{color:var(--boei)}
-.hero p.lead{font-size:clamp(17px,1.35vw,19.5px);max-width:30em;color:rgba(243,233,218,.86)}
-.hero .knoppen{display:flex;flex-wrap:wrap;gap:12px;margin:34px 0 40px}
-.hero .lijn{color:var(--zand)}
-.hero-voet{display:flex;gap:28px;flex-wrap:wrap;padding-top:26px;border-top:1px solid rgba(243,233,218,.16);font-size:15px;color:rgba(243,233,218,.8)}
-.hero-voet b{display:block;font:700 22px/1.1 var(--kop);color:#fff;margin-bottom:4px;letter-spacing:-.01em}
+.op-donker .over{color:#F2A386}
+.op-donker .over::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 8'%3E%3Cpath d='M1 5c3-4 5-4 8 0s5 4 8 0 5-4 8 0' fill='none' stroke='%23F2A386' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E")}
 .sterren{color:#F2B544;letter-spacing:2px;font-size:14px}
-.hero-foto{position:relative;overflow:hidden}
-.hero-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%}
-.hero-foto figcaption{position:absolute;left:28px;bottom:28px;right:28px;display:flex;align-items:center;gap:14px;max-width:360px;background:rgba(251,247,240,.94);color:var(--inkt);border-radius:18px;padding:14px 18px 14px 14px;font-size:14.5px;line-height:1.4;box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
-.flesjes{display:flex;gap:4px;flex:none}
-.flesjes i{width:12px;height:30px;border-radius:5px 5px 3px 3px;display:block}
-.golf{display:block;width:100%;height:34px}
 
-/* melk */
-.melk{padding:clamp(80px,9vw,130px) 0}
-.melk-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(40px,6vw,96px);align-items:center}
-.melk h2{font-size:clamp(38px,4.4vw,64px);margin:18px 0 20px}
-.melk .intro{font-size:18.5px;color:var(--grijs);max-width:31em}
-.labels{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:38px 0 30px}
-.label{border-radius:18px 18px 14px 14px;padding:22px 18px 20px;position:relative;border:1.5px solid var(--lijn);background:#fff}
-.label::before{content:"";position:absolute;top:-1.5px;left:50%;width:44px;height:12px;margin-left:-22px;border-radius:0 0 8px 8px;background:var(--zee)}
-.label h3{font-size:26px;margin:6px 0 8px}
-.label p{font-size:14.5px;line-height:1.5;color:var(--grijs)}
-.label .nr{font:600 12px/1 var(--tekst);letter-spacing:.14em;text-transform:uppercase;color:var(--boei2)}
-.label.haver{background:#F7EEDD}.label.erwt{background:#EAF0E2}.label.kokos{background:#FFFFFF}
-.gratis{display:flex;align-items:center;gap:14px;font-weight:600;color:var(--zee)}
-.gratis span{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--boei);color:#fff;font:800 15px/1 var(--kop)}
-.melk-foto{position:relative}
-.melk-foto img{border-radius:var(--r);aspect-ratio:4/5;object-fit:cover;width:100%}
-.citaat{position:absolute;left:-36px;bottom:36px;max-width:330px;background:var(--zee);color:var(--zand);border-radius:18px;padding:22px 24px;font-size:15.5px;line-height:1.5;box-shadow:0 24px 50px -26px rgba(12,43,52,.8)}
-.citaat cite{display:block;font-style:normal;font-weight:600;color:#fff;margin-top:10px;font-size:14px}
+/* knoppen: pil met een boei */
+.knop{display:inline-flex;align-items:center;gap:14px;padding:7px 7px 7px 24px;border-radius:999px;font:600 16px/1 var(--tekst);text-decoration:none;white-space:nowrap;transition:background .25s,color .25s,box-shadow .25s}
+.knop .boei{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#fff;color:var(--boei2);transition:transform .35s}
+.knop .boei svg{width:20px;height:10px}
+.knop:hover .boei{transform:translateX(3px)}
+.knop.vol{background:var(--boei);color:#fff;box-shadow:0 14px 28px -14px rgba(201,78,42,.9)}
+.knop.vol:hover{background:var(--boei2)}
+.knop.lijn{border:1.5px solid currentColor;padding:18px 24px}
+.knop.lijn:hover{background:rgba(255,255,255,.08)}
+.knop.klein{font-size:15px;padding:5px 5px 5px 18px;gap:10px}
+.knop.klein .boei{width:32px;height:32px}
+
+/* ===== hero: één beeld, tekst op de zee ===== */
+.hero{position:relative;background:var(--diep);color:var(--zand);overflow:hidden;isolation:isolate}
+.hero-foto{position:absolute;top:0;right:0;bottom:0;width:66%;z-index:-1}
+.hero-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 72%}
+.hero-foto::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(90deg,var(--diep) 0%,rgba(12,43,52,.82) 11%,rgba(12,43,52,.32) 24%,rgba(12,43,52,0) 36%),
+  linear-gradient(180deg,rgba(12,43,52,.55) 0%,rgba(12,43,52,0) 20%,rgba(12,43,52,0) 66%,rgba(12,43,52,.88) 100%)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:88px}
+.merk{display:flex;align-items:center;gap:11px;text-decoration:none;font:800 26px/1 var(--kop);letter-spacing:-.02em;color:#fff}
+.merk small{display:block;font:500 11px/1 var(--tekst);letter-spacing:.2em;text-transform:uppercase;color:rgba(243,233,218,.72);margin-top:5px}
+.merk svg{width:38px;height:38px}
+nav{display:flex;gap:34px;font-weight:500;font-size:15.5px;color:#fff}
+nav a{text-decoration:none;opacity:.88}
+nav a:hover{opacity:1}
+.hero-in{display:flex;flex-direction:column;min-height:min(700px,calc(100svh - 236px))}
+.hero-tekst{flex:1;display:flex;flex-direction:column;justify-content:center;max-width:570px;padding:clamp(30px,4vw,56px) 0 clamp(40px,5vw,64px)}
+.hero h1{color:#fff;font-size:clamp(50px,5.4vw,80px);line-height:.98;margin:22px 0 26px}
+.hero h1 span{color:var(--boei)}
+.hero .lead{font-size:clamp(17px,1.35vw,19.5px);max-width:28em;color:rgba(243,233,218,.88)}
+.hero .knoppen{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero .lijn{color:var(--zand)}
+.kade{display:grid;grid-template-columns:auto auto 1fr;gap:clamp(24px,4vw,64px);align-items:center;padding:22px 0 30px;border-top:1px solid rgba(243,233,218,.22);font-size:15px;color:rgba(243,233,218,.82)}
+.kade b{display:block;font:700 21px/1.15 var(--kop);color:#fff;letter-spacing:-.01em;margin-bottom:3px}
+.kade .melkjes{justify-self:end;display:flex;align-items:center;gap:14px;text-align:right}
+.kade .melkjes span{display:flex;gap:5px}
+.kade .melkjes i{display:block;width:11px;height:28px;border-radius:5px 5px 3px 3px}
+
+/* ===== melk ===== */
+.melk{padding:clamp(90px,10vw,140px) 0}
+.melk-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(40px,6vw,96px);align-items:center}
+.melk h2{font-size:clamp(40px,4.6vw,66px);margin:18px 0 20px}
+.melk .intro{font-size:18.5px;color:var(--grijs);max-width:30em}
+.plank{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,26px);margin:46px 0 0;padding:0 10px;position:relative}
+.plank::after{content:"";position:absolute;left:0;right:0;bottom:-14px;height:14px;border-radius:4px;background:linear-gradient(#C9A57A,#A9835A);box-shadow:0 14px 20px -12px rgba(80,50,20,.55)}
+.fles{text-align:center}
+.fles svg{width:100%;max-width:112px;height:auto;margin:0 auto;display:block;filter:drop-shadow(0 12px 14px rgba(12,43,52,.14))}
+.fles svg text{font-family:var(--kop);font-weight:800;letter-spacing:-.02em}
+.smaak{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,26px);margin-top:34px}
+.smaak p{font-size:15px;line-height:1.5;color:var(--grijs);text-align:center;padding:0 4px}
+.smaak b{display:block;font:700 17px/1.2 var(--kop);color:var(--zee);margin-bottom:4px}
+.kaartje-0{display:inline-flex;align-items:center;gap:14px;margin-top:34px;background:#fff;border:1.5px dashed rgba(18,59,70,.3);border-radius:16px;padding:12px 20px 12px 12px;font-weight:600;color:var(--zee)}
+.kaartje-0 span{display:grid;place-items:center;width:48px;height:48px;border-radius:12px;background:var(--boei);color:#fff;font:800 16px/1 var(--kop)}
+.melk-foto{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;box-shadow:var(--schaduw)}
+.melk-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.melk-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,43,52,0) 50%,rgba(12,43,52,.7))}
+.citaat{position:absolute;left:24px;right:24px;bottom:24px;z-index:1;background:rgba(251,247,240,.96);color:var(--inkt);border-radius:18px;padding:22px 24px;font-size:16px;line-height:1.5}
+.citaat cite{display:flex;align-items:center;gap:10px;font-style:normal;font-weight:600;color:var(--zee);margin-top:12px;font-size:14px}
+.citaat cite i{width:30px;height:30px;border-radius:50%;background:var(--zand);display:grid;place-items:center;font:800 13px/1 var(--kop);font-style:normal;color:var(--zee)}
 .citaat .sterren{display:block;margin-bottom:8px}
 
-/* branders */
-.branders{background:var(--zand);padding:clamp(80px,9vw,130px) 0;position:relative}
-.br-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(40px,6vw,90px);align-items:start}
-.br-foto{position:sticky;top:30px}
-.br-foto img{border-radius:var(--r);aspect-ratio:4/5;object-fit:cover;width:100%;object-position:50% 40%}
-.br-foto p{margin-top:14px;font-size:14px;color:var(--grijs)}
-.branders h2{font-size:clamp(36px,4.2vw,60px);margin:18px 0 22px}
-.branders .intro{font-size:18px;color:#3E4C50;max-width:32em}
-.zak{margin-top:40px;background:var(--schelp);border-radius:20px;padding:10px 30px 6px;border:1.5px solid var(--lijn);position:relative}
-.zak::after{content:"";position:absolute;left:30px;right:30px;top:-1.5px;height:6px;background:repeating-linear-gradient(90deg,var(--zee) 0 10px,transparent 10px 18px);border-radius:0 0 4px 4px;opacity:.5}
-.zak h3{font:600 13px/1 var(--tekst);letter-spacing:.16em;text-transform:uppercase;color:var(--grijs);padding:22px 0 12px}
-.zak ul{list-style:none}
-.zak li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 0;border-top:1px dashed rgba(18,59,70,.22)}
-.zak li b{font:700 22px/1.15 var(--kop);color:var(--zee);letter-spacing:-.01em}
-.zak li span{font-size:15px;color:var(--grijs);white-space:nowrap}
-.zak .noot{border-top:1px dashed rgba(18,59,70,.22);padding:16px 0 18px;font-size:15px;color:var(--grijs)}
-.bereid{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-.bereid span{border:1.5px solid var(--zee);color:var(--zee);border-radius:999px;padding:8px 16px;font-weight:600;font-size:14.5px}
+/* ===== bonen ===== */
+.bonen{background:var(--zand);padding:clamp(90px,10vw,140px) 0}
+.bn-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(40px,6vw,96px);align-items:center}
+.bn-foto{position:relative}
+.bn-foto img{border-radius:var(--r);aspect-ratio:4/5;object-fit:cover;width:100%;object-position:50% 40%;box-shadow:var(--schaduw)}
+.bn-foto figcaption{margin-top:16px;font-size:14.5px;color:var(--grijs);display:flex;gap:10px;align-items:center}
+.bn-foto figcaption::before{content:"";width:22px;height:1.5px;background:var(--grijs);opacity:.6}
+.bonen h2{font-size:clamp(38px,4.3vw,62px);margin:18px 0 22px}
+.bonen .intro{font-size:18px;color:#3E4C50;max-width:31em}
+.zak{position:relative;margin-top:48px;background:var(--kraft);border-radius:6px 6px 22px 22px;padding:34px clamp(24px,3vw,40px) 26px;color:#3A2A18;box-shadow:0 30px 50px -34px rgba(80,50,20,.7);
+  background-image:radial-gradient(rgba(110,75,35,.10) 1px,transparent 1.4px),radial-gradient(rgba(255,255,255,.18) 1px,transparent 1.4px);background-size:7px 7px,11px 11px}
+.zak::before{content:"";position:absolute;left:0;right:0;top:-12px;height:13px;background:linear-gradient(-45deg,var(--kraft) 6px,transparent 0),linear-gradient(45deg,var(--kraft) 6px,transparent 0);background-size:12px 13px;background-repeat:repeat-x;background-position:left bottom}
+.zak .vouw{position:absolute;left:0;right:0;top:16px;border-top:1.5px dashed rgba(58,42,24,.28)}
+.zak-kop{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 0 14px}
+.zak-kop small{font:600 12.5px/1.3 var(--tekst);letter-spacing:.16em;text-transform:uppercase;color:rgba(58,42,24,.7)}
+.zak-kop .zegel{flex:none;width:70px;height:70px;border-radius:50%;background:var(--zee);display:grid;place-items:center;box-shadow:inset 0 0 0 4px var(--zee),inset 0 0 0 5.5px rgba(243,233,218,.55)}
+.zak-kop .zegel svg{width:40px;height:40px}
+.zak ul{list-style:none;background:var(--schelp);border-radius:14px;padding:4px 22px}
+.zak li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:15px 0;border-top:1px dashed rgba(18,59,70,.22)}
+.zak li:first-child{border-top:0}
+.zak li b{font:700 21px/1.15 var(--kop);color:var(--zee);letter-spacing:-.01em}
+.zak li span{font-size:14.5px;color:var(--grijs);white-space:nowrap}
+.zak .noot{padding:18px 2px 0;font-size:15px;color:#4A3920;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.zak .noot b{font-weight:600}
 
-/* kaart */
-.kaart{padding:clamp(80px,9vw,130px) 0}
-.kaart-kop{display:grid;grid-template-columns:1.4fr 1fr;align-items:end;gap:30px;margin-bottom:46px}
-.kaart h2{font-size:clamp(36px,4.2vw,60px);margin-top:18px;max-width:13em}
-.kaart-kop p{max-width:25em;color:var(--grijs)}
-.kaart-grid{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:22px;align-items:stretch}
-.kaart-grid figure{border-radius:var(--r);overflow:hidden;position:relative;min-height:420px}
+/* ===== kaart ===== */
+.kaart{padding:clamp(90px,10vw,140px) 0}
+.kaart-kop{display:grid;grid-template-columns:1.3fr 1fr;align-items:end;gap:30px;margin-bottom:50px}
+.kaart h2{font-size:clamp(38px,4.3vw,62px);margin-top:18px;max-width:12em}
+.kaart-kop p{max-width:24em;color:var(--grijs);font-size:17.5px}
+.kaart-grid{display:grid;grid-template-columns:1fr 1.15fr 1fr;grid-template-rows:1fr 1fr;gap:20px;min-height:680px}
+.kaart-grid figure{border-radius:var(--r);overflow:hidden;position:relative}
 .kaart-grid figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .kaart-grid figcaption{position:absolute;left:16px;bottom:16px;background:var(--schelp);border-radius:999px;padding:8px 15px;font-size:14px;font-weight:600;color:var(--zee)}
-.bord{background:var(--zee);color:var(--zand);border-radius:var(--r);padding:34px 34px 30px;display:flex;flex-direction:column}
-.bord h3{color:#fff;font-size:15px;font-family:var(--tekst);font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px;opacity:.75}
-.bord ul{list-style:none;margin-bottom:26px}
-.bord li{padding:13px 0;border-bottom:1px solid rgba(243,233,218,.14)}
-.bord li b{display:block;font:700 21px/1.2 var(--kop);color:#fff;letter-spacing:-.01em}
-.bord li span{font-size:14.5px;color:rgba(243,233,218,.72)}
-.bord li.fog b::after{content:"van het huis";margin-left:10px;vertical-align:3px;font:600 11px/1 var(--tekst);letter-spacing:.1em;text-transform:uppercase;background:var(--boei);color:#fff;border-radius:999px;padding:4px 9px}
-.bord .klein{margin-top:auto;font-size:14px;color:rgba(243,233,218,.7)}
+.kaart-grid .groot{grid-row:1/3}
+.kaart-grid .kaartje{grid-row:1/3}
+.kaartje{position:relative;background:#fff;border-radius:var(--r);padding:38px clamp(26px,3vw,40px) 32px;box-shadow:var(--schaduw);
+  -webkit-mask:radial-gradient(circle 13px at 0 calc(100% - 66px),transparent 12.5px,#000 13px) left/51% 100% no-repeat,radial-gradient(circle 13px at 100% calc(100% - 66px),transparent 12.5px,#000 13px) right/51% 100% no-repeat;
+          mask:radial-gradient(circle 13px at 0 calc(100% - 66px),transparent 12.5px,#000 13px) left/51% 100% no-repeat,radial-gradient(circle 13px at 100% calc(100% - 66px),transparent 12.5px,#000 13px) right/51% 100% no-repeat}
+.kaartje-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:18px;border-bottom:2px solid var(--zee)}
+.kaartje-top b{font:800 30px/1 var(--kop);color:var(--zee);letter-spacing:-.02em}
+.kaartje-top span{font:600 12px/1.3 var(--tekst);letter-spacing:.16em;text-transform:uppercase;color:var(--grijs);text-align:right}
+.kaartje h3{font:600 12.5px/1 var(--tekst);letter-spacing:.18em;text-transform:uppercase;color:var(--boei2);margin:24px 0 4px}
+.kaartje ul{list-style:none}
+.kaartje li{padding:11px 0;border-bottom:1px dashed rgba(18,59,70,.2)}
+.kaartje li:last-child{border-bottom:0}
+.kaartje li b{font:700 19px/1.2 var(--kop);color:var(--zee);letter-spacing:-.01em}
+.kaartje li > span{display:block;font-size:14.5px;color:var(--grijs);margin-top:2px}
+.kaartje .huis{display:inline-block;margin-left:8px;vertical-align:3px;font:600 10.5px/1 var(--tekst);letter-spacing:.1em;text-transform:uppercase;background:var(--boei);color:#fff;border-radius:999px;padding:4px 8px}
+.kaartje .scheur{margin:20px -40px 0;border-top:2px dashed rgba(18,59,70,.18)}
+.kaartje .voet{padding-top:16px;font-size:14px;color:var(--grijs);text-align:center}
 
-/* verhaal */
-.verhaal{position:relative;color:#fff}
-.band{position:relative;min-height:min(86vh,760px);display:flex;align-items:flex-end}
-.band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%}
-.band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,43,52,0) 30%,rgba(12,43,52,.78) 100%)}
-.band .wrap{position:relative;z-index:1;padding-bottom:clamp(50px,7vw,90px);width:100%}
-.band blockquote{font:800 clamp(34px,4.6vw,68px)/1.04 var(--kop);letter-spacing:-.025em;max-width:15em;text-wrap:balance}
-.band .wie{margin-top:22px;font-size:16px;color:rgba(255,255,255,.85)}
-.verhaal-tekst{background:var(--diep);color:var(--zand);padding:clamp(60px,7vw,100px) 0}
-.vt-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(28px,4vw,60px)}
-.vt-grid h3{color:#fff;font-size:28px;margin-bottom:12px}
-.vt-grid p{color:rgba(243,233,218,.8);font-size:16.5px}
-.vt-grid .jaar{font:800 64px/1 var(--kop);color:var(--boei);letter-spacing:-.03em;margin-bottom:14px}
+/* ===== verhaal ===== */
+.band{position:relative;min-height:min(84vh,740px);display:flex;align-items:flex-end;color:#fff;isolation:isolate}
+.band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%;z-index:-2}
+.band::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(12,43,52,0) 34%,rgba(12,43,52,.6) 70%,var(--diep) 100%)}
+.band .wrap{width:100%;padding-bottom:clamp(50px,6vw,80px)}
+.band blockquote{font:800 clamp(36px,4.8vw,72px)/1.03 var(--kop);letter-spacing:-.025em;max-width:14em;text-wrap:balance;margin-top:18px}
+.band .wie{margin-top:20px;font-size:17px;color:rgba(255,255,255,.86)}
+.logboek{background:var(--diep);color:var(--zand);padding:clamp(40px,5vw,70px) 0 clamp(90px,9vw,130px)}
+.lb-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,110px);align-items:start}
+.lijst{list-style:none;position:relative;padding-left:44px}
+.lijst::before{content:"";position:absolute;left:11px;top:10px;bottom:10px;width:12px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 24'%3E%3Cpath d='M6 0c-5 6 5 6 0 12s5 6 0 12' fill='none' stroke='%23F3E9DA' stroke-opacity='.35' stroke-width='1.4'/%3E%3C/svg%3E") repeat-y center/12px 24px}
+.lijst li{position:relative;padding:0 0 38px}
+.lijst li:last-child{padding-bottom:0}
+.lijst li::before{content:"";position:absolute;left:-41px;top:4px;width:18px;height:18px;border-radius:50%;background:var(--diep);border:3px solid var(--boei)}
+.lijst small{display:block;font:600 13px/1 var(--tekst);letter-spacing:.14em;text-transform:uppercase;color:#F2A386;margin-bottom:10px}
+.lijst h3{color:#fff;font-size:clamp(24px,2.2vw,30px);margin-bottom:8px}
+.lijst p{color:rgba(243,233,218,.8);font-size:16.5px;max-width:30em}
+.binnen{background:rgba(243,233,218,.06);border:1px solid rgba(243,233,218,.14);border-radius:var(--r);padding:clamp(30px,3.5vw,46px)}
+.binnen h3{color:#fff;font-size:clamp(28px,2.8vw,38px);margin:16px 0 16px}
+.binnen p{color:rgba(243,233,218,.84);font-size:17px}
+.binnen p+p{margin-top:14px}
+.binnen .lampen{display:flex;gap:26px;margin-bottom:6px}
+.binnen .lampen svg{width:34px;height:46px}
 
-/* weekend */
-.regels{padding:clamp(80px,9vw,120px) 0;background:var(--zand)}
-.rg-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,90px);align-items:center}
-.bordje{background:#fff;border-radius:26px;padding:clamp(34px,4vw,54px);border:1.5px solid var(--lijn);position:relative;box-shadow:0 30px 60px -40px rgba(12,43,52,.5)}
-.bordje::before,.bordje::after{content:"";position:absolute;top:-22px;width:2px;height:24px;background:var(--zee);opacity:.35}
-.bordje::before{left:22%}.bordje::after{right:22%}
-.bordje .tag{display:inline-block;background:var(--zee);color:#fff;border-radius:999px;padding:7px 14px;font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
-.bordje h2{font-size:clamp(34px,3.8vw,54px);margin:20px 0 16px}
-.bordje p{font-size:18px;color:#3E4C50}
+/* ===== weekend ===== */
+.weekend{background:var(--zand);padding:clamp(90px,10vw,140px) 0}
+.wk-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,96px);align-items:center}
+.wk-foto{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:5/6;box-shadow:var(--schaduw)}
+.wk-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.bordje{position:absolute;left:clamp(18px,3vw,32px);right:clamp(18px,3vw,32px);bottom:clamp(18px,3vw,32px);background:var(--schelp);border-radius:20px;padding:26px 28px 24px;box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
+.bordje::before,.bordje::after{content:"";position:absolute;top:-9px;width:14px;height:14px;border-radius:50%;background:var(--schelp);box-shadow:inset 0 0 0 4px var(--zee)}
+.bordje::before{left:26px}.bordje::after{right:26px}
+.bordje .tag{display:inline-block;font:600 12px/1 var(--tekst);letter-spacing:.14em;text-transform:uppercase;color:var(--boei2)}
+.bordje b{display:block;font:800 clamp(30px,3vw,42px)/1 var(--kop);color:var(--zee);letter-spacing:-.025em;margin:10px 0 10px}
+.bordje p{font-size:16px;color:#3E4C50}
+.weekend h2{font-size:clamp(38px,4.3vw,62px);margin:18px 0 18px}
+.weekend .intro{font-size:18px;color:#3E4C50;max-width:28em;margin-bottom:28px}
 .weet{list-style:none}
-.weet li{display:grid;grid-template-columns:54px 1fr;gap:18px;padding:22px 0;border-top:1px solid var(--lijn)}
-.weet li:last-child{border-bottom:1px solid var(--lijn)}
-.weet svg{width:46px;height:46px}
-.weet b{display:block;font:700 21px/1.2 var(--kop);color:var(--zee);margin-bottom:4px}
+.weet li{display:grid;grid-template-columns:50px 1fr;gap:18px;align-items:center;padding:18px 0;border-top:1px solid rgba(18,59,70,.16)}
+.weet li:last-child{border-bottom:1px solid rgba(18,59,70,.16)}
+.weet svg{width:50px;height:50px}
+.weet b{display:block;font:700 20px/1.2 var(--kop);color:var(--zee);margin-bottom:2px}
 .weet span{color:var(--grijs);font-size:16px}
 
-/* bezoek */
-.bezoek{padding:clamp(80px,9vw,130px) 0}
-.bz-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+/* ===== bezoek ===== */
+.bezoek{padding:clamp(90px,10vw,140px) 0}
+.bz-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:22px}
 .bz-kaart{background:var(--zee);color:var(--zand);border-radius:var(--r);padding:clamp(34px,4vw,56px)}
-.bz-kaart h2{color:#fff;font-size:clamp(38px,4.4vw,64px);margin:18px 0 24px}
-.bz-kaart .over{color:#F09A7C}
-.uren{list-style:none;margin:8px 0 30px;max-width:420px}
-.uren li{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(243,233,218,.14);font-size:16.5px}
-.uren li.dicht{color:rgba(243,233,218,.55)}
-.adres{font-size:18px;color:#fff;margin-bottom:6px}
-.bz-kaart .knoppen{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.bz-kaart h2{color:#fff;font-size:clamp(38px,4.4vw,62px);margin:18px 0 22px}
+.adres{font-size:19px;color:#fff;font-weight:500}
+.tram{display:flex;align-items:center;gap:10px;margin-top:6px;color:rgba(243,233,218,.82);font-size:16px}
+.tram svg{width:22px;height:22px;flex:none}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin:32px 0 10px}
+.week div{border-radius:14px;padding:14px 4px 12px;text-align:center;background:rgba(243,233,218,.09);border:1px solid rgba(243,233,218,.14)}
+.week b{display:block;font:700 17px/1 var(--kop);color:#fff;margin-bottom:8px}
+.week span{font-size:12.5px;line-height:1.25;display:block;color:rgba(243,233,218,.86)}
+.week .dicht{background:transparent;border-style:dashed}
+.week .dicht b{color:rgba(243,233,218,.5)}
+.week .dicht span{color:rgba(243,233,218,.45)}
+.weekuitleg{font-size:14.5px;color:rgba(243,233,218,.7)}
+.bz-kaart .knoppen{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
 .bz-kaart .lijn{color:var(--zand)}
-.bz-rechts{display:grid;grid-template-rows:1fr auto;gap:22px}
-.bz-rechts img{border-radius:var(--r);width:100%;height:100%;object-fit:cover;min-height:280px}
-.review{background:var(--zand);border-radius:var(--r);padding:30px 32px}
-.review .score{display:flex;align-items:baseline;gap:12px;margin-bottom:12px}
-.review .score b{font:800 48px/1 var(--kop);color:var(--zee);letter-spacing:-.03em}
-.review p{font-size:18px;color:var(--inkt)}
+.bz-foto{position:relative;border-radius:var(--r);overflow:hidden;min-height:520px}
+.bz-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.review{position:absolute;left:20px;right:20px;bottom:20px;background:var(--schelp);border-radius:20px;padding:26px 28px}
+.review .score{display:flex;align-items:baseline;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.review .score b{font:800 46px/1 var(--kop);color:var(--zee);letter-spacing:-.03em}
+.review .score small{font-size:14.5px;color:var(--grijs)}
+.review p{font-size:18px;color:var(--inkt);line-height:1.45}
 .review cite{display:block;font-style:normal;font-weight:600;margin-top:10px;color:var(--grijs);font-size:14.5px}
 
 footer{background:var(--diep);color:rgba(243,233,218,.7);padding:40px 0;font-size:14.5px}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 footer a{color:var(--zand)}
 
-@media (max-width:1100px){
+@media (max-width:1180px){
   nav{display:none}
-  .kaart-grid{grid-template-columns:1fr 1fr}
-  .kaart-grid .bord{grid-column:1/-1;order:-1}
-  .citaat{left:16px}
 }
-@media (max-width:900px){
-  .hero-in{grid-template-columns:1fr;min-height:0}
-  .hero-tekst{padding:56px clamp(20px,5vw,48px) 40px}
-  .hero-foto{height:min(110vw,620px)}
-  .melk-grid,.br-grid,.rg-grid,.bz-grid,.kaart-kop{grid-template-columns:1fr}
-  .br-foto{position:relative;top:0;order:2}
-  .vt-grid{grid-template-columns:1fr}
-  .melk-foto{max-width:560px}
+@media (max-width:1000px){
+  .hero-foto{position:relative;width:auto;height:min(92vw,560px);order:2;z-index:0;margin-top:-1px}
+  .hero-foto img{object-position:50% 70%}
+  .hero-foto::after{background:linear-gradient(180deg,var(--diep) 0%,rgba(12,43,52,.4) 16%,rgba(12,43,52,0) 34%,rgba(12,43,52,0) 72%,rgba(12,43,52,.85) 100%)}
+  .hero{display:flex;flex-direction:column}
+  .hero > header{order:0}
+  .hero-in{min-height:0;order:1;width:100%}
+  .hero-tekst{padding:36px 0 34px}
+  .kade-wrap{order:3;width:100%}
+  .kade{grid-template-columns:1fr 1fr;padding:26px 0 36px;border-top:0}
+  .kade .melkjes{grid-column:1/-1;justify-self:stretch;text-align:left;padding-top:20px;border-top:1px solid rgba(243,233,218,.2)}
+  .melk-grid,.bn-grid,.wk-grid,.bz-grid,.kaart-kop,.lb-grid{grid-template-columns:1fr}
+  .melk-foto{max-width:560px;width:100%}
+  .bn-foto{order:2;max-width:560px}
+  .kaart-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;min-height:0}
+  .kaart-grid .kaartje{grid-column:1/-1;grid-row:auto;order:-1}
+  .kaart-grid .groot{grid-row:auto;grid-column:1/-1;min-height:420px}
+  .kaart-grid figure{min-height:300px}
+  .wk-tekst{order:-1}
+  .wk-foto{max-width:620px;width:100%}
 }
 @media (max-width:600px){
   body{font-size:16.5px}
-  header .wrap{height:68px}
-  header .knop{padding:10px 16px;font-size:14px}
-  .merk{font-size:22px}.merk svg{width:30px;height:30px}.merk small{display:none}
-  .hero h1{font-size:44px}
-  .hero-voet{gap:20px}
-  .labels{grid-template-columns:1fr}
-  .label{display:grid;grid-template-columns:90px 1fr;gap:4px 14px;align-items:baseline;padding:22px 18px 18px}
-  .label .nr{grid-column:1/-1}
-  .label h3{margin:0}
-  .citaat{position:relative;left:auto;bottom:auto;margin:-60px 14px 0;max-width:none}
-  .zak{padding:6px 20px 4px}.zak::after{left:20px;right:20px}
+  header .wrap{height:72px}
+  .merk{font-size:22px}.merk svg{width:32px;height:32px}.merk small{display:none}
+  header .knop{font-size:14px}
+  .hero h1{font-size:46px}
+  .knop{font-size:15px}
+  .kade{gap:20px 16px}
+  .kade b{font-size:18px}
+  .kade{font-size:14px}
+  .plank{padding:0 4px}
+  .smaak p{font-size:14px;padding:0}
+  .smaak b{font-size:16px}
+  .citaat{left:14px;right:14px;bottom:14px;padding:18px 20px;font-size:15px}
+  .zak{padding:30px 18px 22px}
+  .zak ul{padding:2px 16px}
   .zak li{flex-direction:column;gap:2px}
-  .kaart-grid{grid-template-columns:1fr}
-  .kaart-grid figure{min-height:320px}
-  .bord{padding:28px 22px}
+  .zak-kop .zegel{width:56px;height:56px}.zak-kop .zegel svg{width:32px;height:32px}
+  .kaart-grid{gap:12px}
+  .kaart-grid .groot{min-height:340px}
+  .kaart-grid figure{min-height:210px}
+  .kaart-grid figcaption{left:10px;bottom:10px;font-size:13px;padding:7px 12px}
+  .kaartje{padding:30px 22px 26px}
+  .kaartje .scheur{margin:20px -22px 0}
   .band{min-height:560px}
-  .hero-foto figcaption{left:14px;right:14px;bottom:14px}
-  .knop{padding:14px 20px 14px 22px}
+  .wk-foto{aspect-ratio:4/5}
+  .bordje{padding:22px 20px 20px}
+  .week{gap:4px}
+  .week div{padding:11px 0 9px;border-radius:10px}
+  .week b{font-size:14px;margin-bottom:6px}
+  .week span{font-size:11px}
+  .bz-kaart{padding:32px 22px}
+  .bz-foto{min-height:500px}
+  .review{left:14px;right:14px;bottom:14px;padding:22px}
 }
 </style>
 </head>
 <body>
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
-<header>
-  <div class="wrap">
-    <a class="merk" href="#top" aria-label="Meerman Specialty Coffee">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#E2603A"/><path d="M9 23c2.5-3 4.5-3 7 0s4.5 3 7 0 4.5-3 7 0" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M13 16h12v2.5a6 6 0 0 1-12 0z" fill="#fff"/><path d="M25 16.5h2a2 2 0 0 1 0 4h-1.4" fill="none" stroke="#fff" stroke-width="1.8"/></svg>
-      <span>Meerman<small>Specialty coffee</small></span>
-    </a>
-    <nav aria-label="Hoofdmenu">
-      <a href="#melk">Melk</a><a href="#branders">Bonen</a><a href="#kaart">Kaart</a><a href="#verhaal">Ons verhaal</a><a href="#bezoek">Bezoek</a>
-    </nav>
-    <a class="knop vol" href="https://www.google.com/maps/dir/?api=1&amp;destination=Christinastraat+46+8400+Oostende" target="_blank" rel="noopener">Route
-      <svg viewBox="0 0 22 10" aria-hidden="true"><path d="M1 5c2.5-4 4.5-4 7 0s4.5 4 7 0M15 1l5 4-5 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-  </div>
-</header>
-
 <main id="top">
-<section class="hero">
-  <div class="hero-in">
+<section class="hero op-donker">
+  <figure class="hero-foto">
+    <img src="img/hero.webp" alt="Melk wordt in een cappuccino geschonken, met latte art" fetchpriority="high">
+  </figure>
+  <header>
+    <div class="wrap">
+      <a class="merk" href="#top" aria-label="Meerman Specialty Coffee">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#E2603A"/><path d="M9 23c2.5-3 4.5-3 7 0s4.5 3 7 0 4.5-3 7 0" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M13 16h12v2.5a6 6 0 0 1-12 0z" fill="#fff"/><path d="M25 16.5h2a2 2 0 0 1 0 4h-1.4" fill="none" stroke="#fff" stroke-width="1.8"/></svg>
+        <span>Meerman<small>Specialty coffee</small></span>
+      </a>
+      <nav aria-label="Hoofdmenu">
+        <a href="#melk">Melk</a><a href="#bonen">Bonen</a><a href="#kaart">Kaart</a><a href="#verhaal">Ons verhaal</a><a href="#bezoek">Bezoek</a>
+      </nav>
+      <a class="knop vol klein" href="https://www.google.com/maps/dir/?api=1&amp;destination=Christinastraat+46+8400+Oostende" target="_blank" rel="noopener">Route<span class="boei"><svg viewBox="0 0 22 10" aria-hidden="true"><path d="M1 5c2.5-4 4.5-4 7 0s4.5 4 7 0M15 1l5 4-5 4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+    </div>
+  </header>
+  <div class="wrap hero-in">
     <div class="hero-tekst">
       <span class="over">Christinastraat 46, Oostende</span>
       <h1><span>Ahoi!</span> Koffie met haver, erwt of kokos.</h1>
-      <p class="lead">Wij zijn Maria en Ruben. Bij ons komt er nooit koemelk in je kopje: je kiest zelf welke plantaardige melk, en dat kost geen cent extra. Neem er een cinnamon roll bij en blijf even zitten.</p>
+      <p class="lead">Wij zijn Maria en Ruben. Bij ons komt er geen koemelk in je kopje: je kiest zelf welke plantaardige melk, en dat kost niks extra. Neem er een cinnamon roll bij en blijf even plakken.</p>
       <div class="knoppen">
-        <a class="knop vol" href="#kaart">Bekijk wat we schenken
-          <svg viewBox="0 0 22 10" aria-hidden="true"><path d="M1 5c2.5-4 4.5-4 7 0s4.5 4 7 0M15 1l5 4-5 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="knop vol" href="#kaart">Wat we schenken<span class="boei"><svg viewBox="0 0 22 10" aria-hidden="true"><path d="M1 5c2.5-4 4.5-4 7 0s4.5 4 7 0M15 1l5 4-5 4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
         <a class="knop lijn" href="#bezoek">Uren en adres</a>
       </div>
-      <div class="hero-voet">
-        <div><b>4,7 <span class="sterren">★★★★★</span></b>212 reviews op Google</div>
-        <div><b>wo t/m zo</b>van 9 tot 17u, geen reservaties</div>
-      </div>
     </div>
-    <figure class="hero-foto">
-      <img src="img/hero.webp" alt="Een cappuccino met latte art in twee handen" fetchpriority="high">
-      <figcaption><span class="flesjes" aria-hidden="true"><i style="background:#E8D3A8"></i><i style="background:#B9C99A"></i><i style="background:#fff;border:1px solid #ddd"></i></span>Haver, erwt of kokos. Altijd plantaardig, nooit een supplement.</figcaption>
-    </figure>
+  </div>
+  <div class="wrap kade-wrap">
+    <div class="kade">
+      <div><b>4,7 <span class="sterren">★★★★★</span></b>212 reviews op Google</div>
+      <div><b>Woensdag tot zondag</b>van 9 tot 17u, geen reservaties</div>
+      <div class="melkjes"><span aria-hidden="true"><i style="background:#E8D3A8"></i><i style="background:#B9C99A"></i><i style="background:#FBF7F0"></i></span><div><b>€ 0 supplement</b>op elke plantaardige melk</div></div>
+    </div>
   </div>
 </section>
 
@@ -260,33 +322,41 @@ footer a{color:var(--zand)}
     <div>
       <span class="over">Aan de toog</span>
       <h2>Welke melk? Dat kies jij.</h2>
-      <p class="intro">Toen we Meerman openden, wisten we het meteen: alles plantaardig. Niet omdat het moet, wel omdat het gewoon heel lekker is in een goeie cappuccino. Je hebt drie smaken om uit te kiezen.</p>
-      <div class="labels">
-        <div class="label haver"><span class="nr">Nr. 1</span><h3>Haver</h3><p>Romig en zacht. Ook de basis van onze Ostend fog.</p></div>
-        <div class="label erwt"><span class="nr">Nr. 2</span><h3>Erwt</h3><p>Rustig van smaak, de koffie blijft vooraan staan.</p></div>
-        <div class="label kokos"><span class="nr">Nr. 3</span><h3>Kokos</h3><p>Een tikje zoet. Lekker in een ijskoffie of een chai.</p></div>
+      <p class="intro">Bij Meerman is alles plantaardig, van in het begin. Niet omdat het moet, wel omdat het gewoon lekker is in een goeie cappuccino. Er staan drie flessen klaar.</p>
+      <div class="plank" aria-hidden="true">
+        <div class="fles"><svg viewBox="0 0 100 190"><rect x="36" y="4" width="28" height="16" rx="4" fill="#123B46"/><path d="M39 20h22v18c0 8 25 14 25 34v100a12 12 0 0 1-12 12H26a12 12 0 0 1-12-12V72c0-20 25-26 25-34z" fill="#EEDDBB" stroke="#123B46" stroke-width="2.4"/><rect x="14" y="92" width="72" height="56" fill="#FBF7F0" stroke="#123B46" stroke-width="2"/><text x="50" y="126" text-anchor="middle" font-size="21" fill="#123B46">Haver</text><text x="50" y="142" text-anchor="middle" font-size="8.5" fill="#C94E2A" letter-spacing="1.5">NR. 1</text></svg></div>
+        <div class="fles"><svg viewBox="0 0 100 190"><rect x="36" y="4" width="28" height="16" rx="4" fill="#E2603A"/><path d="M39 20h22v18c0 8 25 14 25 34v100a12 12 0 0 1-12 12H26a12 12 0 0 1-12-12V72c0-20 25-26 25-34z" fill="#D5E0C3" stroke="#123B46" stroke-width="2.4"/><rect x="14" y="92" width="72" height="56" fill="#FBF7F0" stroke="#123B46" stroke-width="2"/><text x="50" y="126" text-anchor="middle" font-size="21" fill="#123B46">Erwt</text><text x="50" y="142" text-anchor="middle" font-size="8.5" fill="#C94E2A" letter-spacing="1.5">NR. 2</text></svg></div>
+        <div class="fles"><svg viewBox="0 0 100 190"><rect x="36" y="4" width="28" height="16" rx="4" fill="#123B46"/><path d="M39 20h22v18c0 8 25 14 25 34v100a12 12 0 0 1-12 12H26a12 12 0 0 1-12-12V72c0-20 25-26 25-34z" fill="#FFFFFF" stroke="#123B46" stroke-width="2.4"/><rect x="14" y="92" width="72" height="56" fill="#F3E9DA" stroke="#123B46" stroke-width="2"/><text x="50" y="126" text-anchor="middle" font-size="21" fill="#123B46">Kokos</text><text x="50" y="142" text-anchor="middle" font-size="8.5" fill="#C94E2A" letter-spacing="1.5">NR. 3</text></svg></div>
       </div>
-      <p class="gratis"><span>€ 0</span>Geen supplement, voor geen enkele melk.</p>
+      <div class="smaak">
+        <p>Romig en zacht. De basis van onze Ostend fog.</p>
+        <p>Rustig van smaak, de koffie blijft vooraan.</p>
+        <p>Een tikje zoet. Lekker in ijskoffie of chai.</p>
+      </div>
     </div>
-    <div class="melk-foto">
-      <img src="img/latte.webp" alt="Cappuccino in een witte mok" loading="lazy">
-      <blockquote class="citaat"><span class="sterren">★★★★★</span>“Ze hebben heerlijke vegan koffie, je hebt zelf de keuze uit drie verschillende melk soorten. Haver, erwten en kokos (gratis).”<cite>ezri a. op Google</cite></blockquote>
-    </div>
+    <figure class="melk-foto">
+      <img src="img/latte.webp" alt="Cappuccino met latte art op een houten tafeltje" loading="lazy">
+      <blockquote class="citaat"><span class="sterren">★★★★★</span>“Ze hebben heerlijke vegan koffie, je hebt zelf de keuze uit drie verschillende melk soorten. Haver, erwten en kokos (gratis).”<cite><i>E</i>ezri a. op Google</cite></blockquote>
+    </figure>
   </div>
 </section>
 
-<section class="branders" id="branders">
-  <div class="wrap br-grid">
-    <figure class="br-foto">
+<section class="bonen" id="bonen">
+  <div class="wrap bn-grid">
+    <figure class="bn-foto">
       <img src="img/filter.webp" alt="Heet water wordt over gemalen koffie in een filter gegoten" loading="lazy">
-      <p>Espresso, filter of cold brew: vraag gerust wat er vandaag in de molen zit.</p>
+      <figcaption>Espresso, filter of cold brew. Vraag wat er vandaag in de molen zit.</figcaption>
     </figure>
     <div>
       <span class="over">Onze bonen</span>
       <h2>Bonen van branders die we zelf graag drinken</h2>
-      <p class="intro">Ruben leerde het vak bij Way Coffee Roasters in Gent. Achter onze toog wisselen we af tussen Belgische en buitenlandse branders, en een deel van de bonen draait mee. Zo is er altijd iets nieuws om te proeven.</p>
+      <p class="intro">Ruben leerde het vak bij Way Coffee Roasters in Gent. Achter de toog wisselen we af tussen Belgische en buitenlandse branders, dus er is altijd iets nieuws om te proeven.</p>
       <div class="zak">
-        <h3>Wie er de voorbije maanden in de molen zat</h3>
+        <span class="vouw" aria-hidden="true"></span>
+        <div class="zak-kop">
+          <small>De voorbije maanden<br>in onze molen</small>
+          <span class="zegel" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M9 23c2.5-3 4.5-3 7 0s4.5 3 7 0 4.5-3 7 0" fill="none" stroke="#F3E9DA" stroke-width="2.2" stroke-linecap="round"/><path d="M13 16h12v2.5a6 6 0 0 1-12 0z" fill="#F3E9DA"/><path d="M25 16.5h2a2 2 0 0 1 0 4h-1.4" fill="none" stroke="#F3E9DA" stroke-width="1.8"/></svg></span>
+        </div>
         <ul>
           <li><b>Andy Roasters</b><span>Antwerpen</span></li>
           <li><b>Wide Awake</b><span>Brussel</span></li>
@@ -294,9 +364,8 @@ footer a{color:var(--zand)}
           <li><b>Hoppenworth &amp; Ploch</b><span>Duitsland</span></li>
           <li><b>Onyx</b><span>Verenigde Staten</span></li>
         </ul>
-        <p class="noot">Een zak bonen mee naar huis? Vraag het aan de toog.</p>
+        <p class="noot"><span>Een zak bonen mee naar huis?</span><b>Vraag het aan de toog.</b></p>
       </div>
-      <div class="bereid"><span>Espresso</span><span>Filter</span><span>Cold brew</span></div>
     </div>
   </div>
 </section>
@@ -304,15 +373,16 @@ footer a{color:var(--zand)}
 <section class="kaart" id="kaart">
   <div class="wrap">
     <div class="kaart-kop">
-      <div><span class="over">Naast de koffie</span><h2>Voor wie vandaag eens iets anders wil</h2></div>
-      <p>Wat er die dag aan gebak ligt, zie je aan de toog. Alles gaat ook mee in een beker of een zakje.</p>
+      <div><span class="over">Naast de koffie</span><h2>Liever matcha, chai of iets zoets?</h2></div>
+      <p>Wat er die dag aan gebak ligt, zie je aan de toog. Alles gaat ook mee, in een beker of een zakje.</p>
     </div>
     <div class="kaart-grid">
-      <figure><img src="img/matcha.webp" alt="Matcha latte met latte art" loading="lazy"><figcaption>Matcha van Iro</figcaption></figure>
-      <div class="bord">
+      <figure class="groot"><img src="img/matcha.webp" alt="Matcha latte met latte art" loading="lazy"><figcaption>Matcha van Iro</figcaption></figure>
+      <div class="kaartje">
+        <div class="kaartje-top"><b>Meerman</b><span>Wat we<br>schenken</span></div>
         <h3>Te drinken</h3>
         <ul>
-          <li class="fog"><b>Ostend fog</b><span>Havermelk met earl grey</span></li>
+          <li><b>Ostend fog<span class="huis">van het huis</span></b><span>Havermelk met earl grey</span></li>
           <li><b>Matcha</b><span>Van Iro</span></li>
           <li><b>Chai</b><span>Van Prana, bij ons gebrouwen</span></li>
           <li><b>Warme chocolade</b><span>Met cacao van Ander</span></li>
@@ -324,74 +394,99 @@ footer a{color:var(--zand)}
           <li><b>Double chocolate couque</b><span>Met chocoladeglazuur</span></li>
           <li><b>Huisgemaakte cookies</b></li>
         </ul>
+        <div class="scheur" aria-hidden="true"></div>
+        <p class="voet">Alles met haver, erwt of kokos.</p>
       </div>
       <figure><img src="img/kaneel.webp" alt="Cinnamon roll naast een kop koffie" loading="lazy"><figcaption>Cinnamon roll</figcaption></figure>
+      <figure><img src="img/nata.webp" alt="Pastéis de nata, vers uit de oven" loading="lazy"><figcaption>Pastel de nata</figcaption></figure>
     </div>
   </div>
 </section>
 
-<section class="verhaal" id="verhaal">
+<section class="verhaal op-donker" id="verhaal">
   <div class="band">
     <img src="img/duin.webp" alt="Pad door de duinen naar het strand" loading="lazy">
     <div class="wrap">
-      <span class="over" style="color:#F6B9A3">Ons verhaal</span>
+      <span class="over">Ons verhaal</span>
       <blockquote>“Ruben zorgde voor de koffie, Maria voor het dessert.”</blockquote>
       <p class="wie">Zo ging onze eerste date, negen jaar geleden, op het strand van Oostende.</p>
     </div>
   </div>
-  <div class="verhaal-tekst">
-    <div class="wrap vt-grid">
-      <div><div class="jaar">2024</div><h3>Terug naar zee</h3><p>We kwamen terug naar Oostende, de stad waar het voor ons begon. Ruben komt uit Brussel, Maria uit Vlaanderen, en de kust trok ons allebei.</p></div>
-      <div><div class="jaar">2025</div><h3>Meerman opent</h3><p>In de Christinastraat vonden we ons plekje. Scheepslampen aan het plafond, houten muren en tafels, en een Kewlox-kast vol boeken die je mag lenen of ruilen.</p></div>
-      <div><div class="jaar">Ahoi!</div><h3>Voor alle meermensjes</h3><p>Zo noemen we jullie, onze vaste gasten. Kom je met de kinderen, dan ligt er speelgoed klaar en neem je gerust je tijd.</p></div>
+  <div class="logboek">
+    <div class="wrap lb-grid">
+      <ol class="lijst">
+        <li><small>Negen jaar geleden</small><h3>Een date op het strand</h3><p>Koffie en dessert, met de voeten in het zand. Daar begon het.</p></li>
+        <li><small>2024</small><h3>Terug naar zee</h3><p>Ruben komt uit Brussel, Maria uit Vlaanderen. De kust trok ons allebei terug.</p></li>
+        <li><small>2025</small><h3>Meerman opent</h3><p>In de Christinastraat vonden we ons plekje.</p></li>
+      </ol>
+      <div class="binnen">
+        <div class="lampen" aria-hidden="true">
+          <svg viewBox="0 0 34 46"><path d="M17 0v8" stroke="#F3E9DA" stroke-opacity=".5" stroke-width="1.5"/><path d="M8 14h18l-3 20H11z" fill="none" stroke="#F3E9DA" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 14h22M11 24h12" stroke="#F3E9DA" stroke-width="1.6"/><rect x="12" y="8" width="10" height="6" rx="1.5" fill="#F3E9DA"/><circle cx="17" cy="40" r="4" fill="#E2603A"/></svg>
+          <svg viewBox="0 0 34 46"><path d="M17 0v8" stroke="#F3E9DA" stroke-opacity=".5" stroke-width="1.5"/><path d="M8 14h18l-3 20H11z" fill="none" stroke="#F3E9DA" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 14h22M11 24h12" stroke="#F3E9DA" stroke-width="1.6"/><rect x="12" y="8" width="10" height="6" rx="1.5" fill="#F3E9DA"/><circle cx="17" cy="40" r="4" fill="#E2603A"/></svg>
+          <svg viewBox="0 0 34 46"><path d="M17 0v8" stroke="#F3E9DA" stroke-opacity=".5" stroke-width="1.5"/><path d="M8 14h18l-3 20H11z" fill="none" stroke="#F3E9DA" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 14h22M11 24h12" stroke="#F3E9DA" stroke-width="1.6"/><rect x="12" y="8" width="10" height="6" rx="1.5" fill="#F3E9DA"/><circle cx="17" cy="40" r="4" fill="#E2603A"/></svg>
+        </div>
+        <span class="over">Binnen bij ons</span>
+        <h3>Voor alle meermensjes</h3>
+        <p>Scheepslampen aan het plafond, houten muren en tafels, en een Kewlox-kast vol boeken die je mag lenen of ruilen.</p>
+        <p>Meermensjes, zo noemen we onze vaste gasten. Kom je met de kinderen? Er ligt speelgoed klaar, dus neem gerust je tijd.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="regels">
-  <div class="wrap rg-grid">
-    <div class="bordje">
-      <span class="tag">Weekend en feestdagen</span>
-      <h2>Laptop free waters</h2>
-      <p>Op zaterdag, zondag en feestdagen blijft de laptop dicht. Dan is Meerman er om bij te praten, een boek open te slaan en nog een tweede koffie te bestellen. In de week ben je met je laptop gewoon welkom.</p>
+<section class="weekend">
+  <div class="wrap wk-grid">
+    <figure class="wk-foto">
+      <img src="img/boek.webp" alt="Een cappuccino en een open boek op een houten tafel" loading="lazy">
+      <div class="bordje">
+        <span class="tag">Weekend en feestdagen</span>
+        <b>Laptop free waters</b>
+        <p>Op zaterdag, zondag en feestdagen blijft de laptop dicht. In de week ben je er gewoon welkom mee.</p>
+      </div>
+    </figure>
+    <div class="wk-tekst">
+      <span class="over">Goed om te weten</span>
+      <h2>Een tweede koffie? Altijd.</h2>
+      <p class="intro">In het weekend is Meerman er om bij te praten en een boek open te slaan. Zoek een plekje en blijf zo lang je wil.</p>
+      <ul class="weet">
+        <li><svg viewBox="0 0 50 50" aria-hidden="true"><circle cx="25" cy="25" r="24" fill="#FBF7F0"/><path d="M16 19h18v14H16zM16 23h18M21 16v5M29 16v5" fill="none" stroke="#123B46" stroke-width="1.8" stroke-linejoin="round"/></svg><div><b>Geen reservaties</b><span>Je loopt binnen en zoekt een plekje.</span></div></li>
+        <li><svg viewBox="0 0 50 50" aria-hidden="true"><circle cx="25" cy="25" r="24" fill="#FBF7F0"/><path d="M16 16h7a2 2 0 0 1 2 2v16a2 2 0 0 0-2-2h-7zM34 16h-7a2 2 0 0 0-2 2v16a2 2 0 0 1 2-2h7z" fill="none" stroke="#123B46" stroke-width="1.8" stroke-linejoin="round"/></svg><div><b>Boek vergeten?</b><span>Neem er een uit de kast, of ruil er een.</span></div></li>
+        <li><svg viewBox="0 0 50 50" aria-hidden="true"><circle cx="25" cy="25" r="24" fill="#FBF7F0"/><path d="M15 23c3-5 17-5 20 0M25 18v15M19 33h12" fill="none" stroke="#123B46" stroke-width="1.8" stroke-linecap="round"/></svg><div><b>Terras</b><span>Zit het weer mee, dan drink je je koffie buiten.</span></div></li>
+        <li><svg viewBox="0 0 50 50" aria-hidden="true"><circle cx="25" cy="25" r="24" fill="#FBF7F0"/><path d="M17 21h13v6a6.5 6.5 0 0 1-13 0zM30 22.5h2.5a2.5 2.5 0 0 1 0 5H30M16 35h16" fill="none" stroke="#123B46" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Ook om mee te nemen</b><span>Op weg naar het strand? Je koffie gaat mee.</span></div></li>
+      </ul>
     </div>
-    <ul class="weet">
-      <li><svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="22" fill="#F3E9DA"/><path d="M14 17h18v13H14zM14 21h18M19 14v5M27 14v5" fill="none" stroke="#123B46" stroke-width="1.8" stroke-linejoin="round"/></svg><div><b>Geen reservaties</b><span>Je loopt gewoon binnen en zoekt een plekje.</span></div></li>
-      <li><svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="22" fill="#F3E9DA"/><path d="M14 14h7a2 2 0 0 1 2 2v16a2 2 0 0 0-2-2h-7zM32 14h-7a2 2 0 0 0-2 2v16a2 2 0 0 1 2-2h7z" fill="none" stroke="#123B46" stroke-width="1.8" stroke-linejoin="round"/></svg><div><b>Boekenkast</b><span>Boek vergeten? Neem er eentje uit de kast, of ruil er een.</span></div></li>
-      <li><svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="22" fill="#F3E9DA"/><path d="M13 21c3-5 17-5 20 0M23 16v15M17 31h12" fill="none" stroke="#123B46" stroke-width="1.8" stroke-linecap="round"/></svg><div><b>Terras</b><span>Zit het weer mee, dan drink je je koffie buiten.</span></div></li>
-      <li><svg viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="22" fill="#F3E9DA"/><path d="M15 19h13v6a6.5 6.5 0 0 1-13 0zM28 20.5h2.5a2.5 2.5 0 0 1 0 5H28M14 33h16" fill="none" stroke="#123B46" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Ook om mee te nemen</b><span>Op weg naar het strand? Je koffie gaat ook mee.</span></div></li>
-    </ul>
   </div>
 </section>
 
-<section class="bezoek" id="bezoek">
+<section class="bezoek op-donker" id="bezoek">
   <div class="wrap bz-grid">
     <div class="bz-kaart">
       <span class="over">Kom langs</span>
       <h2>Tot in de Christinastraat</h2>
       <p class="adres">Christinastraat 46, 8400 Oostende</p>
-      <p>Tramhalte Marie-Joséplein ligt vlakbij.</p>
-      <ul class="uren">
-        <li class="dicht"><span>Maandag en dinsdag</span><span>dicht</span></li>
-        <li><span>Woensdag</span><span>9u tot 17u</span></li>
-        <li><span>Donderdag</span><span>9u tot 17u</span></li>
-        <li><span>Vrijdag</span><span>9u tot 17u</span></li>
-        <li><span>Zaterdag</span><span>9u tot 17u</span></li>
-        <li><span>Zondag</span><span>9u tot 17u</span></li>
-      </ul>
+      <p class="tram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="12" height="14" rx="3" fill="none" stroke="#F2A386" stroke-width="1.7"/><path d="M6 11h12M9 21l1.5-3M15 21l-1.5-3M10 1.5h4" fill="none" stroke="#F2A386" stroke-width="1.7" stroke-linecap="round"/></svg>Tramhalte Marie-Joséplein ligt vlakbij.</p>
+      <div class="week">
+        <div class="dicht"><b>ma</b><span>dicht</span></div>
+        <div class="dicht"><b>di</b><span>dicht</span></div>
+        <div><b>wo</b><span>9u<br>17u</span></div>
+        <div><b>do</b><span>9u<br>17u</span></div>
+        <div><b>vr</b><span>9u<br>17u</span></div>
+        <div><b>za</b><span>9u<br>17u</span></div>
+        <div><b>zo</b><span>9u<br>17u</span></div>
+      </div>
+      <p class="weekuitleg">Woensdag tot zondag van 9 tot 17u. Maandag en dinsdag dicht.</p>
       <div class="knoppen">
-        <a class="knop vol" href="https://www.google.com/maps/dir/?api=1&amp;destination=Christinastraat+46+8400+Oostende" target="_blank" rel="noopener">Plan je route
-          <svg viewBox="0 0 22 10" aria-hidden="true"><path d="M1 5c2.5-4 4.5-4 7 0s4.5 4 7 0M15 1l5 4-5 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="knop lijn" href="mailto:ahoi@meerman.coffee">ahoi@meerman.coffee</a>
+        <a class="knop vol" href="https://www.google.com/maps/dir/?api=1&amp;destination=Christinastraat+46+8400+Oostende" target="_blank" rel="noopener">Plan je route<span class="boei"><svg viewBox="0 0 22 10" aria-hidden="true"><path d="M1 5c2.5-4 4.5-4 7 0s4.5 4 7 0M15 1l5 4-5 4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a class="knop lijn" href="mailto:ahoi@meerman.coffee">Mail ons</a>
         <a class="knop lijn" href="https://www.instagram.com/meerman.coffee/" target="_blank" rel="noopener">Instagram</a>
       </div>
     </div>
-    <div class="bz-rechts">
+    <div class="bz-foto">
       <img src="img/zee.webp" alt="Strand en zee onder een blauwe lucht" loading="lazy">
       <div class="review">
-        <div class="score"><b>4,7</b><span class="sterren">★★★★★</span><span>212 reviews</span></div>
+        <div class="score"><b>4,7</b><span class="sterren">★★★★★</span><small>212 reviews op Google</small></div>
         <p>“Meerman in Oostende is een echte aanrader voor koffieliefhebbers.”</p>
-        <cite>Sterckx M. op Google</cite>
+        <cite>Sterckx M.</cite>
       </div>
     </div>
   </div>
