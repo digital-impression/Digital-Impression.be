@@ -3,188 +3,246 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>INKspired by Pommeline · Private tattoostudio in Erpe-Mere</title>
-<meta name="description" content="INKspired by Pommeline: de private tattoostudio van Pommeline Tillière in Erpe-Mere. Tattoos op maat, geometrie en dotwork, cover-ups en tattooverwijdering met Pico-laser. Volledig op afspraak.">
+<title>INKspired by Pommeline · Private tattoostudio, enkel op afspraak</title>
+<meta name="description" content="INKspired by Pommeline: de private tattoostudio van Pommeline Tillière in Erpe-Mere. Geometrie, dotwork, mandala's, fineline en cover-ups, en tattooverwijdering met de PicoLuma-laser. Enkel op afspraak.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js')</script>
 <style>
 :root{
-  --zwart:#131010;--zwart2:#1c1715;--zwart3:#262019;--goud:#d9ad5b;--goud2:#b98d3f;--room:#f4ede3;--wit:#fffaf3;
-  --ink:#1a1512;--zacht:#6f6358;--lijn:rgba(26,21,18,.13);--lijnd:rgba(255,255,255,.12);
-  --ease:cubic-bezier(.2,.7,.2,1);--r:22px;
+  --zwart:#131010;--zwart2:#1b1614;--zwart3:#262019;--goud:#d9ad5b;--goud2:#b98d3f;--room:#f3ece1;--papier:#fbf6ee;
+  --ink:#1a1512;--zacht:#6c6056;--lijn:rgba(26,21,18,.14);--lijnd:rgba(255,255,255,.12);--tekstd:rgba(239,231,220,.74);
+  --ease:cubic-bezier(.2,.7,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--zwart);color:#efe7dc;font:300 17.5px/1.7 'Outfit',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--zwart);color:#efe7dc;font:300 17px/1.7 'Outfit',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit}
-h1,h2,h3{font-family:'Cinzel',Georgia,serif;font-weight:700;line-height:1.06;letter-spacing:.01em}
-.wrap{width:min(1260px,100% - 48px);margin:0 auto}
+h1,h2,h3{font-family:'Cinzel',Georgia,serif;font-weight:600;line-height:1.08;letter-spacing:.005em;font-style:normal}
+.wrap{width:min(1240px,100% - 48px);margin:0 auto}
 .demo{background:#000;color:rgba(255,255,255,.7);font:400 13.5px/1.4 'Outfit',sans-serif;text-align:center;padding:9px 16px;position:relative;z-index:60}
 .demo a{color:var(--goud);font-weight:600;text-underline-offset:3px}
-.lab{display:inline-block;font:500 12.5px/1 'Outfit';letter-spacing:.3em;text-transform:uppercase;color:var(--goud);margin-bottom:20px}
-.knop{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:16px 28px;font:500 15.5px/1 'Outfit';text-decoration:none;transition:transform .35s var(--ease),background .3s,color .3s}
-.knop svg{width:18px;height:18px;flex:none}
-.knop.goud{background:var(--goud);color:var(--zwart)}
-.knop.goud:hover{background:#e8be6c;transform:translateY(-2px)}
-.knop.rand{border:1px solid rgba(255,255,255,.45);color:#fff}
-.knop.rand:hover{background:#fff;color:var(--zwart)}
+.lab{display:flex;align-items:center;gap:12px;font:500 12.5px/1 'Outfit';letter-spacing:.28em;text-transform:uppercase;color:var(--goud);margin-bottom:22px}
+.lab:before{content:"";width:7px;height:7px;background:currentColor;transform:rotate(45deg);flex:none}
+
+/* knoppen: afgeschuinde hoeken zoals een geometrisch vlak, en een stippellijn als tweede knop */
+.knop{display:inline-flex;align-items:center;gap:12px;padding:17px 28px;font:500 15.5px/1 'Outfit';text-decoration:none;background:var(--goud);color:var(--zwart);border:0;cursor:pointer;clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0 calc(100% - 12px),0 12px);transition:background .3s,transform .35s var(--ease)}
+.knop:hover{background:#e9c072;transform:translateY(-2px)}
+.knop svg{width:15px;height:15px;flex:none}
 .knop.zwart{background:var(--zwart);color:#fff}
-.knop.zwart:hover{background:var(--zwart3);transform:translateY(-2px)}
-.js .rv{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
+.knop.zwart:hover{background:var(--zwart3)}
+.stip{display:inline-flex;align-items:center;gap:10px;font:500 15.5px/1 'Outfit';text-decoration:none;color:#fff;padding:10px 0;background:radial-gradient(circle,var(--goud) 1.1px,transparent 1.6px) 0 100%/7px 4px repeat-x}
+.stip:hover{color:var(--goud)}
+.stip svg{width:16px;height:16px;transition:transform .3s var(--ease)}
+.stip:hover svg{transform:translateX(4px)}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
 
 /* nav */
 .nav{position:absolute;top:38px;left:0;right:0;z-index:20}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:22px}
-.merk img{width:190px;height:auto}
-.menu{display:flex;gap:30px}
-.menu a{color:rgba(255,255,255,.85);text-decoration:none;font:500 14px/1 'Outfit';letter-spacing:.14em;text-transform:uppercase}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:24px}
+.merk img{width:180px;height:auto}
+.menu{display:flex;gap:34px}
+.menu a{color:rgba(255,255,255,.84);text-decoration:none;font:500 13.5px/1 'Outfit';letter-spacing:.16em;text-transform:uppercase}
 .menu a:hover{color:var(--goud)}
-.nav .knop{padding:13px 22px;font-size:14.5px}
+.nav .knop{padding:14px 22px;font-size:14.5px}
 
-/* hero */
-.hero{position:relative;min-height:max(760px,100svh);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:var(--zwart)}
-.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 40%;transform:scale(1.06);transition:transform 2.6s var(--ease)}
-.hero.in>img{transform:none}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(19,16,16,.94) 0%,rgba(19,16,16,.72) 36%,rgba(19,16,16,.1) 70%),linear-gradient(0deg,rgba(19,16,16,.85) 0%,rgba(19,16,16,0) 40%),linear-gradient(180deg,rgba(19,16,16,.6) 0%,rgba(19,16,16,0) 22%)}
-.hero .wrap{position:relative;z-index:2}
-.hero .inh{display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px;padding-bottom:64px}
-.hero h1{font-size:clamp(46px,5.8vw,88px);max-width:10em;color:#fff}
+/* hero: tekst op het zwart, foto loopt erin over */
+.hero{position:relative;min-height:max(740px,calc(100svh - 37px));background:var(--zwart);overflow:hidden;display:flex;flex-direction:column}
+.hero .beeld{position:absolute;top:0;bottom:0;right:0;left:40%}
+.hero .beeld img{width:100%;height:100%;object-fit:cover;object-position:56% 30%;transform:scale(1.05);transition:transform 2.6s var(--ease)}
+.hero.in .beeld img{transform:none}
+.hero .beeld:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--zwart) 0%,rgba(19,16,16,.78) 16%,rgba(19,16,16,.18) 42%,rgba(19,16,16,0) 65%),linear-gradient(0deg,rgba(19,16,16,.92) 0%,rgba(19,16,16,0) 30%),linear-gradient(180deg,rgba(19,16,16,.55) 0%,rgba(19,16,16,0) 22%)}
+.hero .punten{position:absolute;left:0;top:0;bottom:0;width:58%;background:radial-gradient(circle,rgba(217,173,91,.2) 1px,transparent 1.5px) 0 0/11px 11px;-webkit-mask:radial-gradient(ellipse 60% 70% at 18% 62%,#000 0%,transparent 70%);mask:radial-gradient(ellipse 60% 70% at 18% 62%,#000 0%,transparent 70%);pointer-events:none}
+.hero .inh{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding-top:140px}
+.hero .tekst{max-width:690px;padding-bottom:42px}
+.hero h1{font-size:clamp(42px,4.3vw,62px);color:#fff;font-weight:600}
 .hero h1 span{color:var(--goud)}
-.hero p.lead{font-size:clamp(17px,1.35vw,19.5px);max-width:33em;margin:24px 0 32px;color:rgba(255,255,255,.82)}
-.hero .acties{display:flex;flex-wrap:wrap;gap:12px}
-.score{background:var(--wit);color:var(--ink);border-radius:20px;padding:18px 24px 18px 20px;display:flex;align-items:center;gap:16px}
-.score strong{font:700 46px/1 'Cinzel';color:var(--goud2)}
-.score span{display:block;font-size:13.5px;line-height:1.4;color:var(--zacht);font-weight:400}
-.score .st{color:var(--goud2);letter-spacing:3px;font-size:15px}
+.hero .lead{font-size:clamp(17px,1.3vw,19px);max-width:30em;margin:24px 0 34px;color:rgba(255,255,255,.8)}
+.hero .acties{display:flex;flex-wrap:wrap;align-items:center;gap:18px 30px}
+.hero .voet{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:0;border-top:1px solid var(--lijnd);position:relative;z-index:2}
+.hero .voet>div{padding:20px 44px 22px 0;margin-right:44px;border-right:1px solid var(--lijnd);font-size:15px;color:rgba(239,231,220,.72);line-height:1.45}
+.hero .voet>div:last-child{border-right:0;margin-right:0}
+.hero .voet b{display:block;font:600 19px/1.2 'Cinzel';color:#fff;margin-bottom:4px}
+.hero .voet b i{font-style:normal;color:var(--goud);letter-spacing:2px;font-family:'Outfit';font-size:14px;margin-left:6px}
 
 /* werk */
-.werk{padding:120px 0 110px;background:var(--zwart)}
-.kop{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;margin-bottom:52px}
-.kop h2{font-size:clamp(38px,4.4vw,62px);max-width:12em;color:#fff}
-.kop p{color:rgba(239,231,220,.72);max-width:31em}
-.mos{display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:330px 330px;gap:16px}
-.mos figure{position:relative;border-radius:var(--r);overflow:hidden;background:var(--zwart3)}
-.mos figure.hoog{grid-row:span 2}
-.mos img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
-.mos figure:hover img{transform:scale(1.05)}
-.mos figcaption{position:absolute;left:18px;right:18px;bottom:16px;z-index:2;color:#fff;font:600 15px/1.35 'Outfit'}
-.mos figcaption small{display:block;font-weight:300;color:rgba(255,255,255,.75);font-size:14px}
-.mos figure:after{content:"";position:absolute;inset:auto 0 0;height:50%;background:linear-gradient(0deg,rgba(19,16,16,.85),rgba(19,16,16,0))}
-.stijlen{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-.stijlen span{border:1px solid var(--lijnd);border-radius:999px;padding:9px 16px;font-size:14.5px;color:rgba(239,231,220,.85)}
+.werk{padding:130px 0 120px;background:var(--zwart)}
+.kop{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:end;margin-bottom:56px}
+.kop h2{font-size:clamp(36px,4.2vw,58px);color:#fff;max-width:12em}
+.kop p{color:var(--tekstd);max-width:32em}
+.galerij{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:auto auto;gap:22px}
+.galerij figure{margin:0}
+.galerij .f{position:relative;overflow:hidden;background:var(--zwart3)}
+.galerij img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.galerij figure:hover img{transform:scale(1.04)}
+.galerij figcaption{display:flex;gap:12px;align-items:baseline;padding-top:14px;font-size:14.5px;color:rgba(239,231,220,.66);line-height:1.45}
+.galerij figcaption b{font:600 13px/1 'Cinzel';color:var(--goud);flex:none}
+.g1{grid-row:1/3}.g1 .f{height:calc(100% - 46px);min-height:640px}
+.g2 .f,.g3 .f{aspect-ratio:1/1}
+.g4 .f{aspect-ratio:1/1}.g5 .f{aspect-ratio:1/1}
+.blad{margin-top:90px;display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start;border-top:1px solid var(--lijnd);padding-top:56px}
+.blad h3{font-size:clamp(26px,2.4vw,34px);color:#fff}
+.blad .klein{margin-top:16px;color:var(--tekstd);font-size:15.5px;max-width:24em}
+.blad dl{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.blad dl>div{display:grid;grid-template-columns:44px 1fr;padding:22px 0;border-bottom:1px solid var(--lijnd)}
+.blad dt{font:600 15px/1.6 'Cinzel';color:var(--goud)}
+.blad dd{font-size:15.5px;color:var(--tekstd);line-height:1.6}
+.blad dd strong{display:block;font-weight:500;color:#fff;font-size:17px;margin-bottom:4px}
 
 /* laser */
-.laser{background:var(--room);color:var(--ink);padding:120px 0}
-.laser .grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.laser{background:var(--room);color:var(--ink);padding:130px 0}
+.laser .grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
 .laser .lab{color:var(--goud2)}
-.laser h2{font-size:clamp(38px,4.2vw,60px);color:var(--ink)}
-.laser p{color:var(--zacht);margin-top:18px;max-width:31em;font-weight:400}
-.laser .foto{position:relative;border-radius:var(--r);overflow:hidden}
-.laser .foto img{width:100%;height:auto}
-.laser .vn{position:absolute;top:16px;left:16px;right:16px;display:flex;justify-content:space-between}
-.laser .vn span{background:var(--wit);font:600 12px/1 'Outfit';letter-spacing:.2em;text-transform:uppercase;padding:10px 14px;border-radius:999px}
-.laser .vn span:last-child{background:var(--goud);color:var(--zwart)}
-.lst{list-style:none;margin:28px 0 32px;border-top:1px solid var(--lijn)}
-.lst li{display:grid;grid-template-columns:34px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--lijn);font-weight:400}
-.lst li i{width:28px;height:28px;border-radius:50%;background:var(--zwart);color:var(--goud);display:grid;place-items:center;font:600 13px/1 'Outfit';font-style:normal}
+.laser h2{font-size:clamp(36px,4vw,56px);color:var(--ink);max-width:11em}
+.laser .intro{color:var(--zacht);margin:20px 0 34px;max-width:31em;font-weight:400}
+.vn{position:relative}
+.vn img{width:100%;height:auto}
+.vn .lbl{position:absolute;top:18px;left:18px;right:18px;display:flex;justify-content:space-between}
+.vn .lbl span{background:var(--papier);font:600 11.5px/1 'Outfit';letter-spacing:.2em;text-transform:uppercase;padding:10px 14px;color:var(--ink)}
+.vn .lbl span:last-child{background:var(--goud)}
+.vn figcaption{margin-top:14px;font-size:14.5px;color:var(--zacht)}
+.fiche{background:var(--papier);border:1px solid var(--lijn);padding:30px 32px 26px;position:relative;margin-bottom:34px}
+.fiche:before{content:"";position:absolute;top:10px;right:10px;width:70px;height:70px;background:radial-gradient(circle,rgba(185,141,63,.45) 1px,transparent 1.6px) 0 0/8px 8px;-webkit-mask:radial-gradient(circle at 100% 0,#000 0,transparent 70%);mask:radial-gradient(circle at 100% 0,#000 0,transparent 70%)}
+.fiche .titel{display:flex;justify-content:space-between;align-items:baseline;font:600 13px/1 'Outfit';letter-spacing:.22em;text-transform:uppercase;color:var(--goud2);padding-bottom:16px;border-bottom:2px solid var(--ink)}
+.fiche .titel span{color:var(--zacht);letter-spacing:.1em;font-weight:400}
+.fiche dl>div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px dotted rgba(26,21,18,.3);font-size:15.5px;line-height:1.55}
+.fiche dl>div:last-child{border-bottom:0}
+.fiche dt{color:var(--zacht);font-weight:400}
+.fiche dd{color:var(--ink);font-weight:400}
 
 /* werkwijze */
-.wijze{padding:120px 0;background:var(--zwart2)}
-.stappen{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.stap{border:1px solid var(--lijnd);border-radius:var(--r);padding:30px 26px;background:rgba(255,255,255,.02)}
-.stap b{display:block;font:700 34px/1 'Cinzel';color:var(--goud);margin-bottom:18px}
-.stap h3{font-size:21px;color:#fff;margin-bottom:10px}
-.stap p{font-size:15.5px;color:rgba(239,231,220,.72)}
-.stap.hl{background:var(--goud);border-color:var(--goud)}
-.stap.hl b,.stap.hl h3{color:var(--zwart)}
-.stap.hl p{color:rgba(19,16,16,.8)}
+.wijze{padding:130px 0;background:var(--zwart2)}
+.lijnstappen{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:36px;position:relative;padding-top:52px}
+.lijnstappen:before{content:"";position:absolute;top:12px;left:0;right:0;height:1px;background:radial-gradient(circle,rgba(217,173,91,.7) 1px,transparent 1.5px) 0 0/8px 1px repeat-x}
+.lijnstappen li{position:relative}
+.lijnstappen li:before{content:"";position:absolute;top:-47px;left:0;width:15px;height:15px;background:var(--zwart2);border:1.5px solid var(--goud);transform:rotate(45deg)}
+.lijnstappen li.uit:before{background:var(--goud)}
+.lijnstappen small{display:block;font:500 12px/1 'Outfit';letter-spacing:.24em;color:var(--goud);text-transform:uppercase;margin-bottom:14px}
+.lijnstappen h3{font-size:22px;color:#fff;margin-bottom:12px}
+.lijnstappen p{font-size:15.5px;color:var(--tekstd)}
+.weetjes{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:70px}
+.weetje{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;padding:26px 28px;border:1px solid var(--lijnd);background:rgba(255,255,255,.02)}
+.weetje b{font:600 30px/1 'Cinzel';color:var(--goud);min-width:64px}
+.weetje p{font-size:15.5px;color:var(--tekstd)}
+.weetje p strong{color:#fff;font-weight:500}
 
 /* over */
-.over{padding:120px 0;background:var(--zwart)}
-.over .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
-.over .foto{position:relative}
-.over .foto img{border-radius:var(--r);width:100%;height:auto;aspect-ratio:1/1.04;object-fit:cover}
-.over .foto .badge{position:absolute;right:-30px;bottom:-30px;width:150px;height:150px;border-radius:50%;border:6px solid var(--zwart)}
-.over h2{font-size:clamp(38px,4.2vw,58px);color:#fff}
-.over .tekst>p{color:rgba(239,231,220,.75);margin-top:18px;max-width:32em}
-.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:34px}
-.rk{background:var(--zwart2);border:1px solid var(--lijnd);border-radius:20px;padding:22px 22px;display:flex;flex-direction:column;gap:12px}
-.rk .st{color:var(--goud);letter-spacing:3px;font-size:13px}
-.rk p{font-size:15px;line-height:1.6;color:rgba(239,231,220,.88);flex:1}
-.rk b{font-weight:600;font-size:14.5px;color:#fff}
-.rk b small{display:block;font-weight:300;color:rgba(239,231,220,.55);font-size:12.5px}
-.rgrid .rk:last-child{grid-column:1/-1}
+.over{padding:130px 0;background:var(--zwart)}
+.over .grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:76px;align-items:center}
+.over .foto{position:relative;padding:0 0 34px 34px}
+.over .foto:before{content:"";position:absolute;left:0;bottom:0;width:72%;height:72%;border:1px solid rgba(217,173,91,.5)}
+.over .foto img.p{position:relative;width:100%;aspect-ratio:1/1.08;object-fit:cover}
+.over .foto .badge{position:absolute;right:22px;bottom:56px;width:120px;height:120px;border-radius:50%;border:5px solid var(--zwart)}
+.over h2{font-size:clamp(34px,3.8vw,52px);color:#fff;max-width:12em}
+.over .tekst>p{color:var(--tekstd);margin-top:18px;max-width:33em}
+.quotes{margin-top:40px;border-top:1px solid var(--lijnd)}
+.quote{padding:26px 0;border-bottom:1px solid var(--lijnd);display:grid;grid-template-columns:1fr auto;gap:8px 30px;align-items:end}
+.quote p{font-size:17px;line-height:1.6;color:#efe7dc}
+.quote.groot p{font-family:'Cinzel';font-weight:500;font-size:clamp(20px,1.8vw,24px);line-height:1.45;color:#fff}
+.quote cite{font-style:normal;font-size:14px;color:rgba(239,231,220,.55);text-align:right;white-space:nowrap}
+.quote cite b{display:block;color:#fff;font-weight:500;font-size:14.5px}
+.quote cite i{font-style:normal;color:var(--goud);letter-spacing:2px;font-size:12px}
+.gscore{display:flex;align-items:center;gap:14px;margin-top:26px;font-size:15px;color:var(--tekstd)}
+.gscore b{font:600 34px/1 'Cinzel';color:var(--goud)}
 
 /* contact */
-.contact{padding:0 0 120px;background:var(--zwart)}
-.ck{position:relative;border-radius:28px;overflow:hidden;min-height:560px;display:flex;align-items:flex-end}
-.ck>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%}
-.ck:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(19,16,16,.95) 0%,rgba(19,16,16,.78) 45%,rgba(19,16,16,.2) 80%)}
-.ck .in2{position:relative;z-index:2;padding:60px 56px;display:grid;grid-template-columns:1.1fr .9fr;gap:50px;width:100%;align-items:end}
-.ck h2{font-size:clamp(38px,4.2vw,60px);color:#fff}
-.ck p{color:rgba(239,231,220,.78);margin:16px 0 28px;max-width:30em}
-.ck .acties{display:flex;flex-wrap:wrap;gap:12px}
-.ck ul{list-style:none;background:rgba(19,16,16,.7);backdrop-filter:blur(8px);border:1px solid var(--lijnd);border-radius:20px;padding:10px 22px}
-.ck li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--lijnd);font-size:15.5px}
+.contact{padding:0 0 130px;background:var(--zwart)}
+.ck{display:grid;grid-template-columns:1.1fr .9fr;background:var(--zwart2);border:1px solid var(--lijnd)}
+.ck .links{padding:60px 56px}
+.ck h2{font-size:clamp(34px,3.6vw,50px);color:#fff;max-width:11em}
+.ck .links>p{color:var(--tekstd);margin:16px 0 30px;max-width:30em}
+.bon{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px}
+.bon label{display:block;font:500 12px/1 'Outfit';letter-spacing:.18em;text-transform:uppercase;color:rgba(239,231,220,.6)}
+.bon .vol{grid-column:1/-1}
+.bon input,.bon select,.bon textarea{display:block;width:100%;margin-top:10px;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.25);color:#fff;font:400 16px/1.5 'Outfit';padding:8px 0 10px;border-radius:0;outline:0}
+.bon textarea{resize:vertical;min-height:84px}
+.bon select option{background:var(--zwart2)}
+.bon input:focus,.bon textarea:focus,.bon select:focus{border-bottom-color:var(--goud)}
+.bon .verstuur{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:18px 26px;margin-top:14px}
+.bon .verstuur small{font-size:14px;color:rgba(239,231,220,.55)}
+.bon .verstuur small a{color:#fff}
+.ck .rechts{position:relative;min-height:100%;display:flex;flex-direction:column}
+.ck .rechts img{width:100%;flex:1;min-height:280px;object-fit:cover;object-position:50% 45%}
+.ck .rechts ul{list-style:none;padding:20px 32px 26px;background:var(--zwart3)}
+.ck li{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--lijnd);font-size:15px}
 .ck li:last-child{border-bottom:0}
 .ck li span{color:rgba(239,231,220,.55)}
 .ck li a{text-decoration:none;font-weight:500}
+.ck li a:hover{color:var(--goud)}
 
 /* footer */
-.voet{background:#0c0a0a;padding:70px 0 32px;color:rgba(239,231,220,.8)}
-.voet .rij{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
-.voet .merk img{width:200px}
-.voet .zin{margin-top:16px;max-width:24em;font-size:15.5px;color:rgba(239,231,220,.6)}
-.voet h4{font:500 12px/1 'Outfit';letter-spacing:.26em;text-transform:uppercase;color:var(--goud);margin-bottom:14px}
-.voet ul{list-style:none}
-.voet li{padding:4px 0;font-size:15.5px}
-.voet li a{text-decoration:none}
-.voet .onder{margin-top:54px;padding-top:22px;border-top:1px solid var(--lijnd);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:14px;color:rgba(239,231,220,.5)}
+.voetb{background:#0c0a0a;padding:70px 0 32px;color:rgba(239,231,220,.8)}
+.voetb .rij{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.voetb .merk img{width:190px}
+.voetb .zin{margin-top:16px;max-width:24em;font-size:15px;color:rgba(239,231,220,.6)}
+.voetb h4{font:500 12px/1 'Outfit';letter-spacing:.26em;text-transform:uppercase;color:var(--goud);margin-bottom:14px}
+.voetb ul{list-style:none}
+.voetb li{padding:4px 0;font-size:15px}
+.voetb li a{text-decoration:none}
+.voetb .onder{margin-top:54px;padding-top:22px;border-top:1px solid var(--lijnd);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:14px;color:rgba(239,231,220,.5)}
 
-@media (max-width:1080px){
+@media (max-width:1100px){
   .menu{display:none}
-  .mos{grid-template-columns:1fr 1fr;grid-template-rows:300px 300px 300px}
-  .mos figure.hoog{grid-row:span 2}
+  .hero .beeld{left:22%}
+  .galerij{grid-template-columns:1fr 1fr}
+  .g1{grid-column:1/-1;grid-row:auto}.g1 .f{height:auto;min-height:0;aspect-ratio:4/3}
+  .blad{grid-template-columns:1fr;gap:30px}
   .laser .grid,.over .grid{grid-template-columns:1fr;gap:56px}
-  .laser .foto{max-width:560px;order:2}
-  .stappen{grid-template-columns:1fr 1fr}
-  .over .foto{max-width:520px;order:2}
-  .over .foto .badge{right:16px}
-  .ck .in2{grid-template-columns:1fr}
+  .vn{max-width:560px}
+  .lijnstappen{grid-template-columns:1fr 1fr;gap:56px 36px}
+  .lijnstappen:before{display:none}
+  .lijnstappen li{padding-top:30px;border-top:1px dotted rgba(217,173,91,.5)}
+  .lijnstappen li:before{top:-8px}
+  .over .foto{max-width:540px}
+  .ck{grid-template-columns:1fr}
   .kop{grid-template-columns:1fr;gap:16px}
-  .voet .rij{grid-template-columns:1fr 1fr}
+  .voetb .rij{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  .hero{min-height:0}
+  .hero .beeld{position:relative;left:auto;order:2;height:auto;aspect-ratio:4/4.2;margin-top:-1px}
+  .hero .beeld img{object-position:62% 30%}
+  .hero .beeld:after{background:linear-gradient(180deg,var(--zwart) 0%,rgba(19,16,16,0) 26%),linear-gradient(0deg,rgba(19,16,16,.85) 0%,rgba(19,16,16,0) 30%)}
+  .hero .punten{width:100%;-webkit-mask:radial-gradient(ellipse 80% 50% at 20% 40%,#000 0%,transparent 70%);mask:radial-gradient(ellipse 80% 50% at 20% 40%,#000 0%,transparent 70%)}
+  .hero .inh{padding-top:150px;order:1;flex:none}
+  .hero .tekst{padding-bottom:40px}
+  .hero .voet{order:3;width:min(1240px,100% - 48px);margin:-90px auto 0;grid-template-columns:1fr 1fr 1fr}
 }
 @media (max-width:720px){
   body{font-size:16.5px}
   .wrap{width:calc(100% - 36px)}
   .nav .knop{display:none}
   .merk img{width:150px}
-  .hero{min-height:max(720px,100svh)}
-  .hero>img{object-position:70% 40%}
-  .hero:after{background:linear-gradient(0deg,rgba(19,16,16,.96) 0%,rgba(19,16,16,.8) 48%,rgba(19,16,16,.35) 78%),linear-gradient(180deg,rgba(19,16,16,.6) 0%,rgba(19,16,16,0) 25%)}
-  .hero .inh{grid-template-columns:1fr;gap:24px;padding-bottom:34px}
-  .hero h1{font-size:40px}
-  .score{justify-self:start;padding:14px 18px}
-  .score strong{font-size:38px}
-  .werk,.laser,.wijze,.over{padding:84px 0}
-  .contact{padding-bottom:84px}
-  .mos{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:190px;gap:10px}
-  .mos figure.hoog{grid-column:1/-1;grid-row:span 2}
-  .mos figure:nth-child(3){order:4}
-  .mos figcaption small{display:none}
-  .stappen{grid-template-columns:1fr}
-  .rgrid{grid-template-columns:1fr}
-  .over .foto .badge{width:110px;height:110px;right:12px;bottom:-22px}
-  .ck{min-height:0}
-  .ck:after{background:linear-gradient(0deg,rgba(19,16,16,.96) 0%,rgba(19,16,16,.85) 60%,rgba(19,16,16,.5) 100%)}
-  .ck .in2{padding:40px 22px}
+  .nav{top:56px}.nav .wrap{padding-top:14px}
+  .hero .inh{padding-top:150px}
+  .hero h1{font-size:41px}
+  .hero .voet{width:calc(100% - 36px);grid-template-columns:1fr;margin-top:-70px}
+  .hero .voet>div{border-right:0;margin-right:0;padding:16px 0;border-bottom:1px solid var(--lijnd)}
+  .hero .voet>div:last-child{border-bottom:0}
+  .werk,.laser,.wijze,.over{padding:88px 0}
+  .contact{padding-bottom:88px}
+  .galerij{gap:16px 12px}
+  .galerij figcaption{font-size:13.5px}
+  .blad{margin-top:64px}
+  .blad dl{grid-template-columns:1fr}
+  .fiche{padding:24px 20px 18px}
+  .fiche dl>div{grid-template-columns:1fr;gap:2px}
+  .lijnstappen{grid-template-columns:1fr;gap:40px}
+  .weetjes{grid-template-columns:1fr;margin-top:50px}
+  .weetje{padding:22px 20px}
+  .over .foto{padding:0 0 22px 22px}
+  .over .foto .badge{width:92px;height:92px;right:14px;bottom:38px}
+  .quote{grid-template-columns:1fr}
+  .quote cite{text-align:left}
+  .ck .links{padding:40px 22px}
+  .bon{grid-template-columns:1fr}
+  .ck .rechts ul{padding:14px 22px 20px}
   .ck li{font-size:14.5px}
-  .voet .rij{grid-template-columns:1fr;gap:28px}
+  .voetb .rij{grid-template-columns:1fr;gap:28px}
 }
 </style>
 </head>
@@ -194,27 +252,29 @@ h1,h2,h3{font-family:'Cinzel',Georgia,serif;font-weight:700;line-height:1.06;let
 <header class="nav">
   <div class="wrap">
     <a class="merk" href="#top"><img src="img/logo.webp" alt="INKspired by Pommeline" width="900" height="202"></a>
-    <nav class="menu" aria-label="Hoofdmenu"><a href="#werk">Werk</a><a href="#laser">Pico-laser</a><a href="#werkwijze">Werkwijze</a><a href="#afspraak">Afspraak</a></nav>
-    <a class="knop goud" href="https://wa.me/32468470882" target="_blank" rel="noopener">Stuur een bericht</a>
+    <nav class="menu" aria-label="Hoofdmenu"><a href="#werk">Werk</a><a href="#laser">Pico-laser</a><a href="#werkwijze">Zo gaat het</a><a href="#over">Over mij</a><a href="#afspraak">Afspraak</a></nav>
+    <a class="knop" href="#afspraak">Afspraak aanvragen</a>
   </div>
 </header>
 
 <section class="hero" aria-label="INKspired by Pommeline">
-  <img src="img/hero.webp" alt="Pommeline aan het werk aan een tattoo in haar studio" width="1600" height="1067">
+  <div class="beeld"><img src="img/hero.webp" alt="Pommeline zet een tattoo op een arm in haar studio" width="1600" height="1067"></div>
+  <div class="punten" aria-hidden="true"></div>
   <div class="wrap inh">
-    <div>
-      <span class="lab rv">Private tattoostudio · Erpe-Mere</span>
-      <h1 class="rv" style="--d:1">Jouw idee, <span>voor altijd op je huid.</span></h1>
-      <p class="lead rv" style="--d:2">INKspired is de private studio van Pommeline Tillière. Tattoos op maat, van geometrie en dotwork tot fijne lijnen. En wat je liever kwijt bent, verwijdert ze met de Pico-laser.</p>
+    <div class="tekst">
+      <span class="lab rv">Private tattoostudio · enkel op afspraak</span>
+      <h1 class="rv" style="--d:1">Jouw idee, <span>punt voor punt</span> op je huid.</h1>
+      <p class="lead rv" style="--d:2">Ik ben Pommeline. Ik teken elke tattoo zelf, op jouw maat: geometrie, dotwork, mandala's en fijne lijnen. Spijt van een oude tattoo? Die maak ik lichter of haal ik weg met de Pico-laser.</p>
       <div class="acties rv" style="--d:3">
-        <a class="knop goud" href="#afspraak">Afspraak aanvragen</a>
-        <a class="knop rand" href="#werk">Bekijk het werk</a>
+        <a class="knop" href="#afspraak"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1 15 8 8 15 1 8Z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Vertel me je idee</a>
+        <a class="stip" href="#werk">Bekijk mijn werk <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>
       </div>
     </div>
-    <div class="score rv" style="--d:4">
-      <strong>4,8</strong>
-      <div><span class="st">★★★★★</span><span>72 reviews op Google</span></div>
-    </div>
+  </div>
+  <div class="wrap voet rv" style="--d:4">
+    <div><b>4,8 <i>★★★★★</i></b>72 reviews op Google</div>
+    <div><b>Op afspraak</b>Rustig, zonder wachtzaal vol volk</div>
+    <div><b>Gratis bijwerking</b>Eerste keer, binnen de drie maanden</div>
   </div>
 </section>
 
@@ -222,34 +282,53 @@ h1,h2,h3{font-family:'Cinzel',Georgia,serif;font-weight:700;line-height:1.06;let
 <section class="werk" id="werk">
   <div class="wrap">
     <div class="kop">
-      <div><span class="lab rv">Recent werk</span><h2 class="rv" style="--d:1">Symmetrie, punt voor punt.</h2></div>
-      <p class="rv" style="--d:2">Geometrische sleeves, mandala's op de borst, een koksarm of een middeleeuwse goedendag. Elk ontwerp tekent Pommeline zelf, op jouw maat en op de plek waar het moet komen.</p>
+      <div><span class="lab rv">Mijn werk</span><h2 class="rv" style="--d:1">Symmetrie vraagt geduld.</h2></div>
+      <p class="rv" style="--d:2">Elk ontwerp teken ik zelf, voor de plek waar het moet komen. Een mandala op de borst loopt anders dan een band rond je onderarm. Daar neem ik mijn tijd voor, nog voor er een naald aan te pas komt.</p>
     </div>
-    <div class="mos">
-      <figure class="hoog rv"><img src="img/geo.webp" alt="Geometrische sleeve met dotwork en een meanderrand op de onderarm" width="1080" height="1350" loading="lazy"><figcaption>Geometric flow<small>Dotwork, symmetrie en strakke details</small></figcaption></figure>
-      <figure class="rv" style="--d:1"><img src="img/mandala.webp" alt="Mandala-chest piece in dotwork met een oog in een driehoek" width="720" height="720" loading="lazy"><figcaption>Filling the gaps<small>Een chest piece dat één geheel wordt</small></figcaption></figure>
-      <figure class="hoog rv" style="--d:2"><img src="img/chef.webp" alt="Fineline-tattoo van een hand die zout strooit boven een pan, met het woord Chef" width="1215" height="2160" loading="lazy"><figcaption>Chef life<small>But make it permanent</small></figcaption></figure>
-      <figure class="rv" style="--d:3"><img src="img/ketting.webp" alt="Stencil en tattoo van een goedendag met ketting en stekels" width="720" height="720" loading="lazy"><figcaption>Goedendag<small>Saying good day, the medieval way</small></figcaption></figure>
+    <div class="galerij">
+      <figure class="g1 rv"><div class="f"><img src="img/geo.webp" alt="Geometrische sleeve met dotwork en een meanderrand op de onderarm" width="1080" height="1350" loading="lazy"></div><figcaption><b>01</b>Geometrie en dotwork, rond de hele onderarm</figcaption></figure>
+      <figure class="g2 rv" style="--d:1"><div class="f"><img src="img/mandala.webp" alt="Mandala op de borst in dotwork met een oog in een driehoek" width="720" height="720" loading="lazy"></div><figcaption><b>02</b>Mandala op de borst, de open plekken opgevuld tot één geheel</figcaption></figure>
+      <figure class="g3 rv" style="--d:2"><div class="f"><img src="img/chef.webp" alt="Fineline-tattoo van een hand die zout strooit boven een pan, met het woord Chef" width="1215" height="2160" loading="lazy" style="object-position:50% 40%"></div><figcaption><b>03</b>Fineline voor een kok, met een snuifje zout</figcaption></figure>
+      <figure class="g4 rv" style="--d:1"><div class="f"><img src="img/ketting.webp" alt="Stencil en tattoo van een goedendag met ketting en stekels" width="720" height="720" loading="lazy"></div><figcaption><b>04</b>Een goedendag met ketting, van stencil tot tattoo</figcaption></figure>
+      <figure class="g5 rv" style="--d:2"><div class="f"><img src="img/roos.webp" alt="Een roos in black and grey wordt getattoeëerd op een onderarm" width="1600" height="1067" loading="lazy"></div><figcaption><b>05</b>Een roos in black and grey, nog in de maak</figcaption></figure>
     </div>
-    <div class="stijlen rv"><span>Geometrie</span><span>Dotwork</span><span>Mandala's</span><span>Fineline</span><span>Cover-ups</span><span>Gastartiesten</span></div>
+
+    <div class="blad">
+      <div class="rv">
+        <h3>Wat ik graag zet</h3>
+        <p class="klein">Twijfel je of jouw idee bij mij past? Stuur het gewoon door. Af en toe werkt er ook een gastartiest met een eigen stijl in de studio.</p>
+      </div>
+      <dl class="rv" style="--d:1">
+        <div><dt>I</dt><dd><strong>Geometrie en dotwork</strong>Strakke lijnen en schaduw die ik punt per punt opbouw. Zo krijg je die zachte, korrelige overgang.</dd></div>
+        <div><dt>II</dt><dd><strong>Mandala's</strong>Ik bouw ze op vanuit het midden, zodat ze mooi meelopen met je borst, schouder of rug.</dd></div>
+        <div><dt>III</dt><dd><strong>Fineline</strong>Voor kleinere dingen met een verhaal. Een woord, een handschrift, een vingerafdruk van je papa.</dd></div>
+        <div><dt>IV</dt><dd><strong>Cover-ups</strong>Een oude tattoo die je niet meer ziet zitten? Soms werk ik er iets nieuws over, soms maak ik hem eerst lichter met de laser.</dd></div>
+      </dl>
+    </div>
   </div>
 </section>
 
 <section class="laser" id="laser">
   <div class="wrap grid">
+    <figure class="vn rv">
+      <img src="img/laser.webp" alt="Pootjestattoo op een pols, voor en na één sessie met de Pico-laser" width="1350" height="1688" loading="lazy">
+      <div class="lbl"><span>Voor</span><span>Na 1 sessie</span></div>
+      <figcaption>Een pootje op de pols, voor en na de eerste sessie.</figcaption>
+    </figure>
     <div>
       <span class="lab rv">Tattooverwijdering</span>
-      <h2 class="rv" style="--d:1">Spijt van een tattoo? Daar is de Pico-laser voor.</h2>
-      <p class="rv" style="--d:2">Met de PicoLuma-laser breekt Pommeline de inktdeeltjes af. Je lichaam ruimt ze daarna zelf geleidelijk op, over meerdere sessies. Veilig en gecontroleerd, in dezelfde rustige studio.</p>
-      <ul class="lst rv" style="--d:3">
-        <li><i>1</i><span>Volledig weg, of lichter maken voor een cover-up.</span></li>
-        <li><i>2</i><span>Hoeveel inkt er na één sessie verdwijnt, verschilt van persoon tot persoon.</span></li>
-      </ul>
-      <a class="knop zwart rv" style="--d:4" href="https://wa.me/32468470882" target="_blank" rel="noopener">Vraag naar de laser</a>
-    </div>
-    <div class="foto rv" style="--d:2">
-      <img src="img/laser.webp" alt="Pootjestattoo op een pols, voor en na één sessie met de Pico-laser" width="1350" height="1688" loading="lazy">
-      <div class="vn"><span>Voor</span><span>Na 1 sessie</span></div>
+      <h2 class="rv" style="--d:1">Spijt van een tattoo? Daar is de laser voor.</h2>
+      <p class="intro rv" style="--d:2">Met de PicoLuma-laser breek ik de inkt in heel kleine deeltjes. Je lichaam ruimt die daarna zelf op, beetje bij beetje. Daarom werken we in een paar sessies, in dezelfde rustige studio waar ik ook tattoo.</p>
+      <div class="fiche rv" style="--d:3">
+        <div class="titel">Laserfiche <span>INKspired</span></div>
+        <dl>
+          <div><dt>Toestel</dt><dd>PicoLuma Pico-laser</dd></div>
+          <div><dt>Wat kan</dt><dd>Een tattoo helemaal weg, of lichter maken voor een cover-up</dd></div>
+          <div><dt>Sessies</dt><dd>Meerdere, met tijd ertussen om je huid te laten werken</dd></div>
+          <div><dt>Resultaat</dt><dd>Hoeveel er na één keer verdwijnt, verschilt van persoon tot persoon</dd></div>
+        </dl>
+      </div>
+      <a class="knop zwart rv" style="--d:4" href="https://wa.me/32468470882?text=Hallo%20Pommeline%2C%20ik%20heb%20een%20vraag%20over%20tattooverwijdering." target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1 15 8 8 15 1 8Z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Stuur een foto van je tattoo</a>
     </div>
   </div>
 </section>
@@ -257,14 +336,18 @@ h1,h2,h3{font-family:'Cinzel',Georgia,serif;font-weight:700;line-height:1.06;let
 <section class="wijze" id="werkwijze">
   <div class="wrap">
     <div class="kop">
-      <div><span class="lab rv">Zo werkt het</span><h2 class="rv" style="--d:1">Van idee tot genezen huid.</h2></div>
-      <p class="rv" style="--d:2">Alles gebeurt op afspraak. Je bent 18 jaar, of 16 jaar met toestemming van je ouders.</p>
+      <div><span class="lab rv">Zo gaat het</span><h2 class="rv" style="--d:1">Van eerste berichtje tot genezen huid.</h2></div>
+      <p class="rv" style="--d:2">Alles gebeurt op afspraak. Zo heb ik alle tijd voor jou, en zit er niemand te wachten terwijl we bezig zijn.</p>
     </div>
-    <div class="stappen">
-      <div class="stap rv"><b>01</b><h3>Je idee</h3><p>Vertel wat je wil, waar het moet komen, hoe groot ongeveer en of het in kleur mag.</p></div>
-      <div class="stap rv" style="--d:1"><b>02</b><h3>Het ontwerp</h3><p>Pommeline tekent je tattoo op maat, afgestemd op jouw stijl en de plek op je lichaam.</p></div>
-      <div class="stap rv" style="--d:2"><b>03</b><h3>De sessie</h3><p>Een leuke babbel en duidelijke uitleg, in een private studio. Met oog voor detail en hygiëne.</p></div>
-      <div class="stap hl rv" style="--d:3"><b>04</b><h3>Nazorg</h3><p>Je krijgt alle uitleg mee. Binnen de drie maanden kom je gratis terug voor een eerste bijwerking.</p></div>
+    <ol class="lijnstappen">
+      <li class="rv"><small>Stap 1</small><h3>Je stuurt je idee</h3><p>Wat wil je, waar moet het komen, hoe groot ongeveer en in kleur of zwart. Een foto of een krabbel helpt al veel.</p></li>
+      <li class="rv" style="--d:1"><small>Stap 2</small><h3>Ik teken het uit</h3><p>Op maat van jouw lichaam. We bekijken het samen en ik pas aan tot het voor jou klopt.</p></li>
+      <li class="rv" style="--d:2"><small>Stap 3</small><h3>De sessie</h3><p>Ik leg uit wat ik doe, we babbelen wat en jij zit op je gemak. Hygiëne komt altijd eerst.</p></li>
+      <li class="uit rv" style="--d:3"><small>Stap 4</small><h3>Nazorg</h3><p>Je krijgt alle uitleg mee naar huis. Binnen de drie maanden kom je gratis terug voor een eerste bijwerking.</p></li>
+    </ol>
+    <div class="weetjes">
+      <div class="weetje rv"><b>18+</b><p><strong>Leeftijd.</strong> Je moet 18 zijn. Ben je 16 of 17, dan kan het met toestemming van je ouders.</p></div>
+      <div class="weetje rv" style="--d:1"><b>Bon</b><p><strong>Cadeaubon.</strong> Een tattoo cadeau doen kan ook. Je krijgt de bon digitaal of op papier.</p></div>
     </div>
   </div>
 </section>
@@ -272,18 +355,19 @@ h1,h2,h3{font-family:'Cinzel',Georgia,serif;font-weight:700;line-height:1.06;let
 <section class="over" id="over">
   <div class="wrap grid">
     <div class="foto rv">
-      <img src="img/werk.webp" alt="Pommeline aan het werk onder de lamp, in een zwart INKspired-shirt" width="1000" height="1041" loading="lazy">
+      <img class="p" src="img/werk.webp" alt="Pommeline aan het werk onder de lamp, in een zwart INKspired-shirt" width="1000" height="1041" loading="lazy">
       <img class="badge" src="img/badge.webp" alt="Logo INKspired by Pommeline" width="750" height="750" loading="lazy">
     </div>
     <div class="tekst">
-      <span class="lab rv">Over Pommeline</span>
-      <h2 class="rv" style="--d:1">Op je gemak, van de eerste vraag tot de laatste lijn.</h2>
-      <p class="rv" style="--d:2">Veel klanten komen voor hun allereerste tattoo. Dat merk je in de reviews: rustig uitleggen, een fijne babbel tijdens het zetten en een vlotte opvolging.</p>
-      <div class="rgrid">
-        <div class="rk rv" style="--d:2"><span class="st">★★★★★</span><p>"Ik heb mijn tattoos vier jaar geleden laten zetten door Pommeline. Het waren mijn eerste tattoos en ik werd door haar enorm op mijn gemak gesteld."</p><b>Laure Van Roij<small>Google-review</small></b></div>
-        <div class="rk rv" style="--d:3"><span class="st">★★★★★</span><p>"Van het maken van de afspraak tot de laatste lijn is alles heel professioneel en vlot verlopen! Een mooi ingerichte zaak, met een professionele artieste."</p><b>Jordy Stockman<small>Google-review</small></b></div>
-        <div class="rk rv" style="--d:4"><span class="st">★★★★★</span><p>"Altijd een leuke babbel en tekent vlot mooie ontwerpen. Zo vereeuwigde ik mijn ervaring van mijn buitenlandse stage en de vingerafdruk van papa en mij."</p><b>Serena Geerdens<small>Google-review</small></b></div>
+      <span class="lab rv">Over mij</span>
+      <h2 class="rv" style="--d:1">Veel mensen komen voor hun eerste tattoo.</h2>
+      <p class="rv" style="--d:2">En dat vind ik net fijn. Ik neem de tijd om alles uit te leggen, zodat je weet wat er gebeurt en je je niet hoeft op te jagen. Mijn studio is privé, dus er loopt niemand binnen en buiten terwijl we werken.</p>
+      <div class="quotes">
+        <div class="quote groot rv" style="--d:2"><p>"Het waren mijn eerste tattoos en ik werd door haar enorm op mijn gemak gesteld."</p><cite><b>Laure Van Roij</b><i>★★★★★</i></cite></div>
+        <div class="quote rv" style="--d:3"><p>"Van het maken van de afspraak tot de laatste lijn is alles heel professioneel en vlot verlopen! Een mooi ingerichte zaak, met een professionele artieste."</p><cite><b>Jordy Stockman</b><i>★★★★★</i></cite></div>
+        <div class="quote rv" style="--d:4"><p>"Altijd een leuke babbel en tekent vlot mooie ontwerpen. Zo vereeuwigde ik mijn ervaring van mijn buitenlandse stage en de vingerafdruk van papa en mij."</p><cite><b>Serena Geerdens</b><i>★★★★★</i></cite></div>
       </div>
+      <div class="gscore rv"><b>4,8</b><span>gemiddeld op Google, uit 72 reviews</span></div>
     </div>
   </div>
 </section>
@@ -291,22 +375,26 @@ h1,h2,h3{font-family:'Cinzel',Georgia,serif;font-weight:700;line-height:1.06;let
 <section class="contact" id="afspraak">
   <div class="wrap">
     <div class="ck rv">
-      <img src="img/roos.webp" alt="Een roos in black and grey wordt getattoeëerd op een onderarm" width="1600" height="1067" loading="lazy">
-      <div class="in2">
-        <div>
-          <span class="lab">Afspraak</span>
-          <h2>Vertel ons je idee.</h2>
-          <p>We werken volledig op afspraak. Stuur een berichtje of een mail met je idee, de plek en een ruwe maat. Een cadeaubon kan ook, digitaal of op papier.</p>
-          <div class="acties">
-            <a class="knop goud" href="https://wa.me/32468470882" target="_blank" rel="noopener">WhatsApp</a>
-            <a class="knop rand" href="mailto:info@inkspiredbypommeline.be">Mail ons</a>
-          </div>
-        </div>
+      <div class="links">
+        <span class="lab">Afspraak</span>
+        <h2>Vertel me wat je in gedachten hebt.</h2>
+        <p>Vul kort in wat je wil. Het bericht opent in WhatsApp, zodat je er nog een foto of schets bij kan zetten. Ik laat je dan weten wanneer je langs kan komen.</p>
+        <form class="bon" id="bon" action="https://wa.me/32468470882" method="get" target="_blank">
+          <div class="vol"><label for="b-idee">Wat wil je laten zetten?</label><textarea id="b-idee" placeholder="Bv. een kleine mandala, of een tattoo die weg moet"></textarea></div>
+          <div><label for="b-plek">Waar op je lichaam?</label><input id="b-plek" placeholder="Bv. onderarm"></div>
+          <div><label for="b-maat">Hoe groot ongeveer?</label><input id="b-maat" placeholder="Bv. 10 cm"></div>
+          <div class="vol"><label for="b-soort">Wat zoek je?</label><select id="b-soort"><option>Een nieuwe tattoo</option><option>Een cover-up</option><option>Tattooverwijdering met de laser</option><option>Een cadeaubon</option></select></div>
+          <input type="hidden" name="text" id="b-tekst" value="Hallo Pommeline, ik wil graag een afspraak aanvragen.">
+          <div class="verstuur"><button class="knop" type="submit"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1 15 8 8 15 1 8Z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Verstuur via WhatsApp</button><small>Liever mailen? <a href="mailto:info@inkspiredbypommeline.be">info@inkspiredbypommeline.be</a></small></div>
+        </form>
+      </div>
+      <div class="rechts">
+        <img src="img/roos.webp" alt="" width="1600" height="1067" loading="lazy" style="object-position:40% 50%">
         <ul>
-          <li><span>Studio</span>Gentsesteenweg 274, Erpe-Mere</li>
+          <li><span>Studio</span><a href="https://www.google.com/maps?cid=3898626925994750800" target="_blank" rel="noopener">Gentsesteenweg 274, Erpe-Mere</a></li>
           <li><span>Gsm</span><a href="tel:+32468470882">0468 47 08 82</a></li>
-          <li><span>Mail</span><a href="mailto:info@inkspiredbypommeline.be">info@inkspiredbypommeline.be</a></li>
-          <li><span>Open</span>Op afspraak</li>
+          <li><span>Open</span>Enkel op afspraak</li>
+          <li><span>Volg</span><a href="https://www.instagram.com/inkspiredbypommeline/" target="_blank" rel="noopener">@inkspiredbypommeline</a></li>
         </ul>
       </div>
     </div>
@@ -314,11 +402,11 @@ h1,h2,h3{font-family:'Cinzel',Georgia,serif;font-weight:700;line-height:1.06;let
 </section>
 </main>
 
-<footer class="voet">
+<footer class="voetb">
   <div class="wrap">
     <div class="rij">
-      <div><a href="#top" class="merk"><img src="img/logo.webp" alt="INKspired by Pommeline" width="900" height="202" loading="lazy"></a><p class="zin">De private tattoostudio van Pommeline Tillière. Tattoos op maat en tattooverwijdering met Pico-laser.</p></div>
-      <div><h4>Studio</h4><ul><li>Gentsesteenweg 274</li><li>9420 Erpe-Mere</li></ul></div>
+      <div><a href="#top" class="merk"><img src="img/logo.webp" alt="INKspired by Pommeline" width="900" height="202" loading="lazy"></a><p class="zin">De private tattoostudio van Pommeline Tillière. Tattoos op maat en tattooverwijdering met de Pico-laser.</p></div>
+      <div><h4>Studio</h4><ul><li>Gentsesteenweg 274</li><li>9420 Erpe-Mere</li><li>Enkel op afspraak</li></ul></div>
       <div><h4>Contact</h4><ul><li><a href="tel:+32468470882">0468 47 08 82</a></li><li><a href="mailto:info@inkspiredbypommeline.be">Mail</a></li></ul></div>
       <div><h4>Volg</h4><ul><li><a href="https://www.instagram.com/inkspiredbypommeline/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
     </div>
@@ -332,7 +420,13 @@ var h=document.querySelector('.hero');requestAnimationFrame(function(){h.classLi
 var els=[].slice.call(document.querySelectorAll('.rv'));
 function kijk(){var H=innerHeight;els=els.filter(function(e){var r=e.getBoundingClientRect();if(r.top<H*.94&&r.bottom>0){e.classList.add('in');return false}return true});if(!els.length)removeEventListener('scroll',plan)}
 var t=0;function plan(){if(!t){t=requestAnimationFrame(function(){t=0;kijk()})}}
-addEventListener('scroll',plan,{passive:true});addEventListener('resize',plan);kijk();setTimeout(kijk,300)})();
+addEventListener('scroll',plan,{passive:true});addEventListener('resize',plan);kijk();setTimeout(kijk,300);
+var f=document.getElementById('bon');if(f){f.addEventListener('submit',function(){
+var v=function(i){return (document.getElementById(i).value||'').trim()};
+var r=['Hallo Pommeline, ik wil graag een afspraak aanvragen.','Wat: '+v('b-soort')];
+if(v('b-idee'))r.push('Idee: '+v('b-idee'));if(v('b-plek'))r.push('Plek: '+v('b-plek'));if(v('b-maat'))r.push('Grootte: '+v('b-maat'));
+document.getElementById('b-tekst').value=r.join('\n')})}
+})();
 </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
 <style>
