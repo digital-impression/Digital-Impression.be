@@ -4,257 +4,327 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Julie Marteau Tattoo · Blackwork in Ramsel</title>
+<title>Julie Marteau Tattoo · Blackwork in Ramsel, op afspraak</title>
 <meta name="description" content="Julie Marteau Tattoo: blackwork, ornamental en semi-realisme in Ramsel. Altijd op afspraak. Jij brengt het idee, Julie brengt de inkt.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter+Tight:wght@400;500;600&display=swap">
-<link rel="preload" as="image" href="img/julie.webp">
+<link rel="preload" as="image" href="img/julie-cut.webp">
 <style>
 :root{
-  --aub:#272234;--aub2:#1B1725;--aub3:#332C44;--lila:#9B8ADA;--lila2:#C9BEF0;--lila3:#E7E1FA;
+  --aub:#272234;--aub2:#1B1725;--aub3:#342C47;--lila:#9B8ADA;--lila2:#C9BEF0;--lila3:#E7E1FA;
   --creme:#F4EFE6;--papier:#EAE3D6;--ink:#211C2C;--mut:#6A6377;--line:rgba(33,28,44,.14);
-  --lc:rgba(244,239,230,.76);--lc2:rgba(244,239,230,.52);--ll:rgba(244,239,230,.13);
+  --lc:rgba(244,239,230,.78);--lc2:rgba(244,239,230,.5);--ll:rgba(244,239,230,.14);
   --kop:'Syne',system-ui,sans-serif;--sans:'Inter Tight',system-ui,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font:400 17px/1.65 var(--sans);color:var(--ink);background:var(--creme);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
-h1,h2,h3{font-family:var(--kop);font-weight:700;font-style:normal;letter-spacing:-.02em;line-height:1.02}
-.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4.5vw,56px)}
-.label{display:inline-flex;align-items:center;gap:10px;font:600 12.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--lila)}
-.ster{width:12px;height:12px;flex:none}
+h1,h2,h3{font-family:var(--kop);font-weight:700;font-style:normal;letter-spacing:-.025em;line-height:1}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(20px,4.5vw,64px)}
+.label{display:inline-flex;align-items:center;gap:10px;font:600 12px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--lila)}
+.ster{width:11px;height:11px;flex:none}
 
 .demo{background:var(--aub2);color:var(--lc);font:500 13px/1.4 var(--sans);text-align:center;padding:9px 16px;border-bottom:1px solid var(--ll)}
 .demo a{color:var(--creme);text-underline-offset:3px}
 
-/* knoppen: scherp, met sterretje uit het logo */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:17px 26px;font:600 15.5px/1 var(--sans);text-decoration:none;border-radius:2px;transition:background .2s,color .2s,gap .2s}
-.btn svg{width:13px;height:13px;transition:transform .4s}
+/* knoppen: scherpe hoek links, schuine snede rechts, zoals een stencil */
+.btn{--bg:var(--lila);--fg:var(--aub2);position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:18px 30px 18px 26px;font:600 15.5px/1 var(--sans);text-decoration:none;color:var(--fg);background:var(--bg);clip-path:polygon(0 0,100% 0,calc(100% - 12px) 100%,0 100%);transition:background .25s,color .25s,padding .35s var(--ease)}
+.btn svg{width:13px;height:13px;transition:transform .5s var(--ease)}
+.btn:hover{padding-right:36px}
 .btn:hover svg{transform:rotate(90deg)}
-.btn-lila{background:var(--lila);color:var(--aub2)}
-.btn-lila:hover{background:var(--lila2)}
-.btn-lijn{color:var(--creme);box-shadow:inset 0 0 0 1px rgba(244,239,230,.38)}
-.btn-lijn:hover{background:rgba(244,239,230,.07)}
-.btn-donker{background:var(--aub);color:var(--creme)}
-.btn-donker:hover{background:var(--aub3)}
-.btn-rand{color:var(--aub);box-shadow:inset 0 0 0 1px rgba(39,34,52,.4)}
-.btn-rand:hover{background:rgba(39,34,52,.05)}
+.btn-lila:hover{--bg:var(--lila2)}
+.btn-creme{--bg:var(--creme);--fg:var(--aub2)}
+.btn-creme:hover{--bg:#fff}
+.btn-donker{--bg:var(--aub);--fg:var(--creme)}
+.btn-donker:hover{--bg:var(--aub3)}
+.lnk{display:inline-flex;align-items:center;gap:10px;font:600 15.5px/1 var(--sans);text-decoration:none;padding:6px 0;border-bottom:1px solid currentColor;transition:gap .35s var(--ease),color .2s}
+.lnk:hover{gap:16px}
+.lnk svg{width:14px;height:14px}
 
-/* hero */
-.hero{display:grid;grid-template-columns:minmax(0,56fr) minmax(0,44fr);background:var(--aub);color:var(--creme);min-height:min(calc(100svh - 37px),900px)}
-.hero .links{display:flex;flex-direction:column;padding:0 clamp(32px,5vw,80px) 0 max(clamp(20px,4.5vw,56px),calc((100vw - 1240px)/2 + 56px))}
-.hero nav{display:flex;align-items:center;justify-content:space-between;height:92px}
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--aub);color:var(--creme);overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(900px 640px at 78% 62%,rgba(155,138,218,.20),transparent 62%)}
+.hero nav{display:flex;align-items:center;justify-content:space-between;height:96px;position:relative;z-index:3}
 .merk{display:flex;align-items:center;gap:14px;text-decoration:none}
-.merk img{width:40px;height:auto}
-.merk span{font:700 15px/1.15 var(--kop);letter-spacing:.06em;text-transform:uppercase}
-.merk small{display:block;font:500 11px/1 var(--sans);letter-spacing:.2em;color:var(--lc2);margin-top:4px}
-.hero nav ul{display:flex;gap:28px;list-style:none;font:500 15px/1 var(--sans)}
-.hero nav ul a{text-decoration:none;color:var(--lc)}
+.merk img{width:42px;height:auto}
+.merk span{font:700 15px/1.15 var(--kop);letter-spacing:.07em;text-transform:uppercase}
+.merk small{display:block;font:500 11px/1 var(--sans);letter-spacing:.24em;color:var(--lc2);margin-top:5px}
+.hero nav ul{display:flex;align-items:center;gap:34px;list-style:none;font:500 15px/1 var(--sans)}
+.hero nav ul a{text-decoration:none;color:var(--lc);transition:color .2s}
 .hero nav ul a:hover{color:var(--creme)}
-.hero .kern{flex:1;display:flex;flex-direction:column;justify-content:center;padding:40px 0 70px}
-.hero .label{margin-bottom:28px}
-.hero h1{font-size:clamp(44px,4.9vw,76px);font-weight:700;margin-bottom:28px;text-wrap:balance}
-.hero h1 span{color:var(--lila)}
-.hero p{font-size:19px;line-height:1.6;color:var(--lc);max-width:520px;margin-bottom:40px}
-.hero .knoppen{display:flex;flex-wrap:wrap;gap:14px}
-.hero .beeld{position:relative;overflow:hidden}
-.hero .beeld img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%}
-.hero .beeld::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(39,34,52,.55),rgba(39,34,52,0) 22%)}
-.hero .score{position:absolute;right:24px;bottom:24px;z-index:1;display:flex;align-items:center;gap:14px;background:rgba(27,23,37,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--creme);padding:14px 18px;border-radius:2px;border:1px solid var(--ll)}
-.hero .score b{font:800 30px/1 var(--kop)}
-.hero .score span{font-size:13.5px;line-height:1.35;color:var(--lc)}
+.hero nav .nav-cta{color:var(--creme);border-bottom:1px solid var(--lila);padding-bottom:5px}
+.hero .veld{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);align-items:end;min-height:min(calc(100svh - 133px),780px)}
+.hero .kern{align-self:center;padding:24px 0 150px;position:relative;z-index:2}
+.hero .label{margin-bottom:30px}
+.hero h1{font-size:clamp(46px,6.3vw,96px);font-weight:700;letter-spacing:-.035em;line-height:.96;margin-bottom:34px}
+.hero h1 .l{display:block}
+.hero h1 .acc{color:var(--lila)}
+.hero p.lead{font-size:19px;line-height:1.6;color:var(--lc);max-width:470px;margin-bottom:40px}
+.hero .knoppen{display:flex;flex-wrap:wrap;align-items:center;gap:28px}
+.hero .knoppen .lnk{color:var(--creme)}
+/* boog met Julie die eruit komt */
+.portaal{position:relative;align-self:end;justify-self:end;width:min(116%,700px);margin-right:-3%;aspect-ratio:1154/1300}
+.boog{position:absolute;left:8%;width:84%;bottom:0;height:69%;background:var(--lila);border-radius:999px 999px 0 0}
+.boog::before{content:"";position:absolute;inset:16px 16px 0;border:1px solid rgba(27,23,37,.3);border-bottom:0;border-radius:999px 999px 0 0}
+.portaal .figuur{position:absolute;inset:0;z-index:1;pointer-events:none;
+  -webkit-mask:linear-gradient(#000 0 41%,transparent 49%) 0 0/100% 100% no-repeat,radial-gradient(closest-side,#000 calc(100% - 1px),transparent 100%) 50% 121.9%/84% 74.57% no-repeat,linear-gradient(#000 0 0) 50% 100%/84% 31.8% no-repeat;
+  mask:linear-gradient(#000 0 41%,transparent 49%) 0 0/100% 100% no-repeat,radial-gradient(closest-side,#000 calc(100% - 1px),transparent 100%) 50% 121.9%/84% 74.57% no-repeat,linear-gradient(#000 0 0) 50% 100%/84% 31.8% no-repeat}
+.portaal .figuur img{width:100%;height:100%;object-fit:contain;object-position:50% 100%}
+.portaal .s1,.portaal .s2{position:absolute;color:var(--lila2);z-index:2}
+.portaal .s1{width:26px;height:26px;left:-2%;top:36%}
+.portaal .s2{width:14px;height:14px;left:5%;top:45%;color:var(--lila)}
+.hero .voet{position:absolute;left:0;right:0;bottom:0;z-index:2}
+.hero .voet .wrap{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr)}
+.hero .voet .rij{display:flex;align-items:center;gap:32px;padding:24px 0 28px;border-top:1px solid var(--ll);margin-right:clamp(24px,4vw,60px);font-size:14.5px;color:var(--lc2)}
+.hero .voet b{font:700 22px/1 var(--kop);color:var(--creme);margin-right:8px;letter-spacing:-.01em}
+.hero .voet .r{display:flex;align-items:baseline}
 
-/* vaag */
-.vaag{padding:clamp(90px,11vw,150px) 0}
-.vaag .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(40px,7vw,110px);align-items:center}
-.vaag h2{font-size:clamp(40px,4.6vw,68px);font-weight:700;margin:20px 0 34px}
-.dialoog{display:grid;gap:14px;max-width:560px;margin-bottom:34px}
-.dialoog p{font-size:19px}
-.dialoog .v{font-family:var(--kop);font-weight:600;font-size:21px;color:var(--ink)}
-.dialoog .a{font:800 21px/1 var(--kop);color:var(--lila);padding-left:22px}
-.vaag .tekst{color:#4b455a;max-width:560px;font-size:18px}
-.vaag .tekst+.tekst{margin-top:14px}
-.weetjes{margin-top:40px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
-.weetjes div{padding:20px 18px 0 0}
-.weetjes small{display:block;font:600 11.5px/1 var(--sans);letter-spacing:.15em;text-transform:uppercase;color:var(--mut);margin-bottom:10px}
-.weetjes b{font:700 19px/1.25 var(--kop)}
-.vaag .foto{position:relative}
-.vaag .foto img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:2px}
-.vaag .foto .mono{position:absolute;left:-34px;bottom:-34px;width:118px;padding:20px;background:var(--lila3);border-radius:2px}
+/* ---------- over ---------- */
+.over{padding:clamp(96px,11vw,160px) 0 clamp(80px,9vw,130px);position:relative}
+.over .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(48px,7vw,120px);align-items:start}
+.over .foto{position:relative;margin-top:10px}
+.over .foto img.p{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%}
+.over .foto figcaption{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px;font-size:13.5px;color:var(--mut);border-top:1px solid var(--line);padding-top:12px}
+.over .foto figcaption img{width:34px}
+.over h2{font-size:clamp(44px,5.6vw,84px);font-weight:700;letter-spacing:-.035em;margin:22px 0 46px}
+.dialoog{border-top:2px solid var(--aub)}
+.dialoog .r{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:24px;padding:22px 0;border-bottom:1px solid var(--line)}
+.dialoog .v{font:600 clamp(19px,1.7vw,23px)/1.3 var(--kop);letter-spacing:-.01em}
+.dialoog .a{font:800 clamp(30px,3vw,44px)/1 var(--kop);letter-spacing:-.03em;color:var(--lila)}
+.over .tekst{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:36px;color:#4b455a;font-size:17px}
+.weetjes{margin-top:48px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.weetjes div{background:var(--papier);padding:20px 20px 22px;position:relative}
+.weetjes div::after{content:"";position:absolute;right:0;top:0;width:18px;height:18px;background:linear-gradient(225deg,var(--creme) 50%,rgba(33,28,44,.12) 50%)}
+.weetjes small{display:block;font:600 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:12px}
+.weetjes b{font:700 19px/1.25 var(--kop);letter-spacing:-.01em}
 
-/* werk */
-.werk{background:var(--aub2);color:var(--creme);padding:clamp(90px,11vw,150px) 0}
-.werk .kop{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:50px}
-.werk h2{font-size:clamp(40px,4.6vw,68px);font-weight:700;margin-top:18px}
-.werk .kop p{color:var(--lc);max-width:420px}
-.stijlen{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
-.stijlen span{font:500 14px/1 var(--sans);padding:10px 14px;border:1px solid var(--ll);border-radius:2px;color:var(--lc)}
-.blad{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:clamp(240px,26vw,340px);gap:16px}
-.blad figure{position:relative;overflow:hidden;background:#000;border-radius:2px;min-width:0}
-.blad img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.16,1,.3,1),filter .4s}
-.blad figure:hover img{transform:scale(1.03)}
-.blad .nr{position:absolute;left:12px;top:12px;font:700 12px/1 var(--kop);letter-spacing:.1em;color:var(--aub2);background:var(--lila2);padding:6px 8px;border-radius:2px}
-.b1{grid-column:1/6;grid-row:span 2}
-.b2{grid-column:6/9}
-.b3{grid-column:9/13}
-.b4{grid-column:6/10}
-.b5{grid-column:10/13}
-.werk .na{margin-top:40px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:28px;border-top:1px solid var(--ll);color:var(--lc)}
+/* ---------- werk ---------- */
+.werk{background:var(--aub2);color:var(--creme);padding:clamp(96px,11vw,150px) 0;overflow:hidden}
+.werk .kop{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);gap:40px;align-items:end;margin-bottom:44px}
+.werk h2{font-size:clamp(44px,5.6vw,84px);font-weight:700;letter-spacing:-.035em;margin-top:22px}
+.werk .kop p{color:var(--lc);font-size:17px}
+.stijlrij{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;padding:22px 0;border-top:1px solid var(--ll);border-bottom:1px solid var(--ll);margin-bottom:40px;font:600 clamp(18px,1.8vw,24px)/1 var(--kop);letter-spacing:-.01em;color:var(--lc)}
+.stijlrij svg{width:12px;height:12px;color:var(--lila)}
+.blad{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px}
+.blad figure{min-width:0}
+.blad .fr{position:relative;overflow:hidden;background:#0d0b12}
+.blad img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.blad figure:hover img{transform:scale(1.035)}
+.blad figcaption{display:flex;justify-content:space-between;gap:14px;padding-top:12px;font-size:14px;color:var(--lc2)}
+.blad figcaption b{font:700 13px/1.5 var(--kop);letter-spacing:.06em;color:var(--lila2)}
+.w1{grid-column:1/6}.w1 .fr{aspect-ratio:4/5.4}
+.w2{grid-column:6/9;margin-top:90px}.w2 .fr{aspect-ratio:3/4.4}
+.w3{grid-column:9/13}.w3 .fr{aspect-ratio:3/4}
+.w4{grid-column:1/4;margin-top:44px}.w4 .fr{aspect-ratio:3/4}
+.w5{grid-column:4/8;margin-top:-40px}.w5 .fr{aspect-ratio:4/4.6}
+.w6{grid-column:8/13;margin-top:-150px}.w6 .fr{aspect-ratio:4/4.4}
+.werk .na{margin-top:56px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;color:var(--lc)}
+.werk .na .lnk{color:var(--creme)}
 
-/* werkwijze */
-.wijze{padding:clamp(90px,11vw,150px) 0}
-.wijze .kop{max-width:720px;margin-bottom:56px}
-.wijze h2{font-size:clamp(38px,4.4vw,64px);font-weight:700;margin:18px 0 20px}
-.wijze .kop p{color:#4b455a;font-size:18px}
-.stappen{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:2px solid var(--aub)}
-.stap{padding:28px 26px 30px 0;border-right:1px solid var(--line);margin-right:26px}
-.stap:last-child{border-right:0;margin-right:0}
-.stap .n{display:flex;align-items:center;gap:10px;font:800 15px/1 var(--kop);color:var(--lila);margin-bottom:22px}
-.stap h3{font-size:24px;margin-bottom:12px}
-.stap p{color:#4b455a;font-size:16px}
-.stap ul{list-style:none;margin-top:12px;font-size:15.5px;color:#4b455a}
-.stap li{padding:6px 0;border-bottom:1px dashed var(--line)}
-.zorg{margin-top:64px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
-.route{background:#fff;border:1px solid var(--line);border-radius:2px;padding:32px 30px}
-.route.b{background:var(--lila3);border-color:transparent}
-.route small{font:600 12px/1 var(--sans);letter-spacing:.15em;text-transform:uppercase;color:var(--mut)}
-.route h3{font-size:26px;margin:10px 0 16px}
-.route ol{list-style:none;counter-reset:r}
-.route li{counter-increment:r;display:grid;grid-template-columns:30px 1fr;gap:6px;padding:9px 0;border-top:1px solid var(--line);font-size:15.5px;color:#3e384b}
-.route li::before{content:counter(r);font:700 14px/1.6 var(--kop);color:var(--lila)}
-.zorg .noot{grid-column:1/-1;font-size:15px;color:var(--mut)}
+/* ---------- werkwijze ---------- */
+.wijze{padding:clamp(96px,11vw,150px) 0}
+.wijze .boven{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(48px,7vw,120px);align-items:start}
+.wijze .neon{position:sticky;top:30px}
+.wijze .neon img{width:100%;aspect-ratio:4/5.2;object-fit:cover;object-position:50% 20%}
+.wijze .neon p{margin-top:14px;font-size:13.5px;color:var(--mut)}
+.wijze h2{font-size:clamp(42px,5vw,76px);font-weight:700;letter-spacing:-.035em;margin:22px 0 22px}
+.wijze .intro{color:#4b455a;font-size:18px;max-width:520px;margin-bottom:44px}
+.stappen{list-style:none;border-top:2px solid var(--aub)}
+.stappen li{display:grid;grid-template-columns:92px minmax(0,1fr);gap:20px;padding:30px 0;border-bottom:1px solid var(--line)}
+.stappen .n{font:800 46px/1 var(--kop);letter-spacing:-.04em;color:var(--lila)}
+.stappen h3{font-size:26px;letter-spacing:-.02em;margin-bottom:10px}
+.stappen p{color:#4b455a;font-size:16.5px;max-width:520px}
+.lijstje{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.lijstje span{font-size:14.5px;padding:7px 12px;background:var(--papier)}
+/* aftercarekaartjes */
+.zorg{margin-top:clamp(80px,9vw,120px)}
+.zorg .kop{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:36px}
+.zorg h3{font-size:clamp(32px,3.4vw,48px);letter-spacing:-.03em;margin-top:18px}
+.zorg .kop p{max-width:440px;color:#4b455a;font-size:16px}
+.kaartjes{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
+.kaartje{position:relative;background:#fff;padding:34px 34px 30px;box-shadow:0 1px 0 rgba(33,28,44,.06),0 24px 50px -30px rgba(33,28,44,.35)}
+.kaartje::before{content:"";position:absolute;left:0;right:0;top:-7px;height:14px;background:radial-gradient(circle at 7px 7px,var(--creme) 5px,transparent 5.5px) 0 0/22px 14px repeat-x}
+.kaartje.b{background:var(--aub);color:var(--creme)}
+.kaartje .bovenk{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;margin-bottom:6px;border-bottom:1px dashed var(--line)}
+.kaartje.b .bovenk{border-color:var(--ll)}
+.kaartje .bovenk img{width:34px}
+.kaartje small{font:600 11.5px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
+.kaartje.b small{color:var(--lila2)}
+.kaartje h4{font:700 26px/1.1 var(--kop);letter-spacing:-.02em;margin-top:8px}
+.kaartje ol{list-style:none;counter-reset:r}
+.kaartje li{counter-increment:r;display:grid;grid-template-columns:34px 1fr;gap:6px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15.5px;color:#3e384b}
+.kaartje.b li{border-color:var(--ll);color:var(--lc)}
+.kaartje li:last-child{border-bottom:0}
+.kaartje li::before{content:counter(r,decimal-leading-zero);font:700 13px/1.75 var(--kop);color:var(--lila)}
+.zorg .noot{margin-top:22px;font-size:15px;color:var(--mut);display:flex;gap:10px;align-items:flex-start}
+.zorg .noot svg{width:12px;height:12px;margin-top:6px;color:var(--lila)}
 
-/* reviews */
-.reviews{background:var(--lila3);padding:clamp(90px,11vw,140px) 0}
-.reviews .wrap{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(40px,6vw,90px)}
-.reviews h2{font-size:clamp(34px,3.4vw,50px);font-weight:700;margin:18px 0 26px}
-.reviews .cijfer{font:800 96px/.9 var(--kop);letter-spacing:-.04em;color:var(--aub)}
-.reviews .cijfer+p{color:var(--mut);margin-top:10px}
-.revs{display:grid;gap:18px}
-.rev{background:var(--creme);border-radius:2px;padding:32px 34px;position:relative}
-.rev blockquote{font:600 clamp(20px,1.9vw,25px)/1.4 var(--kop);letter-spacing:-.01em}
-.rev figcaption{margin-top:18px;font-size:14.5px;color:var(--mut)}
-.rev figcaption b{color:var(--ink);font-weight:600}
-.rev.donker{background:var(--aub);color:var(--creme)}
-.rev.donker figcaption{color:var(--lc2)}.rev.donker figcaption b{color:var(--creme)}
+/* ---------- reviews ---------- */
+.reviews{background:var(--lila);color:var(--aub2);padding:clamp(96px,11vw,150px) 0;position:relative;overflow:hidden}
+.reviews .wm{position:absolute;right:-40px;bottom:-60px;width:420px;opacity:.13;pointer-events:none}
+.reviews .groot{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(30px,5vw,80px);align-items:start;padding-bottom:56px;border-bottom:1px solid rgba(27,23,37,.22)}
+.reviews .cijfer{font:800 clamp(110px,13vw,190px)/.8 var(--kop);letter-spacing:-.06em}
+.reviews .cijfer small{display:block;font:500 15px/1.4 var(--sans);letter-spacing:0;margin-top:22px;color:rgba(27,23,37,.7)}
+.reviews blockquote.hoofd{font:700 clamp(28px,3.1vw,46px)/1.12 var(--kop);letter-spacing:-.03em;max-width:860px}
+.reviews .wie{margin-top:22px;font-size:15px;color:rgba(27,23,37,.72)}
+.reviews .wie b{color:var(--aub2);font-weight:600}
+.reviews .klein{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);padding-top:44px}
+.reviews .klein blockquote{font:600 clamp(19px,1.7vw,23px)/1.35 var(--kop);letter-spacing:-.01em}
 
-/* studio */
-.studio{background:var(--aub);color:var(--creme)}
-.studio .wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(40px,6vw,90px);padding-top:clamp(90px,11vw,140px);padding-bottom:clamp(90px,11vw,140px);align-items:center}
-.studio .fotos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.studio .fotos img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:2px}
-.studio .fotos img:last-child{margin-top:60px}
-.studio h2{font-size:clamp(36px,3.8vw,56px);font-weight:700;margin:18px 0 22px}
-.studio .info>p{color:var(--lc);max-width:540px;margin-bottom:30px;font-size:18px}
-.gegevens{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--ll);margin-bottom:34px;max-width:580px}
-.gegevens div{padding:20px 20px 20px 0;border-bottom:1px solid var(--ll)}
-.gegevens small{display:block;font:600 11.5px/1 var(--sans);letter-spacing:.15em;text-transform:uppercase;color:var(--lc2);margin-bottom:9px}
-.gegevens a,.gegevens span{text-decoration:none;color:var(--creme);font-size:16px;line-height:1.5}
+/* ---------- studio ---------- */
+.studio{background:var(--aub);color:var(--creme);padding:clamp(96px,11vw,150px) 0 0}
+.studio .wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(48px,6vw,100px);align-items:center}
+.studio .fotos{display:grid;grid-template-columns:7fr 5fr;gap:16px;align-items:end}
+.studio .fotos img{width:100%;object-fit:cover}
+.studio .fotos .a{aspect-ratio:3/4.3}
+.studio .fotos .b{aspect-ratio:3/4.2;margin-bottom:60px}
+.studio h2{font-size:clamp(40px,4.6vw,68px);font-weight:700;letter-spacing:-.035em;margin:22px 0 24px}
+.studio .info>p{color:var(--lc);max-width:520px;margin-bottom:34px;font-size:18px}
+.gegevens{border-top:1px solid var(--ll);margin-bottom:36px;max-width:560px}
+.gegevens div{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--ll)}
+.gegevens small{font:600 11.5px/1.9 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--lc2)}
+.gegevens a,.gegevens span{text-decoration:none;color:var(--creme);font-size:16.5px;line-height:1.5;overflow-wrap:anywhere}
 .gegevens a:hover{color:var(--lila2)}
-.studio .knoppen{display:flex;flex-wrap:wrap;gap:14px}
-.studio .klein{margin-top:20px;font-size:14px;color:var(--lc2)}
+.studio .knoppen{display:flex;flex-wrap:wrap;align-items:center;gap:28px}
+.studio .knoppen .lnk{color:var(--creme)}
+.studio .klein{margin-top:22px;font-size:14px;color:var(--lc2)}
+.studio .wrap.slot{display:block}
+.slot{margin-top:clamp(96px,11vw,150px);border-top:1px solid var(--ll);padding:clamp(60px,7vw,96px) 0 clamp(50px,6vw,80px);text-align:center}
+.slot img{width:84px;margin:0 auto 28px}
+.slot p{font:700 clamp(34px,5vw,74px)/1 var(--kop);letter-spacing:-.035em}
+.slot p span{color:var(--lila)}
+.slot small{display:block;margin-top:20px;font-size:16px;color:var(--lc2)}
 
 footer{background:var(--aub2);color:var(--lc2);font-size:14px;border-top:1px solid var(--ll)}
 footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;padding-top:26px;padding-bottom:28px}
 footer a{color:var(--lc);text-decoration:none}
+footer a:hover{color:var(--creme)}
 footer .f{display:flex;align-items:center;gap:12px}
 footer img{width:26px}
 
-@media (max-width:1060px){
-  .hero nav ul{display:none}
-  .stappen{grid-template-columns:1fr 1fr}
-  .stap:nth-child(2){border-right:0;margin-right:0}
-  .stap:nth-child(n+3){border-top:1px solid var(--line)}
+@media (max-width:1100px){
+  .hero nav ul li:not(:last-child){display:none}
+  .hero .veld{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
 }
 @media (max-width:900px){
-  .hero{grid-template-columns:1fr;min-height:0}
-  .hero .links{padding:0 clamp(20px,4.5vw,56px)}
-  .hero .kern{padding:28px 0 48px}
-  .hero .beeld{height:min(115vw,760px)}
-  .hero .beeld::after{background:linear-gradient(180deg,rgba(39,34,52,.5),rgba(39,34,52,0) 18%)}
-  .vaag .wrap,.reviews .wrap,.studio .wrap,.zorg{grid-template-columns:1fr}
-  .vaag .foto{max-width:520px}
-  .vaag .foto .mono{left:auto;right:16px;bottom:16px;width:96px;padding:16px}
-  .blad{grid-template-columns:1fr 1fr;grid-auto-rows:auto}
-  .b1,.b2,.b3,.b4,.b5{grid-column:auto;grid-row:auto;aspect-ratio:3/4}
-  .b1{grid-column:1/3;aspect-ratio:4/5}
+  .hero .veld{grid-template-columns:1fr;min-height:0}
+  .hero .kern{padding:24px 0 48px}
+  .portaal{justify-self:center;width:100%;max-width:540px;margin-right:0}
+  .hero .voet{position:relative}
+  .hero .voet .wrap{grid-template-columns:1fr}
+  .hero .voet .rij{margin-right:0;flex-wrap:wrap;gap:10px 28px}
+  .over .wrap,.wijze .boven,.studio .wrap,.kaartjes{grid-template-columns:1fr}
+  .over .foto{max-width:460px;order:2}
+  .wijze .neon{position:relative;top:0;max-width:460px;order:2}
+  .werk .kop{grid-template-columns:1fr}
+  .blad{grid-template-columns:1fr 1fr;gap:16px}
+  .w1,.w2,.w3,.w4,.w5,.w6{grid-column:auto;margin-top:0}
+  .w1,.w6{grid-column:1/3}
+  .w6 .fr{aspect-ratio:4/3.4}
+  .w1 .fr{aspect-ratio:4/4.4}
+  .w2 .fr,.w3 .fr,.w4 .fr,.w5 .fr{aspect-ratio:3/4}
+  .reviews .groot{grid-template-columns:1fr}
   .studio .info{order:1}.studio .fotos{order:2}
 }
 @media (max-width:620px){
   body{font-size:16.5px}
-  .hero nav{height:78px}
-  .hero h1{font-size:clamp(42px,12vw,56px)}
-  .hero p{font-size:17px}
-  .btn{width:100%}
+  .hero nav{height:80px}
+  .hero nav ul{display:none}
+  .hero h1{font-size:clamp(40px,11.6vw,54px)}
+  .hero p.lead{font-size:17px;margin-bottom:32px}
+  .hero .knoppen{gap:20px}
+  .hero .knoppen .btn{width:100%}
+  .hero .voet .rij{font-size:14px}
+  .over h2,.werk h2,.wijze h2{font-size:clamp(38px,10.6vw,48px)}
+  .over .tekst{grid-template-columns:1fr;gap:14px}
+  .dialoog .r{grid-template-columns:1fr;gap:8px}
   .weetjes{grid-template-columns:1fr}
-  .weetjes div{padding:16px 0;border-bottom:1px solid var(--line)}
-  .stappen{grid-template-columns:1fr}
-  .stap{border-right:0;margin-right:0;padding-right:0}
-  .stap:nth-child(n+2){border-top:1px solid var(--line)}
-  .blad{gap:10px}
-  .route{padding:26px 22px}
-  .rev{padding:26px 22px}
-  .gegevens{grid-template-columns:1fr}
-  .studio .fotos img:last-child{margin-top:30px}
+  .blad{gap:12px}
+  .blad figcaption span{display:none}
+  .stappen li{grid-template-columns:58px minmax(0,1fr);gap:10px}
+  .stappen .n{font-size:26px;padding-top:2px}
+  .kaartje{padding:28px 22px 22px}
+  .reviews .klein{grid-template-columns:1fr;gap:28px}
+  .reviews .wm{width:260px}
+  .gegevens div{grid-template-columns:1fr;gap:4px}
+  .studio .knoppen .btn{width:100%}
+  .studio .fotos .b{margin-bottom:30px}
 }
 </style>
 </head>
 <body>
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="ster" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0Z"/></symbol></defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="ster" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0Z"/></symbol>
+<symbol id="pijl" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</defs></svg>
 
 <main id="top">
 <section class="hero">
-  <div class="links">
+  <div class="wrap">
     <nav>
       <a class="merk" href="#top"><img src="img/logo-licht.png" alt="" width="568" height="600"><span>Julie Marteau<small>TATTOO</small></span></a>
       <ul>
         <li><a href="#werk">Werk</a></li>
         <li><a href="#werkwijze">Werkwijze</a></li>
+        <li><a href="#aftercare">Aftercare</a></li>
         <li><a href="#studio">Studio</a></li>
+        <li><a class="nav-cta" href="https://wa.me/message/5G5K6DEXQMKHO1" target="_blank" rel="noopener">Stuur je idee</a></li>
       </ul>
     </nav>
-    <div class="kern">
-      <span class="label"><svg class="ster"><use href="#ster"/></svg>Blackwork in Ramsel, altijd op afspraak</span>
-      <h1>Jij brengt het idee. Ik breng de <span>inkt.</span></h1>
-      <p>Hey daar, ik ben Julie. Ik tatoeëer blackwork, ornamental en semi-realisme, en sinds kort doe ik dat in mijn eigen plekje in Ramsel.</p>
-      <div class="knoppen">
-        <a class="btn btn-lila" href="https://wa.me/message/5G5K6DEXQMKHO1" target="_blank" rel="noopener"><svg><use href="#ster"/></svg>Stuur je idee via WhatsApp</a>
-        <a class="btn btn-lijn" href="#werk">Bekijk mijn werk</a>
+    <div class="veld">
+      <div class="kern">
+        <span class="label"><svg class="ster"><use href="#ster"/></svg>Blackwork in Ramsel, altijd op afspraak</span>
+        <h1><span class="l">Jij brengt</span><span class="l">het idee.</span><span class="l">Ik breng de <span class="acc">inkt.</span></span></h1>
+        <p class="lead">Hey daar, ik ben Julie. Strak uitgewerkt plan of gewoon "iets met een vibe": allebei goed. De rest tekenen we samen.</p>
+        <div class="knoppen">
+          <a class="btn btn-lila" href="https://wa.me/message/5G5K6DEXQMKHO1" target="_blank" rel="noopener"><svg><use href="#ster"/></svg>Stuur je idee via WhatsApp</a>
+          <a class="lnk" href="#werk">Bekijk mijn werk<svg><use href="#pijl"/></svg></a>
+        </div>
+      </div>
+      <div class="portaal" aria-hidden="false">
+        <div class="boog"></div>
+        <svg class="s1"><use href="#ster"/></svg><svg class="s2"><use href="#ster"/></svg>
+        <div class="figuur"><img src="img/julie-cut.webp" alt="Julie Marteau steekt speels haar tong uit, handen naast haar hoofd" width="1154" height="1300" fetchpriority="high"></div>
       </div>
     </div>
   </div>
-  <div class="beeld">
-    <img src="img/julie.webp" alt="Julie Marteau steekt speels haar tong uit, handen naast haar hoofd" width="1154" height="1731" fetchpriority="high">
-    <div class="score"><b>5,0</b><span>op Google<br>42 reviews</span></div>
+  <div class="voet">
+    <div class="wrap">
+      <div class="rij">
+        <span class="r"><b>5,0</b>uit 42 Google-reviews</span>
+        <span class="r"><b>2016</b>aan de machine</span>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="vaag">
+<section class="over" id="over">
   <div class="wrap">
+    <figure class="foto">
+      <img class="p" src="img/julie2.webp" alt="Portret van Julie Marteau, lachend met haar hand in het haar" loading="lazy" width="1119" height="1678">
+      <figcaption><span>Julie, tatoeëert sinds 2016</span><img src="img/logo-donker.png" alt="Monogram JM" width="568" height="600" loading="lazy"></figcaption>
+    </figure>
     <div>
       <span class="label"><svg class="ster"><use href="#ster"/></svg>Over Julie</span>
-      <h2>Ik spreek vloeiend vaag</h2>
+      <h2>Ik spreek vloeiend vaag.</h2>
       <div class="dialoog">
-        <p class="v">Heb je een strak uitgewerkt idee?</p>
-        <p class="a">Top.</p>
-        <p class="v">Heb je alleen "iets met een vibe" en nul uitleg?</p>
-        <p class="a">Ook top.</p>
+        <div class="r"><p class="v">Heb je een strak uitgewerkt idee?</p><p class="a">Top.</p></div>
+        <div class="r"><p class="v">Heb je alleen "iets met een vibe" en nul uitleg?</p><p class="a">Ook top.</p></div>
       </div>
-      <p class="tekst">Ik neem mijn tijd. Niet omdat ik traag ben, maar omdat ik 400% inzoom op details en mijn innerlijke perfectionist anders niet kan slapen.</p>
-      <p class="tekst">Verwacht focus, eerlijke feedback en af en toe een flauwe mop. Slechte humor is inbegrepen. Gratis.</p>
+      <div class="tekst">
+        <p>Ik neem mijn tijd. Niet omdat ik traag ben, maar omdat ik 400% inzoom op details en mijn innerlijke perfectionist anders niet kan slapen.</p>
+        <p>Verwacht focus, eerlijke feedback en af en toe een flauwe mop. Slechte humor is inbegrepen. Gratis.</p>
+      </div>
       <div class="weetjes">
         <div><small>Tatoeëert sinds</small><b>2016</b></div>
         <div><small>Op de speaker</small><b>Sinatra en Peggy Lee</b></div>
         <div><small>Lievelingseten</small><b>Een pistoleetje met kaas</b></div>
       </div>
-    </div>
-    <div class="foto">
-      <img src="img/julie2.webp" alt="Portret van Julie Marteau" loading="lazy" width="1119" height="1678">
-      <img class="mono" src="img/logo-donker.png" alt="Monogram JM van Julie Marteau" loading="lazy" width="568" height="600">
     </div>
   </div>
 </section>
@@ -266,80 +336,95 @@ footer img{width:26px}
         <span class="label"><svg class="ster"><use href="#ster"/></svg>Recent werk</span>
         <h2>Vers uit de machine</h2>
       </div>
-      <p>Ik teken je tattoo zelf. Ook als je met een vaag idee binnenkomt, of met een stuk dat moet passen bij wat je al hebt.</p>
+      <p>Sterk contrast, strakke lijnen en een plaatsing die klopt. Elk ontwerp teken ik zelf, ook als het moet passen bij wat je al hebt.</p>
     </div>
-    <div class="stijlen"><span>Blackwork</span><span>Ornamental</span><span>Semi-realisme</span><span>Illustratief</span></div>
+    <div class="stijlrij"><span>Blackwork</span><svg><use href="#ster"/></svg><span>Ornamental</span><svg><use href="#ster"/></svg><span>Semi-realisme</span><svg><use href="#ster"/></svg><span>Illustratief</span></div>
     <div class="blad">
-      <figure class="b1"><img src="img/werk-magere-hein.webp" alt="Blackwork tattoo van een magere hein met zeis op een bovenarm" loading="lazy" width="1100" height="1650"><span class="nr">01</span></figure>
-      <figure class="b2"><img src="img/werk-pioen.webp" alt="Tattoo van een vrouwengezicht met pioenrozen op een onderarm" loading="lazy" width="1100" height="1650"><span class="nr">02</span></figure>
-      <figure class="b3"><img src="img/werk-portret.webp" alt="Semi-realistisch portret met parels en bloemen" loading="lazy" width="1100" height="1649"><span class="nr">03</span></figure>
-      <figure class="b4"><img src="img/werk-schedel.webp" alt="Tattoo van een vrouw met schedel op een onderbeen" loading="lazy" width="1100" height="1679"><span class="nr">04</span></figure>
-      <figure class="b5"><img src="img/werk-ornament.webp" alt="Ornamentale blackwork tattoo met kever in een kader" loading="lazy" width="720" height="1080"><span class="nr">05</span></figure>
+      <figure class="w1"><div class="fr"><img src="img/werk-magere-hein.webp" alt="Blackwork tattoo van een magere hein met zeis op een bovenarm" loading="lazy" width="1100" height="1650"></div><figcaption><b>01</b><span>Magere Hein, bovenarm</span></figcaption></figure>
+      <figure class="w2"><div class="fr"><img src="img/werk-pioen.webp" alt="Tattoo van een vrouwengezicht met pioenrozen op een onderarm" loading="lazy" width="1100" height="1650"></div><figcaption><b>02</b><span>Pioenen, onderarm</span></figcaption></figure>
+      <figure class="w3"><div class="fr"><img src="img/werk-portret.webp" alt="Semi-realistisch portret met parels en bloemen" loading="lazy" width="1100" height="1649"></div><figcaption><b>03</b><span>Parels en bloemen</span></figcaption></figure>
+      <figure class="w4"><div class="fr"><img src="img/werk-ornament.webp" alt="Ornamentale blackwork tattoo met kever in een kader" loading="lazy" width="720" height="1080"></div><figcaption><b>04</b><span>Kever in ornament</span></figcaption></figure>
+      <figure class="w5"><div class="fr"><img src="img/werk-dame-schedel.webp" alt="Tattoo van een vrouw met een schedel op een onderarm" loading="lazy" width="719" height="1080"></div><figcaption><b>05</b><span>Dame met schedel</span></figcaption></figure>
+      <figure class="w6"><div class="fr"><img src="img/werk-schedel.webp" alt="Ornamentale tattoo met bloemen op een schouder" loading="lazy" width="1100" height="1679"></div><figcaption><b>06</b><span>Ornament met bloemen</span></figcaption></figure>
     </div>
-    <div class="na"><span>Meer werk staat op Instagram, bij @juliexmarteau.</span><a class="btn btn-lijn" href="https://www.instagram.com/juliexmarteau/" target="_blank" rel="noopener">Naar Instagram</a></div>
+    <div class="na"><span>Meer werk staat op Instagram, bij @juliexmarteau.</span><a class="lnk" href="https://www.instagram.com/juliexmarteau/" target="_blank" rel="noopener">Naar Instagram<svg><use href="#pijl"/></svg></a></div>
   </div>
 </section>
 
 <section class="wijze" id="werkwijze">
   <div class="wrap">
-    <div class="kop">
-      <span class="label"><svg class="ster"><use href="#ster"/></svg>Werkwijze</span>
-      <h2>Van vaag idee tot verse inkt</h2>
-      <p>Alles gaat op afspraak. Zo heb ik de tijd voor jouw ontwerp, en jij voor een koffie of iets fris in de stoel.</p>
-    </div>
-    <div class="stappen">
-      <div class="stap"><span class="n"><svg class="ster"><use href="#ster"/></svg>01</span><h3>Stuur je idee</h3><p>Via WhatsApp of mail. Vertel me:</p><ul><li>je idee, hoe vaag ook</li><li>de plaats op je lichaam</li><li>de grootte</li><li>inspiratie, zoals een Pinterest-bord</li></ul></div>
-      <div class="stap"><span class="n"><svg class="ster"><use href="#ster"/></svg>02</span><h3>Het ontwerp</h3><p>Ik teken je tattoo en geef eerlijk advies. Past het bij je andere tattoos? Dan hou ik daar rekening mee.</p></div>
-      <div class="stap"><span class="n"><svg class="ster"><use href="#ster"/></svg>03</span><h3>De afspraak</h3><p>Je komt naar mijn studio in Ramsel. Ik neem mijn tijd, jij krijgt koffie of iets fris en waarschijnlijk een flauwe mop.</p></div>
-      <div class="stap"><span class="n"><svg class="ster"><use href="#ster"/></svg>04</span><h3>Aftercare</h3><p>Je gaat naar huis met folie of Second Skin. Hieronder staat wat je daarna doet.</p></div>
-    </div>
-    <div class="zorg">
-      <div class="route">
-        <small>Route A</small><h3>Met huishoudfolie</h3>
-        <ol>
-          <li>Laat de folie 2 tot 3 uur zitten.</li>
-          <li>Handen wassen, tattoo reinigen met lauw water en milde, parfumvrije zeep. Deppen, niet wrijven.</li>
-          <li>Minstens twee weken een dun laagje aftercarecrème na elke wasbeurt.</li>
-          <li>Niet krabben of pulken. Korstjes komen vanzelf los.</li>
-          <li>Minstens 4 weken geen zon, sauna, zwemmen of jacuzzi. Daarna factor 50+.</li>
+    <div class="boven">
+      <figure class="neon">
+        <img src="img/neon.webp" alt="Hoek van de studio met een roze neonlamp en een ingelijste tekening" loading="lazy" width="899" height="1402">
+        <p>Een hoekje van de nieuwe studio in Ramsel.</p>
+      </figure>
+      <div>
+        <span class="label"><svg class="ster"><use href="#ster"/></svg>Werkwijze</span>
+        <h2>Van vaag idee tot verse inkt</h2>
+        <p class="intro">Alles gaat op afspraak. Zo heb ik de tijd voor jouw ontwerp, en jij voor een koffie of iets fris in de stoel.</p>
+        <ol class="stappen">
+          <li><span class="n">01</span><div><h3>Stuur je idee</h3><p>Via WhatsApp of mail. Hoe vaag ook, vertel me gewoon wat je in je hoofd hebt.</p><div class="lijstje"><span>je idee</span><span>de plaats op je lichaam</span><span>de grootte</span><span>je Pinterest-bord</span></div></div></li>
+          <li><span class="n">02</span><div><h3>Het ontwerp</h3><p>Ik teken je tattoo en geef eerlijk advies. Moet hij passen bij wat je al hebt? Dan hou ik daar rekening mee.</p></div></li>
+          <li><span class="n">03</span><div><h3>De afspraak</h3><p>Je komt naar de studio in Ramsel. Ik neem mijn tijd, jij krijgt koffie of iets fris en waarschijnlijk een flauwe mop.</p></div></li>
+          <li><span class="n">04</span><div><h3>Mee naar huis</h3><p>Je vertrekt met folie of met Second Skin, en met de juiste verzorging. Die staat hieronder.</p></div></li>
         </ol>
       </div>
-      <div class="route b">
-        <small>Route B</small><h3>Met Second Skin</h3>
-        <ol>
-          <li>Laat de Second Skin 3 tot 5 dagen zitten. Vocht en inkt eronder zijn normaal.</li>
-          <li>Verwijder hem traag onder een lauwe douche, parallel met je huid.</li>
-          <li>Handen wassen, tattoo reinigen met milde, parfumvrije zeep. Deppen, niet wrijven.</li>
-          <li>Minstens twee weken een dun laagje aftercarecrème na elke wasbeurt.</li>
-          <li>Jeuk en vervellen zijn normaal. Niet krabben.</li>
-          <li>Minstens 4 weken geen zon, sauna, zwemmen, jacuzzi of zonnebank. Daarna factor 50+.</li>
-        </ol>
+    </div>
+
+    <div class="zorg" id="aftercare">
+      <div class="kop">
+        <div>
+          <span class="label"><svg class="ster"><use href="#ster"/></svg>Aftercare</span>
+          <h3>Zo blijft hij mooi</h3>
+        </div>
+        <p>Folie of Second Skin? Je hoort het op de dag zelf. Volg dan gewoon het kaartje dat bij jou hoort.</p>
       </div>
-      <p class="noot">Komt de Second Skin los, lekt hij of komt er water of vuil onder? Haal hem dan meteen weg en volg Route A vanaf stap 2.</p>
+      <div class="kaartjes">
+        <div class="kaartje">
+          <div class="bovenk"><div><small>Route A</small><h4>Met huishoudfolie</h4></div><img src="img/logo-donker.png" alt="" width="568" height="600" loading="lazy"></div>
+          <ol>
+            <li>Laat de folie 2 tot 3 uur zitten.</li>
+            <li>Handen wassen, tattoo reinigen met lauw water en milde, parfumvrije zeep. Deppen, niet wrijven.</li>
+            <li>Minstens twee weken een dun laagje aftercarecrème na elke wasbeurt.</li>
+            <li>Niet krabben of pulken. Korstjes komen vanzelf los.</li>
+            <li>Minstens 4 weken geen zon, sauna, zwemmen of jacuzzi. Daarna factor 50+.</li>
+          </ol>
+        </div>
+        <div class="kaartje b">
+          <div class="bovenk"><div><small>Route B</small><h4>Met Second Skin</h4></div><img src="img/logo-licht.png" alt="" width="568" height="600" loading="lazy"></div>
+          <ol>
+            <li>Laat de Second Skin 3 tot 5 dagen zitten. Vocht en inkt eronder zijn normaal.</li>
+            <li>Verwijder hem traag onder een lauwe douche, parallel met je huid.</li>
+            <li>Handen wassen, tattoo reinigen met milde, parfumvrije zeep. Deppen, niet wrijven.</li>
+            <li>Minstens twee weken een dun laagje aftercarecrème na elke wasbeurt.</li>
+            <li>Jeuk en vervellen zijn normaal. Niet krabben.</li>
+            <li>Minstens 4 weken geen zon, sauna, zwemmen, jacuzzi of zonnebank. Daarna factor 50+.</li>
+          </ol>
+        </div>
+      </div>
+      <p class="noot"><svg><use href="#ster"/></svg>Komt de Second Skin los, lekt hij of komt er water of vuil onder? Haal hem dan meteen weg en volg Route A vanaf stap 2.</p>
     </div>
   </div>
 </section>
 
 <section class="reviews" id="reviews">
+  <img class="wm" src="img/logo-donker.png" alt="" width="568" height="600" loading="lazy">
   <div class="wrap">
-    <div>
-      <span class="label" style="color:var(--aub)"><svg class="ster"><use href="#ster"/></svg>Reviews</span>
-      <h2>Wat mensen erover zeggen</h2>
-      <div class="cijfer">5,0</div>
-      <p>op Google, uit 42 reviews</p>
+    <div class="groot">
+      <div class="cijfer">5,0<small>op Google, uit 42 reviews</small></div>
+      <figure>
+        <blockquote class="hoofd">"Ik ben bij Julie gekomen met een idee en met wat constructieve feedback heeft ze me verrast met dit prachtige design."</blockquote>
+        <figcaption class="wie"><b>Wojciulewicz C.</b> op Google</figcaption>
+      </figure>
     </div>
-    <div class="revs">
-      <figure class="rev donker">
-        <blockquote>"Ik ben bij Julie gekomen met een idee en met wat constructieve feedback heeft ze me verrast met dit prachtige design."</blockquote>
-        <figcaption><b>Wojciulewicz C.</b> op Google</figcaption>
-      </figure>
-      <figure class="rev">
+    <div class="klein">
+      <figure>
         <blockquote>"Ik ben met een vaag idee naar Julie gegaan. Ze heeft een mooie tattoo ontworpen die goed paste bij mijn andere tattoos."</blockquote>
-        <figcaption><b>Laura D.</b> op Google</figcaption>
+        <figcaption class="wie"><b>Laura D.</b> op Google</figcaption>
       </figure>
-      <figure class="rev">
+      <figure>
         <blockquote>"Julie werkt snel, efficient en proper"</blockquote>
-        <figcaption><b>Charlotte V.</b> op Google</figcaption>
+        <figcaption class="wie"><b>Charlotte V.</b> op Google</figcaption>
       </figure>
     </div>
   </div>
@@ -348,24 +433,31 @@ footer img{width:26px}
 <section class="studio" id="studio">
   <div class="wrap">
     <div class="fotos">
-      <img src="img/studio.webp" alt="Hoekje in de studio met een shirt aan de muur en een plant" loading="lazy" width="877" height="1315">
-      <img src="img/studio2.webp" alt="Spiegel en planten in de studio" loading="lazy" width="992" height="1488">
+      <img class="a" src="img/raam.webp" alt="Raam van de studio met de naam Julie Marteau en zonlicht" loading="lazy" width="992" height="1488">
+      <img class="b" src="img/studio.webp" alt="Hoekje in de studio met een shirt aan de muur en een plant" loading="lazy" width="877" height="1315">
     </div>
     <div class="info">
       <span class="label"><svg class="ster"><use href="#ster"/></svg>Studio en contact</span>
       <h2>Een nieuwe plek, dezelfde Julie</h2>
-      <p>Mijn studio zit nu in Ramsel, in een eigen plekje binnen een gedeelde creatieve ruimte. Een nieuwe locatie, een frisse start en natuurlijk dezelfde Julie achter de tattoomachine.</p>
+      <p>Mijn studio zit nu in Ramsel, in een eigen plekje binnen een gezellige, gedeelde creatieve ruimte. Een nieuwe locatie, een frisse start en natuurlijk dezelfde Julie achter de tattoomachine.</p>
       <div class="gegevens">
-        <div><small>Adres</small><span>Stationsstraat 7<br>2230 Ramsel</span></div>
+        <div><small>Adres</small><span>Stationsstraat 7, 2230 Ramsel</span></div>
         <div><small>Wanneer</small><span>Altijd op afspraak</span></div>
-        <div><small>WhatsApp</small><a href="https://wa.me/message/5G5K6DEXQMKHO1" target="_blank" rel="noopener">Stuur een bericht</a></div>
+        <div><small>WhatsApp</small><a href="https://wa.me/message/5G5K6DEXQMKHO1" target="_blank" rel="noopener">Het makkelijkst: stuur een bericht</a></div>
         <div><small>Mail</small><a href="mailto:juliemarteautattoos@outlook.com">juliemarteautattoos@outlook.com</a></div>
       </div>
       <div class="knoppen">
         <a class="btn btn-lila" href="https://wa.me/message/5G5K6DEXQMKHO1" target="_blank" rel="noopener"><svg><use href="#ster"/></svg>Plan je tattoo</a>
-        <a class="btn btn-lijn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Stationsstraat+7+2230+Ramsel" target="_blank" rel="noopener">Route naar de studio</a>
+        <a class="lnk" href="https://www.google.com/maps/dir/?api=1&amp;destination=Stationsstraat+7+2230+Ramsel" target="_blank" rel="noopener">Route naar de studio<svg><use href="#pijl"/></svg></a>
       </div>
       <p class="klein">Gemaild en geen antwoord? Kijk even in je spam, daar belanden mails soms.</p>
+    </div>
+  </div>
+  <div class="wrap slot">
+    <div>
+      <img src="img/logo-licht.png" alt="" width="568" height="600" loading="lazy">
+      <p>Jij brengt het idee. Ik breng de <span>inkt.</span></p>
+      <small>En waarschijnlijk koffie of iets fris.</small>
     </div>
   </div>
 </section>
