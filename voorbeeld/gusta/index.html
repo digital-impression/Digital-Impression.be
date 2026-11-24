@@ -27,37 +27,36 @@ h1,h2,h3{font-family:'Young Serif',serif;font-weight:400;font-style:normal;line-
 .btn svg{width:18px;height:18px;flex:none}
 .btn-l{background:var(--lila);color:var(--inkt)}.btn-l:hover{background:#dacff0}
 .btn-e{background:var(--espresso);color:#fff}
-.btn-gl{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55);background:rgba(255,255,255,.08);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.btn-gl{color:var(--inkt);box-shadow:inset 0 0 0 1.5px rgba(42,31,25,.35)}.btn-gl:hover{box-shadow:inset 0 0 0 1.5px var(--inkt)}
+.btn-e:hover{background:var(--esp2)}
+.btn .boon{transition:transform .5s var(--ease)}.btn:hover .boon{transform:rotate(90deg)}
 .btn-o{color:var(--inkt);box-shadow:inset 0 0 0 1.5px rgba(42,31,25,.3)}
 .woordmerk{display:inline-flex;flex-direction:column;align-items:center;text-decoration:none;line-height:1}
 .woordmerk b{font:400 30px/1 'Young Serif';letter-spacing:-.01em}
 .woordmerk small{font:700 8.5px/1 'Manrope';letter-spacing:.32em;margin-top:6px;text-transform:uppercase}
 
-/* hero */
-.hero{position:relative;min-height:min(940px,100vh);color:#fff;display:flex;flex-direction:column;overflow:hidden;background:var(--espresso)}
-.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:80% 50%;transform:scale(1.06);animation:zoom 18s var(--ease) forwards}
-@keyframes zoom{to{transform:scale(1)}}
-.hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(30,20,16,.92) 0%,rgba(30,20,16,.72) 36%,rgba(30,20,16,.12) 64%,rgba(30,20,16,0) 100%),linear-gradient(0deg,rgba(30,20,16,.6) 0%,transparent 34%)}
-.nav{position:relative;z-index:5;padding:24px 0}
+/* hero: lila vlak met tekst, foto van Jasmien aan de brander loopt door tot de rand */
+.hero{position:relative;background:var(--lila);color:var(--inkt);display:flex;flex-direction:column;min-height:min(920px,calc(100svh - 38px))}
+.nav{position:relative;z-index:5;padding:20px 0}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;width:min(1380px,100% - 48px)}
-.nav .woordmerk{color:var(--lila)}
+.nav .woordmerk{color:var(--inkt)}
 .nav ul{display:flex;gap:28px;list-style:none}
-.nav ul a{text-decoration:none;font:600 15px/1 'Manrope';opacity:.86}
+.nav ul a{text-decoration:none;font:600 15px/1 'Manrope';opacity:.8}
 .nav ul a:hover{opacity:1}
-.h-in{position:relative;z-index:3;flex:1;display:flex;align-items:center;width:min(1380px,100% - 48px);margin:0 auto;padding:30px 0 60px}
-.h-in .t{max-width:640px}
-.h-in .lab{color:var(--lila)}
-.h-in h1{font-size:clamp(58px,6.8vw,108px);margin:22px 0 24px}
-.h-in h1 span{color:var(--lila)}
-.h-in p{font-size:19.5px;max-width:30em;color:rgba(255,255,255,.86)}
+.h-g{flex:1;display:grid;grid-template-columns:minmax(0,46fr) minmax(0,54fr)}
+.h-t{display:flex;flex-direction:column;justify-content:center;padding:30px clamp(36px,5vw,80px) 60px max(24px,calc((100vw - 1380px)/2))}
+.h-t .lab{color:#5e4689}
+.h-t h1{font-size:clamp(56px,6vw,100px);margin:22px 0 24px}
+.h-t p{font-size:19px;max-width:30em;color:#3d3045}
 .acties{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
-.h-bar{position:relative;z-index:3;width:min(1380px,100% - 48px);margin:0 auto 34px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.h-bar .sc{display:flex;align-items:center;gap:14px;background:var(--lila);color:var(--inkt);border-radius:22px;padding:14px 20px}
-.h-bar .sc b{font:400 38px/1 'Young Serif'}
-.h-bar .sc span{font-size:14px;line-height:1.35;font-weight:600}
-.h-bar .sc i{display:block;font-style:normal;letter-spacing:2px;color:var(--lila-d)}
-.h-bar .feit{display:flex;gap:30px;font-size:14.5px;color:rgba(255,255,255,.78)}
-.h-bar .feit b{display:block;font:400 22px/1.1 'Young Serif';color:#fff}
+.h-sc{display:flex;align-items:center;gap:14px;margin-top:36px;padding-top:24px;border-top:1px solid rgba(42,31,25,.18);font-size:14.5px;color:#4a3d52}
+.h-sc b{font:400 34px/1 'Young Serif';color:var(--inkt)}
+.h-sc i{display:block;font-style:normal;letter-spacing:2px;color:#5e4689}
+.h-f{position:relative;overflow:hidden;border-radius:40px 0 0 0;background:var(--espresso)}
+.h-f img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:97% 50%;transform:scale(1.05);animation:zoom 14s var(--ease) forwards}
+@keyframes zoom{to{transform:scale(1)}}
+.h-f figcaption{position:absolute;left:0;right:0;bottom:0;padding:90px 30px 26px;background:linear-gradient(0deg,rgba(30,20,16,.6),rgba(30,20,16,0));color:#fff;font:600 14px/1.3 'Manrope';display:flex;justify-content:space-between;gap:16px}
+.h-f figcaption span:last-child{color:var(--lila)}
 
 section{position:relative}
 .sec{padding:140px 0}
@@ -65,24 +64,31 @@ section{position:relative}
 .kopr h2{font-size:clamp(44px,4.8vw,74px);margin-top:18px;max-width:11em}
 .kopr p{max-width:25em;color:var(--grijs);font-size:18px}
 
-/* koffie */
-.koffies{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.kf{position:relative;border-radius:var(--r);padding:30px 30px 26px;display:flex;flex-direction:column;min-height:290px;text-decoration:none;background:var(--papier);box-shadow:0 1px 0 rgba(0,0,0,.03),0 26px 50px -42px rgba(70,40,30,.6);transition:transform .4s var(--ease),box-shadow .4s}
-.kf:hover{transform:translateY(-5px);box-shadow:0 1px 0 rgba(0,0,0,.03),0 36px 60px -40px rgba(70,40,30,.7)}
-.kf .land{font:800 12px/1 'Manrope';letter-spacing:.14em;text-transform:uppercase;color:var(--lila-d)}
-.kf h3{font-size:31px;margin:14px 0 10px}
-.kf p{color:var(--grijs);font-size:15.5px}
-.kf .pr{margin-top:auto;padding-top:20px;border-top:1px solid var(--lijn);display:flex;justify-content:space-between;align-items:center;font-weight:700}
-.kf .pr span{font:400 24px/1 'Young Serif'}
-.kf .pr em{font-style:normal;font-size:13.5px;color:var(--grijs);font-weight:600}
-.kf.uit{background:var(--lila)}
-.kf.uit .land{color:var(--esp2)}
-.kf.uit p{color:#4a3d52}
-.kf.uit .pr{border-color:rgba(42,31,25,.2)}
-.kf .bol{position:absolute;right:24px;top:24px;width:46px;height:46px;border-radius:50%;background:var(--lila-l);display:grid;place-items:center}
-.kf.uit .bol{background:rgba(255,255,255,.5)}
-.kf .bol svg{width:22px;height:22px;stroke:var(--esp2)}
-.meer{display:flex;justify-content:center;margin-top:36px}
+/* koffie: brandkaart links, koffiekaart rechts */
+.kg{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:26px;align-items:start}
+.brand{position:sticky;top:30px}
+.brand figure{border-radius:var(--r) var(--r) 0 0;overflow:hidden;aspect-ratio:4/3.2}
+.brand figure img{width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.etiket{background:var(--espresso);color:#fff;border-radius:0 0 var(--r) var(--r);padding:28px 30px 30px;position:relative}
+.etiket:before{content:"";position:absolute;left:0;right:0;top:-1px;height:10px;background:radial-gradient(6px at 50% 0,var(--creme) 97%,transparent) 0 0/18px 10px repeat-x;opacity:0}
+.etiket small{font:800 12px/1 'Manrope';letter-spacing:.16em;text-transform:uppercase;color:var(--lila)}
+.etiket h3{font-size:28px;margin:10px 0 16px}
+.etiket dl{display:grid;grid-template-columns:auto 1fr;gap:0 20px;font-size:15.5px}
+.etiket dt,.etiket dd{padding:10px 0;border-top:1px dashed rgba(204,190,226,.3)}
+.etiket dt{color:rgba(255,255,255,.62)}
+.etiket dd{text-align:right;font-weight:700}
+.kaart{background:var(--papier);border-radius:var(--r);padding:10px 34px;box-shadow:0 30px 60px -50px rgba(70,40,30,.6)}
+.kr{display:grid;grid-template-columns:1fr auto;gap:4px 24px;padding:24px 0;border-bottom:1px solid var(--lijn);text-decoration:none;transition:padding .3s var(--ease)}
+.kr:last-child{border-bottom:0}
+.kr:hover{padding-left:8px}
+.kr .land{grid-column:1/-1;font:800 12px/1 'Manrope';letter-spacing:.14em;text-transform:uppercase;color:var(--lila-d)}
+.kr h3{font-size:29px;margin-top:6px}
+.kr .p{font:400 22px/1 'Young Serif';white-space:nowrap;align-self:end}
+.kr .p small{font:600 13px/1 'Manrope';color:var(--grijs);margin-right:6px}
+.kr p{grid-column:1/-1;color:var(--grijs);font-size:15.5px;max-width:36em}
+.kr.uit{background:var(--lila-l);margin:10px -20px;padding:24px 20px;border-radius:20px;border-bottom:0}
+.kr.uit .tag{display:inline-block;margin-left:10px;vertical-align:middle;font:800 11px/1 'Manrope';letter-spacing:.12em;text-transform:uppercase;background:var(--lila);color:var(--inkt);padding:6px 10px;border-radius:999px}
+.meer{display:flex;justify-content:flex-end;align-items:center;gap:18px;margin-top:22px;color:var(--grijs);font-size:15px}
 
 /* costa rica */
 .cr{background:var(--espresso);color:#fff;border-radius:56px;margin:0 24px;padding:0 0 120px;overflow:hidden}
@@ -95,10 +101,9 @@ section{position:relative}
 .cr .lab{color:var(--lila)}
 .cr h2{font-size:clamp(44px,4.8vw,74px);margin:18px 0 0}
 .cr .t p{color:rgba(255,255,255,.8);font-size:18px;margin-bottom:16px}
-.cr .noten{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0 30px}
-.cr .noten div{border-radius:20px;padding:18px 20px;background:var(--esp2)}
-.cr .noten b{display:block;font:400 22px/1.15 'Young Serif';color:var(--lila)}
-.cr .noten span{font-size:14.5px;color:rgba(255,255,255,.72)}
+.cr .noten{list-style:none;margin:26px 0 30px;border-top:1px solid rgba(255,255,255,.14)}
+.cr .noten li{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:15.5px;color:rgba(255,255,255,.75)}
+.cr .noten b{font:400 22px/1.15 'Young Serif';color:var(--lila)}
 
 /* jasmien */
 .jas .g{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
@@ -118,17 +123,14 @@ section{position:relative}
 .zaak .g{display:grid;grid-template-columns:1.1fr .9fr;border-radius:48px;overflow:hidden;background:var(--lila)}
 .zaak .f{position:relative;min-height:640px}
 .zaak .f img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.zaak .f .k{position:absolute;right:24px;bottom:24px;width:38%;aspect-ratio:1;border-radius:24px;overflow:hidden;border:8px solid var(--lila)}
-.zaak .f .k img{position:static}
 .zaak .t{padding:78px 66px}
 .zaak .lab{color:var(--esp2)}
 .zaak h2{font-size:clamp(42px,4.4vw,66px);margin:18px 0 18px}
 .zaak .t>p{font-size:18px;color:#45384d;max-width:28em}
-.zaak ul{list-style:none;margin:28px 0 32px;display:grid;gap:10px}
-.zaak li{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.45);border-radius:18px;padding:16px 18px;font-size:16px}
-.zaak li b{display:block;font:400 20px/1.2 'Young Serif';margin-bottom:2px}
-.zaak li i{width:38px;height:38px;border-radius:50%;background:var(--espresso);display:grid;place-items:center;flex:none}
-.zaak li svg{width:18px;height:18px;stroke:var(--lila)}
+.zaak ol{list-style:none;counter-reset:z;margin:28px 0 32px;border-top:1px solid rgba(42,31,25,.18)}
+.zaak li{counter-increment:z;display:grid;grid-template-columns:54px 1fr;gap:6px;padding:18px 0;border-bottom:1px solid rgba(42,31,25,.18);font-size:16px;color:#45384d}
+.zaak li:before{content:counter(z,decimal-leading-zero);font:400 22px/1.2 'Young Serif';color:var(--inkt)}
+.zaak li b{display:block;font:400 21px/1.2 'Young Serif';color:var(--inkt);margin-bottom:3px}
 
 /* reviews */
 .rv-k{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:46px}
@@ -137,11 +139,16 @@ section{position:relative}
 .cijfer b{font:400 96px/.85 'Young Serif'}
 .cijfer i{display:block;font-style:normal;color:var(--lila-d);letter-spacing:4px;font-size:20px;margin:12px 0 4px}
 .cijfer span{color:var(--grijs);font-size:15px;font-weight:600}
-.rv-g{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.rev{background:var(--papier);border-radius:var(--r);padding:30px 28px;display:flex;flex-direction:column;gap:14px;box-shadow:0 26px 50px -42px rgba(70,40,30,.6)}
+.rv-g{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px}
+.rev{background:var(--papier);border-radius:var(--r);padding:28px 30px;display:flex;flex-direction:column;gap:12px;box-shadow:0 26px 50px -42px rgba(70,40,30,.6)}
+.rev.groot{background:var(--espresso);color:#fff;padding:46px 46px 40px;justify-content:space-between}
+.rev.groot blockquote{font:400 clamp(23px,2.1vw,30px)/1.32 'Young Serif'}
+.rev.groot cite small{color:rgba(255,255,255,.6)}
+.rv-r{display:grid;gap:18px}
 .rev .st{color:var(--lila-d);letter-spacing:3px}
+.rev.groot .st{color:var(--lila)}
 .rev blockquote{font-size:15.5px}
-.rev cite{margin-top:auto;font:800 14.5px/1.2 'Manrope';font-style:normal}
+.rev cite{font:800 14.5px/1.2 'Manrope';font-style:normal}
 .rev cite small{display:block;font-weight:600;color:var(--grijs);font-size:12.5px;margin-top:3px}
 
 /* bezoek */
@@ -177,10 +184,15 @@ footer{background:var(--lila);color:var(--inkt);margin-top:140px;padding:84px 0 
 
 @media (max-width:1100px){
  .nav ul{display:none}
- .hero:before{background:linear-gradient(0deg,rgba(30,20,16,.94) 0%,rgba(30,20,16,.7) 55%,rgba(30,20,16,.35) 100%)}
+ .h-g{grid-template-columns:1fr}
+ .h-t{padding:30px 24px 50px}
+ .h-f{min-height:0;aspect-ratio:4/3.3;border-radius:34px 34px 0 0;margin:0 12px}
+ .kg{grid-template-columns:1fr}
+ .brand{position:static;display:grid;grid-template-columns:1fr 1fr}
+ .brand figure{border-radius:var(--r) 0 0 var(--r);aspect-ratio:auto}
+ .etiket{border-radius:0 var(--r) var(--r) 0}
  .kopr,.rv-k{flex-direction:column;align-items:flex-start;gap:16px}
  .cijfer{text-align:left}
- .koffies{grid-template-columns:1fr 1fr}
  .cr-band{height:460px}
  .cr .g{grid-template-columns:1fr;gap:20px;margin-top:70px}
  .jas .g{grid-template-columns:1fr;gap:50px}
@@ -197,16 +209,21 @@ footer{background:var(--lila);color:var(--inkt);margin-top:140px;padding:84px 0 
  .wrap,.nav .wrap,.h-in,.h-bar{width:calc(100% - 36px)}
  .nav .btn{display:none}
  .hero{min-height:auto}
- .hero>img{object-position:78% 50%}
- .hero:before{background:linear-gradient(0deg,rgba(30,20,16,.94) 0%,rgba(30,20,16,.74) 55%,rgba(30,20,16,.3) 100%)}
- .h-in{padding:110px 0 30px}
- .h-in h1{font-size:48px}
- .h-in p{font-size:17px}
+ .h-t{padding:24px 18px 44px}
+ .h-t h1{font-size:clamp(44px,12.4vw,54px)}
+ .h-t p{font-size:17px}
  .acties .btn{width:100%;justify-content:center}
- .h-bar .feit{gap:18px;flex-wrap:wrap}
+ .h-f{margin:0 8px;border-radius:26px 26px 0 0}
+ .h-f figcaption{padding:70px 18px 18px;font-size:13px}
+ .brand{grid-template-columns:1fr}
+ .brand figure{border-radius:var(--r) var(--r) 0 0;aspect-ratio:4/3}
+ .etiket{border-radius:0 0 var(--r) var(--r);padding:24px 22px}
+ .kaart{padding:6px 20px}
+ .kr h3{font-size:25px}
+ .kr.uit{margin:8px -10px;padding:22px 10px}
+ .meer{flex-direction:column;align-items:stretch;text-align:center}
+ .cr .noten li{grid-template-columns:1fr;gap:2px}
  .sec{padding:90px 0}
- .koffies{grid-template-columns:1fr}
- .kf{min-height:auto}
  .cr{margin:0 10px;border-radius:34px;padding-bottom:80px}
  .cr-band{grid-template-columns:1fr 1fr;height:auto}
  .cr-band figure{aspect-ratio:3/4}
@@ -227,24 +244,23 @@ footer{background:var(--lila);color:var(--inkt);margin-top:140px;padding:84px 0 
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
 <header class="hero" id="top">
- <img src="img/hero.webp" alt="Jasmien aan de Giesen-koffiebrander met een trommel vol vers gebrande bonen">
  <nav class="nav"><div class="wrap">
   <a class="woordmerk" href="#top" aria-label="Café Gusta"><b>café gusta</b><small>koffiebranderij</small></a>
   <ul><li><a href="#koffie">Koffie</a></li><li><a href="#costarica">Costa Rica</a></li><li><a href="#jasmien">Over mij</a></li><li><a href="#zaak">Voor je zaak</a></li><li><a href="#bezoek">Winkel</a></li></ul>
-  <a class="btn btn-gl" href="https://cafegusta.be/product-categorie/koffie/" style="padding:13px 20px">Webshop</a>
+  <a class="btn btn-e" href="https://cafegusta.be/product-categorie/koffie/" style="padding:13px 20px">Webshop</a>
  </div></nav>
- <div class="h-in"><div class="t">
-  <span class="lab rv">Koffiebranderij · Oudenaarde</span>
-  <h1 class="rv" style="--d:1">Gusta, zoals in <span>me gusta.</span></h1>
-  <p class="rv" style="--d:2">Ik ben Jasmien. Op mijn Giesen-brander rooster ik specialty coffee, tien kilo per keer en altijd licht gebrand. Voor bij jou thuis, voor je zaak of voor je hele vereniging.</p>
-  <div class="acties rv" style="--d:3">
-   <a class="btn btn-l" href="https://cafegusta.be/product-categorie/koffie/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18l-2 13H5z"/><path d="M8 7a4 4 0 0 1 8 0"/></svg>Naar de webshop</a>
-   <a class="btn btn-gl" href="#zaak">Koffie voor je zaak</a>
+ <div class="h-g">
+  <div class="h-t">
+   <span class="lab rv">Koffiebranderij · Oudenaarde</span>
+   <h1 class="rv" style="--d:1">Gusta, zoals in me gusta.</h1>
+   <p class="rv" style="--d:2">Ik ben Jasmien. Op mijn Giesen-brander rooster ik specialty coffee, tien kilo per keer, altijd licht gebrand en elke week vers. Voor bij jou thuis, voor je zaak of voor je hele vereniging.</p>
+   <div class="acties rv" style="--d:3">
+    <a class="btn btn-e" href="https://cafegusta.be/product-categorie/koffie/"><svg class="boon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><ellipse cx="12" cy="12" rx="6" ry="9" transform="rotate(35 12 12)"/><path d="M8.2 5.6c3.6 2.6 1.4 7.8 7.6 12.8"/></svg>Naar de webshop</a>
+    <a class="btn btn-gl" href="#zaak">Koffie voor je zaak</a>
+   </div>
+   <div class="h-sc rv" style="--d:4"><b>5,0</b><span><i>★★★★★</i>27 reviews op Google</span></div>
   </div>
- </div></div>
- <div class="h-bar rv" style="--d:4">
-  <div class="sc"><b>5,0</b><span><i>★★★★★</i>27 reviews op Google</span></div>
-  <div class="feit"><div><b>Giesen W15</b>onze brander</div><div><b>10 kilo</b>per branding</div><div><b>15 koffies</b>in de webshop</div></div>
+  <figure class="h-f"><img src="img/hero.webp" alt="Jasmien aan de Giesen-koffiebrander met een trommel vol vers gebrande bonen" fetchpriority="high"><figcaption><span>Jasmien aan de Giesen W15</span><span>Kortrijkstraat 294b</span></figcaption></figure>
  </div>
 </header>
 
@@ -254,15 +270,33 @@ footer{background:var(--lila);color:var(--inkt);margin-top:140px;padding:84px 0 
    <div><span class="lab rv">Uit de branderij</span><h2 class="rv" style="--d:1">Elke week vers gebrand.</h2></div>
    <p class="rv" style="--d:2">In bonen of gemalen, in verschillende formaten. Een greep uit wat er nu in de rekken staat.</p>
   </div>
-  <div class="koffies">
-   <a class="kf uit rv" href="https://cafegusta.be/product-categorie/koffie/"><span class="bol"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="12" rx="6" ry="9" transform="rotate(35 12 12)"/><path d="M8.2 5.6c3.6 2.6 1.4 7.8 7.6 12.8"/></svg></span><span class="land">Costa Rica · Villa Sarchi</span><h3>Hacienda Sonora</h3><p>Suikerzoet en elegant, met tonen van karamel en honing en een milde fruitzuurgraad.</p><div class="pr"><span>vanaf € 10,20</span><em>Bekijk →</em></div></a>
-   <a class="kf rv" style="--d:1" href="https://cafegusta.be/product-categorie/koffie/"><span class="bol"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="12" rx="6" ry="9" transform="rotate(35 12 12)"/><path d="M8.2 5.6c3.6 2.6 1.4 7.8 7.6 12.8"/></svg></span><span class="land">Huisblend</span><h3>Gusta's blend</h3><p>Onze eigen blend, de koffie met onze naam erop.</p><div class="pr"><span>vanaf € 9,00</span><em>Bekijk →</em></div></a>
-   <a class="kf rv" style="--d:2" href="https://cafegusta.be/product-categorie/koffie/"><span class="bol"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="12" rx="6" ry="9" transform="rotate(35 12 12)"/><path d="M8.2 5.6c3.6 2.6 1.4 7.8 7.6 12.8"/></svg></span><span class="land">Ethiopië · bio</span><h3>Guji</h3><p>Een single origin uit het zuiden van Ethiopië.</p><div class="pr"><span>vanaf € 9,90</span><em>Bekijk →</em></div></a>
-   <a class="kf rv" href="https://cafegusta.be/product-categorie/koffie/"><span class="bol"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="12" rx="6" ry="9" transform="rotate(35 12 12)"/><path d="M8.2 5.6c3.6 2.6 1.4 7.8 7.6 12.8"/></svg></span><span class="land">Kenia</span><h3>Kiamutuira</h3><p>Een single origin uit Kenia, licht gebrand zoals al onze koffie.</p><div class="pr"><span>vanaf € 10,20</span><em>Bekijk →</em></div></a>
-   <a class="kf rv" style="--d:1" href="https://cafegusta.be/product-categorie/koffie/"><span class="bol"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="6" cy="17" r="3.5"/><circle cx="18" cy="17" r="3.5"/><path d="M6 17l4-8h5l3 8M10 9 8.5 6H7"/></svg></span><span class="land">Blend</span><h3>Cyclista</h3><p>Voor de koffiestop na de rit, of de rit na de koffie.</p><div class="pr"><span>vanaf € 8,80</span><em>Bekijk →</em></div></a>
-   <a class="kf rv" style="--d:2" href="https://cafegusta.be/product-categorie/koffie/"><span class="bol"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M5 12a7 7 0 1 0 14 0M12 3v4M8 8l-2-2M16 8l2-2"/></svg></span><span class="land">Colombia · cafeïnevrij</span><h3>Tumbaga deca</h3><p>Alle smaak, zonder de cafeïne. Ook 's avonds een goede tas.</p><div class="pr"><span>vanaf € 9,70</span><em>Bekijk →</em></div></a>
+  <div class="kg">
+   <div class="brand rv">
+    <figure><img src="img/bonen.webp" alt="Vers gebrande bonen worden uit een emmer in de koeltrommel gegoten" loading="lazy"></figure>
+    <div class="etiket">
+     <small>Zo branden we</small>
+     <h3>Klein, licht en vers.</h3>
+     <dl>
+      <dt>Brander</dt><dd>Giesen W15</dd>
+      <dt>Per branding</dt><dd>10 kilo</dd>
+      <dt>Branding</dt><dd>licht</dd>
+      <dt>Vers</dt><dd>elke week</dd>
+      <dt>In de webshop</dt><dd>15 koffies</dd>
+     </dl>
+    </div>
+   </div>
+   <div>
+    <div class="kaart">
+    <a class="kr uit rv" href="https://cafegusta.be/product-categorie/koffie/"><span class="land">Costa Rica · Villa Sarchi</span><h3>Hacienda Sonora<span class="tag">Uitgelicht</span></h3><span class="p"><small>vanaf</small>€ 10,20</span><p>Suikerzoet en elegant, met tonen van karamel en honing en een milde fruitzuurgraad.</p></a>
+    <a class="kr rv" href="https://cafegusta.be/product-categorie/koffie/"><span class="land">Huisblend</span><h3>Gusta's blend</h3><span class="p"><small>vanaf</small>€ 9,00</span><p>Onze eigen blend, de koffie met onze naam erop.</p></a>
+    <a class="kr rv" href="https://cafegusta.be/product-categorie/koffie/"><span class="land">Ethiopië · bio</span><h3>Guji</h3><span class="p"><small>vanaf</small>€ 9,90</span><p>Een single origin uit het zuiden van Ethiopië.</p></a>
+    <a class="kr rv" href="https://cafegusta.be/product-categorie/koffie/"><span class="land">Kenia</span><h3>Kiamutuira</h3><span class="p"><small>vanaf</small>€ 10,20</span><p>Een single origin uit Kenia, licht gebrand zoals al onze koffie.</p></a>
+    <a class="kr rv" href="https://cafegusta.be/product-categorie/koffie/"><span class="land">Blend</span><h3>Cyclista</h3><span class="p"><small>vanaf</small>€ 8,80</span><p>Voor de koffiestop na de rit, of de rit na de koffie.</p></a>
+    <a class="kr rv" href="https://cafegusta.be/product-categorie/koffie/"><span class="land">Colombia · cafeïnevrij</span><h3>Tumbaga deca</h3><span class="p"><small>vanaf</small>€ 9,70</span><p>Alle smaak, zonder de cafeïne. Ook 's avonds een goede tas.</p></a>
+    </div>
+    <div class="meer rv"><span>Liever thuis geleverd? Dat kan via de webshop.</span><a class="btn btn-e" href="https://cafegusta.be/product-categorie/koffie/"><svg class="boon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><ellipse cx="12" cy="12" rx="6" ry="9" transform="rotate(35 12 12)"/><path d="M8.2 5.6c3.6 2.6 1.4 7.8 7.6 12.8"/></svg>Alle koffies in de webshop</a></div>
+   </div>
   </div>
-  <div class="meer rv"><a class="btn btn-e" href="https://cafegusta.be/product-categorie/koffie/">Bekijk alle koffies in de webshop</a></div>
  </div>
 </section>
 
@@ -277,7 +311,7 @@ footer{background:var(--lila);color:var(--inkt);margin-top:140px;padding:84px 0 
   <div class="t">
    <p class="rv">Drie jaar geleden stond ik op deze koffieboerderij aan de voet van de Poás-vulkaan. Alberto's grootvader begon er bijna honderd jaar geleden met een suikerrietfabriek. Vandaag leiden Alberto en zijn zoon Diego de boerderij.</p>
    <p class="rv" style="--d:1">Ze verwerken hun koffie enkel natural of honey. Dat vraagt veel tijd en vakmanschap, en je proeft het: funky en fruitig. Voor ons is het de eerste keer met de zeldzame Villa Sarchi-boon.</p>
-   <div class="noten rv" style="--d:2"><div><b>25 liter</b><span>water bespaard per kilo koffie</span></div><div><b>100% groen</b><span>stroom uit een eigen waterkrachtcentrale</span></div></div>
+   <ul class="noten rv" style="--d:2"><li><b>Natural, honey</b>zo verwerken ze hun koffie</li><li><b>25 liter</b>water bespaard per kilo koffie</li><li><b>100% groen</b>stroom uit een eigen waterkrachtcentrale</li></ul>
    <a class="btn btn-l rv" style="--d:3" href="https://cafegusta.be/product-categorie/koffie/">Proef Hacienda Sonora</a>
   </div>
  </div>
@@ -287,11 +321,11 @@ footer{background:var(--lila);color:var(--inkt);margin-top:140px;padding:84px 0 
  <div class="wrap g">
   <div class="f">
    <div class="a rv"><img src="img/cupping.webp" alt="Jasmien ruikt aan koffie tijdens een cupping" loading="lazy"></div>
-   <div class="b rv" style="--d:1"><img src="img/bonen.webp" alt="Vers gebrande bonen worden uit een emmer in de koeltrommel gegoten" loading="lazy"></div>
+   <div class="b rv" style="--d:1"><img src="img/espresso.webp" alt="Espresso loopt in twee zwarte Café Gusta-kopjes" loading="lazy"></div>
   </div>
   <div class="t">
    <span class="lab rv">Over mij</span>
-   <h2 class="rv" style="--d:1">Ik, da's <span>Jasmien.</span></h2>
+   <h2 class="rv" style="--d:1">Ik, da's Jasmien.</h2>
    <p class="rv" style="--d:2">Na mijn studies werkte ik een paar jaar in een koffiebar in Australië, het koffieland bij uitstek. Toen ik terugkwam, wist ik het: koffie, da's mijn passie. En daar wil ik iedereen van laten meegenieten.</p>
    <p class="rv" style="--d:2">Café Gusta is een kleine, lokale branderij. Kwaliteit gaat hier altijd voor kwantiteit.</p>
    <div class="naam rv" style="--d:3"><p>Gusta, zoals in <em>me gusta</em>: ik vind het leuk. En zoals in Gusta'tje: de koosnaam die ik van mijn pépé kreeg.</p></div>
@@ -301,16 +335,16 @@ footer{background:var(--lila);color:var(--inkt);margin-top:140px;padding:84px 0 
 
 <section class="zaak" id="zaak">
  <div class="wrap g">
-  <div class="f"><img src="img/toog.webp" alt="Twee baristas lachend achter de toog van Café Gusta" loading="lazy"><div class="k"><img src="img/espresso.webp" alt="Espresso loopt in twee zwarte Café Gusta-kopjes" loading="lazy"></div></div>
+  <div class="f"><img src="img/toog.webp" alt="Twee baristas lachend achter de toog van Café Gusta" loading="lazy"></div>
   <div class="t">
    <span class="lab rv">Voor bedrijven en horeca</span>
    <h2 class="rv" style="--d:1">Koffie voor je zaak of kantoor.</h2>
    <p class="rv" style="--d:2">We zoeken samen de koffie die bij je zaak past, en zorgen dat je team hem ook goed zet. Tot je gasten vragen waar hij vandaan komt.</p>
-   <ul>
-    <li class="rv"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="6" ry="9" transform="rotate(35 12 12)"/><path d="M8.2 5.6c3.6 2.6 1.4 7.8 7.6 12.8"/></svg></i><span><b>Een blend op maat</b>Je eigen persoonlijke blend, daar zijn we in gespecialiseerd.</span></li>
-    <li class="rv" style="--d:1"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 17h6"/><circle cx="12" cy="12" r="2"/></svg></i><span><b>Professionele machines</b>Met trouwe partners, en een barista-opleiding bij de installatie.</span></li>
-    <li class="rv" style="--d:2"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 20c0-2.2 1-4.2 3-5"/></svg></i><span><b>Opleidingen en events</b>Onze barista traint je team, op maat van wat je nodig hebt.</span></li>
-   </ul>
+   <ol>
+    <li class="rv"><span><b>Een blend op maat</b>Je eigen persoonlijke blend. Daar zijn we in gespecialiseerd.</span></li>
+    <li class="rv" style="--d:1"><span><b>Professionele machines</b>Van trouwe partners, met een barista-opleiding bij de installatie.</span></li>
+    <li class="rv" style="--d:2"><span><b>Opleidingen en events</b>Onze barista traint je team, op maat van wat je nodig hebt.</span></li>
+   </ol>
    <a class="btn btn-e rv" href="https://wa.me/32494933202?text=Dag%20Jasmien%2C%20ik%20zoek%20koffie%20voor%20mijn%20zaak.">Plan een gesprek met Jasmien</a>
   </div>
  </div>
@@ -320,10 +354,12 @@ footer{background:var(--lila);color:var(--inkt);margin-top:140px;padding:84px 0 
  <div class="wrap">
   <div class="rv-k"><div><span class="lab rv">Op Google</span><h2 class="rv" style="--d:1">Wie het proeft, koopt niets anders meer.</h2></div><div class="cijfer rv" style="--d:2"><b>5,0</b><i>★★★★★</i><span>uit 27 reviews</span></div></div>
   <div class="rv-g">
-   <figure class="rev rv"><div class="st">★★★★★</div><blockquote>Ik ben altijd op zoek naar nieuwe koffie branders, en Café Gusta is een hele goede! Lekkere koffie en snelle, vriendelijke service. Aanrader!</blockquote><cite>Daan K<small>Google-review</small></cite></figure>
-   <figure class="rev rv" style="--d:1"><div class="st">★★★★★</div><blockquote>Intussen heb ik verschillende koffiesoorten van Cafe Gusta geproefd. En ik kan je zeggen dat ze allen geweldig van smaak zijn. Ook mijn gasten vragen vaak waar de koffie vandaan komt (...)</blockquote><cite>R V<small>Google-review</small></cite></figure>
-   <figure class="rev rv" style="--d:2"><div class="st">★★★★★</div><blockquote>Via een evenement met mijn Triatlon Team heb ik Café Gusta leren kennen (trouwens zeker een aanrader voor iedere vereniging), en sindsdien koop ik niets anders meer. De leveringen aan huis zijn super vlot (...)</blockquote><cite>Jari Geerts<small>Google-review</small></cite></figure>
-   <figure class="rev rv" style="--d:3"><div class="st">★★★★★</div><blockquote>Café Gusta was één van de ontdekkingen tijdens mijn COVID periode. Alle blends die er toen waren heb ik wel eens geproefd. En ik was telkens verrast hoezeer ze verschillen (...)</blockquote><cite>Pieterjan Serruys<small>Google-review</small></cite></figure>
+   <figure class="rev groot rv"><div class="st">★★★★★</div><blockquote>"Via een evenement met mijn Triatlon Team heb ik Café Gusta leren kennen (trouwens zeker een aanrader voor iedere vereniging), en sindsdien koop ik niets anders meer. De leveringen aan huis zijn super vlot (...)"</blockquote><cite>Jari Geerts<small>Google-review</small></cite></figure>
+   <div class="rv-r">
+    <figure class="rev rv" style="--d:1"><div class="st">★★★★★</div><blockquote>"Intussen heb ik verschillende koffiesoorten van Cafe Gusta geproefd. En ik kan je zeggen dat ze allen geweldig van smaak zijn. Ook mijn gasten vragen vaak waar de koffie vandaan komt (...)"</blockquote><cite>R V<small>Google-review</small></cite></figure>
+    <figure class="rev rv" style="--d:2"><div class="st">★★★★★</div><blockquote>"Ik ben altijd op zoek naar nieuwe koffie branders, en Café Gusta is een hele goede! Lekkere koffie en snelle, vriendelijke service. Aanrader!"</blockquote><cite>Daan K<small>Google-review</small></cite></figure>
+    <figure class="rev rv" style="--d:3"><div class="st">★★★★★</div><blockquote>"Café Gusta was één van de ontdekkingen tijdens mijn COVID periode. Alle blends die er toen waren heb ik wel eens geproefd. En ik was telkens verrast hoezeer ze verschillen (...)"</blockquote><cite>Pieterjan Serruys<small>Google-review</small></cite></figure>
+   </div>
   </div>
  </div>
 </section>
