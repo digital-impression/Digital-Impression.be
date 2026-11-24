@@ -41,30 +41,39 @@ h2{font-size:clamp(42px,5.6vw,82px)}
 .btn-lijn:hover{background:var(--choco);color:var(--room)}
 
 /* header */
-.top{position:absolute;left:0;right:0;z-index:20;padding-top:22px;color:#fff}
+.top{position:absolute;left:0;right:0;z-index:20;padding-top:22px;color:var(--choco)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
 .merk{display:flex;flex-direction:column;align-items:flex-start;line-height:1}
 .merk small{font-size:10.5px;font-weight:700;letter-spacing:.34em;text-transform:uppercase;opacity:.86}
 .merk b{font-family:'Playfair Display',serif;font-weight:800;font-size:30px;letter-spacing:-.01em;margin-top:3px}
 .nav{display:flex;gap:34px;font-size:15.5px;font-weight:500}
-.nav a{opacity:.86;transition:opacity .3s}
-.nav a:hover{opacity:1}
+.nav a{opacity:.8;transition:opacity .3s,color .3s}
+.nav a:hover{opacity:1;color:var(--kers)}
 .top .btn{min-height:48px;padding:0 24px;font-size:15px}
 
+/* knoppen met een gestikte rand, zoals een lint rond een taartdoos */
+.btn-kers,.btn-room,.btn-lijn{outline:1.5px dashed rgba(255,255,255,.5);outline-offset:-6px}
+.btn-room,.btn-lijn{outline-color:rgba(42,25,20,.28)}
+.btn-lijn:hover{outline-color:rgba(255,247,238,.4)}
+
 /* hero */
-.hero{position:relative;min-height:max(660px,min(100svh,960px));display:flex;align-items:flex-end;color:#fff;background:#3b1610;overflow:hidden}
-.hero picture,.hero picture img{position:absolute;inset:0;width:100%;height:100%}
-.hero picture img{object-fit:cover;object-position:50% 50%;animation:zoom 10s var(--ease) both}
-@keyframes zoom{from{transform:scale(1.06)}to{transform:scale(1)}}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(32,12,8,.82) 0%,rgba(32,12,8,.5) 40%,rgba(32,12,8,0) 70%),linear-gradient(0deg,rgba(32,12,8,.6) 0%,rgba(32,12,8,0) 40%),linear-gradient(180deg,rgba(32,12,8,.45) 0%,rgba(32,12,8,0) 22%)}
-.hero .wrap{position:relative;z-index:2;width:100%;padding-top:140px;padding-bottom:clamp(48px,7vw,90px)}
-.hero h1{font-size:clamp(64px,10.5vw,168px);letter-spacing:-.03em;line-height:.9}
-.hero p.lead{margin-top:26px;max-width:480px;font-size:clamp(17px,1.4vw,20px);color:rgba(255,255,255,.88)}
-.acties{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.trust{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap;margin-top:28px;font-size:15px;color:rgba(255,255,255,.8)}
-.trust .st{color:#FFC94A;letter-spacing:2px}
-.trust b{color:#fff;font-weight:700}
-.trust i{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.5)}
+.hero{position:relative;background:var(--room2);min-height:max(680px,min(calc(100svh - 37px),880px));display:flex}
+.hero .wrap{width:100%;display:grid;grid-template-columns:1fr minmax(0,.92fr);gap:clamp(32px,5vw,84px);align-items:stretch}
+.hero-tekst{align-self:center;padding:130px 0 70px}
+.hero .over{font-size:15px;font-weight:600;color:var(--kers);letter-spacing:.01em}
+.hero h1{font-size:clamp(64px,8.6vw,138px);letter-spacing:-.035em;line-height:.92;margin-top:18px}
+.hero p.lead{margin-top:26px;max-width:470px;font-size:clamp(17px,1.4vw,20px);color:#5A4A42}
+.acties{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero-feiten{display:flex;gap:28px;margin-top:40px;padding-top:24px;border-top:1px solid var(--lijn);max-width:520px}
+.hero-feiten li{list-style:none;font-size:14.5px;color:var(--grijs);line-height:1.4}
+.hero-feiten b{display:block;font-family:'Playfair Display',serif;font-weight:800;font-size:26px;color:var(--choco);line-height:1.1}
+.hero-feiten .st{color:var(--kers);font-size:15px;letter-spacing:1px;margin-left:4px;vertical-align:3px}
+.boog{position:relative;align-self:end;margin-top:110px;height:calc(100% - 110px);min-height:520px}
+.boog img{width:100%;height:100%;object-fit:cover;object-position:50% 60%;border-radius:999px 999px 0 0}
+.boog::before{content:"";position:absolute;inset:-14px -14px 0 -14px;border:1.5px solid rgba(194,21,47,.35);border-bottom:0;border-radius:999px 999px 0 0;pointer-events:none}
+.boog figcaption{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);background:var(--room);color:var(--choco);border-radius:999px;padding:10px 20px;font-size:14.5px;font-weight:600;white-space:nowrap;box-shadow:0 14px 30px -14px rgba(42,25,20,.45)}
+.vitrine{position:relative}
+.vitrine::before{content:"";position:absolute;left:0;right:0;top:0;height:16px;background:radial-gradient(circle at 16px 0,var(--room2) 15.5px,transparent 16px) repeat-x;background-size:32px 16px}
 
 /* vitrine */
 .vitrine{padding:clamp(90px,11vw,150px) 0 clamp(90px,10vw,140px)}
@@ -79,16 +88,26 @@ h2{font-size:clamp(42px,5.6vw,82px)}
 .bento figcaption{position:absolute;left:0;right:0;bottom:0;padding:48px 24px 20px;background:linear-gradient(0deg,rgba(32,12,8,.66),transparent);color:#fff}
 .bento figcaption b{display:block;font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(22px,2vw,30px);line-height:1.05}
 .bento figcaption span{font-size:14.5px;opacity:.88}
-.bestel{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;margin-top:clamp(28px,3vw,40px);padding:26px 30px;border-radius:var(--r);background:var(--kers);color:#fff}
-.bestel p{font-size:clamp(17px,1.4vw,20px);max-width:640px}
-.bestel p b{font-family:'Playfair Display',serif;font-weight:800;font-size:1.25em;display:block;line-height:1.1;margin-bottom:4px}
+.bon{position:relative;display:grid;grid-template-columns:.9fr 1.6fr;gap:clamp(24px,4vw,64px);align-items:center;margin-top:clamp(28px,3vw,40px);padding:clamp(28px,3.4vw,44px) clamp(28px,3.4vw,48px) clamp(28px,3.4vw,44px) clamp(44px,4.6vw,64px);border-radius:18px;background:var(--wit);box-shadow:0 30px 60px -40px rgba(42,25,20,.4)}
+.bon::before{content:"";position:absolute;left:18px;top:14px;bottom:14px;width:10px;background:radial-gradient(circle at 5px 5px,var(--room) 4.5px,transparent 5px) repeat-y;background-size:10px 18px}
+.bon-kop small{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--kers);border:1.5px solid var(--kers);border-radius:6px;padding:5px 9px;transform:rotate(-3deg)}
+.bon-kop h3{font-size:clamp(28px,2.6vw,38px);margin-top:16px}
+.bon-kop p{margin-top:10px;color:var(--grijs);font-size:15.5px;max-width:340px}
+.bon-velden{display:grid;grid-template-columns:1fr 1fr;gap:18px 26px;align-items:end}
+.bon label{display:block;font-size:13.5px;font-weight:600;color:var(--grijs)}
+.bon label.breed{grid-column:span 2}
+.bon input{display:block;width:100%;margin-top:6px;border:0;border-bottom:1.5px dashed rgba(42,25,20,.3);background:transparent;font:500 17px/1.4 'DM Sans',sans-serif;color:var(--choco);padding:8px 0 9px;border-radius:0;outline:none;transition:border-color .3s}
+.bon input:focus{border-bottom-color:var(--kers);border-bottom-style:solid}
+.bon input::placeholder{color:rgba(42,25,20,.36)}
+.bon .btn{justify-self:start;border:0;cursor:pointer;font-family:inherit}
+.bon-noot{font-size:13.5px;color:var(--grijs)}
 
 /* tearoom */
 .tea{background:var(--lila);padding:clamp(90px,11vw,150px) 0}
 .tea .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(36px,6vw,96px);align-items:center}
-.tea-beeld{position:relative}
-.tea-beeld .groot{width:100%;aspect-ratio:4/3.3;object-fit:cover;border-radius:var(--r)}
-.tea-beeld .klein{position:absolute;right:-28px;bottom:-44px;width:44%;aspect-ratio:1/1;object-fit:cover;border-radius:22px;border:8px solid var(--lila)}
+.tea-beeld{display:grid;grid-template-columns:1.55fr 1fr;gap:14px;height:clamp(380px,36vw,520px)}
+.tea-beeld img{width:100%;height:100%;object-fit:cover;border-radius:var(--r)}
+.tea-beeld .klein{object-position:30% 50%}
 .tea p.lead{margin-top:24px;color:#5E5466;font-size:clamp(17px,1.35vw,19px);max-width:460px}
 .dag{list-style:none;margin-top:36px;border-top:1px solid rgba(42,25,20,.16)}
 .dag li{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid rgba(42,25,20,.16);align-items:baseline}
@@ -113,7 +132,12 @@ h2{font-size:clamp(42px,5.6vw,82px)}
 .score b{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(70px,7vw,104px);line-height:.85}
 .score span{font-size:14.5px;color:var(--grijs);line-height:1.45}
 .score .st{display:block;color:var(--kers);letter-spacing:3px;font-size:17px}
-.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px);margin-top:clamp(48px,6vw,72px)}
+.revs{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:auto auto;gap:clamp(16px,2vw,24px);margin-top:clamp(48px,6vw,72px)}
+.revs blockquote:first-child{grid-row:span 2;background:var(--choco);color:var(--room);padding:clamp(36px,4vw,56px);justify-content:space-between}
+.revs blockquote:first-child q{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(24px,2.3vw,34px);line-height:1.3;letter-spacing:-.01em}
+.revs blockquote:first-child .st{color:#FF8A9A}
+.revs blockquote:first-child cite span{background:rgba(255,247,238,.1);color:#FF8A9A}
+.revs blockquote:first-child cite small{color:rgba(255,247,238,.6)}
 .revs blockquote{background:var(--wit);border-radius:var(--r);padding:34px 32px 30px;display:flex;flex-direction:column;box-shadow:0 1px 0 var(--lijn)}
 .revs .st{color:var(--kers);letter-spacing:3px;font-size:16px}
 .revs q{display:block;margin-top:16px;font-size:clamp(17px,1.35vw,19px);line-height:1.55;quotes:"\201C" "\201D";flex:1}
@@ -152,11 +176,18 @@ footer.voet .merk b{font-size:26px}
 
 @media (max-width:1080px){
   .nav{display:none}
-  .revs{grid-template-columns:1fr;max-width:640px}
+  .hero .wrap{grid-template-columns:1fr .8fr}
+  .revs{grid-template-columns:1fr}
+  .revs blockquote:first-child{grid-row:auto}
+  .bon{grid-template-columns:1fr}
 }
 @media (max-width:860px){
+  .hero{min-height:0}
+  .hero .wrap{grid-template-columns:1fr;gap:0}
+  .hero-tekst{padding:118px 0 44px}
+  .boog{margin:0 auto;width:calc(100% - 28px);max-width:540px;height:auto;min-height:0;aspect-ratio:4/4.3}
   .vt-kop,.tea .wrap{grid-template-columns:1fr}
-  .tea-beeld{order:2;margin-right:20px}
+  .tea-beeld{order:2;height:clamp(300px,60vw,440px)}
   .bento{grid-template-columns:1fr 1fr;grid-template-rows:auto}
   .bento figure{aspect-ratio:4/4.4}
   .bento .b1{grid-row:auto;grid-column:span 2;aspect-ratio:4/3.4}
@@ -173,17 +204,18 @@ footer.voet .merk b{font-size:26px}
   .top{padding-top:16px}
   .merk b{font-size:25px}
   .top .btn{min-height:44px;padding:0 18px;font-size:14px}
-  .hero{min-height:max(640px,100svh)}
-  .hero::after{background:linear-gradient(0deg,rgba(32,12,8,.92) 0%,rgba(32,12,8,.66) 45%,rgba(32,12,8,.05) 75%),linear-gradient(180deg,rgba(32,12,8,.5) 0%,rgba(32,12,8,0) 22%)}
-  .hero h1{font-size:clamp(58px,17vw,76px)}
+  .hero h1{font-size:clamp(60px,17vw,78px)}
+  .hero-feiten{gap:20px}
+  .hero-feiten b{font-size:23px}
   .acties .btn{width:100%}
   .trust i{display:none}
   .bento{grid-template-columns:1fr}
   .bento .b1,.bento .b4{grid-column:auto}
   .bento figure,.bento .b1,.bento .b4{aspect-ratio:4/3.5}
-  .bestel{padding:24px 22px}
-  .bestel .btn{width:100%}
-  .tea-beeld .klein{right:-14px;bottom:-30px;width:46%;border-width:6px}
+  .bon-velden{grid-template-columns:1fr}
+  .bon label.breed{grid-column:auto}
+  .bon .btn{width:100%}
+  .tea-beeld{grid-template-columns:1.4fr 1fr;gap:10px;height:280px}
   .dag li{grid-template-columns:80px 1fr}
   .dag b{font-size:25px}
   .revs blockquote{padding:28px 24px 24px}
@@ -211,25 +243,31 @@ footer.voet .merk b{font-size:26px}
 
 <main id="top">
 <section class="hero">
-  <picture>
-    <source media="(max-width:560px)" srcset="img/hero-m.webp">
-    <img src="img/hero.webp" alt="Glanzende fruittaartjes met schijfjes pruim, van dichtbij" width="1600" height="1028" fetchpriority="high">
-  </picture>
   <div class="wrap">
-    <h1>Wijs maar aan.</h1>
-    <p class="lead">Taartjes, koffiekoeken en vers brood, allemaal uit ons eigen atelier. Neem het mee naar huis, of schuif aan in de tearoom en eet het meteen op.</p>
-    <div class="acties">
-      <a class="btn btn-kers" href="#vitrine">Wat ligt er vandaag</a>
-      <a class="btn btn-room" href="#tearoom">Naar de tearoom</a>
+    <div class="hero-tekst">
+      <p class="over">Patisserie, bakker en tearoom in de Nieuwstraat</p>
+      <h1>Wijs maar aan.</h1>
+      <p class="lead">Fruittaartjes, roomgebak, koffiekoeken en vers brood, allemaal uit ons eigen atelier. Neem het mee in een doosje, of schuif achteraan aan in de tearoom en eet het meteen op.</p>
+      <div class="acties">
+        <a class="btn btn-kers" href="#vitrine">Bekijk de vitrine</a>
+        <a class="btn btn-lijn" href="#tearoom">Naar de tearoom</a>
+      </div>
+      <ul class="hero-feiten">
+        <li><b>4,6<span class="st" aria-hidden="true">★★★★★</span></b>uit 744 reviews op Google</li>
+        <li><b>Meer dan 29 jaar</b>alles zelfgemaakt, van taart tot koekje</li>
+      </ul>
     </div>
-    <div class="trust"><span class="st" aria-hidden="true">★★★★★</span><span><b>4,6 op Google</b>, uit 744 reviews</span><i></i><span>Al meer dan 29 jaar</span></div>
+    <figure class="boog">
+      <img src="img/hero-taart.webp" alt="Frambozentaartjes met room in de vitrine" width="1220" height="1574" fetchpriority="high">
+      <figcaption>Open van woensdag tot zondag</figcaption>
+    </figure>
   </div>
 </section>
 
 <section class="vitrine" id="vitrine">
   <div class="wrap">
     <div class="vt-kop">
-      <h2 class="rv">Het moeilijkste is <span class="rood">kiezen.</span></h2>
+      <h2 class="rv">Het moeilijkste is kiezen.</h2>
       <p class="rv d1">Fruittaartjes, roomgebak, koffiekoeken, brood en koekjes. Alles maken we zelf, en kiezen mag zo lang als je wil.</p>
     </div>
     <div class="bento">
@@ -238,10 +276,20 @@ footer.voet .merk b{font-size:26px}
       <figure class="b3 rv d2"><img src="img/koekjes.webp" alt="Zakjes huisgemaakte koekjes met het Caruso-label" width="1300" height="1300" loading="lazy"><figcaption><b>Koekjes</b><span>In zakjes, om mee te nemen.</span></figcaption></figure>
       <figure class="b4 rv d1"><img src="img/vitrine.webp" alt="De volle vitrine van Caruso, met taartjes en gebak" width="1300" height="975" loading="lazy" style="object-position:50% 60%"><figcaption><b>De volle vitrine</b><span>Van eclair tot misérable, en vers brood erbij.</span></figcaption></figure>
     </div>
-    <div class="bestel rv">
-      <p><b>Een taart voor een feest?</b>Bestel ze op voorhand, dan staat ze klaar wanneer jij ze komt halen.</p>
-      <a class="btn btn-room" href="mailto:info@caruso.be?subject=Bestelling">Mail je bestelling</a>
-    </div>
+    <form class="bon rv" id="bon" action="mailto:info@caruso.be" method="get">
+      <div class="bon-kop">
+        <small>Bestelbon</small>
+        <h3>Een taart voor een feest?</h3>
+        <p>Bestel op voorhand, dan staat ze klaar wanneer je ze komt halen. Vul in wat je wil, je mail staat meteen klaar.</p>
+      </div>
+      <div class="bon-velden">
+        <label class="breed">Wat mag het zijn?<input name="wat" placeholder="Bv. een frambozentaart voor 8" autocomplete="off"></label>
+        <label>Wanneer haal je ze?<input name="wanneer" placeholder="Dag en uur" autocomplete="off"></label>
+        <label>Je naam<input name="naam" autocomplete="name"></label>
+        <button class="btn btn-kers" type="submit">Mail de bestelling</button>
+        <p class="bon-noot">Of bel gerust: 059 51 21 77</p>
+      </div>
+    </form>
   </div>
 </section>
 
@@ -277,7 +325,7 @@ footer.voet .merk b{font-size:26px}
 <section class="rev" id="reviews">
   <div class="wrap">
     <div class="rev-kop">
-      <h2 class="rv">Wat klanten <span class="rood">ervan vinden.</span></h2>
+      <h2 class="rv">Wat klanten ervan vinden.</h2>
       <div class="score rv d1"><b>4,6</b><span><span class="st" aria-hidden="true">★★★★★</span>744 reviews op Google</span></div>
     </div>
     <div class="revs">
@@ -292,7 +340,7 @@ footer.voet .merk b{font-size:26px}
   <div class="wrap">
     <div class="bz">
       <div class="bz-tekst">
-        <h2 class="rv" style="font-size:clamp(40px,4.4vw,64px)">Tot <span style="color:#FF8A9A">straks.</span></h2>
+        <h2 class="rv" style="font-size:clamp(40px,4.4vw,64px)">Tot straks.</h2>
         <p class="lead rv d1">Je vindt ons in de Nieuwstraat 29, onder de zwarte luifel. Woensdag tot zondag open.</p>
         <ul class="uren rv d2" aria-label="Openingsuren">
           <li><span>Woensdag tot vrijdag</span><b>9u tot 18u</b></li>
@@ -326,6 +374,15 @@ footer.voet .merk b{font-size:26px}
   if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
   var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
   els.forEach(function(e){io.observe(e)});
+})();
+(function(){
+  var f=document.getElementById('bon');if(!f)return;
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var w=f.wat.value.trim(),d=f.wanneer.value.trim(),n=f.naam.value.trim();
+    var body='Dag Caruso,\n\nIk wil graag iets bestellen.\n\nWat: '+(w||'...')+'\nAfhalen op: '+(d||'...')+'\n\nAlvast bedankt!\n'+n;
+    location.href='mailto:info@caruso.be?subject='+encodeURIComponent('Bestelling'+(n?' van '+n:''))+'&body='+encodeURIComponent(body);
+  });
 })();
 </script>
 <!--DIBLOK--><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
