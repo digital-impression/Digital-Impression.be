@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Electric Therapy Tattoo Studio · Ardie in Harelbeke</title>
-<meta name="description" content="Electric Therapy Tattoo Studio van Reinhilde 'Ardie' Debruyne in Harelbeke: illustratieve blackwork, neo-traditional, trash polka en neo-japanese. Kleur en black and grey, altijd op maat.">
+<title>Electric Therapy Tattoo Studio · Ardie, tattooartiest en illustrator</title>
+<meta name="description" content="Electric Therapy Tattoo Studio in Harelbeke: tattoos op maat door Reinhilde 'Ardie' Debruyne. Illustratieve blackwork, neo-traditional, trash polka, neo-japanese, kleur en black and grey. Boek online.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,179 +12,232 @@
 <script>document.documentElement.classList.add('js')</script>
 <style>
 :root{
-  --papier:#f4eee4;--papier2:#ebe3d6;--ink:#151311;--ink2:#211d1a;--rood:#e33a28;--rood2:#c52d1c;--wit:#fffbf5;
-  --zacht:#6c645b;--lijn:rgba(21,19,17,.14);
-  --ease:cubic-bezier(.2,.7,.2,1);--r:20px;
+  --papier:#f4eee4;--papier2:#ebe3d6;--kaart:#fffbf5;--ink:#151311;--ink2:#2a2522;--rood:#e33a28;--rood2:#c52d1c;
+  --zacht:#6a6259;--lijn:rgba(21,19,17,.16);
+  --ease:cubic-bezier(.2,.7,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--papier);color:var(--ink);font:400 17px/1.65 'Work Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{display:block;max-width:100%}
+img{display:block;max-width:100%;height:auto}
 a{color:inherit}
-h1,h2,h3{font-family:'Big Shoulders Display',sans-serif;font-weight:800;line-height:.92;text-transform:uppercase;letter-spacing:.005em}
+h1,h2,h3{font-family:'Big Shoulders Display',sans-serif;font-weight:800;line-height:.94;text-transform:uppercase;letter-spacing:.005em;font-style:normal}
 .wrap{width:min(1260px,100% - 48px);margin:0 auto}
 .demo{background:var(--ink);color:rgba(255,255,255,.74);font:400 13.5px/1.4 'Work Sans',sans-serif;text-align:center;padding:9px 16px;position:relative;z-index:60}
 .demo a{color:#ff8a7b;font-weight:600;text-underline-offset:3px}
 .lab{display:inline-flex;align-items:center;gap:10px;font:700 12.5px/1 'Work Sans';letter-spacing:.18em;text-transform:uppercase;color:var(--rood);margin-bottom:18px}
-.lab:before{content:"";width:22px;height:2px;background:currentColor}
-.knop{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:16px 28px;font:600 15.5px/1 'Work Sans';text-decoration:none;transition:transform .35s var(--ease),background .3s,color .3s}
-.knop svg{width:18px;height:18px;flex:none}
-.knop.rood{background:var(--rood);color:#fff}
-.knop.rood:hover{background:var(--rood2);transform:translateY(-2px)}
-.knop.ink{background:var(--ink);color:#fff}
-.knop.ink:hover{background:var(--ink2);transform:translateY(-2px)}
-.knop.rand{border:1.5px solid var(--ink);color:var(--ink)}
-.knop.rand:hover{background:var(--ink);color:#fff}
-.knop.wrand{border:1.5px solid rgba(255,255,255,.5);color:#fff}
-.knop.wrand:hover{background:#fff;color:var(--ink)}
-.js .rv{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
+.lab svg{width:12px;height:16px;flex:none}
+
+/* knoppen: als een gedrukte flashprent, met harde schaduw */
+.knop{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;font:700 15px/1 'Work Sans';text-decoration:none;text-transform:uppercase;letter-spacing:.06em;border:2px solid var(--ink);background:var(--rood);color:#fff;box-shadow:4px 4px 0 var(--ink);transition:transform .2s var(--ease),box-shadow .2s var(--ease),background .2s}
+.knop:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.knop:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.knop svg{width:16px;height:16px;flex:none}
+.knop.wit{background:var(--kaart);color:var(--ink)}
+.knop.ink{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:4px 4px 0 var(--kaart)}
+.knop.ink:hover{box-shadow:6px 6px 0 var(--kaart)}
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
 .js .rv.in{opacity:1;transform:none}
 
-/* hero half-half */
-.hero{display:grid;grid-template-columns:1.05fr .95fr;min-height:max(780px,calc(100svh - 38px));background:var(--papier)}
-.hero .links{display:flex;flex-direction:column;padding:24px clamp(24px,4.5vw,72px) 52px}
-.navl{display:flex;justify-content:space-between;align-items:center;gap:20px}
+/* nav */
+.nav{position:relative;z-index:10}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0}
 .merk{display:flex;align-items:center;gap:14px;text-decoration:none}
-.merk img{width:52px;height:auto}
-.merk b{font:800 24px/0.95 'Big Shoulders Display';text-transform:uppercase;letter-spacing:.04em;display:block}
+.merk img{width:46px;height:auto}
+.merk b{font:800 24px/.95 'Big Shoulders Display';text-transform:uppercase;letter-spacing:.04em;display:block}
 .merk small{font:600 10.5px/1 'Work Sans';letter-spacing:.3em;text-transform:uppercase;color:var(--zacht)}
-.menu{display:flex;gap:24px}
-.menu a{text-decoration:none;font:600 14.5px/1 'Work Sans'}
-.menu a:hover{color:var(--rood)}
-.hero .inh{margin-top:auto;padding-top:50px}
-.hero h1{font-size:clamp(70px,8.4vw,140px)}
+.menu{display:flex;gap:30px}
+.menu a{text-decoration:none;font:600 14.5px/1 'Work Sans';padding:6px 0;border-bottom:2px solid transparent}
+.menu a:hover{border-color:var(--rood)}
+.nav .knop{padding:12px 18px;font-size:13.5px;box-shadow:3px 3px 0 var(--ink)}
+
+/* hero: tekst en een ingelijste flashprent, één affiche */
+.hero{min-height:max(720px,calc(100svh - 37px));display:flex;flex-direction:column}
+.hero .grid{flex:1;display:grid;grid-template-columns:1fr minmax(0,.9fr);gap:64px;align-items:stretch;padding:6px 0 40px}
+.hero .tekst{display:flex;flex-direction:column;justify-content:center;padding:20px 0}
+.hero h1{font-size:clamp(56px,5.9vw,88px);font-weight:900}
 .hero h1 span{color:var(--rood);display:block}
-.hero p.lead{font-size:clamp(17px,1.3vw,19px);max-width:30em;margin:26px 0 32px;color:var(--zacht)}
-.hero .acties{display:flex;flex-wrap:wrap;gap:12px}
-.hero .stijl{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:40px;padding-top:20px;border-top:1px solid var(--lijn);font:600 13.5px/1.3 'Work Sans';letter-spacing:.08em;text-transform:uppercase}
-.hero .foto{position:relative;overflow:hidden;background:#d8cfc2}
-.hero .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;transform:scale(1.05);transition:transform 2.4s var(--ease)}
-.hero.in .foto img{transform:none}
-.score{position:absolute;left:26px;bottom:26px;background:var(--wit);border-radius:18px;padding:16px 22px 16px 18px;display:flex;align-items:center;gap:14px;box-shadow:0 22px 44px -22px rgba(0,0,0,.45)}
-.score strong{font:900 50px/1 'Big Shoulders Display';color:var(--rood)}
-.score span{display:block;font-size:13.5px;line-height:1.4;color:var(--zacht)}
-.score .st{color:#e0a032;letter-spacing:3px;font-size:15px}
+.hero .lead{font-size:clamp(17px,1.25vw,18.5px);max-width:30em;margin:22px 0 30px;color:#3b3530}
+.hero .acties{display:flex;flex-wrap:wrap;gap:16px}
+.hero .onder{display:flex;align-items:center;gap:22px;margin-top:36px;padding-top:20px;border-top:2px solid var(--ink);font-size:14.5px;color:var(--zacht)}
+.hero .onder>span:first-of-type{white-space:nowrap}
+.hero .onder b{font:900 40px/1 'Big Shoulders Display';color:var(--ink)}
+.hero .onder .st{color:var(--rood);letter-spacing:2px;display:block;font-size:14px}
+.hero .onder .sep{width:2px;align-self:stretch;background:var(--lijn)}
+.prent{position:relative;display:flex;flex-direction:column;border:2px solid var(--ink);background:var(--kaart);box-shadow:10px 10px 0 var(--rood);padding:12px 12px 0}
+.prent .f{flex:1;min-height:420px;position:relative;overflow:hidden}
+.prent img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scale(1.05);transition:transform 2.4s var(--ease)}
+.hero.in .prent img{transform:none}
+.prent .cap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 4px 13px;font:600 13.5px/1.3 'Work Sans'}
+.prent .cap b{font:800 22px/1 'Big Shoulders Display';text-transform:uppercase;color:var(--rood)}
 
-/* stijlen */
-.stijlen{background:var(--ink);color:#fff;padding:110px 0 0}
-.kop{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;margin-bottom:50px}
-.kop h2{font-size:clamp(54px,6.2vw,96px)}
-.kop p{max-width:31em;color:var(--zacht)}
-.stijlen .kop p{color:rgba(255,255,255,.7)}
-.strip{display:grid;grid-template-columns:repeat(5,1fr)}
-.strip figure{position:relative;aspect-ratio:3/4.4;overflow:hidden}
-.strip img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
-.strip figure:hover img{transform:scale(1.06)}
-.strip figure:after{content:"";position:absolute;inset:auto 0 0;height:50%;background:linear-gradient(0deg,rgba(21,19,17,.9),rgba(21,19,17,0))}
-.strip figcaption{position:absolute;left:20px;right:20px;bottom:20px;z-index:2}
-.strip h3{font-size:34px}
-.strip small{display:block;font-size:14px;color:rgba(255,255,255,.75);margin-top:4px}
+/* stijlen: als een flashblad */
+.stijlen{padding:120px 0;background:var(--ink);color:#f4eee4}
+.kop{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:56px}
+.kop h2{font-size:clamp(46px,5.6vw,84px)}
+.kop p{max-width:31em;color:rgba(244,238,228,.72)}
+.stijlen .lab{color:#ff6b59}
+.blad{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.flash{margin:0;grid-column:span 4;display:flex;flex-direction:column}
+.flash .f{position:relative;overflow:hidden;border:2px solid #f4eee4;aspect-ratio:3/4;background:var(--ink2)}
+.flash img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.flash:hover img{transform:scale(1.05)}
+.flash .nr{position:absolute;top:12px;left:12px;background:#f4eee4;color:var(--ink);font:800 16px/1 'Big Shoulders Display';padding:7px 9px 6px;letter-spacing:.04em}
+.flash figcaption{padding-top:16px}
+.flash h3{font-size:34px;color:#fff}
+.flash p{font-size:15px;color:rgba(244,238,228,.66);margin-top:6px;max-width:26em}
+.flash.breed{grid-column:span 6}.flash.breed .f{aspect-ratio:4/3.6}
+.blad .noot{grid-column:span 4;align-self:center;border:2px dashed rgba(244,238,228,.35);padding:30px 28px}
+.blad .noot h3{font-size:36px;color:#fff;margin-bottom:12px}
+.blad .noot p{font-size:15.5px;color:rgba(244,238,228,.72)}
+.blad .noot ul{list-style:none;margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+.blad .noot li{font:600 13px/1 'Work Sans';border:1.5px solid rgba(244,238,228,.5);padding:8px 11px}
 
-/* groot werk */
-.groot{padding:120px 0}
-.groot .grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:70px;align-items:center}
-.groot .foto{position:relative}
-.groot .foto img{border-radius:var(--r);width:100%;height:auto}
-.groot .foto .tag{position:absolute;top:18px;left:18px;background:var(--rood);color:#fff;font:700 12.5px/1 'Work Sans';letter-spacing:.1em;text-transform:uppercase;padding:10px 14px;border-radius:999px}
-.groot h2{font-size:clamp(52px,5.6vw,86px)}
-.groot h2 span{color:var(--rood)}
-.groot p{color:var(--zacht);margin-top:20px;max-width:31em}
-.groot blockquote{margin-top:28px;padding:22px 26px;background:var(--wit);border-radius:var(--r);border-left:4px solid var(--rood);font-size:17px}
-.groot blockquote small{display:block;margin-top:8px;color:var(--zacht);font-size:14px}
+/* groot werk + werkwijze */
+.groot{padding:130px 0;background:var(--papier)}
+.groot .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start}
+.groot .foto{position:sticky;top:30px}
+.groot .foto .f{border:2px solid var(--ink);background:var(--kaart);padding:12px;box-shadow:10px 10px 0 var(--ink)}
+.groot .foto img{width:100%;aspect-ratio:4/4.3;object-fit:cover;object-position:50% 30%}
+.groot .foto blockquote{margin-top:34px;font-size:17px;line-height:1.6;color:#3b3530;padding-left:22px;border-left:3px solid var(--rood)}
+.groot .foto blockquote small{display:block;margin-top:10px;font-size:13.5px;color:var(--zacht)}
+.groot h2{font-size:clamp(46px,5.2vw,78px)}
+.groot .intro{margin:20px 0 10px;max-width:32em;color:#3b3530}
+.stappen{list-style:none;margin-top:40px;border-top:2px solid var(--ink)}
+.stappen li{display:grid;grid-template-columns:88px 1fr;gap:20px;padding:28px 0;border-bottom:1px solid var(--lijn)}
+.stappen li>b{font:900 58px/.85 'Big Shoulders Display';color:var(--rood)}
+.stappen h3{font-size:30px;margin-bottom:8px}
+.stappen p{font-size:16px;color:#4a433d;max-width:32em}
+.stappen a{font-weight:600;text-underline-offset:3px}
 
-/* koppels */
-.koppel{background:var(--papier2);padding:110px 0}
-.kgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
-.kk{background:var(--wit);border-radius:var(--r);overflow:hidden}
-.kk figure{aspect-ratio:4/5;overflow:hidden}
-.kk img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
-.kk:hover img{transform:scale(1.05)}
-.kk .t{padding:18px 22px 22px}
-.kk h3{font-size:28px}
-.kk p{color:var(--zacht);font-size:15px;margin-top:4px}
+/* koppeltattoos */
+.koppel{padding:120px 0;background:var(--papier2)}
+.koppel .kop p{color:#4a433d}
+.kgrid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:26px;align-items:start}
+.kgrid figure{margin:0}
+.kgrid .f{border:2px solid var(--ink);overflow:hidden;background:var(--kaart)}
+.kgrid img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform 1.1s var(--ease)}
+.kgrid figure:hover img{transform:scale(1.04)}
+.kgrid figure:first-child img{aspect-ratio:4/4.1}
+.kgrid figure:nth-child(2){margin-top:70px}.kgrid figure:nth-child(3){margin-top:30px}
+.kgrid figcaption{display:flex;gap:14px;align-items:baseline;padding-top:14px}
+.kgrid figcaption b{font:800 26px/1 'Big Shoulders Display';text-transform:uppercase;flex:none}
+.kgrid figcaption span{font-size:15px;color:#4a433d}
 
 /* ardie */
-.ardie{background:var(--rood);color:#fff;display:grid;grid-template-columns:1fr 1fr;min-height:720px}
-.ardie .foto{position:relative;overflow:hidden}
-.ardie .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
-.ardie .tekst{padding:100px clamp(28px,6vw,96px);display:flex;flex-direction:column;justify-content:center}
+.ardie{display:grid;grid-template-columns:1fr 1fr;background:var(--rood);color:#fff}
+.ardie .tekst{padding:110px 70px 110px max(24px,calc((100vw - 1260px)/2));display:flex;flex-direction:column;justify-content:center}
 .ardie .lab{color:#fff}
-.ardie h2{font-size:clamp(54px,6vw,92px)}
-.ardie p{color:rgba(255,255,255,.9);margin-top:18px;max-width:30em}
-.ardie .logo{width:110px;margin-top:34px;opacity:.95}
-.ardie .acties{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.ardie h2{font-size:clamp(46px,5vw,76px);max-width:9em}
+.ardie p{margin-top:18px;max-width:31em;color:rgba(255,255,255,.92)}
+.ardie .feit{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:36px;border-top:2px solid rgba(255,255,255,.6)}
+.ardie .feit div{padding:18px 20px 4px 0;font-size:15px;color:rgba(255,255,255,.88)}
+.ardie .feit div+div{padding-left:20px;border-left:2px solid rgba(255,255,255,.35)}
+.ardie .feit b{display:block;font:800 24px/1 'Big Shoulders Display';text-transform:uppercase;color:#fff;margin-bottom:6px}
+.ardie .acties{display:flex;flex-wrap:wrap;gap:16px;margin-top:34px}
+.ardie .acties .knop.wit{box-shadow:4px 4px 0 var(--ink)}
+.ardie .foto{position:relative;min-height:620px}
+.ardie .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
 
 /* reviews */
-.rev{padding:110px 0}
-.rgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.rk{background:var(--wit);border-radius:var(--r);padding:28px 26px;display:flex;flex-direction:column;gap:16px;box-shadow:0 1px 0 var(--lijn)}
-.rk .st{color:#e0a032;letter-spacing:3px;font-size:14px}
-.rk p{flex:1;font-size:16px}
-.rk b{font-weight:600;font-size:15px}
-.rk b small{display:block;font-weight:400;color:var(--zacht);font-size:13px}
+.rev{padding:120px 0;background:var(--papier)}
+.rev .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start}
+.rev h2{font-size:clamp(46px,5.2vw,78px)}
+.rev .score{display:flex;align-items:center;gap:18px;margin-top:30px}
+.rev .score b{font:900 84px/.8 'Big Shoulders Display';color:var(--rood)}
+.rev .score span{font-size:15px;color:var(--zacht);line-height:1.45}
+.rev .score .st{color:var(--rood);letter-spacing:3px;display:block}
+.rev .groot-q{margin-top:40px;background:var(--kaart);border:2px solid var(--ink);box-shadow:8px 8px 0 var(--rood);padding:32px}
+.rev .groot-q p{font:700 clamp(24px,2.2vw,30px)/1.15 'Big Shoulders Display';text-transform:uppercase}
+.rev .groot-q cite{display:block;margin-top:16px;font-style:normal;font-size:14px;color:var(--zacht)}
+.rev ul{list-style:none;border-top:2px solid var(--ink)}
+.rev li{padding:26px 0;border-bottom:1px solid var(--lijn)}
+.rev li p{font-size:17px;line-height:1.6}
+.rev li cite{display:flex;justify-content:space-between;margin-top:12px;font-style:normal;font-size:14px;color:var(--zacht)}
+.rev li cite b{color:var(--ink);font-weight:600}
+.rev li cite i{font-style:normal;color:var(--rood);letter-spacing:2px}
 
-/* boek */
-.boek{padding:0 0 120px}
-.bk{background:var(--ink);color:#fff;border-radius:28px;padding:64px 60px;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
-.bk .lab{color:#ff8a7b}
-.bk h2{font-size:clamp(54px,6vw,92px)}
-.bk p{color:rgba(255,255,255,.75);margin:18px 0 28px;max-width:30em}
-.bk .acties{display:flex;flex-wrap:wrap;gap:12px}
-.bk ul{list-style:none;border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:8px 24px}
-.bk li{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:15.5px}
+/* boeken */
+.boek{padding:0 0 120px;background:var(--papier)}
+.bk{background:var(--ink);color:#fff;display:grid;grid-template-columns:1.15fr .85fr;border:2px solid var(--ink);box-shadow:12px 12px 0 var(--rood)}
+.bk .l{padding:60px 56px}
+.bk .lab{color:#ff6b59}
+.bk h2{font-size:clamp(44px,4.8vw,72px)}
+.bk .l>p{color:rgba(255,255,255,.75);margin:18px 0 32px;max-width:30em}
+.bk .acties{display:flex;flex-wrap:wrap;gap:16px}
+.bk .acties .knop{box-shadow:4px 4px 0 var(--kaart);border-color:var(--kaart)}
+.bk .acties .knop:hover{box-shadow:6px 6px 0 var(--kaart)}
+.bk .r{background:var(--kaart);color:var(--ink);padding:40px 40px 34px;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.bk .r h3{font-size:30px}
+.bk ul{list-style:none}
+.bk li{display:grid;grid-template-columns:90px 1fr;gap:12px;padding:12px 0;border-bottom:1px dashed var(--lijn);font-size:15.5px}
 .bk li:last-child{border-bottom:0}
-.bk li span{color:rgba(255,255,255,.55)}
-.bk li a{text-decoration:none;font-weight:600}
+.bk li span{color:var(--zacht)}
+.bk li a{font-weight:600;text-decoration:none}
+.bk li a:hover{color:var(--rood)}
+.bk .route{font-weight:700;font-size:14.5px;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;display:inline-flex;gap:8px;align-items:center;border-bottom:2px solid var(--rood);padding-bottom:4px;align-self:flex-start}
 
 /* footer */
-.voet{background:var(--papier2);padding:70px 0 32px}
+.voet{background:var(--ink);color:rgba(255,255,255,.8);padding:70px 0 32px}
+.voet .merk img{filter:invert(1)}
+.voet .merk small{color:rgba(255,255,255,.5)}
 .voet .rij{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
-.voet .zin{margin-top:16px;color:var(--zacht);max-width:24em;font-size:15.5px}
-.voet h4{font:700 12px/1 'Work Sans';letter-spacing:.18em;text-transform:uppercase;color:var(--rood);margin-bottom:14px}
+.voet .zin{margin-top:16px;max-width:24em;font-size:15px;color:rgba(255,255,255,.6)}
+.voet h4{font:700 12px/1 'Work Sans';letter-spacing:.2em;text-transform:uppercase;color:#ff6b59;margin-bottom:14px}
 .voet ul{list-style:none}
-.voet li{padding:4px 0;font-size:15.5px}
+.voet li{padding:4px 0;font-size:15px}
 .voet li a{text-decoration:none}
-.voet .onder{margin-top:54px;padding-top:22px;border-top:1px solid var(--lijn);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:14px;color:var(--zacht)}
+.voet .onder{margin-top:54px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:14px;color:rgba(255,255,255,.5)}
 
-@media (max-width:1080px){
+@media (max-width:1100px){
   .menu{display:none}
-  .strip{grid-template-columns:repeat(3,1fr)}
-  .strip figure:nth-child(n+4){aspect-ratio:4/3}
-  .groot .grid{grid-template-columns:1fr;gap:56px}
-  .groot .foto{max-width:560px;order:2}
+  .hero .grid{gap:40px}
+  .blad .flash,.blad .flash.breed,.blad .noot{grid-column:span 6}
+  .groot .grid,.rev .grid{grid-template-columns:1fr;gap:56px}
+  .groot .foto{position:static;max-width:560px}
   .kgrid{grid-template-columns:1fr 1fr}
-  .kk:last-child{grid-column:1/-1}
-  .kk:last-child figure{aspect-ratio:16/9}
+  .kgrid figure:first-child{grid-column:1/-1}.kgrid figure:first-child img{aspect-ratio:16/11}
+  .kgrid figure:nth-child(2),.kgrid figure:nth-child(3){margin-top:0}
   .ardie{grid-template-columns:1fr}
-  .ardie .foto{min-height:520px;order:2}
-  .rgrid{grid-template-columns:1fr 1fr}
+  .ardie .tekst{padding:90px 24px}
+  .ardie .foto{min-height:0;aspect-ratio:1/1}
   .bk{grid-template-columns:1fr}
   .kop{grid-template-columns:1fr;gap:16px}
   .voet .rij{grid-template-columns:1fr 1fr}
 }
+@media (max-width:860px){
+  .hero{min-height:0}
+  .hero .grid{grid-template-columns:1fr;gap:44px;padding-bottom:60px}
+  .prent .f{min-height:0;aspect-ratio:4/4.4}
+  .prent{margin-right:10px}
+}
 @media (max-width:720px){
   body{font-size:16.5px}
   .wrap{width:calc(100% - 36px)}
-  .hero{grid-template-columns:1fr;min-height:0}
-  .hero .links{padding:20px 18px 40px}
-  .hero h1{font-size:66px}
-  .hero .foto{min-height:560px}
-  .stijlen{padding-top:84px}
-  .strip{grid-template-columns:1fr 1fr}
-  .strip figure,.strip figure:nth-child(n+4){aspect-ratio:3/4}
-  .strip figure:nth-child(5){grid-column:1/-1;aspect-ratio:4/3}
-  .strip h3{font-size:26px}
-  .strip small{display:none}
-  .strip figcaption{left:14px;bottom:14px}
-  .groot,.koppel,.rev{padding:84px 0}
+  .nav .knop{display:none}
+  .hero h1{font-size:62px}
+  .hero .onder{gap:16px}
+  .hero .onder b{font-size:34px}
+  .stijlen,.groot,.koppel,.rev{padding:84px 0}
   .boek{padding-bottom:84px}
-  .kgrid{grid-template-columns:1fr}
-  .kk:last-child figure{aspect-ratio:4/5}
-  .ardie .tekst{padding:80px 22px}
-  .ardie .foto{min-height:420px}
-  .rgrid{grid-template-columns:1fr}
-  .bk{padding:44px 22px;border-radius:22px}
-  .bk li{font-size:14.5px}
+  .blad{gap:28px 14px}
+  .blad .flash,.blad .flash.breed{grid-column:span 6}
+  .blad .flash:first-child{grid-column:1/-1}
+  .blad .noot{grid-column:1/-1}
+  .flash h3{font-size:26px}
+  .flash p{display:none}
+  .blad .flash:first-child p{display:block}
+  .blad .flash:nth-child(4){grid-column:1/-1}.blad .flash:nth-child(4) .f{aspect-ratio:4/3}
+  .stappen li{grid-template-columns:56px 1fr;gap:12px}
+  .stappen li>b{font-size:44px}
+  .stappen h3{font-size:26px}
+  .kgrid{grid-template-columns:1fr;gap:28px}
+  .ardie .feit{grid-template-columns:1fr}
+  .ardie .feit div+div{padding-left:0;border-left:0;border-top:2px solid rgba(255,255,255,.35)}
+  .rev .groot-q{padding:24px}
+  .bk .l{padding:42px 22px}
+  .bk .r{padding:30px 22px}
+  .bk li{grid-template-columns:1fr;gap:2px}
   .voet .rij{grid-template-columns:1fr;gap:28px}
 }
 </style>
@@ -193,25 +246,32 @@ h1,h2,h3{font-family:'Big Shoulders Display',sans-serif;font-weight:800;line-hei
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
 <section class="hero" aria-label="Electric Therapy Tattoo Studio">
-  <div class="links">
-    <header class="navl">
+  <header class="nav">
+    <div class="wrap">
       <a class="merk" href="#top"><img src="img/logo-zwart.webp" alt="" width="553" height="635"><span><b>Electric Therapy</b><small>Tattoo studio</small></span></a>
-      <nav class="menu" aria-label="Hoofdmenu"><a href="#stijlen">Stijlen</a><a href="#koppels">Koppeltattoos</a><a href="#ardie">Ardie</a><a href="#boeken">Boeken</a></nav>
-    </header>
-    <div class="inh">
-      <span class="lab rv">Kuurnsestraat 45 · Harelbeke</span>
-      <h1 class="rv" style="--d:1">Getekend voor jou. <span>Gezet door Ardie.</span></h1>
-      <p class="lead rv" style="--d:2">Reinhilde Debruyne, alias Ardie, is tattooartiest en illustrator. Elke tattoo tekent ze zelf, op maat. In kleur of black and grey, klein of zo groot als je durft.</p>
-      <div class="acties rv" style="--d:3">
-        <a class="knop rood" href="https://calendly.com/electrictherapytattoostudio" target="_blank" rel="noopener">Boek online</a>
-        <a class="knop rand" href="https://wa.me/32472175703" target="_blank" rel="noopener">Stuur je idee</a>
-      </div>
-      <div class="stijl rv" style="--d:4"><span>Blackwork</span><span>Neo-traditional</span><span>Trash polka</span><span>Neo-japanese</span></div>
+      <nav class="menu" aria-label="Hoofdmenu"><a href="#stijlen">Stijlen</a><a href="#werkwijze">Zo werk ik</a><a href="#koppels">Koppeltattoos</a><a href="#ardie">Over Ardie</a><a href="#boeken">Contact</a></nav>
+      <a class="knop" href="https://calendly.com/electrictherapytattoostudio" target="_blank" rel="noopener">Boek online</a>
     </div>
-  </div>
-  <div class="foto">
-    <img src="img/hero.webp" alt="Drie rode klaprozen in art-nouveaustijl op een rug" width="1500" height="2000">
-    <div class="score rv" style="--d:5"><strong>5,0</strong><div><span class="st">★★★★★</span><span>38 reviews op Google</span></div></div>
+  </header>
+  <div class="wrap grid">
+    <div class="tekst">
+      <span class="lab rv"><svg viewBox="0 0 12 16" aria-hidden="true"><path d="M7 0 0 9h5l-1 7 8-10H7l1-6Z" fill="currentColor"/></svg>Tattoo studio van Ardie</span>
+      <h1 class="rv" style="--d:1">Getekend<br>voor jou. <span>Gezet door Ardie.</span></h1>
+      <p class="lead rv" style="--d:2">Ik ben Reinhilde Debruyne, of gewoon Ardie: tattooartiest en illustrator. Elke tattoo teken ik zelf, op jouw maat. In kleur of in black and grey, klein of zo groot als je durft.</p>
+      <div class="acties rv" style="--d:3">
+        <a class="knop" href="https://calendly.com/electrictherapytattoostudio" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="3" width="13" height="11.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M1.5 7h13M5 1v4M11 1v4" stroke="currentColor" stroke-width="1.8"/></svg>Kies een moment</a>
+        <a class="knop wit" href="mailto:reinhilde@electrictherapy.be?subject=Mijn%20tattoo-idee">Stuur je idee</a>
+      </div>
+      <div class="onder rv" style="--d:4">
+        <b>5,0</b><span><span class="st">★★★★★</span>38 reviews op Google</span>
+        <i class="sep" aria-hidden="true"></i>
+        <span>Blackwork, neo-traditional, trash polka en neo-japanese</span>
+      </div>
+    </div>
+    <figure class="prent rv" style="--d:2">
+      <div class="f"><img src="img/hero.webp" alt="Drie rode klaprozen in art-nouveaustijl op een rug" width="1500" height="2000"></div>
+      <figcaption class="cap"><span>Klaprozen in art nouveau, op de rug</span><b>Nº 01</b></figcaption>
+    </figure>
   </div>
 </section>
 
@@ -219,30 +279,39 @@ h1,h2,h3{font-family:'Big Shoulders Display',sans-serif;font-weight:800;line-hei
 <section class="stijlen" id="stijlen">
   <div class="wrap">
     <div class="kop">
-      <div><span class="lab rv">Stijlen</span><h2 class="rv" style="--d:1">Altijd met haar eigen lijn.</h2></div>
-      <p class="rv" style="--d:2">Welke stijl je ook kiest, er zit altijd die illustratieve toets van Ardie in. Breng je idee mee, de rest zoeken jullie samen uit.</p>
+      <div><span class="lab rv">Stijlen</span><h2 class="rv" style="--d:1">Elke stijl, met mijn eigen lijn.</h2></div>
+      <p class="rv" style="--d:2">Ik ben illustrator, en dat zie je in alles wat ik zet. Of je nu voor zwart gaat of voor felle kleur: breng je idee mee, de rest zoeken we samen uit.</p>
     </div>
-  </div>
-  <div class="strip">
-    <figure class="rv"><img src="img/skull.webp" alt="Blackwork-tattoo van een dierenschedel met een pioenroos" width="1000" height="1334" loading="lazy"><figcaption><h3>Blackwork</h3><small>Illustratief, met fijne lijnen</small></figcaption></figure>
-    <figure class="rv" style="--d:1"><img src="img/lions.webp" alt="Tattoo van een leeuw in zwart en grijs op een onderarm" width="1000" height="1334" loading="lazy"><figcaption><h3>Black and grey</h3><small>Diepte zonder kleur</small></figcaption></figure>
-    <figure class="rv" style="--d:2"><img src="img/trash.webp" alt="Trash polka-sleeve in rood en zwart" width="1000" height="1333" loading="lazy"><figcaption><h3>Trash polka</h3><small>Rood, zwart en lef</small></figcaption></figure>
-    <figure class="rv" style="--d:3"><img src="img/hanya.webp" alt="Rood hannya-masker met oranje wolken op hand en pols" width="1000" height="1334" loading="lazy"><figcaption><h3>Neo-japanese</h3><small>Hannya, wolken en vuur</small></figcaption></figure>
-    <figure class="rv" style="--d:4"><img src="img/flower.webp" alt="Bloem in waterverf met een tekst langs de onderarm" width="1000" height="1334" loading="lazy"><figcaption><h3>Kleur</h3><small>Ook in waterverf</small></figcaption></figure>
+    <div class="blad">
+      <figure class="flash breed rv"><div class="f"><span class="nr">Nº 02</span><img src="img/skull.webp" alt="Blackwork-tattoo van een dierenschedel met een pioenroos" width="1000" height="1334" loading="lazy" style="object-position:50% 55%"></div><figcaption><h3>Illustratieve blackwork</h3><p>Fijne lijnen en zwart, zoals een tekening uit mijn schetsboek. Hier een dierenschedel met een pioenroos.</p></figcaption></figure>
+      <figure class="flash breed rv" style="--d:1"><div class="f"><span class="nr">Nº 03</span><img src="img/hanya.webp" alt="Rood hannya-masker met oranje wolken op hand en pols" width="1000" height="1334" loading="lazy" style="object-position:50% 50%"></div><figcaption><h3>Neo-japanese</h3><p>Een hannya-masker met vlammen, in volle kleur over hand en pols.</p></figcaption></figure>
+      <figure class="flash rv"><div class="f"><span class="nr">Nº 04</span><img src="img/trash.webp" alt="Trash polka-sleeve in rood en zwart" width="1000" height="1333" loading="lazy"></div><figcaption><h3>Trash polka</h3><p>Rood en zwart, met vlakken en stippen die over je arm lopen.</p></figcaption></figure>
+      <figure class="flash rv" style="--d:1"><div class="f"><span class="nr">Nº 05</span><img src="img/lions.webp" alt="Tattoo van een leeuw in zwart en grijs op een onderarm" width="1000" height="1334" loading="lazy"></div><figcaption><h3>Black and grey</h3><p>Diepte en schaduw, zonder één druppel kleur.</p></figcaption></figure>
+      <div class="noot rv" style="--d:2">
+        <h3>Twijfel je nog?</h3>
+        <p>Stuur me een paar voorbeelden die je mooi vindt, en waar het moet komen. Ik zeg je eerlijk welke stijl daar het best werkt.</p>
+        <ul><li>Neo-traditional</li><li>Kleur</li><li>Waterverf</li><li>Koppeltattoos</li></ul>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="groot" id="groot">
+<section class="groot" id="werkwijze">
   <div class="wrap grid">
     <div class="foto rv">
-      <img src="img/feniks.webp" alt="Grote feniks in roze en rood op een rug, pas gezet" width="974" height="1217" loading="lazy">
-      <span class="tag">Een eerste tattoo</span>
+      <div class="f"><img src="img/feniks.webp" alt="Grote feniks in roze en rood op een rug, pas gezet" width="974" height="1217" loading="lazy"></div>
+      <blockquote>"Een eerste tattoo voor deze dappere dame! Direct een redelijk groot stuk en omdat ze goed stilzat, heeft de tattoo helemaal niet zo lang geduurd."<small>Ardie op Instagram, over deze feniks</small></blockquote>
     </div>
     <div>
-      <span class="lab rv">Grote stukken</span>
-      <h2 class="rv" style="--d:1">Hoe groter, <span>hoe liever.</span></h2>
-      <p class="rv" style="--d:2">Ardie houdt van een ingewikkeld, groot project. Een rug, een volledige arm, of een ontwerp waar nog veel in moet. Ze tekent het uit tot het klopt.</p>
-      <blockquote class="rv" style="--d:3">"Een eerste tattoo voor deze dappere dame! Direct een redelijk groot stuk en omdat ze goed stilzat, heeft de tattoo helemaal niet zo lang geduurd."<small>Ardie op Instagram, over deze feniks</small></blockquote>
+      <span class="lab rv">Zo werk ik</span>
+      <h2 class="rv" style="--d:1">Hoe groter het stuk, hoe liever.</h2>
+      <p class="intro rv" style="--d:2">Een volledige rug, een arm die helemaal mag, of een ontwerp waar nog veel in moet: daar word ik blij van. Maar ook voor een kleine eerste tattoo neem ik dezelfde tijd. Zo gaat het in de praktijk.</p>
+      <ol class="stappen">
+        <li class="rv"><b>1</b><div><h3>Je vertelt wat je wil</h3><p>Stuur een mail met je idee, een paar voorbeelden en de plek op je lichaam. Hoe meer ik weet, hoe beter ik het voor je kan tekenen.</p></div></li>
+        <li class="rv" style="--d:1"><b>2</b><div><h3>Ik teken het uit</h3><p>Ik maak een ontwerp dat bij jou en je lijf past, en we passen samen aan tot het klopt.</p></div></li>
+        <li class="rv" style="--d:2"><b>3</b><div><h3>Je kiest een moment</h3><p>In mijn <a href="https://calendly.com/electrictherapytattoostudio" target="_blank" rel="noopener">online planner</a> zie je meteen wanneer ik vrij ben. Geen heen en weer gemail.</p></div></li>
+        <li class="rv" style="--d:3"><b>4</b><div><h3>Op de stoel, en daarna</h3><p>Ik leg alles vooraf uit, zodat je weet wat er komt. En ook na je afspraak mag je me altijd een vraag sturen.</p></div></li>
+      </ol>
     </div>
   </div>
 </section>
@@ -251,12 +320,12 @@ h1,h2,h3{font-family:'Big Shoulders Display',sans-serif;font-weight:800;line-hei
   <div class="wrap">
     <div class="kop">
       <div><span class="lab rv">Koppeltattoos</span><h2 class="rv" style="--d:1">Samen onder de naald.</h2></div>
-      <p class="rv" style="--d:2">Met je zus, je beste vriendin of je lief. Twee ontwerpen die bij elkaar horen, zonder dat ze hetzelfde moeten zijn.</p>
+      <p class="rv" style="--d:2">Met je zus, je beste vriendin of je lief. Ik teken twee ontwerpen die bij elkaar horen, zonder dat ze precies hetzelfde moeten zijn.</p>
     </div>
     <div class="kgrid">
-      <article class="kk rv"><figure><img src="img/arms.webp" alt="Twee onderarmen gekruist, elk met een fijne kompas- en pijltattoo" width="1000" height="1334" loading="lazy"></figure><div class="t"><h3>Kompas en pijl</h3><p>Twee armen, één verhaal.</p></div></article>
-      <article class="kk rv" style="--d:1"><figure><img src="img/legs.webp" alt="Twee kuiten met elk een rode klaproos en een woord" width="1000" height="1334" loading="lazy"></figure><div class="t"><h3>Klaprozen</h3><p>Dezelfde bloem, elk met een eigen woord.</p></div></article>
-      <article class="kk rv" style="--d:2"><figure><img src="img/duo.webp" alt="Twee vrouwen van achteren, de ene met bloemen op de rug, de andere met een sleeve" width="1000" height="1333" loading="lazy"></figure><div class="t"><h3>Rug en arm</h3><p>Ander lichaamsdeel, zelfde handschrift.</p></div></article>
+      <figure class="rv"><div class="f"><img src="img/duo.webp" alt="Twee vrouwen van achteren, de ene met bloemen op de rug, de andere met een sleeve" width="1000" height="1333" loading="lazy" style="object-position:50% 45%"></div><figcaption><b>Rug en arm</b><span>Ander lichaamsdeel, zelfde handschrift.</span></figcaption></figure>
+      <figure class="rv" style="--d:1"><div class="f"><img src="img/arms.webp" alt="Twee onderarmen gekruist, elk met een fijne kompas- en pijltattoo" width="1000" height="1334" loading="lazy" style="object-position:50% 62%"></div><figcaption><b>Kompas en pijl</b><span>Twee armen, één verhaal.</span></figcaption></figure>
+      <figure class="rv" style="--d:2"><div class="f"><img src="img/legs.webp" alt="Twee kuiten met elk een rode klaproos en een woord" width="1000" height="1334" loading="lazy" style="object-position:50% 35%"></div><figcaption><b>Klaprozen</b><span>Dezelfde bloem, elk een eigen woord.</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -265,49 +334,57 @@ h1,h2,h3{font-family:'Big Shoulders Display',sans-serif;font-weight:800;line-hei
   <div class="tekst">
     <span class="lab rv">Over Ardie</span>
     <h2 class="rv" style="--d:1">Tattooartiest en illustrator uit Hulste.</h2>
-    <p class="rv" style="--d:2">Reinhilde tekent al haar ontwerpen zelf, en dat zie je. Haar illustraties vind je ook terug als merch in haar webshop. Dit jaar stond ze voor het eerst op FACTS in Flanders Expo Gent.</p>
-    <p class="rv" style="--d:3">Op de stoel gaat het rustig en eerlijk: je krijgt alle uitleg vooraf, en ook na je afspraak kan je haar alles vragen.</p>
+    <p class="rv" style="--d:2">Ik ben illustrator, en elk ontwerp in de studio komt van mijn eigen tekentafel. Mijn illustraties vind je ook terug als merch in mijn webshop.</p>
+    <div class="feit rv" style="--d:3">
+      <div><b>FACTS Gent</b>Dit jaar stond ik voor het eerst mee op de beurs in Flanders Expo.</div>
+      <div><b>Eigen merch</b>Mijn tekeningen, ook om mee naar huis te nemen. Te koop in de webshop.</div>
+    </div>
     <div class="acties rv" style="--d:4">
-      <a class="knop ink" href="https://shop.electrictherapy.be" target="_blank" rel="noopener">Bekijk de merch</a>
-      <a class="knop wrand" href="https://www.instagram.com/ardie_tattoos/" target="_blank" rel="noopener">@ardie_tattoos</a>
+      <a class="knop wit" href="https://shop.electrictherapy.be" target="_blank" rel="noopener">Naar de webshop</a>
+      <a class="knop ink" href="https://www.instagram.com/ardie_tattoos/" target="_blank" rel="noopener">@ardie_tattoos</a>
     </div>
   </div>
   <div class="foto"><img src="img/ardie.webp" alt="Reinhilde, alias Ardie, staat op een rode trap" width="1000" height="1000" loading="lazy"></div>
 </section>
 
 <section class="rev" aria-label="Reviews">
-  <div class="wrap">
-    <div class="kop">
-      <div><span class="lab rv">5,0 uit 38 reviews</span><h2 class="rv" style="--d:1">Zelfs de eerste keer.</h2></div>
-      <p class="rv" style="--d:2">Veel klanten kwamen voor hun allereerste tattoo. Zo vertellen ze het op Google.</p>
+  <div class="wrap grid">
+    <div>
+      <span class="lab rv">Wat klanten zeggen</span>
+      <h2 class="rv" style="--d:1">Zelfs de eerste keer.</h2>
+      <div class="score rv" style="--d:2"><b>5,0</b><span><span class="st">★★★★★</span>gemiddeld uit 38 reviews op Google</span></div>
+      <div class="groot-q rv" style="--d:3"><p>"Het resultaat is nog mooier geworden dan ik had gehoopt. De fijne details en het vakmanschap zijn echt indrukwekkend."</p><cite>Naomi, op Google</cite></div>
     </div>
-    <div class="rgrid">
-      <div class="rk rv"><span class="st">★★★★★</span><p>"Ik ben ontzettend blij met mijn tattoo en kan Reinhilde alleen maar aanraden! Het resultaat is nog mooier geworden dan ik had gehoopt. De fijne details en het vakmanschap zijn echt indrukwekkend."</p><b>naomi<small>Google-review</small></b></div>
-      <div class="rk rv" style="--d:1"><span class="st">★★★★★</span><p>"Mijn eerste tattoo-ervaring had echt niet beter kunnen verlopen. Reinhilde heeft me van begin tot eind begeleid en op mijn gemak gesteld, wat ik enorm heb gewaardeerd."</p><b>Margaux Vanonacker<small>Google-review</small></b></div>
-      <div class="rk rv" style="--d:2"><span class="st">★★★★★</span><p>"Al meerdere tattoo's laten zetten bij Reinhilde. Ik ben altijd goed ontvangen, ik kreeg alle nodige uitleg op voorhand, alles wordt goed verzorgd en ze is altijd bereikbaar voor vragen ook nog achteraf."</p><b>Lynn Mogensen<small>Google-review</small></b></div>
-      <div class="rk rv" style="--d:3"><span class="st">★★★★★</span><p>"Ik ging bij Reinhilde voor mijn eerste tattoo. Heel aangename ervaring, legde alles goed uit en heel tevreden over haar werk."</p><b>Bart Bekaert<small>Google-review</small></b></div>
-    </div>
+    <ul>
+      <li class="rv"><p>"Mijn eerste tattoo-ervaring had echt niet beter kunnen verlopen. Reinhilde heeft me van begin tot eind begeleid en op mijn gemak gesteld, wat ik enorm heb gewaardeerd."</p><cite><b>Margaux Vanonacker</b><i>★★★★★</i></cite></li>
+      <li class="rv" style="--d:1"><p>"Al meerdere tattoo's laten zetten bij Reinhilde. Ik ben altijd goed ontvangen, ik kreeg alle nodige uitleg op voorhand, alles wordt goed verzorgd en ze is altijd bereikbaar voor vragen ook nog achteraf."</p><cite><b>Lynn Mogensen</b><i>★★★★★</i></cite></li>
+      <li class="rv" style="--d:2"><p>"Ik ging bij Reinhilde voor mijn eerste tattoo. Heel aangename ervaring, legde alles goed uit en heel tevreden over haar werk."</p><cite><b>Bart Bekaert</b><i>★★★★★</i></cite></li>
+    </ul>
   </div>
 </section>
 
 <section class="boek" id="boeken">
   <div class="wrap">
     <div class="bk rv">
-      <div>
+      <div class="l">
         <span class="lab">Afspraak</span>
         <h2>Klaar voor je volgende tattoo?</h2>
-        <p>Kies een moment in de online planner, of stuur eerst je idee met een paar voorbeelden. Ardie laat je weten wat mogelijk is.</p>
+        <p>Weet je al wat je wil? Kies dan meteen een moment in de planner. Twijfel je nog, stuur dan eerst je idee met een paar voorbeelden. Ik laat je weten wat mogelijk is.</p>
         <div class="acties">
-          <a class="knop rood" href="https://calendly.com/electrictherapytattoostudio" target="_blank" rel="noopener">Online planner</a>
-          <a class="knop wrand" href="mailto:reinhilde@electrictherapy.be">Mail Reinhilde</a>
+          <a class="knop" href="https://calendly.com/electrictherapytattoostudio" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="3" width="13" height="11.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M1.5 7h13M5 1v4M11 1v4" stroke="currentColor" stroke-width="1.8"/></svg>Online planner</a>
+          <a class="knop wit" href="mailto:reinhilde@electrictherapy.be?subject=Mijn%20tattoo-idee">Mail je idee</a>
         </div>
       </div>
-      <ul>
-        <li><span>Studio</span>Kuurnsestraat 45, Harelbeke</li>
-        <li><span>Gsm</span><a href="tel:+32472175703">0472 17 57 03</a></li>
-        <li><span>Mail</span><a href="mailto:reinhilde@electrictherapy.be">reinhilde@electrictherapy.be</a></li>
-        <li><span>Open</span>Op afspraak, ma tot za</li>
-      </ul>
+      <div class="r">
+        <h3>De studio</h3>
+        <ul>
+          <li><span>Adres</span>Kuurnsestraat 45, 8531 Harelbeke</li>
+          <li><span>Gsm</span><a href="tel:+32472175703">0472 17 57 03</a></li>
+          <li><span>Mail</span><a href="mailto:reinhilde@electrictherapy.be">reinhilde@electrictherapy.be</a></li>
+          <li><span>Open</span>Enkel op afspraak</li>
+        </ul>
+        <a class="route" href="https://www.google.com/maps?cid=1644671643317685404" target="_blank" rel="noopener">Plan je route <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
+      </div>
     </div>
   </div>
 </section>
@@ -316,9 +393,9 @@ h1,h2,h3{font-family:'Big Shoulders Display',sans-serif;font-weight:800;line-hei
 <footer class="voet">
   <div class="wrap">
     <div class="rij">
-      <div><a href="#top" class="merk"><img src="img/logo-zwart.webp" alt="" width="553" height="635" loading="lazy"><span><b>Electric Therapy</b><small>Tattoo studio</small></span></a><p class="zin">Tattoos op maat door Reinhilde 'Ardie' Debruyne, in Harelbeke.</p></div>
+      <div><a href="#top" class="merk"><img src="img/logo-zwart.webp" alt="" width="553" height="635" loading="lazy"><span><b>Electric Therapy</b><small>Tattoo studio</small></span></a><p class="zin">Tattoos op maat door Reinhilde 'Ardie' Debruyne, tattooartiest en illustrator.</p></div>
       <div><h4>Studio</h4><ul><li>Kuurnsestraat 45</li><li>8531 Harelbeke</li></ul></div>
-      <div><h4>Contact</h4><ul><li><a href="tel:+32472175703">0472 17 57 03</a></li><li><a href="mailto:reinhilde@electrictherapy.be">Mail</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="tel:+32472175703">0472 17 57 03</a></li><li><a href="mailto:reinhilde@electrictherapy.be">Mail</a></li><li><a href="https://calendly.com/electrictherapytattoostudio" target="_blank" rel="noopener">Online planner</a></li></ul></div>
       <div><h4>Volg</h4><ul><li><a href="https://www.instagram.com/electric_therapy_tattoos/" target="_blank" rel="noopener">@electric_therapy_tattoos</a></li><li><a href="https://shop.electrictherapy.be" target="_blank" rel="noopener">Merch</a></li></ul></div>
     </div>
     <div class="onder"><span>© Electric Therapy Tattoo Studio, Harelbeke</span><span>Voorbeeldsite door Digital Impression</span></div>
