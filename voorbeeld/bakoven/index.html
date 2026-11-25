@@ -33,10 +33,10 @@ a{color:inherit}
 .btn.dark:hover{background:#3a2a1c}
 
 /* HERO: een foto, rijzend deeg onder een doek, de kop in het donker erboven */
-.hero{position:relative;min-height:min(900px,calc(100vh - 38px));display:flex;flex-direction:column;overflow:hidden;isolation:isolate;background:#0d0906}
-.hero>img{position:absolute;left:0;right:0;bottom:0;top:36%;width:100%;height:64%;object-fit:cover;object-position:50% 45%;z-index:-2;transform:scale(1.04);transform-origin:50% 100%;animation:rise 2.4s var(--ease) forwards;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 28%);mask-image:linear-gradient(180deg,transparent 0,#000 28%)}
+.hero{position:relative;display:flex;flex-direction:column;overflow:hidden;isolation:isolate;background:#0d0906}
+.hero>img{position:relative;order:3;display:block;width:100%;height:clamp(440px,44vw,680px);margin-top:-40px;object-fit:cover;object-position:50% 26%;z-index:-2;transform:scale(1.04);transform-origin:50% 100%;animation:rise 2.4s var(--ease) forwards;-webkit-mask-image:linear-gradient(180deg,transparent 0,rgba(0,0,0,.6) 10%,#000 24%);mask-image:linear-gradient(180deg,transparent 0,rgba(0,0,0,.6) 10%,#000 24%)}
 @keyframes rise{to{transform:scale(1)}}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(13,9,6,0) 70%,rgba(13,9,6,.85) 100%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(13,9,6,0) 78%,rgba(13,9,6,.55) 100%)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px clamp(20px,4vw,56px)}
 .logo{font-family:'Young Serif',Georgia,serif;font-size:26px;text-decoration:none;line-height:1}
 .logo small{display:block;font:500 11px/1 'Figtree',sans-serif;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-top:6px}
@@ -44,17 +44,12 @@ a{color:inherit}
 .nav ul a{text-decoration:none;font-size:15px;color:var(--muted);transition:color .3s}
 .nav ul a:hover{color:var(--flour)}
 .nav .btn{padding:12px 18px;font-size:14px}
-.hero .head{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:clamp(30px,5vh,70px) 20px 0}
+.hero .head{order:2;display:flex;flex-direction:column;align-items:center;text-align:center;padding:clamp(30px,5vh,70px) 20px 0;position:relative;z-index:1}
 .hero .kick{color:var(--flour2);opacity:.8}
 .hero h1{font-family:'Young Serif',Georgia,serif;font-weight:400;font-size:clamp(52px,7.8vw,124px);line-height:.95;letter-spacing:-.03em;margin-top:22px;white-space:nowrap}
 .hero h1 span{color:var(--amber)}
 .hero .head p{max-width:520px;margin:26px auto 0;color:var(--muted);font-size:18px}
 .hero .acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
-.hero .base{position:relative;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin:0 clamp(20px,4vw,56px)}
-.hero .base::before{content:"";position:absolute;z-index:-1;left:calc(-1 * clamp(20px,4vw,56px));right:calc(-1 * clamp(20px,4vw,56px));top:0;bottom:0;background:linear-gradient(0deg,rgba(13,9,6,.92),rgba(13,9,6,.62))}
-.hero .base div{padding:20px 0 26px;font-size:14px;color:var(--muted);border-left:1px solid var(--line);padding-left:22px}
-.hero .base div:first-child{border-left:0;padding-left:0}
-.hero .base b{display:block;font-family:'Young Serif',Georgia,serif;font-weight:400;font-size:26px;color:var(--flour);line-height:1.1;margin-bottom:4px}
 
 /* OVEN */
 .sec{padding:clamp(80px,11vw,150px) 0}
@@ -152,11 +147,8 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 @media (max-width:1000px){
   .nav ul{display:none}
   .hero h1{white-space:normal}
-  .hero>img{top:44%;height:56%}
-  .hero .base{grid-template-columns:1fr 1fr}
-  .hero .base div:nth-child(3){border-left:0;padding-left:0}
-  .hero .base div:nth-child(n+3){border-top:1px solid var(--line)}
-  .oven .grid,.story .grid,.visit .grid{grid-template-columns:1fr}
+  .hero>img{height:clamp(380px,62vw,600px)}
+        .oven .grid,.story .grid,.visit .grid{grid-template-columns:1fr}
   .door{max-width:520px;width:100%;margin:0 auto}
   .story .stick{position:static}
   .trio{grid-template-columns:1fr 1fr}
@@ -171,13 +163,11 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
   body{font-size:16px}
   .nav .btn{display:none}
   .hero{min-height:0;background:#0d0906}
-  .hero>img{position:relative;top:auto;order:3;height:62vw;min-height:250px;object-position:50% 80%;z-index:0;-webkit-mask-image:linear-gradient(180deg,transparent,#000 35%);mask-image:linear-gradient(180deg,transparent,#000 35%)}
+  .hero>img{position:relative;top:auto;order:3;height:82vw;min-height:280px;margin-top:6px;object-position:50% 30%;z-index:0;-webkit-mask-image:linear-gradient(180deg,transparent,#000 35%);mask-image:linear-gradient(180deg,transparent,#000 35%)}
   .hero::after{display:none}
   .hero .head{padding-top:24px}
   .hero h1{font-size:clamp(46px,13vw,64px)}
-  .hero .base{order:4;margin:0 20px;grid-template-columns:1fr 1fr}
-  .hero .base b{font-size:22px}
-  .facts{grid-template-columns:1fr}
+      .facts{grid-template-columns:1fr}
   .trio{grid-template-columns:1fr}
   .card.c3{grid-column:auto}
   .card.c2,.card.c3{margin-top:0}
@@ -199,7 +189,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
 <header class="hero">
-  <img src="img/hero.webp" alt="Deeg dat rijst onder een linnen doek in de bakkerij" fetchpriority="high">
+  <img src="img/koppel.webp" alt="Bakker en bakkerin lachend in de bakkerij, met vers brood in de armen" fetchpriority="high">
   <nav class="nav">
     <a class="logo" href="#top">Den Bakoven<small>Tielt-Winge</small></a>
     <ul>
@@ -218,12 +208,6 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
       <a class="btn amber" href="https://bakkersonline.be/be-nl/denbakoven/category/7667/brood" target="_blank" rel="noopener">Bestel je brood <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn line" href="#verhaal">Ons verhaal</a>
     </div>
-  </div>
-  <div class="base">
-    <div><b>1932</b>Alfons Rubbens bakt zijn eerste broden</div>
-    <div><b>Eigen molen</b>Volle graankorrel, vers gemalen</div>
-    <div><b>Depasse-oven</b>Uit de jaren zestig, nog volop in gebruik</div>
-    <div><b>4,8 op Google</b>uit 179 reviews</div>
   </div>
 </header>
 
@@ -268,7 +252,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
       <span class="kick">Historiek</span>
       <h2 class="serif">Drie generaties bloem aan de handen</h2>
       <p>Het begon met een houtoven en een fiets. Vandaag staan Wim en Christel in het pand van de vroegere ‘roze bakker’.</p>
-      <img src="img/koppel.webp" alt="Bakker en bakkerin lachend in de bakkerij met broden" loading="lazy">
+      <img src="img/ploeg.webp" alt="Het team van Den Bakoven met brood en taart in de bakkerij" loading="lazy">
     </div>
     <ol class="years reveal">
       <li><b>1932</b><div><h3>De houtoven van zijn moeder</h3><p>Alfons Rubbens bakt zijn eerste broden van plaatselijk meel en brengt ze per fiets rond.</p></div></li>
@@ -285,7 +269,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 <section class="sec crew">
   <div class="wrap">
     <div class="band reveal">
-      <img src="img/ploeg.webp" alt="Het team van Den Bakoven met brood en taart in de bakkerij" loading="lazy">
+      <img src="img/doek.webp" alt="Deeg dat rijst onder een linnen doek in de bakkerij" loading="lazy">
       <div>
         <span class="kick">Rondleiding</span>
         <h2 class="serif">Kom eens achter de schermen</h2>
