@@ -72,72 +72,97 @@ a{color:inherit;text-decoration:none}
 .score .st svg{width:14px;height:14px;fill:#fff}
 .score small{font-size:13px;color:rgba(255,255,255,.75)}
 
-/* statement */
-.zo{background:var(--paper);color:var(--ink);padding:var(--s7) 0}
-.zo-grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:56px;align-items:start}
-.zo-txt{grid-column:1/6;grid-row:1;padding-top:8px}
-.zo-txt .lbl{color:#6b7075}
-.zo-txt h2{font-size:clamp(30px,3.1vw,46px);line-height:.98;margin:26px 0 30px}
-.zo-txt p{max-width:470px;font-size:18px;color:#3a3d41}
-.zo-txt p+p{margin-top:16px}
-.zo-feit{display:flex;gap:44px;margin-top:52px;padding-top:28px;border-top:1px solid var(--lineD)}
-.zo-feit div{font-size:14px;color:#55595e;line-height:1.45}
-.zo-feit b{display:block;font:800 22px/1.1 'Archivo',sans-serif;font-stretch:125%;color:var(--ink);margin-bottom:6px;text-transform:uppercase}
-.zo-a{grid-column:7/13;grid-row:1/3}
-.zo-a img{aspect-ratio:4/5}
-.zo-b{grid-column:1/6;grid-row:2;align-self:end}
-.zo-b img{aspect-ratio:16/11}
-.shot{position:relative}
-.shot>div{overflow:hidden}
-.shot img{width:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-.shot:hover img{transform:scale(1.04)}
-.shot figcaption{display:flex;justify-content:space-between;margin-top:12px;font-size:13px;color:#55595e}
-.shot figcaption b{font-weight:600;color:var(--ink)}
-.zo-quote{grid-column:1/13;grid-row:3;margin-top:8px;font:800 15px/1.2 'Archivo',sans-serif;font-stretch:125%;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:18px}
-.zo-quote::before{content:"";flex:1;height:1px;background:var(--ink)}
+/* band */
+.band{background:var(--ink);border-block:1px solid var(--line);overflow:hidden}
+.band .rij{display:flex;width:max-content;animation:loop 42s linear infinite}
+.band span{font:800 30px/1 'Archivo',sans-serif;font-stretch:125%;text-transform:uppercase;letter-spacing:-.01em;padding:22px 26px;display:flex;align-items:center;gap:52px;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.7)}
+.band span:nth-child(odd){color:#fff;-webkit-text-stroke:0}
+.band span::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--steel)}
+@keyframes loop{to{transform:translateX(-50%)}}
+
+/* werk */
+.werk{background:var(--paper);color:var(--ink);padding:var(--s7) 0 130px}
+.werk-kop{display:grid;grid-template-columns:7fr 5fr;gap:60px;align-items:end;margin-bottom:56px}
+.werk-kop .lbl{color:#6b7075}
+.werk-kop h2{font-size:clamp(44px,5.4vw,84px);margin-top:24px}
+.werk-kop p{font-size:18px;color:#3a3d41;max-width:30em}
+.werk-kop p+p{margin-top:14px}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:360px 360px;gap:16px}
+.tegel{position:relative;overflow:hidden;background:var(--char);border-radius:4px}
+.tegel img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.tegel:hover img{transform:scale(1.045)}
+.tegel figcaption{position:absolute;left:16px;bottom:16px;display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(10,10,11,.72);backdrop-filter:blur(8px);color:#fff;font:600 12px/1 'Geist',sans-serif;letter-spacing:.12em;text-transform:uppercase;border-radius:2px}
+.tegel figcaption span{color:var(--mist);font-weight:500}
+.t1{grid-column:1/7;grid-row:1/3}
+.t1 img{object-position:50% 60%}
+.t2{grid-column:7/13}
+.t3{grid-column:7/10}
+.t3 img{object-position:50% 80%}
+.t4{grid-column:10/13;display:flex;flex-direction:column;justify-content:space-between;padding:28px;background:var(--ink);color:#fff;background-image:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.08) 50%,transparent 60%);background-size:250% 100%;background-position:100% 0;transition:background-position 1.4s var(--ease)}
+.t4:hover{background-position:0 0}
+.t4 q{quotes:none;font:800 30px/1 'Archivo',sans-serif;font-stretch:125%;text-transform:uppercase;letter-spacing:-.01em}
+.t4 small{font:600 11px/1.5 'Geist',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--steel)}
+.feiten{display:grid;grid-template-columns:repeat(3,1fr);margin-top:44px;border-top:1px solid var(--ink)}
+.feiten div{padding:22px 0 0;font-size:14.5px;color:#55595e;line-height:1.45}
+.feiten div+div{padding-left:28px}
+.feiten b{display:block;font:800 22px/1.1 'Archivo',sans-serif;font-stretch:125%;color:var(--ink);margin-bottom:6px;text-transform:uppercase}
 
 /* tarieven */
-.tar{background:var(--ink);padding:var(--s7) 0 var(--s6)}
-.tar-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:72px}
-.tar-head h2{font-size:clamp(40px,6vw,92px)}
-.tar-head p{max-width:390px;color:rgba(255,255,255,.7);font-size:16px}
-.tar-grid{display:grid;grid-template-columns:5fr 7fr;gap:72px;align-items:start}
-.tar-pic{position:sticky;top:32px}
-.tar-pic img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 88%}
-.tar-pic figcaption{display:flex;justify-content:space-between;margin-top:14px;font-size:13px;color:rgba(255,255,255,.6)}
-.grp{display:grid;grid-template-columns:132px 1fr;gap:28px;padding:34px 0;border-top:1px solid var(--line)}
-.grp:last-child{border-bottom:1px solid var(--line)}
-.grp>img{width:132px;height:100px;object-fit:cover;filter:grayscale(1) contrast(1.05)}
-.grp h3{display:flex;align-items:baseline;gap:16px;font:800 26px/1 'Archivo',sans-serif;font-stretch:125%;text-transform:uppercase;margin-bottom:18px}
-.grp h3 small{font:500 12px/1 'Geist',sans-serif;letter-spacing:.14em;color:var(--steel)}
-.row{display:flex;align-items:baseline;gap:14px;padding:9px 0;font-size:16px;color:rgba(255,255,255,.88)}
+.tar{background:var(--ink);padding:var(--s7) 0 120px}
+.tar-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:60px}
+.tar-head h2{font-size:clamp(56px,8vw,128px)}
+.tar-head p{max-width:400px;color:rgba(255,255,255,.7);font-size:16.5px}
+.kaarten{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.prijs{position:relative;display:flex;flex-direction:column;background:var(--char);border:1px solid var(--line);border-radius:4px;overflow:hidden;transition:border-color .4s,transform .5s var(--ease)}
+.prijs:hover{border-color:rgba(255,255,255,.35);transform:translateY(-4px)}
+.prijs .kop{position:relative;height:190px;overflow:hidden}
+.prijs .kop img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.08) brightness(.8);transition:transform 1.2s var(--ease),filter .6s}
+.prijs:hover .kop img{transform:scale(1.05);filter:grayscale(.4) contrast(1.08) brightness(.85)}
+.prijs .kop::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--char),rgba(20,20,22,0) 70%)}
+.prijs .kop h3{position:absolute;left:28px;bottom:18px;z-index:2;display:flex;align-items:baseline;gap:14px;font:800 34px/1 'Archivo',sans-serif;font-stretch:125%;text-transform:uppercase}
+.prijs .kop h3 small{font:500 12px/1 'Geist',sans-serif;letter-spacing:.14em;color:var(--mist)}
+.prijs .rijen{padding:12px 28px 26px}
+.lak{position:absolute;inset:0;background:radial-gradient(120% 90% at 20% 0%,#3a3f46 0%,#16181b 55%,#0a0a0b 100%)}
+.lak::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.22) 45%,transparent 58%);animation:glans 6s var(--ease) infinite}
+.lak::after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 30% 40%,rgba(255,255,255,.55) 0 2px,transparent 3px),radial-gradient(circle at 70% 25%,rgba(255,255,255,.45) 0 3px,transparent 4px),radial-gradient(circle at 55% 65%,rgba(255,255,255,.5) 0 2px,transparent 3px),radial-gradient(circle at 85% 60%,rgba(255,255,255,.4) 0 2.5px,transparent 3.5px),radial-gradient(circle at 15% 75%,rgba(255,255,255,.4) 0 2px,transparent 3px);background-size:140px 110px;opacity:.7}
+@keyframes glans{0%,30%{transform:translateX(-60%)}70%,100%{transform:translateX(60%)}}
+.prijs.uit{border-color:rgba(255,255,255,.5);box-shadow:0 0 0 1px rgba(255,255,255,.12),0 40px 80px -40px rgba(201,205,209,.35)}
+.prijs.uit .tag{position:absolute;top:18px;right:18px;z-index:2;padding:8px 12px;background:#fff;color:var(--ink);font:600 11px/1 'Geist',sans-serif;letter-spacing:.14em;text-transform:uppercase;border-radius:2px}
+.row{display:flex;align-items:baseline;gap:14px;padding:11px 0;font-size:16px;color:rgba(255,255,255,.88)}
 .row i{flex:1;border-bottom:1px dotted rgba(255,255,255,.25);transform:translateY(-4px)}
-.row span{white-space:nowrap;font-variant-numeric:tabular-nums;color:#fff}
-.row span em{font-style:normal;font-size:12px;color:var(--steel);margin-right:6px;letter-spacing:.06em;text-transform:uppercase}
-.tar-note{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-top:40px;font-size:15px;color:rgba(255,255,255,.7)}
+.row span{white-space:nowrap;font-variant-numeric:tabular-nums;color:#fff;font-weight:600}
+.row span em{font-style:normal;font-weight:400;font-size:12px;color:var(--steel);margin-right:6px;letter-spacing:.06em;text-transform:uppercase}
+.tar-note{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-top:22px;padding:26px 28px;border:1px dashed rgba(255,255,255,.25);border-radius:4px;font-size:16px;color:rgba(255,255,255,.78)}
+.tar-note b{display:block;font:800 22px/1.1 'Archivo',sans-serif;font-stretch:125%;text-transform:uppercase;color:#fff;margin-bottom:4px}
 
 /* review band */
-.rev{position:relative;min-height:640px;display:flex;align-items:center;overflow:hidden}
-.rev>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 50%;filter:grayscale(1)}
-.rev::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,11,.2),rgba(10,10,11,.55) 45%,rgba(10,10,11,.92) 70%)}
+.rev{position:relative;min-height:660px;display:flex;align-items:center;overflow:hidden}
+.rev>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 50%;filter:grayscale(1) contrast(1.05)}
+.rev::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,11,.1),rgba(10,10,11,.75) 40%,rgba(10,10,11,.96) 56%)}
 .rev .wrap{position:relative;display:flex;justify-content:flex-end}
-.rev-box{max-width:600px}
+.rev-box{max-width:620px}
 .rev-box .lbl{color:var(--mist)}
-.rev blockquote{font:600 clamp(26px,2.6vw,38px)/1.22 'Archivo',sans-serif;font-stretch:100%;letter-spacing:-.01em;margin:26px 0 26px}
+.rev .st{display:flex;gap:5px;margin-top:26px}
+.rev .st svg{width:18px;height:18px;fill:#fff}
+.rev blockquote{font:700 clamp(28px,2.8vw,42px)/1.16 'Archivo',sans-serif;font-stretch:100%;letter-spacing:-.015em;margin:20px 0 26px}
 .rev cite{font-style:normal;font-size:15px;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:14px}
 .rev cite::before{content:"";width:28px;height:1px;background:#fff}
-.rev-src{margin-top:48px;display:flex;gap:40px;padding-top:26px;border-top:1px solid var(--line);font-size:14px;color:rgba(255,255,255,.7)}
-.rev-src b{display:block;font:800 30px/1 'Archivo',sans-serif;font-stretch:125%;color:#fff;margin-bottom:6px}
-.rev-box>small{display:block;margin-top:22px;font-size:11px;color:rgba(255,255,255,.4)}
+.rev-src{margin-top:48px;display:flex;gap:44px;padding-top:26px;border-top:1px solid var(--line);font-size:14px;color:rgba(255,255,255,.7)}
+.rev-src b{display:block;font:800 34px/1 'Archivo',sans-serif;font-stretch:125%;color:#fff;margin-bottom:6px}
 
 /* afspraak / footer */
 .foot{background:var(--paper);color:var(--ink);padding:var(--s6) 0 40px;overflow:hidden}
 .af{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
 .af-l{grid-column:1/7}
-.af-l h2{font-size:clamp(38px,5vw,76px)}
-.af-l p{margin:26px 0 34px;max-width:440px;font-size:18px;color:#3a3d41}
+.af-l .lbl{color:#6b7075}
+.af-l h2{font-size:clamp(44px,5.6vw,88px);margin-top:22px}
+.af-l>p{margin:24px 0 0;max-width:440px;font-size:18px;color:#3a3d41}
+.mee{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:30px 0 34px;max-width:560px}
+.mee div{padding:18px 16px;background:#fff;border:1px solid var(--lineD);border-radius:4px;font-size:14.5px;color:#3a3d41}
+.mee b{display:block;font:800 26px/1 'Archivo',sans-serif;font-stretch:125%;color:var(--ink);margin-bottom:10px}
 .af-r{grid-column:8/13;display:grid;gap:0;border-top:1px solid var(--ink)}
-.af-r a,.af-r div{display:grid;grid-template-columns:120px 1fr auto;align-items:center;gap:18px;padding:20px 0;border-bottom:1px solid var(--lineD);font-size:17px}
+.af-r a,.af-r div{display:grid;grid-template-columns:120px 1fr auto;align-items:center;gap:18px;padding:22px 0;border-bottom:1px solid var(--lineD);font-size:17px;transition:padding .4s var(--ease)}
+.af-r a:hover{padding-left:8px}
 .af-r .lbl{color:#6b7075;font-size:11px}
 .af-r svg{width:18px;height:18px;transition:transform .3s var(--ease)}
 .af-r a:hover svg{transform:translateX(4px)}
@@ -152,8 +177,9 @@ a{color:inherit;text-decoration:none}
 @media (max-width:1100px){
   .menu{display:none}
   .hero-bot .wrap{grid-template-columns:1fr auto}.h-cap{display:none}.hero-bot p{max-width:400px}
-  .zo-txt{grid-column:1/-1}.zo-a{grid-column:1/8;grid-row:2}.zo-b{grid-column:8/13;grid-row:2}.zo-quote{grid-column:1/-1}
-  .tar-grid{grid-template-columns:1fr;gap:48px}.tar-pic{position:relative;top:0}.tar-pic img{aspect-ratio:16/10}
+  .werk-kop{grid-template-columns:1fr;gap:24px}
+  .bento{grid-template-rows:300px 300px}
+  .t4 q{font-size:24px}
   .tar-head{flex-direction:column;align-items:flex-start}
   .rev::before{background:rgba(10,10,11,.72)}
   .af-l,.af-r{grid-column:1/-1}
@@ -182,19 +208,33 @@ a{color:inherit;text-decoration:none}
   .h-bg::after{background:linear-gradient(180deg,var(--ink),rgba(10,10,11,0) 22%)}
   .h-auto{top:auto;bottom:0;height:auto;aspect-ratio:5/4;z-index:3}
   .h-licht,.h-vloer{display:none}
-  .zo{padding:var(--s6) 0}
-  .zo-grid{row-gap:28px}.zo-a,.zo-b{grid-column:1/-1;grid-row:auto}.zo-quote{grid-row:auto}
-  .zo-feit{gap:24px;flex-wrap:wrap}
+  .band span{font-size:22px;padding:16px 18px;gap:34px}
+  .werk{padding:var(--s6) 0}
+  .werk-kop{margin-bottom:34px}
+  .bento{grid-template-columns:1fr 1fr;grid-template-rows:auto;gap:10px}
+  .t1{grid-column:1/3;grid-row:auto;aspect-ratio:4/5}
+  .t2{grid-column:1/3;aspect-ratio:4/3}
+  .t3{grid-column:1/2;aspect-ratio:3/4}
+  .t4{grid-column:2/3;padding:18px}
+  .t4 q{font-size:19px}
+  .tegel figcaption{left:10px;bottom:10px;padding:8px 10px;font-size:10px}
+  .feiten{grid-template-columns:1fr;border-top:0}
+  .feiten div,.feiten div+div{padding:16px 0;border-top:1px solid var(--lineD)}
   .tar{padding:var(--s6) 0}
-  .tar-head{margin-bottom:44px}
-  .grp{grid-template-columns:76px 1fr;gap:16px;padding:26px 0}
-  .grp>img,.grp>.grp-n{width:76px!important;height:76px!important;font-size:9px!important}
-  .grp h3{font-size:22px}
+  .tar-head{margin-bottom:36px}
+  .kaarten{grid-template-columns:1fr;gap:14px}
+  .prijs .kop{height:150px}
+  .prijs .kop h3{left:20px;font-size:28px}
+  .prijs .rijen{padding:8px 20px 20px}
   .row{font-size:15px}
-  .tar-note{flex-direction:column;align-items:stretch}
+  .tar-note{flex-direction:column;align-items:stretch;padding:22px 20px}
   .tar-note .btn{justify-content:center}
   .rev{min-height:0;padding:var(--s6) 0}
+  .rev::before{background:rgba(10,10,11,.84)}
+  .tar-head h2{font-size:14vw}
+  .werk-kop h2{font-size:11vw}
   .rev-src{gap:24px;flex-wrap:wrap}
+  .mee{grid-template-columns:1fr}
   .af-r a,.af-r div{grid-template-columns:96px 1fr auto;font-size:15px}
   .af .btn{width:100%;justify-content:center}
   .legal{flex-direction:column}
@@ -207,7 +247,7 @@ a{color:inherit;text-decoration:none}
 <header class="nav">
   <div class="wrap">
     <a href="#top" class="logo" aria-label="BG Car Cleaning"><b>BG</b><span>CAR<br>CLEANING</span></a>
-    <nav class="menu"><a href="#aanpak">Aanpak</a><a href="#tarieven">Tarieven</a><a href="#reviews">Reviews</a><a href="#afspraak">Afspraak</a></nav>
+    <nav class="menu"><a href="#werk">Ons werk</a><a href="#tarieven">Tarieven</a><a href="#reviews">Reviews</a><a href="#afspraak">Afspraak</a></nav>
     <a class="btn btn-o" href="https://wa.me/32477819162"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>Afspraak maken</a>
   </div>
 </header>
@@ -242,68 +282,75 @@ a{color:inherit;text-decoration:none}
   </div>
 </section>
 
-<section class="zo" id="aanpak">
-  <div class="wrap zo-grid">
-    <div class="zo-txt" data-r>
-      <span class="lbl">01 / Onze aanpak</span>
-      <h2 class="dsp">Geen snelle oplossingen, maar duurzame resultaten</h2>
-      <p>Bij ons rijdt je wagen niet door een straat met borstels. Alles gebeurt met de hand, paneel per paneel, tot de lak terug diep en helder staat.</p>
-      <p>We werken enkel op afspraak. Zo heeft elke wagen de tijd die hij nodig heeft, of het nu je eigen auto is of een wagen van de zaak.</p>
-      <div class="zo-feit">
-        <div><b>Op afspraak</b>Particulier en zakelijk</div>
-        <div><b>Maaseik</b>Jagersborgweg 2A</div>
+<div class="band" aria-hidden="true"><div class="rij">
+  <span>Handwas</span><span>Polijsten</span><span>Ceramic coating</span><span>Interieur</span><span>Op afspraak</span><span>Particulier en zakelijk</span>
+  <span>Handwas</span><span>Polijsten</span><span>Ceramic coating</span><span>Interieur</span><span>Op afspraak</span><span>Particulier en zakelijk</span>
+</div></div>
+
+<section class="werk" id="werk">
+  <div class="wrap">
+    <div class="werk-kop" data-r>
+      <div><span class="lbl">01 / Uit ons werk</span><h2 class="dsp">Met de hand.<br>Paneel per paneel.</h2></div>
+      <div>
+        <p>Bij ons rijdt je wagen niet door een straat met borstels. Alles gebeurt met de hand, tot de lak terug diep en helder staat.</p>
+        <p>We werken enkel op afspraak. Zo krijgt elke wagen de tijd die hij nodig heeft, of het nu je eigen auto is of een wagen van de zaak.</p>
       </div>
     </div>
-    <figure class="shot zo-a" data-r><div><img src="img/gt4rs.webp" alt="Achterkant van een grijze Porsche GT4 RS met grote spoiler" loading="lazy" width="1200" height="1350"></div><figcaption><b>Porsche GT4 RS</b><span>Uit ons werk</span></figcaption></figure>
-    <figure class="shot zo-b" data-r><div><img src="img/audi.webp" alt="Grijze Audi Q8 voor de poort van BG Car Cleaning" loading="lazy" width="1400" height="1030"></div><figcaption><b>Audi Q8</b><span>Uit ons werk</span></figcaption></figure>
-    <div class="zo-quote" data-r>Luxury is in the details</div>
+    <div class="bento">
+      <figure class="tegel t1" data-r><img src="img/gt4rs.webp" alt="Achterkant van een grijze Porsche GT4 RS met grote spoiler" loading="lazy" width="1200" height="1350"><figcaption>Porsche GT4 RS <span>· uit ons werk</span></figcaption></figure>
+      <figure class="tegel t2" data-r><img src="img/audi.webp" alt="Grijze Audi Q8 voor de poort van BG Car Cleaning" loading="lazy" width="1400" height="1030"><figcaption>Audi Q8 <span>· uit ons werk</span></figcaption></figure>
+      <figure class="tegel t3" data-r><img src="img/bmw-x5.webp" alt="Zwarte BMW X5 die glanst voor de garagepoort" loading="lazy" width="1200" height="1200"><figcaption>BMW X5</figcaption></figure>
+      <div class="tegel t4" data-r><small>BG Car Cleaning</small><q>Luxury is in the details</q></div>
+    </div>
+    <div class="feiten" data-r>
+      <div><b>Op afspraak</b>Elke wagen krijgt zijn moment</div>
+      <div><b>Particulier en zakelijk</b>Ook voor de bedrijfsvloot</div>
+      <div><b>Maaseik</b>Jagersborgweg 2A/2</div>
+    </div>
   </div>
 </section>
 
 <section class="tar" id="tarieven">
   <div class="wrap">
     <div class="tar-head" data-r>
-      <h2 class="dsp">Tarieven</h2>
+      <div><span class="lbl" style="color:var(--mist)">02 / Tarieven</span><h2 class="dsp" style="margin-top:22px">Tarieven</h2></div>
       <p>Dit zijn vanafprijzen. Wat het precies wordt, hangt af van je wagen en hoe hij erbij staat. Stuur gerust een foto, dan krijg je een eerlijke prijs.</p>
     </div>
-    <div class="tar-grid">
-      <figure class="tar-pic" data-r><img src="img/bmw-x5.webp" alt="Zwarte BMW X5 die glanst voor de garagepoort" loading="lazy" width="1200" height="1200"><figcaption><span>BMW X5</span><span>Uit ons werk</span></figcaption></figure>
-      <div>
-        <div class="grp" data-r>
-          <img src="img/stock-schuim.webp" alt="" loading="lazy" width="800" height="533">
-          <div><h3><small>01</small>Wassen</h3>
-            <div class="row">Premium handwas<i></i><span><em>vanaf</em>€ 125</span></div>
-            <div class="row">Onderhoudswas, binnen 4 weken<i></i><span><em>vanaf</em>€ 75</span></div>
-          </div>
+    <div class="kaarten">
+      <article class="prijs" data-r>
+        <div class="kop"><img src="img/stock-schuim.webp" alt="" loading="lazy" width="800" height="533"><h3><small>01</small>Wassen</h3></div>
+        <div class="rijen">
+          <div class="row">Premium handwas<i></i><span><em>vanaf</em>€ 125</span></div>
+          <div class="row">Onderhoudswas, binnen 4 weken<i></i><span><em>vanaf</em>€ 75</span></div>
         </div>
-        <div class="grp" data-r>
-          <img src="img/stock-leder.webp" alt="" loading="lazy" width="800" height="720">
-          <div><h3><small>02</small>Interieur</h3>
-            <div class="row">Dieptereiniging<i></i><span><em>vanaf</em>€ 200</span></div>
-            <div class="row">Ontgeuren<i></i><span><em>vanaf</em>€ 70</span></div>
-            <div class="row">Coating leder, stof, alcantara of matten<i></i><span><em>vanaf</em>€ 170</span></div>
-          </div>
+      </article>
+      <article class="prijs" data-r>
+        <div class="kop"><img src="img/stock-polijsten.webp" alt="" loading="lazy" width="800" height="533"><h3><small>02</small>Polijsten</h3></div>
+        <div class="rijen">
+          <div class="row">Light polish<i></i><span><em>vanaf</em>€ 495</span></div>
+          <div class="row">Heavy polish<i></i><span><em>vanaf</em>€ 845</span></div>
         </div>
-        <div class="grp" data-r>
-          <img src="img/stock-polijsten.webp" alt="" loading="lazy" width="800" height="533">
-          <div><h3><small>03</small>Polijsten</h3>
-            <div class="row">Light polish<i></i><span><em>vanaf</em>€ 495</span></div>
-            <div class="row">Heavy polish<i></i><span><em>vanaf</em>€ 845</span></div>
-          </div>
+      </article>
+      <article class="prijs" data-r>
+        <div class="kop"><img src="img/stock-leder.webp" alt="" loading="lazy" width="800" height="720" style="object-position:50% 40%"><h3><small>03</small>Interieur</h3></div>
+        <div class="rijen">
+          <div class="row">Dieptereiniging<i></i><span><em>vanaf</em>€ 200</span></div>
+          <div class="row">Ontgeuren<i></i><span><em>vanaf</em>€ 70</span></div>
+          <div class="row">Coating leder, stof, alcantara of matten<i></i><span><em>vanaf</em>€ 170</span></div>
         </div>
-        <div class="grp" data-r>
-          <div class="grp-n" style="width:132px;height:100px;background:var(--coal);display:grid;place-items:center;font:800 13px/1.2 'Archivo',sans-serif;font-stretch:125%;letter-spacing:.14em;color:var(--mist);text-align:center">CERAMIC<br>COATING</div>
-          <div><h3><small>04</small>Coating</h3>
-            <div class="row">Base coating<i></i><span><em>vanaf</em>€ 500</span></div>
-            <div class="row">Topcoating<i></i><span><em>vanaf</em>€ 300</span></div>
-            <div class="row">Velgen<i></i><span><em>vanaf</em>€ 250</span></div>
-            <div class="row">Ramen<i></i><span><em>vanaf</em>€ 60</span></div>
-            <div class="row">Cabriodak<i></i><span><em>vanaf</em>€ 120</span></div>
-          </div>
+      </article>
+      <article class="prijs uit" data-r>
+        <div class="kop"><div class="lak" aria-hidden="true"></div><span class="tag">Ceramic</span><h3><small>04</small>Coating</h3></div>
+        <div class="rijen">
+          <div class="row">Base coating<i></i><span><em>vanaf</em>€ 500</span></div>
+          <div class="row">Topcoating<i></i><span><em>vanaf</em>€ 300</span></div>
+          <div class="row">Velgen<i></i><span><em>vanaf</em>€ 250</span></div>
+          <div class="row">Ramen<i></i><span><em>vanaf</em>€ 60</span></div>
+          <div class="row">Cabriodak<i></i><span><em>vanaf</em>€ 120</span></div>
         </div>
-        <div class="tar-note" data-r><span>Twijfel je wat je wagen nodig heeft? Vraag het gewoon.</span><a class="btn btn-w" href="https://wa.me/32477819162">Vraag een prijs</a></div>
-      </div>
+      </article>
     </div>
+    <div class="tar-note" data-r><div><b>Twijfel je wat je wagen nodig heeft?</b>Stuur een foto, dan zeggen we eerlijk wat zinvol is.</div><a class="btn btn-w" href="https://wa.me/32477819162"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>Vraag een prijs</a></div>
   </div>
 </section>
 
@@ -312,6 +359,7 @@ a{color:inherit;text-decoration:none}
   <div class="wrap">
     <div class="rev-box" data-r>
       <span class="lbl">Wat klanten zeggen</span>
+      <div class="st" aria-label="5 sterren"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></div>
       <blockquote>"Top werk geleverd en tot in de puntjes verzorgd, de auto heeft nog nooit zo geblonken. Echte vakmensen!"</blockquote>
       <cite>R. S.</cite>
       <div class="rev-src">
@@ -327,8 +375,14 @@ a{color:inherit;text-decoration:none}
   <div class="wrap">
     <div class="af">
       <div class="af-l" data-r>
+        <span class="lbl">03 / Afspraak</span>
         <h2 class="dsp">Plan je afspraak</h2>
-        <p>Stuur ons een berichtje met je wagen en wat je graag gedaan ziet. We spreken samen een moment af.</p>
+        <p>Stuur ons een berichtje en we spreken samen een moment af. Dit helpt ons om je meteen juist te antwoorden:</p>
+        <div class="mee">
+          <div><b>1</b>Merk en model van je wagen</div>
+          <div><b>2</b>Een foto van hoe hij erbij staat</div>
+          <div><b>3</b>Wat je graag gedaan ziet</div>
+        </div>
         <a class="btn btn-k" href="https://wa.me/32477819162"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>WhatsApp 0477 81 91 62</a>
       </div>
       <div class="af-r" data-r>
