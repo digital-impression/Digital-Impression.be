@@ -9,307 +9,353 @@
 <style>
 @font-face{font-family:'Bodoni Moda';font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/bodoni.woff2) format('woff2')}
 @font-face{font-family:'Jost';font-style:normal;font-weight:300 600;font-display:swap;src:url(fonts/jost.woff2) format('woff2')}
-:root{--ink:#1b1c1e;--ink2:#26272a;--ivory:#f4efe6;--paper:#faf7f1;--line:rgba(244,239,230,.22);--line-d:rgba(27,28,30,.16);--muted:rgba(244,239,230,.68);--muted-d:#5d5a55;--rasp:#c4223a;--ease:cubic-bezier(.2,.8,.2,1)}
+:root{--ink:#18191b;--ink2:#222326;--ivory:#f4efe6;--paper:#faf7f1;--sand:#efe7da;--line:rgba(244,239,230,.2);--line2:rgba(244,239,230,.34);--line-d:rgba(24,25,27,.14);--muted:rgba(244,239,230,.7);--muted-d:#615d57;--rasp:#c4223a;--crust:#b9864e;--ease:cubic-bezier(.2,.8,.2,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font:300 17px/1.65 'Jost',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--paper);color:var(--ink);font:300 17px/1.7 'Jost',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit}
-.serif{font-family:'Bodoni Moda',Georgia,serif;font-weight:500;letter-spacing:-.01em}
-.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
-.lbl{font:500 12px/1 'Jost',sans-serif;letter-spacing:.32em;text-transform:uppercase}
+.serif{font-family:'Bodoni Moda',Georgia,serif;font-weight:400;letter-spacing:-.015em}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
 .demo{background:var(--ink);color:var(--muted);font:400 13px/1.4 'Jost',sans-serif;text-align:center;padding:9px 16px;border-bottom:1px solid var(--line);position:relative;z-index:5}
 .demo a{color:var(--ivory);text-underline-offset:3px}
 
-/* knoppen: rechthoek met een lijn die doorloopt, zoals de lijnen van het logo */
-.btn{position:relative;display:inline-flex;align-items:center;gap:14px;padding:16px 26px;font:500 13px/1 'Jost',sans-serif;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:1px solid currentColor;transition:background .35s var(--ease),color .35s var(--ease)}
-.btn::after{content:"";width:28px;height:1px;background:currentColor;transition:width .35s var(--ease)}
-.btn:hover::after{width:44px}
-.btn.fill{background:var(--ivory);color:var(--ink);border-color:var(--ivory)}
-.btn.fill:hover{background:transparent;color:var(--ivory)}
-.btn.ghost{color:var(--ivory)}
-.btn.ghost:hover{background:var(--ivory);color:var(--ink)}
-.btn.dark{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
-.btn.dark:hover{background:transparent;color:var(--ink)}
+/* klein label met ruitje, zoals een etiket op een taartdoos */
+.kick{display:inline-flex;align-items:center;gap:14px;font:500 12px/1 'Jost',sans-serif;letter-spacing:.34em;text-transform:uppercase;color:var(--muted-d)}
+.kick::before{content:"";width:7px;height:7px;border:1px solid var(--rasp);transform:rotate(45deg);flex:none}
+.on-ink .kick{color:var(--muted)}
+/* sierlijn met ruit in het midden */
+.orn{display:flex;align-items:center;gap:14px;color:var(--rasp)}
+.orn::before,.orn::after{content:"";height:1px;flex:1;background:currentColor;opacity:.35}
+.orn i{width:7px;height:7px;background:currentColor;transform:rotate(45deg)}
 
-/* HERO */
+/* knoppen: dubbele fijne rand, zoals een lint rond een taartdoos */
+.btn{position:relative;display:inline-flex;align-items:center;gap:14px;padding:17px 28px;font:500 12.5px/1 'Jost',sans-serif;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;border:1px solid currentColor;outline:1px solid currentColor;outline-offset:4px;transition:background .4s var(--ease),color .4s var(--ease),outline-offset .4s var(--ease)}
+.btn:hover{outline-offset:0}
+.btn svg{width:15px;height:15px;transition:transform .4s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn.fill{background:var(--ivory);color:var(--ink);border-color:var(--ivory);outline-color:rgba(244,239,230,.55)}
+.btn.fill:hover{background:var(--rasp);border-color:var(--rasp);color:#fff;outline-color:var(--rasp)}
+.btn.ghost{color:var(--ivory);outline-color:transparent}
+.btn.ghost:hover{background:var(--ivory);color:var(--ink);outline-color:var(--ivory)}
+.btn.dark{background:var(--ink);color:var(--ivory);border-color:var(--ink);outline-color:rgba(24,25,27,.4)}
+.btn.dark:hover{background:var(--rasp);border-color:var(--rasp);outline-color:var(--rasp)}
+.btn.line{color:var(--ink);outline-color:transparent}
+.btn.line:hover{background:var(--ink);color:var(--ivory);outline-color:var(--ink)}
+
+/* HERO: één vlak met een fijne kader, foto en tekst erbinnen */
 .hero{position:relative;background:var(--ink);color:var(--ivory);overflow:hidden;isolation:isolate}
-.nav{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px clamp(20px,4vw,56px);border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
-.brand img{height:44px;width:auto}
-.brand span{display:block;font:500 12px/1.35 'Jost',sans-serif;letter-spacing:.34em;text-transform:uppercase}
-.brand small{display:block;font:300 11px/1.3 'Jost',sans-serif;letter-spacing:.3em;color:var(--muted)}
+.frame{position:absolute;inset:18px;border:1px solid var(--line);z-index:4;pointer-events:none}
+.frame::before,.frame::after{content:"";position:absolute;width:9px;height:9px;border:1px solid var(--line2);background:var(--ink);transform:rotate(45deg)}
+.frame::before{left:-5px;top:-5px}.frame::after{right:-5px;bottom:-5px}
+.nav{position:relative;z-index:5;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;padding:40px clamp(40px,5vw,76px) 0}
 .menu{display:flex;gap:34px;list-style:none}
-.menu a{font:400 13px/1 'Jost',sans-serif;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:color .3s}
+.menu a{font:400 12.5px/1 'Jost',sans-serif;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:color .3s}
 .menu a:hover{color:var(--ivory)}
-.nav .btn{padding:12px 18px;font-size:12px}
-.nav .btn::after{width:18px}
+.brand{display:flex;flex-direction:column;align-items:center;gap:10px;text-decoration:none;text-align:center}
+.brand img{height:54px;width:auto}
+.brand span{font:500 11px/1 'Jost',sans-serif;letter-spacing:.42em;text-transform:uppercase;color:var(--ivory);padding-left:.42em}
+.nav .end{justify-self:end}
+.nav .btn{padding:13px 20px;font-size:11.5px;outline-offset:3px}
 
-.stage{position:relative;display:grid;grid-template-columns:minmax(0,46fr) minmax(0,54fr);min-height:min(780px,calc(100vh - 126px))}
-.stage .photo{position:absolute;top:0;bottom:0;left:34%;right:0;z-index:1}
-.stage .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 38%;-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.35) 14%,#000 30%);mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.35) 14%,#000 30%)}
-.stage .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(27,28,30,.55),transparent 30%)}
-/* de lijnen van het monogram lopen door tekst en foto */
-.vline{position:absolute;top:0;bottom:0;left:calc(38% - 1px);width:1px;background:var(--line);z-index:2}
-.hline{position:absolute;left:0;right:0;top:62%;height:1px;background:var(--line);z-index:2}
-.dot{position:absolute;left:calc(38% - 5px);top:calc(62% - 5px);width:11px;height:11px;border-radius:50%;background:var(--rasp);z-index:3}
-.copy{grid-column:1;grid-row:1;position:relative;z-index:3;padding:clamp(40px,5vw,72px) 0 48px clamp(20px,4vw,56px);display:flex;flex-direction:column;justify-content:space-between;gap:36px}
-.copy .lbl{color:var(--muted)}
-.copy h1{font-family:'Bodoni Moda',Georgia,serif;font-weight:500;font-size:clamp(64px,10.2vw,164px);line-height:.88;letter-spacing:-.025em;margin-top:24px;white-space:nowrap;position:relative;text-shadow:0 2px 40px rgba(27,28,30,.35)}
+.stage{position:static;min-height:min(730px,calc(100vh - 172px));display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.photo{position:absolute;top:0;right:0;bottom:0;width:64%;z-index:1;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:42% 30%;-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.5) 16%,#000 34%);mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.5) 16%,#000 34%);animation:rust 2.4s var(--ease) both}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(24,25,27,.82),transparent 32%),linear-gradient(180deg,rgba(24,25,27,.7),transparent 26%)}
+@keyframes rust{from{transform:scale(1.06);opacity:.4}to{transform:none;opacity:1}}
+.copy{position:relative;z-index:3;grid-column:1;align-self:center;padding:30px 0 130px clamp(40px,5vw,76px)}
+.copy h1{font-family:'Bodoni Moda',Georgia,serif;font-weight:400;font-size:clamp(66px,min(8vw,12.5vh),128px);line-height:.9;letter-spacing:-.03em;margin:26px 0 0;white-space:nowrap}
 .copy h1 span{display:block}
-.copy h1 .r{color:var(--rasp)}
-.copy .low{max-width:560px}
-.copy .low p{max-width:min(440px,31vw)}
-.copy p{color:var(--muted);font-size:18px}
-.copy .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.sig{position:absolute;right:clamp(20px,4vw,56px);bottom:34px;z-index:3;text-align:right;font:300 13px/1.5 'Jost',sans-serif;letter-spacing:.06em;color:var(--muted)}
-.sig b{display:block;font:500 12px/1 'Jost',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--ivory);margin-bottom:8px}
+.copy h1 .r{color:var(--rasp);padding-left:.55em}
+.copy h1 .g{padding-left:.2em}
+.copy .orn{width:220px;margin:min(30px,3vh) 0 min(24px,2.6vh)}
+.copy p{color:var(--muted);font-size:18px;max-width:410px}
+.acts{display:flex;flex-wrap:wrap;gap:16px;margin-top:30px}
+.creds{position:absolute;left:clamp(40px,5vw,76px);right:clamp(40px,5vw,76px);bottom:40px;z-index:3;display:flex;justify-content:space-between;gap:20px;list-style:none;padding-top:22px;border-top:1px solid var(--line)}
+.creds li{font:400 12px/1.4 'Jost',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:12px;white-space:nowrap}
+.creds li b{font-weight:500;color:var(--ivory)}
+.creds li+li::before{content:"";width:5px;height:5px;background:var(--rasp);transform:rotate(45deg);margin-right:8px}
 
-/* erkenningen */
-.marks{background:var(--ink);color:var(--ivory);border-top:1px solid var(--line)}
-.marks ul{list-style:none;display:grid;grid-template-columns:repeat(4,1fr)}
-.marks li{padding:26px 24px;border-left:1px solid var(--line);font:300 15px/1.45 'Jost',sans-serif;color:var(--muted)}
-.marks li:first-child{border-left:0;padding-left:0}
-.marks li b{display:block;font-family:'Bodoni Moda',Georgia,serif;font-weight:500;font-size:22px;color:var(--ivory);margin-bottom:4px;letter-spacing:0}
+/* secties */
+.sec{padding:clamp(90px,11vw,160px) 0}
+h2.serif{font-size:clamp(46px,5.6vw,84px);line-height:.98}
+.lead{font-size:19px;color:var(--muted-d);max-width:460px}
 
 /* PLOTERTAART */
-.sec{padding:clamp(80px,11vw,150px) 0}
-.ploter{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,7vw,110px);align-items:center}
-.ploter figure{position:relative;background:#efe8dc;aspect-ratio:1/1.02;display:grid;place-items:center;overflow:hidden}
-.ploter figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-.ploter figure:hover img{transform:scale(1.03)}
-.ploter figure::before{content:"";position:absolute;inset:18px;border:1px solid rgba(250,247,241,.7);z-index:2;pointer-events:none}
-.ploter figcaption{position:absolute;left:18px;bottom:18px;z-index:3;background:var(--paper);padding:12px 16px;font:400 12px/1 'Jost',sans-serif;letter-spacing:.24em;text-transform:uppercase}
-.num{display:flex;align-items:center;gap:16px;color:var(--muted-d)}
-.num::after{content:"";flex:1;height:1px;background:var(--line-d)}
-.ploter h2{font-size:clamp(46px,6vw,88px);line-height:.95;margin:22px 0 22px}
-.ploter h2 em{font-style:normal;color:var(--rasp)}
-.ploter p.lead{font-size:19px;color:var(--muted-d);max-width:470px}
-.layers{list-style:none;margin:34px 0 34px;border-top:1px solid var(--line-d)}
-.layers li{display:grid;grid-template-columns:42px 1fr auto;align-items:center;padding:13px 0;border-bottom:1px solid var(--line-d);font-size:17px;transition:padding .3s var(--ease)}
-.layers li:hover{padding-left:8px}
-.layers li span{font:400 12px/1 'Jost',sans-serif;letter-spacing:.2em;color:var(--muted-d)}
-.layers li i{font-style:normal;width:46px;height:8px;border-radius:2px}
-.ice{margin-top:22px;font-size:15px;color:var(--muted-d)}
-.ice b{font-weight:500;color:var(--ink)}
+.ploter{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1fr);gap:clamp(48px,8vw,130px);align-items:center}
+.arch{position:relative;padding:16px}
+.arch::before{content:"";position:absolute;inset:0;border:1px solid var(--line-d);border-radius:999px 999px 0 0}
+.arch .in{position:relative;border-radius:999px 999px 0 0;overflow:hidden;aspect-ratio:4/5;background:var(--sand)}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:50% 70%;transition:transform 1.6s var(--ease)}
+.arch:hover img{transform:scale(1.04)}
+.arch .tag{position:absolute;left:50%;bottom:-1px;transform:translate(-50%,50%);z-index:2;background:var(--paper);padding:10px 22px;font:400 12px/1 'Jost',sans-serif;letter-spacing:.26em;text-transform:uppercase;white-space:nowrap;border:1px solid var(--line-d)}
+.ploter h2{margin:24px 0 22px}
+.slice{margin:40px 0 38px;padding:30px 0 26px;border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d)}
+.slice svg{width:100%;max-width:560px;height:auto;display:block;overflow:visible}
+.slice text{font-family:'Jost',sans-serif;font-size:17px;font-weight:300;fill:var(--ink)}
+.slice text.n{font-size:12px;letter-spacing:.2em;fill:var(--muted-d);font-weight:400}
+.slice .lead-l{stroke:rgba(24,25,27,.3);stroke-width:1;fill:none}
+.ice{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;margin-top:34px;padding:20px 22px;background:var(--sand);font-size:15.5px;color:var(--muted-d)}
+.ice b{display:block;font:500 12px/1 'Jost',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);margin-bottom:8px}
+.ice span.d{width:34px;height:34px;border:1px solid var(--rasp);transform:rotate(45deg);margin:6px 6px 0;display:grid;place-items:center}
+.ice span.d::after{content:"";width:10px;height:10px;background:var(--rasp)}
 
-/* AKKER */
+/* DESEM */
 .akker{background:var(--ink);color:var(--ivory)}
-.akker .head{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end;margin-bottom:64px}
-.akker .num{color:var(--muted)}
-.akker .num::after{background:var(--line)}
-.akker h2{font-size:clamp(46px,6vw,92px);line-height:.95;margin-top:22px}
-.akker .head p{color:var(--muted);font-size:18px;max-width:480px}
-.steps{display:grid;grid-template-columns:1.25fr .8fr .8fr 1.25fr;gap:14px;align-items:end}
-.steps figure{position:relative}
-.steps img{width:100%;object-fit:cover;filter:saturate(.9)}
-.steps .s1 img{aspect-ratio:4/5}.steps .s2 img{aspect-ratio:3/4.4}.steps .s3 img{aspect-ratio:3/4.4}.steps .s4 img{aspect-ratio:4/5}
-.steps figcaption{padding-top:16px;border-top:1px solid var(--line);margin-top:16px;font-size:15px;color:var(--muted);line-height:1.5}
-.steps figcaption b{display:block;font:500 12px/1 'Jost',sans-serif;letter-spacing:.26em;text-transform:uppercase;color:var(--ivory);margin-bottom:8px}
-.breads{display:grid;grid-template-columns:1fr 1fr 1.1fr;gap:14px;margin-top:90px}
-.bread{position:relative;background:#141d2c;overflow:hidden}
-.bread img{width:100%;aspect-ratio:1/.86;object-fit:cover;transition:transform 1s var(--ease)}
-.bread:hover img{transform:scale(1.04) rotate(-1deg)}
-.bread div{padding:20px 24px 24px;border-top:1px solid var(--line)}
-.bread h3{font-family:'Bodoni Moda',Georgia,serif;font-weight:500;font-size:38px;line-height:1}
-.bread p{font-size:15px;color:var(--muted);margin-top:6px}
-.bake{border:1px solid var(--line);padding:34px 32px;display:flex;flex-direction:column;justify-content:space-between;gap:26px}
-.bake .big{font-family:'Bodoni Moda',Georgia,serif;font-size:clamp(70px,7vw,112px);line-height:.85}
-.bake .big small{font-size:.32em;letter-spacing:0;margin-left:6px}
+.akker .head{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:end;margin-bottom:70px}
+.akker h2{margin-top:24px}
+.akker .head p{color:var(--muted);font-size:18px;max-width:460px}
+.route{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;position:relative}
+.route figure{position:relative}
+.route .im{overflow:hidden;aspect-ratio:3/4}
+.route img{width:100%;height:100%;object-fit:cover;filter:saturate(.88) contrast(1.02);transition:transform 1.4s var(--ease)}
+.route figure:hover img{transform:scale(1.05)}
+.route figcaption{padding-top:22px;font-size:15.5px;color:var(--muted);line-height:1.55}
+.route figcaption b{display:flex;align-items:baseline;gap:14px;font:400 30px/1 'Bodoni Moda',Georgia,serif;color:var(--ivory);margin-bottom:12px;letter-spacing:-.01em}
+.route figcaption b small{font:400 20px/1 'Bodoni Moda',Georgia,serif;color:var(--crust);min-width:1.6em}
+.route .im{border-top:1px solid var(--line2)}
+.breads{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:18px;margin-top:clamp(80px,9vw,120px)}
+.bread{position:relative;background:#121a27;overflow:hidden;display:flex;flex-direction:column}
+.bread .im{overflow:hidden}
+.bread img{width:100%;aspect-ratio:1/.82;object-fit:cover;transition:transform 1.2s var(--ease)}
+.bread:hover img{transform:scale(1.05)}
+.bread div.t{padding:24px 26px 28px;border-top:1px solid var(--line);flex:1}
+.bread h3{font:400 40px/1 'Bodoni Moda',Georgia,serif;letter-spacing:-.01em}
+.bread p{font-size:15.5px;color:var(--muted);margin-top:10px}
+.bake{position:relative;border:1px solid var(--line2);outline:1px solid var(--line);outline-offset:-10px;padding:40px 36px;display:flex;flex-direction:column;justify-content:space-between;gap:28px}
+.bake .big{font:400 clamp(88px,8vw,124px)/.85 'Bodoni Moda',Georgia,serif;letter-spacing:-.03em}
+.bake .big small{font-size:.28em;letter-spacing:.02em;margin-left:8px;color:var(--muted)}
 .bake p{color:var(--muted);font-size:16px}
-.bake h3{font:500 12px/1 'Jost',sans-serif;letter-spacing:.28em;text-transform:uppercase}
 
 /* ATELIER */
-.atelier .grid{display:grid;grid-template-columns:1.25fr .75fr .9fr;grid-template-rows:auto auto;gap:14px}
-.atelier .grid img{width:100%;height:100%;object-fit:cover}
-.atelier .a1{grid-row:1/3}
-.atelier .a2{aspect-ratio:1/1}
-.atelier .a3{grid-row:1/3}
-.atelier .a4{aspect-ratio:1/1}
-.atelier .intro{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end;margin-bottom:56px}
-.atelier h2{font-size:clamp(46px,6vw,92px);line-height:.95;margin-top:22px}
-.atelier .intro p{font-size:18px;color:var(--muted-d);max-width:480px}
-.quote{display:grid;grid-template-columns:auto 1fr;gap:clamp(30px,5vw,80px);align-items:start;margin-top:clamp(70px,9vw,120px);padding-top:56px;border-top:1px solid var(--line-d)}
-.quote .score{font-family:'Bodoni Moda',Georgia,serif;font-size:clamp(80px,9vw,140px);line-height:.8}
-.quote .score small{display:block;font:400 12px/1.4 'Jost',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--muted-d);margin-top:18px}
-.quote blockquote{font-family:'Bodoni Moda',Georgia,serif;font-size:clamp(28px,3vw,44px);line-height:1.18;max-width:860px}
-.quote cite{display:block;font:400 13px/1 'Jost',sans-serif;letter-spacing:.22em;text-transform:uppercase;font-style:normal;color:var(--muted-d);margin-top:22px}
-.more{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:44px}
-.more p{font-size:16px;color:var(--muted-d)}
-.more cite{display:block;font:400 12px/1 'Jost',sans-serif;letter-spacing:.22em;text-transform:uppercase;font-style:normal;margin-top:12px;color:var(--ink)}
+.atelier .intro{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end;margin-bottom:60px}
+.atelier h2{margin-top:24px}
+.atelier .intro p{font-size:18px;color:var(--muted-d);max-width:470px}
+.gal{display:grid;grid-template-columns:1.3fr .85fr .85fr;grid-template-rows:1fr 1fr;gap:18px;height:min(70vw,760px)}
+.gal figure{position:relative;overflow:hidden;background:var(--sand)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
+.gal figure:hover img{transform:scale(1.04)}
+.gal .g1{grid-row:1/3}
+.gal .g4{grid-column:2/4}
+.gal figcaption{position:absolute;left:16px;bottom:16px;background:var(--paper);padding:9px 14px;font:400 11.5px/1 'Jost',sans-serif;letter-spacing:.24em;text-transform:uppercase}
+.starter{margin-top:20px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;padding:24px 0;border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);font-size:16px;color:var(--muted-d)}
+.starter b{font:500 12px/1 'Jost',sans-serif;letter-spacing:.26em;text-transform:uppercase;color:var(--ink)}
+
+/* REVIEWS */
+.word{background:var(--sand);text-align:center}
+.word .score{display:inline-flex;flex-direction:column;align-items:center;gap:14px}
+.word .score b{font:400 clamp(70px,7vw,104px)/.85 'Bodoni Moda',Georgia,serif;letter-spacing:-.03em}
+.word .score span{font:500 12px/1 'Jost',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--muted-d)}
+.word .orn{max-width:280px;margin:40px auto}
+.word blockquote{font:400 clamp(28px,3.1vw,46px)/1.22 'Bodoni Moda',Georgia,serif;letter-spacing:-.01em;max-width:900px;margin:0 auto;text-wrap:balance}
+.word cite{display:block;font:500 12px/1 'Jost',sans-serif;letter-spacing:.28em;text-transform:uppercase;font-style:normal;color:var(--muted-d);margin-top:26px}
+.word .more{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:64px;text-align:left}
+.word .more div{background:var(--paper);padding:30px 32px;border:1px solid var(--line-d);outline:1px solid var(--line-d);outline-offset:-8px}
+.word .more p{font-size:16.5px;color:var(--muted-d)}
+.word .more cite{margin-top:16px;color:var(--ink)}
 
 /* BEZOEK */
-.visit{background:#ece5d9}
-.visit .vin{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,96px);align-items:stretch}
-.visit figure{position:relative;min-height:560px}
-.visit figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.visit h2{font-size:clamp(46px,6vw,92px);line-height:.95;margin:22px 0 36px}
-.hours{list-style:none;border-top:1px solid var(--line-d)}
-.hours li{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line-d);font-size:19px}
-.hours li span:last-child{font-family:'Bodoni Moda',Georgia,serif;font-size:22px}
-.note{font-size:15px;color:var(--muted-d);margin-top:16px}
-.contact{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:40px 0}
+.visit{background:var(--ink);color:var(--ivory)}
+.visit .vin{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr);gap:clamp(48px,7vw,110px);align-items:center}
+.visit figure{position:relative;padding:16px}
+.visit figure::before{content:"";position:absolute;inset:0;border:1px solid var(--line);border-radius:999px 999px 0 0}
+.visit figure .in{border-radius:999px 999px 0 0;overflow:hidden;aspect-ratio:3/4.1}
+.visit figure img{width:100%;height:100%;object-fit:cover;object-position:30% 50%}
+.visit h2{margin:24px 0 38px}
+.hours{list-style:none;border-top:1px solid var(--line)}
+.hours li{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);font-size:18px;color:var(--muted)}
+.hours li span:last-child{font:400 26px/1 'Bodoni Moda',Georgia,serif;color:var(--ivory)}
+.note{font-size:15px;color:var(--muted);margin-top:18px}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:44px 0 40px}
 .contact div{font-size:17px}
-.contact .lbl{display:block;color:var(--muted-d);margin-bottom:10px;font-size:11px}
-.contact a{text-decoration:none;border-bottom:1px solid var(--line-d)}
-.visit .acts{display:flex;flex-wrap:wrap;gap:12px}
-.side{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:44px}
-.side div{background:var(--paper);padding:22px 22px;font-size:15px;color:var(--muted-d)}
-.side b{display:block;color:var(--ink);font:500 12px/1 'Jost',sans-serif;letter-spacing:.24em;text-transform:uppercase;margin-bottom:10px}
+.contact small{display:block;font:500 11px/1 'Jost',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--crust);margin-bottom:12px}
+.contact a{text-decoration:none;border-bottom:1px solid var(--line)}
+.contact a:hover{border-color:var(--ivory)}
 
 /* FOOTER */
-footer{background:var(--ink);color:var(--ivory);padding:90px 0 36px}
-footer .top{display:grid;grid-template-columns:auto 1fr auto;gap:60px;align-items:start;padding-bottom:56px;border-bottom:1px solid var(--line)}
-footer .top img{height:120px;width:auto}
-footer .big{font-family:'Bodoni Moda',Georgia,serif;font-size:clamp(40px,5vw,72px);line-height:1}
-footer .big span{color:var(--rasp)}
-footer ul{list-style:none;font-size:15px;line-height:2;color:var(--muted)}
-footer ul a{text-decoration:none}
+footer{background:var(--ink);color:var(--ivory);padding:0 0 36px}
+footer .top{display:grid;grid-template-columns:auto 1fr auto;gap:60px;align-items:center;padding:70px 0 56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+footer .top img{height:112px;width:auto}
+footer .big{font:400 clamp(40px,5vw,72px)/1 'Bodoni Moda',Georgia,serif;letter-spacing:-.02em}
+footer ul{list-style:none;font-size:15px;line-height:2.1;color:var(--muted)}
+footer ul a{text-decoration:none;transition:color .3s}
 footer ul a:hover{color:var(--ivory)}
 footer .bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:26px;font-size:13px;color:var(--muted);letter-spacing:.04em}
 
 /* beweging, enkel met JS */
-.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js .reveal{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .js .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}}
+.js .reveal.d2{transition-delay:.12s}.js .reveal.d3{transition-delay:.24s}.js .reveal.d4{transition-delay:.36s}
+@media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}.photo img{animation:none}}
 
-@media (max-width:1100px){
+@media (max-width:1360px){.creds li:nth-child(4){display:none}}
+@media (max-width:1180px){
   .menu{display:none}
-  .marks ul{grid-template-columns:1fr 1fr}
-  .marks li:nth-child(3){border-left:0;padding-left:0}
-  .marks li{border-top:1px solid var(--line)}
-  .marks li:nth-child(-n+2){border-top:0}
+  .nav{grid-template-columns:1fr auto 1fr}
+  .creds li{letter-spacing:.14em}
 }
+@media (max-width:1000px) and (min-width:901px){.creds li:nth-child(3){display:none}}
 @media (max-width:900px){
-  .stage{grid-template-columns:1fr;min-height:0}
-  .copy{grid-column:1;grid-row:1;padding:44px 20px 36px}
-  .copy .low p{max-width:none}
-  .copy h1{font-size:clamp(58px,15vw,110px)}
-  .stage .photo{position:relative;left:auto;grid-column:1;grid-row:2;height:min(115vw,620px)}
-  .stage .photo img{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 18%);mask-image:linear-gradient(180deg,transparent 0,#000 18%);object-position:30% 50%}
-  .vline{left:auto;right:28px}
-  .hline,.dot{display:none}
-  .sig{bottom:22px}
+  .frame{inset:12px}
+  .nav{grid-template-columns:auto 1fr;padding:30px 30px 0}
+  .brand{flex-direction:row;gap:12px}
+  .brand img{height:42px}
+  .stage{display:block;min-height:0;margin-top:0}
+  .copy{padding:54px 30px 40px}
+  .copy h1{font-size:clamp(58px,15.5vw,110px)}
+  .copy p{max-width:none}
+  .photo{position:relative;width:auto;height:min(112vw,640px);margin:0 12px 12px}
+  .photo img{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 22%);mask-image:linear-gradient(180deg,transparent 0,#000 22%);object-position:30% 40%}
+  .photo::after{background:linear-gradient(0deg,rgba(24,25,27,.85),transparent 40%)}
+  .creds{position:absolute;left:30px;right:30px;bottom:34px;flex-wrap:wrap;gap:10px 20px;justify-content:flex-start}
+  .creds li+li::before{margin-right:4px}
   .ploter,.akker .head,.atelier .intro,.visit .vin{grid-template-columns:1fr}
-  .ploter figure{aspect-ratio:4/3.4}
-  .steps{grid-template-columns:1fr 1fr}
-  .steps .s1 img,.steps .s4 img,.steps .s2 img,.steps .s3 img{aspect-ratio:4/5}
+  .arch{max-width:520px;width:100%;margin:0 auto;order:2}
+  .route{grid-template-columns:1fr 1fr;gap:28px 14px}
   .breads{grid-template-columns:1fr 1fr}
   .bake{grid-column:1/3}
-  .atelier .grid{grid-template-columns:1fr 1fr}
-  .atelier .a1{grid-row:auto;aspect-ratio:4/5}
-  .atelier .a3{grid-row:auto;aspect-ratio:4/5}
-  .quote{grid-template-columns:1fr}
-  .visit figure{min-height:0;aspect-ratio:4/5;order:2}
-  footer .top{grid-template-columns:1fr;gap:36px}
+  .gal{grid-template-columns:1fr 1fr;grid-template-rows:auto;height:auto}
+  .gal .g1{grid-row:auto;grid-column:1/3;aspect-ratio:4/3.2}
+  .gal .g2,.gal .g3{aspect-ratio:4/5}
+  .gal .g4{grid-column:1/3;aspect-ratio:16/10}
+  .word .more{grid-template-columns:1fr}
+  .visit figure{max-width:460px;width:100%;margin:0 auto;order:2}
+  footer .top{grid-template-columns:1fr;gap:34px}
 }
 @media (max-width:560px){
   body{font-size:16px}
-  .brand img{height:38px}
-  .brand small{display:none}
-  .nav .btn{display:none}
+  .nav{padding:26px 26px 0}
+  .brand span{display:none}
+  .nav .btn{padding:12px 14px;font-size:10.5px;letter-spacing:.18em}
+  .copy{padding:46px 26px 34px}
   .copy h1{white-space:normal}
-  .marks ul{grid-template-columns:1fr}
-  .marks li{border-left:0!important;padding-left:0!important;border-top:1px solid var(--line)!important}
-  .marks li:first-child{border-top:0!important}
-  .steps{grid-template-columns:1fr 1fr;gap:10px}
-  .steps figcaption{font-size:14px}
+  .copy .orn{width:160px;margin:28px 0 22px}
+  .copy p{font-size:17px}
+  .acts .btn{flex:1 1 100%;justify-content:space-between}
+  .creds{left:26px;right:26px;bottom:28px;flex-direction:column;gap:8px;border-top:0;padding-top:0}
+  .creds li{font-size:11px;letter-spacing:.16em}
+  .creds li+li::before{display:none}
+  .creds li:nth-child(n){display:flex;white-space:normal}
+  .slice text{font-size:22px}
+  .slice text.n{display:none}
+  .route{grid-template-columns:1fr 1fr;gap:26px 12px}
+  .route figcaption{font-size:14.5px}
+  .route figcaption b{font-size:24px;gap:10px}
+  .route figcaption b small{font-size:17px;min-width:0}
   .breads{grid-template-columns:1fr}
-  .bake{grid-column:auto}
-  .more,.contact,.side{grid-template-columns:1fr}
-  .layers li{grid-template-columns:36px 1fr auto;font-size:16px}
+  .bake{grid-column:auto;padding:34px 28px}
+  .contact{grid-template-columns:1fr}
+  .starter{grid-template-columns:1fr;gap:10px}
+  .word .more div{padding:26px 24px}
   .hours li{font-size:17px}
+  .hours li span:last-child{font-size:23px}
 }
 </style>
 </head>
 <body>
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
-<header class="hero">
+<header class="hero" id="top">
+  <span class="frame" aria-hidden="true"></span>
   <nav class="nav">
-    <a class="brand" href="#top" aria-label="Bakkerij Heidi"><img src="img/mono-w.png" alt="Monogram van Bakkerij Heidi"><span>Banketbakkerij Heidi<small>Ternat</small></span></a>
     <ul class="menu">
       <li><a href="#plotertaart">Plotertaart</a></li>
       <li><a href="#desem">Desembrood</a></li>
       <li><a href="#atelier">Atelier</a></li>
-      <li><a href="#bezoek">Bezoek</a></li>
     </ul>
-    <a class="btn ghost" href="https://www.mijnwakkerebakker.be/" target="_blank" rel="noopener">Bestel online</a>
+    <a class="brand" href="#top" aria-label="Bakkerij Heidi"><img src="img/mono-w.png" alt="Monogram van Bakkerij Heidi"><span>Banketbakkerij Heidi</span></a>
+    <a class="btn ghost end" href="#bezoek">Openingsuren</a>
   </nav>
-  <div class="stage" id="top">
+  <div class="stage">
     <div class="copy">
-      <div>
-        <span class="lbl">Banketbakkerij in Ternat</span>
-        <h1><span>Kijk.</span><span class="r">Proef.</span><span>Geniet.</span></h1>
-      </div>
-      <div class="low">
-        <p>Patisserie die bij Gault&amp;Millau in de top 50 van het land staat, en brood van tarwe die gewoon hier in Ternat groeit.</p>
-        <div class="acts">
-          <a class="btn fill" href="https://www.mijnwakkerebakker.be/" target="_blank" rel="noopener">Bestel voor morgen</a>
-          <a class="btn ghost" href="#bezoek">Openingsuren</a>
-        </div>
+      <span class="kick">Banketbakkerij in Ternat</span>
+      <h1><span>Kijk.</span><span class="r">Proef.</span><span class="g">Geniet.</span></h1>
+      <div class="orn" aria-hidden="true"><i></i></div>
+      <p>Fijne patisserie uit de Gault&amp;Millau top 50 en desembrood van tarwe die gewoon in Ternat groeit.</p>
+      <div class="acts">
+        <a class="btn fill" href="https://www.mijnwakkerebakker.be/" target="_blank" rel="noopener">Bestel voor morgen<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 12h17M14 6l6 6-6 6"/></svg></a>
       </div>
     </div>
-    <div class="photo"><img src="img/bakker.webp" alt="Bakker in het atelier van Bakkerij Heidi met een frambozentaart" fetchpriority="high"></div>
-    <span class="vline" aria-hidden="true"></span><span class="hline" aria-hidden="true"></span><span class="dot" aria-hidden="true"></span>
-    <div class="sig"><b>Vrijdag tot zondag</b>vanaf 7u30 aan de Kerkpleinweg</div>
-  </div>
-</header>
-
-<section class="marks" aria-label="Erkenningen">
-  <div class="wrap">
-    <ul>
-      <li><b>Gault&amp;Millau</b>Top 50 van de beste Belgische patissiers</li>
-      <li><b>Beste Bakker</b>van Vlaams-Brabant, 2021 en 2022</li>
-      <li><b>Handmade in Belgium</b>Labelhouder voor echt handwerk</li>
-      <li><b>4,8 op Google</b>en 5 op 5 op Facebook</li>
+    <figure class="photo"><img src="img/bakker.webp" alt="Bakker in het atelier van Bakkerij Heidi met een frambozentaart" fetchpriority="high"></figure>
+    <ul class="creds" aria-label="Erkenningen">
+      <li><b>Gault&amp;Millau</b> top 50 patissiers</li>
+      <li><b>Beste Bakker</b> Vlaams-Brabant 2021 en 2022</li>
+      <li><b>Handmade</b> in Belgium</li>
+      <li><b>Open</b> vrijdag tot zondag</li>
     </ul>
   </div>
-</section>
+</header>
 
 <main>
 <section class="sec" id="plotertaart">
   <div class="wrap ploter">
-    <figure class="reveal"><img src="img/ploter.webp" alt="De Plotertaart van Bakkerij Heidi met afgebrand Italiaans schuim" loading="lazy"><figcaption>#noplotertaartnoparty</figcaption></figure>
-    <div class="reveal">
-      <div class="num lbl">01 · Signatuur</div>
-      <h2 class="serif">De <em>Plotertaart</em></h2>
-      <p class="lead">Volgens meer dan duizend klanten de beste taart ooit. Wij gaan daar niet tegenin.</p>
-      <ul class="layers" aria-label="Zo is de Plotertaart opgebouwd">
-        <li><span>06</span>Afgebrand Italiaans schuim<i style="background:#e9c99a"></i></li>
-        <li><span>05</span>Een laagje marsepein<i style="background:#f2e3c6"></i></li>
-        <li><span>04</span>Slagroom<i style="background:#fbf8f0;border:1px solid #ddd5c6"></i></li>
-        <li><span>03</span>Framboosjes<i style="background:var(--rasp)"></i></li>
-        <li><span>02</span>Luchtige crème<i style="background:#f5e7b5"></i></li>
-        <li><span>01</span>Zanddeeg<i style="background:#d9a865"></i></li>
-      </ul>
-      <a class="btn dark" href="https://www.mijnwakkerebakker.be/" target="_blank" rel="noopener">Bestel je Plotertaart</a>
-      <p class="ice"><b>Liever koud?</b> De Ploter-Ice heeft een krokante bodem met vanille-ijs en frambozensorbet, afgewerkt met marsepein en zachte meringue.</p>
+    <figure class="arch reveal"><div class="in"><img src="img/ploter.webp" alt="De Plotertaart van Bakkerij Heidi met afgebrand Italiaans schuim" loading="lazy"></div><figcaption class="tag">#noplotertaartnoparty</figcaption></figure>
+    <div class="reveal d2">
+      <span class="kick">Onze signatuur</span>
+      <h2 class="serif">De Plotertaart</h2>
+      <p class="lead">Volgens meer dan duizend klanten de beste taart ooit. Wij gaan daar niet tegenin. Zes lagen, en elke laag heeft zijn reden.</p>
+      <div class="slice">
+        <svg viewBox="0 0 560 280" role="img" aria-labelledby="sl-t">
+          <title id="sl-t">Doorsnede van de Plotertaart: zanddeeg, luchtige crème, framboosjes, slagroom, marsepein en afgebrand Italiaans schuim</title>
+          <defs>
+            <pattern id="kruim" width="9" height="9" patternUnits="userSpaceOnUse"><rect width="9" height="9" fill="#d3a062"/><circle cx="2" cy="3" r="1" fill="#b9864e"/><circle cx="6.5" cy="7" r=".9" fill="#e2b77c"/></pattern>
+            <linearGradient id="schuim" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b37740"/><stop offset=".28" stop-color="#e4bf86"/><stop offset="1" stop-color="#f3e2c2"/></linearGradient>
+          </defs>
+          <!-- schuim met gebrande toppen -->
+          <path d="M0 96 V60 Q 10 30 20 60 Q 30 26 40 60 Q 50 30 60 60 Q 70 26 80 60 Q 90 30 100 60 Q 110 26 120 60 Q 130 30 140 60 Q 150 26 160 60 Q 170 30 180 60 Q 190 26 200 60 Q 210 30 220 60 V96 Z" fill="url(#schuim)"/>
+          <rect x="0" y="96" width="220" height="12" fill="#f1e2bf"/>
+          <rect x="0" y="108" width="220" height="40" fill="#fffdf8"/>
+          <rect x="0" y="148" width="220" height="34" fill="#f6ead0"/>
+          <g fill="#c4223a"><circle cx="18" cy="165" r="10"/><circle cx="50" cy="166" r="10"/><circle cx="82" cy="164" r="10"/><circle cx="114" cy="166" r="10"/><circle cx="146" cy="165" r="10"/><circle cx="178" cy="166" r="10"/><circle cx="208" cy="165" r="9"/></g>
+          <g fill="#e14a5f"><circle cx="15" cy="161" r="2.4"/><circle cx="47" cy="162" r="2.4"/><circle cx="79" cy="160" r="2.4"/><circle cx="111" cy="162" r="2.4"/><circle cx="143" cy="161" r="2.4"/><circle cx="175" cy="162" r="2.4"/><circle cx="205" cy="161" r="2.2"/></g>
+          <rect x="0" y="182" width="220" height="40" fill="#f3dfa0"/>
+          <rect x="0" y="222" width="220" height="30" fill="url(#kruim)"/>
+          <rect x="0" y="252" width="220" height="2" fill="#a8743f"/>
+          <rect x="0.5" y="96.5" width="219" height="157" fill="none" stroke="rgba(24,25,27,.12)"/>
+          <!-- lijntjes naar de labels -->
+          <path class="lead-l" d="M228 72 H262 L282 30 H300"/>
+          <path class="lead-l" d="M228 102 H262 L282 76 H300"/>
+          <path class="lead-l" d="M228 128 H262 L282 122 H300"/>
+          <path class="lead-l" d="M228 165 H262 L282 168 H300"/>
+          <path class="lead-l" d="M228 202 H262 L282 214 H300"/>
+          <path class="lead-l" d="M228 237 H262 L282 260 H300"/>
+          <g>
+            <text class="n" x="310" y="34">06</text><text x="348" y="36">Afgebrand Italiaans schuim</text>
+            <text class="n" x="310" y="80">05</text><text x="348" y="82">Een laagje marsepein</text>
+            <text class="n" x="310" y="126">04</text><text x="348" y="128">Slagroom</text>
+            <text class="n" x="310" y="172">03</text><text x="348" y="174">Verse framboosjes</text>
+            <text class="n" x="310" y="218">02</text><text x="348" y="220">Luchtige crème</text>
+            <text class="n" x="310" y="264">01</text><text x="348" y="266">Zanddeeg</text>
+          </g>
+        </svg>
+      </div>
+      <a class="btn dark" href="https://www.mijnwakkerebakker.be/" target="_blank" rel="noopener">Bestel je Plotertaart<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 12h17M14 6l6 6-6 6"/></svg></a>
+      <div class="ice"><span class="d" aria-hidden="true"></span><p><b>Liever koud?</b>De Ploter-Ice heeft een krokante bodem met vanille-ijs en frambozensorbet, afgewerkt met marsepein en zachte meringue.</p></div>
     </div>
   </div>
 </section>
 
-<section class="sec akker" id="desem">
+<section class="sec akker on-ink" id="desem">
   <div class="wrap">
     <div class="head reveal">
       <div>
-        <div class="num lbl">02 · Van akker tot bakker</div>
+        <span class="kick">Van akker tot bakker</span>
         <h2 class="serif">Ternatse tarwe, eigen desem</h2>
       </div>
       <p>Onze desembroden beginnen op een veld in Ternat. Er gaat bloem, water, zout en huisgemaakte desem in. Meer niet.</p>
     </div>
-    <div class="steps">
-      <figure class="s1 reveal"><img src="img/veld.webp" alt="Tarweveld in Ternat" loading="lazy"><figcaption><b>Het veld</b>Lokaal gekweekte tarwe, gewoon uit Ternat.</figcaption></figure>
-      <figure class="s2 reveal"><img src="img/graan.webp" alt="Graan dat in een kar wordt gestort" loading="lazy"><figcaption><b>De oogst</b>Korte keten: het graan groeit hier, het brood bakken we hier.</figcaption></figure>
-      <figure class="s3 reveal"><img src="img/zak.webp" alt="Bakker met een zak Ternatse baktarwe" loading="lazy"><figcaption><b>De bloem</b>Gemaakt met Ternatse baktarwe, enkel bij ons.</figcaption></figure>
-      <figure class="s4 reveal"><img src="img/desem.webp" alt="Vers gebakken desembroden met een ruitpatroon" loading="lazy"><figcaption><b>De oven</b>Huisgemaakte desem voor een volle, eerlijke smaak.</figcaption></figure>
+    <div class="route">
+      <figure class="reveal"><div class="im"><img src="img/veld.webp" alt="Tarweveld in Ternat" loading="lazy"></div><figcaption><b><small>I.</small>Het veld</b>De tarwe groeit hier, op een akker in Ternat.</figcaption></figure>
+      <figure class="reveal d2"><div class="im"><img src="img/graan.webp" alt="Graan dat in een kar wordt gestort" loading="lazy"></div><figcaption><b><small>II.</small>De oogst</b>Korte keten: het graan groeit hier, het brood bakken we hier.</figcaption></figure>
+      <figure class="reveal d3"><div class="im"><img src="img/zak.webp" alt="Bakker met een zak Ternatse baktarwe" loading="lazy"></div><figcaption><b><small>III.</small>De bloem</b>Ternatse baktarwe. Die vind je enkel bij ons.</figcaption></figure>
+      <figure class="reveal d4"><div class="im"><img src="img/desem.webp" alt="Vers gebakken desembroden met een ruitpatroon" loading="lazy"></div><figcaption><b><small>IV.</small>De oven</b>Huisgemaakte desem, tijd en een hete oven.</figcaption></figure>
     </div>
     <div class="breads">
-      <article class="bread reveal"><img src="img/louike.webp" alt="Louike, meergranenbrood" loading="lazy"><div><h3>Louike</h3><p>Meergranen op Ternatse bloem, met zaden en granen.</p></div></article>
-      <article class="bread reveal"><img src="img/jeanneke.webp" alt="Jeanneke, donker volkorenbrood" loading="lazy"><div><h3>Jeanneke</h3><p>Ternats donker volkoren, niets toegevoegd.</p></div></article>
-      <aside class="bake reveal">
-        <h3>Bake@home</h3>
-        <div class="big">12<small>min</small></div>
+      <article class="bread reveal"><div class="im"><img src="img/louike.webp" alt="Louike, meergranenbrood" loading="lazy"></div><div class="t"><h3>Louike</h3><p>Meergranen op Ternatse bloem, vol zaden en granen.</p></div></article>
+      <article class="bread reveal d2"><div class="im"><img src="img/jeanneke.webp" alt="Jeanneke, donker volkorenbrood" loading="lazy"></div><div class="t"><h3>Jeanneke</h3><p>Ternats donker volkoren. Niets toegevoegd.</p></div></article>
+      <aside class="bake reveal d3">
+        <span class="kick">Bake@home</span>
+        <div class="big">12<small>minuten</small></div>
         <p>Voorgebakken desembrood dat een paar dagen in je koelkast mag liggen. Twaalf minuten op 200°C en je hebt warm brood op tafel. Met wat olijfolie en fleur de sel, bij het aperitief.</p>
       </aside>
     </div>
@@ -320,36 +366,39 @@ footer .bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wra
   <div class="wrap">
     <div class="intro reveal">
       <div>
-        <div class="num lbl">03 · Atelier en winkel</div>
-        <h2 class="serif">Alles hier gemaakt</h2>
+        <span class="kick">Atelier en winkel</span>
+        <h2 class="serif">Alles uit eigen atelier</h2>
       </div>
-      <p>Van de koeken op zondagochtend tot feestgebak met een foto of tekening erop. Klein, fijn afgewerkt en vers uit ons eigen atelier.</p>
+      <p>Koeken voor de zondagochtend, taartjes voor bij de koffie en feestgebak met een foto of tekening erop. Klein, fijn afgewerkt en elke dag vers.</p>
     </div>
-    <div class="grid">
-      <img class="a1 reveal" src="img/toog.webp" alt="De toonbank met gebakjes en taartjes" loading="lazy">
-      <img class="a2 reveal" src="img/broodrek.webp" alt="Bakker met een rek vol verse broden" loading="lazy">
-      <img class="a3 reveal" src="img/gevel.webp" alt="De gevel van Banketbakkerij Heidi bij valavond" loading="lazy">
-      <img class="a4 reveal" src="img/ploeg.webp" alt="Het team van Bakkerij Heidi" loading="lazy">
+    <div class="gal">
+      <figure class="g1 reveal"><img src="img/toog.webp" alt="De toonbank met gebakjes en taartjes" loading="lazy"><figcaption>De toonbank</figcaption></figure>
+      <figure class="g2 reveal d2"><img src="img/broodrek.webp" alt="Bakker met een rek vol verse broden" loading="lazy"></figure>
+      <figure class="g3 reveal d3"><img src="img/rek.webp" alt="Rek met desembroden in de oven" loading="lazy"></figure>
+      <figure class="g4 reveal d2"><img src="img/oven.webp" alt="Desembrood in de oven" loading="lazy" style="object-position:50% 45%"><figcaption>Uit de oven</figcaption></figure>
     </div>
-    <div class="quote reveal">
-      <div class="score">4,8<small>op Google</small></div>
-      <div>
-        <blockquote>“Amai wil toch even laten weten dat jullie taarten 1 voor 1 prachtige kunstwerkjes zijn echt whauw!! Te mooi om op te eten.”</blockquote>
-        <cite>Sylvia Vertommen</cite>
-        <div class="more">
-          <div><p>“Lekkere koeken. Enorme keuze uit het beste gebak. Daarvoor komen we graag eens naar Ternat. Hier geen enkele bakker die zo een lekker gerief heeft.”</p><cite>Karine Van Craenenbroeck</cite></div>
-          <div><p>“Voor fijne patisserie met héél veel smaak moet je hier zijn! (…) De enige, echte plotertaart, een echte aanrader.”</p><cite>Ingrid Van Wynendaele</cite></div>
-        </div>
-      </div>
+    <p class="starter reveal"><b>Cocktailstarters</b><span>Huisgemaakte fruitmix, diepgevroren. Bruiswater, tonic, gin of cava erbij en je aperitief staat klaar.</span></p>
+  </div>
+</section>
+
+<section class="sec word" aria-label="Wat klanten zeggen">
+  <div class="wrap">
+    <div class="score reveal"><b>4,8</b><span>op Google</span></div>
+    <div class="orn" aria-hidden="true"><i></i></div>
+    <blockquote class="reveal">“Amai wil toch even laten weten dat jullie taarten 1 voor 1 prachtige kunstwerkjes zijn echt whauw!! Te mooi om op te eten.”</blockquote>
+    <cite>Sylvia Vertommen</cite>
+    <div class="more">
+      <div class="reveal"><p>“Lekkere koeken. Enorme keuze uit het beste gebak. Daarvoor komen we graag eens naar Ternat. Hier geen enkele bakker die zo een lekker gerief heeft.”</p><cite>Karine Van Craenenbroeck</cite></div>
+      <div class="reveal d2"><p>“Voor fijne patisserie met héél veel smaak moet je hier zijn! (…) De enige, echte plotertaart, een echte aanrader.”</p><cite>Ingrid Van Wynendaele</cite></div>
     </div>
   </div>
 </section>
 
-<section class="sec visit" id="bezoek">
+<section class="sec visit on-ink" id="bezoek">
   <div class="wrap vin">
-    <figure class="reveal"><img src="img/oven.webp" alt="Desembrood in de oven" loading="lazy"></figure>
-    <div class="reveal">
-      <div class="num lbl">04 · Langskomen</div>
+    <figure class="reveal"><div class="in"><img src="img/gevel.webp" alt="De gevel van Banketbakkerij Heidi bij valavond" loading="lazy"></div></figure>
+    <div class="reveal d2">
+      <span class="kick">Langskomen</span>
       <h2 class="serif">Tot vrijdag?</h2>
       <ul class="hours">
         <li><span>Vrijdag</span><span>7u30 tot 18u</span></li>
@@ -358,16 +407,12 @@ footer .bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wra
       </ul>
       <p class="note">Online bestellen kan tot 21u, voor de dag nadien. Verlofperiodes zie je hier altijd op tijd staan.</p>
       <div class="contact">
-        <div><span class="lbl">Adres</span>Kerkpleinweg 5<br>1742 Ternat</div>
-        <div><span class="lbl">Bellen of mailen</span><a href="tel:+3225822008">02 582 20 08</a><br><a href="mailto:info@bakkerijheidi.be">info@bakkerijheidi.be</a></div>
+        <div><small>Adres</small>Kerkpleinweg 5<br>1742 Ternat</div>
+        <div><small>Bellen of mailen</small><a href="tel:+3225822008">02 582 20 08</a><br><a href="mailto:info@bakkerijheidi.be">info@bakkerijheidi.be</a></div>
       </div>
       <div class="acts">
-        <a class="btn dark" href="https://www.mijnwakkerebakker.be/" target="_blank" rel="noopener">Naar de webshop</a>
-        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Kerkpleinweg+5+1742+Ternat" target="_blank" rel="noopener">Route</a>
-      </div>
-      <div class="side">
-        <div><b>Cocktailstarters</b>Huisgemaakte fruitmix, diepgevroren. Bruiswater, tonic, gin of cava erbij en klaar.</div>
-        <div><b>Komen werken?</b>Studenten, flexi-jobbers en stagiairs zijn welkom, in het atelier en in de winkel.</div>
+        <a class="btn fill" href="https://www.mijnwakkerebakker.be/" target="_blank" rel="noopener">Naar de webshop<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 12h17M14 6l6 6-6 6"/></svg></a>
+        <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Kerkpleinweg+5+1742+Ternat" target="_blank" rel="noopener">Route</a>
       </div>
     </div>
   </div>
@@ -378,7 +423,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wra
   <div class="wrap">
     <div class="top">
       <img src="img/logo-w.png" alt="Logo Banketbakkerij Heidi">
-      <p class="big serif">Kijk. <span>Proef.</span> Geniet.</p>
+      <p class="big">Kijk. Proef. Geniet.</p>
       <ul>
         <li><a href="#plotertaart">Plotertaart</a></li>
         <li><a href="#desem">Ternatse desembroden</a></li>
@@ -387,7 +432,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wra
         <li><a href="https://www.facebook.com/BanketbakkerijHEIDI/" target="_blank" rel="noopener">Facebook</a></li>
       </ul>
     </div>
-    <div class="bottom"><span>Banketbakkerij Heidi · Kerkpleinweg 5, 1742 Ternat · BE 0749.308.370</span><span>Voorbeeldsite door Digital Impression</span></div>
+    <div class="bottom"><span>Banketbakkerij Heidi · Kerkpleinweg 5, 1742 Ternat · BE 0749.308.370</span><span>Komen werken? Studenten, flexi-jobbers en stagiairs zijn welkom.</span><span>Voorbeeldsite door Digital Impression</span></div>
   </div>
 </footer>
 
