@@ -11,7 +11,7 @@
 <style>
 @font-face{font-family:'Bodoni Moda';font-style:normal;font-weight:500 900;font-display:swap;src:url(fonts/bodonimoda-500-900-normal.woff2) format('woff2')}
 @font-face{font-family:'Work Sans';font-style:normal;font-weight:400 600;font-display:swap;src:url(fonts/worksans-400-600-normal.woff2) format('woff2')}
-:root{--night:#14100C;--wood:#1E1712;--wood2:#2A2019;--gold:#C9A25A;--gold2:#E2C98E;--paper:#F3EBDD;--cream:#E9DECB;--txt:rgba(243,235,221,.72);--dim:rgba(243,235,221,.45);--line:rgba(201,162,90,.24);--ease:cubic-bezier(.2,.8,.2,1);--pad:clamp(20px,5vw,64px);--wrap:1260px}
+:root{--night:#14100C;--wood:#1E1712;--wood2:#2A2019;--gold:#C9A25A;--gold2:#E2C98E;--paper:#F3EBDD;--cream:#E9DECB;--mat:#EFE5D2;--txt:rgba(243,235,221,.74);--dim:rgba(243,235,221,.46);--line:rgba(201,162,90,.26);--ease:cubic-bezier(.2,.8,.2,1);--wrap:1320px}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--night);color:var(--paper);font:400 17px/1.7 'Work Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -19,155 +19,197 @@ img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 h1,h2,h3{font-family:'Bodoni Moda',Didot,Georgia,serif;font-weight:800;letter-spacing:-.02em;line-height:.95;margin:0}
 p{margin:0}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+.wrap{width:min(var(--wrap),100% - 56px);margin-inline:auto}
 .demo{background:var(--gold);color:var(--night);font:500 13px/1.4 'Work Sans',sans-serif;text-align:center;padding:9px 16px}
 .demo a{color:var(--night);font-weight:600}
-.label{font:600 12px/1 'Work Sans',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
-.orn{display:flex;align-items:center;gap:14px;color:var(--gold)}
-.orn::before,.orn::after{content:"";height:1px;width:42px;background:var(--gold);opacity:.7}
-.orn::after{width:42px}
+.label{display:inline-flex;align-items:center;gap:14px;font:600 12px/1 'Work Sans',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.label::before{content:"✦";font-size:11px;letter-spacing:0}
 
 /* knoppen: een ticket met ingesneden hoeken */
-.btn{--c:var(--gold);display:inline-flex;align-items:center;gap:14px;padding:17px 26px;font:600 14px/1 'Work Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--night);background:var(--c);clip-path:polygon(10px 0,calc(100% - 10px) 0,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0 calc(100% - 10px),0 10px);transition:background .3s,transform .3s var(--ease)}
+.btn{--c:var(--gold);display:inline-flex;align-items:center;gap:14px;padding:18px 28px;font:600 13.5px/1 'Work Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--night);background:var(--c);clip-path:polygon(10px 0,calc(100% - 10px) 0,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0 calc(100% - 10px),0 10px);transition:background .3s,transform .3s var(--ease)}
+.btn span{display:inline-block;transition:transform .35s var(--ease)}
 .btn:hover{--c:var(--gold2);transform:translateY(-2px)}
+.btn:hover span{transform:translateX(4px)}
 .btn-line{background:none;color:var(--paper);box-shadow:inset 0 0 0 1px var(--gold);clip-path:none}
-.btn-line:hover{background:rgba(201,162,90,.12)}
+.btn-line:hover{background:rgba(201,162,90,.14)}
+.btn-dark{--c:var(--night);color:var(--gold2)}
+.btn-dark:hover{--c:#000}
 
-/* HERO */
-.hero{position:relative;min-height:clamp(660px,calc(100svh - 38px),900px);display:flex;flex-direction:column;overflow:hidden}
-.hero-photo{position:absolute;inset:0}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:60% 50%}
-.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,16,12,.96) 0%,rgba(20,16,12,.86) 32%,rgba(20,16,12,.25) 62%,rgba(20,16,12,.1) 100%),linear-gradient(0deg,rgba(20,16,12,.85),rgba(20,16,12,0) 34%)}
-.nav{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px var(--pad)}
-.nav .logo img{width:104px;height:auto}
+/* hero: de shop in een vergulde lijst */
+.hero{position:relative;min-height:clamp(680px,calc(100svh - 38px),920px);display:flex;flex-direction:column;overflow:hidden;isolation:isolate}
+.hero-photo{position:absolute;inset:0;z-index:-1}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:64% 50%;transform:scale(1.04);animation:adem 18s var(--ease) both}
+@keyframes adem{from{transform:scale(1.1)}to{transform:scale(1.02)}}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,16,12,.97) 0%,rgba(20,16,12,.88) 30%,rgba(20,16,12,.3) 60%,rgba(20,16,12,.12) 100%),linear-gradient(0deg,rgba(20,16,12,.92),rgba(20,16,12,0) 36%),radial-gradient(ellipse at 70% 40%,rgba(201,120,60,.12),transparent 60%)}
+.lijst{position:absolute;inset:18px;border:1px solid rgba(201,162,90,.55);pointer-events:none;z-index:1}
+.lijst::before{content:"";position:absolute;inset:6px;border:1px solid rgba(201,162,90,.22)}
+.lijst i{position:absolute;width:18px;height:18px;border:solid var(--gold);border-width:2px 0 0 2px}
+.lijst i:nth-child(1){top:-2px;left:-2px}.lijst i:nth-child(2){top:-2px;right:-2px;transform:scaleX(-1)}.lijst i:nth-child(3){bottom:-2px;left:-2px;transform:scaleY(-1)}.lijst i:nth-child(4){bottom:-2px;right:-2px;transform:scale(-1)}
+.nav{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:34px 0 0}
+.nav .logo img{width:108px;height:auto;filter:drop-shadow(0 6px 18px rgba(0,0,0,.5))}
 .nav ul{display:flex;gap:34px;list-style:none;margin:0;padding:0}
-.nav ul a{text-decoration:none;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--txt);transition:color .2s}
-.nav ul a:hover{color:var(--gold2)}
-.nav .tel{font-size:14px;letter-spacing:.08em;text-decoration:none;color:var(--paper);border-bottom:1px solid var(--line);padding-bottom:3px}
-.hero-text{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;padding:10px var(--pad) 40px;max-width:820px}
-.hero h1{font-size:clamp(68px,8.6vw,138px);margin:26px 0 26px}
+.nav ul a{text-decoration:none;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--txt);transition:color .2s;position:relative;padding:6px 0}
+.nav ul a::after{content:"";position:absolute;left:50%;right:50%;bottom:0;height:1px;background:var(--gold);transition:left .35s var(--ease),right .35s var(--ease)}
+.nav ul a:hover{color:var(--gold2)}.nav ul a:hover::after{left:0;right:0}
+.nav .tel{display:inline-flex;align-items:center;gap:10px;font-size:14px;letter-spacing:.08em;text-decoration:none;color:var(--paper);border:1px solid var(--line);padding:12px 16px;transition:border-color .3s}
+.nav .tel:hover{border-color:var(--gold)}
+.nav .tel svg{width:15px;height:15px;color:var(--gold)}
+.hero-text{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;padding:30px 0 50px;max-width:780px}
+.hero h1{font-size:clamp(72px,8.8vw,140px);margin:26px 0 28px}
 .hero h1 span{color:var(--gold)}
-.hero-text p{max-width:450px;font-size:18px;color:var(--txt)}
-.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
-.hero-base{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin:0 var(--pad) 26px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
-.hero-base b{color:var(--paper);font-weight:600}
+.hero-text p{max-width:440px;font-size:18px;color:var(--txt)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.hero-base{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,auto);justify-content:space-between;gap:24px;padding:22px 0 44px;border-top:1px solid var(--line)}
+.hero-base div{display:flex;align-items:baseline;gap:12px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.hero-base b{font:800 34px/1 'Bodoni Moda',serif;letter-spacing:0;text-transform:none;color:var(--paper)}
 
-/* WERK */
-.werk{padding:clamp(100px,12vw,160px) 0;background:var(--night)}
-.werk-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:end;margin-bottom:60px}
-.werk h2{font-size:clamp(54px,6.6vw,104px);margin-top:20px}
-.werk-head p{color:var(--txt);font-size:18px;max-width:470px}
-.stijlen{display:flex;flex-wrap:wrap;gap:0;margin-top:26px;border-top:1px solid var(--line)}
-.stijlen span{padding:12px 18px 0 0;margin-right:18px;font-family:'Bodoni Moda',serif;font-size:21px;font-weight:600;color:var(--cream)}
-.stijlen span+span::before{content:"·";color:var(--gold);margin-right:18px}
-.werk-feature{display:grid;grid-template-columns:1.15fr 1fr 1fr;grid-template-rows:clamp(420px,46vw,620px);gap:16px;margin-bottom:16px}
-.werk-stack figure{min-height:0}
-.werk-feature figure{margin:0;position:relative;overflow:hidden;background:var(--wood)}
-.werk-feature img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-.werk-feature figure:hover img{transform:scale(1.04)}
-.werk-feature .tall{height:100%}
-.werk-feature figcaption{position:absolute;left:0;bottom:0;padding:10px 14px;background:var(--night);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2)}
-.werk-stack{display:grid;grid-template-rows:1fr 1fr;gap:16px}
-.werk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.werk-grid figure{margin:0;aspect-ratio:1;overflow:hidden;background:var(--wood)}
-.werk-grid img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-.werk-grid figure:hover img{transform:scale(1.04)}
-.werk-note{margin-top:28px;color:var(--dim);font-size:14px}
-.werk-note a{color:var(--gold2)}
+/* stijlenband */
+.band{background:var(--gold);color:var(--night);overflow:hidden;border-block:1px solid #8f7238}
+.band .rij{display:flex;width:max-content;animation:loop 50s linear infinite}
+.band span{font:700 32px/1 'Bodoni Moda',serif;padding:20px 26px;white-space:nowrap;display:flex;align-items:center;gap:52px}
+.band span::after{content:"✦";font-size:16px}
+@keyframes loop{to{transform:translateX(-50%)}}
 
-/* GERRIT EN NEELKE */
-.mensen{background:var(--paper);color:var(--night);padding:clamp(100px,12vw,160px) 0;position:relative}
-.mensen .label{color:#8A6A2E}
-.mensen-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,7vw,110px);align-items:center}
-.duo{position:relative;padding:0 0 70px 0}
-.duo .g{width:78%;filter:grayscale(1) contrast(1.05)}
-.duo .n{position:absolute;right:0;bottom:0;width:40%;border:10px solid var(--paper);filter:grayscale(1)}
-.duo figcaption{margin-top:14px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#6B5A44}
-.mensen h2{font-size:clamp(54px,6.4vw,100px);margin:20px 0 30px}
-.mensen-text>p{font-size:19px;color:#3E3328;max-width:520px}
-.mensen-text>p+p{margin-top:16px}
-.rollen{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:44px;border-top:1.5px solid var(--night)}
-.rollen div{padding:22px 24px 0 0}
-.rollen div+div{padding-left:24px;border-left:1px solid rgba(20,16,12,.2)}
-.rollen h3{font-size:34px;margin-bottom:8px}
-.rollen small{display:block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8A6A2E;margin-bottom:10px}
-.rollen p{color:#4B3F33;font-size:16px}
+/* werk: de portretwand */
+.werk{padding:130px 0 120px;background:var(--wood);background-image:radial-gradient(ellipse at 50% 0%,rgba(201,162,90,.09),transparent 60%),repeating-linear-gradient(90deg,rgba(0,0,0,.08) 0 2px,transparent 2px 180px)}
+.werk-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:end;margin-bottom:64px}
+.werk h2{font-size:clamp(58px,6.8vw,108px);margin-top:22px}
+.werk-head p{color:var(--txt);font-size:18px;max-width:460px}
+.wand{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:300px;grid-auto-flow:dense;gap:30px}
+.wand figure{position:relative;margin:0;padding:12px;background:linear-gradient(145deg,#4a3826,#2a1f15 40%,#3d2e1f);box-shadow:0 30px 50px -28px rgba(0,0,0,.9),inset 0 0 0 1px rgba(201,162,90,.4);transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.wand figure::before{content:"";position:absolute;inset:6px;border:1px solid rgba(226,201,142,.35);pointer-events:none}
+.wand .pp{width:100%;height:100%;padding:9px;background:var(--mat);overflow:hidden}
+.wand img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.wand figure:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:0 44px 60px -28px rgba(0,0,0,.95),inset 0 0 0 1px rgba(226,201,142,.7)}
+.wand figure:hover img{transform:scale(1.05)}
+.wand figcaption{position:absolute;left:50%;bottom:-13px;transform:translateX(-50%);white-space:nowrap;padding:7px 14px;background:linear-gradient(180deg,#e2c98e,#b8924d);color:#2a1f15;font:600 10.5px/1 'Work Sans',sans-serif;letter-spacing:.18em;text-transform:uppercase;box-shadow:0 6px 12px -6px rgba(0,0,0,.8)}
+.wand .t{grid-row:span 2}
+.wand .w{grid-column:span 2}
+.werk-note{margin-top:56px;display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:28px;border-top:1px solid var(--line);color:var(--dim)}
+.werk-note span a{color:var(--gold2);text-underline-offset:4px}
 
-/* PIERCINGS */
-.pierce{padding:clamp(100px,12vw,160px) 0;background:var(--wood)}
-.pierce-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,110px);align-items:start}
-.pierce h2{font-size:clamp(50px,6vw,94px);margin:20px 0 26px}
-.pierce .intro{color:var(--txt);font-size:18px;max-width:460px}
-.pierce figure{margin:42px 0 0;max-width:460px}
-.pierce figure img{width:100%}
-.zorg{border:1px solid var(--line);padding:clamp(28px,4vw,46px);position:relative}
-.zorg::before{content:"";position:absolute;inset:8px;border:1px solid rgba(201,162,90,.12);pointer-events:none}
-.zorg h3{font-size:34px;margin:16px 0 20px}
+/* mensen */
+.mensen{padding:130px 0;background:var(--paper);color:var(--night);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .28 0 0 0 0 .18 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.mensen .label{color:#8a6a2e}
+.mensen-grid{display:grid;grid-template-columns:5fr 6fr;gap:clamp(40px,7vw,110px);align-items:center}
+.fotos{position:relative;height:640px}
+.foto{position:absolute;margin:0;background:#fff;padding:14px 14px 50px;box-shadow:0 30px 60px -30px rgba(20,16,12,.55)}
+.foto img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+.foto figcaption{position:absolute;left:14px;right:14px;bottom:14px;font:700 20px/1 'Bodoni Moda',serif;color:var(--night);display:flex;justify-content:space-between;align-items:baseline}
+.foto figcaption small{font:600 10px/1 'Work Sans',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8a6a2e}
+.foto.g{left:0;top:0;width:64%;height:540px;transform:rotate(-2.5deg)}
+.foto.n{right:0;bottom:0;width:44%;height:390px;transform:rotate(3deg)}
+.foto:hover{z-index:2}
+.mensen h2{font-size:clamp(54px,6vw,96px);margin:22px 0 28px}
+.mensen-text>p{color:#4a3f33;font-size:18px;max-width:34em}
+.mensen-text>p+p{margin-top:14px}
+.jaren{display:flex;align-items:center;gap:24px;margin:38px 0 34px;padding:24px 0;border-block:1px solid rgba(20,16,12,.18)}
+.jaren b{font:800 96px/.8 'Bodoni Moda',serif;color:var(--gold)}
+.jaren span{font-size:15px;color:#4a3f33;max-width:20em}
+.rollen{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.rollen div{padding:24px 24px 22px;background:#fff;border:1px solid rgba(20,16,12,.1)}
+.rollen small{display:block;font:600 11px/1.4 'Work Sans',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8a6a2e}
+.rollen h3{font-size:32px;margin:10px 0 8px}
+.rollen p{color:#4a3f33;font-size:15.5px}
+
+/* piercings */
+.pierce{padding:130px 0;background:var(--night)}
+.pierce-grid{display:grid;grid-template-columns:6fr 5fr;gap:clamp(40px,7vw,110px);align-items:center}
+.pierce h2{font-size:clamp(56px,6.4vw,100px);margin:22px 0 26px}
+.pierce .intro{color:var(--txt);max-width:30em;font-size:18px}
+.pierce .lijstfoto{margin:44px 0 0;padding:12px;background:linear-gradient(145deg,#4a3826,#2a1f15 40%,#3d2e1f);box-shadow:inset 0 0 0 1px rgba(201,162,90,.4);max-width:560px}
+.pierce .lijstfoto img{width:100%;aspect-ratio:3/2;object-fit:cover;border:9px solid var(--mat)}
+.zorg{position:relative;background:var(--mat);color:var(--night);padding:46px 42px 40px;transform:rotate(1.2deg);box-shadow:0 50px 80px -40px rgba(0,0,0,.9);transition:transform .7s var(--ease)}
+.zorg:hover{transform:rotate(0)}
+.zorg::before{content:"";position:absolute;inset:10px;border:1px solid rgba(138,106,46,.45);pointer-events:none}
+.zorg .kop{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid rgba(20,16,12,.18);margin-bottom:8px}
+.zorg .kop img{width:74px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3))}
+.zorg .label{color:#8a6a2e}
+.zorg h3{font-size:38px;margin-top:12px}
 .zorg ol{list-style:none;margin:0;padding:0;counter-reset:z}
-.zorg li{counter-increment:z;display:grid;grid-template-columns:44px 1fr;padding:15px 0;border-top:1px solid var(--line);color:var(--txt)}
-.zorg li::before{content:counter(z,upper-roman);font-family:'Bodoni Moda',serif;font-weight:700;color:var(--gold)}
-.zorg li b{color:var(--paper);font-weight:600}
+.zorg li{counter-increment:z;display:grid;grid-template-columns:44px 1fr;gap:10px;padding:14px 0;border-bottom:1px solid rgba(20,16,12,.12);font-size:16px;color:#3e352b}
+.zorg li:last-child{border-bottom:0}
+.zorg li::before{content:counter(z,upper-roman);font:700 18px/1.4 'Bodoni Moda',serif;color:#8a6a2e}
+.zorg b{color:var(--night)}
 
-/* BEZOEK */
-.bezoek{position:relative;padding:clamp(110px,13vw,170px) 0;overflow:hidden}
-.bezoek-bg{position:absolute;inset:0}
-.bezoek-bg img{width:100%;height:100%;object-fit:cover;opacity:.32}
-.bezoek-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--night),rgba(20,16,12,.7) 40%,var(--night))}
-.bezoek .wrap{position:relative}
-.bezoek-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(40px,7vw,110px);align-items:start}
-.bezoek h2{font-size:clamp(56px,7vw,112px);margin:20px 0 28px}
-.bezoek .intro{color:var(--txt);font-size:18px;max-width:440px}
-.uren{border-top:1px solid var(--line)}
-.uren div{display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px solid var(--line);font-size:16px}
-.uren div span:first-child{color:var(--txt)}
-.uren div.toe span:last-child{color:var(--dim)}
-.adres{margin-top:30px;font-family:'Bodoni Moda',serif;font-size:28px;line-height:1.2}
-.adres small{display:block;font:400 15px/1.6 'Work Sans',sans-serif;color:var(--txt);margin-top:10px}
-.adres a{text-decoration:none;border-bottom:1px solid var(--line)}
+/* bezoek */
+.bezoek{position:relative;padding:130px 0 120px;background:var(--wood);overflow:hidden;isolation:isolate}
+.bezoek-bg{position:absolute;inset:0;z-index:-1}
+.bezoek-bg img{width:100%;height:100%;object-fit:cover;opacity:.35}
+.bezoek-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,16,12,.96) 0%,rgba(20,16,12,.75) 50%,rgba(20,16,12,.55) 100%)}
+.bezoek-grid{display:grid;grid-template-columns:6fr 5fr;gap:clamp(40px,7vw,110px);align-items:center}
+.bezoek h2{font-size:clamp(60px,7vw,112px);margin:22px 0 26px}
+.bezoek .intro{color:var(--txt);max-width:30em;font-size:18px}
+.adres{margin-top:36px;font:700 30px/1.2 'Bodoni Moda',serif}
+.adres small{display:block;margin-top:10px;font:400 16px/1.6 'Work Sans',sans-serif;color:var(--txt)}
+.adres small a{text-underline-offset:4px}
+.bord{position:relative;padding:40px 38px 30px;background:rgba(20,16,12,.82);border:1px solid var(--line);backdrop-filter:blur(4px)}
+.bord::before{content:"";position:absolute;inset:7px;border:1px solid rgba(201,162,90,.18);pointer-events:none}
+.bord h3{font-size:34px;margin-bottom:18px;color:var(--gold2)}
+.uren div{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px dotted rgba(201,162,90,.35);font-size:16px}
+.uren div:last-child{border-bottom:0}
+.uren .toe{color:var(--dim)}
+.uren span:last-child{font-variant-numeric:tabular-nums}
+.bord .route{display:flex;justify-content:space-between;align-items:center;margin-top:22px;padding:16px 18px;background:var(--gold);color:var(--night);text-decoration:none;font:600 13px/1 'Work Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;transition:background .3s}
+.bord .route:hover{background:var(--gold2)}
 
-footer.site{border-top:1px solid var(--line);padding:56px 0 32px;background:var(--night)}
-.foot{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
-.foot img{width:120px}
-.foot ul{list-style:none;margin:0;padding:0;display:flex;gap:28px;flex-wrap:wrap}
-.foot ul a{text-decoration:none;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--txt)}
+/* footer */
+footer.site{background:#0d0a07;border-top:1px solid var(--line);padding:76px 0 30px}
+.foot{display:grid;grid-template-columns:auto 1.4fr 1fr 1fr;gap:50px;align-items:start;padding-bottom:50px;border-bottom:1px solid var(--line)}
+.foot>img{width:130px}
+.foot p{color:var(--txt);max-width:22em;font-size:15.5px}
+.foot h4{font:600 11px/1 'Work Sans',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:0 0 16px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:15px}
+.foot ul a{text-decoration:none;color:var(--paper)}
 .foot ul a:hover{color:var(--gold2)}
-.foot-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
-.foot-bottom a{color:var(--gold2)}
+.foot-bottom{display:flex;justify-content:space-between;gap:20px;padding-top:24px;font-size:13px;color:var(--dim)}
+.foot-bottom a{text-decoration:none}
 
-.js .rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .js .rv.in{opacity:1;transform:none}
 
-@media (max-width:1080px){
+@media (max-width:1100px){
   .nav ul{display:none}
-  .werk-grid{grid-template-columns:repeat(2,1fr)}
+  .wand{grid-auto-rows:240px;gap:22px}
+  .fotos{height:560px}.foto.g{height:460px}.foto.n{height:330px}
 }
 @media (max-width:860px){
-  .hero{min-height:0}
-  .hero-photo{position:relative;order:3;height:min(80vw,520px)}
-  .hero-photo::after{background:linear-gradient(180deg,var(--night) 0%,rgba(20,16,12,0) 25%,rgba(20,16,12,0) 75%,var(--night) 100%)}
-  .hero-text{padding:20px var(--pad) 26px}
-  .hero h1{font-size:clamp(56px,15vw,96px);margin:18px 0 20px}
-  .hero-base{order:4;flex-direction:column;align-items:flex-start;gap:8px;margin-top:6px}
-  .werk-head,.mensen-grid,.pierce-grid,.bezoek-grid{grid-template-columns:1fr}
-  .werk-feature{grid-template-columns:1fr 1fr;grid-template-rows:none}
-  .werk-feature .tall{aspect-ratio:3/4;height:auto}
-  .werk-stack{grid-column:span 2;grid-template-columns:1fr 1fr;grid-template-rows:auto}
-  .werk-stack figure{aspect-ratio:1}
-  .duo{order:2}
-}
-@media (max-width:520px){
-  body{font-size:16px}
-  .nav{padding:14px var(--pad)}
+  .wrap{width:calc(100% - 40px)}
+  .lijst{inset:10px}
+  .nav{padding-top:24px}
   .nav .logo img{width:84px}
-  .nav .tel{font-size:13px}
-  .werk-grid{gap:10px}
-  .werk-feature{gap:10px}
+  .nav .tel span{display:none}
+  .hero{min-height:0}
+  .hero-photo{position:relative;inset:auto;order:3;aspect-ratio:4/3;margin:0 -0px}
+  .hero-photo::after{background:linear-gradient(180deg,var(--night) 0%,rgba(20,16,12,0) 30%),linear-gradient(0deg,var(--night) 0%,rgba(20,16,12,0) 30%)}
+  .hero>.wrap{order:1}
+  .hero-text{padding:30px 0 10px}
+  .hero h1{font-size:clamp(56px,16vw,96px);margin:20px 0 22px}
+  .hero-text p{font-size:16.5px}
+  .hero-base{order:4;grid-template-columns:1fr 1fr;gap:16px;padding:18px 0 34px;margin-top:24px}
+  .hero-base div{flex-direction:column;gap:6px;font-size:11.5px}
+  .band span{font-size:24px;padding:15px 18px;gap:36px}
+  .werk,.mensen,.pierce,.bezoek{padding:84px 0}
+  .werk-head,.mensen-grid,.pierce-grid,.bezoek-grid{grid-template-columns:1fr}
+  .werk-head{margin-bottom:44px;gap:18px}
+  .wand{grid-template-columns:1fr 1fr;grid-auto-rows:220px;gap:18px 14px}
+  .wand figure{padding:8px}.wand .pp{padding:6px}
+  .wand figcaption{font-size:9px;letter-spacing:.12em;padding:6px 9px;bottom:-11px}
+  .werk-note{flex-direction:column;align-items:flex-start}
+  .mensen-text{order:1}.fotos{order:2;height:470px}
+  .foto{padding:10px 10px 40px}.foto figcaption{left:10px;right:10px;bottom:11px;font-size:17px}
+  .foto.g{width:70%;height:380px}.foto.n{width:48%;height:260px}
+  .jaren b{font-size:72px}
   .rollen{grid-template-columns:1fr}
-  .rollen div+div{padding-left:0;border-left:0;margin-top:20px;border-top:1px solid rgba(20,16,12,.2)}
-  .stijlen span{font-size:18px}
-  .adres{font-size:24px}
+  .zorg{padding:34px 26px 28px;transform:rotate(.6deg)}
+  .zorg h3{font-size:32px}
+  .bord{padding:30px 24px 24px}
+  .foot{grid-template-columns:1fr 1fr;gap:30px}
+  .foot>img{grid-column:1/3;width:110px}
+  .foot>div:first-of-type{grid-column:1/3}
+  .foot-bottom{flex-direction:column}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important}.js .rv{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.js .rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -175,69 +217,78 @@ footer.site{border-top:1px solid var(--line);padding:56px 0 32px;background:var(
 
 <header class="hero" id="top">
   <div class="hero-photo"><img src="img/hero-shop.webp" alt="Een hoek van de shop van Tattoo Le Roy met een oude typemachine, hoed en antiek" width="1600" height="1066" fetchpriority="high"></div>
-  <nav class="nav">
-    <a class="logo" href="#top"><img src="img/logo.png" alt="Tattoo en Piercing Le Roy" width="104" height="85"></a>
-    <ul>
-      <li><a href="#werk">Tattoos</a></li>
-      <li><a href="#gerrit">Gerrit en Neelke</a></li>
-      <li><a href="#piercings">Piercings</a></li>
-      <li><a href="#bezoek">Bezoek</a></li>
-    </ul>
-    <a class="tel" href="tel:+32478224722">0478 22 47 22</a>
-  </nav>
-  <div class="hero-text">
-    <span class="orn label">Tattoo en piercing in Ronse</span>
-    <h1>Van tribal<br>tot <span>portret.</span></h1>
-    <p>Gerrit zet al meer dan 35 jaar tattoos. Fijn lijnwerk, realisme, Maori of de snoet van je hond: breng je idee mee, wij tekenen het uit.</p>
-    <div class="hero-cta">
-      <a class="btn" href="#bezoek">Kom langs in de shop <span>→</span></a>
-      <a class="btn btn-line" href="#werk">Bekijk het werk</a>
+  <div class="lijst" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="wrap" style="display:flex;flex-direction:column;flex:1">
+    <nav class="nav">
+      <a class="logo" href="#top"><img src="img/logo.png" alt="Tattoo en Piercing Le Roy" width="108" height="88"></a>
+      <ul>
+        <li><a href="#werk">Tattoos</a></li>
+        <li><a href="#gerrit">Gerrit en Neelke</a></li>
+        <li><a href="#piercings">Piercings</a></li>
+        <li><a href="#bezoek">Bezoek</a></li>
+      </ul>
+      <a class="tel" href="tel:+32478224722"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>0478 22 47 22</span></a>
+    </nav>
+    <div class="hero-text">
+      <span class="label">Tattoo en piercing in Ronse</span>
+      <h1>Van tribal<br>tot <span>portret.</span></h1>
+      <p>Gerrit zet al meer dan 35 jaar tattoos. Fijn lijnwerk, realisme, Maori of de snoet van je hond: breng je idee mee, wij tekenen het uit.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#bezoek">Kom langs in de shop <span>→</span></a>
+        <a class="btn btn-line" href="#werk">Bekijk het werk</a>
+      </div>
+    </div>
+    <div class="hero-base">
+      <div><b>4,9</b>uit 77 reviews</div>
+      <div><b>35+</b>jaar aan de naald</div>
+      <div><b>Di tot za</b>open in de shop</div>
+      <div><b>Ronse</b>Savooistraat 205</div>
     </div>
   </div>
-  <div class="hero-base"><span><b>4,9</b> op 77 Google-reviews</span><span>Savooistraat 205 · <b>di tot za</b></span></div>
 </header>
 
 <main>
+<div class="band" aria-hidden="true"><div class="rij">
+  <span>Portret</span><span>Realisme</span><span>Maori</span><span>Mandala</span><span>Old school</span><span>Geometrie</span><span>Fineline</span><span>Piercings</span>
+  <span>Portret</span><span>Realisme</span><span>Maori</span><span>Mandala</span><span>Old school</span><span>Geometrie</span><span>Fineline</span><span>Piercings</span>
+</div></div>
+
 <section class="werk" id="werk">
   <div class="wrap">
     <div class="werk-head rv">
-      <div><span class="label">Tattoos</span><h2>Geen uitdaging<br>te groot.</h2></div>
-      <div>
-        <p>Van een klein fijn lijntje tot een volledig portret van je trouwe viervoeter. Wat je ook in gedachten hebt, we werken het samen uit tot het past.</p>
-        <div class="stijlen"><span>Maori</span><span>Realisme</span><span>Mandala</span><span>Old school</span><span>Geometrie</span><span>Fineline</span></div>
-      </div>
+      <div><span class="label">Tattoos</span><h2>Geen uitdaging te groot.</h2></div>
+      <p>Van een klein fijn lijntje tot een volledig portret van je trouwe viervoeter. Wat je ook in gedachten hebt, we werken het samen uit tot het past.</p>
     </div>
-    <div class="werk-feature rv">
-      <figure class="tall"><img src="img/rottweiler.webp" alt="Realistisch portret van een rottweiler op de kuit" loading="lazy" width="611" height="889"><figcaption>Portret</figcaption></figure>
-      <figure class="tall"><img src="img/arend.webp" alt="Arend in kleur op het onderbeen" loading="lazy" width="768" height="1024"><figcaption>Realisme</figcaption></figure>
-      <div class="werk-stack">
-        <figure><img src="img/portretten.webp" alt="Een bulldog en een mansportret in black and grey" loading="lazy" width="596" height="500"><figcaption>Portretwerk</figcaption></figure>
-        <figure><img src="img/p-geisha.webp" alt="Geisha op de onderarm, voor en na" loading="lazy" width="1080" height="1080"><figcaption>Uit het portfolio</figcaption></figure>
-      </div>
+    <div class="wand">
+      <figure class="t rv"><div class="pp"><img src="img/rottweiler.webp" alt="Realistisch portret van een rottweiler op de kuit" loading="lazy" width="611" height="889"></div><figcaption>Rottweiler · portret</figcaption></figure>
+      <figure class="t rv"><div class="pp"><img src="img/arend.webp" alt="Arend in kleur op het onderbeen" loading="lazy" width="768" height="1024"></div><figcaption>Arend · realisme</figcaption></figure>
+      <figure class="w rv"><div class="pp"><img src="img/portretten.webp" alt="Een bulldog en een mansportret in black and grey" loading="lazy" width="596" height="500" style="object-position:50% 45%"></div><figcaption>Portretwerk</figcaption></figure>
+      <figure class="rv"><div class="pp"><img src="img/w-magnolia.webp" alt="Roze magnolia op de schouder" loading="lazy" width="840" height="1200"></div><figcaption>Magnolia</figcaption></figure>
+      <figure class="rv"><div class="pp"><img src="img/w-raaf.webp" alt="Raaf op een tak, black and grey" loading="lazy" width="789" height="1080" style="object-position:50% 35%"></div><figcaption>Raaf</figcaption></figure>
+      <figure class="t rv"><div class="pp"><img src="img/w-geisha.webp" alt="Geisha op de onderarm" loading="lazy" width="513" height="831"></div><figcaption>Geisha</figcaption></figure>
+      <figure class="t rv"><div class="pp"><img src="img/w-kever.webp" alt="Kever met doodshoofd op de bovenarm" loading="lazy" width="799" height="1080"></div><figcaption>Kever</figcaption></figure>
+      <figure class="t rv"><div class="pp"><img src="img/w-klaproos.webp" alt="Rode klaproos op de onderarm" loading="lazy" width="744" height="1200"></div><figcaption>Klaproos</figcaption></figure>
+      <figure class="rv"><div class="pp"><img src="img/w-magnolia2.webp" alt="Magnolia in kleur op de onderarm" loading="lazy" width="480" height="831" style="object-position:50% 40%"></div><figcaption>Magnolia in kleur</figcaption></figure>
+      <figure class="rv"><div class="pp"><img src="img/w-vlinder.webp" alt="Fijne bloemen met vlinder op de onderarm" loading="lazy" width="502" height="848" style="object-position:50% 30%"></div><figcaption>Fineline</figcaption></figure>
     </div>
-    <div class="werk-grid rv">
-      <figure><img src="img/p-magnolia.webp" alt="Roze magnolia op de schouder" loading="lazy" width="1200" height="1200"></figure>
-      <figure><img src="img/p-raaf.webp" alt="Raaf op een tak, black and grey" loading="lazy" width="1080" height="1080"></figure>
-      <figure><img src="img/p-klaproos.webp" alt="Rode klaproos op de onderarm" loading="lazy" width="1200" height="1200"></figure>
-      <figure><img src="img/p-kever.webp" alt="Kever met doodshoofd" loading="lazy" width="1080" height="1080"></figure>
-    </div>
-    <p class="werk-note rv">Meer werk op <a href="https://www.instagram.com/tattooleroyoudenaarde/" target="_blank" rel="noopener">Instagram</a> en <a href="https://www.facebook.com/Tattoo-Leroy-391040587614302/" target="_blank" rel="noopener">Facebook</a>.</p>
+    <div class="werk-note rv"><span>Meer werk op <a href="https://www.instagram.com/tattooleroyoudenaarde/" target="_blank" rel="noopener">Instagram</a> en <a href="https://www.facebook.com/Tattoo-Leroy-391040587614302/" target="_blank" rel="noopener">Facebook</a>.</span><a class="btn" href="#bezoek">Bespreek je idee in de shop <span>→</span></a></div>
   </div>
 </section>
 
 <section class="mensen" id="gerrit">
   <div class="wrap mensen-grid">
-    <figure class="duo rv">
-      <img class="g" src="img/gerrit.webp" alt="Gerrit, tatoeëerder en oprichter van Tattoo Le Roy" loading="lazy" width="632" height="870">
-      <img class="n" src="img/neelke.webp" alt="Neelke van Tattoo Le Roy" loading="lazy" width="388" height="620">
-    </figure>
+    <div class="fotos rv">
+      <figure class="foto g"><img src="img/gerrit.webp" alt="Gerrit, tatoeëerder en oprichter van Tattoo Le Roy" loading="lazy" width="632" height="870"><figcaption>Gerrit <small>tattoos</small></figcaption></figure>
+      <figure class="foto n"><img src="img/neelke.webp" alt="Neelke van Tattoo Le Roy" loading="lazy" width="388" height="620"><figcaption>Neelke <small>advies</small></figcaption></figure>
+    </div>
     <div class="mensen-text rv">
       <span class="label">Wie je ontmoet</span>
       <h2>Begonnen in een garagebox.</h2>
       <p>Gerrit startte in een kleine garage in Nazareth, met tribals. Daaruit groeide Tattoo Le Roy, en uit de tribals groeide alles: realisme, Maori, mandala, portretten en fijn lijnwerk.</p>
       <p>Neelke denkt mee over je idee, bij een tas koffie in de shop.</p>
+      <div class="jaren"><b>35+</b><span>jaar ervaring, en geen uitdaging die Gerrit uit de weg gaat.</span></div>
       <div class="rollen">
-        <div><small>Tattoos en piercings</small><h3>Gerrit</h3><p>Meer dan 35 jaar ervaring, en geen uitdaging die hij uit de weg gaat.</p></div>
+        <div><small>Tattoos en piercings</small><h3>Gerrit</h3><p>Tekent je idee uit en zet het, van een fijn lijntje tot een volledig portret.</p></div>
         <div><small>Advies, inspiratie, piercings</small><h3>Neelke</h3><p>Je aanspreekpunt voor piercings, nieuwe juweeltjes en vragen over plaatsing.</p></div>
       </div>
     </div>
@@ -250,11 +301,10 @@ footer.site{border-top:1px solid var(--line);padding:56px 0 32px;background:var(
       <span class="label">Piercings</span>
       <h2>Zetten, wisselen, verzorgen.</h2>
       <p class="intro">We plaatsen en vervangen zowat alle soorten piercings. Twijfel je over een juweeltje of de plaats, dan kijken we het samen na.</p>
-      <figure><img src="img/piercings.webp" alt="Navelpiercings met bloemetjes op een glazen houder" loading="lazy" width="600" height="401"></figure>
+      <figure class="lijstfoto"><img src="img/piercings.webp" alt="Navelpiercings met bloemetjes op een glazen houder" loading="lazy" width="600" height="401"></figure>
     </div>
     <div class="zorg rv">
-      <span class="label">Nazorg</span>
-      <h3>De eerste weken</h3>
+      <div class="kop"><div><span class="label">Nazorg</span><h3>De eerste weken</h3></div><img src="img/logo.png" alt="" width="74" height="60"></div>
       <ol>
         <li><span><b>Ongeveer twee weken</b> om te genezen.</span></li>
         <li><span>Ontsmet met <b>Diaseptyl</b>, voor een tongpiercing met <b>Hextril</b>.</span></li>
@@ -277,14 +327,18 @@ footer.site{border-top:1px solid var(--line);padding:56px 0 32px;background:var(
       <div class="adres">Savooistraat 205, Ronse<small><a href="tel:+32478224722">0478 22 47 22</a> · <a href="mailto:tat2gerrit@gmail.com">tat2gerrit@gmail.com</a></small></div>
       <div class="hero-cta"><a class="btn" href="tel:+32478224722">Bel de shop <span>→</span></a><a class="btn btn-line" href="mailto:tat2gerrit@gmail.com">Stuur een mail</a></div>
     </div>
-    <div class="uren rv">
-      <div class="toe"><span>Maandag</span><span>gesloten</span></div>
-      <div><span>Dinsdag</span><span>13.00 tot 18.30</span></div>
-      <div><span>Woensdag</span><span>13.00 tot 18.30</span></div>
-      <div><span>Donderdag</span><span>13.00 tot 18.30</span></div>
-      <div><span>Vrijdag</span><span>13.00 tot 18.30</span></div>
-      <div><span>Zaterdag</span><span>11.00 tot 17.00</span></div>
-      <div class="toe"><span>Zondag</span><span>gesloten</span></div>
+    <div class="bord rv">
+      <h3>Openingsuren</h3>
+      <div class="uren">
+        <div class="toe"><span>Maandag</span><span>gesloten</span></div>
+        <div><span>Dinsdag</span><span>13.00 tot 18.30</span></div>
+        <div><span>Woensdag</span><span>13.00 tot 18.30</span></div>
+        <div><span>Donderdag</span><span>13.00 tot 18.30</span></div>
+        <div><span>Vrijdag</span><span>13.00 tot 18.30</span></div>
+        <div><span>Zaterdag</span><span>11.00 tot 17.00</span></div>
+        <div class="toe"><span>Zondag</span><span>gesloten</span></div>
+      </div>
+      <a class="route" href="https://www.google.com/maps/dir/?api=1&amp;destination=Savooistraat+205+9600+Ronse" target="_blank" rel="noopener">Plan je route <span>→</span></a>
     </div>
   </div>
 </section>
@@ -293,14 +347,10 @@ footer.site{border-top:1px solid var(--line);padding:56px 0 32px;background:var(
 <footer class="site">
   <div class="wrap">
     <div class="foot">
-      <img src="img/logo.png" alt="Tattoo en Piercing Le Roy" width="120" height="98">
-      <ul>
-        <li><a href="#werk">Tattoos</a></li>
-        <li><a href="#piercings">Piercings</a></li>
-        <li><a href="#bezoek">Bezoek</a></li>
-        <li><a href="https://www.instagram.com/tattooleroyoudenaarde/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://www.facebook.com/Tattoo-Leroy-391040587614302/" target="_blank" rel="noopener">Facebook</a></li>
-      </ul>
+      <img src="img/logo.png" alt="Tattoo en Piercing Le Roy" width="130" height="106">
+      <div><h4>Tattoo Le Roy</h4><p>Tattoos en piercings bij Gerrit en Neelke. Kom langs met je idee, de koffie staat klaar.</p></div>
+      <div><h4>Shop</h4><ul><li>Savooistraat 205</li><li>9600 Ronse</li><li><a href="tel:+32478224722">0478 22 47 22</a></li></ul></div>
+      <div><h4>Volgen</h4><ul><li><a href="https://www.instagram.com/tattooleroyoudenaarde/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/Tattoo-Leroy-391040587614302/" target="_blank" rel="noopener">Facebook</a></li><li><a href="mailto:tat2gerrit@gmail.com">Mail</a></li></ul></div>
     </div>
     <div class="foot-bottom"><span>© 2026 Tattoo Le Roy · Savooistraat 205, 9600 Ronse</span><a href="#di">Voorbeeldsite door Digital Impression</a></div>
   </div>
