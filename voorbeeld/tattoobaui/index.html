@@ -11,7 +11,7 @@
 <style>
 @font-face{font-family:'Big Shoulders Display';font-style:normal;font-weight:600 900;font-display:swap;src:url(fonts/bigshouldersdisplay-600-900-normal.woff2) format('woff2')}
 @font-face{font-family:'Instrument Sans';font-style:normal;font-weight:400 600;font-display:swap;src:url(fonts/instrumentsans-400-600-normal.woff2) format('woff2')}
-:root{--ink:#0E0E0E;--coal:#171716;--coal2:#20201E;--bone:#ECE6DA;--bone2:rgba(236,230,218,.66);--bone3:rgba(236,230,218,.38);--line:rgba(236,230,218,.14);--red:#C2412D;--ease:cubic-bezier(.2,.8,.2,1);--pad:clamp(20px,5vw,64px);--wrap:1280px}
+:root{--ink:#0E0E0E;--coal:#171716;--coal2:#20201E;--bone:#ECE6DA;--paper:#E9E2D4;--bone2:rgba(236,230,218,.68);--bone3:rgba(236,230,218,.4);--line:rgba(236,230,218,.14);--dline:rgba(14,14,14,.16);--red:#C2412D;--red2:#D8553E;--ease:cubic-bezier(.2,.8,.2,1);--wrap:1320px}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--ink);color:var(--bone);font:400 17px/1.65 'Instrument Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -19,157 +19,229 @@ img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 h1,h2,h3{font-family:'Big Shoulders Display',Impact,sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:-.005em;line-height:.86;margin:0}
 p{margin:0}
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+.wrap{width:min(var(--wrap),100% - 56px);margin-inline:auto}
+.label{display:inline-flex;align-items:center;gap:12px;font:600 12px/1 'Instrument Sans',sans-serif;letter-spacing:.26em;text-transform:uppercase;color:var(--bone3)}
+.label::before{content:"";width:26px;height:2px;background:var(--red)}
+
 .demo{background:var(--bone);color:var(--ink);font:500 13px/1.4 'Instrument Sans',sans-serif;text-align:center;padding:9px 16px}
-.demo a{color:var(--red);font-weight:600}
-.label{font:600 12px/1 'Instrument Sans',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--bone3);display:inline-flex;align-items:center;gap:12px}
-.label::before{content:"";width:28px;height:1px;background:var(--red)}
+.demo a{color:var(--red);font-weight:600;text-underline-offset:3px}
 
-/* knoppen: scherpe hoeken, zoals een stencil */
-.btn{display:inline-flex;align-items:center;gap:16px;padding:17px 22px 17px 24px;font:600 15px/1 'Instrument Sans',sans-serif;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:1px solid var(--bone);transition:background .3s,color .3s,gap .35s var(--ease)}
-.btn:hover{gap:24px}
-.btn-solid{background:var(--bone);color:var(--ink)}
-.btn-solid:hover{background:#fff}
-.btn-ghost{color:var(--bone)}
+/* knoppen: stencil-blok met een ingeknipte hoek */
+.btn{--c:var(--bone);display:inline-flex;align-items:center;gap:14px;padding:18px 24px;font:700 13px/1 'Instrument Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--ink);background:var(--c);clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,0 100%);transition:background .3s var(--ease),transform .3s var(--ease)}
+.btn span{display:inline-block;transition:transform .35s var(--ease)}
+.btn:hover{background:#fff}
+.btn:hover span{transform:translateX(5px)}
+.btn-red{--c:var(--red);color:var(--bone)}
+.btn-red:hover{background:var(--red2)}
+.btn-ghost{background:transparent;color:var(--bone);clip-path:none;box-shadow:inset 0 0 0 1.5px rgba(236,230,218,.4)}
 .btn-ghost:hover{background:var(--bone);color:var(--ink)}
+.btn-dark{--c:var(--ink);color:var(--bone)}
+.btn-dark:hover{background:#000}
+.btn svg{width:18px;height:18px}
 
-/* HERO */
-.hero{position:relative;min-height:clamp(660px,calc(100svh - 38px),940px);display:flex;flex-direction:column;overflow:hidden;background:var(--ink)}
-.hero-photo{position:absolute;inset:0 0 0 30%}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:grayscale(.15) contrast(1.05)}
-.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0%,rgba(14,14,14,.82) 16%,rgba(14,14,14,.15) 52%,rgba(14,14,14,0) 70%),linear-gradient(0deg,rgba(14,14,14,.9) 0%,rgba(14,14,14,0) 30%)}
-.nav{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px var(--pad)}
-.logo{display:flex;align-items:center;gap:14px;text-decoration:none}
-.logo img{width:58px;height:58px}
-.logo span{font:600 12px/1.35 'Instrument Sans',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--bone2)}
-.nav ul{display:flex;gap:34px;list-style:none;margin:0;padding:0}
-.nav ul a{text-decoration:none;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--bone2);transition:color .2s}
-.nav ul a:hover{color:var(--bone)}
-.nav .btn{padding:13px 18px;font-size:13px}
-.hero-text{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;padding:20px var(--pad) 30px;max-width:900px}
-.hero h1{font-size:clamp(84px,11.5vw,184px);margin:26px 0 30px}
-.hero h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1.5px var(--bone)}
-.hero-text p{max-width:430px;font-size:18px;color:var(--bone2)}
-.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
-.hero-rule{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:0;margin:0 var(--pad) 28px;border-top:1px solid var(--line)}
-.hero-rule div{padding:16px 34px 0 0;margin-right:34px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--bone3);border-right:1px solid var(--line)}
-.hero-rule div:last-child{border:0}
-.hero-rule b{display:block;font:800 24px/1 'Big Shoulders Display',sans-serif;letter-spacing:.02em;color:var(--bone);margin-bottom:6px}
+/* hero */
+.hero{position:relative;min-height:min(940px,calc(100vh - 36px));display:flex;flex-direction:column;overflow:hidden;isolation:isolate}
+.hero-photo{position:absolute;inset:0;z-index:-1}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:62% 30%;filter:contrast(1.08) saturate(.85)}
+.hero-photo::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 72% 40%,rgba(14,14,14,0) 0%,rgba(14,14,14,.25) 55%,rgba(14,14,14,.85) 100%),linear-gradient(90deg,rgba(14,14,14,.96) 0%,rgba(14,14,14,.82) 28%,rgba(14,14,14,.2) 56%,rgba(14,14,14,0) 70%),linear-gradient(0deg,rgba(14,14,14,1) 0%,rgba(14,14,14,0) 32%)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 0}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none;font:600 11px/1.35 'Instrument Sans',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--bone2)}
+.logo img{width:60px;height:60px;border:1px solid var(--line)}
+.nav ul{display:flex;gap:36px;list-style:none;margin:0;padding:0}
+.nav ul a{font:600 12px/1 'Instrument Sans',sans-serif;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;color:var(--bone2);padding:8px 0;background:linear-gradient(var(--red),var(--red)) 0 100%/0 2px no-repeat;transition:background-size .4s var(--ease),color .3s}
+.nav ul a:hover{color:var(--bone);background-size:100% 2px}
+.hero-mid{flex:1;display:flex;flex-direction:column}
+.hero-text{margin-top:auto;padding:40px 0 56px;max-width:720px}
+.hero h1{font-size:clamp(84px,10.6vw,168px);margin:22px 0 28px}
+.hero h1 .r{color:var(--red2)}
+.hero-text p{max-width:30em;color:var(--bone2);font-size:18px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero-rule{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-bottom:0}
+.hero-rule div{padding:22px 24px 26px 0;font-size:13.5px;color:var(--bone3);line-height:1.4}
+.hero-rule div+div{padding-left:24px;border-left:1px solid var(--line)}
+.hero-rule b{display:block;font:900 30px/1 'Big Shoulders Display',sans-serif;text-transform:uppercase;color:var(--bone);margin-bottom:6px}
+.hero-tag{position:absolute;right:28px;bottom:150px;writing-mode:vertical-rl;font:600 11px/1 'Instrument Sans',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--bone3)}
 
-/* WERK */
-.werk{padding:clamp(100px,12vw,160px) 0}
-.werk-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:46px}
-.werk h2{font-size:clamp(64px,9vw,140px);margin-top:20px}
-.filters{display:flex;gap:0;border:1px solid var(--line)}
-.filters button{background:none;border:0;border-right:1px solid var(--line);color:var(--bone2);font:600 13px/1 'Instrument Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:15px 18px;cursor:pointer;transition:background .25s,color .25s}
-.filters button:last-child{border-right:0}
-.filters button[aria-pressed="true"],.filters button:hover{background:var(--bone);color:var(--ink)}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;grid-auto-flow:dense}
-.grid figure{margin:0;position:relative;overflow:hidden;background:var(--coal);aspect-ratio:4/5}
-.grid figure.big{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
-.grid figure.big img{position:absolute;inset:0}
-.grid img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease),filter .5s}
-.grid figure:hover img{transform:scale(1.035)}
-.grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;background:linear-gradient(0deg,rgba(0,0,0,.78),transparent);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone2);opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s var(--ease)}
-.grid figure:hover figcaption{opacity:1;transform:none}
+/* band */
+.band{background:var(--red);overflow:hidden;color:var(--ink)}
+.band .rij{display:flex;width:max-content;animation:loop 40s linear infinite}
+.band span{font:900 38px/1 'Big Shoulders Display',sans-serif;text-transform:uppercase;padding:18px 22px;display:flex;align-items:center;gap:44px;white-space:nowrap}
+.band span::after{content:"";width:12px;height:12px;background:var(--ink);transform:rotate(45deg)}
+@keyframes loop{to{transform:translateX(-50%)}}
+
+/* werk: portfolio op papier */
+.werk{padding:120px 0 110px;background:var(--paper);color:var(--ink);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .27 0 0 0 0 .22 0 0 0 .1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.werk .label{color:rgba(14,14,14,.55)}
+.werk-head{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end;margin-bottom:46px}
+.werk h2{font-size:clamp(76px,9vw,150px);margin-top:18px}
+.werk-head p{max-width:24em;color:rgba(14,14,14,.7);margin-top:20px}
+.filters{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.filters button{font:700 12px/1 'Instrument Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:13px 16px;background:transparent;color:var(--ink);border:1.5px solid rgba(14,14,14,.28);cursor:pointer;transition:all .3s var(--ease)}
+.filters button:hover{border-color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--bone);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:300px;grid-auto-flow:dense;gap:14px}
+.grid figure{position:relative;margin:0;overflow:hidden;background:#1b1b1a;cursor:zoom-in}
+.grid figure.big{grid-row:span 2;grid-column:span 2}
+.grid figure.tall{grid-row:span 2}
 .grid figure.hide{display:none}
-.werk-note{margin-top:26px;color:var(--bone3);font-size:14px}
-.werk-note a{color:var(--bone)}
+.grid img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease),filter .6s}
+.grid figure:hover img{transform:scale(1.05)}
+.grid figcaption{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:end;padding:44px 16px 14px;background:linear-gradient(transparent,rgba(0,0,0,.78));font:600 11.5px/1.2 'Instrument Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--bone);transform:translateY(8px);opacity:.92;transition:transform .5s var(--ease),opacity .5s}
+.grid figcaption i{font-style:normal;color:var(--bone3)}
+.grid figure:hover figcaption{transform:none;opacity:1}
+.grid figure.big figcaption{font-size:12.5px}
+.werk-foot{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-top:40px;padding-top:28px;border-top:1.5px solid var(--ink)}
+.werk-foot p{font:900 34px/1 'Big Shoulders Display',sans-serif;text-transform:uppercase}
 
-/* WERKWIJZE */
-.wijze{background:var(--bone);color:var(--ink);padding:clamp(100px,12vw,160px) 0}
-.wijze .label{color:rgba(14,14,14,.55)}
-.wijze-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(40px,7vw,110px);align-items:start}
-.wijze h2{font-size:clamp(60px,7.6vw,120px);margin:20px 0 28px}
-.wijze .intro{font-size:19px;max-width:440px;color:rgba(14,14,14,.72)}
-.wijze-photo{margin-top:48px;position:relative}
-.wijze-photo img{width:100%;aspect-ratio:4/5;object-fit:cover}
-.wijze-photo span{position:absolute;right:-1px;bottom:-1px;background:var(--ink);color:var(--bone);font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:12px 16px}
-.stappen{list-style:none;margin:0;padding:0;counter-reset:s}
-.stappen li{counter-increment:s;display:grid;grid-template-columns:90px 1fr;gap:10px;padding:34px 0;border-top:1px solid rgba(14,14,14,.16)}
-.stappen li:last-child{border-bottom:1px solid rgba(14,14,14,.16)}
-.stappen li::before{content:"0" counter(s);font:900 54px/.8 'Big Shoulders Display',sans-serif;color:transparent;-webkit-text-stroke:1.2px var(--ink)}
-.stappen h3{font-size:36px;line-height:.95;margin-bottom:10px}
-.stappen p{color:rgba(14,14,14,.72)}
-.stappen q{display:block;margin-top:12px;font-weight:600;color:var(--ink);quotes:none}
+.tegel{background:var(--ink);color:var(--bone);padding:26px 24px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;gap:16px}
+.tegel p{font:900 40px/.9 'Big Shoulders Display',sans-serif;text-transform:uppercase}
+.tegel .ig{font:600 11.5px/1 'Instrument Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--bone2);text-decoration:none}
+.tegel .ig:hover{color:var(--bone)}
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(10,10,10,.94);display:none;align-items:center;justify-content:center;padding:40px}
+.lb.open{display:flex}
+.lb img{max-height:calc(100vh - 120px);max-width:min(1100px,100%);width:auto;object-fit:contain}
+.lb p{position:absolute;left:0;right:0;bottom:22px;text-align:center;font:600 12px/1 'Instrument Sans',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--bone2)}
+.lb button{position:absolute;background:none;border:1.5px solid var(--line);color:var(--bone);width:52px;height:52px;font-size:22px;cursor:pointer}
+.lb button:hover{border-color:var(--bone)}
+.lb .x{top:22px;right:22px}.lb .vorige{left:22px;top:50%}.lb .volgende{right:22px;top:50%}
 
-/* ARTIESTEN */
-.team{padding:clamp(100px,12vw,160px) 0}
-.team h2{font-size:clamp(60px,8vw,128px);margin:20px 0 54px}
-.team-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:16px}
-.artist{position:relative;overflow:hidden;min-height:520px;display:flex;flex-direction:column;justify-content:flex-end;padding:36px;border:1px solid var(--line)}
-.artist img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42;filter:grayscale(1);transition:opacity .6s,transform 1.2s var(--ease)}
-.artist:hover img{opacity:.7;transform:scale(1.03)}
-.artist::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,14,14,.97) 0%,rgba(14,14,14,.75) 40%,rgba(14,14,14,.1) 75%);z-index:1}
-.artist.plain{background:var(--coal)}
-.artist.plain h3{color:transparent;-webkit-text-stroke:1.3px var(--bone)}
-.artist>*{position:relative;z-index:2}
-.artist .role{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);font-weight:600}
-.artist h3{font-size:clamp(52px,5.4vw,84px);margin:12px 0 14px}
-.artist p{color:var(--bone2);max-width:420px}
-.artist a{margin-top:18px;align-self:flex-start;font-size:14px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--bone3);padding-bottom:4px}
-.artist a:hover{border-color:var(--bone)}
+/* werkwijze */
+.wijze{padding:130px 0;background:var(--ink)}
+.wijze-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(40px,6vw,96px);align-items:start}
+.wijze h2{font-size:clamp(70px,7.6vw,124px);margin:20px 0 26px}
+.wijze .intro{color:var(--bone2);max-width:26em}
+.wijze-photo{position:relative;margin-top:44px}
+.wijze-photo img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.wijze-photo span{position:absolute;left:0;bottom:0;background:var(--red);color:var(--bone);font:600 11px/1 'Instrument Sans',sans-serif;letter-spacing:.22em;text-transform:uppercase;padding:13px 16px}
+.stappen{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:16px;counter-reset:s}
+.stappen li{counter-increment:s;position:relative;padding:34px 30px 32px;background:var(--coal);border:1px solid var(--line);transition:border-color .4s,transform .5s var(--ease)}
+.stappen li:hover{border-color:rgba(194,65,45,.7);transform:translateY(-4px)}
+.stappen li::before{content:"0" counter(s);display:block;font:900 74px/.8 'Big Shoulders Display',sans-serif;color:transparent;-webkit-text-stroke:1.5px var(--red2);margin-bottom:26px}
+.stappen h3{font-size:34px;margin-bottom:12px}
+.stappen p{color:var(--bone2);font-size:16px}
+.stappen li.citaat::before{content:none}
+.stappen li.citaat:hover{transform:none;border-color:var(--bone)}
+.stappen .citaat{counter-increment:none;border-color:var(--bone);grid-column:1/3;padding:34px 30px;background:var(--bone);color:var(--ink);display:flex;justify-content:space-between;align-items:center;gap:24px}
+.citaat q{font:900 clamp(34px,3.4vw,52px)/.95 'Big Shoulders Display',sans-serif;text-transform:uppercase;quotes:none}
+.citaat span{font:600 11px/1.4 'Instrument Sans',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:rgba(14,14,14,.55);text-align:right;flex:none}
 
-/* BEZOEK */
-.bezoek{background:var(--coal);padding:clamp(100px,12vw,150px) 0}
-.bezoek-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,7vw,110px)}
-.bezoek h2{font-size:clamp(64px,8.4vw,134px);margin:20px 0 30px}
-.bezoek .intro{color:var(--bone2);max-width:440px;font-size:18px}
-.bezoek .hero-cta{margin-top:34px}
-.info{border-top:1px solid var(--line)}
-.info div{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}
-.info dt{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--bone3);padding-top:4px}
-.info dd{margin:0}
-.info dd a{text-decoration:none;border-bottom:1px solid var(--bone3)}
-.info small{display:block;color:var(--bone3);font-size:14px;margin-top:6px;line-height:1.5}
+/* artiesten */
+.team{padding:130px 0;background:var(--paper);color:var(--ink)}
+.team .label{color:rgba(14,14,14,.55)}
+.team-top{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end;margin-bottom:50px}
+.team h2{font-size:clamp(70px,7.6vw,124px);margin-top:18px}
+.team-top .score{text-align:right}
+.team-top .score b{display:block;font:900 96px/.8 'Big Shoulders Display',sans-serif}
+.team-top .score span{font-size:14px;color:rgba(14,14,14,.62)}
+.team-grid{display:grid;grid-template-columns:7fr 5fr;gap:16px}
+.artist{position:relative;display:grid;grid-template-columns:1fr 1fr;background:var(--ink);color:var(--bone);min-height:520px;overflow:hidden}
+.artist .foto{position:relative;overflow:hidden}
+.artist .foto img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.artist:hover .foto img{transform:scale(1.04)}
+.artist .tekst{padding:40px 36px;display:flex;flex-direction:column;justify-content:flex-end}
+.role{font:600 11px/1 'Instrument Sans',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--red2)}
+.artist h3{font-size:96px;margin:14px 0 18px}
+.artist p{color:var(--bone2);font-size:16px}
+.artist ul{list-style:none;padding:0;margin:24px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.artist li{font:600 11px/1 'Instrument Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:9px 11px;border:1px solid var(--line);color:var(--bone2)}
+.artist.plain{display:flex;flex-direction:column;justify-content:space-between;padding:40px 36px;background:var(--red);color:var(--bone)}
+.artist.plain .role{color:var(--ink)}
+.artist.plain h3{font-size:clamp(84px,8vw,120px);color:transparent;-webkit-text-stroke:2px var(--bone);margin:0}
+.artist.plain p{color:rgba(236,230,218,.9)}
+.artist.plain a.ig{display:inline-flex;gap:10px;align-items:center;margin-top:22px;font:700 12px/1 'Instrument Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border-bottom:1.5px solid var(--bone);padding-bottom:6px}
 
-footer.site{padding:64px 0 34px;border-top:1px solid var(--line)}
-.foot{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap}
-.foot .logo img{width:84px;height:84px}
-.foot ul{list-style:none;margin:0;padding:0;display:flex;gap:28px;flex-wrap:wrap}
-.foot ul a{text-decoration:none;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone2)}
-.foot ul a:hover{color:var(--bone)}
-.foot-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:56px;padding-top:22px;border-top:1px solid var(--line);font-size:13px;color:var(--bone3)}
-.foot-bottom a{color:var(--bone2)}
+/* afspraak */
+.bezoek{padding:130px 0 120px;background:var(--ink)}
+.bezoek-grid{display:grid;grid-template-columns:6fr 6fr;gap:clamp(40px,6vw,96px);align-items:start}
+.bezoek h2{font-size:clamp(76px,8.6vw,140px);margin:20px 0 26px}
+.bezoek .intro{color:var(--bone2);max-width:28em}
+.mee{margin-top:36px;padding:28px 28px 24px;border:1px dashed rgba(236,230,218,.3);max-width:460px}
+.mee h3{font-size:28px;margin-bottom:16px}
+.mee ol{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:m}
+.mee li{counter-increment:m;display:flex;gap:14px;align-items:baseline;color:var(--bone2)}
+.mee li::before{content:counter(m);font:900 22px/1 'Big Shoulders Display',sans-serif;color:var(--red2);width:14px}
+.info{margin:0;background:var(--coal);border:1px solid var(--line)}
+.info div{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:24px 30px;border-bottom:1px solid var(--line)}
+.info div:last-child{border-bottom:0}
+.info dt{font:600 11px/1.6 'Instrument Sans',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--bone3)}
+.info dd{margin:0;font-size:17px}
+.info dd a{text-underline-offset:4px}
+.info small{display:block;color:var(--bone3);font-size:14px;margin-top:6px}
+.info .kaart{padding:0;display:block;border-bottom:1px solid var(--line)}
+.info .kaart a{display:flex;justify-content:space-between;align-items:center;padding:24px 30px;background:var(--bone);color:var(--ink);text-decoration:none;font:900 30px/1 'Big Shoulders Display',sans-serif;text-transform:uppercase;transition:background .3s}
+.info .kaart a:hover{background:#fff}
 
-.js .rv{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+/* footer */
+footer.site{background:#090909;border-top:1px solid var(--line);padding:70px 0 30px}
+.foot{display:grid;grid-template-columns:auto 1fr auto;gap:50px;align-items:start;padding-bottom:46px;border-bottom:1px solid var(--line)}
+.foot .logo img{width:110px;height:110px}
+.foot .woord{font:900 clamp(60px,7vw,110px)/.82 'Big Shoulders Display',sans-serif;text-transform:uppercase;color:transparent;-webkit-text-stroke:1.5px rgba(236,230,218,.35)}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;text-align:right}
+.foot ul a{font:600 12px/1 'Instrument Sans',sans-serif;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--bone2)}
+.foot ul a:hover{color:var(--red2)}
+.foot-bottom{display:flex;justify-content:space-between;gap:20px;padding-top:24px;font-size:13px;color:var(--bone3)}
+.foot-bottom a{text-decoration:none}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .js .rv.in{opacity:1;transform:none}
 
-@media (max-width:1080px){
+@media (max-width:1100px){
   .nav ul{display:none}
-  .hero-rule{grid-template-columns:repeat(2,auto)}
-  .hero-rule div:nth-child(2){border-right:0}
-  .hero-rule div:nth-child(n+3){display:none}
-  .team-grid{grid-template-columns:1fr 1fr}
+  .grid{grid-auto-rows:240px}
+  .artist{grid-template-columns:1fr}
+  .artist .foto{height:320px}
 }
 @media (max-width:860px){
+  .wrap{width:calc(100% - 40px)}
   .hero{min-height:0}
-  .hero-photo{position:relative;inset:auto;order:3;height:min(110vw,640px)}
-  .hero-photo::after{background:linear-gradient(180deg,var(--ink) 0%,rgba(14,14,14,0) 22%,rgba(14,14,14,0) 80%,var(--ink) 100%)}
-  .hero-text{padding:20px var(--pad) 30px}
-  .hero h1{font-size:clamp(72px,21vw,120px);margin:18px 0 22px}
-  .hero-rule{order:4;margin-top:10px}
+  .hero-photo{position:relative;inset:auto;order:3;height:auto;aspect-ratio:1/1;margin-top:34px;z-index:0}
+  .hero-photo::after{background:linear-gradient(180deg,var(--ink) 0%,rgba(14,14,14,0) 26%),linear-gradient(0deg,var(--ink) 0%,rgba(14,14,14,0) 28%)}
+  .nav{order:1}
+  .hero-mid{order:2}
+  .hero-text{padding:34px 0 0}
+  .hero h1{font-size:clamp(62px,18.5vw,110px);margin:18px 0 22px}
+  .hero-text p{font-size:16.5px}
+  .hero-rule{order:4;grid-template-columns:1fr 1fr;margin-top:-30px;position:relative}
+  .hero-rule div{padding:16px 12px 18px 0}
+  .hero-rule div+div{padding-left:0;border-left:0}
+  .hero-rule div:nth-child(even){padding-left:16px;border-left:1px solid var(--line)}
+  .hero-rule div:nth-child(n+3){border-top:1px solid var(--line)}
+  .hero-tag{display:none}
+  .nav .btn{display:none}
+  .band span{font-size:28px;padding:14px 16px;gap:30px}
+  .werk,.wijze,.team,.bezoek{padding:84px 0}
+  .werk-head,.team-top{grid-template-columns:1fr}
+  .filters{justify-content:flex-start}
+  .grid{grid-template-columns:1fr 1fr;grid-auto-rows:210px;gap:10px}
+  .grid figure.big{grid-column:span 2;grid-row:span 2}
+  .grid figcaption{padding:30px 10px 10px;font-size:10px;letter-spacing:.1em}
+  .tegel{padding:16px 14px;gap:10px}
+  .tegel p{font-size:28px}
+  .tegel .btn{padding:13px 14px;font-size:11px;letter-spacing:.1em}
+  .tegel .ig{font-size:10px;letter-spacing:.1em}
   .wijze-grid,.bezoek-grid,.team-grid{grid-template-columns:1fr}
   .wijze-photo{display:none}
-  .artist{min-height:440px}
-  .grid{grid-template-columns:1fr 1fr;gap:10px}
-  .grid figcaption{display:none}
-}
-@media (max-width:520px){
-  body{font-size:16px}
-  .nav{padding:14px var(--pad)}
-  .nav .btn{display:none}
-  .logo img{width:50px;height:50px}
-  .filters{width:100%;overflow-x:auto}
-  .filters button{flex:1;padding:13px 10px;font-size:11px;white-space:nowrap}
-  .stappen li{grid-template-columns:64px 1fr}
-  .stappen li::before{font-size:40px}
+  .stappen{grid-template-columns:1fr}
+  .stappen li{padding:26px 22px 24px}
+  .stappen li::before{font-size:54px;margin-bottom:16px}
   .stappen h3{font-size:30px}
-  .info div{grid-template-columns:1fr;gap:6px}
-  .hero-rule div{padding-right:18px;margin-right:18px;font-size:11px}
-  .btn{padding:15px 18px}
+  .stappen .citaat{grid-column:auto;flex-direction:column;align-items:flex-start}
+  .citaat span{text-align:left}
+  .team-top .score{text-align:left}
+  .artist h3{font-size:76px}
+  .artist{min-height:0}
+  .artist.plain{gap:48px;padding:30px 24px}
+  .artist .foto{order:2}
+  .info div{grid-template-columns:1fr;gap:6px;padding:20px 22px}
+  .info .kaart a{padding:20px 22px;font-size:26px}
+  .foot{grid-template-columns:1fr;gap:28px}
+  .foot ul{text-align:left}
+  .foot-bottom{flex-direction:column}
+  .lb{padding:16px}.lb .vorige,.lb .volgende{top:auto;bottom:60px}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important}.js .rv{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.band .rij{animation:none}.js .rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -177,8 +249,8 @@ footer.site{padding:64px 0 34px;border-top:1px solid var(--line)}
 
 <header class="hero" id="top">
   <div class="hero-photo"><img src="img/hero-tijger.webp" alt="Black and grey rugstuk met een tijger en twee welpen, gezet bij Tattoo Baui" width="1920" height="1920" fetchpriority="high"></div>
-  <nav class="nav">
-    <a class="logo" href="#top"><img src="img/logo.png" alt="Tattoo Baui" width="58" height="58"><span>Tattoostudio<br>Wetteren</span></a>
+  <nav class="nav wrap">
+    <a class="logo" href="#top"><img src="img/logo.png" alt="Tattoo Baui" width="60" height="60"><span>Tattoostudio<br>Wetteren</span></a>
     <ul>
       <li><a href="#werk">Werk</a></li>
       <li><a href="#werkwijze">Werkwijze</a></li>
@@ -187,28 +259,36 @@ footer.site{padding:64px 0 34px;border-top:1px solid var(--line)}
     </ul>
     <a class="btn btn-ghost" href="https://wa.me/32495170429" target="_blank" rel="noopener">Stuur je idee <span>→</span></a>
   </nav>
-  <div class="hero-text">
-    <span class="label">Tattoostudio in Wetteren, op afspraak</span>
-    <h1>Getekend<br>voor <em>jouw</em><br>huid.</h1>
-    <p>Black and grey, realisme en grafisch werk. Elk ontwerp eerst op papier, op maat van jou en je lichaam, en pas dan in de stoel.</p>
-    <div class="hero-cta">
-      <a class="btn btn-solid" href="https://wa.me/32495170429" target="_blank" rel="noopener">Stuur je idee <span>→</span></a>
-      <a class="btn btn-ghost" href="#werk">Bekijk het werk</a>
+  <div class="wrap hero-mid">
+    <div class="hero-text">
+      <span class="label">Black and grey · op afspraak</span>
+      <h1>Getekend<br>voor jouw<br><span class="r">huid.</span></h1>
+      <p>Realisme en grafisch werk, elk ontwerp eerst op papier. Op maat van jou en je lichaam, en pas dan in de stoel.</p>
+      <div class="hero-cta">
+        <a class="btn" href="https://wa.me/32495170429" target="_blank" rel="noopener">Stuur je idee <span>→</span></a>
+        <a class="btn btn-ghost" href="#werk">Bekijk het werk</a>
+      </div>
     </div>
   </div>
-  <div class="hero-rule">
-    <div><b>4,9</b>op Google</div>
+  <div class="wrap hero-rule">
+    <div><b>4,9</b>uit 24 reviews op Google</div>
     <div><b>1 op 1</b>één klant tegelijk</div>
     <div><b>Op maat</b>geen flash van de muur</div>
-    <div><b>13A</b>Stationsstraat</div>
+    <div><b>Cover-ups</b>na een vrijblijvend gesprek</div>
   </div>
+  <span class="hero-tag">Rugstuk · tijger en welpen</span>
 </header>
 
 <main>
+<div class="band" aria-hidden="true"><div class="rij">
+  <span>Black and grey</span><span>Realisme</span><span>Fineline</span><span>Lettering</span><span>Cover-ups</span><span>Stationsstraat 13A</span>
+  <span>Black and grey</span><span>Realisme</span><span>Fineline</span><span>Lettering</span><span>Cover-ups</span><span>Stationsstraat 13A</span>
+</div></div>
+
 <section class="werk" id="werk">
   <div class="wrap">
     <div class="werk-head rv">
-      <div><span class="label">Uit het portfolio</span><h2>Recent werk</h2></div>
+      <div><span class="label">Uit het portfolio</span><h2>Recent werk</h2><p>Van een fijne bloem op de pols tot een volle rug. Klik op een foto om hem groot te bekijken.</p></div>
       <div class="filters" role="group" aria-label="Filter op stijl">
         <button type="button" aria-pressed="true" data-f="all">Alles</button>
         <button type="button" aria-pressed="false" data-f="bg">Black and grey</button>
@@ -217,22 +297,22 @@ footer.site{padding:64px 0 34px;border-top:1px solid var(--line)}
       </div>
     </div>
     <div class="grid">
-      <figure class="big" data-s="bg"><img style="object-position:50% 12%" src="img/leeuw.webp" alt="Leeuw met roos op de bovenarm" loading="lazy" width="713" height="1400"><figcaption>Black and grey · bovenarm</figcaption></figure>
-      <figure data-s="fl"><img src="img/fineline-sky.webp" alt="Fineline bloem met naam op de onderarm" loading="lazy" width="1051" height="1400"><figcaption>Fineline · onderarm</figcaption></figure>
-      <figure data-s="bg"><img src="img/raaf.webp" alt="Raaf op de borst" loading="lazy" width="1109" height="1400"><figcaption>Black and grey · borst</figcaption></figure>
-      <figure data-s="bg"><img src="img/vaas.webp" alt="Vaas met plant op het onderbeen" loading="lazy" width="754" height="1400"><figcaption>Black and grey · onderbeen</figcaption></figure>
-      <figure data-s="kl"><img src="img/kleur-oldschool.webp" alt="Kleurrijke zwaluw en roos" loading="lazy" width="1400" height="1400"><figcaption>Kleur · onderarm</figcaption></figure>
-      <figure class="big" data-s="bg"><img src="img/sleeve-roos.webp" alt="Volle sleeve met roos en tijger op de hand" loading="lazy" width="1050" height="1400"><figcaption>Black and grey · sleeve</figcaption></figure>
-      <figure data-s="fl"><img src="img/fineline-rug.webp" alt="Fijne takjes langs de ruggengraat" loading="lazy" width="1120" height="1400"><figcaption>Fineline · rug</figcaption></figure>
-      <figure data-s="bg"><img src="img/roos-heup.webp" alt="Roos en mandala op heup en dij" loading="lazy" width="933" height="1400"><figcaption>Black and grey · dij</figcaption></figure>
-      <figure data-s="kl"><img src="img/kleur-hagedis.webp" alt="Groene hagedis op de kuit" loading="lazy" width="933" height="1400"><figcaption>Kleur · kuit</figcaption></figure>
-      <figure data-s="bg"><img src="img/masker.webp" alt="Figuur met masker en hoed op de onderarm" loading="lazy" width="1120" height="1400"><figcaption>Black and grey · onderarm</figcaption></figure>
-      <figure data-s="fl"><img src="img/fineline-heup.webp" alt="Fineline bloem op de heup" loading="lazy" width="1084" height="1400"><figcaption>Fineline · heup</figcaption></figure>
-      <figure data-s="bg"><img src="img/feniks-rug.webp" alt="Feniks over de hele rug" loading="lazy" width="968" height="1400"><figcaption>Black and grey · rug</figcaption></figure>
-      <figure data-s="bg"><img src="img/hand-letters.webp" alt="Letters en ornament op de hand" loading="lazy" width="1050" height="1400"><figcaption>Lettering · hand</figcaption></figure>
-      <figure data-s="kl"><img src="img/kleur-roos.webp" alt="Rode roos op de heup" loading="lazy" width="1400" height="1400"><figcaption>Kleur · heup</figcaption></figure>
+      <figure class="big" data-s="bg"><img style="object-position:50% 14%" src="img/leeuw.webp" alt="Leeuw met roos op de bovenarm" loading="lazy" width="713" height="1400"><figcaption><span>Leeuw met roos</span><i>bovenarm</i></figcaption></figure>
+      <figure class="tall" data-s="bg"><img src="img/vaas.webp" alt="Vaas met plant op het onderbeen" loading="lazy" width="754" height="1400"><figcaption><span>Vaas</span><i>onderbeen</i></figcaption></figure>
+      <figure data-s="fl"><img src="img/fineline-sky.webp" alt="Fineline bloem met naam op de onderarm" loading="lazy" width="1051" height="1400"><figcaption><span>Fineline</span><i>onderarm</i></figcaption></figure>
+      <figure data-s="bg"><img src="img/raaf.webp" alt="Raaf op de borst" loading="lazy" width="1109" height="1400"><figcaption><span>Raaf</span><i>borst</i></figcaption></figure>
+      <figure class="tall" data-s="bg"><img src="img/sleeve-roos.webp" alt="Volle sleeve met roos en tijger op de hand" loading="lazy" width="1050" height="1400"><figcaption><span>Sleeve</span><i>arm en hand</i></figcaption></figure>
+      <figure data-s="kl"><img src="img/kleur-oldschool.webp" alt="Kleurrijke zwaluw en roos" loading="lazy" width="1400" height="1400"><figcaption><span>Oldschool</span><i>onderarm</i></figcaption></figure>
+      <figure data-s="fl"><img src="img/fineline-rug.webp" alt="Fijne takjes langs de ruggengraat" loading="lazy" width="1120" height="1400"><figcaption><span>Takjes</span><i>ruggengraat</i></figcaption></figure>
+      <figure class="big" data-s="bg"><img style="object-position:50% 30%" src="img/feniks-rug.webp" alt="Feniks over de hele rug" loading="lazy" width="968" height="1400"><figcaption><span>Feniks</span><i>rug</i></figcaption></figure>
+      <figure class="tall" data-s="bg"><img src="img/roos-heup.webp" alt="Roos en mandala op heup en dij" loading="lazy" width="933" height="1400"><figcaption><span>Roos en mandala</span><i>dij</i></figcaption></figure>
+      <figure data-s="kl"><img src="img/kleur-hagedis.webp" alt="Groene hagedis op de kuit" loading="lazy" width="933" height="1400"><figcaption><span>Hagedis</span><i>kuit</i></figcaption></figure>
+      <figure data-s="bg"><img src="img/masker.webp" alt="Figuur met masker en hoed op de onderarm" loading="lazy" width="1120" height="1400"><figcaption><span>Masker</span><i>onderarm</i></figcaption></figure>
+      <figure data-s="fl"><img src="img/fineline-heup.webp" alt="Fineline bloem op de heup" loading="lazy" width="1084" height="1400"><figcaption><span>Lelie</span><i>heup</i></figcaption></figure>
+      <figure data-s="bg"><img src="img/hand-letters.webp" alt="Letters en ornament op de hand" loading="lazy" width="1050" height="1400"><figcaption><span>Lettering</span><i>hand</i></figcaption></figure>
+      <figure data-s="kl"><img src="img/kleur-roos.webp" alt="Rode roos op de heup" loading="lazy" width="1400" height="1400"><figcaption><span>Rode roos</span><i>heup</i></figcaption></figure>
+      <div class="tegel"><p>Iets in<br>gedachten?</p><a class="btn btn-red" href="https://wa.me/32495170429" target="_blank" rel="noopener">Stuur je idee <span>→</span></a><a class="ig" href="https://instagram.com/tattoobaui" target="_blank" rel="noopener">Meer op Instagram →</a></div>
     </div>
-    <p class="werk-note rv">Meer werk staat op <a href="https://instagram.com/tattoobaui" target="_blank" rel="noopener">Instagram</a>.</p>
   </div>
 </section>
 
@@ -241,34 +321,42 @@ footer.site{padding:64px 0 34px;border-top:1px solid var(--line)}
     <div class="rv">
       <span class="label">Werkwijze</span>
       <h2>Rustig,<br>en alleen<br>met jou.</h2>
-      <p class="intro">Een kleine studio aan de Stationsstraat. Geen wachtrij, geen drukte, wel alle tijd voor jouw stuk.</p>
+      <p class="intro">Een kleine studio aan de Stationsstraat. Geen wachtrij en geen drukte, wel alle tijd voor jouw stuk.</p>
       <div class="wijze-photo"><img src="img/onderarm.webp" alt="Black and grey onderarm in de studio" loading="lazy" width="1400" height="1400"><span>Stationsstraat 13A</span></div>
     </div>
-    <ol class="stappen rv">
-      <li><div><h3>Jouw idee</h3><p>Stuur een foto, een schets of gewoon een paar woorden. We luisteren en denken mee over plaats en grootte.</p></div></li>
-      <li><div><h3>Op maat getekend</h3><p>Elk ontwerp tekenen we zelf, voor jouw lichaam en jouw verhaal. Geen kopie van iemand anders.</p><q>"Elk ontwerp vertelt een eigen verhaal."</q></div></li>
-      <li><div><h3>Eén op één</h3><p>Op je afspraak is de studio van jou. Geen overvolle ruimte, geen storende drukte.</p></div></li>
-      <li><div><h3>Cover-up of opfrissen</h3><p>Een oude tattoo die je liever kwijt bent? We starten altijd met een vrijblijvend gesprek om te zien wat kan.</p></div></li>
+    <ol class="stappen">
+      <li class="rv"><h3>Jouw idee</h3><p>Stuur een foto, een schets of gewoon een paar woorden. We denken mee over plaats en grootte.</p></li>
+      <li class="rv"><h3>Op maat getekend</h3><p>Elk ontwerp tekenen we zelf, voor jouw lichaam en jouw verhaal. Geen kopie van iemand anders.</p></li>
+      <li class="rv"><h3>Eén op één</h3><p>Op je afspraak is de studio van jou. Geen volle ruimte, niemand die over je schouder meekijkt.</p></li>
+      <li class="rv"><h3>Cover-up of opfrissen</h3><p>Een oude tattoo die je liever kwijt bent? We beginnen altijd met een vrijblijvend gesprek.</p></li>
+      <li class="citaat rv"><q>"Elk ontwerp vertelt een eigen verhaal."</q><span>Tattoo Baui</span></li>
     </ol>
   </div>
 </section>
 
 <section class="team" id="artiesten">
   <div class="wrap">
-    <span class="label rv">De artiesten</span>
-    <h2 class="rv">Twee handen,<br>één studio.</h2>
+    <div class="team-top rv">
+      <div><span class="label">De artiesten</span><h2>Twee handen,<br>één studio.</h2></div>
+      <div class="score"><b>4,9</b><span>uit 24 reviews op Google</span></div>
+    </div>
     <div class="team-grid">
       <article class="artist rv">
-        <img src="img/sleeve-schedel.webp" alt="" loading="lazy" width="1050" height="1400">
-        <span class="role">Oprichter</span>
-        <h3>Baui</h3>
-        <p>Vooral black and grey: diepe schaduw, realistische stukken en grafisch werk. Elk ontwerp wordt op maat getekend, voor de huid waar het komt.</p>
+        <div class="foto"><img src="img/sleeve-schedel.webp" alt="Black and grey sleeve met schedel en rozen" loading="lazy" width="1050" height="1400"></div>
+        <div class="tekst">
+          <span class="role">Oprichter</span>
+          <h3>Baui</h3>
+          <p>Vooral black and grey: diepe schaduw, realistische stukken en grafisch werk. Elk ontwerp wordt getekend voor de huid waar het komt.</p>
+          <ul><li>Realisme</li><li>Sleeves</li><li>Cover-ups</li></ul>
+        </div>
       </article>
       <article class="artist plain rv">
         <span class="role">Leerling</span>
-        <h3>lv.ink</h3>
-        <p>Brengt een frisse blik in de studio en werkt aan een eigen stijl.</p>
-        <a href="https://www.instagram.com/_lv.ink_/" target="_blank" rel="noopener">Haar werk op Instagram</a>
+        <div>
+          <h3>lv.ink</h3>
+          <p style="margin-top:18px">Brengt een frisse blik in de studio en werkt aan een eigen stijl.</p>
+          <a class="ig" href="https://www.instagram.com/_lv.ink_/" target="_blank" rel="noopener">Haar werk op Instagram <span>→</span></a>
+        </div>
       </article>
     </div>
   </div>
@@ -279,26 +367,34 @@ footer.site{padding:64px 0 34px;border-top:1px solid var(--line)}
     <div class="rv">
       <span class="label">Afspraak</span>
       <h2>Vertel ons<br>je idee.</h2>
-      <p class="intro">Alles gaat op afspraak. Stuur een berichtje met je idee, de plaats en een ruwe grootte, dan zoeken we samen een moment.</p>
+      <p class="intro">Alles gaat op afspraak. Stuur een berichtje en we zoeken samen een moment.</p>
+      <div class="mee">
+        <h3>Stuur dit mee</h3>
+        <ol><li>Je idee, met een foto of schets als je die hebt</li><li>De plaats op je lichaam</li><li>Een ruwe grootte</li></ol>
+      </div>
       <div class="hero-cta">
-        <a class="btn btn-solid" href="https://wa.me/32495170429" target="_blank" rel="noopener">WhatsApp <span>→</span></a>
+        <a class="btn btn-red" href="https://wa.me/32495170429" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>WhatsApp <span>→</span></a>
         <a class="btn btn-ghost" href="mailto:info@tattoo-baui.be">Mail ons</a>
       </div>
     </div>
     <dl class="info rv">
-      <div><dt>Studio</dt><dd>Stationsstraat 13A<br>9230 Wetteren</dd></div>
+      <div class="kaart"><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Stationsstraat+13A+9230+Wetteren" target="_blank" rel="noopener">Stationsstraat 13A, Wetteren <span>→</span></a></div>
       <div><dt>Open</dt><dd>Maandag tot zaterdag, op afspraak<small>Zondag gesloten</small></dd></div>
       <div><dt>Bellen</dt><dd><a href="tel:+32495170429">0495 17 04 29</a></dd></div>
+      <div><dt>Mailen</dt><dd><a href="mailto:info@tattoo-baui.be">info@tattoo-baui.be</a></dd></div>
       <div><dt>Parkeren</dt><dd>Gratis op de Warande, vijf minuten te voet<small>Ook aan de Scheldekaai (eerste twee uur gratis), aan het station en op de markt (max. 2 uur)</small></dd></div>
     </dl>
   </div>
 </section>
 </main>
 
+<div class="lb" role="dialog" aria-modal="true" aria-label="Foto groot bekijken"><button class="x" type="button" aria-label="Sluiten">×</button><button class="vorige" type="button" aria-label="Vorige">←</button><img alt=""><button class="volgende" type="button" aria-label="Volgende">→</button><p></p></div>
+
 <footer class="site">
   <div class="wrap">
     <div class="foot">
-      <a class="logo" href="#top"><img src="img/logo.png" alt="Tattoo Baui" width="84" height="84"></a>
+      <a class="logo" href="#top"><img src="img/logo.png" alt="Tattoo Baui" width="110" height="110"></a>
+      <div class="woord" aria-hidden="true">Tattoo<br>Baui</div>
       <ul>
         <li><a href="#werk">Werk</a></li>
         <li><a href="#werkwijze">Werkwijze</a></li>
@@ -307,8 +403,17 @@ footer.site{padding:64px 0 34px;border-top:1px solid var(--line)}
         <li><a href="https://facebook.com/TattooBaui/" target="_blank" rel="noopener">Facebook</a></li>
       </ul>
     </div>
-    <div class="foot-bottom"><span>© 2026 Tattoo Baui · Stationsstraat 13A, 9230 Wetteren</span><a href="#di">Voorbeeldsite door Digital Impression</a></div>
+    <div class="foot-bottom"><span>© 2026 Tattoo Baui · Stationsstraat 13A, 9230 Wetteren · 0495 17 04 29</span><a href="#di">Voorbeeldsite door Digital Impression</a></div>
   </div>
+<script>
+(function(){var lb=document.querySelector('.lb');if(!lb)return;var im=lb.querySelector('img'),cap=lb.querySelector('p'),cur=0;
+function vis(){return [].slice.call(document.querySelectorAll('.grid figure')).filter(function(f){return !f.classList.contains('hide')})}
+function show(i){var l=vis();if(!l.length)return;cur=(i+l.length)%l.length;var f=l[cur],g=f.querySelector('img');im.src=g.currentSrc||g.src;im.alt=g.alt;cap.textContent=f.querySelector('figcaption').textContent.replace(/\s+/g,' ');lb.classList.add('open')}
+document.querySelectorAll('.grid figure').forEach(function(f){f.addEventListener('click',function(){show(vis().indexOf(f))})});
+lb.querySelector('.x').onclick=function(){lb.classList.remove('open')};lb.querySelector('.vorige').onclick=function(e){e.stopPropagation();show(cur-1)};lb.querySelector('.volgende').onclick=function(e){e.stopPropagation();show(cur+1)};
+lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open')});
+document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')lb.classList.remove('open');if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)})})();
+</script>
 </footer>
 
 <script>
