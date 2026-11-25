@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,600..900,100&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
-<link rel="preload" as="image" href="img/trio.webp">
+<link rel="preload" as="image" href="img/sprong.webp">
 <style>
 :root{
   --sky:#BFE5F8;
@@ -57,7 +57,7 @@ p{margin:0}
 .cloud{position:absolute;background:#fff;border-radius:999px;opacity:.85}
 .cloud::before,.cloud::after{content:"";position:absolute;background:#fff;border-radius:50%}
 .c1{width:180px;height:46px;left:44%;top:120px}.c1::before{width:80px;height:80px;left:28px;top:-40px}.c1::after{width:60px;height:60px;left:90px;top:-26px}
-.c2{width:140px;height:38px;right:6%;top:200px;opacity:.7}.c2::before{width:64px;height:64px;left:22px;top:-32px}.c2::after{width:48px;height:48px;left:72px;top:-20px}
+.c2{width:140px;height:38px;right:4%;top:150px;opacity:.7}.c2::before{width:64px;height:64px;left:22px;top:-32px}.c2::after{width:48px;height:48px;left:72px;top:-20px}
 .nav{position:relative;z-index:4}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 0}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
@@ -69,21 +69,51 @@ p{margin:0}
 .nav ul a{text-decoration:none}
 .nav ul a:hover{color:var(--sky-d)}
 .nav .btn{padding:12px 20px;font-size:15px}
-.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:.95fr 1.15fr;gap:30px;align-items:end;min-height:640px}
-.hero-txt{padding:50px 0 170px}
-.hero h1{font-size:clamp(54px,6.8vw,98px);margin:20px 0 24px;max-width:9ch}
+.hero-in{position:relative;z-index:4;min-height:700px;display:flex;align-items:center;pointer-events:none}
+.hero-in>*{pointer-events:auto}
+.hero-txt{padding:30px 0 160px;max-width:560px}
+.hero h1{font-size:clamp(54px,6.6vw,96px);margin:20px 0 24px;max-width:9ch}
 .hero h1 span{color:var(--mud)}
-.hero-txt>p{font-size:19px;max-width:480px;color:#2C4655}
+.hero-txt>p{font-size:19px;max-width:470px;color:#2C4655}
 .hero .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.hill{position:absolute;left:0;right:0;bottom:-1px;height:230px;z-index:1}
+.rate{display:flex;align-items:center;gap:12px;margin-top:30px;font-size:14.5px;font-weight:600;color:#3A5462}
+.rate b{font-family:"Fraunces",serif;font-variation-settings:"SOFT" 100;font-size:30px;line-height:1;color:var(--ink)}
+.rate i{font-style:normal;color:#E9A400;letter-spacing:2px;font-size:14px;display:block;line-height:1.1}
+/* de sprong: foto in een boogvenster, de hond springt eruit */
+.leap{position:absolute;right:0;bottom:0;width:min(60vw,960px);aspect-ratio:2000/1418;margin:0;z-index:2}
+.leap img{position:absolute;inset:0;width:100%;height:100%}
+.leap .ph{-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 100V60C0 39 11 27.5 29 26.5C47 25.5 58 31 76 28.5C87 27 94 24.5 100 23.5V100Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 100V60C0 39 11 27.5 29 26.5C47 25.5 58 31 76 28.5C87 27 94 24.5 100 23.5V100Z'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
+.leap .dog{filter:drop-shadow(0 14px 16px rgba(22,48,63,.22))}
+.leap .zon{position:absolute;right:9%;top:3%;width:30%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 40% 38%,#FFD668,var(--sun) 62%);box-shadow:0 0 0 22px rgba(255,198,63,.18),0 0 0 48px rgba(255,198,63,.08)}
+/* vuile pootjes die uit de weide over de rand lopen */
+.trail{position:absolute;left:0;right:0;bottom:0;height:120px;z-index:4;pointer-events:none}
+.trail i{position:absolute;width:30px;height:30px;color:var(--mud);opacity:.85}
+.trail svg{width:100%;height:100%;fill:currentColor}
+.t1{left:39%;bottom:24px;transform:rotate(-104deg)}
+.t2{left:35.9%;bottom:44px;transform:rotate(-80deg)}
+.t3{left:32.5%;bottom:22px;transform:rotate(-100deg);opacity:.7!important}
+.t4{left:29.3%;bottom:40px;transform:rotate(-78deg);opacity:.6!important}
+.t5{left:25.9%;bottom:19px;transform:rotate(-98deg);opacity:.45!important}
+.t6{left:22.7%;bottom:36px;transform:rotate(-80deg);opacity:.3!important}
+.hill{position:absolute;left:0;right:0;bottom:-1px;height:120px;z-index:3;pointer-events:none}
 .hill svg{width:100%;height:100%;display:block}
-.dogs{position:relative;z-index:3;align-self:end;margin:0 -6% 64px 0;width:112%}
-.dogs img{width:100%;height:auto;filter:drop-shadow(0 18px 18px rgba(30,60,20,.28))}
-.puddle{position:absolute;left:8%;right:20%;bottom:-18px;height:46px;border-radius:50%;background:radial-gradient(closest-side,#7B4B2C,#8C5B38 60%,rgba(140,91,56,0));z-index:-1;opacity:.9}
-.score{position:absolute;left:-4%;bottom:6px;background:#fff;border-radius:22px;padding:14px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 20px 40px -20px rgba(22,48,63,.45);transform:rotate(-3deg)}
-.score b{font-family:"Fraunces",serif;font-variation-settings:"SOFT" 100;font-size:38px;line-height:1}
-.score i{display:block;font-style:normal;color:#E9A400;letter-spacing:2px;font-size:13px}
-.score small{font-size:13px;color:var(--muted);font-weight:600}
+@media (max-width:900px){
+  .hero-in{min-height:0;display:block}
+  .hero-txt{padding:24px 0 0;max-width:640px}
+  .leap{position:relative;width:100%;margin-top:-2%}
+  .hero h1{font-size:clamp(50px,9.4vw,78px);max-width:12ch}
+  .hill{height:70px}
+  .trail{display:none}
+}
+@media (max-width:560px){
+  .hero h1{font-size:50px}
+  .hero-txt>p{font-size:17px}
+  .hero .acts .btn{flex:1 1 auto;justify-content:center}
+  .leap{width:140%;margin:2% 0 0 -10%}
+  .c2{display:none}
+  .rate{margin-top:24px}
+  .hill{height:44px}
+}
 
 section{position:relative}
 .head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:54px}
@@ -248,10 +278,7 @@ footer a{color:#fff}
 }
 @media (max-width:900px){
   .nav ul{display:none}
-  .hero-in{grid-template-columns:1fr;min-height:0;gap:0}
-  .hero-txt{padding:30px 0 10px}
-  .dogs{max-width:640px;margin:20px auto 50px;width:100%}
-  .hill{height:150px}
+/*HERO900*/
   .head{grid-template-columns:1fr;gap:18px}
   .stay-grid{grid-template-columns:1fr}
   .lotje .wrap{grid-template-columns:1fr;gap:30px}
@@ -275,13 +302,7 @@ footer a{color:#fff}
   .logo i{width:42px;height:42px}
   .nav .btn{padding:10px 16px;font-size:14px}
   .nav .btn svg{display:none}
-  .hero h1{font-size:50px}
-  .hero-txt>p{font-size:17px}
-  .hero .acts .btn{flex:1 1 auto;justify-content:center}
-  .dogs{margin:10px -6% 34px -6%;width:112%}
-  .score{left:0;bottom:-6px;padding:10px 14px}
-  .score b{font-size:30px}
-  .hill{height:100px}
+/*HERO560*/
   .c1{display:none}
   .stay,.lotje,.fields,.about,.revs,.contact{padding:84px 0}
   .mosaic{grid-template-rows:200px 160px}
@@ -333,14 +354,16 @@ footer a{color:#fff}
         <a class="btn" href="mailto:info@dirtydogz.be?subject=Plaatsje%20voor%20mijn%20hond">Vraag een plaatsje<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
         <a class="btn white" href="#weides">Speelweide huren</a>
       </div>
-    </div>
-    <div class="dogs">
-      <img src="img/trio.webp" alt="Drie logés op de picknicktafel op de weide" width="1294" height="757" fetchpriority="high">
-      <span class="puddle" aria-hidden="true"></span>
-      <div class="score"><b>4,8</b><span><i>★★★★★</i><small>212 reviews op Google</small></span></div>
+      <p class="rate"><b>4,8</b><span><i aria-hidden="true">★★★★★</i>212 reviews op Google</span></p>
     </div>
   </div>
-  <div class="hill" aria-hidden="true"><svg viewBox="0 0 1440 230" preserveAspectRatio="none"><path d="M0 120C180 70 340 60 520 92s330 70 520 30 300-90 400-82V230H0Z" fill="#8CCB6C"/><path d="M0 170c220-40 420-46 640-14s420 40 560 6 200-30 240-26V230H0Z" fill="#FFF8EC"/></svg></div>
+  <figure class="leap">
+    <span class="zon" aria-hidden="true"></span>
+    <img class="ph" src="img/sprong.webp" alt="Een hond springt met de oren omhoog over het gras" width="2000" height="1418" fetchpriority="high">
+    <img class="dog" src="img/sprong-hond.webp" alt="" width="2000" height="1418">
+  </figure>
+  <div class="trail" aria-hidden="true"><i class="t1"><svg viewBox="0 0 24 24"><ellipse cx="6" cy="9" rx="2" ry="2.6"/><ellipse cx="10" cy="5.6" rx="2" ry="2.6"/><ellipse cx="14.4" cy="5.6" rx="2" ry="2.6"/><ellipse cx="18.2" cy="9" rx="2" ry="2.6"/><path d="M12 11c-3 0-6 3.6-6 6.2 0 1.8 1.4 2.6 3 2.2 1.1-.3 2-.7 3-.7s1.9.4 3 .7c1.6.4 3-.4 3-2.2C18 14.6 15 11 12 11Z"/></svg></i><i class="t2"><svg viewBox="0 0 24 24"><ellipse cx="6" cy="9" rx="2" ry="2.6"/><ellipse cx="10" cy="5.6" rx="2" ry="2.6"/><ellipse cx="14.4" cy="5.6" rx="2" ry="2.6"/><ellipse cx="18.2" cy="9" rx="2" ry="2.6"/><path d="M12 11c-3 0-6 3.6-6 6.2 0 1.8 1.4 2.6 3 2.2 1.1-.3 2-.7 3-.7s1.9.4 3 .7c1.6.4 3-.4 3-2.2C18 14.6 15 11 12 11Z"/></svg></i><i class="t3"><svg viewBox="0 0 24 24"><ellipse cx="6" cy="9" rx="2" ry="2.6"/><ellipse cx="10" cy="5.6" rx="2" ry="2.6"/><ellipse cx="14.4" cy="5.6" rx="2" ry="2.6"/><ellipse cx="18.2" cy="9" rx="2" ry="2.6"/><path d="M12 11c-3 0-6 3.6-6 6.2 0 1.8 1.4 2.6 3 2.2 1.1-.3 2-.7 3-.7s1.9.4 3 .7c1.6.4 3-.4 3-2.2C18 14.6 15 11 12 11Z"/></svg></i><i class="t4"><svg viewBox="0 0 24 24"><ellipse cx="6" cy="9" rx="2" ry="2.6"/><ellipse cx="10" cy="5.6" rx="2" ry="2.6"/><ellipse cx="14.4" cy="5.6" rx="2" ry="2.6"/><ellipse cx="18.2" cy="9" rx="2" ry="2.6"/><path d="M12 11c-3 0-6 3.6-6 6.2 0 1.8 1.4 2.6 3 2.2 1.1-.3 2-.7 3-.7s1.9.4 3 .7c1.6.4 3-.4 3-2.2C18 14.6 15 11 12 11Z"/></svg></i><i class="t5"><svg viewBox="0 0 24 24"><ellipse cx="6" cy="9" rx="2" ry="2.6"/><ellipse cx="10" cy="5.6" rx="2" ry="2.6"/><ellipse cx="14.4" cy="5.6" rx="2" ry="2.6"/><ellipse cx="18.2" cy="9" rx="2" ry="2.6"/><path d="M12 11c-3 0-6 3.6-6 6.2 0 1.8 1.4 2.6 3 2.2 1.1-.3 2-.7 3-.7s1.9.4 3 .7c1.6.4 3-.4 3-2.2C18 14.6 15 11 12 11Z"/></svg></i><i class="t6"><svg viewBox="0 0 24 24"><ellipse cx="6" cy="9" rx="2" ry="2.6"/><ellipse cx="10" cy="5.6" rx="2" ry="2.6"/><ellipse cx="14.4" cy="5.6" rx="2" ry="2.6"/><ellipse cx="18.2" cy="9" rx="2" ry="2.6"/><path d="M12 11c-3 0-6 3.6-6 6.2 0 1.8 1.4 2.6 3 2.2 1.1-.3 2-.7 3-.7s1.9.4 3 .7c1.6.4 3-.4 3-2.2C18 14.6 15 11 12 11Z"/></svg></i></div>
+  <div class="hill" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0 64C240 30 470 26 720 58s500 52 720 8V120H0Z" fill="#FFF8EC"/></svg></div>
 </header>
 
 <main>
