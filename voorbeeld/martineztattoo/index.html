@@ -7,187 +7,245 @@
 <title>Martinez Tattoo | Privéstudio in Hamme, enkel op afspraak</title>
 <meta name="description" content="Arm- en beensleeves, custom tattoos in zwart en grijs en oude tattoos opknappen. Martinez Tattoo, privéstudio aan de Neerstraat in Hamme. Enkel op afspraak.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
 <style>
 :root{
-  --zwart:#0D0D0C;--paneel:#161514;--lijn:rgba(233,226,214,.14);--been:#E9E2D6;--grijs:#9A9387;--bloed:#9B3A2C;
+  --zwart:#0D0D0C;--paneel:#151413;--lijn:rgba(233,226,214,.14);--been:#E9E2D6;--papier:#EFE9DE;--grijs:#9A9387;--bloed:#9B3A2C;--bloed2:#B2452F;
   --ease:cubic-bezier(.2,.8,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font:400 17px/1.7 'Inter Tight',system-ui,sans-serif;color:var(--been);background:var(--zwart);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font:400 17px/1.65 'Inter Tight',system-ui,sans-serif;color:var(--been);background:var(--zwart);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit}
-h1,h2,h3{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-style:normal;letter-spacing:-.01em;line-height:1}
+h1,h2,h3{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-style:normal;letter-spacing:-.012em;line-height:.98}
 .wrap{width:min(1320px,100% - 48px);margin-inline:auto}
-.kapitaal{font:500 12px/1.2 'Inter Tight',sans-serif;letter-spacing:.32em;text-transform:uppercase;color:var(--grijs)}
-.bloem{color:var(--bloed)}
+.kapitaal{display:inline-flex;align-items:center;gap:12px;font:500 12px/1.2 'Inter Tight',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--grijs)}
+.kapitaal::before{content:"";width:28px;height:1px;background:var(--bloed2)}
+.mono{font:500 11px/1.3 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase}
+.bloem{color:var(--bloed2)}
 
 .demo{background:#000;color:var(--grijs);font:500 13px/1.4 'Inter Tight',sans-serif;text-align:center;padding:9px 16px;border-bottom:1px solid var(--lijn)}
 .demo a{color:var(--been);text-underline-offset:3px}
 
-/* knoppen: strak, met bloem en lijn */
-.btn{position:relative;display:inline-flex;align-items:center;gap:14px;padding:18px 28px;background:var(--been);color:var(--zwart);font:600 12.5px/1 'Inter Tight',sans-serif;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;transition:background .35s var(--ease),color .35s var(--ease)}
-.btn .b{font-size:16px;letter-spacing:0;color:var(--bloed);transition:transform .6s var(--ease)}
+/* knoppen: strak blok met een naaldpunt die meeschuift */
+.btn{position:relative;display:inline-flex;align-items:center;gap:14px;padding:19px 26px 19px 24px;background:var(--been);color:var(--zwart);font:600 12.5px/1 'Inter Tight',sans-serif;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:0;transition:background .35s var(--ease),color .35s var(--ease),transform .35s var(--ease)}
+.btn svg{width:17px;height:17px;flex:none}
+.btn .pijl{display:inline-block;width:22px;height:1px;background:currentColor;position:relative;transition:width .4s var(--ease)}
+.btn .pijl::after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-right:1px solid currentColor;border-top:1px solid currentColor;transform:rotate(45deg)}
 .btn:hover{background:#fff}
-.btn:hover .b{transform:rotate(90deg)}
-.btn.lijn{background:transparent;color:var(--been);box-shadow:inset 0 0 0 1px rgba(233,226,214,.4)}
+.btn:hover .pijl{width:34px}
+.btn.lijn{background:transparent;color:var(--been);box-shadow:inset 0 0 0 1px rgba(233,226,214,.35)}
 .btn.lijn:hover{background:var(--been);color:var(--zwart)}
+.btn.rood{background:var(--bloed);color:var(--been)}
+.btn.rood:hover{background:var(--bloed2)}
 
 /* nav */
-.nav{position:relative;z-index:5}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:86px;border-bottom:1px solid var(--lijn)}
-.logo{text-decoration:none;font:500 13px/1 'Inter Tight',sans-serif;letter-spacing:.42em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
-.logo .bloem{font-size:18px;letter-spacing:0}
-.nav ul{display:flex;gap:40px;list-style:none}
-.nav ul a{text-decoration:none;font:500 12px/1 'Inter Tight',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--grijs);transition:color .3s}
+.top{position:relative}
+.nav{position:absolute;left:0;right:0;top:0;z-index:6}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:92px}
+.logo{text-decoration:none;font:600 13px/1 'Inter Tight',sans-serif;letter-spacing:.42em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.logo .bloem{font-size:20px;letter-spacing:0}
+.nav ul{display:flex;gap:38px;list-style:none}
+.nav ul a{text-decoration:none;font:500 12px/1 'Inter Tight',sans-serif;letter-spacing:.26em;text-transform:uppercase;color:rgba(233,226,214,.72);transition:color .3s;position:relative;padding:6px 0}
+.nav ul a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--bloed2);transition:right .4s var(--ease)}
 .nav ul a:hover{color:var(--been)}
-.nav .btn{padding:14px 20px}
+.nav ul a:hover::after{right:0}
+.nav .btn{padding:15px 20px}
 
-/* hero: woordmerk achter de leeuw */
-.hero{position:relative;padding:30px 0 64px;overflow:hidden}
-.hero .podium{position:relative;height:clamp(440px,54vh,540px)}
-.woordmerk{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);font:400 clamp(100px,16vw,240px)/.8 'Instrument Serif',serif;letter-spacing:.01em;text-transform:uppercase;white-space:nowrap;color:var(--been);user-select:none}
-.prent{position:absolute;left:50%;top:0;bottom:0;transform:translateX(-50%);width:clamp(300px,26vw,380px);z-index:2;box-shadow:0 40px 80px -30px #000}
-.prent img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:contrast(1.04)}
-.prent figcaption{position:absolute;left:-1px;bottom:22px;transform:translateX(-100%);padding-right:18px;text-align:right;width:180px;font:500 11px/1.5 'Inter Tight',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--grijs)}
-.hero .onder{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;margin-top:34px;padding-top:28px;border-top:1px solid var(--lijn)}
-.hero h1{font-size:clamp(38px,3.8vw,58px);max-width:13em}
-.hero p{max-width:34em;color:var(--grijs);margin-top:16px}
-.hero .rechts{display:flex;flex-direction:column;align-items:flex-end;gap:18px}
-.hero .score{font:500 12px/1.4 'Inter Tight',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--grijs)}
-.hero .score b{color:var(--been);font-weight:600}
+/* hero: de leeuw draagt het scherm, de kop loopt erin */
+.hero{position:relative;min-height:min(900px,calc(100vh - 38px));display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;isolation:isolate}
+.hero .foto{position:absolute;top:0;right:0;bottom:0;width:60%;z-index:-1}
+.hero .foto img{width:100%;height:100%;object-fit:cover;object-position:50% 34%;filter:contrast(1.06) saturate(.9)}
+.hero .foto::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--zwart) 0%,rgba(13,13,12,.82) 14%,rgba(13,13,12,.25) 42%,rgba(13,13,12,0) 62%),linear-gradient(0deg,var(--zwart) 0%,rgba(13,13,12,.55) 22%,rgba(13,13,12,0) 46%),linear-gradient(180deg,rgba(13,13,12,.7) 0%,rgba(13,13,12,0) 22%)}
+.hero .label{position:absolute;right:28px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;color:rgba(233,226,214,.6)}
+.hero .tekst{position:relative;padding:160px 0 54px}
+.hero h1{font-size:clamp(56px,6.9vw,108px);max-width:7.4em;text-shadow:0 2px 40px rgba(0,0,0,.35)}
+.hero h1 .r{color:var(--bloed2)}
+.hero .intro{display:grid;grid-template-columns:minmax(0,29em);gap:30px;margin-top:30px}
+.hero .intro p{color:rgba(233,226,214,.78);font-size:18px}
+.hero .knoppen{display:flex;gap:12px;flex-wrap:wrap}
+.hero .feiten{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--lijn)}
+.hero .feiten div{padding:22px 0 26px;display:flex;align-items:baseline;gap:14px}
+.hero .feiten div+div{padding-left:28px;border-left:1px solid var(--lijn)}
+.hero .feiten b{font:400 30px/1 'Instrument Serif',serif;color:var(--been)}
+.hero .feiten span{font-size:14px;color:var(--grijs)}
 
-/* werk */
-.werk{padding:140px 0 120px;background:var(--paneel)}
-.werk .kop{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:64px}
-.werk h2{font-size:clamp(48px,5.6vw,88px);margin-top:20px}
-.werk .kop p{color:var(--grijs);max-width:30em}
-.galerij{display:grid;grid-template-columns:5fr 4fr 3fr;grid-template-rows:auto auto;gap:22px}
-.galerij figure{position:relative;overflow:hidden;background:#000}
-.galerij img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease),filter 1.2s var(--ease);filter:grayscale(.15)}
-.galerij figure:hover img{transform:scale(1.035);filter:none}
-.galerij .g1{grid-row:span 2;min-height:820px}
-.galerij .g2{height:520px}
-.galerij .g3{height:520px}
-.galerij .g4{grid-column:span 2;height:278px}
-.galerij .g4 img{object-position:50% 30%}
-.galerij figcaption{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;padding:40px 20px 16px;background:linear-gradient(transparent,rgba(0,0,0,.75));font:500 11px/1.4 'Inter Tight',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--been)}
-.galerij figcaption span:last-child{color:var(--grijs)}
+/* naaldlijn: rustig lopende band */
+.band{background:var(--bloed);color:var(--been);overflow:hidden;border-block:1px solid rgba(0,0,0,.25)}
+.band .rij{display:flex;width:max-content;animation:loop 46s linear infinite}
+.band span{font:400 34px/1 'Instrument Serif',serif;padding:22px 26px;white-space:nowrap;display:flex;align-items:center;gap:52px}
+.band span::after{content:"❁";font-size:20px;color:rgba(233,226,214,.7)}
+@keyframes loop{to{transform:translateX(-50%)}}
+
+/* werk: het flashblad */
+.werk{position:relative;padding:130px 0 120px;background:var(--papier);color:var(--zwart);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .3 0 0 0 0 .25 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.werk .kapitaal{color:#6b655c}
+.werk .kop{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:end;margin-bottom:60px}
+.werk h2{font-size:clamp(52px,6vw,96px);margin-top:20px}
+.werk .kop p{color:#4a463f;max-width:28em;justify-self:end}
+.blad{position:relative;display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:470px 380px;gap:30px;padding:34px;border:1px solid rgba(13,13,12,.18)}
+.blad::before,.blad::after{content:"";position:absolute;width:22px;height:22px;border:solid var(--bloed);border-width:1px 0 0 1px;top:-1px;left:-1px}
+.blad::after{top:auto;left:auto;bottom:-1px;right:-1px;border-width:0 1px 1px 0}
+.stuk{display:flex;flex-direction:column;gap:12px;transition:transform .6s var(--ease)}
+.stuk .ram{position:relative;flex:1;min-height:0;overflow:hidden;background:#1a1918;box-shadow:0 1px 0 rgba(0,0,0,.08),0 22px 40px -26px rgba(13,13,12,.55)}
+.stuk img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.stuk:hover{transform:translateY(-6px)}
+.stuk:hover img{transform:scale(1.04)}
+.stuk figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:12px;color:#4a463f}
+.stuk figcaption b{font:400 24px/1 'Instrument Serif',serif;color:var(--zwart);margin-left:10px}
+.stuk figcaption .nr{color:var(--bloed)}
+.s1{grid-column:1/6;grid-row:1/3}
+.s2{grid-column:6/10}
+.s3{grid-column:10/13}
+.s4{grid-column:6/9}
+.s5{grid-column:9/13}
+.s1 img{object-position:50% 40%}
+.s4 img{object-position:50% 38%}
+.idee{display:flex;align-items:center;justify-content:space-between;gap:30px;margin-top:34px;padding:30px 34px;background:var(--zwart);color:var(--been)}
+.idee h3{font-size:clamp(28px,2.6vw,38px)}
+.idee p{color:var(--grijs);margin-top:6px;max-width:34em}
 
 /* werkwijze */
-.werkwijze{padding:140px 0}
+.werkwijze{padding:140px 0;background:var(--zwart)}
 .werkwijze .wrap{display:grid;grid-template-columns:5fr 7fr;gap:clamp(40px,7vw,120px);align-items:start}
 .werkwijze .foto{position:sticky;top:40px}
-.werkwijze .foto img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 20%}
-.werkwijze .foto figcaption{margin-top:14px}
-.werkwijze h2{font-size:clamp(48px,5.6vw,88px);margin:20px 0 48px}
-.stap{display:grid;grid-template-columns:90px 1fr;gap:20px;padding:34px 0;border-top:1px solid var(--lijn)}
+.werkwijze .foto .ram{position:relative}
+.werkwijze .foto .ram::before{content:"";position:absolute;inset:22px -22px -22px 22px;border:1px solid var(--bloed);z-index:0}
+.werkwijze .foto img{position:relative;z-index:1;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 24%}
+.werkwijze .foto figcaption{margin-top:40px;color:var(--grijs)}
+.werkwijze h2{font-size:clamp(52px,6vw,96px);margin:20px 0 22px}
+.werkwijze .lead{color:var(--grijs);max-width:30em;margin-bottom:46px}
+.stap{display:grid;grid-template-columns:96px 1fr;gap:20px;padding:34px 0;border-top:1px solid var(--lijn);transition:padding .5s var(--ease)}
 .stap:last-of-type{border-bottom:1px solid var(--lijn)}
-.stap .nr{font:400 54px/1 'Instrument Serif',serif;color:var(--grijs)}
-.stap h3{font-size:34px;margin-bottom:10px}
-.stap p{color:var(--grijs);max-width:32em}
-.stap blockquote{margin-top:16px;padding-left:18px;border-left:1px solid var(--bloed);font:400 22px/1.35 'Instrument Serif',serif;color:var(--been)}
-.stap blockquote cite{display:block;margin-top:6px;font:500 11px/1.4 'Inter Tight',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--grijs);font-style:normal}
+.stap:hover{padding-left:12px}
+.stap .nr{font:400 64px/.9 'Instrument Serif',serif;color:transparent;-webkit-text-stroke:1px var(--bloed2)}
+.stap h3{font-size:36px;margin-bottom:10px}
+.stap p{color:var(--grijs);max-width:31em}
 
 /* opknappen */
-.renovatie{position:relative;padding:150px 0;background:var(--been);color:var(--zwart);overflow:hidden}
-.renovatie .wrap{display:grid;grid-template-columns:7fr 5fr;gap:clamp(40px,7vw,120px);align-items:center}
-.renovatie .kapitaal{color:#6b655c}
-.renovatie h2{font-size:clamp(52px,6.4vw,104px);margin:20px 0 30px}
-.renovatie p{max-width:30em;color:#3c3934}
-.renovatie blockquote{font:400 clamp(26px,2.4vw,36px)/1.25 'Instrument Serif',serif}
-.renovatie blockquote cite{display:block;margin-top:14px;font:500 11px/1.4 'Inter Tight',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#6b655c;font-style:normal}
-.renovatie .groot{border-left:1px solid rgba(13,13,12,.2);padding-left:clamp(28px,4vw,60px)}
-.renovatie .jaar{display:block;font:400 clamp(140px,16vw,240px)/.8 'Instrument Serif',serif;color:var(--bloed);letter-spacing:-.03em}
-.renovatie .jaar-l{display:block;font:500 11px/1.4 'Inter Tight',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#6b655c;margin:12px 0 26px}
+.opknappen{position:relative;padding:130px 0;background:var(--bloed);color:var(--been);overflow:hidden}
+.opknappen .wrap{position:relative;display:grid;grid-template-columns:6fr 6fr;gap:clamp(40px,7vw,110px);align-items:center}
+.opknappen .kapitaal{color:rgba(233,226,214,.75)}
+.opknappen .kapitaal::before{background:var(--been)}
+.opknappen h2{font-size:clamp(52px,6.2vw,100px);margin:20px 0 26px}
+.opknappen p{max-width:29em;color:rgba(233,226,214,.86)}
+.opknappen .btn{margin-top:34px}
+.jaren{position:relative;padding:46px 44px 40px;background:var(--zwart);box-shadow:0 40px 80px -40px rgba(0,0,0,.6)}
+.jaren .getal{display:flex;align-items:flex-end;gap:16px;border-bottom:1px solid var(--lijn);padding-bottom:24px;margin-bottom:26px}
+.jaren .getal b{font:400 clamp(120px,13vw,190px)/.78 'Instrument Serif',serif;color:var(--bloed2)}
+.jaren .getal span{color:var(--grijs);padding-bottom:10px}
+.jaren blockquote{font:400 clamp(26px,2.3vw,34px)/1.2 'Instrument Serif',serif}
+.jaren cite{display:block;margin-top:16px;font-style:normal;color:var(--grijs)}
 
-/* stemmen */
+/* reviews */
 .stemmen{padding:140px 0;background:var(--paneel)}
-.stemmen .kop{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:56px}
-.stemmen h2{font-size:clamp(48px,5.6vw,88px);margin-top:20px}
-.stemmen .cijfer{text-align:right}
-.stemmen .cijfer b{display:block;font:400 clamp(80px,8vw,120px)/.85 'Instrument Serif',serif}
-.stemmen .cijfer span{font:500 11px/1.4 'Inter Tight',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--grijs)}
-.rij3{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--lijn)}
-.rij3 blockquote{padding:36px 34px 10px 0;border-right:1px solid var(--lijn)}
-.rij3 blockquote+blockquote{padding-left:34px}
-.rij3 blockquote:last-child{border-right:0}
-.rij3 p{font:400 26px/1.3 'Instrument Serif',serif}
-.rij3 cite{display:block;margin-top:20px;font:500 11px/1.4 'Inter Tight',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--grijs);font-style:normal}
-
-.steffi{border-top:1px solid var(--lijn);padding-top:44px;display:grid;grid-template-columns:1fr 220px;gap:40px;align-items:end}
-.steffi p{font:400 clamp(32px,3.6vw,56px)/1.15 'Instrument Serif',serif;max-width:22em}
-.steffi cite{font:500 11px/1.4 'Inter Tight',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--grijs);font-style:normal;text-align:right}
+.stemmen .wrap{display:grid;grid-template-columns:4fr 8fr;gap:clamp(40px,6vw,100px)}
+.score{position:sticky;top:40px;align-self:start}
+.score b{display:block;font:400 clamp(110px,11vw,170px)/.85 'Instrument Serif',serif;margin:24px 0 14px}
+.score .sterren{display:flex;gap:6px;color:var(--bloed2)}
+.score .sterren svg{width:20px;height:20px}
+.score p{color:var(--grijs);margin-top:12px}
+.groot{font:400 clamp(32px,3.4vw,52px)/1.14 'Instrument Serif',serif;padding-bottom:44px;border-bottom:1px solid var(--lijn)}
+.groot cite,.klein cite{display:block;margin-top:20px;font-style:normal;color:var(--grijs)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:44px}
+.klein{padding:30px;border:1px solid var(--lijn);font:400 24px/1.25 'Instrument Serif',serif;transition:border-color .4s}
+.klein:hover{border-color:rgba(178,69,47,.7)}
+.klein::before{content:"❁";display:block;font-size:18px;color:var(--bloed2);margin-bottom:16px}
 
 /* afspraak */
-.afspraak{padding:150px 0 130px;text-align:center;position:relative}
-.afspraak .bloem-groot{font-size:46px;line-height:1;color:var(--bloed)}
-.afspraak h2{font-size:clamp(56px,8vw,132px);margin:26px auto 26px;max-width:11em}
-.afspraak p{color:var(--grijs);max-width:34em;margin:0 auto}
-.afspraak .knoppen{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin-top:40px}
-.afspraak .gegevens{display:flex;justify-content:center;flex-wrap:wrap;gap:16px 56px;margin-top:64px;padding-top:34px;border-top:1px solid var(--lijn)}
-.afspraak .gegevens div{text-align:center}
-.afspraak .gegevens span{display:block;margin-bottom:8px}
+.afspraak{padding:140px 0 130px;background:var(--zwart)}
+.afspraak .wrap{display:grid;grid-template-columns:7fr 5fr;gap:clamp(40px,7vw,110px);align-items:center}
+.afspraak h2{font-size:clamp(60px,7.4vw,120px);margin:20px 0 26px}
+.afspraak p{color:var(--grijs);max-width:30em}
+.afspraak .knoppen{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.kaartje{position:relative;background:var(--papier);color:var(--zwart);padding:38px 36px 32px;transform:rotate(-2.2deg);box-shadow:0 50px 80px -40px rgba(0,0,0,.9);transition:transform .7s var(--ease)}
+.kaartje:hover{transform:rotate(0)}
+.kaartje::before{content:"";position:absolute;inset:10px;border:1px solid rgba(13,13,12,.2);pointer-events:none}
+.kaartje .kopje{display:flex;justify-content:space-between;align-items:center;padding-bottom:18px;border-bottom:1px solid rgba(13,13,12,.2)}
+.kaartje .kopje strong{font:600 13px/1 'Inter Tight',sans-serif;letter-spacing:.38em;text-transform:uppercase}
+.kaartje .kopje .bloem{font-size:24px;color:var(--bloed)}
+.kaartje .titel{font:400 40px/1 'Instrument Serif',serif;margin:22px 0 20px}
+.kaartje dl{display:grid;grid-template-columns:auto 1fr;gap:12px 18px}
+.kaartje dt{color:#6b655c;padding-top:2px}
+.kaartje dd{font-size:16px}
+.kaartje dd a{text-underline-offset:3px}
+.kaartje .lijnen{margin-top:24px;display:grid;gap:16px}
+.kaartje .lijnen span{display:flex;gap:10px;align-items:baseline;color:#6b655c}
+.kaartje .lijnen span::after{content:"";flex:1;border-bottom:1px dashed rgba(13,13,12,.35)}
 
-footer{border-top:1px solid var(--lijn);padding:44px 0 40px;color:var(--grijs);font-size:14px}
-footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-footer .logo{color:var(--been)}
-footer a{text-decoration:none}
-footer a:hover{color:var(--been)}
+/* footer */
+footer{background:#080807;border-top:1px solid var(--lijn);padding:70px 0 34px}
+footer .boven{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:50px;border-bottom:1px solid var(--lijn)}
+footer .boven p{color:var(--grijs);max-width:24em;margin-top:18px;font-size:15px}
+footer h4{font:500 11px/1.2 'Inter Tight',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--grijs);margin-bottom:16px}
+footer ul{list-style:none;display:grid;gap:8px;font-size:15px}
+footer ul a{text-decoration:none;color:var(--been)}
+footer ul a:hover{color:var(--bloed2)}
+footer .onder{display:flex;justify-content:space-between;gap:20px;padding-top:26px;color:var(--grijs);font-size:13px}
 
-@media (prefers-reduced-motion:no-preference){
-  .woordmerk{animation:mrk 1.6s var(--ease) both}
-  .prent{animation:prent 1.3s .15s var(--ease) both}
-}
-@keyframes mrk{from{opacity:0;letter-spacing:.08em}}
-@keyframes prent{from{opacity:0;transform:translate(-50%,30px)}}
+/* reveal */
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.band .rij{animation:none}.js .rv{opacity:1;transform:none}}
 
 @media (max-width:1100px){
   .nav ul{display:none}
-  .prent figcaption{display:none}
+  .hero .foto{width:72%}
+  .blad{grid-template-rows:400px 330px;gap:22px;padding:24px}
 }
-@media (max-width:900px){
-  .hero{padding:28px 0 56px;display:flex;flex-direction:column}
-  .hero .wrap{display:flex;flex-direction:column}
-  .hero .podium{display:contents}
-  .woordmerk{order:1}
-  .woordmerk{position:static;transform:none;font-size:21vw;text-align:left}
-  .prent{position:relative;left:auto;transform:none;width:100%;height:118vw;max-height:700px;margin-top:40px;order:3}
-  .hero .onder{grid-template-columns:1fr;margin-top:30px;padding-top:26px;order:2}
-  .hero .rechts{align-items:flex-start}
-  .werk,.werkwijze,.stemmen{padding:96px 0}
-  .renovatie,.afspraak{padding:100px 0}
-  .werk .kop,.werkwijze .wrap,.renovatie .wrap{grid-template-columns:1fr}
-  .galerij{grid-template-columns:1fr 1fr}
-  .galerij .g1{grid-column:span 2;grid-row:auto;min-height:0;height:120vw;max-height:700px}
-  .galerij .g2,.galerij .g3{height:70vw;max-height:480px}
-  .galerij .g4{height:60vw;max-height:420px}
-  .werkwijze .foto{position:static;max-width:480px;order:2}
-  .renovatie .groot{border-left:0;padding-left:0;border-top:1px solid rgba(13,13,12,.2);padding-top:30px}
-  .steffi{grid-template-columns:1fr;gap:20px}
-  .steffi cite{text-align:left}
-  .rij3 blockquote,.rij3 blockquote+blockquote{padding:30px 0;border-right:0;border-bottom:1px solid var(--lijn)}
-  .stemmen .cijfer{text-align:left}
+@media (max-width:860px){
+  .wrap{width:calc(100% - 40px)}
+  .nav .wrap{height:76px}
+  .nav .btn span.t{display:none}
+  .hero{min-height:0;display:flex}
+  .hero .tekst{order:1}.hero .foto{order:2}.hero .feiten{order:3}
+  .hero .tekst{padding:118px 0 0}
+  .hero h1{font-size:clamp(48px,13vw,76px)}
+  .hero .intro{grid-template-columns:1fr;gap:26px;margin-top:22px}
+  .hero .intro p{font-size:16.5px}
+  .hero .foto{position:relative;width:auto;height:auto;margin:40px 0 0;aspect-ratio:4/5;z-index:0}
+  .hero .foto::after{background:linear-gradient(180deg,var(--zwart) 0%,rgba(13,13,12,0) 20%),linear-gradient(0deg,var(--zwart) 0%,rgba(13,13,12,0) 30%)}
+  .hero .label{right:12px}
+  .hero .feiten{grid-template-columns:1fr;position:relative;margin-top:-30px}
+  .hero .feiten div{padding:14px 0}
+  .hero .feiten div+div{padding-left:0;border-left:0;border-top:1px solid var(--lijn)}
+  .band span{font-size:26px;padding:16px 18px;gap:36px}
+  .werk,.werkwijze,.stemmen,.afspraak,.opknappen{padding:90px 0}
+  .werk .kop,.werkwijze .wrap,.opknappen .wrap,.stemmen .wrap,.afspraak .wrap{grid-template-columns:1fr}
+  .werk .kop{margin-bottom:36px;gap:18px}
+  .werk .kop p{justify-self:start}
+  .blad{grid-template-columns:1fr 1fr;grid-template-rows:none;gap:18px;padding:14px}
+  .s1{grid-column:1/3;grid-row:auto}.s2,.s3,.s4,.s5{grid-column:auto}
+  .s1 .ram{aspect-ratio:4/5}.s2 .ram,.s3 .ram,.s4 .ram,.s5 .ram{aspect-ratio:3/4}
+  .stuk figcaption{flex-direction:column;gap:2px}
+  .stuk figcaption b{font-size:21px;margin-left:0;display:block}
+  .idee{flex-direction:column;align-items:flex-start;padding:26px 22px}
+  .werkwijze .foto{position:relative;top:0;order:2;margin-right:22px}
+  .stap{grid-template-columns:62px 1fr}
+  .stap .nr{font-size:48px}
+  .stap h3{font-size:30px}
+  .jaren{padding:34px 26px 30px}
+  .score{position:relative;top:0}
+  .duo{grid-template-columns:1fr}
+  .kaartje{transform:rotate(-1.4deg);margin:10px 6px 0}
+  footer .boven{grid-template-columns:1fr 1fr}
+  footer .boven>div:first-child{grid-column:1/3}
+  footer .onder{flex-direction:column}
 }
-@media (max-width:560px){
-  body{font-size:16px}
-  .wrap{width:calc(100% - 36px)}
-  .nav .wrap{height:72px}
-  .logo{letter-spacing:.3em;font-size:12px}
-  .nav .btn{padding:12px 14px;letter-spacing:.16em;font-size:11px}
-  .galerij{grid-template-columns:1fr}
-  .galerij .g1,.galerij .g4{grid-column:auto}
-  .galerij .g2,.galerij .g3,.galerij .g4{height:110vw}
-  .stap{grid-template-columns:1fr;gap:6px}
-  .stap .nr{font-size:40px}
-  .hero .rechts .btn{width:100%;justify-content:center}
+@media (max-width:420px){
+  .btn{padding:17px 20px;letter-spacing:.16em}
+  .blad{gap:14px 12px;padding:12px}
+  .stuk figcaption b{font-size:19px}
 }
 </style>
 </head>
 <body>
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
+<main id="top">
+<div class="top">
 <header class="nav">
   <div class="wrap">
     <a class="logo" href="#top"><span class="bloem" aria-hidden="true">❁</span>Martinez Tattoo</a>
@@ -197,93 +255,123 @@ footer a:hover{color:var(--been)}
       <li><a href="#opknappen">Opknappen</a></li>
       <li><a href="#afspraak">Afspraak</a></li>
     </ul>
-    <a class="btn" href="https://www.instagram.com/martinetmichael/"><span class="b" aria-hidden="true">❁</span>Stuur een DM</a>
+    <a class="btn" href="https://www.instagram.com/martinetmichael/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg><span class="t">Stuur een DM</span></a>
   </div>
 </header>
 
-<main id="top">
   <section class="hero">
-    <div class="wrap">
-      <div class="podium">
-        <div class="woordmerk" aria-hidden="true">Martinez</div>
-        <figure class="prent"><img src="img/leeuw.webp" alt="Brullende leeuw in zwart en grijs realisme op een bovenbeen" fetchpriority="high"><figcaption>Leeuw<br>zwart &amp; grijs</figcaption></figure>
-      </div>
-      <div class="onder">
-        <div>
-          <span class="kapitaal">Private studio · only by appointment · Hamme</span>
-          <h1 style="margin-top:18px">Elke sleeve begint met een gesprek.</h1>
-          <p>Custom werk in zwart en grijs, arm- en beensleeves en een tweede leven voor oude tattoos. Je boekt bij Michaël met een berichtje op Instagram.</p>
-        </div>
-        <div class="rechts">
-          <a class="btn" href="https://www.instagram.com/martinetmichael/"><span class="b" aria-hidden="true">❁</span>Plan je gesprek</a>
-          <span class="score"><b>4,9</b> op Google · <b>118</b> reviews</span>
+    <figure class="foto"><img src="img/leeuw.webp" alt="Brullende leeuw in zwart en grijs realisme op een bovenbeen" fetchpriority="high"><figcaption class="label mono">Leeuw · bovenbeen · zwart en grijs</figcaption></figure>
+    <div class="wrap tekst">
+      <span class="kapitaal">Privéstudio in Hamme</span>
+      <h1 style="margin-top:22px">Elke sleeve begint met een <span class="r">gesprek.</span></h1>
+      <div class="intro">
+        <p>Zwart en grijs, arm- en beensleeves en een tweede leven voor oude tattoos. Stuur Michaël een berichtje, dan bekijken jullie samen je idee.</p>
+        <div class="knoppen">
+          <a class="btn" href="https://www.instagram.com/martinetmichael/">Plan je gesprek <span class="pijl" aria-hidden="true"></span></a>
+          <a class="btn lijn" href="#werk">Bekijk het werk</a>
         </div>
       </div>
     </div>
+    <div class="wrap feiten">
+      <div><b>4,9</b><span>uit 118 reviews op Google</span></div>
+      <div><b>Privé</b><span>studio, enkel op afspraak</span></div>
+      <div><b>Zwart &amp; grijs</b><span>custom, van fineline tot sleeve</span></div>
+    </div>
   </section>
+</div>
+
+  <div class="band" aria-hidden="true"><div class="rij">
+    <span>Armsleeves</span><span>Beensleeves</span><span>Zwart en grijs</span><span>Custom ontwerp</span><span>Oude tattoos opknappen</span><span>Enkel op afspraak</span>
+    <span>Armsleeves</span><span>Beensleeves</span><span>Zwart en grijs</span><span>Custom ontwerp</span><span>Oude tattoos opknappen</span><span>Enkel op afspraak</span>
+  </div></div>
 
   <section class="werk" id="werk">
     <div class="wrap">
-      <div class="kop">
-        <div><span class="kapitaal"><span class="bloem">❁</span>&nbsp; Werk</span><h2>Van dichtbij bekeken.</h2></div>
-        <p>Grote stukken die over meerdere sessies groeien, en kleinere ontwerpen die net zo veel aandacht krijgen. Een greep uit het werk van Michaël.</p>
+      <div class="kop rv">
+        <div><span class="kapitaal">Werk</span><h2>Recht uit de studio.</h2></div>
+        <p>Grote stukken die over meerdere sessies groeien, en kleine die evenveel aandacht krijgen. Alles in zwart en grijs, alles op maat getekend.</p>
       </div>
-      <div class="galerij">
-        <figure class="g1"><img src="img/sleeve.webp" alt="Volledige armsleeve met figuren, bloemen en tekst" loading="lazy"><figcaption><span>Armsleeve</span><span>in opbouw</span></figcaption></figure>
-        <figure class="g2"><img src="img/ridder.webp" alt="Kruisridder met schild en tekst op de onderarm" loading="lazy"><figcaption><span>Ridder</span><span>onderarm</span></figcaption></figure>
-        <figure class="g3"><img src="img/fles.webp" alt="Doodshoofd in een fles op de onderarm" loading="lazy"><figcaption><span>Fles</span><span>custom</span></figcaption></figure>
-        <figure class="g4"><img src="img/fineline.webp" alt="Fijne bloem en vlinder op de hand en pols" loading="lazy"><figcaption><span>Fineline</span><span>hand</span></figcaption></figure>
+      <div class="blad">
+        <figure class="stuk s1 rv"><div class="ram"><img src="img/sleeve.webp" alt="Volledige armsleeve met figuren, bloemen en tekst" loading="lazy"></div><figcaption><span class="mono"><span class="nr">N°01</span><b>Armsleeve</b></span><span class="mono">in opbouw</span></figcaption></figure>
+        <figure class="stuk s2 rv"><div class="ram"><img src="img/ridder.webp" alt="Kruisridder met schild en tekst op de onderarm" loading="lazy"></div><figcaption><span class="mono"><span class="nr">N°02</span><b>Ridder</b></span><span class="mono">onderarm</span></figcaption></figure>
+        <figure class="stuk s3 rv"><div class="ram"><img src="img/fles.webp" alt="Doodshoofd in een fles op de onderarm" loading="lazy"></div><figcaption><span class="mono"><span class="nr">N°03</span><b>Fles</b></span><span class="mono">custom</span></figcaption></figure>
+        <figure class="stuk s4 rv"><div class="ram"><img src="img/fineline.webp" alt="Fijne bloem en vlinder op de hand en pols" loading="lazy"></div><figcaption><span class="mono"><span class="nr">N°04</span><b>Fineline</b></span><span class="mono">hand</span></figcaption></figure>
+        <figure class="stuk s5 rv"><div class="ram"><img src="img/oog.webp" alt="Realistisch oog in zwart en grijs op de rug" loading="lazy"></div><figcaption><span class="mono"><span class="nr">N°05</span><b>Oog</b></span><span class="mono">rug</span></figcaption></figure>
+      </div>
+      <div class="idee rv">
+        <div><h3>Jouw idee op dit blad?</h3><p>Stuur een foto, een schets of gewoon een paar woorden. Michaël tekent het uit voor jouw huid.</p></div>
+        <a class="btn rood" href="https://www.instagram.com/martinetmichael/">Stuur je idee <span class="pijl" aria-hidden="true"></span></a>
       </div>
     </div>
   </section>
 
   <section class="werkwijze" id="werkwijze">
     <div class="wrap">
-      <figure class="foto"><img src="img/aan-het-werk.webp" alt="Michaël aan het werk aan een sleeve, met handschoenen en tattoomachine" loading="lazy"><figcaption class="kapitaal">Michaël, aan het werk</figcaption></figure>
+      <figure class="foto rv"><div class="ram"><img src="img/aan-het-werk.webp" alt="Michaël aan het werk aan een sleeve, met handschoenen en tattoomachine" loading="lazy"></div><figcaption class="mono">Michaël, aan het werk</figcaption></figure>
       <div>
-        <span class="kapitaal"><span class="bloem">❁</span>&nbsp; Werkwijze</span>
-        <h2>Zo pakken we het aan.</h2>
-        <div class="stap"><span class="nr">01</span><div><h3>Je stuurt je idee</h3><p>Een berichtje op Instagram is genoeg: wat je wil, waar het moet komen en hoe groot. Foto's of voorbeelden mogen erbij.</p></div></div>
-        <div class="stap"><span class="nr">02</span><div><h3>We bespreken het samen</h3><p>Michaël denkt mee over het ontwerp, tot het helemaal van jou is.</p><blockquote>"Hij luistert naar wat je wil en geeft advies waar nodig"<cite>Mireille W.</cite></blockquote></div></div>
-        <div class="stap"><span class="nr">03</span><div><h3>Sessie per sessie</h3><p>Een sleeve zet je niet op een namiddag. Je bouwt hem op, met rust en in een propere privéstudio.</p><blockquote>"Hij weet goed wat hij doet, werkt super hygiënisch en is een fijne persoon om bij langs te gaan."<cite>Silke C.</cite></blockquote></div></div>
+        <span class="kapitaal">Werkwijze</span>
+        <h2 class="rv">Eerst praten, dan pas de naald.</h2>
+        <p class="lead rv">Een goede tattoo begint lang voor de machine aanstaat. Zo gaat het bij Michaël.</p>
+        <div class="stap rv"><span class="nr">01</span><div><h3>Je stuurt je idee</h3><p>Een berichtje op Instagram is genoeg: wat je wil, waar het moet komen en hoe groot. Foto's of voorbeelden mogen erbij.</p></div></div>
+        <div class="stap rv"><span class="nr">02</span><div><h3>Jullie tekenen het samen</h3><p>Michaël denkt mee en geeft advies waar het nodig is, tot het ontwerp echt van jou is.</p></div></div>
+        <div class="stap rv"><span class="nr">03</span><div><h3>Sessie per sessie</h3><p>Een sleeve zet je niet op één namiddag. Je bouwt hem rustig op, in een propere privéstudio, zonder volle wachtzaal.</p></div></div>
       </div>
     </div>
   </section>
 
-  <section class="renovatie" id="opknappen">
+  <section class="opknappen" id="opknappen">
     <div class="wrap">
-      <div>
+      <div class="rv">
         <span class="kapitaal">Opknappen</span>
-        <h2>Een tweede leven voor een oude tattoo.</h2>
-        <p>Vervaagd, uitgelopen of gewoon niet meer van deze tijd? Een oude tattoo kan je laten bijwerken of verwerken in een nieuw stuk. Stuur een foto, dan bekijkt Michaël wat mogelijk is.</p>
+        <h2>Oude tattoo, nieuw leven.</h2>
+        <p>Vervaagd, uitgelopen of gewoon niet meer van deze tijd? Michaël werkt een oude tattoo bij of verwerkt hem in een nieuw stuk. Stuur een foto, dan kijkt hij wat er kan.</p>
+        <a class="btn" href="https://www.instagram.com/martinetmichael/">Stuur een foto <span class="pijl" aria-hidden="true"></span></a>
       </div>
-      <blockquote class="groot"><span class="jaar">15</span><span class="jaar-l">jaar oud</span>"Last minute een afspraak kunnen scoren voor 'renovatie' van een 15 jaar oude tattoo"<cite>Cindy V. op Google</cite></blockquote>
+      <div class="jaren rv">
+        <div class="getal"><b>15</b><span class="mono">jaar oud<br>en weer scherp</span></div>
+        <blockquote>"Last minute een afspraak kunnen scoren voor 'renovatie' van een 15 jaar oude tattoo"<cite class="mono">Cindy V. op Google</cite></blockquote>
+      </div>
     </div>
   </section>
 
   <section class="stemmen">
     <div class="wrap">
-      <div class="kop">
-        <div><span class="kapitaal"><span class="bloem">❁</span>&nbsp; Reviews</span><h2>Van armsleeve naar legsleeve.</h2></div>
-        <div class="cijfer"><b>4,9</b><span>uit 118 reviews op Google</span></div>
+      <div class="score rv">
+        <span class="kapitaal">Reviews</span>
+        <b>4,9</b>
+        <div class="sterren" aria-label="5 sterren"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2 6.1 20.5l1.4-6.6-5-4.5 6.6-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2 6.1 20.5l1.4-6.6-5-4.5 6.6-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2 6.1 20.5l1.4-6.6-5-4.5 6.6-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2 6.1 20.5l1.4-6.6-5-4.5 6.6-.7z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2 6.1 20.5l1.4-6.6-5-4.5 6.6-.7z"/></svg></div>
+        <p>uit 118 reviews op Google</p>
       </div>
-      <blockquote class="steffi"><p>"Ik ben eind 2024 bij Martinez Tattoo binnengestapt om mijn idee voor een armsleeve te bespreken. Ondertussen zijn we al even bezig aan een legsleeve."</p><cite>Steffi A. op Google</cite></blockquote>
+      <div>
+        <blockquote class="groot rv">"Ik ben eind 2024 bij Martinez Tattoo binnengestapt om mijn idee voor een armsleeve te bespreken. Ondertussen zijn we al even bezig aan een legsleeve."<cite class="mono">Steffi A. op Google</cite></blockquote>
+        <div class="duo">
+          <blockquote class="klein rv">"Hij luistert naar wat je wil en geeft advies waar nodig"<cite class="mono">Mireille W.</cite></blockquote>
+          <blockquote class="klein rv">"Hij weet goed wat hij doet, werkt super hygiënisch en is een fijne persoon om bij langs te gaan."<cite class="mono">Silke C.</cite></blockquote>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="afspraak" id="afspraak">
     <div class="wrap">
-      <div class="bloem-groot" aria-hidden="true">❁</div>
-      <h2>Enkel op afspraak.</h2>
-      <p>Martinez Tattoo is een privéstudio. Er is geen binnenloop: je stuurt een berichtje en Michaël plant samen met jou een moment.</p>
-      <div class="knoppen">
-        <a class="btn" href="https://www.instagram.com/martinetmichael/"><span class="b" aria-hidden="true">❁</span>Stuur een DM op Instagram</a>
-        <a class="btn lijn" href="https://www.facebook.com/martineztattoo1">Facebook</a>
+      <div class="rv">
+        <span class="kapitaal">Afspraak</span>
+        <h2>Enkel op afspraak.</h2>
+        <p>Martinez Tattoo is een privéstudio, je loopt hier niet zomaar binnen. Stuur een berichtje en Michaël plant samen met jou een moment dat past.</p>
+        <div class="knoppen">
+          <a class="btn" href="https://www.instagram.com/martinetmichael/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>DM op Instagram</a>
+          <a class="btn lijn" href="https://www.facebook.com/martineztattoo1">Facebook</a>
+        </div>
       </div>
-      <div class="gegevens">
-        <div><span class="kapitaal">Studio</span>Neerstraat 17, 9220 Hamme</div>
-        <div><span class="kapitaal">Instagram</span><a href="https://www.instagram.com/martinetmichael/">@martinetmichael</a></div>
-        <div><span class="kapitaal">Google</span>4,9 uit 118 reviews</div>
+      <div class="kaartje rv">
+        <div class="kopje"><strong>Martinez Tattoo</strong><span class="bloem" aria-hidden="true">❁</span></div>
+        <div class="titel">Afsprakenkaartje</div>
+        <dl>
+          <dt class="mono">Studio</dt><dd>Neerstraat 17, 9220 Hamme<br><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Neerstraat+17+9220+Hamme">Route plannen</a></dd>
+          <dt class="mono">Boeken</dt><dd>Via DM op <a href="https://www.instagram.com/martinetmichael/">@martinetmichael</a></dd>
+          <dt class="mono">Google</dt><dd>4,9 uit 118 reviews</dd>
+        </dl>
+        <div class="lijnen"><span class="mono">Naam</span><span class="mono">Datum</span></div>
       </div>
     </div>
   </section>
@@ -291,10 +379,18 @@ footer a:hover{color:var(--been)}
 
 <footer>
   <div class="wrap">
-    <span class="logo"><span class="bloem" aria-hidden="true">❁</span>Martinez Tattoo</span>
-    <span>Neerstraat 17, Hamme · enkel op afspraak</span>
-    <span>Voorbeeldsite door Digital Impression</span>
+    <div class="boven">
+      <div><a class="logo" href="#top"><span class="bloem" aria-hidden="true">❁</span>Martinez Tattoo</a><p>Privéstudio voor custom werk in zwart en grijs. Enkel op afspraak.</p></div>
+      <div><h4>Studio</h4><ul><li>Neerstraat 17</li><li>9220 Hamme</li></ul></div>
+      <div><h4>Volgen</h4><ul><li><a href="https://www.instagram.com/martinetmichael/">Instagram</a></li><li><a href="https://www.facebook.com/martineztattoo1">Facebook</a></li></ul></div>
+      <div><h4>Op de site</h4><ul><li><a href="#werk">Werk</a></li><li><a href="#werkwijze">Werkwijze</a></li><li><a href="#opknappen">Opknappen</a></li></ul></div>
+    </div>
+    <div class="onder"><span>© Martinez Tattoo</span><span>Voorbeeldsite door Digital Impression</span></div>
   </div>
+<script>
+(function(){var els=document.querySelectorAll('.rv');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(e){io.observe(e)})})();
+</script>
 </footer>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
 <style>
