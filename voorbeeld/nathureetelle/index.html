@@ -13,232 +13,262 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
 <style>
 :root{
-  --salie:#7C9772; --salie-d:#2F3B2C; --salie-dd:#222B20; --mos:#4C5E47;
-  --creme:#F7F1E7; --perzik:#F1DCC2; --kaars:#E7B07A; --inkt:#22261F; --grijs:#6B6F66;
-  --lijn:rgba(34,38,31,.14); --lijn-l:rgba(247,241,231,.18);
-  --wrap:1240px; --r:4px; --ease:cubic-bezier(.2,.7,.2,1);
+  --salie:#7C9772;--salie-d:#2F3B2C;--salie-dd:#222B20;--mos:#4C5E47;
+  --creme:#F7F1E7;--wit:#FCF9F4;--perzik:#F1DCC2;--perzik2:#EACBA6;--kaars:#E7B07A;--inkt:#22261F;--grijs:#6B6F66;
+  --lijn:rgba(34,38,31,.14);--lijn-l:rgba(247,241,231,.18);
+  --ease:cubic-bezier(.2,.7,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:"Manrope",system-ui,sans-serif;font-size:17px;line-height:1.65;color:var(--inkt);background:var(--creme);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
-.wrap{width:min(var(--wrap),calc(100% - 56px));margin-inline:auto}
-h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:300;font-style:normal;letter-spacing:-.02em;line-height:1}
-.label{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.wrap{width:min(1260px,calc(100% - 56px));margin-inline:auto}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:300;font-style:normal;letter-spacing:-.025em;line-height:1;font-variation-settings:"opsz" 144}
+h2{font-size:clamp(46px,5vw,80px)}
+.label{display:inline-flex;align-items:center;gap:12px;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--mos)}
+.label .pz{display:inline-flex;gap:3px}.label .pz i{width:2.5px;height:12px;background:currentColor;border-radius:2px}
 .nr{font-family:"Fraunces",serif;font-weight:400;font-variant-numeric:lining-nums}
 
-/* demo-strook */
 .demo{background:var(--salie-dd);color:#E7E3D8;text-align:center;font-size:13px;line-height:1.4;padding:9px 16px}
 .demo a{color:var(--kaars);font-weight:700;text-underline-offset:3px}
 
-/* knoppen */
-.knop{display:inline-flex;align-items:center;gap:14px;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:.01em;padding:17px 26px;border-radius:999px;transition:background .35s var(--ease),color .35s var(--ease),transform .35s var(--ease)}
+/* knoppen met pauzeteken */
+.knop{position:relative;overflow:hidden;isolation:isolate;display:inline-flex;align-items:center;gap:14px;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:.01em;padding:18px 28px;border-radius:999px;white-space:nowrap;transition:color .45s var(--ease),transform .45s var(--ease)}
+.knop::before{content:"";position:absolute;inset:0;z-index:-1;transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.knop:hover{transform:translateY(-2px)}
+.knop:hover::before{transform:scaleX(1)}
 .knop .pz{display:inline-flex;gap:3px}
-.knop .pz i{width:2px;height:12px;background:currentColor;border-radius:2px;transition:height .35s var(--ease)}
+.knop .pz i{width:2.5px;height:12px;background:currentColor;border-radius:2px;transition:height .35s var(--ease)}
 .knop:hover .pz i{height:16px}
 .knop-licht{background:var(--perzik);color:var(--salie-dd)}
-.knop-licht:hover{background:#fff}
-.knop-lijn{border:1px solid rgba(247,241,231,.45);color:var(--creme);padding:16px 24px}
-.knop-lijn:hover{background:var(--creme);color:var(--salie-dd)}
-.knop-donker{background:var(--salie-d);color:var(--creme)}
-.knop-donker:hover{background:var(--mos)}
+.knop-licht::before{background:var(--kaars)}
+.knop-lijn{box-shadow:inset 0 0 0 1px currentColor}
+.knop-lijn::before{background:rgba(247,241,231,.14)}
+.knop-donker{background:var(--salie-dd);color:var(--creme)}
+.knop-donker::before{background:var(--mos)}
 
-/* kop */
-.kop{position:absolute;left:0;right:0;z-index:5;color:var(--creme)}
-.kop .wrap{display:flex;align-items:center;justify-content:space-between;padding:26px 0}
-.merk{font-family:"Fraunces",serif;font-size:25px;font-weight:400;letter-spacing:-.01em;text-decoration:none;line-height:1}
-.merk span{display:block;font-family:"Manrope",sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;opacity:.72;margin-top:7px}
-.kop nav{display:flex;gap:34px;font-size:14.5px;font-weight:600}
-.kop nav a{text-decoration:none;opacity:.86;position:relative}
-.kop nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:1px;background:currentColor;transition:right .4s var(--ease)}
-.kop nav a:hover{opacity:1}.kop nav a:hover::after{right:0}
-.kop .knop{padding:12px 20px;font-size:14px}
+/* header */
+.kop{position:absolute;top:auto;left:0;right:0;z-index:5;color:var(--creme)}
+.kop .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:96px}
+.merk{font:400 26px/1 "Fraunces",serif;letter-spacing:-.01em;text-decoration:none;display:flex;flex-direction:column}
+.merk span{font:700 10px/1 "Manrope",sans-serif;letter-spacing:.32em;text-transform:uppercase;color:var(--perzik);margin-top:7px}
+.kop nav{display:flex;gap:34px;font-size:14.5px;font-weight:500}
+.kop nav a{text-decoration:none;opacity:.82;transition:opacity .3s}.kop nav a:hover{opacity:1}
+.kop .knop{padding:14px 22px;font-size:14px}
 
 /* hero */
-.hero{position:relative;min-height:min(100svh,960px);display:grid;align-items:end;color:var(--creme);background:var(--salie-dd);isolation:isolate;overflow:hidden}
-.hero-beeld{position:absolute;inset:0;z-index:-2}
-.hero-beeld img{width:100%;height:100%;object-fit:cover;object-position:50% 62%;filter:brightness(1.12) saturate(1.05);transform:scale(1.04);animation:adem 14s var(--ease) both}
-@keyframes adem{from{transform:scale(1.1)}to{transform:scale(1.02)}}
-.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
-  linear-gradient(90deg,rgba(26,32,24,.86) 0%,rgba(26,32,24,.55) 38%,rgba(26,32,24,0) 70%),
-  linear-gradient(0deg,rgba(26,32,24,.8) 0%,rgba(26,32,24,0) 45%)}
-.hero-in{padding:150px 0 56px;display:grid;grid-template-columns:auto 1fr;gap:0 44px;align-items:stretch}
-.pauze{display:flex;gap:16px;padding-top:14px}
-.pauze i{width:10px;border-radius:6px;background:var(--perzik);opacity:.92;height:100%;min-height:200px;transform-origin:top;animation:groei 1.4s .2s var(--ease) both}
-.pauze i+i{animation-delay:.35s}
-@keyframes groei{from{transform:scaleY(0)}to{transform:scaleY(1)}}
-.hero h1{font-size:clamp(58px,9vw,144px);line-height:.92}
-.hero h1 em{font-style:normal;color:var(--perzik)}
-.hero-tekst{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:30px 60px;margin-top:38px}
-.hero-tekst p{max-width:31em;font-size:18px;color:rgba(247,241,231,.86)}
-.hero-knoppen{display:flex;flex-wrap:wrap;gap:12px}
-.hero-voet{grid-column:1/-1;margin-top:56px;padding-top:20px;border-top:1px solid var(--lijn-l);display:flex;justify-content:space-between;gap:20px;font-size:13.5px;color:rgba(247,241,231,.7)}
-.hero-voet b{color:var(--creme);font-weight:600}
+.hero{position:relative;min-height:max(760px,calc(100svh - 38px));display:flex;align-items:flex-end;color:var(--creme);overflow:hidden;background:var(--salie-dd)}
+.hero .bg{position:absolute;inset:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(28,35,26,.88) 0%,rgba(28,35,26,.55) 48%,rgba(28,35,26,.15) 100%),linear-gradient(0deg,rgba(28,35,26,.85),transparent 45%)}
+.hero .wrap{position:relative;z-index:2;padding-top:150px}
+.hero .label{color:var(--perzik);margin-bottom:28px}
+.hero h1{font-size:clamp(66px,9vw,138px);margin-bottom:34px}
+.hero h1 .z{color:var(--perzik)}
+.hrij{display:grid;grid-template-columns:minmax(0,470px) auto;gap:44px;align-items:end;justify-content:start;margin-bottom:64px}
+.hrij p{font-size:18.5px;color:rgba(247,241,231,.84)}
+.hknop{display:flex;gap:12px;flex-wrap:wrap}
+.hband{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--lijn-l)}
+.hband>div{padding:26px 0 34px;display:flex;align-items:center;gap:16px;font-size:14.5px;color:rgba(247,241,231,.74)}
+.hband>div+div{padding-left:32px;border-left:1px solid var(--lijn-l)}
+.hband b{font:300 40px/1 "Fraunces",serif;color:var(--creme);letter-spacing:-.02em}
+.hband strong{display:block;color:var(--creme);font-weight:600}
 
-/* secties algemeen */
-section{position:relative}
-.sectie{padding:clamp(88px,11vw,150px) 0}
-.kopregel{display:flex;align-items:baseline;gap:18px;margin-bottom:26px;color:var(--mos)}
-.kopregel .nr{font-size:15px}
-.kopregel::after{content:"";flex:1;height:1px;background:var(--lijn);max-width:120px}
-h2{font-size:clamp(42px,5.2vw,76px)}
+/* verhaal */
+.sectie{padding:150px 0}
+.verhaal .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(50px,7vw,110px);align-items:center}
+.collage{position:relative;padding:0 70px 90px 0}
+.collage .groot{width:100%;aspect-ratio:4/4.6;object-fit:cover;border-radius:280px 280px 18px 18px}
+.collage .klein{position:absolute;right:0;bottom:0;width:46%;aspect-ratio:1;object-fit:cover;border-radius:18px;border:10px solid var(--creme);box-shadow:0 30px 60px -30px rgba(34,38,31,.5)}
+.collage figcaption{position:absolute;left:0;bottom:40px;font-size:13px;color:var(--grijs)}
+.verhaal h2{margin:22px 0 28px}
+.verhaal p{color:var(--grijs);max-width:31em;margin-bottom:16px}
+.tijdlijn{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:34px 0 34px;border-top:1px solid var(--lijn)}
+.tijdlijn li{position:relative;padding:22px 18px 0 0;font-size:14px;line-height:1.5;color:var(--grijs)}
+.tijdlijn li::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--salie)}
+.tijdlijn b{display:block;font:400 26px/1.1 "Fraunces",serif;color:var(--inkt);margin-bottom:6px}
+.handtek{display:flex;align-items:center;gap:16px}
+.handtek .ini{width:54px;height:54px;border-radius:50%;background:var(--perzik);display:grid;place-items:center;font:400 24px/1 "Fraunces",serif;color:var(--salie-dd)}
+.handtek b{display:block;font:400 22px/1.1 "Fraunces",serif}
+.handtek span{font-size:14px;color:var(--grijs)}
 
-/* 01 verhaal */
-.verhaal .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(40px,7vw,110px);align-items:center}
-.verhaal-beeld{position:relative}
-.verhaal-beeld .groot{aspect-ratio:4/4.6;object-fit:cover;width:100%;border-radius:var(--r)}
-.verhaal-beeld .klein{position:absolute;right:-48px;bottom:-56px;width:44%;aspect-ratio:1;object-fit:cover;border:10px solid var(--creme);border-radius:var(--r)}
-.verhaal-beeld figcaption{position:absolute;left:0;top:calc(100% + 18px);font-size:13px;color:var(--grijs)}
-.verhaal h2{margin-bottom:30px}
-.verhaal p{max-width:30em;color:#3d4139}
-.verhaal p+p{margin-top:16px}
-.handtek{margin-top:36px;display:flex;align-items:center;gap:16px;font-size:14px;color:var(--grijs)}
-.handtek b{font-family:"Fraunces",serif;font-weight:400;font-size:24px;color:var(--inkt)}
-.handtek::before{content:"";width:46px;height:1px;background:var(--inkt);opacity:.4}
-
-/* 02 rituelen */
-.rituelen{background:var(--salie-d);color:var(--creme)}
-.rituelen .kopregel{color:var(--perzik)}
-.rituelen .kopregel::after{background:var(--lijn-l)}
-.rit-kop{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:64px}
-.rit-kop p{max-width:25em;color:rgba(247,241,231,.72)}
-.rit-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(36px,6vw,90px);align-items:start}
-.rit-beeld{position:sticky;top:40px;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;background:var(--salie-dd)}
-.rit-beeld img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.04);transition:opacity .7s var(--ease),transform 1.2s var(--ease)}
-.rit-beeld img.aan{opacity:1;transform:scale(1)}
-.rit-beeld span{position:absolute;left:18px;bottom:16px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--creme);text-shadow:0 1px 12px rgba(0,0,0,.4)}
+/* rituelen */
+.rituelen{background:var(--salie-d);color:var(--creme);position:relative;overflow:clip}
+.rituelen::before{content:"";position:absolute;width:900px;height:900px;right:-300px;top:-260px;border-radius:50%;background:radial-gradient(closest-side,rgba(231,176,122,.13),transparent)}
+.rit-kop{position:relative;display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:64px}
+.rit-kop .label{color:var(--perzik)}
+.rit-kop h2{margin-top:22px}
+.rit-kop p{max-width:410px;color:rgba(247,241,231,.72)}
+.rit-grid{position:relative;display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,90px);align-items:start}
+.rit-beeld{position:sticky;top:40px;aspect-ratio:4/5;border-radius:300px 300px 22px 22px;overflow:hidden;background:var(--salie-dd)}
+.rit-beeld img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .8s var(--ease),transform 1.6s var(--ease)}
+.rit-beeld img.aan{opacity:1;transform:none}
+.rit-beeld span{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);background:rgba(34,43,32,.7);backdrop-filter:blur(6px);border-radius:999px;padding:9px 18px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;white-space:nowrap}
 .rit-lijst{list-style:none;border-top:1px solid var(--lijn-l)}
-.rit-lijst li{display:grid;grid-template-columns:44px 1fr auto;gap:6px 22px;padding:24px 0;border-bottom:1px solid var(--lijn-l);cursor:default;transition:padding .45s var(--ease)}
-.rit-lijst li:hover,.rit-lijst li.aan{padding-left:12px}
-.rit-lijst .nr{font-size:15px;color:var(--perzik);padding-top:7px}
-.rit-lijst h3{font-size:clamp(25px,2.3vw,32px);font-weight:300}
-.rit-lijst p{grid-column:2;font-size:15px;color:rgba(247,241,231,.68);max-width:30em}
-.rit-lijst .prijs{grid-row:1/3;grid-column:3;text-align:right;white-space:nowrap}
-.rit-lijst .prijs b{display:block;font-family:"Fraunces",serif;font-weight:400;font-size:26px}
-.rit-lijst .prijs small{font-size:13px;color:rgba(247,241,231,.6)}
-.rit-noot{margin-top:28px;font-size:14px;color:rgba(247,241,231,.6)}
+.rit-lijst li{display:grid;grid-template-columns:44px 1fr auto;gap:8px 18px;align-items:start;padding:24px 22px;margin:0 -22px;border-bottom:1px solid var(--lijn-l);border-radius:18px;cursor:default;transition:background .45s var(--ease)}
+.rit-lijst li.aan{background:rgba(247,241,231,.07)}
+.rit-lijst .nr{font-size:15px;color:var(--kaars);padding-top:10px}
+.rit-lijst h3{font-size:clamp(28px,2.4vw,36px)}
+.rit-lijst p{grid-column:2;color:rgba(247,241,231,.68);font-size:15.5px;max-width:30em;line-height:1.55}
+.rit-lijst .prijs{grid-row:1/3;grid-column:3;text-align:right;padding-top:4px}
+.rit-lijst .prijs b{display:inline-block;font:400 22px/1 "Fraunces",serif;background:var(--perzik);color:var(--salie-dd);padding:9px 16px;border-radius:999px;white-space:nowrap;transition:background .4s}
+.rit-lijst li.aan .prijs b{background:var(--kaars)}
+.rit-lijst .prijs small{display:block;font-size:12.5px;color:rgba(247,241,231,.55);margin-top:8px}
+.rit-noot{margin-top:40px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;padding:22px 26px;border-radius:20px;background:rgba(247,241,231,.06);border:1px solid var(--lijn-l);color:rgba(247,241,231,.8);font-size:15px}
+.rit-noot b{font:400 20px/1.2 "Fraunces",serif;color:var(--perzik)}
 
-/* 03 team */
-.team-kop{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:60px}
-.team-kop p{max-width:28em;color:#3d4139;justify-self:end}
-.team-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:28px}
-.lid img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r);filter:saturate(.92);transition:filter .5s var(--ease)}
-.lid:hover img{filter:saturate(1.05)}
-.lid:first-child img{aspect-ratio:auto;height:100%;max-height:none}
-.lid:first-child{display:grid;grid-template-rows:1fr auto}
-.lid-tekst{padding-top:22px}
-.lid-tekst .label{color:var(--mos)}
-.lid h3{font-size:34px;margin:8px 0 10px}
-.lid p{font-size:15px;color:#4a4e46;max-width:26em}
-.diensten{list-style:none;margin-top:18px;border-top:1px solid var(--lijn)}
-.diensten li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--lijn);font-size:15px}
-.diensten li span:last-child{font-weight:700;white-space:nowrap}
-.lid .tel{display:inline-block;margin-top:16px;font-size:14px;font-weight:700;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+/* team */
+.team-kop{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:60px}
+.team-kop h2{margin-top:22px}
+.team-kop p{max-width:380px;color:var(--grijs)}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.lid{background:var(--wit);border-radius:26px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 30px 60px -50px rgba(34,38,31,.6);transition:transform .5s var(--ease)}
+.lid:hover{transform:translateY(-6px)}
+.lid .foto{position:relative;aspect-ratio:4/4.4;overflow:hidden}
+.lid .foto img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.lid:hover .foto img{transform:scale(1.05)}
+.lid .vak{position:absolute;left:18px;top:18px;background:var(--perzik);color:var(--salie-dd);border-radius:999px;padding:8px 15px;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.lid-tekst{padding:28px 30px 30px;display:flex;flex-direction:column;flex:1}
+.lid h3{font-size:40px;margin-bottom:10px}
+.lid p{color:var(--grijs);font-size:15.5px;line-height:1.6}
+.diensten{list-style:none;margin:20px 0 0;font-size:15px}
+.diensten li{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-top:1px dashed var(--lijn)}
+.diensten li span:last-child{font-weight:700}
+.tel{margin-top:auto;padding-top:24px}
+.tel a{display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-weight:700;font-size:15px;padding:14px 18px;border-radius:14px;background:var(--creme);transition:background .35s}
+.tel a:hover{background:var(--perzik)}
+.tel a small{font-weight:500;color:var(--grijs);font-size:13px}
 
-/* 04 verloop */
+/* verloop */
 .verloop{background:var(--perzik)}
-.verloop .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,100px);align-items:center}
-.stappen{list-style:none;margin-top:44px;counter-reset:s}
-.stappen li{display:grid;grid-template-columns:62px 1fr;gap:16px;padding:20px 0;border-top:1px solid rgba(34,38,31,.18)}
-.stappen li:last-child{border-bottom:1px solid rgba(34,38,31,.18)}
-.stappen .nr{font-size:30px;line-height:1;color:var(--mos)}
-.stappen b{display:block;font-size:17px;margin-bottom:2px}
-.stappen span{font-size:15px;color:#4a4636}
-.verloop-beelden{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:16px}
-.verloop-beelden img{width:100%;height:100%;object-fit:cover;border-radius:var(--r)}
-.verloop-beelden .a{grid-column:1/3;aspect-ratio:16/10}
-.verloop-beelden .b,.verloop-beelden .c{aspect-ratio:1}
+.verloop .kopje{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:48px}
+.verloop h2{margin-top:22px}
+.verloop .kopje p{max-width:380px;color:#5c5444}
+.banner{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:21/8}
+.banner img{width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+.stappen{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:-64px;position:relative;padding:0 26px}
+.stappen li{background:var(--wit);border-radius:22px;padding:28px 26px 30px;box-shadow:0 30px 60px -40px rgba(34,38,31,.5)}
+.stappen .nr{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--salie-d);color:var(--perzik);font-size:20px;margin-bottom:18px}
+.stappen b{display:block;font:400 25px/1.15 "Fraunces",serif;margin-bottom:8px}
+.stappen span{display:block;font-size:15px;color:var(--grijs);line-height:1.55}
 
-/* 05 reviews */
-.reviews .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,7vw,110px)}
-.groot-quote{font-family:"Fraunces",serif;font-weight:300;font-size:clamp(34px,3.8vw,56px);line-height:1.12;letter-spacing:-.015em}
-.groot-quote::before{content:"\201C";display:block;font-size:1.8em;line-height:.6;color:var(--salie);margin-bottom:10px}
-.wie{margin-top:26px;font-size:14px;color:var(--grijs)}
-.wie b{color:var(--inkt)}
-.quotes{list-style:none;align-self:end}
-.quotes li{padding:24px 0;border-top:1px solid var(--lijn)}
-.quotes li:last-child{border-bottom:1px solid var(--lijn)}
-.quotes p{font-size:16px}
-.quotes small{display:block;margin-top:8px;font-size:13px;color:var(--grijs)}
-.bron{margin-top:30px;font-size:14px;color:var(--grijs)}
-.bron a{font-weight:700;color:var(--inkt)}
+/* reviews */
+.reviews .wrap{display:grid;grid-template-columns:1fr 1.25fr;gap:22px;align-items:stretch}
+.groot-q{background:var(--salie-d);color:var(--creme);border-radius:28px;padding:52px 48px;display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+.groot-q .label{color:var(--perzik)}
+.groot-q p{font:300 clamp(32px,3vw,46px)/1.12 "Fraunces",serif;letter-spacing:-.02em}
+.groot-q .wie{font-size:14.5px;color:rgba(247,241,231,.7)}
+.groot-q .wie b{color:var(--creme)}
+.score{display:flex;align-items:center;gap:18px;padding-top:26px;border-top:1px solid var(--lijn-l)}
+.score b{font:300 64px/1 "Fraunces",serif}
+.score span{font-size:14px;color:rgba(247,241,231,.72);line-height:1.5}
+.score .st{display:block;color:var(--kaars);letter-spacing:3px}
+.qs{display:grid;gap:22px}
+.q{background:var(--wit);border-radius:24px;padding:32px 34px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;transition:transform .5s var(--ease)}
+.q:hover{transform:translateX(6px)}
+.q .ini{width:46px;height:46px;border-radius:50%;background:var(--perzik);display:grid;place-items:center;font:400 20px/1 "Fraunces",serif;color:var(--salie-dd)}
+.q p{font:400 21px/1.35 "Fraunces",serif;letter-spacing:-.01em}
+.q small{display:block;margin-top:10px;font-size:13.5px;color:var(--grijs)}
 
-/* 06 contact */
-.contact{position:relative;color:var(--creme);overflow:hidden;isolation:isolate}
-.contact>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.contact::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(34,43,32,.94) 0%,rgba(34,43,32,.8) 45%,rgba(34,43,32,.35) 100%)}
-.contact .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:end}
-.contact h2{margin-bottom:24px}
-.contact p{max-width:28em;color:rgba(247,241,231,.8)}
-.contact .hero-knoppen{margin-top:34px}
-.gegevens{display:grid;gap:0;border-top:1px solid var(--lijn-l)}
-.gegevens div{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--lijn-l);font-size:15.5px}
-.gegevens dt{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--perzik);padding-top:3px}
-.gegevens a{text-decoration:none}
-.gegevens a:hover{text-decoration:underline}
+/* contact */
+.contact{padding-top:0}
+.contact .paneel{position:relative;overflow:hidden;background:var(--salie-dd);color:var(--creme);border-radius:36px;padding:clamp(56px,7vw,100px) 0}
+.contact .groot-pz{position:absolute;right:6%;top:50%;transform:translateY(-50%);display:flex;gap:44px;opacity:.06;pointer-events:none}
+.contact .groot-pz i{width:70px;height:420px;border-radius:40px;background:var(--perzik)}
+.contact .paneel>.binnen{position:relative;width:calc(100% - clamp(48px,9vw,140px));margin-inline:auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,110px);align-items:center}
+.contact .label{color:var(--perzik)}
+.contact h2{margin:22px 0 22px}
+.contact .binnen>div>p{color:rgba(247,241,231,.75);max-width:28em;margin-bottom:34px}
+.gegevens{background:var(--creme);color:var(--inkt);border-radius:28px;padding:16px 36px}
+.gegevens>div{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid var(--lijn)}
+.gegevens>div:last-child{border-bottom:0}
+.gegevens dt{font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--mos);padding-top:4px}
+.gegevens dd{font-size:16px}
+.gegevens dd a{text-decoration:none;border-bottom:1px solid var(--kaars)}
+.gegevens .lijnen{display:grid;gap:4px}
 
-/* voet */
-.voet{background:var(--salie-dd);color:rgba(247,241,231,.72);padding:70px 0 40px;font-size:14px}
+/* footer */
+.voet{background:#1B2219;color:rgba(247,241,231,.66);padding:90px 0 36px;font-size:15px}
 .voet .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
 .voet .merk{color:var(--creme);font-size:34px}
-.voet h4{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--perzik);margin-bottom:14px}
-.voet ul{list-style:none;display:grid;gap:7px}
-.voet a{text-decoration:none}.voet a:hover{color:var(--creme)}
-.voet-onder{grid-column:1/-1;margin-top:40px;padding-top:22px;border-top:1px solid var(--lijn-l);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px}
+.voet h4{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--perzik);margin-bottom:14px}
+.voet ul{list-style:none;display:grid;gap:6px}
+.voet a{text-decoration:none}
+.voet a:hover{color:var(--creme)}
+.voet-onder{grid-column:1/-1;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:40px;padding-top:28px;border-top:1px solid var(--lijn-l);font-size:13px;color:rgba(247,241,231,.45)}
 
-/* reveal (enkel met js) */
-.js [data-r]{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+/* beweging */
+.js [data-r]{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .js [data-r].zien{opacity:1;transform:none}
+@media (prefers-reduced-motion:no-preference){
+  .hero .bg img{animation:adem 16s ease-out both}
+  .hero .wrap>*{animation:op 1.2s var(--ease) both}
+  .hero .wrap>*:nth-child(2){animation-delay:.1s}.hero .wrap>*:nth-child(3){animation-delay:.2s}.hero .wrap>*:nth-child(4){animation-delay:.3s}
+}
+@media (prefers-reduced-motion:reduce){.js [data-r]{opacity:1;transform:none}}
+@keyframes adem{from{transform:scale(1.08)}to{transform:scale(1)}}
+@keyframes op{from{opacity:0;transform:translateY(22px)}}
 
 @media (max-width:1100px){
-  .kop nav{gap:22px}
-  .team-grid{grid-template-columns:1fr 1fr}
-  .lid:first-child{grid-column:1/-1;grid-template-columns:1.2fr 1fr;grid-template-rows:auto;gap:32px;align-items:end}
-  .lid:first-child img{aspect-ratio:4/3;height:auto}
-}
-@media (max-width:860px){
-  .wrap{width:calc(100% - 40px)}
   .kop nav{display:none}
-  .hero{display:flex;flex-direction:column;align-items:stretch;min-height:0}
-  .hero::before{display:none}
-  .hero-in{order:1;padding:120px 0 44px;gap:0 22px}
-  .hero-beeld{position:relative;order:2;inset:auto;height:auto;aspect-ratio:4/4.4}
-  .hero-beeld img{object-position:50% 70%}
-  .pauze{gap:9px}.pauze i{width:6px;min-height:120px}
-  .hero-voet{margin-top:40px;flex-direction:column;gap:6px}
-  .verhaal .wrap,.rit-grid,.verloop .wrap,.reviews .wrap,.contact .wrap,.team-kop{grid-template-columns:1fr}
-  .verhaal-beeld .groot{aspect-ratio:16/11}
-  .verhaal-beeld .klein{right:-6px;bottom:-40px;width:34%;border-width:7px}
-  .verhaal-beeld figcaption{display:none}
-  .verhaal-beeld{margin-bottom:30px;order:2}
-  .rit-kop{flex-direction:column;align-items:flex-start;margin-bottom:40px}
-  .rit-beeld{position:relative;top:0;aspect-ratio:16/11;order:2}
-  .team-kop p{justify-self:start}
-  .contact::before{background:rgba(34,43,32,.88)}
-  .voet .wrap{grid-template-columns:1fr 1fr}
-  .voet .wrap>div:first-child{grid-column:1/-1}
+  .stappen{grid-template-columns:1fr 1fr;margin-top:-40px}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .lid:last-child{grid-column:span 2;flex-direction:row}
+  .lid:last-child .foto{flex:0 0 46%;aspect-ratio:auto}
 }
-@media (max-width:560px){
-  .br{display:none}
+@media (max-width:900px){
+  .wrap{width:calc(100% - 48px)}
+  .sectie{padding:110px 0}
+  .hrij{grid-template-columns:1fr;gap:26px;margin-bottom:46px}
+  .hband{grid-template-columns:1fr 1fr}
+  .hband>div:last-child{grid-column:span 2;border-left:0;padding-left:0;border-top:1px solid var(--lijn-l)}
+  .verhaal .wrap,.rit-grid,.reviews .wrap,.contact .paneel>.binnen{grid-template-columns:1fr}
+  .collage{order:2;max-width:560px}
+  .rit-kop,.team-kop,.verloop .kopje{flex-direction:column;align-items:start}
+  .rit-beeld{position:relative;top:0;max-width:520px;order:2;aspect-ratio:4/4.2}
+  .banner{aspect-ratio:16/9}
+}
+@media (max-width:600px){
   body{font-size:16px}
-  .hero h1{font-size:clamp(46px,13vw,64px)}
-  .hero-tekst{margin-top:26px}
-  .hero-tekst p{font-size:16.5px}
-  .knop{padding:15px 20px;font-size:14.5px}
-  .kop .knop{display:none}
+  .wrap{width:calc(100% - 36px)}
+  .kop .wrap{height:84px}
+  .kop .knop .t{display:none}
+  .kop .knop{padding:14px 16px}
+  .hero{min-height:0}
+  .hero .wrap{padding-top:130px}
+  .hero h1{font-size:clamp(54px,15vw,74px)}
+  .hrij p{font-size:17px}
+  .hknop{flex-direction:column;align-items:stretch}
+  .hknop .knop{justify-content:center}
+  .hband>div{padding:20px 0 24px;flex-direction:column;align-items:flex-start;gap:6px}
+  .hband>div+div{padding-left:18px}
+  .hband b{font-size:32px}
+  .collage{padding:0 30px 60px 0}
+  .collage figcaption{display:none}
+  .rit-noot{grid-template-columns:1fr;gap:6px}
+  .br{display:none}
+  .contact .paneel{border-radius:24px}
+  .contact .paneel>.binnen{width:calc(100% - 40px)}
+  .tijdlijn{grid-template-columns:1fr;border-top:0;border-left:1px solid var(--lijn);padding-left:22px;gap:18px}
+  .tijdlijn li{padding:0}
+  .tijdlijn li::before{left:-27px;top:8px}
+  .rit-lijst li{grid-template-columns:1fr auto;padding:22px 14px;margin:0 -14px}
+  .rit-lijst .nr{display:none}
+  .rit-lijst p{grid-column:1/-1}
+  .rit-lijst .prijs{grid-row:1;grid-column:2}
+  .rit-lijst .prijs small{display:none}
   .team-grid{grid-template-columns:1fr}
-  .lid img{aspect-ratio:1/1}
-  .lid:first-child{grid-template-columns:1fr;gap:0}
-  .rit-lijst li{grid-template-columns:30px 1fr;gap:4px 12px}
-  .rit-lijst .prijs{grid-row:auto;grid-column:2;text-align:left;display:flex;gap:10px;align-items:baseline}
-  .rit-lijst .prijs b{font-size:21px}
-  .verloop-beelden{gap:10px}
-  .stappen li{grid-template-columns:44px 1fr}
-  .gegevens div{grid-template-columns:1fr;gap:4px}
+  .lid:last-child{grid-column:auto;flex-direction:column}
+  .lid:last-child .foto{flex:none;aspect-ratio:4/4.4}
+  .stappen{grid-template-columns:1fr;margin-top:-30px;padding:0 12px}
+  .groot-q{padding:36px 28px}
+  .q{padding:26px 24px;grid-template-columns:1fr}
+  .gegevens{padding:8px 22px}
+  .gegevens>div{grid-template-columns:1fr;gap:4px}
+  .contact .groot-pz{display:none}
   .voet .wrap{grid-template-columns:1fr}
 }
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js [data-r]{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -253,46 +283,49 @@ h2{font-size:clamp(42px,5.2vw,76px)}
       <a href="#verloop">Jouw moment</a>
       <a href="#contact">Afspraak</a>
     </nav>
-    <a class="knop knop-licht" href="https://www.fresha.com/a/nathure-et-elle-heist-op-den-berg-nieuwendijk-22-ims9jxgm" target="_blank" rel="noopener">Boek je moment</a>
+    <a class="knop knop-licht" href="https://www.fresha.com/a/nathure-et-elle-heist-op-den-berg-nieuwendijk-22-ims9jxgm" target="_blank" rel="noopener"><span class="pz" aria-hidden="true"><i></i><i></i></span><span class="t">Boek je moment</span></a>
   </div>
 </header>
 
 <main id="top">
 <section class="hero" aria-labelledby="h-titel">
-  <div class="hero-beeld"><img src="img/rustmoment.webp" alt="Iemand ligt onder een warme handdoek op de behandeltafel, achteraan branden kaarsjes in de kast" width="1920" height="1920" fetchpriority="high"></div>
-  <div class="wrap hero-in">
-    <div class="pauze" aria-hidden="true"><i></i><i></i></div>
-    <div>
-      <p class="label" style="color:var(--perzik);margin-bottom:26px">Holistische verzorging · enkel op afspraak</p>
-      <h1 id="h-titel">Hier staat de tijd <br class="br"><em>even stil.</em></h1>
-      <div class="hero-tekst">
-        <p>Een warm voetbad, geurige olie en iemand die echt luistert. In ons huis in Itegem ben je geen nummer, je bent gewoon welkom.</p>
-        <div class="hero-knoppen">
-          <a class="knop knop-licht" href="https://www.fresha.com/a/nathure-et-elle-heist-op-den-berg-nieuwendijk-22-ims9jxgm" target="_blank" rel="noopener"><span class="pz" aria-hidden="true"><i></i><i></i></span>Boek je moment</a>
-          <a class="knop knop-lijn" href="#rituelen">Bekijk de rituelen</a>
-        </div>
+  <div class="bg"><img src="img/rustmoment.webp" alt="Iemand ligt onder een warme handdoek op de behandeltafel, achteraan branden kaarsjes in de kast" width="1920" height="1920" fetchpriority="high"></div>
+  <div class="wrap">
+    <p class="label"><span class="pz" aria-hidden="true"><i></i><i></i></span>Holistische verzorging · enkel op afspraak</p>
+    <h1 id="h-titel">Hier staat de tijd <br class="br"><span class="z">even stil.</span></h1>
+    <div class="hrij">
+      <p>Een warm voetbad, geurige olie en iemand die echt luistert. Bij ons ben je geen nummer, je bent gewoon welkom.</p>
+      <div class="hknop">
+        <a class="knop knop-licht" href="https://www.fresha.com/a/nathure-et-elle-heist-op-den-berg-nieuwendijk-22-ims9jxgm" target="_blank" rel="noopener"><span class="pz" aria-hidden="true"><i></i><i></i></span>Boek je moment</a>
+        <a class="knop knop-lijn" href="#rituelen">Bekijk de rituelen</a>
       </div>
     </div>
-    <div class="hero-voet">
-      <span><b>Nieuwendijk 22</b>, 2222 Itegem</span>
-      <span>Massages · gelaat · voeten · laserontharing</span>
+    <div class="hband">
+      <div><b>5,0</b><span><strong>242 reviews</strong>op Fresha</span></div>
+      <div><span><strong>Nieuwendijk 22</strong>2222 Itegem</span></div>
+      <div><span><strong>Massages, gelaat, voeten</strong>en laserontharing, onder één dak</span></div>
     </div>
   </div>
 </section>
 
 <section class="sectie verhaal" aria-labelledby="h-verhaal">
   <div class="wrap">
-    <figure class="verhaal-beeld" data-r>
+    <figure class="collage" data-r>
       <img class="groot" src="img/behandelruimte.webp" alt="De behandelkamer met twee tafels, een houten voetbad en zacht licht" width="1600" height="905" loading="lazy">
       <img class="klein" src="img/wachtruimte.webp" alt="De wachtruimte met dekens, kaarsjes en een houten bank" width="1600" height="884" loading="lazy">
-      <figcaption>Onze behandelkamer in Itegem</figcaption>
+      <figcaption>De behandelkamer en de wachtruimte</figcaption>
     </figure>
     <div data-r>
-      <div class="kopregel"><span class="nr">01</span><span class="label">Over ons</span></div>
+      <span class="label">Over ons</span>
       <h2 id="h-verhaal">Bij ons ben je geen nummer.</h2>
-      <p>Ik begon in 2005 als nagelstyliste, volgde later massageopleidingen en werd samen met mijn mama schoonheidsspecialiste. In 2019 viel ik stil door een burn-out. Toen leerde ik hoe hard je rust nodig hebt.</p>
-      <p>Dat is vandaag wat ik je wil geven. Je trekt zachte sokken aan, je neemt iets te drinken en we nemen de tijd. Voor je huid, en voor wat erachter zit.</p>
-      <div class="handtek"><b>Nathalie</b> zaakvoerster</div>
+      <p>In 2019 viel ik stil door een burn-out. Toen leerde ik hoe hard je rust nodig hebt. Dat is vandaag wat ik je wil geven.</p>
+      <p>Je trekt zachte sokken aan, je neemt iets te drinken en we nemen de tijd. Voor je huid, en voor wat erachter zit.</p>
+      <ol class="tijdlijn">
+        <li><b>2005</b>Begonnen als nagelstyliste</li>
+        <li><b>Later</b>Massages, en samen met mama schoonheidsspecialiste</li>
+        <li><b>2019</b>Een burn-out, en het begin van Nath'ure et Elle zoals het nu is</li>
+      </ol>
+      <div class="handtek"><span class="ini">N</span><span><b>Nathalie</b><span>zaakvoerster</span></span></div>
     </div>
   </div>
 </section>
@@ -300,13 +333,19 @@ h2{font-size:clamp(42px,5.2vw,76px)}
 <section class="sectie rituelen" id="rituelen" aria-labelledby="h-rit">
   <div class="wrap">
     <div class="rit-kop" data-r>
-      <div>
-        <div class="kopregel"><span class="nr">02</span><span class="label">Rituelen</span></div>
-        <h2 id="h-rit">Voor huid en hoofd</h2>
-      </div>
+      <div><span class="label">Rituelen</span><h2 id="h-rit">Voor huid en hoofd</h2></div>
       <p>We werken met warme stenen, kruidenoliën en de natuurlijke producten van Lakshmi. Elk ritueel stemmen we af op hoe jij je die dag voelt.</p>
     </div>
     <div class="rit-grid">
+      <ol class="rit-lijst" data-r>
+        <li data-k="0" class="aan"><span class="nr">01</span><h3>Guasha</h3><p>Een gladde steen masseert je gelaat, spanning lost op en je huid gaat stralen.</p><span class="prijs"><b>€80</b><small>60 min</small></span></li>
+        <li data-k="1"><span class="nr">02</span><h3>Lotus Flower</h3><p>Twee maskers op maat van je huid, met facial cupping en een zachte massage.</p><span class="prijs"><b>€110</b><small>90 min</small></span></li>
+        <li data-k="2"><span class="nr">03</span><h3>Royal</h3><p>Gelaat, armen en handen, onderbenen en voeten. Voor wie zichzelf iets moois gunt.</p><span class="prijs"><b>€120</b><small>90 min</small></span></li>
+        <li data-k="3"><span class="nr">04</span><h3>Chakra healing</h3><p>Warme stenen aan je voeten, twee maskers en rust van kruin tot voetzool.</p><span class="prijs"><b>€150</b><small>120 min</small></span></li>
+        <li data-k="4"><span class="nr">05</span><h3>Abhyanga</h3><p>Warme olie en trage grepen. Rug en schouders, je achterzijde of je hele lichaam.</p><span class="prijs"><b>vanaf €50</b><small>30, 60 of 90 min</small></span></li>
+        <li data-k="5"><span class="nr">06</span><h3>Oorkaarsen</h3><p>Holle kaarsen en een korte massage van hals en oorschelp. Kalmerend bij druk in je hoofd.</p><span class="prijs"><b>€60</b><small>60 min</small></span></li>
+        <li data-k="6"><span class="nr">07</span><h3>Kundalini Shakti Flow</h3><p>Chakrahealing, hotstones, cupping en ademwerk, voor als je moe of overprikkeld bent.</p><span class="prijs"><b>€120</b><small>90 min</small></span></li>
+      </ol>
       <div class="rit-beeld" data-r aria-hidden="true">
         <img class="aan" data-k="0" src="img/guasha.webp" alt="" width="1067" height="1067" loading="lazy">
         <img data-k="1" src="img/cupping.webp" alt="" width="738" height="738" loading="lazy">
@@ -317,57 +356,42 @@ h2{font-size:clamp(42px,5.2vw,76px)}
         <img data-k="6" src="img/gezicht-lamp.webp" alt="" width="738" height="738" loading="lazy">
         <span>Uit onze behandelkamer</span>
       </div>
-      <ol class="rit-lijst">
-        <li data-k="0" class="aan"><span class="nr">01</span><h3>Guasha</h3><p>Een gladde steen masseert je gelaat, spanning lost op en je huid gaat stralen.</p><span class="prijs"><b>€80</b><small>60 min</small></span></li>
-        <li data-k="1"><span class="nr">02</span><h3>Lotus Flower</h3><p>Twee maskers op maat van je huid, met facial cupping en een zachte massage.</p><span class="prijs"><b>€110</b><small>90 min</small></span></li>
-        <li data-k="2"><span class="nr">03</span><h3>Royal</h3><p>Gelaat, armen en handen, onderbenen en voeten. Voor wie zichzelf iets moois gunt.</p><span class="prijs"><b>€120</b><small>90 min</small></span></li>
-        <li data-k="3"><span class="nr">04</span><h3>Chakra healing</h3><p>Warme stenen aan je voeten, twee maskers en rust van kruin tot voetzool.</p><span class="prijs"><b>€150</b><small>120 min</small></span></li>
-        <li data-k="4"><span class="nr">05</span><h3>Abhyanga</h3><p>Warme olie en trage grepen. Rug en schouders, je achterzijde of je hele lichaam.</p><span class="prijs"><b>vanaf €50</b><small>30, 60 of 90 min</small></span></li>
-        <li data-k="5"><span class="nr">06</span><h3>Oorkaarsen</h3><p>Holle kaarsen en een korte massage van hals en oorschelp. Kalmerend bij druk in je hoofd.</p><span class="prijs"><b>€60</b><small>60 min</small></span></li>
-        <li data-k="6"><span class="nr">07</span><h3>Kundalini Shakti Flow</h3><p>Chakrahealing, hotstones, cupping en ademwerk, voor als je moe of overprikkeld bent.</p><span class="prijs"><b>€120</b><small>90 min</small></span></li>
-      </ol>
     </div>
-    <p class="rit-noot">Van oktober tot maart is er ook de chocolademassage, met cacaoscrub en een warm rugmasker. Zwanger? Dan stemmen we je massage daar volledig op af.</p>
+    <p class="rit-noot" data-r><b>Oktober tot maart</b><span>Dan is er ook de chocolademassage, met cacaoscrub en een warm rugmasker. Zwanger? Dan stemmen we je massage daar volledig op af.</span></p>
   </div>
 </section>
 
 <section class="sectie team" id="team" aria-labelledby="h-team">
   <div class="wrap">
     <div class="team-kop" data-r>
-      <div>
-        <div class="kopregel"><span class="nr">03</span><span class="label">Wie we zijn</span></div>
-        <h2 id="h-team">Drie vrouwen, één huis</h2>
-      </div>
+      <div><span class="label">Wie we zijn</span><h2 id="h-team">Drie vrouwen, één huis</h2></div>
       <p>Elk met een eigen vak, alle drie met dezelfde zorg. Bel gerust rechtstreeks naar wie je nodig hebt.</p>
     </div>
     <div class="team-grid">
       <article class="lid" data-r>
-        <img src="img/nathalie.webp" alt="Nathalie tijdens een massage" width="1216" height="913" loading="lazy">
+        <div class="foto"><img src="img/nathalie.webp" alt="Nathalie tijdens een massage" width="1216" height="913" loading="lazy"><span class="vak">De bezielster</span></div>
         <div class="lid-tekst">
-          <span class="label">De bezielster</span>
           <h3>Nathalie</h3>
-          <p>Altijd een nieuw idee en een nieuwe opleiding op zak. Voor massages, gelaatsverzorging, oorkaarsen, pedicure en gelnagels.</p>
+          <p>Altijd een nieuw idee en een nieuwe opleiding op zak. Massages, gelaat, oorkaarsen, pedicure en gelnagels.</p>
           <ul class="diensten"><li><span>Esthetische pedicure</span><span>€40</span></li><li><span>Gellak, 1u15</span><span>€45</span></li><li><span>Wenkbrauwen</span><span>vanaf €10</span></li></ul>
-          <a class="tel" href="tel:+32498533551">0498 53 35 51</a>
+          <div class="tel"><a href="tel:+32498533551">0498 53 35 51<small>Bel Nathalie</small></a></div>
         </div>
       </article>
       <article class="lid" data-r style="transition-delay:.1s">
-        <img src="img/ellen.webp" alt="Ellen met het toestel voor laserontharing" width="609" height="913" loading="lazy">
+        <div class="foto"><img src="img/ellen.webp" alt="Ellen met het toestel voor laserontharing" width="609" height="913" loading="lazy"><span class="vak">Laserontharing</span></div>
         <div class="lid-tekst">
-          <span class="label">Laserontharing</span>
           <h3>Ellen</h3>
-          <p>Al meer dan twintig jaar Nathalies beste vriendin. Ze helpt je van scheren en harsen af.</p>
-          <a class="tel" href="tel:+32493710284">0493 71 02 84</a>
+          <p>Al meer dan twintig jaar Nathalies beste vriendin. Ze helpt je voorgoed van scheren en harsen af.</p>
+          <div class="tel"><a href="tel:+32493710284">0493 71 02 84<small>Bel Ellen</small></a></div>
         </div>
       </article>
       <article class="lid" data-r style="transition-delay:.2s">
-        <img src="img/michelle.webp" alt="Michelle aan het werk tijdens een medische pedicure" width="685" height="913" loading="lazy">
+        <div class="foto"><img src="img/michelle.webp" alt="Michelle aan het werk tijdens een medische pedicure" width="685" height="913" loading="lazy"><span class="vak">Medische pedicure</span></div>
         <div class="lid-tekst">
-          <span class="label">Medische pedicure</span>
           <h3>Michelle</h3>
           <p>Rustig en perfectionistisch. Sinds april 2026 bij ons voor likdoorns, ingegroeide nagels, gellak en biab.</p>
           <ul class="diensten"><li><span>Medische pedicure</span><span>€50</span></li></ul>
-          <a class="tel" href="tel:+32475429033">0475 42 90 33</a>
+          <div class="tel"><a href="tel:+32475429033">0475 42 90 33<small>Bel Michelle</small></a></div>
         </div>
       </article>
     </div>
@@ -376,59 +400,57 @@ h2{font-size:clamp(42px,5.2vw,76px)}
 
 <section class="sectie verloop" id="verloop" aria-labelledby="h-verloop">
   <div class="wrap">
-    <div data-r>
-      <div class="kopregel"><span class="nr">04</span><span class="label">Jouw moment</span></div>
-      <h2 id="h-verloop">Zo kom je tot rust</h2>
-      <ol class="stappen">
-        <li><span class="nr">1</span><div><b>Sloefen aan</b><span>In de wachtruimte liggen zachte sokken klaar en is er iets te drinken.</span></div></li>
-        <li><span class="nr">2</span><div><b>Warm voetbad</b><span>Met een kort geurritueel, zodat je lichaam meteen vertraagt.</span></div></li>
-        <li><span class="nr">3</span><div><b>Jouw behandeling</b><span>Afgestemd op wat je die dag nodig hebt, niet op een vast schema.</span></div></li>
-        <li><span class="nr">4</span><div><b>Zacht terug</b><span>De klankschaal brengt je rustig naar het hier en nu.</span></div></li>
-      </ol>
+    <div class="kopje" data-r>
+      <div><span class="label">Jouw moment</span><h2 id="h-verloop">Zo kom je tot rust</h2></div>
+      <p>Van het moment dat je binnenstapt tot je weer buiten staat. Zonder haast.</p>
     </div>
-    <div class="verloop-beelden" data-r>
-      <img class="a" src="img/tafels.webp" alt="Twee behandeltafels met dekens en badjassen klaar" width="1600" height="884" loading="lazy">
-      <img class="b" src="img/gezicht-lamp.webp" alt="Gelaatsverzorging onder een warme lamp" width="738" height="738" loading="lazy">
-      <img class="c" src="img/oorkaars.webp" alt="Een oorkaarsbehandeling" width="1067" height="1067" loading="lazy">
-    </div>
+    <div class="banner" data-r><img src="img/tafels.webp" alt="Twee behandeltafels met dekens en badjassen klaar" width="1600" height="884" loading="lazy"></div>
+    <ol class="stappen">
+      <li data-r><span class="nr">1</span><b>Sloefen aan</b><span>In de wachtruimte liggen zachte sokken klaar en is er iets te drinken.</span></li>
+      <li data-r style="transition-delay:.08s"><span class="nr">2</span><b>Warm voetbad</b><span>Met een kort geurritueel, zodat je lichaam meteen vertraagt.</span></li>
+      <li data-r style="transition-delay:.16s"><span class="nr">3</span><b>Jouw behandeling</b><span>Afgestemd op wat je die dag nodig hebt, niet op een vast schema.</span></li>
+      <li data-r style="transition-delay:.24s"><span class="nr">4</span><b>Zacht terug</b><span>De klankschaal brengt je rustig naar het hier en nu.</span></li>
+    </ol>
   </div>
 </section>
 
 <section class="sectie reviews" aria-labelledby="h-rev">
   <div class="wrap">
-    <div data-r>
-      <div class="kopregel"><span class="nr">05</span><span class="label" id="h-rev">Wat klanten zeggen</span></div>
-      <p class="groot-quote">Warm onthaal, een echt thuisgevoel. En voel mij weer terug herboren.</p>
-      <p class="wie"><b>Wendy S.</b> na een Kundalini Shakti Flow</p>
-      <p class="bron">5,0 op <a href="https://www.fresha.com/a/nathure-et-elle-heist-op-den-berg-nieuwendijk-22-ims9jxgm" target="_blank" rel="noopener">Fresha</a>, uit 242 reviews</p>
+    <div class="groot-q" data-r>
+      <span class="label" id="h-rev">Wat klanten zeggen</span>
+      <div><p>"Warm onthaal, een echt thuisgevoel. En voel mij weer terug herboren."</p><p class="wie" style="font:500 14.5px/1.5 Manrope,sans-serif;margin-top:18px"><b>Wendy S.</b> na een Kundalini Shakti Flow</p></div>
+      <div class="score"><b>5,0</b><span><span class="st" aria-hidden="true">★★★★★</span>uit 242 reviews op <a href="https://www.fresha.com/a/nathure-et-elle-heist-op-den-berg-nieuwendijk-22-ims9jxgm" target="_blank" rel="noopener">Fresha</a></span></div>
     </div>
-    <ul class="quotes" data-r>
-      <li><p>"Zoals altijd bij Nathalie gezellig, een leuke babbel en terug hemelse voeten."</p><small>Linda D.</small></li>
-      <li><p>"Was weer zo zalig, steeds iets nieuws mogen ontdekken, je blijft me steeds verrassen."</p><small>Karen R. na een Abhyanga</small></li>
-      <li><p>"Lieve vrouw, prachtige nagels gemaakt van mijn natuurlijke lelijke teennagels. Ook fijne babbel. Dit wordt mijn vast plekje."</p><small>Laïla Y.</small></li>
-    </ul>
+    <div class="qs">
+      <div class="q" data-r><span class="ini">L</span><div><p>"Zoals altijd bij Nathalie gezellig, een leuke babbel en terug hemelse voeten."</p><small>Linda D.</small></div></div>
+      <div class="q" data-r><span class="ini">K</span><div><p>"Was weer zo zalig, steeds iets nieuws mogen ontdekken, je blijft me steeds verrassen."</p><small>Karen R. na een Abhyanga</small></div></div>
+      <div class="q" data-r><span class="ini">L</span><div><p>"Lieve vrouw, prachtige nagels gemaakt van mijn natuurlijke lelijke teennagels. Ook fijne babbel. Dit wordt mijn vast plekje."</p><small>Laïla Y.</small></div></div>
+    </div>
   </div>
 </section>
 
 <section class="sectie contact" id="contact" aria-labelledby="h-contact">
-  <img src="img/kamer-kaarsen.webp" alt="" width="1600" height="1600" loading="lazy">
-  <div class="wrap">
+  <div class="wrap"><div class="paneel">
+  <div class="groot-pz" aria-hidden="true"><i></i><i></i></div>
+  <div class="binnen">
     <div data-r>
-      <div class="kopregel" style="color:var(--perzik)"><span class="nr">06</span><span class="label">Afspraak</span></div>
+      <span class="label">Afspraak</span>
       <h2 id="h-contact">Gun jezelf een uur</h2>
       <p>We werken enkel op afspraak, van maandag tot zaterdag. Zo is de tijd echt van jou. Online boeken kan altijd, of bel ons even.</p>
-      <div class="hero-knoppen">
+      <div class="hknop">
         <a class="knop knop-licht" href="https://www.fresha.com/a/nathure-et-elle-heist-op-den-berg-nieuwendijk-22-ims9jxgm" target="_blank" rel="noopener"><span class="pz" aria-hidden="true"><i></i><i></i></span>Boek online</a>
         <a class="knop knop-lijn" href="tel:+32498533551">Bel Nathalie</a>
       </div>
     </div>
     <dl class="gegevens" data-r>
-      <div><dt>Adres</dt><dd><a href="https://www.google.com/maps/search/?api=1&query=Nieuwendijk+22+2222+Itegem" target="_blank" rel="noopener">Nieuwendijk 22, 2222 Itegem</a></dd></div>
+      <div><dt>Adres</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Nieuwendijk+22+2222+Itegem" target="_blank" rel="noopener">Nieuwendijk 22, 2222 Itegem</a></dd></div>
       <div><dt>Bellen</dt><dd>Ma tot vr 9u tot 19u, za 10u tot 17u. Laat gerust een bericht na.</dd></div>
+      <div><dt>Rechtstreeks</dt><dd class="lijnen"><span>Nathalie <a href="tel:+32498533551">0498 53 35 51</a></span><span>Ellen <a href="tel:+32493710284">0493 71 02 84</a></span><span>Michelle <a href="tel:+32475429033">0475 42 90 33</a></span></dd></div>
       <div><dt>Mail</dt><dd><a href="mailto:info@nathureetelle.be">info@nathureetelle.be</a></dd></div>
       <div><dt>Volg ons</dt><dd><a href="https://www.instagram.com/nathure_et_elle/" target="_blank" rel="noopener">Instagram</a> · <a href="https://facebook.com/nathure-et-elle" target="_blank" rel="noopener">Facebook</a></dd></div>
     </dl>
   </div>
+  </div></div>
 </section>
 </main>
 
@@ -459,7 +481,7 @@ h2{font-size:clamp(42px,5.2vw,76px)}
   } else els.forEach(function(e){e.classList.add('zien')});
   var lijst=document.querySelectorAll('.rit-lijst li'),beelden=document.querySelectorAll('.rit-beeld img');
   function zet(k){lijst.forEach(function(l){l.classList.toggle('aan',l.dataset.k===k)});beelden.forEach(function(b){b.classList.toggle('aan',b.dataset.k===k)})}
-  lijst.forEach(function(l){l.addEventListener('mouseenter',function(){zet(l.dataset.k)})});
+  lijst.forEach(function(l){l.addEventListener('mouseenter',function(){zet(l.dataset.k)});l.addEventListener('click',function(){zet(l.dataset.k)})});
 })();
 </script>
 <style>
