@@ -10,329 +10,421 @@
 <style>
 @font-face{font-family:'Gloock';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/gloock-400-normal.woff2) format('woff2')}
 @font-face{font-family:'Albert Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/albertsans-400-700-normal.woff2) format('woff2')}
-:root{--cream:#F6F0E7;--sand:#EBE1D3;--ink:#2B211B;--ink2:#6A5B50;--rose:#C9928A;--rose2:#F1DED9;--leash:#E0602A;--line:rgba(43,33,27,.15);--ease:cubic-bezier(.2,.8,.2,1);--pad:clamp(20px,5vw,64px);--wrap:1260px}
+:root{--cream:#F6F0E7;--cream2:#FBF7F1;--sand:#EBE1D3;--ink:#2B211B;--ink2:#6A5B50;--rose:#C9928A;--rose2:#F1DED9;--leash:#E0602A;--leash2:#C94E1C;--line:rgba(43,33,27,.14);--linel:rgba(246,240,231,.16);--ease:cubic-bezier(.2,.8,.2,1);--pad:clamp(20px,5vw,64px);--wrap:1300px;--r:26px}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--cream);color:var(--ink);font:400 17px/1.65 'Albert Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;background:var(--cream);color:var(--ink);font:400 17px/1.62 'Albert Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%;height:auto}
-a{color:inherit}
-h1,h2,h3{font-family:'Gloock',Georgia,serif;font-weight:400;letter-spacing:-.015em;line-height:.98;margin:0}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:'Gloock',Georgia,serif;font-weight:400;letter-spacing:-.02em;line-height:.96;margin:0}
 p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
 .demo{background:var(--ink);color:var(--sand);font:500 13px/1.4 'Albert Sans',sans-serif;text-align:center;padding:9px 16px}
 .demo a{color:#F2B08F;font-weight:600}
 .label{font:700 12px/1 'Albert Sans',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--ink2);display:inline-flex;align-items:center;gap:10px}
 .label::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--leash)}
 
-/* knoppen: een leiband met een ring */
-.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 26px;border-radius:999px;font:600 16px/1 'Albert Sans',sans-serif;text-decoration:none;transition:transform .3s var(--ease),background .3s,color .3s}
-.btn::after{content:"";width:12px;height:12px;border-radius:50%;border:2.5px solid currentColor;transition:transform .35s var(--ease)}
-.btn:hover{transform:translateY(-2px)}
-.btn:hover::after{transform:translateX(4px)}
-.btn-ink{background:var(--ink);color:var(--cream)}
-.btn-leash{background:var(--leash);color:#fff}
-.btn-line{box-shadow:inset 0 0 0 1.5px var(--ink);color:var(--ink)}
-.btn-line:hover{background:var(--ink);color:var(--cream)}
+/* knoppen: een hondenpenning aan een ring */
+.btn{position:relative;display:inline-flex;align-items:center;gap:14px;height:58px;padding:0 28px 0 22px;border-radius:16px 999px 999px 16px;font:600 16px/1 'Albert Sans',sans-serif;transition:transform .35s var(--ease),background .3s,color .3s,box-shadow .3s;white-space:nowrap}
+.btn::before{content:"";width:14px;height:14px;border-radius:50%;border:2.5px solid currentColor;flex:none;opacity:.9}
+.btn svg{width:20px;height:20px;flex:none;transition:transform .45s var(--ease)}
+.btn:hover{transform:translateY(-3px)}
+.btn:hover svg{transform:rotate(-14deg) translateX(2px)}
+.btn-leash{background:var(--leash);color:#fff;box-shadow:0 18px 32px -16px rgba(224,96,42,.75)}
+.btn-leash:hover{background:var(--leash2)}
+.btn-ink{background:var(--ink);color:var(--cream);box-shadow:0 18px 32px -18px rgba(43,33,27,.7)}
+.btn-ink:hover{background:#000}
+.btn-line{box-shadow:inset 0 0 0 1.5px rgba(43,33,27,.5);color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--cream);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn-cream{background:var(--cream);color:var(--ink)}
+.btn-cream:hover{background:#fff}
 
-/* HERO: tekst en foto delen het scherm, de kop loopt over de naad */
-.hero{position:relative;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr auto;min-height:clamp(660px,calc(100svh - 38px),920px);--split:50%}
-.hero-photo{grid-column:2;grid-row:1/-1;position:relative;overflow:hidden}
-.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
-.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(43,33,27,.35),rgba(43,33,27,0) 40%)}
-.nav{grid-column:1;grid-row:1;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px var(--pad);position:relative;z-index:3}
-.brand{text-decoration:none;display:flex;align-items:baseline;gap:10px}
-.brand b{font:400 30px/1 'Gloock',serif}
-.brand small{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2)}
-.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
-.nav ul a{text-decoration:none;font-size:15px;font-weight:500}
-.nav ul a:hover{color:var(--leash)}
-.head{grid-column:1/-1;grid-row:2;position:relative;z-index:2;align-self:end;display:grid}
-.head h1{grid-area:1/1;font-size:clamp(80px,9.3vw,158px);padding:0 var(--pad);line-height:.9}
-.head h1:first-child{color:var(--ink);clip-path:inset(0 calc(100% - var(--split)) 0 0)}
-.head h1+h1{color:var(--cream);clip-path:inset(0 0 0 var(--split))}
-.head h1 span{display:block}
-.head h1 .in{padding-left:calc(50vw - var(--pad) - 1.55em)}
-.sub{grid-column:1;grid-row:3;padding:30px var(--pad) 44px;position:relative;z-index:2}
-.sub p{max-width:440px;font-size:19px;color:var(--ink2)}
-.sub .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.tag{position:absolute;z-index:3;right:var(--pad);bottom:34px;color:var(--cream);text-align:right;font-size:14px;letter-spacing:.06em}
-.tag b{display:block;font:400 34px/1 'Gloock',serif;letter-spacing:0}
+/* nav */
+.nav{position:relative;z-index:6;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 0}
+.brand{display:flex;align-items:baseline;gap:10px}
+.brand b{font:400 34px/1 'Gloock',serif;letter-spacing:-.02em}
+.brand small{font:600 11px/1 'Albert Sans',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2)}
+.nav ul{display:flex;gap:6px;background:rgba(255,255,255,.55);padding:6px;border-radius:99px;backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1px var(--line)}
+.nav ul a{display:block;padding:10px 18px;border-radius:99px;font-weight:500;font-size:15px;transition:background .3s,color .3s}
+.nav ul a:hover{background:var(--ink);color:var(--cream)}
+.nav .btn{height:48px;font-size:15px;padding:0 22px 0 18px}
 
-/* WAT WE DOEN */
-.doen{padding:clamp(100px,12vw,160px) 0}
-.doen-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,7vw,110px)}
-.doen h2{font-size:clamp(50px,6vw,92px);margin:20px 0 26px}
-.doen .intro{font-size:19px;color:var(--ink2);max-width:500px}
-.list{list-style:none;margin:40px 0 0;padding:0;columns:2;column-gap:40px}
-.list li{break-inside:avoid;padding:14px 0;border-top:1px solid var(--line);display:flex;gap:12px;align-items:baseline;font-size:17px}
-.list li::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--leash);transform:translateY(-2px)}
-.niet{background:var(--sand);border-radius:28px;padding:clamp(30px,4vw,48px);align-self:start}
-.niet h3{font-size:38px;margin:16px 0 14px}
-.niet>p{color:var(--ink2);margin-bottom:20px}
-.niet ul{list-style:none;margin:0;padding:0}
-.niet li{padding:14px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:28px 1fr}
-.niet li::before{content:"×";color:var(--rose);font:400 24px/1 'Gloock',serif}
-.niet small{display:block;color:var(--ink2);font-size:14px}
+/* hero */
+.hero{position:relative;overflow:hidden;background:var(--cream)}
+.hero .wrap{position:relative}
+.stage{position:relative;display:grid;grid-template-columns:1.05fr .95fr;align-items:end;min-height:clamp(640px,calc(100svh - 34px - 92px - 64px),800px)}
+.h-txt{position:relative;z-index:4;padding:30px 0 clamp(44px,7vh,80px)}
+.h-txt h1{font-size:clamp(76px,10.4vw,168px);line-height:.86;letter-spacing:-.035em;margin:20px 0 28px}
+.h-txt h1 span{display:block}
+.h-txt h1 .b2{padding-left:.9em;color:var(--leash)}
+.h-txt p{font-size:19px;max-width:440px;color:var(--ink2)}
+.h-txt p b{color:var(--ink);font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.dog{position:relative;align-self:stretch;z-index:2}
+.sun{position:absolute;left:50%;bottom:-14%;width:min(108%,640px);aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle at 35% 30%,#EE7A45,var(--leash) 55%,#CF5321)}
+.sun::after{content:"";position:absolute;inset:-22px;border-radius:50%;border:1.5px dashed rgba(224,96,42,.45)}
+.dog img{position:absolute;left:50%;bottom:0;height:96%;width:auto;max-width:none;transform:translateX(-50%);filter:drop-shadow(0 24px 30px rgba(43,33,27,.25))}
+.leiband{position:absolute;z-index:3;pointer-events:none;left:-30%;top:4%;width:80%;height:auto;color:var(--leash)}
+.sticker{position:absolute;z-index:5;right:2%;top:16%;width:132px;height:132px;border-radius:50%;background:var(--ink);color:var(--cream);display:grid;place-items:center;text-align:center;box-shadow:0 20px 40px -20px rgba(43,33,27,.6)}
+.sticker b{display:block;font:400 42px/1 'Gloock',serif}
+.sticker span{display:block;font-size:11.5px;line-height:1.3;letter-spacing:.04em;margin-top:4px;color:rgba(246,240,231,.8)}
+.sticker i{display:block;font-style:normal;color:#F4A57C;letter-spacing:2px;font-size:12px;margin-bottom:4px}
+.strip{position:relative;z-index:4;background:var(--ink);color:var(--cream)}
+.strip .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px 44px;min-height:64px;font-size:15px}
+.strip span{display:inline-flex;align-items:center;gap:10px;color:rgba(246,240,231,.78)}
+.strip b{color:var(--cream);font-weight:600}
+.strip svg{width:16px;height:16px;color:#F4A57C}
+@keyframes up{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:translateX(-50%) translateY(60px)}to{opacity:1;transform:translateX(-50%)}}
+@keyframes sunin{from{opacity:0;transform:translateX(-50%) scale(.85)}to{opacity:1;transform:translateX(-50%)}}
+@keyframes draw{from{stroke-dashoffset:1200}to{stroke-dashoffset:0}}
+.js .h-txt>*{animation:up 1s var(--ease) both}
+.js .h-txt>*:nth-child(2){animation-delay:.08s}.js .h-txt>*:nth-child(3){animation-delay:.16s}.js .h-txt>*:nth-child(4){animation-delay:.24s}
+.js .sun{animation:sunin 1.2s var(--ease) both}
+.js .dog img{animation:pop 1.2s var(--ease) .15s both}
+.js .leiband path{stroke-dasharray:1200;animation:draw 2.2s var(--ease) .5s both}
+.js .sticker{animation:up 1s var(--ease) .7s both}
 
-/* GASTEN */
-.gasten{background:var(--ink);color:var(--cream);padding:clamp(100px,12vw,150px) 0}
-.gasten .label{color:rgba(246,240,231,.6)}
-.gasten-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:50px}
-.gasten h2{font-size:clamp(54px,7vw,110px);margin-top:20px}
-.gasten-head p{max-width:400px;color:rgba(246,240,231,.7);font-size:18px}
-.wall{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
-.wall figure{margin:0;position:relative;overflow:hidden;border-radius:16px;aspect-ratio:3/4;background:#3a2f28}
-.wall figure:nth-child(1),.wall figure:nth-child(8){grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
-.wall img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
-.wall figure:hover img{transform:scale(1.05)}
-.wall figcaption{position:absolute;left:10px;bottom:10px;background:var(--cream);color:var(--ink);border-radius:999px;padding:5px 12px 5px 10px;font:400 16px/1.1 'Gloock',serif;display:flex;align-items:center;gap:7px}
-.wall figcaption::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--leash)}
+/* secties */
+.sec{padding:clamp(90px,10vw,140px) 0;position:relative}
+.sec h2{font-size:clamp(48px,6vw,92px);letter-spacing:-.03em;margin-top:18px}
+.intro{font-size:18.5px;color:var(--ink2);max-width:460px;margin-top:22px}
 
-/* PUPPY */
-.puppy{padding:clamp(100px,12vw,160px) 0}
-.puppy-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(40px,7vw,110px);align-items:center}
-.puppy-photos{position:relative;padding:0 0 60px 60px}
-.puppy-photos img{border-radius:26px;width:100%;aspect-ratio:4/5;object-fit:cover}
-.puppy-photos img+img{position:absolute;left:0;bottom:0;width:42%;border:8px solid var(--cream);border-radius:22px}
-.puppy h2{font-size:clamp(50px,6vw,92px);margin:20px 0 26px}
-.puppy-text>p{font-size:19px;color:var(--ink2);max-width:480px}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:40px;border-top:1.5px solid var(--ink)}
-.steps div{padding:20px 18px 0 0}
-.steps div+div{padding-left:18px;border-left:1px solid var(--line)}
-.steps b{display:block;font:400 30px/1 'Gloock',serif;margin-bottom:8px}
-.steps span{font-size:15px;color:var(--ink2)}
+/* op de tafel */
+.tafel-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,5vw,80px);align-items:center}
+.niet{margin-top:40px;background:var(--ink);color:var(--cream);border-radius:var(--r);padding:30px 30px 26px;position:relative;overflow:hidden}
+.niet h3{font-size:28px}
+.niet>p{font-size:15.5px;color:rgba(246,240,231,.72);margin-top:8px}
+.niet ul{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.niet li{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:14px;background:rgba(246,240,231,.07);font-size:15px;line-height:1.35}
+.niet li svg{flex:none;width:18px;height:18px;color:#F4A57C;margin-top:1px}
+.niet li small{display:block;font-size:12.5px;color:rgba(246,240,231,.6);margin-top:2px}
+.diagram{position:relative;aspect-ratio:1/0.92}
+.diagram .blob{position:absolute;inset:6% 8% 4%;border-radius:46% 54% 50% 50%/52% 46% 54% 48%;background:var(--rose2)}
+.diagram .blob::after{content:"";position:absolute;inset:-14px;border-radius:inherit;border:1.5px dashed rgba(201,146,138,.7)}
+.diagram img{position:absolute;left:12%;width:70%;bottom:9%;filter:drop-shadow(0 20px 24px rgba(43,33,27,.22))}
+.diagram svg.lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.pin{position:absolute;display:inline-flex;align-items:center;gap:8px;background:var(--cream2);border-radius:99px;padding:9px 15px 9px 10px;font-weight:600;font-size:14.5px;box-shadow:0 12px 24px -14px rgba(43,33,27,.45);white-space:nowrap;transition:transform .35s var(--ease)}
+.pin:hover{transform:translateY(-3px)}
+.pin i{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--leash);color:#fff;font-style:normal;font-size:12px;font-weight:700}
+.pin.p-gratis{background:var(--leash);color:#fff}
+.pin.p-gratis i{background:#fff;color:var(--leash)}
 
-/* STEMMEN */
-.stemmen{background:var(--rose2);padding:clamp(90px,11vw,140px) 0}
-.stemmen-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(40px,6vw,90px);align-items:start}
-.score{font:400 clamp(110px,13vw,200px)/.85 'Gloock',serif;letter-spacing:-.03em}
-.score small{display:block;font:500 16px/1.5 'Albert Sans',sans-serif;letter-spacing:0;color:var(--ink2);margin-top:16px}
-.quotes{display:grid;gap:14px}
-.quotes blockquote{margin:0;background:var(--cream);border-radius:22px;padding:28px 30px;font:400 clamp(22px,2.2vw,30px)/1.25 'Gloock',serif}
-.quotes cite{display:block;margin-top:14px;font:600 14px/1 'Albert Sans',sans-serif;font-style:normal;color:var(--ink2)}
+.d-img{position:absolute;inset:0}
+.d-pins{position:absolute;inset:0}
+.score .pf{position:absolute;right:26px;top:26px;width:34%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:6px solid var(--rose2)}
+.score .pf img{position:static;width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:none}
+/* gasten */
+.gasten{background:var(--ink);color:var(--cream)}
+.gasten .label{color:rgba(246,240,231,.7)}
+.gasten .intro{color:rgba(246,240,231,.72)}
+.g-head{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;margin-bottom:clamp(44px,5vw,64px)}
+.g-head .intro{justify-self:end}
+.wall{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);gap:14px;grid-auto-flow:dense}
+.wall figure{position:relative;margin:0;border-radius:20px;overflow:hidden;aspect-ratio:3/4;background:#3a2f28}
+.wall .big{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.wall img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.wall figure:hover img{transform:scale(1.06)}
+.wall figcaption{position:absolute;left:10px;bottom:10px;display:inline-flex;align-items:center;gap:7px;background:var(--cream);color:var(--ink);font:400 15px/1 'Gloock',serif;padding:7px 12px 7px 8px;border-radius:8px 99px 99px 8px}
+.wall figcaption::before{content:"";width:9px;height:9px;border-radius:50%;border:2px solid var(--leash)}
+.wall .cta-tile{background:var(--leash);display:flex;flex-direction:column;justify-content:space-between;padding:20px;aspect-ratio:3/4}
+.cta-tile b{font:400 26px/1.02 'Gloock',serif;color:#fff}
+.cta-tile a{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14.5px;color:#fff;border-bottom:1.5px solid rgba(255,255,255,.6);padding-bottom:3px;align-self:flex-start}
 
-/* AFSPRAAK */
-.afspraak{padding:clamp(100px,12vw,160px) 0 clamp(80px,9vw,110px)}
-.afspraak-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(40px,7vw,110px)}
-.afspraak h2{font-size:clamp(54px,7vw,112px);margin:20px 0 26px}
-.afspraak .intro{font-size:19px;color:var(--ink2);max-width:460px}
-.afspraak .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.card{background:#fff;border-radius:28px;padding:clamp(28px,4vw,44px);border:1px solid var(--line)}
-.card h3{font-size:34px;margin-bottom:6px}
-.card>p{color:var(--ink2)}
-.uren{margin:24px 0 0;border-top:1px solid var(--line)}
-.uren div{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line)}
-.uren div span:last-child{font-weight:600}
-.uren div.zt span:last-child{color:var(--ink2);font-weight:400}
-.card .contact{margin-top:22px;display:grid;gap:6px}
-.card .contact a{text-decoration:none;font-weight:600}
-.card .contact a:hover{color:var(--leash)}
+/* puppy */
+.puppy{background:var(--leash);color:#fff;overflow:hidden}
+.puppy .label{color:rgba(255,255,255,.85)}
+.puppy .label::before{background:#fff}
+.puppy .intro{color:rgba(255,255,255,.88)}
+.pup-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,90px);align-items:center}
+.pup-ph{position:relative;max-width:520px}
+.pup-ph .arch{border-radius:999px 999px var(--r) var(--r);overflow:hidden;aspect-ratio:828/972;border:10px solid rgba(255,255,255,.18)}
+.pup-ph .arch img{width:100%;height:100%;object-fit:cover}
+.pup-ph .gratis{position:absolute;right:-18px;top:12%;width:120px;height:120px;border-radius:50%;background:var(--cream);color:var(--ink);display:grid;place-items:center;text-align:center;font:400 24px/1 'Gloock',serif;transform:rotate(8deg);box-shadow:0 20px 40px -20px rgba(43,33,27,.6)}
+.pup-ph .gratis small{display:block;font:600 11px/1.2 'Albert Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-top:4px;color:var(--leash2)}
+.stappen{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:38px}
+.stappen div{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:20px;padding:20px 18px}
+.stappen svg{width:42px;height:42px;padding:9px;border-radius:50%;background:var(--cream);color:var(--leash);margin-bottom:14px}
+.stappen b{display:block;font:400 24px/1 'Gloock',serif}
+.stappen span{display:block;font-size:14.5px;color:rgba(255,255,255,.85);margin-top:6px;line-height:1.4}
+.puppy .cta{margin-top:30px}
 
-footer.site{background:var(--ink);color:var(--sand);padding:60px 0 32px}
-.foot{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-end}
-.foot .brand b{font-size:44px;color:var(--cream)}
-.foot .brand small{color:rgba(246,240,231,.55)}
-.foot p{color:rgba(246,240,231,.6);margin-top:12px;font-size:15px}
-.foot ul{list-style:none;margin:0;padding:0;display:flex;gap:26px;flex-wrap:wrap}
-.foot ul a{text-decoration:none;color:rgba(246,240,231,.8);font-size:15px}
-.foot ul a:hover{color:#fff}
-.foot-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:46px;padding-top:22px;border-top:1px solid rgba(246,240,231,.12);font-size:13px;color:rgba(246,240,231,.5)}
-.foot-bottom a{color:#F2B08F}
+/* reviews */
+.stem{background:var(--rose2)}
+.stem-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,70px);align-items:center}
+.score{position:relative;background:var(--cream2);border-radius:var(--r);padding:34px 34px 30px;box-shadow:0 30px 60px -40px rgba(43,33,27,.4)}
+.score .n{font:400 clamp(100px,11vw,150px)/.85 'Gloock',serif;letter-spacing:-.04em}
+.score .st{color:var(--leash);font-size:22px;letter-spacing:4px;margin-top:14px}
+.score p{color:var(--ink2);margin-top:6px}
+.quotes{display:grid;gap:16px}
+.quotes blockquote{margin:0;background:var(--cream2);border-radius:var(--r);padding:30px 32px;position:relative}
+.quotes blockquote:nth-child(2){margin-left:clamp(0px,5vw,70px)}
+.quotes p{font:400 clamp(24px,2.2vw,31px)/1.18 'Gloock',serif}
+.quotes svg{width:30px;height:24px;color:var(--leash);margin-bottom:12px}
+.quotes cite{display:flex;align-items:center;gap:10px;font-style:normal;font-weight:600;font-size:15px;margin-top:16px}
+.quotes cite span{font-weight:400;color:var(--ink2)}
 
-.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+/* afspraak */
+.afs-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:start}
+.kaart{background:var(--cream2);border-radius:var(--r);box-shadow:0 30px 60px -40px rgba(43,33,27,.45);overflow:hidden;border:1px solid var(--line)}
+.kaart .top{background:var(--ink);color:var(--cream);padding:26px 30px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.kaart .top b{font:400 30px/1 'Gloock',serif}
+.kaart .top span{font-size:14px;color:rgba(246,240,231,.72)}
+.kaart .top .ring{width:44px;height:44px;border-radius:50%;border:3px solid var(--leash);flex:none}
+.kaart .bd{padding:10px 30px 30px}
+.uren div{display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px dashed var(--line);font-size:16px}
+.uren .zt span:last-child{color:var(--ink2)}
+.uren b{font-weight:700}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.contact a{display:flex;flex-direction:column;gap:2px;padding:16px 18px;border-radius:16px;background:var(--sand);font-weight:600;font-size:15px;transition:background .3s}
+.contact a small{font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2)}
+.contact a:hover{background:var(--rose2)}
+.kat{display:flex;gap:14px;align-items:center;margin-top:30px;padding:18px 20px;border-radius:18px;border:1.5px dashed rgba(224,96,42,.5);font-size:15.5px;max-width:520px}
+.kat svg{width:34px;height:34px;color:var(--leash);flex:none}
+
+footer.site{background:var(--ink);color:rgba(246,240,231,.76);padding:clamp(70px,8vw,100px) 0 30px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;align-items:start}
+footer .brand b{color:var(--cream);font-size:56px}
+footer .brand small{color:rgba(246,240,231,.6)}
+footer p.ad{margin-top:16px;font-size:15.5px}
+footer h4{margin:0 0 12px;font:700 11.5px/1 'Albert Sans',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#F4A57C}
+footer li{font-size:15.5px;line-height:2}
+footer a:hover{color:var(--cream)}
+.foot-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:56px;padding-top:22px;border-top:1px solid var(--linel);font-size:13.5px;color:rgba(246,240,231,.55)}
+
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv,.js .h-txt>*,.js .sun,.js .dog img,.js .sticker{opacity:1;transform:none;transition:none;animation:none}.js .dog img{transform:translateX(-50%)}.js .sun{transform:translateX(-50%)}.js .leiband path{animation:none;stroke-dasharray:none}}
 
-@media (max-width:1080px){
-  .nav ul{display:none}
-  .wall{grid-template-columns:repeat(4,1fr)}
+@media (max-width:1100px){
+ .nav ul{display:none}
+ .wall{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .niet ul{grid-template-columns:1fr}
 }
 @media (max-width:860px){
-  .hero{display:flex;flex-direction:column;min-height:0}
-  .nav{order:1}.head{order:2}.sub{order:3}.hero-photo{order:4}.tag{order:5}
-  .nav,.head,.sub{grid-column:1;grid-row:auto}
-  .head h1{font-size:clamp(70px,20vw,120px);margin-top:20px}
-  .head h1 .in{padding-left:.9em}
-  .head h1:first-child{clip-path:none}
-  .head h1+h1{display:none}
-  .sub{padding:22px var(--pad) 30px}
-  .hero-photo{grid-column:1;grid-row:auto;height:min(115vw,620px);margin:0 var(--pad);border-radius:26px}
-  .tag{position:relative;right:auto;bottom:auto;color:var(--ink);text-align:left;padding:18px var(--pad) 10px}
-  .doen-grid,.puppy-grid,.stemmen-grid,.afspraak-grid{grid-template-columns:1fr}
-  .puppy-photos{order:2}
-  .wall{grid-template-columns:repeat(3,1fr)}
+ .stage{grid-template-columns:1fr;min-height:0}
+ .h-txt{padding:20px 0 10px}
+ .dog{height:clamp(420px,100vw,560px)}
+ .sun{width:min(92%,480px);bottom:-18%}
+ .leiband{display:none}
+ .sticker{right:6%;top:6%;width:122px;height:122px}
+ .sticker span{font-size:10.5px}
+ .pup-ph{max-width:440px}
+ .sticker b{font-size:34px}
+ .tafel-grid,.g-head,.pup-grid,.stem-grid,.afs-grid{grid-template-columns:1fr}
+ .g-head .intro{justify-self:start}
+ .tafel-txt{order:-1}
+ .pup-txt{order:-1}
+ .foot{grid-template-columns:1fr 1fr}
+ .foot>div:first-child{grid-column:1/-1}
 }
-@media (max-width:520px){
-  body{font-size:16px}
-  .list{columns:1}
-  .wall{grid-template-columns:1fr 1fr;gap:8px}
-  .wall figure:nth-child(1),.wall figure:nth-child(8){grid-column:span 2;grid-row:auto;aspect-ratio:4/5}
-  .steps{grid-template-columns:1fr}
-  .steps div+div{padding-left:0;border-left:0;border-top:1px solid var(--line);margin-top:16px}
-  .puppy-photos{padding:0 0 40px 30px}
-  .sub p,.doen .intro,.puppy-text>p,.afspraak .intro{font-size:17px}
+@media (max-width:560px){
+ .wall .xtra{display:none}
+ .wall .cta-tile{grid-column:span 2;aspect-ratio:auto;min-height:150px}
+ .diagram{aspect-ratio:auto;display:flex;flex-direction:column}
+ .d-img{position:relative;inset:auto;aspect-ratio:1/0.92}
+ .d-pins{position:static;display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+ .d-pins .pin{position:static!important}
+ .sticker{width:118px;height:118px}
+ .sticker span{font-size:10.5px}
+ body{font-size:16px}
+ .nav .btn{display:none}
+ .h-txt h1{font-size:76px}
+ .h-txt h1 .b2{padding-left:.5em}
+ .h-txt p{font-size:17px}
+ .btn{height:54px;font-size:15px}
+ .strip .wrap{gap:8px 20px;font-size:14px;padding-top:14px;padding-bottom:14px}
+ .wall{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .wall figcaption{font-size:13px}
+ .pin{font-size:12.5px;padding:7px 11px 7px 7px}
+ .pin i{width:20px;height:20px;font-size:11px}
+ .stappen{grid-template-columns:1fr}
+ .pup-ph .gratis{right:-6px;width:100px;height:100px;font-size:20px}
+ .score .pf{width:32%;right:20px;top:20px}
+ .quotes blockquote{padding:24px}
+ .contact{grid-template-columns:1fr}
+ .kaart .top,.kaart .bd{padding-left:22px;padding-right:22px}
+ .foot{grid-template-columns:1fr}
+ footer .brand b{font-size:44px}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important}.js .rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
 <header class="hero" id="top">
-  <div class="hero-photo"><img src="img/baliey.webp" alt="Een Berner sennenhond op de trimtafel bij Royals, met een oranje leiband" width="1500" height="2000" fetchpriority="high"></div>
+ <div class="wrap">
   <nav class="nav">
-    <a class="brand" href="#top"><b>Royals</b><small>Maldegem</small></a>
-    <ul>
-      <li><a href="#doen">Trimmen</a></li>
-      <li><a href="#gasten">Gasten</a></li>
-      <li><a href="#puppy">Puppy's</a></li>
-      <li><a href="#afspraak">Afspraak</a></li>
-    </ul>
+   <a class="brand" href="#top"><b>Royals</b><small>Hondentrimsalon</small></a>
+   <ul><li><a href="#doen">Trimmen</a></li><li><a href="#gasten">Gasten</a></li><li><a href="#puppy">Puppy's</a></li><li><a href="#afspraak">Afspraak</a></li></ul>
+   <a class="btn btn-ink" href="https://www.royalshondentrimsalon.be/afspraak/" target="_blank" rel="noopener">Afspraak</a>
   </nav>
-  <div class="head">
-    <h1><span>Jouw hond</span><span class="in">eerst.</span></h1>
-    <h1 aria-hidden="true"><span>Jouw hond</span><span class="in">eerst.</span></h1>
-  </div>
-  <div class="sub">
-    <span class="label">Hondentrimsalon in Maldegem</span>
-    <p style="margin-top:16px">Wassen, uitblazen, borstelen en knippen, met tijd en geduld voor elke viervoeter. Ook met je kat kan je bij Amy terecht.</p>
+  <div class="stage">
+   <div class="h-txt">
+    <span class="label">Hondentrimsalon van Amy</span>
+    <h1><span>Jouw hond</span><span class="b2">eerst.</span></h1>
+    <p>Wassen, uitblazen, borstelen en knippen, met tijd en geduld voor elke viervoeter. <b>Ook met je kat</b> kan je bij Amy terecht.</p>
     <div class="cta">
-      <a class="btn btn-ink" href="https://www.royalshondentrimsalon.be/afspraak/" target="_blank" rel="noopener">Maak een afspraak</a>
-      <a class="btn btn-line" href="#gasten">Onze gasten</a>
+     <a class="btn btn-leash" href="https://www.royalshondentrimsalon.be/afspraak/" target="_blank" rel="noopener">Maak een afspraak <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><ellipse cx="10" cy="13.5" rx="4.2" ry="3.6"/><circle cx="4.2" cy="8.6" r="1.9"/><circle cx="7.6" cy="5.2" r="1.9"/><circle cx="12.4" cy="5.2" r="1.9"/><circle cx="15.8" cy="8.6" r="1.9"/></svg></a>
+     <a class="btn btn-line" href="#gasten">Bekijk onze gasten</a>
     </div>
+   </div>
+   <div class="dog">
+    <div class="sun"></div>
+    <img src="img/baliey-vrij.webp" alt="Een Berner sennenhond na zijn beurt bij Royals" width="821" height="1496" fetchpriority="high">
+    <div class="sticker"><div><i>★★★★★</i><b>4,9</b><span>op 47<br>Google-reviews</span></div></div>
+   </div>
   </div>
-  <div class="tag"><b>4,9</b>op 47 Google-reviews</div>
+ </div>
+ <div class="strip"><div class="wrap">
+  <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.4 1.6"/></svg><b>Di tot za</b> 8 tot 17 u</span>
+  <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 15s5-4.6 5-8.5a5 5 0 0 0-10 0C3 10.4 8 15 8 15z"/><circle cx="8" cy="6.5" r="1.8"/></svg><b>Stationsstraat 92</b> Maldegem</span>
+  <span><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><ellipse cx="8" cy="10.8" rx="3.4" ry="2.9"/><circle cx="3.4" cy="6.9" r="1.5"/><circle cx="6.1" cy="4.2" r="1.5"/><circle cx="9.9" cy="4.2" r="1.5"/><circle cx="12.6" cy="6.9" r="1.5"/></svg><b>Puppygewenning</b> gratis</span>
+ </div></div>
 </header>
 
 <main>
-<section class="doen" id="doen">
-  <div class="wrap doen-grid">
-    <div class="rv">
-      <span class="label">Op de tafel</span>
-      <h2>Weer helemaal tip-top.</h2>
-      <p class="intro">Een volledige beurt van kop tot staart, op het tempo van je hond. Groot of klein, krullen of dikke onderwol.</p>
-      <ul class="list">
-        <li>Wassen</li><li>Uitblazen</li><li>Borstelen</li><li>Knippen</li><li>Scheren</li><li>Oren reinigen</li><li>Nagels knippen</li><li>Gratis puppygewenning</li>
-      </ul>
-    </div>
-    <aside class="niet rv">
-      <span class="label">Eerlijk is eerlijk</span>
-      <h3>Wat we niet doen</h3>
-      <p>Sommige dingen horen bij de dierenarts. Dat zeggen we liever op voorhand.</p>
-      <ul>
-        <li><span>Vachten plukken</span></li>
-        <li><span>Oren plukken<small>een taak voor de dierenarts</small></span></li>
-        <li><span>Anaalklieren legen<small>ook voor de dierenarts</small></span></li>
-        <li><span>Heel luide blaffers<small>uit respect voor de buren</small></span></li>
-      </ul>
-    </aside>
+<section class="sec tafel" id="doen">
+ <div class="wrap tafel-grid">
+  <div class="tafel-txt rv">
+   <span class="label">Op de tafel</span>
+   <h2>Weer helemaal tip-top.</h2>
+   <p class="intro">Een volledige beurt van kop tot staart, op het tempo van je hond. Groot of klein, krullen of dikke onderwol.</p>
+   <aside class="niet">
+    <h3>Wat we niet doen</h3>
+    <p>Sommige dingen horen bij de dierenarts. Dat zeggen we liever op voorhand.</p>
+    <ul>
+     <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 5l8 8M13 5l-8 8"/></svg><span>Vachten plukken</span></li>
+     <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 5l8 8M13 5l-8 8"/></svg><span>Oren plukken<small>een taak voor de dierenarts</small></span></li>
+     <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 5l8 8M13 5l-8 8"/></svg><span>Anaalklieren legen<small>ook voor de dierenarts</small></span></li>
+     <li><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 5l8 8M13 5l-8 8"/></svg><span>Heel luide blaffers<small>uit respect voor de buren</small></span></li>
+    </ul>
+   </aside>
   </div>
+  <div class="diagram rv" aria-label="Wat er bij een beurt hoort">
+   <div class="d-img"><div class="blob"></div>
+   <img src="img/pommeline-vrij.webp" alt="Een keeshond na zijn beurt, aan de oranje leiband van het salon" width="949" height="1049" loading="lazy"></div>
+   <div class="d-pins">
+   <span class="pin" style="left:2%;top:30%"><i>1</i>Wassen</span>
+   <span class="pin" style="left:0;top:48%"><i>2</i>Uitblazen</span>
+   <span class="pin" style="left:4%;top:66%"><i>3</i>Borstelen</span>
+   <span class="pin" style="right:0;top:24%"><i>4</i>Oren reinigen</span>
+   <span class="pin" style="right:2%;top:44%"><i>5</i>Knippen en scheren</span>
+   <span class="pin" style="right:4%;top:84%"><i>6</i>Nagels knippen</span>
+   <span class="pin p-gratis" style="left:8%;top:86%"><i>+</i>Gratis puppygewenning</span>
+   </div>
+  </div>
+ </div>
 </section>
 
-<section class="gasten" id="gasten">
-  <div class="wrap">
-    <div class="gasten-head rv">
-      <div><span class="label">Vaste gasten</span><h2>Na de beurt.</h2></div>
-      <p>Zo gingen ze naar huis. Een greep uit de fotogalerij van het salon.</p>
-    </div>
-    <div class="wall rv">
-      <figure><img src="img/nougat.webp" alt="Witte hond na de trimbeurt" loading="lazy" width="1050" height="1400"><figcaption>Nougat</figcaption></figure>
-      <figure><img src="img/george.webp" alt="Bruin-witte hond na de trimbeurt" loading="lazy" width="1050" height="1400"><figcaption>George</figcaption></figure>
-      <figure><img src="img/koda.webp" alt="Kleine hond met grote oren na de trimbeurt" loading="lazy" width="828" height="1300"><figcaption>Koda</figcaption></figure>
-      <figure><img src="img/noir.webp" alt="Zwarte pluizige hond na de trimbeurt" loading="lazy" width="828" height="1264"><figcaption>Noir</figcaption></figure>
-      <figure><img src="img/zora.webp" alt="Grote hond met krulstaart na de trimbeurt" loading="lazy" width="1050" height="1400"><figcaption>Zora</figcaption></figure>
-      <figure><img src="img/snotje.webp" alt="Keeshond na de trimbeurt" loading="lazy" width="1050" height="1400"><figcaption>Snotje</figcaption></figure>
-      <figure><img src="img/bella.webp" alt="Zwart-witte hond na de trimbeurt" loading="lazy" width="1050" height="1400"><figcaption>Bella</figcaption></figure>
-      <figure><img src="img/raven-rivano.webp" alt="Twee shelties samen in het salon" loading="lazy" width="1050" height="1400"><figcaption>Raven en Rivano</figcaption></figure>
-      <figure><img src="img/jarko.webp" alt="Rode retriever na de trimbeurt" loading="lazy" width="1050" height="1400"><figcaption>Jarko</figcaption></figure>
-      <figure><img src="img/rachelle.webp" alt="Doodle na de trimbeurt" loading="lazy" width="1050" height="1400"><figcaption>Rachelle</figcaption></figure>
-      <figure><img src="img/mike.webp" alt="Herder na de trimbeurt" loading="lazy" width="1050" height="1400"><figcaption>Mike</figcaption></figure>
-      <figure><img src="img/zazie.webp" alt="Witte hond met bruine oren na de trimbeurt" loading="lazy" width="1050" height="1400"><figcaption>Zazie</figcaption></figure>
-      <figure><img src="img/liorke.webp" alt="Keeshond liggend op de tafel" loading="lazy" width="1050" height="1400"><figcaption>Liorke</figcaption></figure>
-      <figure><img src="img/bubble.webp" alt="Bruin-witte hond na de trimbeurt" loading="lazy" width="1050" height="1400"><figcaption>Bubble</figcaption></figure>
-      <figure><img src="img/collie.webp" alt="Langharige hond op de trimtafel" loading="lazy" width="1050" height="1400"></figure>
-      <figure><img src="img/husky.webp" alt="Husky na de trimbeurt" loading="lazy" width="1050" height="1400"></figure>
-      <figure><img src="img/mopshond.webp" alt="Mopshond na de trimbeurt" loading="lazy" width="1050" height="1400"></figure>
-      <figure><img src="img/berner.webp" alt="Berner na de trimbeurt" loading="lazy" width="1050" height="1400"></figure>
-    </div>
+<section class="sec gasten" id="gasten">
+ <div class="wrap">
+  <div class="g-head rv">
+   <div><span class="label">Vaste gasten</span><h2>Na de beurt.</h2></div>
+   <p class="intro">Zo gingen ze naar huis, allemaal aan dezelfde oranje leiband. Een greep uit de fotogalerij van het salon.</p>
   </div>
+  <div class="wall rv">
+   <figure class="big"><img src="img/nougat.webp" alt="Witte hond na de trimbeurt" loading="lazy" width="1050" height="1400"><figcaption>Nougat</figcaption></figure>
+   <figure><img src="img/george.webp" alt="Bruin-witte hond na de trimbeurt" loading="lazy" width="1050" height="1400"><figcaption>George</figcaption></figure>
+   <figure><img src="img/koda.webp" alt="Kleine hond met grote oren na de trimbeurt" loading="lazy" width="828" height="1300"><figcaption>Koda</figcaption></figure>
+   <figure><img src="img/noir.webp" alt="Zwarte pluizige hond na de trimbeurt" loading="lazy" width="828" height="1264"><figcaption>Noir</figcaption></figure>
+   <figure><img src="img/zora.webp" alt="Grote hond met krulstaart na de trimbeurt" loading="lazy" width="1050" height="1400"><figcaption>Zora</figcaption></figure>
+   <figure><img src="img/bella.webp" alt="Zwart-witte hond na de trimbeurt" loading="lazy" width="1050" height="1400"><figcaption>Bella</figcaption></figure>
+   <figure><img src="img/jarko.webp" alt="Rode retriever na de trimbeurt" loading="lazy" width="1050" height="1400"><figcaption>Jarko</figcaption></figure>
+   <figure class="xtra"><img src="img/rachelle.webp" alt="Doodle na de trimbeurt" loading="lazy" width="1050" height="1400"><figcaption>Rachelle</figcaption></figure>
+   <figure class="xtra"><img src="img/mike.webp" alt="Herder na de trimbeurt" loading="lazy" width="1050" height="1400"><figcaption>Mike</figcaption></figure>
+   <figure class="big"><img src="img/raven-rivano.webp" alt="Twee shelties samen in het salon" loading="lazy" width="1050" height="1400"><figcaption>Raven en Rivano</figcaption></figure>
+   <figure class="xtra"><img src="img/zazie.webp" alt="Witte hond met bruine oren na de trimbeurt" loading="lazy" width="1050" height="1400"><figcaption>Zazie</figcaption></figure>
+   <figure class="xtra"><img src="img/liorke.webp" alt="Keeshond liggend op de tafel" loading="lazy" width="1050" height="1400"><figcaption>Liorke</figcaption></figure>
+   <figure class="xtra"><img src="img/bubble.webp" alt="Bruin-witte hond na de trimbeurt" loading="lazy" width="1050" height="1400"><figcaption>Bubble</figcaption></figure>
+   <figure class="xtra"><img src="img/husky.webp" alt="Husky na de trimbeurt" loading="lazy" width="1050" height="1400"></figure>
+   <figure class="xtra"><img src="img/mopshond.webp" alt="Mopshond na de trimbeurt" loading="lazy" width="1050" height="1400"></figure>
+   <figure class="xtra"><img src="img/berner.webp" alt="Berner na de trimbeurt" loading="lazy" width="1050" height="1400"></figure>
+   <figure class="xtra"><img src="img/collie.webp" alt="Langharige hond op de trimtafel" loading="lazy" width="1050" height="1400"></figure>
+   <div class="cta-tile"><b>Jouw hond volgende keer hier?</b><a href="https://www.royalshondentrimsalon.be/afspraak/" target="_blank" rel="noopener">Maak een afspraak</a></div>
+  </div>
+ </div>
 </section>
 
-<section class="puppy" id="puppy">
-  <div class="wrap puppy-grid">
-    <div class="puppy-photos rv">
-      <img src="img/pommeline.webp" alt="Een jonge keeshond op de trimtafel" loading="lazy" width="1050" height="1400">
-      <img src="img/leon.webp" alt="Een jonge doodle na zijn beurt" loading="lazy" width="828" height="972">
-    </div>
-    <div class="puppy-text rv">
-      <span class="label">Voor de kleintjes</span>
-      <h2>De eerste keer is gratis.</h2>
-      <p>Een puppy moet het salon eerst leren kennen. Bij de puppygewenning maken we kennis met de föhn, de tondeuse en het knippen van de pootjes, rustig en op een positieve manier.</p>
-      <div class="steps">
-        <div><b>Föhn</b><span>warme lucht leren kennen</span></div>
-        <div><b>Tondeuse</b><span>het geluid en het gezoem</span></div>
-        <div><b>Pootjes</b><span>nageltjes en voetjes</span></div>
-      </div>
-    </div>
+<section class="sec puppy" id="puppy">
+ <div class="wrap pup-grid">
+  <div class="pup-ph rv">
+   <div class="arch"><img src="img/leon.webp" alt="Een jonge doodle na zijn beurt" loading="lazy" width="828" height="972"></div>
+   <div class="gratis"><div>Gratis<small>de eerste keer</small></div></div>
   </div>
+  <div class="pup-txt rv">
+   <span class="label">Voor de kleintjes</span>
+   <h2>De eerste keer is gratis.</h2>
+   <p class="intro">Een puppy moet het salon eerst leren kennen. Bij de puppygewenning maken we rustig kennis, op een positieve manier.</p>
+   <div class="stappen">
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3 9a6 5 0 0 1 12 0 6 5 0 0 1-12 0z"/><path d="M15 7.5h4.5v3H15M8 14v6h3v-6"/></svg><b>Föhn</b><span>warme lucht leren kennen</span></div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><rect x="7" y="7" width="10" height="14" rx="4"/><path d="M8 7V4M10.7 7V3M13.3 7V3M16 7V4"/></svg><b>Tondeuse</b><span>het geluid en het gezoem</span></div>
+    <div><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><ellipse cx="12" cy="16" rx="5" ry="4.2"/><circle cx="5.2" cy="10.4" r="2.2"/><circle cx="9.2" cy="6.4" r="2.2"/><circle cx="14.8" cy="6.4" r="2.2"/><circle cx="18.8" cy="10.4" r="2.2"/></svg><b>Pootjes</b><span>nageltjes en voetjes</span></div>
+   </div>
+   <div class="cta"><a class="btn btn-cream" href="https://www.royalshondentrimsalon.be/afspraak/" target="_blank" rel="noopener">Plan de puppygewenning <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><ellipse cx="10" cy="13.5" rx="4.2" ry="3.6"/><circle cx="4.2" cy="8.6" r="1.9"/><circle cx="7.6" cy="5.2" r="1.9"/><circle cx="12.4" cy="5.2" r="1.9"/><circle cx="15.8" cy="8.6" r="1.9"/></svg></a></div>
+  </div>
+ </div>
 </section>
 
-<section class="stemmen" id="reviews">
-  <div class="wrap stemmen-grid">
-    <div class="rv">
-      <span class="label">Wat baasjes zeggen</span>
-      <div class="score" style="margin-top:22px">4,9<small>gemiddeld op 47 Google-reviews</small></div>
-    </div>
-    <div class="quotes rv">
-      <blockquote>"Een warm welkom en alles naar wens zeker een aanrader om eens langs te gaan"<cite>Ruth</cite></blockquote>
-      <blockquote>"Royals Trimsalon is the place to be om je trouwe viervoeter hartstikke leuk te laten verwennen."<cite>Mischa VB</cite></blockquote>
-    </div>
+<section class="sec stem" id="reviews">
+ <div class="wrap stem-grid">
+  <div class="score rv">
+   <span class="label">Wat baasjes zeggen</span>
+   <div class="n" style="margin-top:24px">4,9</div>
+   <div class="st" aria-hidden="true">★★★★★</div>
+   <p>gemiddeld op 47 Google-reviews</p>
+   <div class="pf"><img src="img/snotje.webp" alt="Snotje, een pluizige keeshond, net getrimd" width="1050" height="1400" loading="lazy"></div>
   </div>
+  <div class="quotes rv">
+   <blockquote><svg viewBox="0 0 30 24" fill="currentColor" aria-hidden="true"><path d="M0 24V14C0 5 4 1 12 0v4.5C8 5.5 6 8 6 12h6v12zm18 0V14c0-9 4-13 12-14v4.5c-4 1-6 3.5-6 7.5h6v12z"/></svg><p>Een warm welkom en alles naar wens zeker een aanrader om eens langs te gaan</p><cite>Ruth</cite></blockquote>
+   <blockquote><svg viewBox="0 0 30 24" fill="currentColor" aria-hidden="true"><path d="M0 24V14C0 5 4 1 12 0v4.5C8 5.5 6 8 6 12h6v12zm18 0V14c0-9 4-13 12-14v4.5c-4 1-6 3.5-6 7.5h6v12z"/></svg><p>Royals Trimsalon is the place to be om je trouwe viervoeter hartstikke leuk te laten verwennen.</p><cite>Mischa VB</cite></blockquote>
+  </div>
+ </div>
 </section>
 
-<section class="afspraak" id="afspraak">
-  <div class="wrap afspraak-grid">
-    <div class="rv">
-      <span class="label">Afspraak</span>
-      <h2>Kom langs in Maldegem.</h2>
-      <p class="intro">Kies online een moment dat past, of bel even. Het salon ligt aan de Stationsstraat 92 in Maldegem.</p>
-      <div class="cta">
-        <a class="btn btn-leash" href="https://www.royalshondentrimsalon.be/afspraak/" target="_blank" rel="noopener">Online afspraak</a>
-        <a class="btn btn-line" href="tel:+32496322810">0496 32 28 10</a>
-      </div>
-    </div>
-    <div class="card rv">
-      <h3>Royals</h3>
-      <p>Stationsstraat 92, 9990 Maldegem</p>
-      <div class="uren">
-        <div class="zt"><span>Maandag</span><span>gesloten</span></div>
-        <div><span>Dinsdag tot zaterdag</span><span>8 tot 17 u</span></div>
-        <div class="zt"><span>Zondag</span><span>gesloten</span></div>
-      </div>
-      <div class="contact">
-        <a href="tel:+32496322810">0496 32 28 10</a>
-        <a href="mailto:royalstrimsalon@hotmail.com">royalstrimsalon@hotmail.com</a>
-      </div>
-    </div>
+<section class="sec afspraak" id="afspraak">
+ <div class="wrap afs-grid">
+  <div class="rv">
+   <span class="label">Afspraak</span>
+   <h2>Kom langs aan de Stationsstraat.</h2>
+   <p class="intro">Kies online een moment dat past, of bel even. Je vindt het salon op nummer 92, naast de dierenarts.</p>
+   <div class="cta">
+    <a class="btn btn-leash" href="https://www.royalshondentrimsalon.be/afspraak/" target="_blank" rel="noopener">Online afspraak <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><ellipse cx="10" cy="13.5" rx="4.2" ry="3.6"/><circle cx="4.2" cy="8.6" r="1.9"/><circle cx="7.6" cy="5.2" r="1.9"/><circle cx="12.4" cy="5.2" r="1.9"/><circle cx="15.8" cy="8.6" r="1.9"/></svg></a>
+    <a class="btn btn-line" href="tel:+32496322810">0496 32 28 10</a>
+   </div>
+   <div class="kat"><svg viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M7 14V4l6 5h8l6-5v10c0 8-4.5 14-10 14S7 22 7 14z"/><circle cx="13" cy="16" r="1.3" fill="currentColor"/><circle cx="21" cy="16" r="1.3" fill="currentColor"/><path d="M15.5 20h3L17 21.5zM4 19l6 1M4 23l6-1M30 19l-6 1M30 23l-6-1"/></svg><span>Ook je kat mag mee voor een beurt. Vraag gerust wat er kan.</span></div>
   </div>
+  <div class="kaart rv">
+   <div class="top"><div><b>Royals</b><br><span>Stationsstraat 92, 9990 Maldegem</span></div><div class="ring" aria-hidden="true"></div></div>
+   <div class="bd">
+    <div class="uren">
+     <div class="zt"><span>Maandag</span><span>gesloten</span></div>
+     <div><span>Dinsdag tot zaterdag</span><b>8 tot 17 u</b></div>
+     <div class="zt"><span>Zondag</span><span>gesloten</span></div>
+    </div>
+    <div class="contact">
+     <a href="tel:+32496322810"><small>Bellen</small>0496 32 28 10</a>
+     <a href="mailto:royalstrimsalon@hotmail.com"><small>Mailen</small>royalstrimsalon@hotmail.com</a>
+     <a href="https://www.google.com/maps/place/?q=place_id:ChIJkdLc8z1ew0cR5jlr3Ww5vig" target="_blank" rel="noopener"><small>Route</small>Stationsstraat 92</a>
+     <a href="https://www.facebook.com/royalshondentrimsalon" target="_blank" rel="noopener"><small>Volgen</small>Facebook en Instagram</a>
+    </div>
+   </div>
+  </div>
+ </div>
 </section>
 </main>
 
 <footer class="site">
-  <div class="wrap">
-    <div class="foot">
-      <div><a class="brand" href="#top"><b>Royals</b><small>Hondentrimsalon</small></a><p>Amy Vansteenkiste · Stationsstraat 92, Maldegem</p></div>
-      <ul>
-        <li><a href="#doen">Trimmen</a></li>
-        <li><a href="#gasten">Gasten</a></li>
-        <li><a href="#puppy">Puppy's</a></li>
-        <li><a href="https://www.instagram.com/royalshondentrimsalon/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://www.facebook.com/royalshondentrimsalon" target="_blank" rel="noopener">Facebook</a></li>
-      </ul>
-    </div>
-    <div class="foot-bottom"><span>© 2026 Royals Hondentrimsalon</span><a href="#di">Voorbeeldsite door Digital Impression</a></div>
+ <div class="wrap">
+  <div class="foot">
+   <div><a class="brand" href="#top"><b>Royals</b><small>Hondentrimsalon</small></a><p class="ad">Amy Vansteenkiste · Stationsstraat 92, 9990 Maldegem</p></div>
+   <div><h4>Salon</h4><ul><li><a href="#doen">Trimmen</a></li><li><a href="#gasten">Gasten</a></li><li><a href="#puppy">Puppygewenning</a></li><li><a href="https://www.royalshondentrimsalon.be/afspraak/" target="_blank" rel="noopener">Afspraak maken</a></li></ul></div>
+   <div><h4>Contact</h4><ul><li><a href="tel:+32496322810">0496 32 28 10</a></li><li><a href="mailto:royalstrimsalon@hotmail.com">Mail ons</a></li><li><a href="https://www.instagram.com/royalshondentrimsalon/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/royalshondentrimsalon" target="_blank" rel="noopener">Facebook</a></li></ul></div>
   </div>
+  <div class="foot-bottom"><span>© 2026 Royals Hondentrimsalon</span><a href="#di">Voorbeeldsite door Digital Impression</a></div>
+ </div>
 </footer>
-
 <script>
 (function(){
   var els=document.querySelectorAll('.rv');
