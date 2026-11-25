@@ -4,284 +4,385 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Delinkate | Fineline en microrealism in Leuven</title>
-<meta name="description" content="Delinkate in Leuven: fineline, microrealism en delicate tattoos door Vanesa. Enkel op afspraak, Mix &amp; Match-flash vanaf € 70.">
+<title>Delinkate | Fineline en microrealism door Vanesa in Leuven</title>
+<meta name="description" content="Delinkate, Brusselsestraat 24 in Leuven: fineline en microrealism door Vanesa. Enkel op afspraak. Mix &amp; Match-flash vanaf € 70.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
-<link rel="preload" as="image" href="img/tarot.webp">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,200..500,0..100,0..1&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@300;400&display=swap">
+<link rel="preload" as="image" href="img/rug.webp">
 <style>
 :root{
-  --ink:#0F0D0C;
-  --ink-2:#191614;
-  --ink-3:#24201D;
-  --paper:#F3ECE6;
-  --skin:#E9D6C8;
-  --skin-2:#F4EAE2;
-  --blush:#E2A08E;
-  --blush-d:#B86F5D;
-  --mute:#A49890;
-  --mute-d:#6E625A;
-  --hair:rgba(243,236,230,.16);
-  --hair-d:rgba(15,13,12,.14);
+  --paper:#F2EDE6;--paper2:#E8DFD5;--sheet:#FBF8F4;--ink:#171311;--ink2:#26201C;--mute:#6E645C;--mute2:#A39890;
+  --line:rgba(23,19,17,.14);--line2:rgba(242,237,230,.16);--vio:#4A3AAE;--vio2:#AFA3F5;
+  --disp:"Fraunces",Georgia,serif;--sans:"Instrument Sans",system-ui,sans-serif;--mono:"DM Mono",ui-monospace,monospace;
+  --pad:clamp(20px,4.4vw,64px);--max:1312px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--ink);color:var(--paper);font-family:"DM Sans",system-ui,sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
-h1,h2,h3{font-family:"Bodoni Moda",Didot,serif;font-weight:500;font-style:normal;line-height:1.02;letter-spacing:-.01em;margin:0}
+h1,h2,h3{font-family:var(--disp);font-weight:260;font-style:normal;font-variation-settings:"opsz" 144,"SOFT" 0,"WONK" 0;letter-spacing:-.022em;line-height:.98;margin:0}
 p{margin:0}
-.wrap{width:min(1240px,100% - 48px);margin-inline:auto}
-.kick{display:inline-flex;align-items:center;gap:12px;font-size:12.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--blush)}
-.kick::before{content:"";width:34px;height:1px;background:currentColor}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.mono{font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.vio{color:var(--vio)}
 
-.demo{background:var(--blush);color:var(--ink);font-size:13px;text-align:center;padding:9px 16px}
-.demo a{color:var(--ink);font-weight:600;text-underline-offset:3px}
+/* demostrook */
+.demo{background:var(--ink);color:var(--paper);font:500 12.5px/1.4 var(--sans);text-align:center;padding:9px 16px}
+.demo a{color:var(--vio2);text-underline-offset:3px}
 
-/* knoppen: fijne lijn met een naald-streep die bij hover doorloopt */
-.btn{--fg:var(--ink);--bg:var(--paper);position:relative;display:inline-flex;align-items:center;gap:14px;padding:16px 26px;border-radius:999px;background:var(--bg);color:var(--fg);font-weight:600;font-size:15.5px;letter-spacing:.01em;text-decoration:none;border:1px solid var(--bg);overflow:hidden;transition:color .35s,background .35s,border-color .35s;cursor:pointer;font-family:inherit}
-.btn i{position:relative;width:30px;height:1px;background:currentColor;transition:width .35s}
-.btn i::after{content:"";position:absolute;right:-1px;top:-3px;width:7px;height:7px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
-.btn:hover i{width:44px}
-.btn:hover{--bg:var(--blush);border-color:var(--blush)}
-.btn.line{--bg:transparent;--fg:var(--paper);border-color:rgba(243,236,230,.4)}
-.btn.line:hover{--bg:var(--paper);--fg:var(--ink);border-color:var(--paper)}
-.btn.dark{--bg:var(--ink);--fg:var(--paper)}
-.btn.dark:hover{--bg:var(--blush-d);border-color:var(--blush-d)}
+/* knoppen: een stencil dat op zijn plaats schuift */
+.btn{position:relative;display:inline-flex;align-items:center;gap:14px;background:var(--ink);color:var(--paper);text-decoration:none;font:500 14.5px/1 var(--sans);padding:17px 22px 17px 24px;border:0;border-radius:2px;cursor:pointer;isolation:isolate;transition:background .3s}
+.btn::before{content:"";position:absolute;inset:0;border:1px solid var(--vio);border-radius:2px;transform:translate(5px,5px);transition:transform .35s cubic-bezier(.2,.7,.2,1);z-index:-1}
+.btn:hover::before,.btn:focus-visible::before{transform:translate(0,0)}
+.btn i{font-style:normal;position:relative;display:block;width:22px;height:1px;background:currentColor;transition:width .35s cubic-bezier(.2,.7,.2,1)}
+.btn i::after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
+.btn:hover i{width:36px}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.btn.ghost::before{border-color:transparent}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.btn.light{background:var(--paper);color:var(--ink)}
+.btn.light::before{border-color:var(--vio2)}
 
-/* nav */
-.nav{position:relative;z-index:5}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 0}
-.logo{font-family:"Bodoni Moda",serif;font-size:28px;text-decoration:none;letter-spacing:.01em}
-.logo span{color:var(--blush)}
-.nav ul{display:flex;gap:34px;list-style:none;margin:0;padding:0;font-size:14.5px;font-weight:500}
-.nav ul a{text-decoration:none;color:#D7CCC4}
-.nav ul a:hover{color:var(--blush)}
-.nav .btn{padding:11px 20px;font-size:14.5px}
+/* paginakop per blad */
+.sheethead{display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:16px;padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:clamp(36px,5vw,64px)}
+.sheethead span:nth-child(2){text-align:center}
+.sheethead span:last-child{text-align:right}
+.sheethead b{font-weight:400;color:var(--vio)}
+.dark .sheethead{border-color:var(--line2)}
+.dark .sheethead b{color:var(--vio2)}
 
-/* hero */
-.hero{position:relative;overflow:hidden;padding-bottom:0}
-.hero .lines{position:absolute;right:-6%;top:40px;width:min(820px,70vw);opacity:.12;pointer-events:none}
-.hero-top{position:relative;z-index:2;text-align:center;padding:24px 0 48px}
-.hero h1{font-size:clamp(54px,6.4vw,98px);font-weight:400;letter-spacing:-.02em;margin:18px auto 20px;max-width:16ch}
-.hero h1 b{font-weight:400;color:var(--blush)}
-.hero-top p{max-width:560px;margin:0 auto;color:#CFC3BA;font-size:18px}
-.hero .acts{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:26px}
-.tri{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:22px;align-items:end}
-.tri figure{position:relative;margin:0;border-radius:999px 999px 0 0;overflow:hidden;background:var(--ink-3)}
-.tri figure::after{content:"";position:absolute;inset:12px 12px 0;border:1px solid rgba(243,236,230,.35);border-bottom:0;border-radius:999px 999px 0 0;pointer-events:none}
-.tri img{width:100%;height:100%;object-fit:cover}
-.tri .s{height:440px}
-.tri .m{height:560px}
-.tri figcaption{position:absolute;left:0;right:0;bottom:18px;text-align:center;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.6);z-index:1}
-.tri .rate{position:absolute;left:50%;top:-26px;transform:translateX(-50%);z-index:3;background:var(--paper);color:var(--ink);border-radius:999px;padding:10px 18px;display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;white-space:nowrap;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)}
-.tri .rate b{font-family:"Bodoni Moda",serif;font-size:22px;font-weight:600}
-.tri .rate i{font-style:normal;color:var(--blush-d);letter-spacing:2px;font-size:12px}
+/* snijtekens */
+.cm{position:relative}
+.cm::after{content:"";position:absolute;inset:-9px;pointer-events:none;opacity:.9;transition:inset .4s cubic-bezier(.2,.7,.2,1);
+  background:
+  linear-gradient(var(--vio),var(--vio)) 0 0/13px 1px no-repeat,linear-gradient(var(--vio),var(--vio)) 0 0/1px 13px no-repeat,
+  linear-gradient(var(--vio),var(--vio)) 100% 0/13px 1px no-repeat,linear-gradient(var(--vio),var(--vio)) 100% 0/1px 13px no-repeat,
+  linear-gradient(var(--vio),var(--vio)) 0 100%/13px 1px no-repeat,linear-gradient(var(--vio),var(--vio)) 0 100%/1px 13px no-repeat,
+  linear-gradient(var(--vio),var(--vio)) 100% 100%/13px 1px no-repeat,linear-gradient(var(--vio),var(--vio)) 100% 100%/1px 13px no-repeat}
+.cm:hover::after{inset:-4px}
 
+/* liniaal */
+.ruler{height:12px;background:
+  repeating-linear-gradient(90deg,currentColor 0 1px,transparent 1px 8px) left bottom/100% 5px no-repeat,
+  repeating-linear-gradient(90deg,currentColor 0 1px,transparent 1px 40px) left bottom/100% 12px no-repeat;opacity:.55}
+
+/* NAV */
+.nav{background:var(--paper);position:relative;z-index:5}
+.nav .wrap{max-width:none;display:flex;align-items:center;gap:28px;height:72px;border-bottom:1px solid var(--line)}
+.logo{font-family:var(--disp);font-weight:300;font-variation-settings:"opsz" 144;font-size:27px;letter-spacing:-.02em;text-decoration:none;display:flex;align-items:baseline;gap:10px}
+.logo small{font:400 10.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.nav ul{list-style:none;display:flex;gap:30px;margin:0 0 0 auto;padding:0}
+.nav ul a{text-decoration:none;font:400 11.5px/1 var(--mono);letter-spacing:.09em;text-transform:uppercase;position:relative;padding:6px 0}
+.nav ul a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--vio);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.nav ul a:hover::after{transform:scaleX(1)}
+.nav .btn{padding:13px 18px 13px 20px;font-size:13.5px}
+
+/* HERO */
+.hero{position:relative;background:#e9cfc6;overflow:hidden}
+.stage{position:relative;height:calc(100svh - 72px - 35px - 56px);min-height:620px;max-height:960px}
+.vruler{position:absolute;right:0;top:0;bottom:0;width:12px;z-index:3;color:var(--paper);opacity:.85;background:repeating-linear-gradient(180deg,currentColor 0 1px,transparent 1px 8px) right top/5px 100% no-repeat,repeating-linear-gradient(180deg,currentColor 0 1px,transparent 1px 40px) right top/12px 100% no-repeat}
+.art{position:absolute;left:50%;top:50%;width:max(122vw,calc((100svh - 163px) * .9));aspect-ratio:1400/1677;transform:translate(-50%,-45%)}
+.art img{width:100%;height:100%;object-fit:cover;filter:saturate(.86) contrast(1.03)}
+.stage::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(233,207,198,.0) 60%,rgba(40,28,24,.10))}
+.pin{position:absolute;width:0;height:0;z-index:2}
+.pin::before{content:"";position:absolute;left:-4px;top:-4px;width:9px;height:9px;border:1px solid var(--vio);border-radius:50%;background:rgba(242,237,230,.5)}
+.pin span{position:absolute;top:-.5px;height:1px;background:var(--vio);width:var(--w,110px)}
+.pin.r span{left:6px}.pin.l span{right:6px}
+.pin em{position:absolute;top:-17px;font:400 10.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--vio);font-style:normal;white-space:nowrap}
+.pin.r em{left:calc(var(--w,110px) + 12px);top:-5px}.pin.l em{right:calc(var(--w,110px) + 12px);top:-5px}
+.hero h1{font-size:clamp(60px,8.4vw,132px);line-height:.9;letter-spacing:-.035em;color:var(--ink)}
+.hero h1 span{position:absolute;z-index:3;display:block}
+.hero h1 .l1{left:var(--pad);top:15%}
+.hero h1 .l2{left:61vw;top:37%}
+.kick{position:absolute;z-index:3;left:var(--pad);top:calc(15% - 30px);color:var(--ink)}
+.intro{position:absolute;z-index:3;left:61vw;top:calc(37% + 2.1 * clamp(60px,8.4vw,132px) * .9 + 26px);width:min(400px,33vw)}
+.intro p{font-size:16.5px;line-height:1.55;color:var(--ink2)}
+.intro .acts{display:flex;flex-wrap:wrap;gap:14px;margin-top:24px}
+.hfoot{position:relative;z-index:4;background:var(--paper);color:var(--ink)}
+.hfoot .ruler{position:absolute;left:0;right:0;top:-12px;color:var(--paper);opacity:.9}
+.hfoot .wrap{max-width:none;display:flex;align-items:center;justify-content:space-between;gap:20px;height:56px}
+.hfoot .star{color:var(--vio);letter-spacing:.12em}
+
+/* algemeen blad */
 section{position:relative}
-.head{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:end;margin-bottom:54px}
-.head h2{font-size:clamp(42px,5vw,74px);font-weight:400;margin-top:18px;letter-spacing:-.005em}
-.head p{color:#CFC3BA;max-width:460px}
+.blad{padding:clamp(72px,9vw,128px) 0}
+.lead{font-size:clamp(16.5px,1.3vw,18.5px);line-height:1.6;color:var(--ink2);max-width:540px}
+h2{font-size:clamp(44px,5.6vw,84px)}
+h3{font-size:clamp(26px,2.3vw,34px);line-height:1.05;letter-spacing:-.015em}
 
-/* werk */
-.work{padding:130px 0 120px;border-top:1px solid var(--hair)}
-.masonry{columns:3;column-gap:22px}
-.piece{break-inside:avoid;margin:0 0 22px;position:relative;border-radius:18px;overflow:hidden;background:var(--ink-3)}
-.piece img{width:100%;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
-.piece:hover img{transform:scale(1.035)}
-.piece figcaption{position:absolute;left:0;right:0;bottom:0;padding:60px 20px 18px;background:linear-gradient(0deg,rgba(15,13,12,.88),rgba(15,13,12,0));display:flex;flex-direction:column;gap:4px}
-.piece figcaption small{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--blush)}
-.piece figcaption b{font-family:"Bodoni Moda",serif;font-weight:500;font-size:24px;line-height:1.1}
-.piece figcaption span{font-size:14px;color:#D7CCC4;line-height:1.45}
-
+/* WERK */
+.werk-top{display:grid;grid-template-columns:7fr 5fr;gap:48px;align-items:end;margin-bottom:clamp(40px,5vw,72px)}
+.werk-top .lead{justify-self:end}
+.plates{display:grid;grid-template-columns:repeat(12,1fr);column-gap:clamp(16px,2.2vw,32px);row-gap:clamp(48px,6vw,88px)}
+.plate{margin:0}
+.plate .ph{position:relative;overflow:hidden;background:var(--paper2)}
+.plate .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.plate:hover .ph img{transform:scale(1.035)}
+.plate figcaption{display:grid;grid-template-columns:auto 1fr;column-gap:16px;padding-top:16px;border-top:0}
+.plate figcaption .n{color:var(--vio);padding-top:6px}
+.plate figcaption b{display:block;font-family:var(--disp);font-weight:300;font-variation-settings:"opsz" 144;font-size:clamp(22px,1.9vw,28px);line-height:1.1;letter-spacing:-.01em}
+.plate figcaption .meta{display:block;color:var(--mute);margin-top:6px}
+.plate figcaption q{display:block;grid-column:2;margin-top:14px;font-family:var(--disp);font-weight:300;font-variation-settings:"opsz" 30;font-size:17px;line-height:1.45;color:var(--ink2);quotes:"\201C" "\201D";padding-left:14px;border-left:1px solid var(--vio)}
+.plate figcaption q + small{grid-column:2;display:block;margin:8px 0 0 15px;color:var(--mute)}
+.p-tarot{grid-column:1/8}.p-tarot .ph{aspect-ratio:1/1}
+.p-wolf{grid-column:9/13;align-self:end}.p-wolf .ph{aspect-ratio:4/5}
+.p-sis{grid-column:1/5}.p-sis .ph{aspect-ratio:4/5}
+.p-sleeve{grid-column:6/10;margin-top:110px}.p-sleeve .ph{aspect-ratio:3/4}
+.p-hib{grid-column:10/13;margin-top:40px}.p-hib .ph{aspect-ratio:3/4}
+.p-klimt{grid-column:1/4}.p-music{grid-column:4/7}.p-orn{grid-column:7/10}.p-cover{grid-column:10/13}
+.p-klimt .ph,.p-music .ph,.p-orn .ph,.p-cover .ph{aspect-ratio:4/5}
+.p-music{margin-top:70px}.p-orn{margin-top:24px}.p-cover{margin-top:96px}
+.loupe-hint{display:flex;align-items:center;gap:10px;color:var(--mute);margin-top:12px}
+.loupe-hint::before{content:"";width:16px;height:16px;border:1px solid var(--vio);border-radius:50%}
+.lens{position:absolute;width:190px;height:190px;border-radius:50%;pointer-events:none;border:1px solid var(--paper);box-shadow:0 0 0 1px var(--vio),0 18px 40px rgba(23,19,17,.28);background-repeat:no-repeat;opacity:0;transform:translate(-50%,-50%) scale(.85);transition:opacity .25s,transform .25s;z-index:3}
+.lens.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.lens::after{content:"x 2,5";position:absolute;left:50%;bottom:-24px;transform:translateX(-50%);font:400 10px/1 var(--mono);letter-spacing:.1em;color:var(--paper);background:var(--vio);padding:4px 6px}
 /* klein werk */
-.small{background:var(--skin);color:var(--ink);padding:110px 0;border-radius:48px 48px 0 0}
-.small .kick{color:var(--blush-d)}
-.small .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
-.small h2{font-size:clamp(40px,4.6vw,66px);font-weight:400;margin:18px 0 20px}
-.small .lead{color:#4A3E37;max-width:460px}
-.small blockquote{margin:28px 0 0;padding-left:20px;border-left:1px solid var(--blush-d)}
-.small blockquote q{font-family:"Bodoni Moda",serif;font-size:22px;line-height:1.3;quotes:"\201C" "\201D"}
-.small blockquote small{display:block;margin-top:8px;font-size:13.5px;color:var(--mute-d)}
-.dots{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.dot{margin:0;position:relative}
-.dot img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:50%;border:6px solid var(--skin-2);box-shadow:0 20px 40px -26px rgba(60,30,20,.6)}
-.dot:nth-child(2),.dot:nth-child(5){transform:translateY(34px)}
-.dot figcaption{text-align:center;margin-top:10px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute-d)}
+.klein{display:grid;grid-template-columns:4fr 8fr;gap:clamp(32px,5vw,80px);align-items:center;margin-top:clamp(80px,10vw,140px);padding-top:clamp(40px,5vw,64px);border-top:1px solid var(--line)}
+.klein h3{font-size:clamp(34px,3.4vw,50px);margin:14px 0 16px}
+.klein blockquote{margin:28px 0 0;padding:18px 0 0;border-top:1px solid var(--line)}
+.klein blockquote q{font-family:var(--disp);font-weight:300;font-variation-settings:"opsz" 60;font-size:21px;line-height:1.35;quotes:"\201C" "\201D"}
+.klein blockquote small{display:block;margin-top:10px;color:var(--mute)}
+.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.contact figure{margin:0;padding:12px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--sheet)}
+.contact img{aspect-ratio:1/1;object-fit:cover;width:100%;filter:saturate(.9);transition:filter .4s}
+.contact figure:hover img{filter:saturate(1.05)}
+.contact figcaption{display:flex;justify-content:space-between;gap:8px;padding-top:10px}
+.contact figcaption span:first-child{color:var(--vio)}
 
-/* mix & match */
-.mix{background:var(--skin-2);color:var(--ink);padding:110px 0 120px}
-.mix .kick{color:var(--blush-d)}
-.mix .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-.sheet{position:relative;background:#fff;border-radius:6px;padding:26px 26px 22px;box-shadow:0 40px 70px -40px rgba(60,30,20,.55);transform:rotate(-2deg)}
-.sheet::before,.sheet::after{content:"";position:absolute;top:-12px;width:90px;height:26px;background:rgba(226,160,142,.55)}
-.sheet::before{left:30px;transform:rotate(-6deg)}
-.sheet::after{right:30px;transform:rotate(5deg)}
-.sheet .bar{display:flex;justify-content:space-between;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute-d);margin-bottom:14px}
-.sheet img{width:100%;border:1px solid var(--hair-d)}
-.sheet .foot{display:flex;justify-content:space-between;margin-top:12px;font-family:"Bodoni Moda",serif;font-size:18px}
-.sheet .foot small{font-family:"DM Sans",sans-serif;font-size:13px;color:var(--mute-d)}
-.mix h2{font-size:clamp(40px,4.6vw,66px);font-weight:400;margin:18px 0 18px}
-.mix .lead{color:#4A3E37;max-width:500px}
-.pick{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:34px 0 14px;border:0;padding:0}
-.pick input{position:absolute;opacity:0;pointer-events:none}
-.pick label{cursor:pointer;display:block}
-.pick .t{display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:20px 18px;border-radius:20px;border:1px solid var(--hair-d);background:#fff;transition:background .25s,border-color .25s,color .25s}
-.pick .t small{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute-d)}
-.pick .t b{font-family:"Bodoni Moda",serif;font-weight:500;font-size:40px;line-height:1}
-.pick .t i{display:flex;gap:5px;font-style:normal}
-.pick .t i em{width:12px;height:12px;border-radius:50%;border:1px solid var(--ink);display:block}
-.pick input:checked+.t{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.pick input:checked+.t small{color:var(--blush)}
-.pick input:checked+.t i em{border-color:var(--paper);background:var(--blush)}
-.pick input:focus-visible+.t{outline:2px solid var(--blush-d);outline-offset:3px}
-.mix .note{font-size:14px;color:var(--mute-d)}
-.mix .acts{margin-top:26px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-.mix .acts small{font-size:14px;color:var(--mute-d);max-width:260px;line-height:1.5}
-.mix .acts a.ig{color:var(--ink);font-weight:600}
+/* WERKWIJZE */
+.dark{background:var(--ink);color:var(--paper)}
+.dark .lead{color:rgba(242,237,230,.78)}
+.dark .sheethead{color:rgba(242,237,230,.7)}
+.ww{display:grid;grid-template-columns:5fr 7fr;gap:clamp(40px,6vw,104px)}
+.ww-l{position:sticky;top:40px;align-self:start}
+.ww-l h2{margin-bottom:22px}
+.pair{position:relative;margin-top:52px;max-width:520px}
+.pair figure{position:absolute;margin:0}
+.pair .sk{position:relative;background:var(--sheet);padding:12px 12px 14px;transform:rotate(-2.2deg);box-shadow:0 20px 40px rgba(0,0,0,.35)}
+.pair .sk img{width:100%;mix-blend-mode:multiply}
+.pair .sk::before{content:"";position:absolute;left:50%;top:-12px;width:74px;height:24px;transform:translateX(-50%) rotate(2deg);background:rgba(232,223,213,.82)}
 
-/* voor je boekt */
-.rules{padding:130px 0 120px}
-.rules-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:start}
-.acc details{border-top:1px solid var(--hair)}
-.acc details:last-child{border-bottom:1px solid var(--hair)}
-.acc summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:54px 1fr 24px;gap:12px;align-items:center;padding:24px 0;font-family:"Bodoni Moda",serif;font-size:25px;line-height:1.2}
-.acc summary::-webkit-details-marker{display:none}
-.acc summary span{font-family:"DM Sans",sans-serif;font-size:13px;letter-spacing:.14em;color:var(--blush)}
-.acc summary i{width:24px;height:24px;position:relative}
-.acc summary i::before,.acc summary i::after{content:"";position:absolute;left:4px;right:4px;top:11px;height:1px;background:var(--paper);transition:transform .3s}
-.acc summary i::after{transform:rotate(90deg)}
-.acc details[open] summary i::after{transform:rotate(0)}
-.acc details p{padding:0 36px 26px 66px;color:#CFC3BA}
-.side{display:flex;flex-direction:column;gap:20px}
-.box{background:var(--ink-2);border:1px solid var(--hair);border-radius:24px;padding:28px 30px}
-.box h3{font-size:28px;margin-bottom:14px}
-.tiers{display:flex;flex-direction:column;gap:10px}
-.tier{display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--hair)}
-.tier:last-child{border-bottom:0}
-.tier span{color:#CFC3BA;font-size:15.5px}
-.tier b{font-family:"Bodoni Moda",serif;font-weight:500;font-size:30px;color:var(--blush)}
-.tier .bar{grid-column:1 / -1;height:3px;border-radius:9px;background:var(--ink-3);overflow:hidden}
-.tier .bar em{display:block;height:100%;background:var(--blush)}
-.box .fine{font-size:14px;color:var(--mute);margin-top:12px;line-height:1.55}
-.check{list-style:none;margin:0;padding:0}
-.check li{position:relative;padding:10px 0 10px 36px;border-bottom:1px solid var(--hair);font-size:15.5px;color:#CFC3BA}
-.check li:last-child{border-bottom:0}
-.check li b{color:var(--paper);font-weight:600}
-.check li::before{content:"";position:absolute;left:0;top:13px;width:20px;height:20px;border:1px solid var(--blush);border-radius:6px}
-.check li::after{content:"";position:absolute;left:6px;top:17px;width:8px;height:5px;border-left:1.5px solid var(--blush);border-bottom:1.5px solid var(--blush);transform:rotate(-45deg)}
+.pair figcaption{font:400 10.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding-top:10px;color:var(--mute)}
+.steps{list-style:none;margin:0;padding:0 0 0 56px;position:relative}
+.steps::before{content:"";position:absolute;left:12px;top:8px;bottom:8px;width:1px;background:var(--line2)}
+.steps::after{content:"";position:absolute;left:12px;top:8px;bottom:8px;width:1px;background:var(--vio2);transform-origin:top;transform:scaleY(var(--p,1))}
+.step{position:relative;padding:0 0 clamp(36px,4vw,54px)}
+.step:last-child{padding-bottom:0}
+.step::before{content:"";position:absolute;left:-49px;top:9px;width:11px;height:11px;border-radius:50%;background:var(--ink);border:1px solid var(--vio2)}
+.step .top{display:flex;align-items:baseline;gap:16px;color:rgba(242,237,230,.55)}
+.step .top b{font-weight:400;color:var(--vio2)}
+.step h3{margin:12px 0 12px;color:var(--paper)}
+.step p{color:rgba(242,237,230,.76);max-width:520px}
+.step ul{list-style:none;margin:16px 0 0;padding:0;max-width:540px;border-top:1px solid var(--line2)}
+.step li{display:grid;grid-template-columns:110px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid var(--line2);font-size:15px;color:rgba(242,237,230,.82)}
+.step li span{font:400 10.5px/1.9 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--vio2)}
 
-/* reviews */
-.revs{background:var(--ink-2);padding:130px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
-.revs-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px}
-.lead-q .score{display:flex;align-items:baseline;gap:14px;margin:26px 0 30px}
-.lead-q .score b{font-family:"Bodoni Moda",serif;font-weight:400;font-size:96px;line-height:.8}
-.lead-q .score span{font-size:15px;color:var(--mute)}
-.lead-q .score i{display:block;font-style:normal;color:var(--blush);letter-spacing:3px}
-.lead-q q{display:block;font-family:"Bodoni Moda",serif;font-size:clamp(26px,2.6vw,36px);line-height:1.22;quotes:"\201C" "\201D"}
-.lead-q .by{margin-top:20px;font-size:15px;color:var(--mute)}
-.lead-q .by b{color:var(--paper);font-weight:600}
-.rlist{display:flex;flex-direction:column}
-.r{display:grid;grid-template-columns:92px 1fr;gap:22px;padding:26px 0;border-top:1px solid var(--hair)}
-.r:last-child{border-bottom:1px solid var(--hair)}
-.r .count{font-family:"Bodoni Moda",serif;font-size:15px;line-height:1.2;color:var(--blush);padding-top:4px}
-.r .count b{display:block;font-size:44px;font-weight:400;line-height:.95}
-.r q{display:block;color:#DDD2CA;quotes:"\201C" "\201D";font-size:16.5px}
-.r small{display:block;margin-top:10px;color:var(--mute);font-size:14px}
-.r small b{color:var(--paper);font-weight:600}
+/* MIX */
+.mix{background:var(--paper);background-image:repeating-linear-gradient(0deg,transparent 0 31px,rgba(74,58,174,.07) 31px 32px)}
+.mix-grid{display:grid;grid-template-columns:7fr 5fr;gap:clamp(40px,6vw,96px);align-items:center}
+.board{position:relative;padding:20px 0 10px}
+.board .a{position:relative;background:var(--sheet);padding:22px 22px 0;box-shadow:0 1px 0 var(--line),0 24px 50px rgba(23,19,17,.10);transform:rotate(-1deg)}
+.board .a img{mix-blend-mode:multiply}
+.board .a .bar,.board .b .bar{display:flex;justify-content:space-between;color:var(--mute);padding:12px 0 14px}
+.board .a::before,.board .b::before{content:"";position:absolute;top:-11px;width:80px;height:24px;background:rgba(214,200,188,.75)}
+.board .a::before{left:28px;transform:rotate(-4deg)}
+.board .b{position:absolute;right:-18px;bottom:-34px;width:46%;background:var(--sheet);padding:14px 14px 0;box-shadow:0 24px 50px rgba(23,19,17,.16);transform:rotate(3deg)}
+.board .b::before{right:30px;transform:rotate(5deg)}
+.board .b img{mix-blend-mode:multiply}
+.board .ruler{color:var(--ink);margin-top:2px}
+.mix h2{margin:0 0 20px}
+.tickets{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:30px 0 16px;border:0;padding:0}
+.tickets legend{margin-bottom:12px;color:var(--mute)}
+.tickets label{position:relative;cursor:pointer}
+.tickets input{position:absolute;opacity:0}
+.tickets .t{display:block;background:var(--sheet);padding:16px 16px 14px;border:1px solid var(--line);position:relative;transition:background .25s,color .25s,border-color .25s}
+.tickets .t::after{content:"";position:absolute;left:10px;right:10px;top:52px;border-top:1px dashed currentColor;opacity:.3}
+.tickets small{display:block;font:400 10.5px/1 var(--mono);letter-spacing:.09em;text-transform:uppercase}
+.tickets b{display:block;font-family:var(--disp);font-weight:300;font-variation-settings:"opsz" 144;font-size:34px;line-height:1;margin-top:26px;letter-spacing:-.02em}
+.tickets input:checked + .t{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.tickets input:focus-visible + .t{outline:2px solid var(--vio);outline-offset:3px}
+.tickets label:hover .t{border-color:var(--ink)}
+.mix .acts{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:26px}
+.mix .acts small{color:var(--mute);font-size:13.5px;max-width:260px;line-height:1.45}
 
-/* boeken */
-.book{padding:130px 0 120px;overflow:hidden}
-.book .lines{position:absolute;left:-8%;bottom:-60px;width:min(620px,60vw);opacity:.1;pointer-events:none}
-.book-grid{position:relative;display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start}
-.book h2{font-size:clamp(42px,5vw,72px);font-weight:400;margin:18px 0 20px}
-.book .lead{color:#CFC3BA;max-width:440px}
-.open{margin-top:30px;border:1px solid var(--hair);border-radius:20px;padding:20px 22px;max-width:440px}
-.open b{display:block;font-family:"Bodoni Moda",serif;font-weight:500;font-size:21px;color:var(--blush)}
-.open p{font-size:15px;color:#CFC3BA;margin-top:4px}
-.info{margin-top:30px;display:grid;grid-template-columns:110px 1fr;gap:12px 18px;font-size:15.5px;max-width:440px}
-.info dt{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);padding-top:3px}
-.info dd{margin:0}
-.info a{text-decoration:none;border-bottom:1px solid var(--hair)}
-form{background:var(--paper);color:var(--ink);border-radius:30px;padding:40px 40px 34px;display:grid;grid-template-columns:1fr 1fr;gap:22px 20px}
-form .vol{grid-column:1 / -1}
-form label{display:block;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mute-d);margin-bottom:8px}
-form input,form textarea{width:100%;font:inherit;font-size:16.5px;color:var(--ink);background:transparent;border:0;border-bottom:1px solid rgba(15,13,12,.25);padding:8px 0 12px;border-radius:0}
-form textarea{min-height:120px;resize:vertical}
-form input:focus,form textarea:focus{outline:none;border-bottom-color:var(--blush-d)}
-form .send{grid-column:1 / -1;display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:6px}
-form .send small{font-size:13.5px;color:var(--mute-d);max-width:270px;line-height:1.5}
+/* AFSPRAKEN */
+.afs{background:var(--paper2)}
+.afs-top{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,6vw,96px);align-items:end;margin-bottom:56px}
+.scale{background:var(--sheet);padding:30px clamp(20px,3vw,40px) 26px;box-shadow:0 1px 0 var(--line)}
+.scale .row{display:grid;grid-template-columns:150fr 300fr 250fr;position:relative}
+.scale .seg{padding:0 12px 18px;border-left:1px solid var(--ink)}
+.scale .seg:last-child{border-right:1px dashed var(--ink)}
+.scale .seg small{display:block;color:var(--mute)}
+.scale .seg b{display:block;font-family:var(--disp);font-weight:300;font-variation-settings:"opsz" 144;font-size:clamp(34px,3.6vw,52px);line-height:1;margin-top:8px;letter-spacing:-.02em}
+.scale .ruler{color:var(--ink);opacity:.8}
+.scale .ticks{display:grid;grid-template-columns:150fr 300fr 250fr;color:var(--mute);padding-top:8px}
+.scale .ticks span:last-child{display:flex;justify-content:space-between}
+.scale p{margin-top:20px;font-size:14.5px;color:var(--ink2);max-width:620px}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--ink)}
+.rule{padding:24px 28px 28px 0;border-bottom:1px solid var(--line)}
+.rule + .rule{padding-left:28px;border-left:1px solid var(--line)}
+.rule:nth-child(3n+1){padding-left:0;border-left:0}
+.rule .n{color:var(--vio)}
+.rule h3{font-size:23px;margin:12px 0 10px;line-height:1.12}
+.rule p{font-size:15px;color:var(--ink2)}
+.bring{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;margin-top:40px;padding:20px 24px;background:var(--ink);color:var(--paper)}
+.bring .mono{color:var(--vio2)}
+.bring span:not(.mono){font-size:15px;display:flex;align-items:center;gap:10px}
+.bring span:not(.mono)::before{content:"";width:12px;height:12px;border:1px solid var(--vio2)}
 
-footer{border-top:1px solid var(--hair);padding:50px 0 30px;font-size:14.5px;color:var(--mute)}
-.frow{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
-footer .logo{color:var(--paper)}
-footer h4{margin:0 0 12px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--paper);font-weight:600}
-footer ul{list-style:none;margin:0;padding:0;line-height:2}
-footer a{text-decoration:none}
-footer a:hover{color:var(--blush)}
-.fbot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:40px;padding-top:20px;border-top:1px solid var(--hair);font-size:13.5px}
+/* REVIEWS */
+.rv-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(40px,6vw,96px)}
+.score{display:flex;align-items:flex-end;gap:18px;margin-bottom:30px}
+.score b{font-family:var(--disp);font-weight:220;font-variation-settings:"opsz" 144;font-size:clamp(110px,12vw,180px);line-height:.78;letter-spacing:-.05em}
+.score span{padding-bottom:6px;color:var(--mute)}
+.score span i{display:block;font-style:normal;color:var(--vio);letter-spacing:.2em;font-size:15px;margin-bottom:6px}
+.rv-l h2{font-size:clamp(40px,4.4vw,64px);margin-bottom:16px}
+.big-q{margin:40px 0 0;padding-top:24px;border-top:1px solid var(--ink)}
+.big-q q{display:block;font-family:var(--disp);font-weight:300;font-variation-settings:"opsz" 72;font-size:clamp(22px,2vw,28px);line-height:1.3;letter-spacing:-.01em;quotes:"\201C" "\201D"}
+.big-q small{display:block;margin-top:14px;color:var(--mute)}
+.rl{border-top:1px solid var(--line)}
+.r{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:26px 0;border-bottom:1px solid var(--line)}
+.r .tag{color:var(--vio);line-height:1.6}
+.r .tag b{display:block;font-family:var(--disp);font-weight:260;font-variation-settings:"opsz" 144;font-size:44px;line-height:1;letter-spacing:-.03em;color:var(--ink);text-transform:none;margin-bottom:4px}
+.r q{display:block;font-size:16px;line-height:1.6;color:var(--ink2);quotes:"\201C" "\201D"}
+.r small{display:block;margin-top:10px;color:var(--mute)}
 
-.js [data-r]{opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+/* BOEKEN */
+.bk{display:grid;grid-template-columns:5fr 7fr;gap:clamp(40px,6vw,96px);align-items:start}
+.city{margin:0;position:relative}
+.city img{aspect-ratio:4/5;object-fit:cover;width:100%;filter:grayscale(.25) contrast(1.02)}
+.city figcaption{display:flex;justify-content:space-between;gap:12px;padding-top:12px;color:rgba(242,237,230,.6)}
+.addr{margin-top:30px;border-top:1px solid var(--line2)}
+.addr div{display:grid;grid-template-columns:110px 1fr;gap:14px;padding:13px 0;border-bottom:1px solid var(--line2);font-size:15px}
+.addr dt{font:400 10.5px/1.9 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--vio2)}
+.addr dd{margin:0;color:rgba(242,237,230,.86)}
+.addr a{text-underline-offset:3px;text-decoration-color:rgba(242,237,230,.3)}
+.bk h2{margin:0 0 20px}
+form.mail{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:26px 28px}
+form.mail .f{position:relative;padding-top:22px}
+form.mail .vol{grid-column:1/-1}
+form.mail label{position:absolute;top:0;left:0;font:400 10.5px/1 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:rgba(242,237,230,.6)}
+form.mail input,form.mail textarea{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(242,237,230,.3);color:var(--paper);font:400 17px/1.4 var(--sans);padding:10px 0 14px;outline:0;border-radius:0;resize:vertical}
+form.mail textarea{min-height:92px}
+form.mail input::placeholder,form.mail textarea::placeholder{color:rgba(242,237,230,.32)}
+form.mail input:focus,form.mail textarea:focus{border-color:var(--vio2)}
+form.mail .send{grid-column:1/-1;display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:30px}
+form.mail .send small{color:rgba(242,237,230,.55);font-size:13.5px;max-width:300px;line-height:1.45}
+.route{display:inline-flex;margin-top:26px;color:var(--paper);font:400 11px/1 var(--mono);letter-spacing:.09em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--vio2);padding-bottom:6px}
+
+/* FOOTER */
+footer{background:var(--ink);color:var(--paper);padding:0 0 28px;border-top:1px solid var(--line2)}
+.fword{font-family:var(--disp);font-weight:220;font-variation-settings:"opsz" 144;font-size:clamp(70px,17.5vw,268px);line-height:.8;letter-spacing:-.05em;padding:56px 0 26px;white-space:nowrap;overflow:hidden}
+.fword span{color:var(--vio2)}
+.frow{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;padding:30px 0;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)}
+.frow h4{margin:0 0 12px;font:400 10.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--vio2)}
+.frow ul{list-style:none;margin:0;padding:0;display:grid;gap:7px;font-size:14.5px;color:rgba(242,237,230,.8)}
+.frow a{text-decoration:none}.frow a:hover{color:var(--vio2)}
+.frow p{font-size:14.5px;color:rgba(242,237,230,.7);max-width:300px}
+.fbot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:18px;color:rgba(242,237,230,.5)}
+
+/* reveal */
+.js [data-r]{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
 .js [data-r].in{opacity:1;transform:none}
-.js .dot[data-r]:nth-child(2).in,.js .dot[data-r]:nth-child(5).in{transform:translateY(34px)}
-@media (prefers-reduced-motion:reduce){.js [data-r]{opacity:1;transform:none;transition:none}}
+.js .plate[data-r] .ph{clip-path:inset(0 0 100% 0);transition:clip-path 1.1s cubic-bezier(.6,0,.2,1)}
+.js .plate[data-r].in .ph{clip-path:inset(0 0 0 0)}
+.js .sheethead[data-r]{opacity:1;transform:none;border-bottom-color:transparent;background:linear-gradient(currentColor,currentColor) left bottom/0 1px no-repeat;transition:background-size 1.2s cubic-bezier(.6,0,.2,1)}
+.js .sheethead[data-r].in{background-size:100% 1px}
+.dark .sheethead{color:rgba(242,237,230,.55)}
+@media (prefers-reduced-motion:reduce){.js [data-r],.js .plate[data-r] .ph{opacity:1;transform:none;clip-path:none;transition:none}html{scroll-behavior:auto}}
 
-@media (max-width:1000px){
+/* TABLET */
+@media (max-width:1100px){
   .nav ul{display:none}
-  .head{grid-template-columns:1fr;gap:18px}
-  .tri .s{height:320px}.tri .m{height:420px}
-  .masonry{columns:2}
-  .small .wrap,.mix .wrap,.rules-grid,.revs-grid,.book-grid{grid-template-columns:1fr;gap:44px}
-  .sheet{max-width:560px;order:2}
+  .nav .btn{margin-left:auto}
+  .intro{left:auto;right:var(--pad);width:min(360px,40vw)}
 }
-@media (max-width:600px){
-  body{font-size:16px}
-  .wrap{width:calc(100% - 36px)}
-  .logo{font-size:24px}
-  .nav .btn{padding:10px 16px;font-size:14px}
-  .nav .btn i{display:none}
-  .hero-top{padding:30px 0 50px;text-align:left}
-  .hero h1{font-size:50px;margin:18px 0 18px}
-  .hero-top p{margin:0;font-size:17px}
-  .hero .acts{justify-content:flex-start}
-  .hero .acts .btn{flex:1 1 auto;justify-content:center}
-  .tri{grid-template-columns:1fr 1.3fr 1fr;gap:8px}
-  .tri .s{height:200px}.tri .m{height:270px}
-  .tri figure::after{inset:6px 6px 0}
-  .tri figcaption{display:none}
-  .tri .rate{top:-22px;padding:8px 14px;font-size:12.5px}
-  .work,.rules,.revs,.book{padding:84px 0}
-  .masonry{columns:1}
-  .small,.mix{padding:84px 0}
-  .small{border-radius:30px 30px 0 0}
-  .dots{gap:10px}
-  .dot img{border-width:4px}
-  .dot figcaption{font-size:11px;letter-spacing:.08em}
-  .pick{gap:8px}
-  .pick .t{padding:14px 12px}
-  .pick .t b{font-size:30px}
-  .acc summary{grid-template-columns:40px 1fr 24px;font-size:21px}
-  .acc details p{padding:0 0 22px 52px}
-  .box{padding:24px 22px}
-  .r{grid-template-columns:70px 1fr;gap:14px}
-  .r .count b{font-size:34px}
-  .lead-q .score b{font-size:76px}
-  form{grid-template-columns:1fr;padding:30px 22px}
+@media (max-width:900px){
+  .werk-top,.ww,.mix-grid,.afs-top,.rv-grid,.bk,.klein{grid-template-columns:1fr}
+  .werk-top .lead{justify-self:start}
+  .ww-l{position:relative;top:0}
+  .p-tarot{grid-column:1/-1}.p-wolf{grid-column:1/7}.p-sis{grid-column:7/13;align-self:end}
+  .p-sleeve{grid-column:1/7;margin-top:0}.p-hib{grid-column:7/13;margin-top:60px}
+  .p-klimt{grid-column:1/7}.p-music{grid-column:7/13}.p-orn{grid-column:1/7}.p-cover{grid-column:7/13}
+  .rules{grid-template-columns:1fr 1fr}
+  .rule:nth-child(3n+1){padding-left:28px;border-left:1px solid var(--line)}
+  .rule:nth-child(2n+1){padding-left:0;border-left:0}
+  .board{max-width:640px}
+  .city{max-width:520px}
   .frow{grid-template-columns:1fr 1fr}
 }
+@media (max-width:900px){
+  .hero{background:var(--paper)}
+  .stage{height:auto;min-height:0;max-height:none;display:flex;flex-direction:column}
+  .stage::after{display:none}
+  .hero h1 span,.kick,.intro{position:static;width:auto}
+  .kick{order:1;padding:40px var(--pad) 16px}
+  .hero h1{order:2;font-size:clamp(52px,13vw,112px);padding:0 var(--pad)}
+  .hero h1 .l2{padding-left:18vw}
+  .intro{order:3;padding:26px var(--pad) 40px;max-width:600px}
+  .frame{order:4;position:relative;height:min(118vw,1000px);overflow:hidden;background:#e9cfc6}
+  .art{width:150vw;transform:translate(-50%,-44%)}
+  .vruler{display:none}
+  .hfoot .wrap{height:auto;flex-wrap:wrap;gap:6px 16px;padding-top:16px;padding-bottom:16px}
+  .p-music,.p-orn,.p-cover{margin-top:0}
+}
+/* GSM */
+@media (max-width:640px){
+  body{font-size:15.5px}
+  .nav .wrap{height:62px;gap:14px}
+  .logo{font-size:24px}.logo small{display:none}
+  .nav .btn{padding:11px 14px;font-size:13px;gap:10px}
+  .nav .btn i{width:14px}
+  .kick{padding:28px var(--pad) 14px}
+  .hero h1{font-size:clamp(52px,15.6vw,74px)}
+  .intro{padding:22px var(--pad) 30px}
+  .intro p{font-size:16px}
+  .frame{height:122vw}
+  .pin em{font-size:9.5px}
+  .hfoot .wrap > span:nth-child(3){display:none}
+  .sheethead{grid-template-columns:1fr 1fr}
+  .sheethead span:nth-child(2){display:none}
+  h2{font-size:clamp(42px,12vw,56px)}
+  .plates{row-gap:44px}
+  .p-tarot,.p-wolf,.p-sis,.p-sleeve,.p-hib{grid-column:1/-1;margin-top:0}
+  .p-klimt,.p-orn{grid-column:1/7}.p-music,.p-cover{grid-column:7/13}
+  .p-klimt figcaption,.p-music figcaption,.p-orn figcaption,.p-cover figcaption{grid-template-columns:1fr}
+  .p-klimt figcaption .n,.p-music figcaption .n,.p-orn figcaption .n,.p-cover figcaption .n{padding:0 0 4px}
+  .plate figcaption b{font-size:22px}
+  .contact{grid-template-columns:repeat(2,1fr)}
+  .contact figcaption span:last-child{display:none}
+  .steps{padding-left:38px}.steps::before,.steps::after{left:5px}.step::before{left:-38px}
+  .step li{grid-template-columns:1fr;gap:2px}
+  .pair .sk{transform:rotate(-1.2deg);padding:8px 8px 10px}
+  .tickets{gap:6px}.tickets .t{padding:12px 10px}.tickets b{font-size:27px}.tickets .t::after{top:44px}
+  .rules{grid-template-columns:1fr}
+  .rule,.rule + .rule,.rule:nth-child(3n+1){padding:22px 0;border-left:0}
+  .scale .row,.scale .ticks{grid-template-columns:1fr 1.4fr 1.2fr}
+  .scale .seg{padding:0 8px 14px}
+  .scale .seg b{font-size:30px}
+  .scale .ticks{font-size:9.5px}
+  .r{grid-template-columns:1fr;gap:10px}
+  .r .tag b{display:inline;font-size:32px;margin-right:8px}
+  form.mail{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr 1fr;gap:26px}
+  .frow > div:first-child{grid-column:1/-1}
+}
+@media (min-width:901px){.frame{display:contents}}
 </style>
 </head>
 <body>
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
 <header class="hero" id="top">
-  <img class="lines" src="img/flash2-lijn.webp" alt="" aria-hidden="true" width="1000" height="655">
-  <nav class="nav">
+  <nav class="nav" aria-label="Hoofdmenu">
     <div class="wrap">
-      <a class="logo" href="#top">Del<span>ink</span>ate</a>
+      <a class="logo" href="#top">Delinkate <small>Vanesa · Leuven</small></a>
       <ul>
         <li><a href="#werk">Werk</a></li>
+        <li><a href="#werkwijze">Werkwijze</a></li>
         <li><a href="#mix">Mix &amp; Match</a></li>
         <li><a href="#voor-je-boekt">Voor je boekt</a></li>
         <li><a href="#reviews">Reviews</a></li>
@@ -289,178 +390,287 @@ footer a:hover{color:var(--blush)}
       <a class="btn" href="#boeken">Mail je idee<i></i></a>
     </div>
   </nav>
-  <div class="wrap">
-    <div class="hero-top">
-      <span class="kick">Fineline · microrealism · Leuven</span>
-      <h1>Fijne lijnen voor <b>de&nbsp;rest</b> van je leven.</h1>
-      <p>Ik ben Vanesa. Van een piepklein sterretje op je pols tot een bloemensleeve die we sessie per sessie opbouwen. Ik werk alleen, en enkel op afspraak.</p>
+  <div class="stage">
+    <span class="kick mono">Fineline &amp; microrealism in Leuven</span>
+    <h1><span class="l1">Haarfijn,</span> <span class="l2">en voor<br>altijd.</span></h1>
+    <div class="intro">
+      <p>Ik ben Vanesa. In mijn studio in de Brusselsestraat zet ik fineline en microrealism, van een sterretje op je pols tot een feniks langs je ruggengraat. Ik werk alleen, en enkel op afspraak.</p>
       <div class="acts">
         <a class="btn" href="#boeken">Vertel me je idee<i></i></a>
-        <a class="btn line" href="#werk">Bekijk mijn werk</a>
+        <a class="btn ghost" href="#werk">Bekijk mijn werk</a>
       </div>
     </div>
-    <div class="tri">
-      <figure class="s"><img src="img/wolf.webp" alt="Fineline wolf onder de maan op een onderarm" width="1000" height="1000" style="object-position:50% 40%"><figcaption>Wolf onder de maan</figcaption></figure>
-      <figure class="m"><img src="img/tarot.webp" alt="Microrealism tarotkaart Justice op een kuit" width="1000" height="1000" fetchpriority="high" style="object-position:50% 45%"><figcaption>XI · Justice</figcaption></figure>
-      <figure class="s"><img src="img/sleeve.webp" alt="Fijne bladeren van een floral sleeve in wording" width="1000" height="1000" style="object-position:55% 40%"><figcaption>Een sleeve in wording</figcaption></figure>
-      <div class="rate"><b>5,0</b><i>★★★★★</i>219 reviews op Google</div>
+    <div class="vruler" aria-hidden="true"></div>
+    <div class="frame">
+      <div class="art">
+        <img src="img/rug.webp" alt="Fineline-tattoo langs de ruggengraat: een feniks tussen lotus, bladeren en een lelie" width="1400" height="1677" fetchpriority="high">
+        <div class="pin r" style="left:47.2%;top:36.4%;--w:clamp(60px,9vw,150px)" aria-hidden="true"><span></span><em>Lotus</em></div>
+        <div class="pin l" style="left:44.6%;top:42.4%;--w:clamp(40px,6vw,96px)" aria-hidden="true"><span></span><em>Feniks</em></div>
+        <div class="pin r" style="left:48.4%;top:30.2%;--w:clamp(50px,7vw,120px)" aria-hidden="true"><span></span><em>Langs de wervels</em></div>
+      </div>
+    </div>
+  </div>
+  <div class="hfoot">
+    <div class="ruler" aria-hidden="true"></div>
+    <div class="wrap">
+      <span class="mono"><span class="vio">Fig. 01</span> · Rug, fineline · vers gezet</span>
+      <span class="mono"><span class="star">★★★★★</span> 5,0 uit 219 reviews op Google</span>
+      <span class="mono">Brusselsestraat 24 · 3000 Leuven</span>
     </div>
   </div>
 </header>
 
 <main>
-<section class="work" id="werk">
+<section class="blad" id="werk">
   <div class="wrap">
-    <div class="head" data-r>
-      <div><span class="kick">Mijn werk</span><h2>Achter bijna elke tattoo zit een reden.</h2></div>
-      <p>Een geboorte, drie zussen op drie continenten, een liedje dat je nooit meer kwijt wil. Vertel me waarom je hem wil, dan teken ik hem voor jou en voor jouw lichaam.</p>
+    <div class="sheethead mono" data-r><span><b>02</b> · Werk</span><span>Uit de studio</span><span>Fig. 02 tot 16</span></div>
+    <div class="werk-top">
+      <h2 data-r>Elk stuk heeft<br>een reden.</h2>
+      <p class="lead" data-r>Drie zussen op drie continenten. Een plaat die je nooit meer afzet. Een eerste tattoo die een sleeve werd. Vertel me waarom je hem wil, dan teken ik hem voor jouw huid.</p>
     </div>
-    <div class="masonry">
-      <figure class="piece" data-r><img src="img/rug.webp" alt="Lange fineline-ruggengraattattoo met een feniks en bloemen" loading="lazy" width="1400" height="1677"><figcaption><small>Fineline · rug</small><b>Langs de ruggengraat</b></figcaption></figure>
-      <figure class="piece" data-r><img src="img/sisters.webp" alt="Drie zussen met dezelfde rode ornamentjes op de enkel" loading="lazy" width="1000" height="1000"><figcaption><small>Matching · ornamentaal</small><b>Drie zussen</b><span>Three sisters from Colombia, each living on a different continent, meeting in Belgium.</span></figcaption></figure>
-      <figure class="piece" data-r><img src="img/klimt.webp" alt="Een schilderij van Klimt in microrealism op een bovenarm" loading="lazy" width="1000" height="1000"><figcaption><small>Microrealism</small><b>Klimt, in het klein</b></figcaption></figure>
-      <figure class="piece" data-r><img src="img/hibiscus.webp" alt="Hibiscusbloemen in fineline op de heup" loading="lazy" width="1000" height="1000"><figcaption><small>Botanisch</small><b>Hibiscus op de heup</b><span>Some flowers take you back to summer, to the sea, or bring you back home.</span></figcaption></figure>
-      <figure class="piece" data-r><img src="img/coverup.webp" alt="Oude tattoo op het bovenbeen, bijgewerkt met nieuwe fijne lijnen" loading="lazy" width="1000" height="1778"><figcaption><small>Bijwerken</small><b>Oude tattoo, nieuw leven</b></figcaption></figure>
-      <figure class="piece" data-r><img src="img/music.webp" alt="Een plaat met bloemen in fineline op de kuit" loading="lazy" width="1000" height="1000"><figcaption><small>Vaste klant</small><b>Music on, world off</b></figcaption></figure>
-      <figure class="piece" data-r><img src="img/ornament.webp" alt="Een fijne verticale lijn met maan en sterren op de onderarm" loading="lazy" width="1000" height="1000"><figcaption><small>Fineline · onderarm</small><b>Maan en sterren</b></figcaption></figure>
+    <div class="plates">
+      <figure class="plate p-tarot" data-r>
+        <div class="ph cm zoom"><img src="img/tarot.webp" alt="Microrealism tarotkaart Justice met pioenrozen op een kuit" loading="lazy" width="1000" height="1000"></div>
+        <figcaption><span class="n mono">Fig. 02</span><div><b>XI · Justice</b><span class="meta mono">Kuit · microrealism · eerst getekend als flash</span><span class="loupe-hint mono">Ga met je muis over het beeld en kijk van dichtbij</span></div></figcaption>
+      </figure>
+      <figure class="plate p-wolf" data-r>
+        <div class="ph cm"><img src="img/wolf.webp" alt="Fineline wolf onder de maan met een kompasster op een onderarm" loading="lazy" width="1000" height="1000" style="object-position:58% 50%"></div>
+        <figcaption><span class="n mono">Fig. 03</span><div><b>Wolf onder de maan</b><span class="meta mono">Onderarm · fineline</span></div><q lang="en">Fine lines at their finest. Simple and delicate, yet powerful.</q><small class="mono">Vanesa op Instagram</small></figcaption>
+      </figure>
+      <figure class="plate p-sis" data-r>
+        <div class="ph cm"><img src="img/sisters.webp" alt="Drie zussen met dezelfde rode ornamentjes op de enkel" loading="lazy" width="1000" height="1000"></div>
+        <figcaption><span class="n mono">Fig. 04</span><div><b>Drie zussen</b><span class="meta mono">Enkels · matching</span></div><q lang="en">Three sisters from Colombia, each living on a different continent, meeting in Belgium.</q><small class="mono">Vanesa op Instagram</small></figcaption>
+      </figure>
+      <figure class="plate p-sleeve" data-r>
+        <div class="ph cm"><img src="img/sleeve.webp" alt="Fijne bladeren van een floral sleeve in wording op een onderarm" loading="lazy" width="1000" height="1000" style="object-position:60% 50%"></div>
+        <figcaption><span class="n mono">Fig. 05</span><div><b>Een sleeve in wording</b><span class="meta mono">Onderarm · botanisch</span></div><q lang="en">She trusted me for her first tattoo and now we are building a floral sleeve.</q><small class="mono">Vanesa op Instagram</small></figcaption>
+      </figure>
+      <figure class="plate p-hib" data-r>
+        <div class="ph cm"><img src="img/hibiscus.webp" alt="Hibiscusbloemen in fineline op de heup" loading="lazy" width="1000" height="1000" style="object-position:62% 50%"></div>
+        <figcaption><span class="n mono">Fig. 06</span><div><b>Hibiscus</b><span class="meta mono">Heup · botanisch</span></div><q lang="en">Some flowers take you back to summer, to the sea, or bring you back home.</q><small class="mono">Vanesa op Instagram</small></figcaption>
+      </figure>
+      <figure class="plate p-klimt" data-r>
+        <div class="ph cm"><img src="img/klimt.webp" alt="Een schilderij van Klimt in microrealism op een bovenarm" loading="lazy" width="1000" height="1000"></div>
+        <figcaption><span class="n mono">Fig. 07</span><div><b>Klimt, in het klein</b><span class="meta mono">Bovenarm · microrealism</span></div></figcaption>
+      </figure>
+      <figure class="plate p-music" data-r>
+        <div class="ph cm"><img src="img/music.webp" alt="Een plaat met bloemen en de woorden music on, world off" loading="lazy" width="1000" height="1000"></div>
+        <figcaption><span class="n mono">Fig. 08</span><div><b>Music on, world off</b><span class="meta mono">Fineline · bloemen</span></div></figcaption>
+      </figure>
+      <figure class="plate p-orn" data-r>
+        <div class="ph cm"><img src="img/ornament.webp" alt="Een fijne verticale lijn met maan en ornamentjes op de onderarm" loading="lazy" width="1000" height="1000" style="object-position:42% 50%"></div>
+        <figcaption><span class="n mono">Fig. 09</span><div><b>Maan en ornament</b><span class="meta mono">Onderarm · fineline</span></div></figcaption>
+      </figure>
+      <figure class="plate p-cover" data-r>
+        <div class="ph cm"><img src="img/coverup.webp" alt="Een groot stuk op het bovenbeen met takken en een vlinder" loading="lazy" width="1000" height="1778" style="object-position:50% 40%"></div>
+        <figcaption><span class="n mono">Fig. 10</span><div><b>Oud en nieuw</b><span class="meta mono">Bovenbeen · bijwerken</span></div></figcaption>
+      </figure>
     </div>
-  </div>
-</section>
 
-<section class="small">
-  <div class="wrap">
-    <div data-r>
-      <span class="kick">En veel klein werk</span>
-      <h2>Een sterretje, een woord, een discobal.</h2>
-      <p class="lead">Die zet ik elke week, alleen schiet posten er vaak bij in.</p>
-      <blockquote><q>Yes, I do a lot of them, but not many time to post it.</q><small>Vanesa, op Instagram</small></blockquote>
-    </div>
-    <div class="dots">
-      <figure class="dot" data-r><img src="img/k1.webp" alt="Twee kleine sterretjes op de pols" loading="lazy" width="700" height="700"><figcaption>Sterretjes</figcaption></figure>
-      <figure class="dot" data-r><img src="img/k2.webp" alt="Een discobal in fineline" loading="lazy" width="700" height="700"><figcaption>Discobal</figcaption></figure>
-      <figure class="dot" data-r><img src="img/k3.webp" alt="Een postzegel met een bloem" loading="lazy" width="700" height="700"><figcaption>Postzegel</figcaption></figure>
-      <figure class="dot" data-r><img src="img/k4.webp" alt="Twee hartjes in één lijn" loading="lazy" width="700" height="700"><figcaption>Hartjes</figcaption></figure>
-      <figure class="dot" data-r><img src="img/k5.webp" alt="Een klein handgeschreven woord" loading="lazy" width="700" height="700"><figcaption>Een woord</figcaption></figure>
-      <figure class="dot" data-r><img src="img/k6.webp" alt="Een fijn takje met een strikje" loading="lazy" width="700" height="700"><figcaption>Takje</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<section class="mix" id="mix">
-  <div class="wrap">
-    <figure class="sheet" data-r style="margin:0">
-      <div class="bar"><span>Uit mijn flashboek</span><span>Delinkate</span></div>
-      <img src="img/flash1.webp" alt="Met de hand getekend flashdesign: tarotkaart Justice tussen pioenrozen" loading="lazy" width="1000" height="757">
-      <div class="foot"><span>XI · Justice</span><small>met de hand getekend</small></div>
-    </figure>
-    <div data-r>
-      <span class="kick">Flash van de maand</span>
-      <h2>Mix &amp; Match: kies er tot drie.</h2>
-      <p class="lead">Elke maand teken ik een nieuwe pagina vol fineline-designs. Je kiest er één, twee of drie uit, en ze kunnen allemaal vaker gezet worden. Ideaal voor je eerste tattoo, of om samen met een vriendin te gaan.</p>
-      <fieldset class="pick">
-        <legend class="note" style="padding:0;margin-bottom:12px">Hoeveel designs kies je?</legend>
-        <label><input type="radio" name="aantal" value="1" checked><span class="t"><small>1 design</small><b>€ 70</b><i><em></em></i></span></label>
-        <label><input type="radio" name="aantal" value="2"><span class="t"><small>2 designs</small><b>€ 90</b><i><em></em><em></em></i></span></label>
-        <label><input type="radio" name="aantal" value="3"><span class="t"><small>3 designs</small><b>€ 110</b><i><em></em><em></em><em></em></i></span></label>
-      </fieldset>
-      <p class="note">Enkel designs van de pagina, fineline in zwart, prijs per persoon.</p>
-      <div class="acts">
-        <a class="btn dark" id="claim" href="mailto:info@delinkateleuven.com?subject=Mix%20%26%20Match%3A%201%20design">Claim je design<i></i></a>
-        <small>Zet in je mail welk design, waar en hoe groot. Alle flashes staan op <a class="ig" href="https://www.instagram.com/vrsartist.flash/" target="_blank" rel="noopener">@vrsartist.flash</a>.</small>
+    <div class="klein">
+      <div data-r>
+        <span class="mono vio">Fig. 11 tot 16</span>
+        <h3>En heel veel klein werk.</h3>
+        <p class="lead">Een sterretje, een woord, een discobal. Die zet ik elke week, alleen schiet posten er vaak bij in.</p>
+        <blockquote><q lang="en">Yes, I do a lot of them, but not many time to post it.</q><small class="mono">Vanesa op Instagram</small></blockquote>
+      </div>
+      <div class="contact" data-r>
+        <figure><img src="img/k1.webp" alt="Twee kleine sterretjes op de pols" loading="lazy" width="700" height="700"><figcaption class="mono"><span>11</span><span>Sterretjes</span></figcaption></figure>
+        <figure><img src="img/k2.webp" alt="Een discobal in fineline op de arm" loading="lazy" width="700" height="700"><figcaption class="mono"><span>12</span><span>Discobal</span></figcaption></figure>
+        <figure><img src="img/k3.webp" alt="Een postzegel met een bloem op de onderarm" loading="lazy" width="700" height="700"><figcaption class="mono"><span>13</span><span>Postzegel</span></figcaption></figure>
+        <figure><img src="img/k4.webp" alt="Twee hartjes in één lijn" loading="lazy" width="700" height="700"><figcaption class="mono"><span>14</span><span>Twee harten</span></figcaption></figure>
+        <figure><img src="img/k5.webp" alt="De woorden with love, always in klein handschrift" loading="lazy" width="700" height="700"><figcaption class="mono"><span>15</span><span>With love, always</span></figcaption></figure>
+        <figure><img src="img/k6.webp" alt="Een fijn takje met een strikje" loading="lazy" width="700" height="700"><figcaption class="mono"><span>16</span><span>Takje met strik</span></figcaption></figure>
       </div>
     </div>
   </div>
 </section>
 
-<section class="rules" id="voor-je-boekt">
+<section class="blad dark" id="werkwijze">
   <div class="wrap">
-    <div class="head" data-r>
-      <div><span class="kick">Voor je boekt</span><h2>Lees dit even, dan weet je waar je aan toe bent.</h2></div>
-      <p>Ik werk alleen en enkel op afspraak. Daarom hou ik de afspraken kort en duidelijk, voor jou en voor wie na jou komt.</p>
-    </div>
-    <div class="rules-grid">
-      <div class="acc" data-r>
-        <details open><summary><span>01</span>Het design zie je op de dag zelf<i></i></summary><p>Ik toon designs niet op voorhand. Tijdens de afspraak is er tijd genoeg om kleine dingen aan te passen. Wordt het groter dan je vroeg, dan verandert de prijs mee.</p></details>
-        <details><summary><span>02</span>Op tijd, maar niet te vroeg<i></i></summary><p>Hoogstens vijf minuten op voorhand. Is je afspraak om 11u30 en sta je er om 11u, dan wacht je even op straat.</p></details>
-        <details><summary><span>03</span>Betalen gaat cash<i></i></summary><p>Leuven heeft niet zoveel automaten. De dichtste vind je in de Parijsstraat 52 en op de Bondgenotenlaan 3.</p></details>
-        <details><summary><span>04</span>Vanaf 16 jaar, met één supporter<i></i></summary><p>Kinderen blijven thuis. Eén iemand mag mee in de wachtruimte, niet aan de tafel. Duurt je sessie langer dan een uur, kom dan liefst alleen.</p></details>
-      </div>
-      <div class="side" data-r>
-        <div class="box">
-          <h3>Voorschot</h3>
-          <div class="tiers">
-            <div class="tier"><span>Tattoo tot € 150</span><b>€ 30</b><div class="bar"><em style="width:30%"></em></div></div>
-            <div class="tier"><span>Van € 151 tot € 450</span><b>€ 50</b><div class="bar"><em style="width:55%"></em></div></div>
-            <div class="tier"><span>Vanaf € 451</span><b>€ 100</b><div class="bar"><em style="width:100%"></em></div></div>
-          </div>
-          <p class="fine">Het voorschot gaat af van de eindprijs. Verwittig je minder dan 48 uur op voorhand, of verzet je meer dan één keer, dan ben je het kwijt.</p>
+    <div class="sheethead mono" data-r><span><b>03</b> · Werkwijze</span><span>Van idee tot heling</span><span>6 stappen</span></div>
+    <div class="ww">
+      <div class="ww-l">
+        <h2 data-r>Van idee<br>tot heling.</h2>
+        <p class="lead" data-r>Zo gaat het bij mij, van je eerste mail tot de dag dat je tattoo helemaal genezen is. Geen verrassingen, wel tijd voor je vragen.</p>
+        <div class="pair" data-r>
+          <figure class="sk"><img src="img/flash2.webp" alt="Schets van een pioenroos, getekend op de lijn van een schouder" loading="lazy" width="1000" height="655"><figcaption>Op papier, al op de lijn van een schouder</figcaption></figure>
         </div>
-        <div class="box">
-          <h3>Je lijstje</h3>
-          <ul class="check">
-            <li><b>Smeer de week ervoor.</b> Je gewone crème en een zachte spons onder de douche. Scheren hoeft niet.</li>
-            <li><b>Eet goed op voorhand.</b> Lange sessie? Neem snacks mee, de keuken mag je gebruiken.</li>
-            <li><b>Kom in het zwart.</b> Makkelijke, donkere kleren. Zit je kledij in de weg, dan ligt er een kimono klaar.</li>
-            <li><b>Cash op zak.</b> Voor de rest van de prijs, na het voorschot.</li>
+      </div>
+      <ol class="steps">
+        <li class="step" data-r>
+          <div class="top mono"><b>01</b><span>Vandaag</span></div>
+          <h3>Je mail</h3>
+          <p>Vertel me wat je wil, waar het komt en ongeveer hoe groot. Zet erbij wanneer je kan en stuur een paar voorbeeldfoto's mee. Meer heb ik niet nodig om te beginnen.</p>
+        </li>
+        <li class="step" data-r>
+          <div class="top mono"><b>02</b><span>Per maand</span></div>
+          <h3>Een plek in de agenda</h3>
+          <p>Mijn boekingen gaan per maand open. Staat de volgende maand open, dan zie je dat eerst op Instagram.</p>
+        </li>
+        <li class="step" data-r>
+          <div class="top mono"><b>03</b><span>Bij het boeken</span></div>
+          <h3>Het voorschot</h3>
+          <p>Je schrijft een voorschot over, met je naam en de datum van je afspraak erbij. Het gaat af van de eindprijs en blijft zes maanden geldig.</p>
+        </li>
+        <li class="step" data-r>
+          <div class="top mono"><b>04</b><span>De dag zelf</span></div>
+          <h3>Samen aan tafel</h3>
+          <p>Het design zie je pas op de afspraak. Dan passen we kleine dingen aan en zoeken we de juiste plaats. Wordt het groter dan je vroeg, dan gaat de prijs mee.</p>
+          <ul>
+            <li><span>Eten</span>Eet goed op voorhand. Lange sessie? Neem snacks mee, de keuken mag je gebruiken.</li>
+            <li><span>Kleren</span>Makkelijke, zwarte kleren. Zit je kledij in de weg, dan ligt er een kimono klaar.</li>
           </ul>
+        </li>
+        <li class="step" data-r>
+          <div class="top mono"><b>05</b><span>Dag 1 tot 21</span></div>
+          <h3>De eerste weken</h3>
+          <p>Een verse tattoo is een kleine wonde. Hoe je er de eerste weken mee omgaat, zie je later in je lijnen.</p>
+          <ul>
+            <li><span>Na 2 uur</span>De folie mag eraf. Een beetje bloed en inkt is normaal. Niet opnieuw inpakken.</li>
+            <li><span>Wassen</span>Met water en zeep zonder parfum. Deppen met keukenpapier, niet wrijven.</li>
+            <li><span>2 weken</span>Een heel dun laagje tattoocrème. Daarna mag je gewone crème weer.</li>
+            <li><span>3 weken</span>Geen bad, zwembad, sauna, zonnebank of zon. Douchen mag.</li>
+          </ul>
+        </li>
+        <li class="step" data-r>
+          <div class="top mono"><b>06</b><span>Tot 6 maanden</span></div>
+          <h3>Een touch-up</h3>
+          <p>Valt er toch een lijntje weg, dan werk ik dat bij binnen de zes maanden. Daarna gaat er altijd SPF 50+ op je tattoo.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="blad mix" id="mix">
+  <div class="wrap">
+    <div class="sheethead mono" data-r><span><b>04</b> · Flash</span><span>Mix &amp; Match</span><span>Elke maand een nieuw blad</span></div>
+    <div class="mix-grid">
+      <div class="board" data-r>
+        <figure class="a" style="margin:0">
+          <img src="img/flash1.webp" alt="Met de hand getekend flashdesign: de tarotkaart Justice tussen pioenrozen" loading="lazy" width="1000" height="757">
+          <div class="ruler" aria-hidden="true"></div>
+          <div class="bar mono"><span><span class="vio">XI</span> · Justice</span><span>Uit mijn flashboek</span></div>
+        </figure>
+      </div>
+      <div data-r>
+        <h2>Mix &amp; Match.</h2>
+        <p class="lead">Elke maand teken ik een nieuw blad vol kleine designs. Je kiest er één, twee of drie uit, in fineline en in zwart. Fijn voor een eerste tattoo, of om samen met een vriendin te komen.</p>
+        <fieldset class="tickets">
+          <legend class="mono">Hoeveel designs kies je?</legend>
+          <label><input type="radio" name="aantal" value="1" checked><span class="t"><small>1 design</small><b>€ 70</b></span></label>
+          <label><input type="radio" name="aantal" value="2"><span class="t"><small>2 designs</small><b>€ 90</b></span></label>
+          <label><input type="radio" name="aantal" value="3"><span class="t"><small>3 designs</small><b>€ 110</b></span></label>
+        </fieldset>
+        <p class="mono" style="color:var(--mute)">Prijs per persoon · enkel designs van het blad</p>
+        <div class="acts">
+          <a class="btn" id="claim" href="mailto:info@delinkateleuven.com?subject=Mix%20%26%20Match%3A%201%20design">Claim je design<i></i></a>
+          <small>Zet in je mail welk design, waar en ongeveer hoe groot. Het blad van deze maand staat op <a href="https://www.instagram.com/vrsartist.flash/" target="_blank" rel="noopener">@vrsartist.flash</a>.</small>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="revs" id="reviews">
-  <div class="wrap revs-grid">
-    <div class="lead-q" data-r>
-      <span class="kick">Reviews</span>
-      <div class="score"><b>5,0</b><span><i>★★★★★</i>uit 219 reviews op Google</span></div>
-      <q>Ze neemt de tijd om met jou te kijken hoe de tattoo het mooiste zal worden en geeft een oprechte eerlijke mening, al moet ze het 100x opnieuw doen.</q>
-      <p class="by"><b>Linde G.</b>, die er intussen drie liet zetten</p>
+<section class="blad afs" id="voor-je-boekt">
+  <div class="wrap">
+    <div class="sheethead mono" data-r><span><b>05</b> · Afspraken</span><span>Voor je boekt</span><span>Even lezen, graag</span></div>
+    <div class="afs-top">
+      <div data-r>
+        <h2>Voor je boekt.</h2>
+        <p class="lead" style="margin-top:20px">Ik werk alleen. Deze afspraken houden het eerlijk, voor jou en voor wie na jou komt.</p>
+      </div>
+      <div class="scale" data-r>
+        <p class="mono" style="margin:0 0 18px;color:var(--mute)">Voorschot, volgens de prijs van je tattoo</p>
+        <div class="row">
+          <div class="seg"><small class="mono">Tot € 150</small><b>€ 30</b></div>
+          <div class="seg"><small class="mono">€ 151 tot € 450</small><b>€ 50</b></div>
+          <div class="seg"><small class="mono">Vanaf € 451</small><b>€ 100</b></div>
+        </div>
+        <div class="ruler" aria-hidden="true"></div>
+        <div class="ticks mono"><span>€ 0</span><span>€ 150</span><span><span>€ 450</span><span>en meer</span></span></div>
+        <p>Het voorschot gaat af van de eindprijs. Je bent het kwijt als je niet komt, meer dan twintig minuten te laat bent, minder dan 48 uur op voorhand afzegt of meer dan één keer verzet.</p>
+      </div>
     </div>
-    <div class="rlist" data-r>
-      <div class="r"><div class="count"><b>3</b>jaar later terug</div><div><q>Vanesa heeft voor mij 3 jaar geleden mijn eerste fineline tattoo gezet, nu 3 jaar later ben ik terug bij haar geweest. Ze heeft een prachtige stijl en ongelofelijk veel geduld.</q><small><b>Joke Snyders</b> · Google</small></div></div>
-      <div class="r"><div class="count"><b>5</b>de keer</div><div><q>Ondertussen al de 5de keer bij Vanessa langs gegaan! De professionele maar persoonlijke aanpak zorgt ervoor dat het een hele ervaring is en niet zomaar een "tattoo" zetten is.</q><small><b>Joren Houtevels</b> · Google</small></div></div>
-      <div class="r"><div class="count"><b>2</b>sessies</div><div><q>Bij Vanessa eerst geweest voor rug tattoo. Heel fijn afgewerkt met fineline en veel details. Nu recent verder laten afwerken naar mijn schouder en borstkas. Heel mooi resultaat en rap genezen.</q><small><b>Jitse Vanden Dries</b> · Google</small></div></div>
-      <div class="r"><div class="count">Samen<br>ontworpen</div><div><q>Ze nam uitgebreid haar tijd om samen met mij het design te bespreken zodat het volledig werd wat ik wou. Ook wanneer ik zelf enkele zaken nog niet zo goed wist (bvb grootte van de tattoo) hielp ze mij de juiste keuze maken.</q><small><b>Helena Stynen</b> · Google</small></div></div>
+    <div class="rules">
+      <div class="rule" data-r><span class="n mono">01</span><h3>Op tijd, niet te vroeg</h3><p>Hoogstens vijf minuten op voorhand. Is je afspraak om 13u30 en sta je er om 13u, dan wacht je even op straat.</p></div>
+      <div class="rule" data-r><span class="n mono">02</span><h3>Betalen gaat cash</h3><p>Leuven heeft niet zoveel automaten. De dichtste vind je in de Parijsstraat 52 en op de Bondgenotenlaan 3.</p></div>
+      <div class="rule" data-r><span class="n mono">03</span><h3>Vanaf 16 jaar</h3><p>Eén iemand mag mee in de wachtruimte, niet aan de tafel. Duurt je sessie langer dan een uur, kom dan liefst alleen.</p></div>
+      <div class="rule" data-r><span class="n mono">04</span><h3>De week ervoor</h3><p>Smeer je huid in met je gewone crème en scrub zacht met een spons onder de douche. Scheren hoeft niet.</p></div>
+      <div class="rule" data-r><span class="n mono">05</span><h3>Fineline in zwart</h3><p>Fineline in kleur zet ik niet. Rode fineline kan wel, maar valt niet onder de touch-up.</p></div>
+      <div class="rule" data-r><span class="n mono">06</span><h3>Wat de touch-up niet dekt</h3><p>Vingers, handen en voeten, en schade door krabben, korstjes trekken of een ontsteking.</p></div>
+    </div>
+    <div class="bring" data-r>
+      <span class="mono">Neem mee</span>
+      <span>Iets gegeten</span><span>Snacks voor een lange sessie</span><span>Makkelijke zwarte kleren</span><span>Cash</span>
     </div>
   </div>
 </section>
 
-<section class="book" id="boeken">
-  <img class="lines" src="img/flash2-lijn.webp" alt="" aria-hidden="true" width="1000" height="655" loading="lazy">
-  <div class="wrap book-grid">
-    <div data-r>
-      <span class="kick">Boeken</span>
-      <h2>Je idee, je grootte en wanneer je kan.</h2>
-      <p class="lead">Meer heb ik niet nodig om te beginnen. Stuur er gerust een paar voorbeeldfoto's bij, dan kijk ik wat het mooiste wordt op jouw huid.</p>
-      <div class="open"><b>Boekingen gaan per maand open</b><p>Wanneer de volgende maand openstaat, zie je dat eerst op Instagram.</p></div>
-      <dl class="info">
-        <dt>Studio</dt><dd>Brusselsestraat 24, 3000 Leuven</dd>
-        <dt>Afspraken</dt><dd>Maandag tot zaterdag, enkel op afspraak</dd>
-        <dt>Mail</dt><dd><a href="mailto:info@delinkateleuven.com">info@delinkateleuven.com</a></dd>
-        <dt>Instagram</dt><dd><a href="https://www.instagram.com/vrsartist/" target="_blank" rel="noopener">@vrsartist</a> · <a href="https://www.instagram.com/delinkateleuven/" target="_blank" rel="noopener">@delinkateleuven</a></dd>
-      </dl>
+<section class="blad" id="reviews">
+  <div class="wrap">
+    <div class="sheethead mono" data-r><span><b>06</b> · Reviews</span><span>Op Google</span><span>219 reviews</span></div>
+    <div class="rv-grid">
+      <div class="rv-l" data-r>
+        <div class="score"><b>5,0</b><span class="mono"><i>★★★★★</i>uit 219 reviews</span></div>
+        <h2>Ze komen terug.</h2>
+        <p class="lead">Voor een tweede, een derde, een vijfde keer. Dat zegt meer dan ik zelf kan.</p>
+        <div class="big-q"><q>Ze neemt de tijd om met jou te kijken hoe de tattoo het mooiste zal worden en geeft een oprechte eerlijke mening, al moet ze het 100x opnieuw doen.</q><small class="mono">Linde G. · Google</small></div>
+      </div>
+      <div class="rl" data-r>
+        <div class="r"><div class="tag mono"><b>3</b>jaar later terug</div><div><q>Vanesa heeft voor mij 3 jaar geleden mijn eerste fineline tattoo gezet, nu 3 jaar later ben ik terug bij haar geweest. Ze heeft een prachtige stijl en ongelofelijk veel geduld.</q><small class="mono">Joke Snyders · Google</small></div></div>
+        <div class="r"><div class="tag mono"><b>5</b>de keer</div><div><q>Ondertussen al de 5de keer bij Vanessa langs gegaan! De professionele maar persoonlijke aanpak zorgt ervoor dat het een hele ervaring is en niet zomaar een "tattoo" zetten is.</q><small class="mono">Joren Houtevels · Google</small></div></div>
+        <div class="r"><div class="tag mono"><b>Rug</b>dan schouder</div><div><q>Bij Vanessa eerst geweest voor rug tattoo. Heel fijn afgewerkt met fineline en veel details. Nu recent verder laten afwerken naar mijn schouder en borstkas. Heel mooi resultaat en rap genezen.</q><small class="mono">Jitse Vanden Dries · Google</small></div></div>
+        <div class="r"><div class="tag mono"><b>Samen</b>ontworpen</div><div><q>Ze nam uitgebreid haar tijd om samen met mij het design te bespreken zodat het volledig werd wat ik wou. Ook wanneer ik zelf enkele zaken nog niet zo goed wist (bvb grootte van de tattoo) hielp ze mij de juiste keuze maken.</q><small class="mono">Helena Stynen · Google</small></div></div>
+      </div>
     </div>
-    <form id="vorm" data-r>
-      <div><label for="v-naam">Je naam</label><input id="v-naam" name="naam" autocomplete="name" required></div>
-      <div><label for="v-plaats">Plaats en grootte</label><input id="v-plaats" name="plaats" placeholder="Bv. onderarm, 7 cm"></div>
-      <div class="vol"><label for="v-idee">Je idee</label><textarea id="v-idee" name="idee" placeholder="Vertel wat je wil, en waarom het voor jou telt"></textarea></div>
-      <div class="vol"><label for="v-wanneer">Wanneer kan je?</label><input id="v-wanneer" name="wanneer" placeholder="Bv. zaterdagen, of na 14u"></div>
-      <div class="send"><button class="btn dark" type="submit">Open mijn mail<i></i></button><small>Je mailprogramma opent met alles ingevuld. Voorbeeldfoto's voeg je daar zelf toe.</small></div>
-    </form>
+  </div>
+</section>
+
+<section class="blad dark" id="boeken">
+  <div class="wrap">
+    <div class="sheethead mono" data-r><span><b>07</b> · Boeken</span><span>Leuven</span><span>Brusselsestraat 24</span></div>
+    <div class="bk">
+      <div data-r>
+        <figure class="city">
+          <img src="img/leuven-stadhuis.webp" alt="Het stadhuis van Leuven bij zonsopgang" loading="lazy" width="1200" height="1800">
+          <figcaption class="mono"><span>Het stadhuis, Grote Markt</span><span>Leuven</span></figcaption>
+        </figure>
+        <dl class="addr">
+          <div><dt>Studio</dt><dd>Brusselsestraat 24, 3000 Leuven</dd></div>
+          <div><dt>Uren</dt><dd>Maandag en woensdag tot zaterdag, vanaf 12u. Enkel op afspraak.</dd></div>
+          <div><dt>Mail</dt><dd><a href="mailto:info@delinkateleuven.com">info@delinkateleuven.com</a></dd></div>
+          <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/vrsartist/" target="_blank" rel="noopener">@vrsartist</a> · <a href="https://www.instagram.com/delinkateleuven/" target="_blank" rel="noopener">@delinkateleuven</a></dd></div>
+        </dl>
+        <a class="route" href="https://www.google.com/maps/dir/?api=1&amp;destination=Brusselsestraat%2024%2C%203000%20Leuven" target="_blank" rel="noopener">Plan je route naar de studio</a>
+      </div>
+      <div data-r>
+        <h2>Vertel me<br>je idee.</h2>
+        <p class="lead">Je vindt me in de Brusselsestraat, op een paar minuten wandelen van de Grote Markt. Mail me wat je in gedachten hebt, dan kijk ik wat het mooiste wordt op jouw huid.</p>
+        <form class="mail" id="vorm">
+          <div class="f"><label for="v-naam">Je naam</label><input id="v-naam" name="naam" autocomplete="name" required></div>
+          <div class="f"><label for="v-plaats">Plaats en grootte</label><input id="v-plaats" name="plaats" placeholder="Bv. onderarm, 7 cm"></div>
+          <div class="f vol"><label for="v-idee">Je idee</label><textarea id="v-idee" name="idee" placeholder="Wat wil je, en waarom telt het voor jou?"></textarea></div>
+          <div class="f vol"><label for="v-wanneer">Wanneer kan je?</label><input id="v-wanneer" name="wanneer" placeholder="Bv. zaterdagen, of na 14u"></div>
+          <div class="send"><button class="btn light" type="submit">Open mijn mail<i></i></button><small>Je mail opent met alles ingevuld. Voorbeeldfoto's voeg je daar zelf toe.</small></div>
+        </form>
+      </div>
+    </div>
   </div>
 </section>
 </main>
 
 <footer>
   <div class="wrap">
+    <div class="fword" aria-hidden="true">Delinkate<span>.</span></div>
     <div class="frow">
-      <div><a class="logo" href="#top">Del<span style="color:var(--blush)">ink</span>ate</a><p style="margin-top:14px;max-width:280px">Fineline, microrealism en delicate tattoos, gezet door Vanesa.</p></div>
+      <div><h4>Delinkate</h4><p>Fineline en microrealism, gezet door Vanesa in haar studio in Leuven.</p></div>
       <div><h4>Studio</h4><ul><li>Brusselsestraat 24</li><li>3000 Leuven</li><li>Enkel op afspraak</li></ul></div>
-      <div><h4>Menu</h4><ul><li><a href="#werk">Werk</a></li><li><a href="#mix">Mix &amp; Match</a></li><li><a href="#voor-je-boekt">Voor je boekt</a></li><li><a href="#boeken">Boeken</a></li></ul></div>
-      <div><h4>Volg</h4><ul><li><a href="https://www.instagram.com/vrsartist/" target="_blank" rel="noopener">@vrsartist</a></li><li><a href="https://www.instagram.com/vrsartist.flash/" target="_blank" rel="noopener">@vrsartist.flash</a></li><li><a href="mailto:info@delinkateleuven.com">info@delinkateleuven.com</a></li></ul></div>
+      <div><h4>Menu</h4><ul><li><a href="#werk">Werk</a></li><li><a href="#werkwijze">Werkwijze</a></li><li><a href="#mix">Mix &amp; Match</a></li><li><a href="#boeken">Boeken</a></li></ul></div>
+      <div><h4>Volg</h4><ul><li><a href="https://www.instagram.com/vrsartist/" target="_blank" rel="noopener">@vrsartist</a></li><li><a href="https://www.instagram.com/vrsartist.flash/" target="_blank" rel="noopener">@vrsartist.flash</a></li><li><a href="mailto:info@delinkateleuven.com">Mail</a></li></ul></div>
     </div>
-    <div class="fbot"><span>© Delinkate · Vrs tattoo BV · Leuven</span><span>Voorbeeldsite door Digital Impression</span></div>
+    <div class="fbot mono"><span>© Delinkate · Vrs tattoo BV · Leuven</span><span>Voorbeeldsite door Digital Impression</span></div>
   </div>
 </footer>
 <script>
@@ -472,6 +682,20 @@ location.href='mailto:info@delinkateleuven.com?subject='+encodeURIComponent('Tat
 var c=document.getElementById('claim');
 document.querySelectorAll('[name=aantal]').forEach(function(r){r.addEventListener('change',function(){
   var n=r.value;c.href='mailto:info@delinkateleuven.com?subject='+encodeURIComponent('Mix & Match: '+n+(n==='1'?' design':' designs'))})});
+/* loep op microrealism */
+if(matchMedia('(hover:hover) and (pointer:fine)').matches){
+  document.querySelectorAll('.zoom').forEach(function(z){
+    var img=z.querySelector('img'),l=document.createElement('div');l.className='lens';z.appendChild(l);var k=2.5;
+    z.addEventListener('mousemove',function(e){var r=z.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
+      l.style.left=x+'px';l.style.top=y+'px';l.style.backgroundImage='url('+img.currentSrc+')';
+      l.style.backgroundSize=(r.width*k)+'px '+(r.height*k)+'px';l.style.backgroundPosition=(-x*k+95)+'px '+(-y*k+95)+'px';l.classList.add('on')});
+    z.addEventListener('mouseleave',function(){l.classList.remove('on')});
+  });
+}else{document.querySelectorAll('.loupe-hint').forEach(function(h){h.style.display='none'})}
+/* lijn van de werkwijze tekent mee */
+var st=document.querySelector('.steps'),dr=st;
+function lijn(){if(!dr)return;var r=st.getBoundingClientRect(),p=(innerHeight*.6-r.top)/r.height;dr.style.setProperty('--p',Math.max(0,Math.min(1,p)).toFixed(3))}
+addEventListener('scroll',lijn,{passive:true});lijn();
 if(!('IntersectionObserver' in window))return;document.documentElement.classList.add('js');
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -5% 0px'});
 document.querySelectorAll('[data-r]').forEach(function(e){io.observe(e)})})();
@@ -695,6 +919,7 @@ if(top<innerHeight*1.1){if(aan)sluit();return}if(!hb)hb=held();zet(scrollY>hb-in
 t.querySelector('.di-tip-x').addEventListener('click',sluit);
 t.querySelector('.di-tip-k').addEventListener('click',function(){setTimeout(sluit,300)});
 window.addEventListener('scroll',kijk,{passive:true});kijk()})();</script>
+
 
 </body>
 </html>
