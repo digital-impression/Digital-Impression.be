@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Trimsalon Dog Spirit · Hondentrimsalon in Hallaar, Heist-op-den-Berg</title>
+<meta name="description" content="Trimsalon Dog Spirit in Hallaar. Sandra trimt één hond tegelijk, rustig en op het tempo van je hond. Puppy's, senioren en angstige honden welkom.">
+<link rel="icon" href="img/logo.png">
+<style>
+/*FONTS*/
+:root{--sage:#8c9876;--sage2:#768262;--moss:#4f5a3e;--brown:#5b3a1a;--brown2:#7a5230;--cream:#f7f1e5;--sand:#ece2cf;--ink:#2a2116;--mut:#6d6253;--chalk:#2f3530;--line:rgba(42,33,22,.13);--ease:cubic-bezier(.2,.8,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{font:400 17px/1.62 'DM Sans',system-ui,sans-serif;color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-style:normal;letter-spacing:-.025em;line-height:.98}
+.wrap{width:min(1240px,100% - 48px);margin:0 auto}
+.label{font:600 12.5px/1 'DM Sans',sans-serif;letter-spacing:.18em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px;color:var(--brown2)}
+.label svg{width:16px;height:16px}
+.demo{background:var(--moss);color:#eef0e4;font:500 13px/1.4 'DM Sans',sans-serif;text-align:center;padding:8px 16px}
+.demo a{text-decoration:underline;text-underline-offset:3px;font-weight:700;color:#fff}
+
+/* knop: afgerond 'botje' met pootafdruk die meeschuift */
+.btn{display:inline-flex;align-items:center;gap:12px;padding:15px 24px 15px 18px;border-radius:18px;font:700 15.5px/1 'DM Sans',sans-serif;transition:transform .35s var(--ease),background .3s,box-shadow .3s;white-space:nowrap}
+.btn svg{width:20px;height:20px;transition:transform .45s var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn:hover svg{transform:rotate(-18deg) scale(1.1)}
+.btn-brown{background:var(--brown);color:#fff;box-shadow:0 12px 24px -14px rgba(91,58,26,.9)}
+.btn-brown:hover{background:#4a2f14}
+.btn-cream{background:var(--cream);color:var(--brown)}
+.btn-line{box-shadow:inset 0 0 0 1.5px currentColor}
+
+/* NAV */
+.nav{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 0}
+.nav .logo img{height:58px;width:auto}
+.nav ul{display:flex;gap:30px;list-style:none;font-weight:600;font-size:15px;color:var(--cream)}
+.nav ul a{opacity:.85;transition:opacity .2s}
+.nav ul a:hover{opacity:1}
+
+/* HERO: salie vlak dat onder de foto doorloopt naar crème */
+.hero{position:relative;background:var(--sage);overflow:hidden}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:var(--cream)}
+.hero::before{content:"";position:absolute;right:-180px;top:-160px;width:620px;height:620px;border-radius:50%;background:var(--sage2);opacity:.5}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:end;padding:20px 0 0}
+.hero-txt{padding-bottom:170px}
+.hero .label{color:var(--cream)}
+.hero h1{font-size:clamp(56px,7.4vw,112px);color:var(--cream);margin:24px 0 26px}
+.hero h1 span{color:var(--brown)}
+.hero .lead{font-size:19px;color:#f3efe2;max-width:520px;opacity:.95}
+.hero .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px;align-items:center}
+.gbtn{display:inline-flex;align-items:center;gap:12px;padding:10px 18px 10px 10px;border-radius:18px;background:rgba(247,241,229,.16);color:#fff;box-shadow:inset 0 0 0 1px rgba(247,241,229,.3);transition:background .3s}
+.gbtn:hover{background:rgba(247,241,229,.26)}
+.gbtn .g{width:36px;height:36px;border-radius:12px;background:#fff;display:grid;place-items:center}
+.gbtn .g svg{width:18px;height:18px}
+.gbtn b{font:700 19px/1 'Bricolage Grotesque',sans-serif}
+.gbtn small{display:block;font-size:12.5px;opacity:.85;margin-top:2px}
+.frame{position:relative;justify-self:end;width:100%;max-width:500px}
+.frame .ph{border-radius:220px 220px 32px 32px;overflow:hidden;aspect-ratio:3/3.9;box-shadow:0 40px 80px -40px rgba(42,33,22,.55)}
+.frame .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.bord{position:absolute;left:-58px;bottom:46px;background:var(--chalk);color:#f4f1ea;padding:16px 22px 16px 18px;border-radius:14px;border:6px solid #a27a52;box-shadow:0 24px 40px -20px rgba(42,33,22,.7);transform:rotate(-3deg);max-width:240px}
+.bord b{display:block;font:700 22px/1.1 'Bricolage Grotesque',sans-serif;letter-spacing:-.01em}
+.bord span{display:block;font-size:13px;opacity:.75;margin-top:4px}
+
+/* RITUEEL */
+.rit{padding:clamp(70px,9vw,120px) 0 clamp(80px,10vw,130px)}
+.rit-top{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:60px}
+.rit h2,.sec-h{font-size:clamp(42px,5.4vw,80px)}
+.rit-top p{color:var(--mut);font-size:18px;max-width:470px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+.step{counter-increment:s;position:relative}
+.step .ph{border-radius:26px;overflow:hidden;aspect-ratio:3/3.8;background:var(--sand)}
+.step:nth-child(even) .ph{aspect-ratio:3/3.3;margin-top:56px}
+.step .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.step:hover .ph img{transform:scale(1.05)}
+.step .n{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--sage);color:#fff;font:700 15px/1 'Bricolage Grotesque',sans-serif;margin:22px 0 14px}
+.step .n::before{content:counter(s)}
+.step h3{font-size:25px;letter-spacing:-.02em;margin-bottom:8px}
+.step p{color:var(--mut);font-size:15.5px}
+.steps::before{content:"";position:absolute}
+
+/* PRIJZEN */
+.prijs{background:var(--moss);color:var(--cream);padding:clamp(80px,10vw,130px) 0;border-radius:48px;margin:0 16px}
+.prijs-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,6vw,90px);align-items:center}
+.prijs .label{color:#d9dcc6}
+.prijs h2{font-size:clamp(42px,5.4vw,80px);margin:22px 0 22px}
+.prijs .intro{color:#dfe0d0;max-width:470px}
+.svc{list-style:none;margin-top:30px;display:flex;flex-wrap:wrap;gap:8px;max-width:520px}
+.svc li{padding:9px 14px;border-radius:12px;background:rgba(247,241,229,.1);font-size:14.5px;box-shadow:inset 0 0 0 1px rgba(247,241,229,.16)}
+.uur{background:var(--cream);color:var(--ink);border-radius:34px;padding:clamp(26px,3.4vw,44px)}
+.uur h3{font-size:28px;letter-spacing:-.02em}
+.uur .sub{color:var(--mut);font-size:15px;margin-top:6px}
+.maten{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0 22px;align-items:end}
+.maat{background:var(--sand);border-radius:22px;padding:20px 16px 18px;text-align:center}
+.maat svg{display:block;margin:0 auto 12px;fill:var(--brown)}
+.maat svg{height:44px}.maat:nth-child(1) svg{width:24px}.maat:nth-child(2) svg{width:33px}.maat:nth-child(3) svg{width:44px}
+.maat b{display:block;white-space:nowrap;font:800 38px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.04em;color:var(--brown)}
+.maat b small{font-size:15px;font-weight:600;letter-spacing:0;color:var(--mut)}
+.maat span{display:block;font-size:14px;color:var(--mut);margin-top:6px}
+.uur .note{font-size:14.5px;color:var(--mut);border-top:1px solid var(--line);padding-top:16px}
+.uur .note b{color:var(--ink)}
+.uur .btn{margin-top:22px}
+
+/* SANDRA */
+.sandra{padding:clamp(90px,11vw,150px) 0}
+.sandra-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(40px,6vw,90px);align-items:center}
+.duo{position:relative;padding-bottom:70px}
+.duo .a{border-radius:32px;overflow:hidden;aspect-ratio:4/4.6;width:82%}
+.duo .b{position:absolute;right:0;bottom:0;width:52%;border-radius:26px;overflow:hidden;aspect-ratio:4/3;border:10px solid var(--cream)}
+.duo img{width:100%;height:100%;object-fit:cover}
+.sandra h2{font-size:clamp(42px,5.2vw,76px);margin:22px 0 24px}
+.sandra p.t{color:var(--mut);font-size:18px;max-width:540px}
+.sandra p.t+p.t{margin-top:14px}
+.feiten{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:34px;border-top:1px solid var(--line)}
+.feiten div{padding:18px 18px 0 0}
+.feiten div+div{padding-left:18px;border-left:1px solid var(--line)}
+.feiten b{display:block;font:800 30px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.03em;color:var(--brown)}
+.feiten span{display:block;font-size:14px;color:var(--mut);margin-top:6px}
+
+/* GALERIJ */
+.gal{background:var(--sand);padding:clamp(80px,10vw,130px) 0;border-radius:48px 48px 0 0}
+.gal-top{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:44px}
+.gal-top h2{font-size:clamp(42px,5.4vw,80px);margin-top:22px}
+.gal-top p{max-width:380px;color:var(--mut)}
+.mos{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.mos figure{border-radius:24px;overflow:hidden;aspect-ratio:3/4;background:#ddd}
+.mos figure:nth-child(odd){transform:translateY(28px)}
+.mos img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.mos figure:hover img{transform:scale(1.05)}
+
+/* REVIEWS */
+.rev{background:var(--sand);padding:clamp(70px,9vw,120px) 0 clamp(90px,11vw,140px)}
+.rev-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(30px,5vw,80px);align-items:start}
+.rev h2{font-size:clamp(40px,4.8vw,70px);margin:22px 0 28px}
+.score{display:inline-flex;align-items:center;gap:16px;background:var(--cream);border-radius:22px;padding:18px 22px}
+.score b{font:800 52px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.05em;color:var(--brown)}
+.score .st{color:#e0a22a;letter-spacing:2px}
+.score small{display:block;color:var(--mut);font-size:14px}
+.score a{font-weight:700;font-size:14px;color:var(--moss);text-decoration:underline;text-underline-offset:3px}
+.qs{display:grid;gap:16px}
+.q{background:var(--cream);border-radius:28px;padding:clamp(24px,3vw,36px);position:relative}
+.q p{font-size:17.5px;line-height:1.6}
+.qs>.q:first-child{background:var(--brown);color:var(--cream)}
+.qs>.q:first-child p{font:600 clamp(21px,1.9vw,26px)/1.38 'Bricolage Grotesque',sans-serif;letter-spacing:-.015em}
+.q footer{display:flex;align-items:center;gap:12px;margin-top:18px;font-size:14px;opacity:.85}
+.q footer b{font-weight:700}
+.q .av{width:36px;height:36px;border-radius:50%;background:var(--sage);color:#fff;display:grid;place-items:center;font:700 14px/1 'Bricolage Grotesque',sans-serif}
+.qs .pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+/* CONTACT */
+.cont{background:var(--sage);color:var(--cream);padding:clamp(80px,10vw,130px) 0 0;position:relative;overflow:hidden}
+.cont-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,6vw,90px);align-items:end}
+.cont .label{color:#f1eddc}
+.cont h2{font-size:clamp(46px,6vw,92px);margin:22px 0 22px}
+.cont .lead{max-width:520px;font-size:18px;color:#f3efe2}
+.cont .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.kaart{background:var(--cream);color:var(--ink);border-radius:32px 32px 0 0;padding:34px 34px 40px}
+.kaart dl{display:grid;gap:20px}
+.kaart dt{font:700 11.5px/1 'DM Sans',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--brown2);margin-bottom:7px}
+.kaart dd{font-size:17px}
+.kaart dd a{text-decoration:underline;text-underline-offset:3px}
+.foot{background:var(--moss);color:#d9dcc6;font-size:14px}
+.foot .wrap{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:30px 0;flex-wrap:wrap}
+.foot img{height:44px;width:auto}
+.foot nav{display:flex;gap:22px}
+.foot a:hover{color:#fff}
+
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
+
+@media (max-width:1100px){
+  .nav ul{display:none}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .step:nth-child(even) .ph{margin-top:0}
+  .mos{grid-template-columns:repeat(3,1fr)}
+  .mos figure:nth-child(n+4){display:none}
+}
+@media (max-width:900px){
+  .hero-txt{padding-bottom:0}
+  .hero::after{height:70px}
+  .hero-grid{grid-template-columns:1fr;gap:34px;padding:20px 0 40px}
+  .frame{justify-self:center;max-width:460px}
+  .bord{left:-10px;bottom:30px}
+  .rit-top,.prijs-grid,.sandra-grid,.rev-grid,.cont-grid{grid-template-columns:1fr;gap:36px}
+  .sandra-grid .duo{order:2}
+  .prijs{margin:0 10px;border-radius:36px}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 36px)}
+  .nav .logo img{height:46px}
+  .nav .btn{padding:12px 14px}
+  .nav .btn .t{display:none}
+  .hero h1{font-size:clamp(46px,13.4vw,60px);margin:18px 0 18px}
+  .hero .acts .btn{flex:1 1 100%;justify-content:center}
+  .bord{max-width:200px;padding:12px 16px;border-width:5px}
+  .bord b{font-size:18px}
+  .steps{grid-template-columns:1fr 1fr;gap:14px}
+  .step h3{font-size:20px}
+  .step p{font-size:14.5px}
+  .step .n{margin:14px 0 10px}
+  .maten{gap:8px}
+  .maat{padding:16px 8px}
+  .maat b{font-size:24px}
+  .maat b small{font-size:12px}
+  .feiten{grid-template-columns:1fr;border-top:0}
+  .feiten div,.feiten div+div{padding:14px 0;border-left:0;border-top:1px solid var(--line)}
+  .mos{grid-template-columns:1fr 1fr;gap:10px}
+  .mos figure:nth-child(n+4){display:block}
+  .mos figure:nth-child(5){display:none}
+  .mos figure:nth-child(odd){transform:none}
+  .qs .pair{grid-template-columns:1fr}
+  .cont .acts .btn{flex:1 1 100%;justify-content:center}
+  .kaart{padding:28px 22px 34px}
+  .foot nav{flex-wrap:wrap;gap:14px}
+}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <nav class="nav">
+      <a class="logo" href="#top"><img src="img/logo-licht.png" alt="Trimsalon Dog Spirit" width="520" height="267"></a>
+      <ul><li><a href="#ritueel">Zo werk ik</a></li><li><a href="#prijzen">Prijzen</a></li><li><a href="#sandra">Over Sandra</a></li><li><a href="#contact">Afspraak</a></li></ul>
+      <a class="btn btn-cream" href="https://wa.me/32469104091" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="6" cy="9" rx="2" ry="2.6"/><ellipse cx="10" cy="5.6" rx="2" ry="2.6"/><ellipse cx="14.4" cy="5.6" rx="2" ry="2.6"/><ellipse cx="18.2" cy="9" rx="2" ry="2.6"/><path d="M12 11c-3 0-6 3.8-6 6.4C6 19.4 7.6 20 9 20c1.2 0 2-.6 3-.6s1.8.6 3 .6c1.4 0 3-.6 3-2.6C18 14.8 15 11 12 11z"/></svg><span class="t">Maak een afspraak</span></a>
+    </nav>
+    <div class="hero-grid">
+      <div class="hero-txt">
+        <span class="label rv">Hondentrimsalon in Hallaar</span>
+        <h1 class="rv">Trimmen op het tempo van <span>je hond</span>.</h1>
+        <p class="lead rv">Bij Dog Spirit staat er altijd maar één hond op de tafel. Sandra neemt de tijd, beloont met snoepjes en werkt rustig, ook met puppy's, senioren en angstige honden.</p>
+        <div class="acts rv">
+          <a class="btn btn-brown" href="https://wa.me/32469104091" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="6" cy="9" rx="2" ry="2.6"/><ellipse cx="10" cy="5.6" rx="2" ry="2.6"/><ellipse cx="14.4" cy="5.6" rx="2" ry="2.6"/><ellipse cx="18.2" cy="9" rx="2" ry="2.6"/><path d="M12 11c-3 0-6 3.8-6 6.4C6 19.4 7.6 20 9 20c1.2 0 2-.6 3-.6s1.8.6 3 .6c1.4 0 3-.6 3-2.6C18 14.8 15 11 12 11z"/></svg>Stuur Sandra een berichtje</a>
+          <a class="gbtn" href="https://www.google.com/maps/place/?q=place_id:ChIJOZ3L5E9XwUcR-YcED__gtpg" target="_blank" rel="noopener"><span class="g"><svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg></span><span><b>5,0 ★</b><small>21 reviews op Google</small></span></a>
+        </div>
+      </div>
+      <div class="frame rv">
+        <div class="ph"><img src="img/hero.webp" alt="Sandra knuffelt een grijze ruwharige hond op de trimtafel" fetchpriority="high"></div>
+        <div class="bord" aria-hidden="true"><b>Welkom!</b><span>De naam van je hond staat al op het bord.</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="rit" id="ritueel">
+  <div class="wrap">
+    <div class="rit-top">
+      <div><span class="label rv"><svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="6" cy="9" rx="2" ry="2.6"/><ellipse cx="10" cy="5.6" rx="2" ry="2.6"/><ellipse cx="14.4" cy="5.6" rx="2" ry="2.6"/><ellipse cx="18.2" cy="9" rx="2" ry="2.6"/><path d="M12 11c-3 0-6 3.8-6 6.4C6 19.4 7.6 20 9 20c1.2 0 2-.6 3-.6s1.8.6 3 .6c1.4 0 3-.6 3-2.6C18 14.8 15 11 12 11z"/></svg>Zo werk ik</span><h2 class="rv" style="margin-top:22px">Een beurt zonder stress.</h2></div>
+      <p class="rv">Honden voelen meteen of iemand gehaast is. Daarom werk ik één op één, zonder prikkels, en pas ik alles aan je hond aan. Jij mag blijven, en krijgt er een drankje bij.</p>
+    </div>
+    <div class="steps">
+      <article class="step rv"><div class="ph"><img src="img/snoepje.webp" alt="Een teckel krijgt een snoepje" loading="lazy"></div><span class="n"></span><h3>Rustig kennismaken</h3><p>Een krijtbordje met de naam van je hond, vers water en snoepjes om te belonen.</p></article>
+      <article class="step rv"><div class="ph"><img src="img/bad.webp" alt="Sandra wast een bruine hond in het bad" loading="lazy"></div><span class="n"></span><h3>Zacht wassen</h3><p>Met huidvriendelijke producten, en geurtjes die honden op hun gemak stellen.</p></article>
+      <article class="step rv"><div class="ph"><img src="img/drogen.webp" alt="Sandra droogt een hond op de trimtafel" loading="lazy"></div><span class="n"></span><h3>Kalm drogen</h3><p>Op maat van je hond, met een aparte droger voor angstige hondjes.</p></article>
+      <article class="step rv"><div class="ph"><img src="img/krul.webp" alt="Een krullende hond, net getrimd" loading="lazy"></div><span class="n"></span><h3>Trimmen per ras</h3><p>Plukken, knippen, scheren of ontwollen. Poten, nagels, oren en ogen horen erbij.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="prijs" id="prijzen">
+  <div class="wrap prijs-grid">
+    <div>
+      <span class="label rv">Diensten en prijzen</span>
+      <h2 class="rv">Je betaalt per uur.</h2>
+      <p class="intro rv">Hoe lang het duurt hangt af van het ras, de vacht en wat je wil. Bij een eerste afspraak bel ik je even terug om dat samen te bekijken.</p>
+      <ul class="svc rv"><li>Vachtspecifieke trimbehandeling</li><li>Zacht was- en droogritueel</li><li>Natuurlijke vachtverzorging en styling</li><li>Poten, nagels, oren en ogen</li><li>Puppy, senior en gevoelige honden</li><li>Alle rassen, ook plukhonden en XL</li></ul>
+    </div>
+    <div class="uur rv">
+      <h3>Richtprijs per uur</h3>
+      <p class="sub">Voor een regelmatig verzorgde hond, inclusief 21% btw.</p>
+      <div class="maten">
+        <div class="maat"><svg viewBox="0 0 24 24"><ellipse cx="6" cy="9" rx="2" ry="2.6"/><ellipse cx="10" cy="5.6" rx="2" ry="2.6"/><ellipse cx="14.4" cy="5.6" rx="2" ry="2.6"/><ellipse cx="18.2" cy="9" rx="2" ry="2.6"/><path d="M12 11c-3 0-6 3.8-6 6.4C6 19.4 7.6 20 9 20c1.2 0 2-.6 3-.6s1.8.6 3 .6c1.4 0 3-.6 3-2.6C18 14.8 15 11 12 11z"/></svg><b>€ 50<small>/u</small></b><span>klein ras</span></div>
+        <div class="maat"><svg viewBox="0 0 24 24"><ellipse cx="6" cy="9" rx="2" ry="2.6"/><ellipse cx="10" cy="5.6" rx="2" ry="2.6"/><ellipse cx="14.4" cy="5.6" rx="2" ry="2.6"/><ellipse cx="18.2" cy="9" rx="2" ry="2.6"/><path d="M12 11c-3 0-6 3.8-6 6.4C6 19.4 7.6 20 9 20c1.2 0 2-.6 3-.6s1.8.6 3 .6c1.4 0 3-.6 3-2.6C18 14.8 15 11 12 11z"/></svg><b>€ 55<small>/u</small></b><span>middelgroot ras</span></div>
+        <div class="maat"><svg viewBox="0 0 24 24"><ellipse cx="6" cy="9" rx="2" ry="2.6"/><ellipse cx="10" cy="5.6" rx="2" ry="2.6"/><ellipse cx="14.4" cy="5.6" rx="2" ry="2.6"/><ellipse cx="18.2" cy="9" rx="2" ry="2.6"/><path d="M12 11c-3 0-6 3.8-6 6.4C6 19.4 7.6 20 9 20c1.2 0 2-.6 3-.6s1.8.6 3 .6c1.4 0 3-.6 3-2.6C18 14.8 15 11 12 11z"/></svg><b>€ 60<small>/u</small></b><span>groot ras</span></div>
+      </div>
+      <p class="note"><b>Goed om te weten:</b> bij veel knopen of vilt, moeilijk gedrag of vlooien kan er iets bijkomen. Een richtprijs voor jouw ras vraag je gewoon even na.</p>
+      <a class="btn btn-brown" href="https://wa.me/32469104091" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg>Vraag de prijs voor je ras</a>
+    </div>
+  </div>
+</section>
+
+<section class="sandra" id="sandra">
+  <div class="wrap sandra-grid">
+    <div class="duo rv">
+      <div class="a"><img src="img/sandra-trim.webp" alt="Sandra trimt een grijze hond" loading="lazy"></div>
+      <div class="b"><img src="img/salon.webp" alt="Het trimsalon met trimtafel en droger" loading="lazy"></div>
+    </div>
+    <div>
+      <span class="label rv">Over Sandra</span>
+      <h2 class="rv">Van de farma naar de trimtafel.</h2>
+      <p class="t rv">Na jaren in de farmaceutische sector koos ik bewust voor werk dat dichter bij mezelf ligt: werken met dieren, vanuit vertrouwen.</p>
+      <p class="t rv">Ik volgde een professionele opleiding tot hondentrimmer en blijf bijleren via workshops, beurzen en seminars, met extra aandacht voor huid, vacht en welzijn.</p>
+      <div class="feiten rv">
+        <div><b>2 jaar</b><span>opleiding tot hondentrimmer</span></div>
+        <div><b>100+ dagen</b><span>stage in verschillende salons</span></div>
+        <div><b>1 hond</b><span>tegelijk op de tafel</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gal">
+  <div class="wrap">
+    <div class="gal-top">
+      <div><span class="label rv">Uit het salon</span><h2 class="rv">Fris en tevreden.</h2></div>
+      <p class="rv">Van teckel tot golden retriever. Alle rassen zijn welkom, ook plukhonden en de grote jongens.</p>
+    </div>
+    <div class="mos">
+      <figure class="rv"><img src="img/golden.webp" alt="Golden retriever in het bad" loading="lazy"></figure>
+      <figure class="rv"><img src="img/teckel.webp" alt="Ruwharige teckel op de trimtafel" loading="lazy"></figure>
+      <figure class="rv"><img src="img/mechelaar.webp" alt="Mechelse herder in het bad" loading="lazy"></figure>
+      <figure class="rv"><img src="img/voor.webp" alt="Natte ruwharige hond in het bad" loading="lazy"></figure>
+      <figure class="rv"><img src="img/pootjes.webp" alt="Sandra verzorgt de poten van een grote hond" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="rev">
+  <div class="wrap rev-grid">
+    <div>
+      <span class="label rv">Reviews</span>
+      <h2 class="rv">Wat baasjes vertellen.</h2>
+      <div class="score rv"><b>5,0</b><div><span class="st">★★★★★</span><small>21 reviews op Google</small><a href="https://www.google.com/maps/place/?q=place_id:ChIJOZ3L5E9XwUcR-YcED__gtpg" target="_blank" rel="noopener">Lees ze allemaal</a></div></div>
+    </div>
+    <div class="qs">
+      <blockquote class="q rv"><p>"Vanaf het eerste moment voel je dat Sandra haar job met hart en ziel doet. Zowel baasje als hond krijgen een ontzettend warm welkom. Er is werkelijk aan alles gedacht: een persoonlijk krijtbordje met de naam van je hond, vers water, en onbeperkt snoepjes om onze viervoeters positief te belonen."</p><footer><span class="av">J</span><span><b>Jolien Van Hove</b> · Google</span></footer></blockquote>
+      <div class="pair">
+        <blockquote class="q rv"><p>"Voor de 1ste keer geweest met Sky , golden retriever. Super lief ontvangen voor een totale metamorfose. Wassen , kammen , drogen , knippen ... allemaal op tempo van Sky."</p><footer><span class="av">H</span><span><b>Hilde Ceulemans</b> · Google</span></footer></blockquote>
+        <blockquote class="q rv"><p>"Mylo, onze 5-jarige hond, ging voor de allereerste keer naar een trimsalon. We waren eerlijk gezegd een beetje benieuwd hoe hij het zou ervaren, maar Sandra heeft dit echt geweldig aangepakt."</p><footer><span class="av">C</span><span><b>Cindy Sintebin</b> · Google</span></footer></blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cont" id="contact">
+  <div class="wrap cont-grid">
+    <div style="padding-bottom:clamp(60px,8vw,110px)">
+      <span class="label rv">Afspraak maken</span>
+      <h2 class="rv">Tot het volgende verwenmoment.</h2>
+      <p class="lead rv">Ik werk enkel op afspraak. Bel of stuur een berichtje met het ras van je hond en wat je graag wil. Is het je eerste keer, dan bel ik je terug.</p>
+      <div class="acts rv">
+        <a class="btn btn-brown" href="https://wa.me/32469104091" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg>WhatsApp</a>
+        <a class="btn btn-line" href="tel:+32469104091"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>0469 10 40 91</a>
+      </div>
+    </div>
+    <div class="kaart rv">
+      <dl>
+        <div><dt>Salon</dt><dd>Streepweg 14, Hallaar<br>2220 Heist-op-den-Berg</dd></div>
+        <div><dt>Op afspraak</dt><dd>Maandag tot vrijdag, 9u tot 17u</dd></div>
+        <div><dt>Mail</dt><dd><a href="mailto:sandra@trimsalondogspirit.be">sandra@trimsalondogspirit.be</a></dd></div>
+        <div><dt>Route</dt><dd><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Dog+spirit+trimsalon+Streepweg+14+Heist-op-den-Berg" target="_blank" rel="noopener">Open in Google Maps</a></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <img src="img/logo-licht.png" alt="Dog Spirit" width="520" height="267">
+    <nav><a href="https://www.instagram.com/trimsalon_dog_spirit" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/share/1AxjvY2RtC/" target="_blank" rel="noopener">Facebook</a><span>BE1026638003</span></nav>
+    <span>Vachtverzorging met hart en ziel · Voorbeeldsite door Digital Impression</span>
+  </div>
+</footer>
+<script>
+(function(){var els=document.querySelectorAll('.rv');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+els.forEach(function(e){io.observe(e)})})();
+</script>
+</body>
+</html>
