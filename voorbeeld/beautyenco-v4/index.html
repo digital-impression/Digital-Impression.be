@@ -187,7 +187,7 @@ html,body{overflow-x:clip}
 .prices .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
 .pl{padding:30px 30px 10px 0}
 .pl+.pl{padding-left:30px;border-left:1px solid var(--line)}
-.pl h3{font-size:32px;margin-bottom:12px;display:flex;align-items:baseline;justify-content:space-between}
+.pl h3{font-size:32px;margin-bottom:12px;display:flex;align-items:center;gap:14px}.pl h3 small{margin-left:auto}
 .pl h3 small{font:600 12px/1 var(--fb);letter-spacing:.16em;color:var(--acc)}
 .pl div{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:11px 0;font-size:15px}
 .pl div span{flex:1;display:flex;align-items:baseline;gap:10px}
@@ -240,6 +240,73 @@ html,body{overflow-x:clip}
  .svc{gap:10px}.sv h3{font-size:24px}.sv .tx{left:14px;right:14px;bottom:14px}.sv .pr{font-size:12px;padding:6px 10px}
  .sl-img{height:440px}
 }
+
+/* v4b: levendiger, aansluitend */
+:root{--rose:#EBD3C8;--rose2:#F4E4DC}
+.flow{position:relative;z-index:2;border-radius:clamp(28px,4vw,56px) clamp(28px,4vw,56px) 0 0;margin-top:calc(clamp(28px,4vw,56px) * -1)}
+.hero{padding-bottom:clamp(28px,4vw,56px)}
+.h-arch{position:absolute;right:12%;top:15%;width:min(30vw,420px);aspect-ratio:3/4.2;border:1px solid rgba(255,255,255,.6);border-bottom:0;border-radius:999px 999px 0 0;pointer-events:none;z-index:1;-webkit-mask-image:linear-gradient(180deg,#000 35%,transparent 75%);mask-image:linear-gradient(180deg,#000 35%,transparent 75%)}
+.h-arch::after{content:"";position:absolute;left:50%;top:-6px;width:11px;height:11px;margin-left:-5.5px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 5px rgba(176,138,87,.18)}
+.h-txt h1 .acc{position:relative}
+.werk{background:var(--bg)}
+.strip-bar{margin:22px var(--pad) 0;max-width:1280px;height:2px;background:var(--line);border-radius:2px;overflow:hidden}
+@media (min-width:1400px){.strip-bar{margin-inline:auto;width:calc(1280px - var(--pad)*2)}}
+.strip-bar i{display:block;height:100%;width:30%;background:var(--acc);border-radius:2px;transform-origin:left;transition:transform .2s linear}
+.tr-bg{background:var(--rose2)}
+.sv{overflow:visible}
+.sv .ar{position:absolute;inset:0;border-radius:inherit;overflow:hidden;z-index:0}
+.sv .ar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.sv .ar::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,31,28,0) 45%,rgba(42,31,28,.82))}
+.sv::before{content:"";position:absolute;inset:-9px;border:1px solid rgba(176,138,87,.45);border-radius:inherit;opacity:0;transform:scale(.97);transition:opacity .5s,transform .7s var(--ease)}
+.sv:hover::before{opacity:1;transform:none}
+.sv::after{display:none}
+.sv .tx{z-index:1}
+.sv:hover .ar img{transform:scale(1.06)}
+.sv .pr i{width:22px;height:22px;border-radius:50%;background:#fff;color:var(--ink);display:inline-grid;place-items:center;transition:transform .5s var(--ease)}
+.sv:hover .pr i{transform:rotate(-45deg)}
+.sv .pr i svg{width:12px;height:12px}
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(40px,5vw,64px)}
+.s3{display:flex;gap:16px;align-items:center;padding:14px;border-radius:22px;background:rgba(255,255,255,.08);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
+.s3 img{width:84px;height:84px;border-radius:16px;object-fit:cover;flex:none}
+.s3 .n{font:400 13px/1 var(--fb);letter-spacing:.18em;color:#E3C49A}
+.s3 b{display:block;font:400 23px/1.15 var(--fh);color:#fff;margin:6px 0 4px}
+.s3 small{color:rgba(255,255,255,.7);font-size:13.5px;line-height:1.4;display:block}
+.prices{background:var(--bg)}
+.pl h3 .ico{width:42px;height:42px;border-radius:50%;background:var(--rose2);display:grid;place-items:center;color:var(--acc2)}
+.pl h3 .ico svg{width:20px;height:20px}
+.salon{background:var(--rose2)}
+.sl-img .a{box-shadow:0 40px 80px -50px rgba(42,31,28,.6)}
+.sl-img::before{content:"";position:absolute;left:-18px;top:30px;width:120px;height:120px;border-radius:50%;background:var(--rose);z-index:0}
+.sl-img .a{z-index:1}.sl-img .b{z-index:2;border-color:var(--rose2)}
+.book{background:var(--bg)}
+.bk{box-shadow:0 50px 100px -60px rgba(42,31,28,.55)}
+.burger{display:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.7);align-items:center;justify-content:center;flex-direction:column;gap:5px;cursor:pointer}
+.burger i{display:block;width:16px;height:1.5px;background:var(--ink);transition:transform .4s var(--ease),opacity .3s}
+.menu-open .burger i:first-child{transform:translateY(3.25px) rotate(45deg)}
+.menu-open .burger i:last-child{transform:translateY(-3.25px) rotate(-45deg)}
+.sheet{position:fixed;inset:0;z-index:45;background:var(--bg);padding:150px var(--pad) 40px;display:flex;flex-direction:column;gap:6px;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .4s,transform .5s var(--ease),visibility .4s}
+.menu-open .sheet{opacity:1;visibility:visible;transform:none}
+.sheet a.l{font:400 42px/1.25 var(--fh);color:var(--ink);padding:6px 0;border-bottom:1px solid var(--line)}
+.sheet .btn{margin-top:26px;align-self:flex-start}
+.sheet p{margin-top:auto;color:var(--mute);font-size:14px}
+.ftr{background:var(--dark);color:#F1E6DF;border-top:0;padding-top:clamp(60px,7vw,100px)}
+.ftr .ft{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:30px;align-items:start;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.12)}
+.ftr .ft .brand{color:#fff;font-size:34px}
+.ftr .ft .brand img{height:26px}
+.ftr .ft p.t{color:rgba(241,230,223,.6);font-size:14.5px;margin-top:16px;max-width:22em}
+.ftr h4{font:600 12px/1 var(--fb);letter-spacing:.16em;text-transform:uppercase;color:#D8B98A;margin-bottom:14px}
+.ftr .col a,.ftr .col span{display:block;color:#F1E6DF;font-size:15px;margin-bottom:8px;opacity:.85}
+.ftr .col a:hover{opacity:1}
+.ftr .strip2{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:30px 0}
+.ftr .strip2 img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px}
+.ftr .fb{color:rgba(241,230,223,.5);border-top:0;padding-top:0}
+@media (max-width:1100px){.steps3{grid-template-columns:1fr}}
+@media (max-width:1100px){.nav ul{display:none}.burger{display:inline-flex;margin-left:auto}.nav .in>.btn{margin-left:auto}.nav .in>.btn+.burger{margin-left:0}.h-arch{display:none}}
+@media (max-width:640px){.nav .in>.btn{display:none}.burger{margin-left:auto!important}}
+@media (max-width:900px){.ftr .ft{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.ftr .ft{grid-template-columns:1fr}.ftr .strip2{grid-template-columns:repeat(3,1fr)}.sv::before{inset:-6px}.s3 img{width:70px;height:70px}}
+@media (min-width:1101px){.sheet{display:none}}
+@media (max-width:900px){.hero>.wrap{width:100%}.svc .sv{aspect-ratio:3/3.7}}
 </style>
 </head>
 <body>
@@ -255,13 +322,16 @@ html,body{overflow-x:clip}
    <li><a href="#afspraak">Contact</a></li>
   </ul>
   <a class="btn k" href="#afspraak">Maak een afspraak <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+  <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
  </div>
 </header>
+<div class="sheet" aria-hidden="true"><a class="l" href="#werk">Werk</a><a class="l" href="#behandelingen">Behandelingen</a><a class="l" href="#prijzen">Prijzen</a><a class="l" href="#afspraak">Contact</a><a class="btn k" href="#afspraak">Maak een afspraak <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a><p>Talingstraat 11, Oostende · 0494 43 06 27</p></div>
 
 <main id="top">
 <section class="hero">
  <div class="ph"><img src="img/model.webp" alt="Vrouw met lange, natuurlijke wimpers" width="1300" height="1949" fetchpriority="high" data-speed=".05"></div>
  <div class="grain"></div>
+ <div class="h-arch" data-speed=".03"></div>
  <div class="wrap grid">
   <div class="h-txt">
    <p class="idx r"><span>Oostende</span>Lash &amp; brow studio</p>
@@ -290,46 +360,47 @@ html,body{overflow-x:clip}
   <figure class="rm" style="--d:5;--rad:22px"><img src="img/lashlift.webp" alt="Lashlift" loading="lazy"><figcaption><b>Lashlift</b><span>Wimpers</span></figcaption></figure>
   <figure class="rm" style="--d:6;--rad:22px"><img src="img/rood.webp" alt="Rode gelnagels" loading="lazy"><figcaption><b>Kleur</b><span>Gelnagels</span></figcaption></figure>
  </div>
+ <div class="strip-bar"><i></i></div>
 </section>
 
-<section class="sec" id="behandelingen" style="padding-top:clamp(50px,6vw,90px)">
+<section class="sec flow tr-bg" id="behandelingen">
  <div class="wrap">
   <div class="sh"><div><p class="idx r"><span>02</span>Behandelingen</p><h2 class="rl">Vier dingen, heel goed gedaan</h2></div></div>
   <div class="svc">
-   <a class="sv r" href="#prijzen"><img src="img/volume.webp" alt="" loading="lazy"><div class="tx"><span class="n">01</span><h3>Wimpers</h3><span class="pr">vanaf € 65 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-   <a class="sv r" href="#prijzen" style="--d:2"><img src="img/pb-duo.webp" alt="" loading="lazy"><div class="tx"><span class="n">02</span><h3>Wenkbrauwen</h3><span class="pr">vanaf € 18 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-   <a class="sv r" href="#prijzen" style="--d:3"><img src="img/pb-na.webp" alt="" loading="lazy"><div class="tx"><span class="n">03</span><h3>Powderbrows</h3><span class="pr">€ 355 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
-   <a class="sv r" href="#prijzen" style="--d:4"><img src="img/nagels.webp" alt="" loading="lazy"><div class="tx"><span class="n">04</span><h3>Gelnagels</h3><span class="pr">vanaf € 55 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div></a>
+   <a class="sv r" href="#prijzen"><span class="ar"><img src="img/volume.webp" alt="" loading="lazy"></span><div class="tx"><span class="n">01</span><h3>Wimpers</h3><span class="pr">vanaf € 65 <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span></div></a>
+   <a class="sv r" href="#prijzen" style="--d:2"><span class="ar"><img src="img/pb-duo.webp" alt="" loading="lazy"></span><div class="tx"><span class="n">02</span><h3>Wenkbrauwen</h3><span class="pr">vanaf € 18 <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span></div></a>
+   <a class="sv r" href="#prijzen" style="--d:3"><span class="ar"><img src="img/pb-na.webp" alt="" loading="lazy"></span><div class="tx"><span class="n">03</span><h3>Powderbrows</h3><span class="pr">€ 355 <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span></div></a>
+   <a class="sv r" href="#prijzen" style="--d:4"><span class="ar"><img src="img/nagels.webp" alt="" loading="lazy"></span><div class="tx"><span class="n">04</span><h3>Gelnagels</h3><span class="pr">vanaf € 55 <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span></div></a>
   </div>
  </div>
 </section>
 
-<section class="mood">
+<section class="mood flow">
  <img src="img/rust.webp" alt="Vrouw met de ogen dicht in warm licht" loading="lazy" data-speed=".08">
  <div class="wrap">
-  <p class="idx r"><span>03</span>Veilig voor je eigen wimper</p>
+  <p class="idx r"><span>03</span>Je eerste afspraak</p>
   <h2 class="rl">Ogen dicht, even niets</h2>
-  <p class="l r" style="--d:2">Bij de allergietest kijken we hoeveel gewicht je eigen wimper aankan. Een set die schade doet, plaatsen we niet.</p>
-  <div class="facts">
-   <div class="r"><b>London Lash Pro</b><small>Opgeleid bij Daisy Wolf</small></div>
-   <div class="r" style="--d:2"><b>Allergietest € 35</b><small>Met advies over stijl en gewicht</small></div>
-   <div class="r" style="--d:3"><b>48 uur vooraf</b><small>Altijd een test voor henna</small></div>
+  <p class="l r" style="--d:2">Opgeleid bij Daisy Wolf van London Lash Pro. Bij de test kijken we hoeveel gewicht je eigen wimper aankan. Een set die schade doet, plaatsen we niet.</p>
+  <div class="steps3">
+   <div class="s3 r"><img src="img/oog.webp" alt="" loading="lazy"><div><span class="n">01</span><b>Allergietest</b><small>€ 35, met advies over stijl en gewicht</small></div></div>
+   <div class="s3 r" style="--d:2"><img src="img/volume.webp" alt="" loading="lazy"><div><span class="n">02</span><b>De behandeling</b><small>Rustig liggen, even indommelen mag</small></div></div>
+   <div class="s3 r" style="--d:3"><img src="img/wimpers-zw.webp" alt="" loading="lazy"><div><span class="n">03</span><b>Nazorg</b><small>Reinigingsproducten bij je nieuwe set inbegrepen</small></div></div>
   </div>
  </div>
 </section>
 
-<section class="sec prices" id="prijzen">
+<section class="sec prices flow" id="prijzen">
  <div class="wrap">
   <div class="sh"><div><p class="idx r"><span>04</span>Prijslijst</p><h2 class="rl">Helder vooraf</h2></div><p class="aside r">Bij nieuwe wimpersets zitten de reinigingsproducten (€ 10) inbegrepen.</p></div>
   <div class="cols">
-   <div class="pl r"><h3>Wimpers <small>01</small></h3><div><span>Lashlift met kleuring</span><b>€ 65</b></div><div><span>Nieuwe set one by one</span><b>€ 125</b></div><div><span>Nieuwe set hybride</span><b>€ 135</b></div><div><span>Russian volume glamour</span><b>€ 135</b></div><div><span>Russian mega volume</span><b>€ 145</b></div><div><span>Speedy refill, 45 min</span><b>€ 45</b></div></div>
-   <div class="pl r" style="--d:2"><h3>Wenkbrauwen <small>02</small></h3><div><span>Epilatie</span><b>€ 18</b></div><div><span>Verven</span><b>€ 18</b></div><div><span>Epilatie en verven</span><b>€ 33</b></div><div><span>Henna brows</span><b>€ 60</b></div><div><span>Powderbrows, met retouche</span><b>€ 355</b></div><div><span>Adviesgesprek PMU</span><b>€ 40</b></div></div>
-   <div class="pl r" style="--d:3"><h3>Gelnagels <small>03</small></h3><div><span>Nieuwe set</span><b>€ 55</b></div><div><span>Met verlenging</span><b>€ 75</b></div><div><span>Bijwerking</span><b>€ 55</b></div><div><span>Bijwerking ander salon</span><b>€ 60</b></div><div><span>Nailart, per nagel</span><b>€ 1,5</b></div></div>
+   <div class="pl r"><h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13c3-4 15-4 18 0M6 12l-1.5-3M10 11l-.5-3.5M14 11l.5-3.5M18 12l1.5-3"/></svg></span>Wimpers <small>01</small></h3><div><span>Lashlift met kleuring</span><b>€ 65</b></div><div><span>Nieuwe set one by one</span><b>€ 125</b></div><div><span>Nieuwe set hybride</span><b>€ 135</b></div><div><span>Russian volume glamour</span><b>€ 135</b></div><div><span>Russian mega volume</span><b>€ 145</b></div><div><span>Speedy refill, 45 min</span><b>€ 45</b></div></div>
+   <div class="pl r" style="--d:2"><h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3-5 15-5 18 0"/><path d="M7 9.5c2.5-1.5 7.5-1.5 10 0"/></svg></span>Wenkbrauwen <small>02</small></h3><div><span>Epilatie</span><b>€ 18</b></div><div><span>Verven</span><b>€ 18</b></div><div><span>Epilatie en verven</span><b>€ 33</b></div><div><span>Henna brows</span><b>€ 60</b></div><div><span>Powderbrows, met retouche</span><b>€ 355</b></div><div><span>Adviesgesprek PMU</span><b>€ 40</b></div></div>
+   <div class="pl r" style="--d:3"><h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21V9a3 3 0 0 1 6 0v12M9 13h6"/></svg></span>Gelnagels <small>03</small></h3><div><span>Nieuwe set</span><b>€ 55</b></div><div><span>Met verlenging</span><b>€ 75</b></div><div><span>Bijwerking</span><b>€ 55</b></div><div><span>Bijwerking ander salon</span><b>€ 60</b></div><div><span>Nailart, per nagel</span><b>€ 1,5</b></div></div>
   </div>
  </div>
 </section>
 
-<section class="sec salon" id="salon">
+<section class="sec salon flow" id="salon">
  <div class="wrap sl">
   <div class="sl-img">
    <div class="a rm" style="--rad:240px 240px 24px 24px"><img src="img/salon.webp" alt="De salon in de Talingstraat" loading="lazy"></div>
@@ -346,7 +417,7 @@ html,body{overflow-x:clip}
  </div>
 </section>
 
-<section class="sec book" id="afspraak">
+<section class="sec book flow" id="afspraak">
  <div class="wrap">
   <div class="bk r">
    <div class="bk-l">
@@ -380,15 +451,25 @@ html,body{overflow-x:clip}
 </section>
 </main>
 
-<footer class="ftr">
+<footer class="ftr flow">
  <div class="wrap">
-  <div class="ft"><a class="brand" href="#top"><img src="img/kroon.webp" alt="" loading="lazy">Beauty &amp; Co.</a><nav><a href="#behandelingen">Behandelingen</a><a href="#prijzen">Prijzen</a><a href="https://instagram.com/beauty.co.oostende/" target="_blank" rel="noopener">Instagram</a><a href="https://facebook.com/Beauty-Co-110693121296483" target="_blank" rel="noopener">Facebook</a></nav></div>
-  <div class="fb"><span>Beauty &amp; Co. · Talingstraat 11, 8400 Oostende · 0494 43 06 27</span><span>Voorbeeldsite door Digital Impression</span></div>
+  <div class="ft">
+   <div><a class="brand" href="#top"><img src="img/kroon.webp" alt="" loading="lazy">Beauty &amp; Co.</a><p class="t">Wimpers, wenkbrauwen en gelnagels in de Talingstraat. Rustig, hygiënisch en op afspraak.</p></div>
+   <div class="col"><h4>Salon</h4><span>Talingstraat 11</span><span>8400 Oostende</span><span>Ma tot vr, op afspraak</span></div>
+   <div class="col"><h4>Contact</h4><a href="tel:+32494430627">0494 43 06 27</a><a href="https://beautyenco.simplybook.it/" target="_blank" rel="noopener">Online boeken</a></div>
+   <div class="col"><h4>Volg mee</h4><a href="https://instagram.com/beauty.co.oostende/" target="_blank" rel="noopener">Instagram</a><a href="https://facebook.com/Beauty-Co-110693121296483" target="_blank" rel="noopener">Facebook</a></div>
+  </div>
+  <div class="strip2"><img src="img/volume.webp" alt="" loading="lazy"><img src="img/pb-na.webp" alt="" loading="lazy"><img src="img/french.webp" alt="" loading="lazy"><img src="img/lashlift.webp" alt="" loading="lazy"><img src="img/rood.webp" alt="" loading="lazy"><img src="img/oog.webp" alt="" loading="lazy"></div>
+  <div class="fb"><span>Beauty &amp; Co. · Talingstraat 11, 8400 Oostende</span><span>Voorbeeldsite door Digital Impression</span></div>
  </div>
 </footer>
 <script>
 (function(){var s=document.querySelector('[data-strip]');if(!s)return;document.querySelectorAll('.strip-nav button').forEach(function(b){b.addEventListener('click',function(){s.scrollBy({left:(+b.dataset.dir)*s.clientWidth*.6,behavior:'smooth'})})});
 var d=false,x=0,l=0;s.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;d=true;x=e.clientX;l=s.scrollLeft;s.style.scrollSnapType='none'});window.addEventListener('pointerup',function(){if(d){d=false;s.style.scrollSnapType=''}});s.addEventListener('pointermove',function(e){if(d){s.scrollLeft=l-(e.clientX-x)}})})();
+</script>
+<script>
+(function(){var s=document.querySelector('[data-strip]'),bar=document.querySelector('.strip-bar i');if(s&&bar){var f=function(){var m=s.scrollWidth-s.clientWidth;var r=s.clientWidth/s.scrollWidth;bar.style.width=(r*100)+'%';bar.style.transform='translateX('+(m>0?(s.scrollLeft/m)*((1-r)/r)*100:0)+'%)'};s.addEventListener('scroll',f,{passive:true});addEventListener('resize',f);f()}
+var b=document.querySelector('.burger'),sh=document.querySelector('.sheet');if(b){var t=function(o){document.documentElement.classList.toggle('menu-open',o);b.setAttribute('aria-expanded',o);sh.setAttribute('aria-hidden',!o)};b.addEventListener('click',function(){t(!document.documentElement.classList.contains('menu-open'))});sh.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){t(false)})})}})();
 </script>
 <style>
 html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-stopped{overflow:hidden}
