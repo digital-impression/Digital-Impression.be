@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Driven Detailing · Detailingstudio in Beerzel</title>
+<meta name="description" content="Driven Detailing, Bogaardenstraat 27 in Beerzel. Handwash, polieren, keramische coating, lederrenovatie en oldtimers. Vraag een gratis offerte.">
+<link rel="icon" href="img/embleem.png">
+<style>
+/*FONTS*/
+:root{--ice:#edf0f3;--ice2:#e2e7ec;--white:#fff;--ink:#0c0e11;--ink2:#171a1f;--steel:#5d6672;--blue:#1673d1;--blue2:#0f5fb3;--line:rgba(12,14,17,.12);--r:30px;--ease:cubic-bezier(.2,.8,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{font:400 17px/1.6 'Hanken Grotesk',system-ui,sans-serif;color:var(--ink);background:var(--ice);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:'Unbounded',sans-serif;font-weight:700;font-style:normal;letter-spacing:-.035em;line-height:1.02}
+.wrap{width:min(1320px,100% - 48px);margin:0 auto}
+.label{font:600 12px/1 'Hanken Grotesk',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--steel);display:inline-flex;align-items:center;gap:10px}
+.label b{width:8px;height:8px;border-radius:2px;background:var(--blue);transform:rotate(45deg)}
+.demo{background:var(--ink);color:#dfe5ec;font:500 13px/1.4 'Hanken Grotesk',sans-serif;text-align:center;padding:8px 16px}
+.demo a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-weight:700}
+
+/* knop: strak, met 'lichtstreep' die over de knop glijdt zoals een reflectie in de lak */
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:14px;height:54px;padding:0 10px 0 24px;border-radius:14px;font:700 15px/1 'Hanken Grotesk',sans-serif;letter-spacing:.01em;white-space:nowrap;transition:transform .35s var(--ease),background .3s}
+.btn::after{content:"";position:absolute;top:-20%;bottom:-20%;width:38px;left:-60px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);transition:left .7s var(--ease)}
+.btn:hover::after{left:calc(100% + 30px)}
+.btn:hover{transform:translateY(-2px)}
+.btn .ar{width:36px;height:36px;border-radius:10px;display:grid;place-items:center}
+.btn .ar svg{width:17px;height:17px}
+.btn-blue{background:var(--blue);color:#fff}.btn-blue .ar{background:rgba(255,255,255,.18)}
+.btn-blue:hover{background:var(--blue2)}
+.btn-ink{background:var(--ink);color:#fff}.btn-ink .ar{background:rgba(255,255,255,.12)}
+.btn-line{color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line);background:var(--white)}.btn-line .ar{background:var(--ice)}
+.btn-glass{background:rgba(255,255,255,.1);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)}.btn-glass .ar{background:rgba(255,255,255,.14)}
+
+/* NAV */
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 0}
+.brand{display:flex;align-items:center;gap:12px;padding-left:2px;border-left:4px solid var(--blue);padding-left:12px}
+.brand img{width:52px;height:auto}
+.brand span{font:800 17px/1 'Unbounded',sans-serif;letter-spacing:.02em}
+.brand small{display:block;font:600 10.5px/1 'Hanken Grotesk',sans-serif;letter-spacing:.42em;color:var(--steel);margin-top:5px}
+.nav ul{display:flex;gap:6px;list-style:none;background:var(--white);padding:6px;border-radius:14px;box-shadow:0 1px 0 rgba(12,14,17,.05)}
+.nav ul a{display:block;padding:10px 16px;border-radius:10px;font:600 14.5px/1 'Hanken Grotesk',sans-serif;color:var(--steel);transition:background .25s,color .25s}
+.nav ul a:hover{background:var(--ice);color:var(--ink)}
+.nav .btn{height:48px}
+
+/* HERO */
+.hero{padding-bottom:18px}
+.card{position:relative;border-radius:var(--r);overflow:hidden;height:min(calc(100svh - 128px),820px);min-height:600px;background:#222}
+.card>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 40%}
+.notch{position:absolute;top:-1px;left:-1px;z-index:2;background:var(--ice);padding:16px 54px 46px 0;border-bottom-right-radius:var(--r);max-width:min(700px,56%)}
+.notch::before,.notch::after{content:"";position:absolute;width:var(--r);height:var(--r);background:radial-gradient(circle at 100% 100%,transparent calc(var(--r) - .5px),var(--ice) var(--r))}
+.notch::before{top:0;right:calc(var(--r) * -1)}
+.notch::after{left:0;bottom:calc(var(--r) * -1)}
+.hero h1{font-size:clamp(44px,5.4vw,84px);margin:22px 0 22px}
+.hero h1 span{color:var(--blue)}
+.hero .lead{font-size:18px;color:var(--steel);max-width:500px}
+.hero .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.gnotch{position:absolute;right:0;bottom:0;z-index:2;background:var(--ice);padding:18px 0 0 18px;border-top-left-radius:var(--r)}
+.gnotch::before,.gnotch::after{content:"";position:absolute;width:var(--r);height:var(--r);background:radial-gradient(circle at 0 0,transparent calc(var(--r) - .5px),var(--ice) var(--r))}
+.gnotch::before{right:0;top:calc(var(--r) * -1)}
+.gnotch::after{left:calc(var(--r) * -1);bottom:0}
+.gpill{display:flex;align-items:center;gap:14px;background:var(--white);border-radius:20px;padding:14px 22px 14px 14px;transition:transform .35s var(--ease)}
+.gpill:hover{transform:translateY(-2px)}
+.gpill .g{width:46px;height:46px;border-radius:14px;background:var(--ice);display:grid;place-items:center}
+.gpill .g svg{width:22px;height:22px}
+.gpill b{font:700 24px/1 'Unbounded',sans-serif;letter-spacing:-.03em}
+.gpill .st{color:#f0a91e;font-size:14px;letter-spacing:2px;margin-left:6px}
+.gpill small{display:block;color:var(--steel);font-size:13.5px;margin-top:4px}
+.tagline{position:absolute;left:28px;bottom:26px;z-index:2;color:#fff;font:600 12px/1 'Hanken Grotesk',sans-serif;letter-spacing:.24em;text-transform:uppercase;display:flex;align-items:center;gap:12px;text-shadow:0 1px 10px rgba(0,0,0,.4)}
+.tagline::before{content:"";width:34px;height:1.5px;background:#fff}
+
+/* OVER */
+.over{padding:clamp(80px,10vw,140px) 0}
+.over-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,6vw,100px);align-items:center}
+.over-pics{position:relative;display:grid;grid-template-columns:1fr 1.1fr;gap:16px;align-items:end}
+.ph{position:relative;border-radius:22px;overflow:hidden;background:var(--ice2)}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.ph:hover img{transform:scale(1.04)}
+.over-pics .p1{aspect-ratio:3/4}
+.over-pics .p2{aspect-ratio:4/5;margin-bottom:60px}
+.woord{position:absolute;left:50%;bottom:-34px;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:18px;padding:18px 24px;width:max-content;max-width:90%;box-shadow:0 30px 60px -30px rgba(12,14,17,.6)}
+.woord b{font:700 20px/1 'Unbounded',sans-serif;letter-spacing:-.02em}
+.woord span{color:#9fb6cf;font-size:14px;margin-left:8px}
+.woord p{font-size:14.5px;color:#cfd7e0;margin-top:6px}
+.over h2{font-size:clamp(36px,4.2vw,62px);margin:22px 0 24px}
+.over p.t{color:var(--steel);font-size:18px;max-width:560px}
+.over p.t+p.t{margin-top:14px}
+.quote{margin-top:32px;padding:26px 0 0;border-top:1px solid var(--line);font:600 clamp(19px,1.6vw,22px)/1.4 'Hanken Grotesk',sans-serif;max-width:560px}
+.quote small{display:block;font-weight:500;font-size:14px;color:var(--steel);margin-top:10px}
+.partners{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.partners span{font:600 13px/1 'Hanken Grotesk',sans-serif;padding:10px 14px;border-radius:10px;background:var(--white);color:var(--steel)}
+.partners span:first-child{background:var(--ink);color:#fff}
+
+/* DIENSTEN */
+.aanbod{background:var(--white);padding:clamp(80px,10vw,140px) 0;border-radius:44px 44px 0 0}
+.aanbod-top{display:flex;justify-content:space-between;align-items:end;gap:40px;flex-wrap:wrap;margin-bottom:50px}
+.aanbod-top h2{font-size:clamp(36px,4.6vw,68px);margin-top:22px;max-width:760px}
+.aanbod-top p{color:var(--steel);max-width:360px}
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:70px 1.1fr 1.3fr 260px;gap:30px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line);transition:background .3s}
+.row .n{font:600 13px/1 'Unbounded',sans-serif;color:var(--blue)}
+.row h3{font-size:clamp(22px,2vw,30px);letter-spacing:-.03em}
+.row p{color:var(--steel);font-size:16px}
+.row .pr{display:inline-block;margin-top:10px;font:700 13.5px/1 'Hanken Grotesk',sans-serif;color:var(--ink);background:var(--ice);padding:8px 12px;border-radius:9px}
+.row .pr.bl{background:var(--blue);color:#fff}
+.row .ph{aspect-ratio:16/10;border-radius:16px}
+.row:hover .ph img{transform:scale(1.06)}
+.extra{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:34px;align-items:center;color:var(--steel);font-size:15.5px}
+.extra b{color:var(--ink)}
+.extra span{display:flex;align-items:center;gap:10px}
+.extra span::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--blue);transform:rotate(45deg)}
+
+/* VOOR NA */
+.vn{background:var(--ink);color:#fff;padding:clamp(80px,10vw,140px) 0;position:relative;overflow:hidden}
+.vn::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 400px at 85% 0%,rgba(22,115,209,.28),transparent 70%);pointer-events:none}
+.vn .label{color:#9fb6cf}
+.vn h2{font-size:clamp(36px,4.6vw,68px);margin:22px 0 18px;max-width:820px}
+.vn .sub{color:#aab4c0;max-width:520px;margin-bottom:50px}
+.pairs{display:grid;grid-template-columns:1.25fr 1fr;gap:20px}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:6px;border-radius:24px;overflow:hidden}
+.pair figure{position:relative;height:clamp(300px,31vw,440px);overflow:hidden}
+.pair img{width:100%;height:100%;object-fit:cover}
+.pair figcaption{position:absolute;top:14px;left:14px;font:700 12px/1 'Hanken Grotesk',sans-serif;letter-spacing:.18em;text-transform:uppercase;background:rgba(12,14,17,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:9px 12px;border-radius:9px}
+.pair figure:last-child figcaption{background:var(--blue)}
+.pair .cap{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);background:#fff;color:var(--ink);font:600 14px/1.2 'Hanken Grotesk',sans-serif;padding:11px 16px;border-radius:12px;white-space:nowrap}
+
+/* GALERIJ */
+.gal{padding:clamp(80px,10vw,140px) 0;background:var(--ice)}
+.gal-top{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:44px;flex-wrap:wrap}
+.gal-top h2{font-size:clamp(36px,4.6vw,68px);margin-top:22px}
+.gal-top p{max-width:380px;color:var(--steel)}
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(150px,15vw,230px);gap:14px}
+.mosaic .ph{border-radius:20px}
+.mosaic .w2{grid-column:span 2}
+.mosaic .h2{grid-row:span 2}
+.mosaic figcaption{position:absolute;left:14px;bottom:14px;background:rgba(255,255,255,.94);font:600 13px/1 'Hanken Grotesk',sans-serif;padding:9px 12px;border-radius:10px}
+
+/* REVIEWS */
+.rev{padding:0 0 clamp(80px,10vw,140px);background:var(--ice)}
+.rev-box{background:var(--white);border-radius:36px;padding:clamp(34px,5vw,70px)}
+.rev-top{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:40px}
+.rev-top h2{font-size:clamp(34px,4vw,58px);margin-top:22px}
+.score{display:flex;align-items:center;gap:16px}
+.score b{font:700 58px/1 'Unbounded',sans-serif;letter-spacing:-.05em}
+.score .st{color:#f0a91e;letter-spacing:3px}
+.score small{display:block;color:var(--steel);font-size:14px}
+.score a{color:var(--blue);font-weight:700;font-size:14px}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.q{background:var(--ice);border-radius:22px;padding:30px;display:flex;flex-direction:column;gap:22px}
+.q p{font-size:17.5px;line-height:1.55}
+.q footer{margin-top:auto;display:flex;align-items:center;gap:12px;font-size:14px;color:var(--steel)}
+.q footer b{color:var(--ink)}
+.q footer .av{width:38px;height:38px;border-radius:12px;background:var(--ink);color:#fff;display:grid;place-items:center;font:700 14px/1 'Unbounded',sans-serif}
+.q .tag{align-self:flex-start;font:700 12px/1 'Hanken Grotesk',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+
+/* CONTACT */
+.cont{background:var(--ink);color:#fff;border-radius:44px 44px 0 0;padding:clamp(80px,10vw,130px) 0 0;position:relative;overflow:hidden}
+.cont-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,6vw,90px);align-items:start}
+.cont .label{color:#9fb6cf}
+.cont h2{font-size:clamp(38px,5vw,76px);margin:22px 0 22px}
+.cont .lead{color:#aab4c0;max-width:520px;font-size:18px}
+.cont .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.info{background:var(--ink2);border-radius:26px;padding:34px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.07)}
+.info dl{display:grid;gap:22px}
+.info dt{font:600 11.5px/1 'Hanken Grotesk',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#7f8c9a;margin-bottom:8px}
+.info dd{font-size:17px}
+.info dd a:hover{color:#8ec2ff}
+.info .uren{display:grid;grid-template-columns:auto 1fr;gap:6px 20px;color:#cfd7e0;font-size:16px}
+.info .uren span:nth-child(odd){color:#fff}
+.bigword{font:800 clamp(80px,17vw,270px)/.8 'Unbounded',sans-serif;letter-spacing:-.06em;color:rgba(255,255,255,.06);margin-top:clamp(60px,8vw,110px);white-space:nowrap;text-align:center;transform:translateY(12%)}
+.foot{background:var(--ink);color:#8c97a4;font-size:14px;border-top:1px solid rgba(255,255,255,.08);position:relative}
+.foot .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:26px 0;flex-wrap:wrap}
+.foot nav{display:flex;gap:22px}
+.foot a:hover{color:#fff}
+
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
+
+@media (max-width:1180px){
+  .nav ul{display:none}
+  .row{grid-template-columns:50px 1fr 200px}
+  .row>p,.row>.desc{grid-column:2/3}
+  .row .ph{grid-row:1/3;grid-column:3}
+}
+@media (max-width:980px){
+  .card{height:auto;min-height:0;display:flex;flex-direction:column;background:none;border-radius:0;overflow:visible}
+  .notch{position:static;max-width:none;padding:18px 0 34px;background:none}
+  .notch::before,.notch::after,.gnotch::before,.gnotch::after{display:none}
+  .card>img{position:relative;inset:auto;order:2;height:auto;aspect-ratio:4/3;border-radius:24px}
+  .tagline{display:none}
+  .gnotch{position:static;order:3;background:none;padding:14px 0 0}
+  .over-grid,.cont-grid{grid-template-columns:1fr}
+  .over-pics{order:2}
+  .pairs{grid-template-columns:1fr}
+  .quotes{grid-template-columns:1fr}
+  .mosaic{grid-template-columns:repeat(2,1fr)}
+  .mosaic .w2{grid-column:span 2}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 32px)}
+  .brand span{font-size:15px}
+  .brand img{width:44px}
+  .nav .btn .t{display:none}
+  .nav .btn{padding:0 9px}
+  .hero h1{font-size:clamp(34px,10vw,46px);margin:18px 0 16px}
+  .hero .acts .btn{flex:1 1 100%;justify-content:space-between}
+  .gpill{width:100%}
+  .over-pics .p2{margin-bottom:30px}
+  .woord{position:relative;left:auto;bottom:auto;transform:none;margin-top:16px;grid-column:1/3;width:auto;max-width:none}
+  .over-pics{grid-template-columns:1fr 1fr}
+  .row{grid-template-columns:1fr;gap:12px;padding:24px 0}
+  .row .ph{grid-row:auto;grid-column:auto;order:3}
+  .row>p,.row>.desc{grid-column:auto}
+  .pair figure{height:auto;aspect-ratio:3/4}
+  .pair .cap{font-size:12.5px;white-space:normal;text-align:center;width:max-content;max-width:86%}
+  .mosaic{grid-auto-rows:150px;gap:10px}
+  .q{padding:24px}
+  .score b{font-size:46px}
+  .cont .acts .btn{flex:1 1 100%;justify-content:space-between}
+  .info{padding:26px}
+  .foot nav{flex-wrap:wrap;gap:14px}
+}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="#top"><span>DRIVEN<small>DETAILING</small></span></a>
+      <ul><li><a href="#over">Over Yannick</a></li><li><a href="#aanbod">Diensten</a></li><li><a href="#verschil">Voor en na</a></li><li><a href="#studio">Studio</a></li><li><a href="#contact">Contact</a></li></ul>
+      <a class="btn btn-ink" href="#contact"><span class="t">Gratis offerte</span><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    </nav>
+    <div class="card">
+      <img src="img/hero.webp" alt="Yannick poliert de motorkap van een Bentley in de studio van Driven Detailing" fetchpriority="high">
+      <div class="notch">
+        <span class="label rv"><b></b>Detailingstudio in Beerzel</span>
+        <h1 class="rv">Zoals hij uit de <span>showroom</span> kwam.</h1>
+        <p class="lead rv">Handwash, polieren, keramische coating en lederrenovatie, in een eigen studio aan de Bogaardenstraat. Van je dagelijkse wagen tot een oldtimer.</p>
+        <div class="acts rv">
+          <a class="btn btn-blue" href="https://wa.me/32494305073" target="_blank" rel="noopener">Vraag een gratis offerte<span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+          <a class="btn btn-line" href="#aanbod">Wat ik doe<span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></a>
+        </div>
+      </div>
+      <span class="tagline">Where your car meets passion</span>
+      <div class="gnotch">
+        <a class="gpill" href="https://www.google.com/maps/place/?q=place_id:ChIJTaZ9X6lZwUcR7-wmVOKgNrY" target="_blank" rel="noopener">
+          <span class="g"><svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg></span>
+          <span><b>5,0</b><span class="st">★★★★★</span><small>20 reviews op Google</small></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="over" id="over">
+  <div class="wrap over-grid">
+    <div class="over-pics">
+      <figure class="ph p1 rv"><img src="img/yannick.webp" alt="Yannick Op De Beeck in zijn studio" loading="lazy"></figure>
+      <figure class="ph p2 rv"><img src="img/werk-deur.webp" alt="Yannick controleert de lak van een portier" loading="lazy"></figure>
+      <div class="woord rv"><b>driv·en</b><span>dri-ven</span><p>Een wagen die gereden heeft.</p></div>
+    </div>
+    <div>
+      <span class="label rv"><b></b>It's in the name</span>
+      <h2 class="rv">Driven, van gedreven.</h2>
+      <p class="t rv">Het begon met kleine krasjes op mijn eerste wagen. Ik ging zelf aan de slag, leerde wax kennen, volgde polijstcursussen en werkte daarna als detailer bij een exclusieve autohandelaar.</p>
+      <p class="t rv">In 2017 ging ik op zoek naar een eigen studio. In Beerzel vond ik de plek waar ik nu elke wagen onder handen neem.</p>
+      <p class="quote rv">"Eender welk voertuig, nieuw of oud, laat ik stralen als nooit tevoren."<small>Yannick Op De Beeck, zaakvoerder</small></p>
+      <div class="partners rv"><span>Gtechniq accredited</span><span>IDA</span><span>Rupes</span><span>Liquid Elements</span><span>3D Car Care</span><span>LRC</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="aanbod" id="aanbod">
+  <div class="wrap">
+    <div class="aanbod-top">
+      <div><span class="label rv"><b></b>Diensten</span><h2 class="rv">Van een grondige wasbeurt tot coating.</h2></div>
+      <p class="rv">Niet zeker wat je wagen nodig heeft? Spring eerst even binnen. Dan kijken we samen of polijsten volstaat of iets anders beter werkt.</p>
+    </div>
+    <div class="rows">
+      <article class="row rv"><span class="n">01</span><h3>Handwash en interieur</h3><div class="desc"><p>Met de hand, in de juiste volgorde, zonder de krassen van een wasstraat. Binnenin stofzuigen, dashboard, stuur en deurpanelen.</p></div><figure class="ph"><img src="img/handwash.webp" alt="Handwash met hogedrukreiniger en emmers" loading="lazy"></figure></article>
+      <article class="row rv"><span class="n">02</span><h3>Polieren</h3><div class="desc"><p>Waskrassen, swirls en diepere krassen eruit. Doffe lak krijgt zijn glans terug, en waar nodig schuren we sinaasappelhuid weg.</p></div><figure class="ph"><img src="img/polieren.webp" alt="Yannick werkt de lak bij een koplamp af" loading="lazy"></figure></article>
+      <article class="row rv"><span class="n">03</span><h3>Keramische coating</h3><div class="desc"><p>Bescherming die jaren meegaat in plaats van weken. Als Gtechniq-partner met een garantie tot 9 jaar.</p><span class="pr bl">Vanaf € 550</span></div><figure class="ph"><img src="img/coating.webp" alt="Polijstmachine en Gtechniq-doek op een karretje" loading="lazy"></figure></article>
+      <article class="row rv"><span class="n">04</span><h3>Lederrenovatie</h3><div class="desc"><p>Leder hoort niet te glanzen. Dieptereiniging, en bij slijtage verven, vernissen en voeden.</p><span class="pr">Dieptereiniging vanaf € 180</span></div><figure class="ph"><img src="img/interieur.webp" alt="Interieur van een sportwagen wordt behandeld" loading="lazy"></figure></article>
+      <article class="row rv"><span class="n">05</span><h3>Oldtimers</h3><div class="desc"><p>Onderdelen vind je bijna niet meer, dus alles blijft zo origineel mogelijk. Voorzichtig polieren, leder reinigen en voeden.</p></div><figure class="ph"><img src="img/oldtimer.webp" alt="Groene MG-oldtimer in de studio" loading="lazy"></figure></article>
+      <article class="row rv"><span class="n">06</span><h3>Verkoopsklaar en B2B</h3><div class="desc"><p>Je wagen op zijn best voor de verkoop, of een vaste partner voor handelaars. Van de velgen tot het stuurwiel.</p></div><figure class="ph"><img src="img/verkoop.webp" alt="Grijze BMW klaar in de studio" loading="lazy"></figure></article>
+    </div>
+    <div class="extra rv"><b>Extra:</b><span>Koplamprestauratie vanaf € 50</span><span>Motorruimte reinigen vanaf € 50</span><span>Debadging</span></div>
+  </div>
+</section>
+
+<section class="vn" id="verschil">
+  <div class="wrap" style="position:relative">
+    <span class="label rv"><b></b>Voor en na</span>
+    <h2 class="rv">Het verschil zie je in het licht.</h2>
+    <p class="sub rv">Onder de lichtlijnen van de studio zie je elke kras. Daarom zie je ook meteen wanneer ze weg zijn.</p>
+    <div class="pairs">
+      <div class="pair rv"><figure><img src="img/voor1.webp" alt="Lak voor het polieren, met krassen" loading="lazy"><figcaption>Voor</figcaption></figure><figure><img src="img/na1.webp" alt="Dezelfde lak na het polieren" loading="lazy"><figcaption>Na</figcaption></figure><span class="cap">Bentley, gepolierd</span></div>
+      <div class="pair rv"><figure><img src="img/voor2.webp" alt="Motorruimte voor de reiniging" loading="lazy"><figcaption>Voor</figcaption></figure><figure><img src="img/na2.webp" alt="Motorruimte na de reiniging" loading="lazy"><figcaption>Na</figcaption></figure><span class="cap">Motorruimte</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="gal" id="studio">
+  <div class="wrap">
+    <div class="gal-top">
+      <div><span class="label rv"><b></b>Uit de studio</span><h2 class="rv">Wat er al op de brug stond.</h2></div>
+      <p class="rv">Dagelijkse wagens, Japanse klassiekers en Britse oldtimers. Allemaal onder hetzelfde bord.</p>
+    </div>
+    <div class="mosaic">
+      <figure class="ph w2 h2 rv"><img src="img/g10043.webp" alt="Blauwe Nissan GT-R in de studio" loading="lazy"><figcaption>Nissan GT-R</figcaption></figure>
+      <figure class="ph rv"><img src="img/g0727.webp" alt="Zwarte Porsche 911" loading="lazy"><figcaption>Porsche 911</figcaption></figure>
+      <figure class="ph rv"><img src="img/g10046.webp" alt="Zwarte Nissan Skyline" loading="lazy"><figcaption>Skyline</figcaption></figure>
+      <figure class="ph w2 rv"><img src="img/g10051.webp" alt="Yannick aan het werk bij de grille van een oldtimer" loading="lazy"><figcaption>Oldtimer, chroom</figcaption></figure>
+      <figure class="ph w2 rv"><img src="img/gm4.webp" alt="Matblauwe BMW M4" loading="lazy"><figcaption>BMW M4</figcaption></figure>
+      <figure class="ph rv"><img src="img/g10041.webp" alt="Rode Hyundai i30 N" loading="lazy"><figcaption>Hyundai i30 N</figcaption></figure>
+      <figure class="ph rv"><img src="img/g10042.webp" alt="Donkerblauwe BMW 3-reeks E30" loading="lazy"><figcaption>BMW E30</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="rev">
+  <div class="wrap">
+    <div class="rev-box">
+      <div class="rev-top">
+        <div><span class="label rv"><b></b>Reviews</span><h2 class="rv">Wat klanten erover zeggen.</h2></div>
+        <div class="score rv"><b>5,0</b><div><span class="st">★★★★★</span><small>20 reviews op Google</small><a href="https://www.google.com/maps/place/?q=place_id:ChIJTaZ9X6lZwUcR7-wmVOKgNrY" target="_blank" rel="noopener">Lees ze op Google</a></div></div>
+      </div>
+      <div class="quotes">
+        <blockquote class="q rv"><span class="tag">Polieren</span><p>"Ik heb bij Yannick-&gt; Driven Detailing men auto laten polieren/opblinken en wat voor  fantastisch werk levert hij ook, en je krijgt er zelfs uitleg bij als het nodig is..."</p><footer><span class="av">A</span><span><b>Antonio Drutti</b> · Google</span></footer></blockquote>
+        <blockquote class="q rv"><span class="tag">Decontaminatie en alcantara</span><p>"The best of the best. Wat een topwerk levert deze kerel af! Auto afgeleverd voor volledige decontaminatie en 1 staps polijsten alsook het ‘redden’ van mijn alcantara stuurwiel."</p><footer><span class="av">D</span><span><b>Den Bassie (M2GTBassie)</b> · Google</span></footer></blockquote>
+        <blockquote class="q rv"><span class="tag">Mini Cabrio JCW</span><p>"Yannick heeft mijn mini cabrio jcw onder handen genomen. Deze was dof van kleur en heeft deze behandeld en hij blinkt als er pareltje."</p><footer><span class="av">N</span><span><b>Nikki Dirix</b> · Google</span></footer></blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cont" id="contact">
+  <div class="wrap cont-grid">
+    <div>
+      <span class="label rv"><b></b>Contact</span>
+      <h2 class="rv">Vraag een gratis offerte.</h2>
+      <p class="lead rv">Vertel wat je wil laten doen, gerust met een foto erbij, en je krijgt een voorstel op maat van je wagen. Liever eerst samen kijken? Kom op afspraak langs in de studio.</p>
+      <div class="acts rv">
+        <a class="btn btn-blue" href="https://wa.me/32494305073" target="_blank" rel="noopener">WhatsApp Yannick<span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg></span></a>
+        <a class="btn btn-glass" href="tel:+32494305073">0494 30 50 73<span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span></a>
+      </div>
+    </div>
+    <div class="info rv">
+      <dl>
+        <div><dt>Studio</dt><dd>Bogaardenstraat 27<br>2580 Beerzel</dd></div>
+        <div><dt>Open</dt><dd class="uren"><span>Ma tot vr</span><span>9u tot 17u</span><span>Za en zo</span><span>Gesloten</span></dd></div>
+        <div><dt>Mail</dt><dd><a href="mailto:info@drivencarpassion.be">info@drivencarpassion.be</a></dd></div>
+        <div><dt>Route</dt><dd><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Driven+Detailing+Bogaardenstraat+27" target="_blank" rel="noopener">Open in Google Maps</a></dd></div>
+      </dl>
+    </div>
+  </div>
+  <div class="bigword" aria-hidden="true">DRIVEN</div>
+</section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <span>© Driven Detailing · BE 0742.829.661</span>
+    <nav><a href="#over">Over</a><a href="#aanbod">Diensten</a><a href="#verschil">Voor en na</a><a href="#contact">Contact</a></nav>
+    <span>Voorbeeldsite door Digital Impression</span>
+  </div>
+</footer>
+<script>
+(function(){var els=document.querySelectorAll('.rv');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+els.forEach(function(e){io.observe(e)})})();
+</script>
+</body>
+</html>
