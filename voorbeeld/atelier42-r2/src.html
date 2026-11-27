@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Atelier 42 · Juwelen, sjaals en handtassen in de Molenstraat, Aalst</title>
+<meta name="description" content="Modejuwelen, aparte sjaals en handtassen bij Ann en Edwin, Molenstraat 42 in Aalst. Woensdag tot zaterdag van 10 tot 18 uur.">
+<link rel="preload" as="image" href="img/hero.webp">
+<style>
+/*FONTS*/
+:root{--rood:#BB1927;--diep:#8A0F1C;--nacht:#3A0A10;--blos:#F8C9C1;--room:#FFF3EA;--oranje:#F39A3D;--disp:'Anton',Impact,sans-serif;--txt:'Hanken Grotesk',system-ui,sans-serif;--ease:cubic-bezier(.16,1,.3,1);--pad:clamp(20px,5vw,72px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font:400 17px/1.6 var(--txt);color:var(--room);background:var(--rood);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit}
+.demo{background:var(--nacht);color:var(--blos);font:500 13px/1.4 var(--txt);text-align:center;padding:8px 16px}
+.demo a{color:var(--room);text-underline-offset:3px}
+.wrap{max-width:1360px;margin:0 auto;padding:0 var(--pad)}
+.lbl{font:700 12px/1 var(--txt);letter-spacing:.22em;text-transform:uppercase;display:inline-flex;align-items:center;gap:12px}
+.lbl::before{content:"";width:26px;height:2px;background:currentColor}
+h1,h2,h3{font-family:var(--disp);font-weight:400;text-transform:uppercase;letter-spacing:.005em;line-height:.9}
+.knop{display:inline-flex;align-items:center;gap:12px;font:700 15px/1 var(--txt);text-decoration:none;padding:18px 26px;border-radius:999px;transition:transform .5s var(--ease),background .4s,color .4s;border:2px solid transparent;cursor:pointer}
+.knop svg{width:17px;height:17px;transition:transform .5s var(--ease)}
+.knop:hover svg{transform:translateX(4px)}
+.knop:hover{transform:translateY(-2px)}
+.k1{background:var(--room);color:var(--rood)}
+.k1:hover{background:var(--blos)}
+.k2{border-color:rgba(255,243,234,.55);color:var(--room)}
+.k2:hover{border-color:var(--room);background:rgba(255,243,234,.08)}
+.k3{background:var(--rood);color:var(--room)}
+.k3:hover{background:var(--diep)}
+
+/* nav */
+.nav{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px var(--pad);max-width:1360px;margin:0 auto}
+.logo{font:400 28px/1 var(--disp);letter-spacing:.04em;text-decoration:none;color:var(--room)}
+.logo b{font-weight:400;color:var(--blos)}
+.nav ul{display:flex;gap:34px;list-style:none}
+.nav ul a{font:600 15px/1 var(--txt);text-decoration:none;position:relative}
+.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;background:var(--blos);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.nav ul a:hover::after{transform:scaleX(1)}
+.nav .knop{padding:14px 22px;font-size:14px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding-bottom:0}
+.hero .wrap{display:grid;grid-template-columns:1.08fr .92fr;align-items:end;min-height:calc(100svh - 120px);max-height:none;position:relative}
+.hero-txt{position:relative;z-index:3;padding:40px 0 clamp(48px,7vw,96px)}
+.hero h1{font-size:clamp(76px,10.4vw,170px);margin:26px 0 30px;color:var(--room);width:128%}
+.hero h1 .bl{color:var(--blos)}
+.hero p{font-size:clamp(17px,1.35vw,20px);max-width:440px;color:rgba(255,243,234,.88);margin-bottom:34px}
+.hero .knoppen{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:34px}
+.gpill{display:inline-flex;align-items:center;gap:12px;text-decoration:none;padding:9px 18px 9px 9px;border-radius:999px;background:rgba(58,10,16,.28);border:1px solid rgba(255,243,234,.18);font:500 14px/1.2 var(--txt);transition:background .4s}
+.gpill:hover{background:rgba(58,10,16,.45)}
+.gpill .g{width:34px;height:34px;border-radius:50%;background:#fff;display:grid;place-items:center}
+.gpill .g svg{width:18px;height:18px}
+.gpill strong{font:400 22px/1 var(--disp);letter-spacing:.02em}
+.gpill .st{color:#FFC24B;letter-spacing:2px;font-size:13px}
+.hero-beeld{position:relative;align-self:stretch;z-index:1;margin-right:calc(-1 * var(--pad))}
+.hero-beeld .vier2{position:absolute;left:-.42em;top:.02em;font:400 clamp(300px,33vw,560px)/.8 var(--disp);color:var(--diep);letter-spacing:-.02em;pointer-events:none;user-select:none;z-index:0}
+.hero-beeld .foto{position:absolute;left:0;right:0;top:56px;bottom:0;border-radius:300px 300px 0 0;overflow:hidden;z-index:1;box-shadow:0 40px 90px -30px rgba(40,0,8,.55)}
+.hero-beeld .foto img{width:100%;height:112%;object-fit:cover;object-position:50% 40%;position:absolute;top:-6%}
+
+/* band */
+.band{background:var(--nacht);color:var(--blos);overflow:hidden;white-space:nowrap;padding:18px 0}
+.band div{display:inline-flex;gap:38px;font:400 26px/1 var(--disp);text-transform:uppercase;letter-spacing:.04em;animation:loop 38s linear infinite}
+.band span{display:inline-flex;align-items:center;gap:38px}
+.band span::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--oranje)}
+@keyframes loop{to{transform:translateX(-50%)}}
+
+/* collectie */
+.coll{background:var(--blos);color:var(--nacht);padding:clamp(90px,11vw,150px) 0}
+.kop{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;margin-bottom:clamp(44px,5vw,70px)}
+.kop h2{font-size:clamp(58px,7.6vw,124px)}
+.kop h2 .r{color:var(--rood)}
+.kop p{max-width:430px;font-size:18px;justify-self:end}
+.coll .lbl{color:var(--rood);margin-bottom:22px}
+.grid3{display:grid;grid-template-columns:1.25fr 1fr;grid-template-rows:1fr 1fr;gap:20px;height:clamp(620px,62vw,860px)}
+.tegel{position:relative;overflow:hidden;border-radius:26px;color:var(--room);text-decoration:none;isolation:isolate}
+.tegel:first-child{grid-row:span 2}
+.tegel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease);z-index:-2}
+.tegel:hover img{transform:scale(1.05)}
+.tegel::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(40,4,10,.78));z-index:-1}
+.tegel .in{position:absolute;left:0;right:0;bottom:0;padding:clamp(22px,2.6vw,36px);display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+.tegel .nr{font:700 12px/1 var(--txt);letter-spacing:.2em;color:var(--blos);display:block;margin-bottom:12px}
+.tegel h3{font-size:clamp(40px,4.4vw,72px)}
+.tegel p{font-size:15.5px;max-width:290px;color:rgba(255,243,234,.86);margin-top:10px}
+
+/* winkel */
+.winkel{padding:clamp(90px,11vw,150px) 0 clamp(70px,8vw,110px);position:relative}
+.winkel .groot{position:relative;border-radius:28px;overflow:hidden;height:clamp(420px,46vw,680px)}
+.winkel .groot img{position:absolute;inset:-8% 0;width:100%;height:116%;object-fit:cover}
+.winkel h2{font-size:clamp(70px,11.5vw,200px);color:var(--room);position:relative;z-index:2;margin-bottom:-.32em;margin-left:-.03em}
+.winkel h2 .bl{color:var(--blos)}
+.winkel .onder{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:20px;align-items:stretch}
+.winkel .onder figure{border-radius:22px;overflow:hidden;aspect-ratio:4/3}
+.winkel .onder img{width:100%;height:100%;object-fit:cover}
+.winkel .tekst{background:var(--diep);border-radius:22px;padding:clamp(26px,3vw,42px);display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.winkel .tekst p{font-size:18px}
+.winkel .tekst .lbl{color:var(--blos)}
+
+/* kadobon */
+.kado{background:var(--room);color:var(--nacht);padding:clamp(90px,11vw,150px) 0;overflow:hidden}
+.kado .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:center}
+.kado .lbl{color:var(--rood);margin-bottom:22px}
+.kado h2{font-size:clamp(56px,7vw,116px);margin-bottom:26px}
+.kado h2 .r{color:var(--rood)}
+.kado p{font-size:18px;max-width:470px;margin-bottom:34px}
+.bedrag{display:flex;align-items:baseline;gap:18px;border-top:2px solid var(--nacht);border-bottom:2px solid var(--nacht);padding:20px 0;margin-bottom:34px;max-width:470px}
+.bedrag b{font:400 clamp(40px,4vw,62px)/1 var(--disp);white-space:nowrap;color:var(--rood);font-weight:400}
+.bedrag span{font:700 13px/1.3 var(--txt);letter-spacing:.14em;text-transform:uppercase}
+.kado figure{position:relative;border-radius:300px 300px 26px 26px;overflow:hidden;aspect-ratio:4/5}
+.kado figure img{width:100%;height:100%;object-fit:cover;object-position:28% 50%}
+
+/* bezoek */
+.bezoek{padding:clamp(90px,11vw,150px) 0;background:var(--rood)}
+.bezoek .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,6vw,90px)}
+.bezoek h2{font-size:clamp(58px,7.4vw,120px);margin:22px 0 28px}
+.bezoek h2 .bl{color:var(--blos)}
+.adres{font:600 20px/1.45 var(--txt);margin-bottom:28px}
+.uren{list-style:none;border-top:1px solid rgba(255,243,234,.3);margin-bottom:30px;max-width:440px}
+.uren li{display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px solid rgba(255,243,234,.3);font-size:16.5px}
+.uren li span:last-child{font-weight:600}
+.form{background:var(--room);color:var(--nacht);border-radius:28px;padding:clamp(26px,3.6vw,52px)}
+.form h3{font-size:clamp(36px,3.6vw,54px);margin-bottom:10px}
+.form > p{margin-bottom:28px;color:#6b3a40}
+.veld{display:block;margin-bottom:18px}
+.veld span{display:block;font:700 12px/1 var(--txt);letter-spacing:.16em;text-transform:uppercase;margin-bottom:9px;color:var(--rood)}
+.veld input,.veld textarea{width:100%;font:500 17px/1.4 var(--txt);color:var(--nacht);background:#fff;border:1.5px solid #ecd6d0;border-radius:14px;padding:15px 16px;transition:border-color .3s}
+.veld input:focus,.veld textarea:focus{outline:none;border-color:var(--rood)}
+.veld textarea{min-height:110px;resize:vertical}
+.keuzes{display:flex;flex-wrap:wrap;gap:8px;border:0;margin-bottom:18px}
+.keuzes legend{font:700 12px/1 var(--txt);letter-spacing:.16em;text-transform:uppercase;margin-bottom:11px;color:var(--rood)}
+.keuzes label{position:relative}
+.keuzes input{position:absolute;opacity:0}
+.keuzes label span{display:inline-block;padding:11px 17px;border-radius:999px;border:1.5px solid #ecd6d0;font:600 15px/1 var(--txt);cursor:pointer;transition:all .3s;background:#fff}
+.keuzes input:checked+span{background:var(--rood);border-color:var(--rood);color:var(--room)}
+.keuzes input:focus-visible+span{outline:2px solid var(--nacht);outline-offset:2px}
+.form .knoppen{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.k4{border-color:var(--nacht);color:var(--nacht);background:transparent}
+.k4:hover{background:var(--nacht);color:var(--room)}
+
+/* footer */
+footer{background:var(--nacht);color:var(--blos);padding:clamp(70px,8vw,110px) 0 36px;overflow:hidden}
+.fgroot{font:400 clamp(90px,19.5vw,330px)/.82 var(--disp);text-transform:uppercase;color:var(--rood);white-space:nowrap;letter-spacing:-.005em;margin-bottom:50px}
+.fgroot b{font-weight:400;color:var(--blos)}
+.fcols{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;padding-top:30px;border-top:1px solid rgba(248,201,193,.25);font-size:15.5px}
+.fcols a{text-decoration:none}
+.fcols a:hover{color:var(--room)}
+.fcols p,.fcols li{line-height:1.8}
+.fcols ul{list-style:none}
+.fond{display:flex;justify-content:space-between;gap:20px;margin-top:44px;font-size:13px;color:rgba(248,201,193,.6)}
+/*COMMON*/
+@media (max-width:1100px){
+ .hero h1{width:auto;font-size:clamp(70px,11vw,120px)}
+ .kop{grid-template-columns:1fr}.kop p{justify-self:start}
+}
+@media (max-width:860px){
+ .nav ul{display:none}
+ .hero .wrap{grid-template-columns:1fr;min-height:0}
+ .hero-txt{padding:20px 0 40px}
+ .hero h1{font-size:clamp(64px,18vw,120px);margin:20px 0 24px}
+ .hero-beeld{height:min(118vw,620px);margin:0 calc(-1 * var(--pad))}
+ .hero-beeld .foto{left:var(--pad);right:var(--pad);top:40px;border-radius:200px 200px 0 0}
+ .hero-beeld{margin-top:10px}
+ .hero-beeld .vier2{font-size:min(74vw,420px);left:auto;right:-.02em;top:-.02em}
+ .grid3{grid-template-columns:1fr;grid-template-rows:none;height:auto}
+ .tegel:first-child{grid-row:auto}
+ .tegel{aspect-ratio:4/4.4}
+ .winkel .onder{grid-template-columns:1fr 1fr}
+ .winkel .tekst{grid-column:1/-1;order:-1}
+ .kado .wrap,.bezoek .wrap{grid-template-columns:1fr}
+ .kado figure{max-width:520px;aspect-ratio:1/1.05}
+ .fcols{grid-template-columns:1fr 1fr}
+ .fond{flex-direction:column}
+}
+@media (max-width:520px){
+ body{font-size:16px}
+ .nav{padding:20px var(--pad)}
+ .nav .knop{display:none}
+ .hero .knoppen .knop{flex:1 1 auto;justify-content:center}
+ .band div{font-size:21px}
+ .winkel .onder{grid-template-columns:1fr}
+ .winkel .groot{height:380px}
+ .fcols{grid-template-columns:1fr}
+ .bedrag{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
+
+<header class="hero">
+ <nav class="nav" aria-label="Hoofdmenu">
+  <a class="logo" href="#top" aria-label="Atelier 42">ATELIER <b>42</b></a>
+  <ul>
+   <li><a href="#collectie">Collectie</a></li>
+   <li><a href="#winkel">De winkel</a></li>
+   <li><a href="#kadobon">Kadobon</a></li>
+   <li><a href="#bezoek">Langskomen</a></li>
+  </ul>
+  <a class="knop k1" href="#bericht">Stuur een berichtje</a>
+ </nav>
+ <div class="wrap" id="top">
+  <div class="hero-txt">
+   <span class="lbl rv">Molenstraat 42 · Aalst</span>
+   <h1 data-split>Sjaal om, <span class="bl">ketting aan.</span></h1>
+   <p class="rv">Modejuwelen, aparte sjaals en handtassen. Kom rustig passen en combineren, Ann en Edwin helpen je graag kiezen.</p>
+   <div class="knoppen rv">
+    <a class="knop k1" href="#collectie">Bekijk de collectie <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="knop k2" href="#kadobon">Een kadobon</a>
+   </div>
+   <a class="gpill rv" href="https://www.google.com/maps/place/?q=place_id:ChIJqdwFzV69w0cRsM30bvVj7ns" target="_blank" rel="noopener">
+    <span class="g"><svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2c-2 1.5-4.5 2.4-7.2 2.4-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z"/></svg></span>
+    <strong>4,7</strong><span><span class="st">★★★★★</span><br>uit 20 Google-reviews</span>
+   </a>
+  </div>
+  <div class="hero-beeld" aria-hidden="false">
+   <span class="vier2" aria-hidden="true">42</span>
+   <div class="foto clip"><img data-px=".06" src="img/hero.webp" alt="Kleurrijke sjaals en armbanden tussen rode takken in de winkel van Atelier 42" width="1212" height="1512"></div>
+  </div>
+ </div>
+</header>
+
+<div class="band" aria-hidden="true"><div><span>Modejuwelen</span><span>Sjaals</span><span>Handtassen</span><span>Kadobonnen</span><span>Molenstraat 42</span><span>Modejuwelen</span><span>Sjaals</span><span>Handtassen</span><span>Kadobonnen</span><span>Molenstraat 42</span></div></div>
+
+<section class="coll" id="collectie">
+ <div class="wrap">
+  <div class="kop">
+   <div><span class="lbl">De collectie</span><h2 data-split>Van hals <span class="r">tot handtas.</span></h2></div>
+   <p class="rv">Een heel uitgebreide collectie modejuwelen, met daarbij aparte sjaals en handtassen die je niet in elke winkel vindt. Alles mag je rustig bekijken en passen.</p>
+  </div>
+  <div class="grid3">
+   <a class="tegel rv" href="#bericht"><img src="img/wand.webp" alt="Wand vol halskettingen en oorbellen in de winkel" loading="lazy"><div class="in"><div><span class="nr">01</span><h3>Juwelen</h3><p>Kettingen, oorbellen en armbanden in alle kleuren, van subtiel tot opvallend.</p></div></div></a>
+   <a class="tegel rv" href="#bericht"><img src="img/sjaals.webp" alt="Zachte sjaals in roze en bordeaux naast lichtjes in glazen stolpen" loading="lazy"><div class="in"><div><span class="nr">02</span><h3>Sjaals</h3><p>Zacht en effen of net heel kleurrijk.</p></div></div></a>
+   <a class="tegel rv" href="#bericht"><img src="img/tassen.webp" alt="Cognackleurige handtas met een witte ketting op een buste" loading="lazy"><div class="in"><div><span class="nr">03</span><h3>Handtassen</h3><p>Een kleine selectie die mooi samengaat met je sjaal.</p></div></div></a>
+  </div>
+ </div>
+</section>
+
+<section class="winkel" id="winkel">
+ <div class="wrap">
+  <h2 data-split>Kom gerust <span class="bl">binnen.</span></h2>
+  <div class="groot clip"><img data-px=".07" src="img/winkel.webp" alt="Zicht in de winkel van Atelier 42 met rekken vol juwelen, sjaals en planten" loading="lazy"></div>
+  <div class="onder">
+   <figure class="rv"><img src="img/gevel.webp" alt="De etalage van Atelier 42 in de Molenstraat" loading="lazy"></figure>
+   <div class="tekst rv">
+    <span class="lbl">Ann en Edwin</span>
+    <p>Je loopt binnen tussen het groen, het goud en de kleur. Neem je tijd, pas wat je mooi vindt en vraag gerust advies. Ook als je een cadeau zoekt voor iemand anders.</p>
+   </div>
+   <figure class="rv"><img src="img/toog.webp" alt="De toog met juwelen onder een krans van bloemen" loading="lazy"></figure>
+  </div>
+ </div>
+</section>
+
+<section class="kado" id="kadobon">
+ <div class="wrap">
+  <div>
+   <span class="lbl rv">Kadobon</span>
+   <h2 data-split>Twijfel je? <span class="r">Geef een kadobon.</span></h2>
+   <p class="rv">Dan kiest zij of hij zelf iets uit in de winkel. Een kadobon haal je in de Molenstraat of bestel je online.</p>
+   <div class="bedrag rv"><b>€ 20 tot € 300</b><span>of een ander<br>bedrag op vraag</span></div>
+   <a class="knop k3 rv" href="#bericht">Een kadobon aanvragen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+  <figure class="clip"><img src="img/kado.webp" alt="Halskettingen op witte bustes naast kaarsen in gouden lantaarns" loading="lazy"></figure>
+ </div>
+</section>
+
+<section class="bezoek" id="bezoek">
+ <div class="wrap">
+  <div>
+   <span class="lbl rv">Langskomen</span>
+   <h2 data-split>Tot in de <span class="bl">Molenstraat.</span></h2>
+   <p class="adres rv">Molenstraat 42<br>9300 Aalst</p>
+   <ul class="uren rv">
+    <li><span>Woensdag tot zaterdag</span><span>10 tot 18 uur</span></li>
+    <li><span>Zondag tot dinsdag</span><span>Gesloten</span></li>
+   </ul>
+   <div class="knoppen rv" style="display:flex;flex-wrap:wrap;gap:12px">
+    <a class="knop k1" href="https://www.google.com/maps/dir/?api=1&destination=Molenstraat+42+9300+Aalst" target="_blank" rel="noopener">Route plannen</a>
+    <a class="knop k2" href="tel:+32479324797">0479 32 47 97</a>
+   </div>
+  </div>
+  <form class="form rv" id="bericht" onsubmit="return false">
+   <h3>Stuur een berichtje</h3>
+   <p>Zoek je iets speciaals, wil je weten of iets nog in de winkel ligt of wil je een kadobon? Laat het ons weten.</p>
+   <label class="veld"><span>Je naam</span><input id="f-naam" autocomplete="name" placeholder="Voornaam en naam"></label>
+   <fieldset class="keuzes"><legend>Het gaat over</legend>
+    <label><input type="radio" name="over" value="een juweel" checked><span>Een juweel</span></label>
+    <label><input type="radio" name="over" value="een sjaal"><span>Een sjaal</span></label>
+    <label><input type="radio" name="over" value="een handtas"><span>Een handtas</span></label>
+    <label><input type="radio" name="over" value="een kadobon"><span>Een kadobon</span></label>
+   </fieldset>
+   <label class="veld"><span>Je vraag</span><textarea id="f-vraag" placeholder="Bv. ik zag een ketting op Instagram, ligt die nog in de winkel?"></textarea></label>
+   <div class="knoppen">
+    <button class="knop k3" type="button" data-via="wa">Via WhatsApp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    <button class="knop k4" type="button" data-via="mail">Via mail</button>
+   </div>
+  </form>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap">
+  <div class="fgroot" aria-hidden="true">Atelier <b>42</b></div>
+  <div class="fcols">
+   <div><p>Molenstraat 42<br>9300 Aalst</p><p>Wo tot za, 10 tot 18 uur</p></div>
+   <ul><li><a href="tel:+32479324797">0479 32 47 97</a></li><li><a href="mailto:info@atelier42.be">info@atelier42.be</a></li></ul>
+   <ul><li><a href="https://www.instagram.com/atelier42aalst/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/atelier42aalst" target="_blank" rel="noopener">Facebook</a></li></ul>
+  </div>
+  <div class="fond"><span>Modejuwelen, sjaals en handtassen in Aalst</span><span>Voorbeeldsite door Digital Impression</span></div>
+ </div>
+</footer>
+<script src="js/lenis.min.js"></script>
+<script>
+//COMMONJS
+(function(){
+ function msg(){var n=document.getElementById('f-naam').value.trim(),o=(document.querySelector('input[name=over]:checked')||{}).value||'',v=document.getElementById('f-vraag').value.trim();
+  return 'Dag Ann en Edwin,\n\nIk heb een vraag over '+o+'.'+(v?'\n'+v:'')+'\n\n'+(n?'Groetjes, '+n:'Groetjes')}
+ document.querySelectorAll('[data-via]').forEach(function(b){b.addEventListener('click',function(){
+  var t=msg();
+  if(b.dataset.via==='wa'){window.open('https://wa.me/32479324797?text='+encodeURIComponent(t),'_blank')}
+  else{location.href='mailto:info@atelier42.be?subject='+encodeURIComponent('Vraag via de website')+'&body='+encodeURIComponent(t)}
+ })})
+})();
+</script>
+</body>
+</html>
