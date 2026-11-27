@@ -161,21 +161,26 @@ h1,h2,h3{font-family:var(--disp);font-weight:500;letter-spacing:-.02em;line-heig
 .hero .lbl{color:var(--champ)}
 
 /* werkwijze */
-.werk{background:var(--room);color:var(--inkt);padding:clamp(90px,11vw,150px) 0}
+.werk{background:var(--champ);color:var(--inkt);padding:clamp(80px,9vw,130px) 0;overflow:hidden}
+.werk .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,96px);align-items:center}
+.werk .groot{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4/5.6;box-shadow:0 60px 110px -50px rgba(15,28,85,.7)}
+.werk .groot img{position:absolute;left:0;top:-6%;width:100%;height:112%;object-fit:cover}
+.werk .groot figcaption{position:absolute;left:18px;bottom:18px;font:600 11px/1 var(--txt);letter-spacing:.16em;text-transform:uppercase;color:var(--room);background:rgba(15,28,85,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:8px 12px;border-radius:999px}
+.werk .lbl{color:var(--kobalt);margin-bottom:22px}
+.werk h2{font-size:clamp(54px,6.4vw,110px);margin-bottom:24px}
+.werk h2 .k{color:var(--kobalt)}
+.werk .intro{font-size:18px;max-width:470px;margin-bottom:36px}
+.stappen{list-style:none;border-top:1.5px solid var(--inkt)}
+.stappen li{display:grid;grid-template-columns:96px 1fr auto;gap:22px;align-items:center;padding:20px 0;border-bottom:1px solid rgba(15,28,85,.22)}
+.stappen figure{width:96px;height:96px;border-radius:50%;overflow:hidden}
+.stappen img{width:100%;height:100%;object-fit:cover}
+.stappen h3{font-size:30px;margin-bottom:4px}
+.stappen p{font-size:16px;color:#2f3863;max-width:330px}
+.stappen .nr{font:500 44px/1 var(--disp);color:var(--kobalt)}
+
 .kop{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;margin-bottom:clamp(44px,5vw,70px)}
 .kop h2{font-size:clamp(52px,6.4vw,108px)}
-.kop h2 .k{color:var(--kobalt)}
-.kop p{max-width:440px;font-size:18px;justify-self:end;color:#38406a}
-.werk .lbl{color:var(--kobalt);margin-bottom:22px}
-.stappen{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;list-style:none}
-.stappen li{position:relative}
-.stappen figure{border-radius:200px 200px 18px 18px;overflow:hidden;aspect-ratio:3/4;margin-bottom:22px;background:var(--inkt)}
-.stappen img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
-.stappen li:hover img{transform:scale(1.05)}
-.stappen .nr{font:500 48px/1 var(--disp);color:var(--kobalt);display:block;margin-bottom:10px}
-.stappen h3{font-size:30px;margin-bottom:8px}
-.stappen p{font-size:16.5px;color:#38406a;max-width:340px}
-
+.kop p{max-width:440px;font-size:18px;justify-self:end}
 /* ringen */
 .ringen{padding:clamp(90px,11vw,150px) 0;background:var(--kobalt)}
 .ringen .lbl{color:var(--champ);margin-bottom:22px}
@@ -194,7 +199,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:500;letter-spacing:-.02em;line-heig
 .citaat .st{color:var(--goud);letter-spacing:3px;display:block;margin-bottom:14px}
 
 /* guido */
-.guido{background:var(--champ);color:var(--inkt);padding:clamp(90px,11vw,150px) 0;overflow:hidden}
+.guido{background:var(--room);color:var(--inkt);padding:clamp(90px,11vw,150px) 0;overflow:hidden}
 .guido .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:center}
 .guido .lbl{color:var(--kobalt)}
 .guido h2{font-size:clamp(52px,6.2vw,104px);margin:22px 0 26px}
@@ -266,8 +271,8 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
  .hero h1 .l2{padding-left:0}
  h2{overflow-wrap:break-word}
  .afspraak h2{font-size:clamp(36px,10vw,64px)}
- .stappen{grid-template-columns:1fr;gap:40px}
- .stappen figure{max-width:420px}
+ .werk .wrap{grid-template-columns:1fr}
+ .werk .groot{aspect-ratio:4/4.6;order:2}
  .citaten{grid-template-columns:1fr}
  .guido .wrap,.afspraak .wrap{grid-template-columns:1fr}
  .fotos{height:min(110vw,560px)}
@@ -285,6 +290,10 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
  .lbl::before{width:18px}
  .vak span{left:10px;bottom:10px;font-size:10px;letter-spacing:.1em;padding:7px 10px}
  .twee{grid-template-columns:1fr}
+ .stappen li{grid-template-columns:64px 1fr auto;gap:14px}
+ .stappen figure{width:64px;height:64px}
+ .stappen h3{font-size:24px}
+ .stappen .nr{font-size:30px}
  .fcols{grid-template-columns:1fr}
 }
 </style>
@@ -327,15 +336,17 @@ html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!
 
 <section class="werk" id="atelier">
  <div class="wrap">
-  <div class="kop">
-   <div><span class="lbl">In het eigen atelier</span><h2 data-split>Elk juweel, <span class="k">van begin tot eind.</span></h2></div>
-   <p class="rv">Ieder juweel is een piece unique. Guido maakt het ontwerp, smeedt het goud en zet de stenen zelf, en jij kan elke stap opvolgen.</p>
+  <figure class="groot clip"><img data-px=".05" src="img/sfeer-vijl.webp" alt="Sfeerbeeld: een ring wordt bijgevijld op de werkbank" loading="lazy" width="1300" height="1950"><figcaption>Sfeerbeeld</figcaption></figure>
+  <div>
+   <span class="lbl rv">In het eigen atelier</span>
+   <h2 data-split>Elk juweel, <span class="k">van begin tot eind.</span></h2>
+   <p class="intro rv">Ieder juweel is een piece unique. Guido maakt het ontwerp, smeedt het goud en zet de stenen zelf, en jij kan elke stap opvolgen.</p>
+   <ol class="stappen">
+    <li class="rv"><figure><img src="img/delen.webp" alt="Onderdelen van een ring op de werkbank" loading="lazy"></figure><div><h3>Het ontwerp</h3><p>Jij vertelt wat je mooi vindt, Guido tekent het uit.</p></div><span class="nr">01</span></li>
+    <li class="rv"><figure><img src="img/vlam.webp" alt="Een gouden ring wordt gesoldeerd met de vlam" loading="lazy"></figure><div><h3>Het goud</h3><p>Gesmeed en gesoldeerd in het atelier.</p></div><span class="nr">02</span></li>
+    <li class="rv"><figure><img src="img/zetten.webp" alt="Een steen wordt gezet in een ring" loading="lazy"></figure><div><h3>De steen</h3><p>Diamant, edelsteen of parel, door hem gezet.</p></div><span class="nr">03</span></li>
+   </ol>
   </div>
-  <ol class="stappen">
-   <li class="rv"><figure><img src="img/delen.webp" alt="Onderdelen van een ring op de werkbank" loading="lazy" width="375" height="500"></figure><span class="nr">01</span><h3>Het ontwerp</h3><p>Samen aan tafel. Jij vertelt wat je mooi vindt, Guido tekent het uit.</p></li>
-   <li class="rv"><figure><img src="img/vlam.webp" alt="Een gouden ring wordt gesoldeerd met de vlam" loading="lazy" width="375" height="500"></figure><span class="nr">02</span><h3>Het goud</h3><p>Het goud wordt in het atelier gesmeed en gesoldeerd tot jouw ring of juweel.</p></li>
-   <li class="rv"><figure><img src="img/zetten.webp" alt="Een steen wordt gezet in een ring op de werkbank" loading="lazy" width="375" height="500"></figure><span class="nr">03</span><h3>De steen</h3><p>Tot slot zet hij de diamant, edelsteen of parel. Daarna nog polijsten, en klaar.</p></li>
-  </ol>
  </div>
 </section>
 
