@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex,nofollow">
 <title>Forrest Car Cosmetix · Autodetailing in Ieper</title>
 <meta name="description" content="Handwas, lakcorrectie, keramische coating en oldtimerdetailing door Dieter Forrest, Pilkemseweg 121 in Ieper.">
-<link rel="preload" href="img/ferrari-cut.webp" as="image">
+<link rel="preload" href="img/hero-porsche.webp" as="image">
 <style>
 @font-face {
   font-family: 'Big Shoulders Display';
@@ -150,8 +150,8 @@ h1,h2,h3{font-family:var(--d);font-weight:900;text-transform:uppercase;line-heig
 .nav .btn{height:46px;font-size:14px;padding:0 22px}
 
 /* hero */
-.hero{position:relative;min-height:max(760px,calc(100svh - 37px));background:radial-gradient(60% 55% at 72% 62%,#21654b 0%,rgba(29,90,67,0) 70%),linear-gradient(180deg,var(--g) 0%,var(--g) 66%,#0b3226 66.2%,#0a2b20 100%);overflow:hidden;isolation:isolate}
-.hero:after{content:"";position:absolute;left:0;right:0;top:66%;height:1px;background:linear-gradient(90deg,transparent,rgba(242,237,226,.18) 30%,rgba(242,237,226,.18) 70%,transparent);z-index:0}
+.hero{position:relative;min-height:max(760px,calc(100svh - 37px));background:radial-gradient(55% 60% at 20% 30%,#17533d 0%,rgba(23,83,61,0) 70%),var(--g);overflow:hidden;isolation:isolate}
+.hero:after{display:none;content:"";position:absolute;left:0;right:0;top:66%;height:1px;background:linear-gradient(90deg,transparent,rgba(242,237,226,.18) 30%,rgba(242,237,226,.18) 70%,transparent);z-index:0}
 .hero .wrap{position:relative;min-height:inherit;padding-top:150px;padding-bottom:64px;display:flex;flex-direction:column}
 .hero h1{font-size:clamp(84px,12.4vw,204px);color:var(--bone);position:relative;z-index:1}
 .hero h1 .l{display:block;overflow:hidden;padding-bottom:.02em}
@@ -167,10 +167,10 @@ h1,h2,h3{font-family:var(--d);font-weight:900;text-transform:uppercase;line-heig
 .gpill b{font:800 24px/1 var(--d);letter-spacing:.02em}
 .gpill .st{color:#f6c445;font-size:12px;letter-spacing:2px;line-height:1}
 .gpill small{display:block;font-size:12px;color:var(--mute);line-height:1.2;margin-top:3px}
-.car{position:absolute;z-index:2;right:max(-80px,calc((100vw - 1240px)/2 - 160px));bottom:14%;width:min(58vw,940px)}
-.car img{width:100%;height:auto;filter:drop-shadow(0 40px 30px rgba(0,0,0,.45))}
-.car:before{content:"";position:absolute;left:8%;right:6%;bottom:2%;height:14%;background:radial-gradient(50% 50% at 50% 50%,rgba(0,0,0,.6),transparent 70%);filter:blur(10px);z-index:-1}
-.car figcaption{position:absolute;right:4%;bottom:-34px;font:600 12px/1 var(--b);letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.car{position:absolute;z-index:0;right:0;top:122px;bottom:56px;width:min(40vw,560px);border-radius:28px;overflow:hidden;margin:0}
+.car img{width:100%;height:100%;object-fit:cover;object-position:40% 50%}
+.car:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,43,32,.7) 0%,rgba(10,43,32,0) 32%)}
+.car figcaption{position:absolute;left:22px;bottom:20px;z-index:1;font:600 12px/1 var(--b);letter-spacing:.18em;text-transform:uppercase;color:#e7ede9}
 .car figcaption i{font-style:normal;color:var(--red)}
 
 /* behandelingen */
@@ -288,14 +288,14 @@ footer .bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;p
 .js .hero h1 .l span{transform:translateY(105%);transition:transform 1s cubic-bezier(.2,.75,.2,1)}
 .js .hero.go h1 .l span{transform:none}
 .js .hero h1 .l:nth-child(2) span{transition-delay:.1s}.js .hero h1 .l:nth-child(3) span{transition-delay:.2s}
-.js .car{opacity:0;transform:translateX(60px);transition:opacity 1.2s .35s,transform 1.4s .35s cubic-bezier(.2,.75,.2,1)}
-.js .hero.go .car{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .rv-up,.js .clip,.js .hero h1 .l span,.js .car{opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important}}
+.js .car{clip-path:inset(0 0 100% 0 round 28px);transition:clip-path 1.3s .2s cubic-bezier(.7,0,.2,1)}
+.js .hero.go .car{clip-path:inset(0 0 0 0 round 28px)}
+@media (prefers-reduced-motion:reduce){.js .rv-up,.js .clip,.js .hero h1 .l span,.js .car{clip-path:none!important;opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important}}
 
 /* responsive */
 @media (max-width:1100px){
  .nav ul{display:none}
- .car{width:62vw;right:-80px;bottom:16%}
+ .car{width:38vw}
 }
 @media (max-width:900px){
  .sec{padding:96px 0}
@@ -307,12 +307,11 @@ footer .bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;p
  .gal{grid-template-columns:1fr 1fr;grid-auto-rows:200px}
  .gal .a{grid-column:span 2;grid-row:span 2}.gal .b{grid-column:span 2}.gal .c{grid-row:span 1}
  footer .top{grid-template-columns:1fr 1fr}footer .top>div:first-child{grid-column:1/-1}
- .hero{min-height:auto;background:radial-gradient(90% 40% at 60% 86%,#21654b 0%,rgba(29,90,67,0) 70%),var(--g)}
+ .hero{min-height:auto;background:radial-gradient(90% 40% at 30% 10%,#17533d 0%,rgba(23,83,61,0) 70%),var(--g)}
  .hero:after{display:none}
  .hero .wrap{padding-top:124px;padding-bottom:40px}
  .hero .low{margin-top:28px;padding-top:0}
- .car{position:relative;right:auto;bottom:auto;width:112%;margin:34px -6% 30px}
- .car figcaption{right:8%;bottom:-18px}
+ .car{position:relative;right:auto;top:auto;bottom:auto;width:100%;aspect-ratio:4/4.4;margin:36px 0 10px}
 }
 @media (max-width:600px){
  body{font-size:16px}
@@ -363,8 +362,8 @@ footer .bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;p
    </a>
   </div>
   <figure class="car">
-   <img src="img/ferrari-cut.webp" alt="Zwarte Ferrari 458 Italia na een behandeling bij Forrest Car Cosmetix" width="1311" height="539">
-   <figcaption><i>&#9679;</i>&nbsp; Ferrari 458 Italia, uit het atelier</figcaption>
+   <img src="img/hero-porsche.webp" alt="Glanzende groene sportwagen in een lichte garage" width="1600" height="2405">
+   <figcaption><i>&#9679;</i>&nbsp; Diepe glans, tot in de naden</figcaption>
   </figure>
  </div>
 </section>
