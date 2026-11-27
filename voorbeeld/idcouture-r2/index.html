@@ -6,7 +6,7 @@
 <title>ID Couture · Maatwerk en retouches in Kluisbergen</title>
 <meta name="description" content="Isabelle van ID Couture maakt feestkledij, trouwkledij, suitekledij en satijnen broeken op maat in haar atelier in Kluisbergen. Ook voor retouches.">
 <meta name="robots" content="noindex,nofollow">
-<link rel="preload" href="img/jurk.webp" as="image">
+<link rel="preload" href="img/jurk-deur.webp" as="image">
 <style>
 @font-face {
   font-family: 'Abril Fatface';
@@ -141,10 +141,8 @@ p{margin:0}
 .score b{font:400 30px/1 var(--disp);color:var(--licht)}
 .score .st{color:var(--roze);letter-spacing:2px;font-size:15px}
 .hero-beeld{position:relative;align-self:stretch;display:flex;justify-content:center}
-.boog{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:min(100%,390px);height:80%;border-radius:999px 999px 0 0;overflow:hidden;background:var(--rood2)}
-.boog img{width:100%;height:116%;margin-top:-8%;object-fit:cover;object-position:12% 50%;filter:grayscale(1) contrast(1.1) brightness(.9);transform:scale(1.08)}
-.boog::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#8A1027 0%,#5E0A1B 100%);mix-blend-mode:multiply;opacity:.92}
-.jurk{position:absolute;z-index:2;left:50%;top:-58px;height:calc(100% + 130px);width:auto;max-width:none;translate:-50% 0;filter:drop-shadow(0 18px 18px rgba(36,9,15,.22))}
+.boog{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:min(100%,470px);height:calc(100% - 36px);margin:0;border-radius:999px 999px 0 0;overflow:hidden;background:var(--rood2)}
+.boog img{width:100%;height:110%;object-fit:cover;object-position:52% 30%;margin-top:-4%}
 .hero-cap{position:absolute;right:0;bottom:28px;z-index:3;font-size:12.5px;letter-spacing:.06em;color:rgba(255,243,239,.75);writing-mode:vertical-rl;transform:rotate(180deg)}
 
 /* secties */
@@ -153,7 +151,7 @@ section{position:relative}
 .kop h2{font-size:clamp(44px,5.6vw,88px)}
 .kop p{font-size:18px;color:var(--zacht);max-width:28em;justify-self:end}
 
-.aanbod{padding:clamp(130px,13vw,190px) 0 clamp(90px,10vw,140px);background:var(--poeder)}
+.aanbod{padding:clamp(100px,11vw,150px) 0 clamp(90px,10vw,140px);background:var(--poeder)}
 .aanbod .kicker{color:var(--rood);margin-bottom:22px}
 .kaarten{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px)}
 .kaart{text-decoration:none;display:block}
@@ -260,10 +258,8 @@ fieldset.veld{border:0;margin:0;padding:0}
 .js .fd.in{opacity:1;transform:none}
 .js .clip{clip-path:inset(12% 6% 12% 6% round var(--r));transition:clip-path 1.4s var(--ease)}
 .js .clip.in{clip-path:inset(0 0 0 0 round var(--r))}
-.js .jurk{opacity:0;transform:translateY(-40px);transition:opacity 1.4s var(--ease) .2s,transform 1.6s var(--ease) .2s}
-.js .hero.in .jurk{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
-  .js .w>span,.js .fd,.js .clip,.js .jurk{transform:none!important;opacity:1!important;clip-path:none!important;transition:none!important}
+  .js .w>span,.js .fd,.js .clip {transform:none!important;opacity:1!important;clip-path:none!important;transition:none!important}
 }
 
 /* responsive */
@@ -276,9 +272,9 @@ fieldset.veld{border:0;margin:0;padding:0}
   .hero-tekst{padding:28px 0 36px}
   .hero h1{font-size:clamp(48px,12.5vw,110px)}
   .hero-beeld{height:min(118vw,600px)}
-  .boog{width:min(78%,360px);height:86%}
+  .boog{width:min(86%,400px);height:100%;border-radius:999px 999px var(--r) var(--r)}
+  .hero-beeld{margin-bottom:40px}
   .hero-cap{display:none}
-  .jurk{top:-6px;height:calc(100% + 50px)}
   .aanbod{padding-top:110px}
   .kop{grid-template-columns:1fr;gap:18px}
   .kop p{justify-self:start}
@@ -342,8 +338,7 @@ fieldset.veld{border:0;margin:0;padding:0}
       <a class="score fd" href="https://www.google.com/maps/place/?q=place_id:ChIJ8cfJTaIZw0cR6cGrMa68hM4" target="_blank" rel="noopener" style="text-decoration:none"><b>4,9</b><span><span class="st" aria-hidden="true">★★★★★</span><br>14 reviews op Google</span></a>
     </div>
     <div class="hero-beeld">
-      <div class="boog" aria-hidden="true"><img src="img/atelier.webp" alt="" data-par="0.08"></div>
-      <img class="jurk" src="img/jurk.webp" alt="Trouwjurk met kanten lijfje, gemaakt door Isabelle, aan een kleerhanger" width="284" height="1337">
+      <figure class="boog"><img src="img/jurk-deur.webp" alt="Trouwjurk met kanten lijfje, gemaakt door Isabelle, aan een kleerhanger tegen een rode deur" width="1067" height="1600" data-par="0.05"></figure>
       <span class="hero-cap">Trouwjurk uit het atelier</span>
     </div>
   </div>
@@ -505,7 +500,7 @@ fieldset.veld{border:0;margin:0;padding:0}
     function raf(t){l.raf(t);requestAnimationFrame(raf)} requestAnimationFrame(raf);
     document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length>1&&document.querySelector(id)){e.preventDefault();l.scrollTo(id,{offset:0})}})});
     var ps=document.querySelectorAll('[data-par]');
-    l.on('scroll',function(){ps.forEach(function(p){var r=p.parentElement.getBoundingClientRect();var v=(r.top+r.height/2-innerHeight/2)*parseFloat(p.dataset.par);p.style.transform='translate3d(0,'+(-v)+'px,0)'+(p.closest('.boog')?' scale(1.08)':'')})});
+    l.on('scroll',function(){ps.forEach(function(p){var r=p.parentElement.getBoundingClientRect();var v=(r.top+r.height/2-innerHeight/2)*parseFloat(p.dataset.par);p.style.transform='translate3d(0,'+(-v)+'px,0)'})});
   }
   // formulier
   var f=document.getElementById('aanvraag'), via='wa';
