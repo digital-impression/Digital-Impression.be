@@ -6,7 +6,7 @@
 <title>Siam Massage &amp; Beauty · Thaise massage in Leuven</title>
 <meta name="description" content="Thaise massage in het centrum van Leuven, aan het Alfons Smetsplein. Elke dag open van 10 tot 22 uur, op afspraak.">
 <meta name="robots" content="noindex,nofollow">
-<link rel="preload" href="img/t-s17.webp" as="image">
+<link rel="preload" href="img/p-s17.webp" as="image">
 <style>
 @font-face {
   font-family: 'Young Serif';
@@ -140,20 +140,13 @@ p{margin:0}
 .hero-zij .knoppen{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
 .hero-zij .k-lijn{color:var(--cacao)}
 .hero-zij .k-lijn:hover{background:var(--cacao);color:var(--room)}
-.podium{position:relative;margin-top:clamp(-30px,-1.5vw,-10px);height:clamp(360px,36vw,520px)}
-.venster{position:absolute;left:0;right:0;bottom:0;height:62%;border-radius:var(--r) var(--r) 0 0;overflow:hidden;background:var(--cacao)}
-.venster img{width:100%;height:130%;object-fit:cover;object-position:50% 60%;opacity:.5;filter:saturate(.8)}
-.venster::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,20,12,.15),rgba(42,20,12,.7))}
-.team{position:absolute;inset:0;display:flex;justify-content:center;align-items:flex-end;gap:0;z-index:2}
-.team img{height:100%;width:auto;max-width:none;filter:drop-shadow(0 20px 30px rgba(42,20,12,.25))}
-.team img:nth-child(1){height:92%;position:relative;z-index:2;margin-right:clamp(-90px,-5vw,-40px)}
-.team img:nth-child(2){position:relative;z-index:1;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 9%);mask-image:linear-gradient(90deg,transparent 0,#000 9%)}
-.team img:nth-child(3){height:90%;position:relative;z-index:2;margin-left:clamp(-90px,-5vw,-40px)}
+.podium{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,22px);align-items:end;margin-top:clamp(40px,5vw,70px);height:clamp(340px,34vw,500px)}
+.boog{margin:0;height:100%;border-radius:999px 999px 0 0;overflow:hidden;background:var(--cacao)}
+.boog:nth-child(1),.boog:nth-child(3){height:86%}
+.boog img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
 .score{display:flex;align-items:center;gap:12px;color:var(--cacao);text-decoration:none;font-size:13.5px;line-height:1.3;margin-top:26px}
 .score b{font:400 34px/1 var(--disp)}
 .score .st{color:var(--cacao);letter-spacing:2px}
-.hero-cap{position:absolute;z-index:3;left:28px;bottom:30px;color:rgba(252,238,221,.8);font-size:13.5px;max-width:15em;line-height:1.4}
-
 /* secties */
 .kop{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;margin-bottom:clamp(40px,5vw,64px)}
 .kop h2{font-size:clamp(44px,5.6vw,86px)}
@@ -257,12 +250,11 @@ p{margin:0}
 .js .fd.in{opacity:1;transform:none}
 .js .clip{clip-path:inset(10% 8% 10% 8% round var(--r));transition:clip-path 1.4s var(--ease)}
 .js .clip.in{clip-path:inset(0 0 0 0 round var(--r))}
-.js .team img{opacity:0;transform:translateY(60px);transition:opacity 1.2s var(--ease),transform 1.4s var(--ease)}
-.js .podium.in .team img{opacity:1;transform:none}
-.js .podium.in .team img:nth-child(1){transition-delay:.25s}
-.js .podium.in .team img:nth-child(2){transition-delay:.1s}
-.js .podium.in .team img:nth-child(3){transition-delay:.4s}
-@media (prefers-reduced-motion:reduce){.js .w>span,.js .fd,.js .clip,.js .team img{transform:none!important;opacity:1!important;clip-path:none!important;transition:none!important}}
+.js .boog{clip-path:inset(100% 0 0 0);transition:clip-path 1.4s var(--ease)}
+.js .podium.in .boog{clip-path:inset(0 0 0 0)}
+.js .podium.in .boog:nth-child(2){transition-delay:.12s}
+.js .podium.in .boog:nth-child(3){transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){.js .w>span,.js .fd,.js .clip,.js .boog{transform:none!important;opacity:1!important;clip-path:none!important;transition:none!important}}
 
 @media (max-width:1100px){
   .nav ul{display:none}
@@ -270,18 +262,11 @@ p{margin:0}
 }
 @media (max-width:860px){
   .hero-top{grid-template-columns:1fr;gap:26px}
-  .podium{margin-top:34px;height:min(86vw,440px)}
-  .venster{height:58%}
-  .team{gap:0}
-  .team img:nth-child(1){margin-right:-12%}
-  .team img:nth-child(3){margin-left:-9%}
-  .team img:nth-child(2){position:relative;z-index:2}
+  .podium{margin-top:34px;height:min(70vw,440px)}
   .hero-cap{display:none}
   .kop{grid-template-columns:1fr;gap:18px}
   .kop p{justify-self:start}
   .lijst{grid-template-columns:minmax(0,1fr)}
-  .podium{overflow:hidden;margin-left:calc(-1*clamp(20px,4vw,56px));margin-right:calc(-1*clamp(20px,4vw,56px))}
-  .venster{left:clamp(20px,4vw,56px);right:clamp(20px,4vw,56px)}
   .bento{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:44vw}
   .bento .b1{grid-row:span 2}
   .bento .b2{grid-column:span 2}
@@ -296,11 +281,7 @@ p{margin:0}
   .nav .knop{padding:11px 16px;font-size:13px}
   .hero{padding-top:76px}
   .hero h1{font-size:clamp(46px,14vw,70px)}
-  .podium{height:82vw}
-  .team img{height:70%!important}
-  .team img:nth-child(1){margin-right:-16%}
-  .team img:nth-child(3){margin-left:-16%}
-  .team img:nth-child(2){height:100%!important}
+  .podium{height:62vw;gap:8px}
   .tien{grid-template-columns:1fr}
   .rev{grid-template-columns:1fr}
   .velden{grid-template-columns:1fr}
@@ -343,12 +324,9 @@ p{margin:0}
       </div>
     </div>
     <div class="podium">
-      <div class="venster" aria-hidden="true"><img src="img/kamer-goud.webp" alt="" data-par="0.1"></div>
-      <div class="team">
-        <img src="img/t-s15.webp" alt="Therapeute van Siam in bruin uniform groet met de handen samen" width="900" height="1267">
-        <img src="img/t-s17.webp" alt="Therapeute van Siam groet met de handen samen" width="900" height="1223">
-        <img src="img/t-s18.webp" alt="Therapeute van Siam met lang zwart haar groet met de handen samen" width="900" height="1109">
-      </div>
+      <figure class="boog"><img src="img/p-s15.webp" alt="Therapeute van Siam in bruin uniform groet met de handen samen" width="900" height="1277"></figure>
+      <figure class="boog"><img src="img/p-s17.webp" alt="Therapeute van Siam groet met de handen samen" width="900" height="1281"></figure>
+      <figure class="boog"><img src="img/p-s18.webp" alt="Therapeute van Siam met lang zwart haar groet met de handen samen" width="900" height="1200"></figure>
     </div>
   </div>
 </section>
