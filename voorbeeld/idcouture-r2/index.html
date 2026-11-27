@@ -151,19 +151,20 @@ section{position:relative}
 .kop h2{font-size:clamp(44px,5.6vw,88px)}
 .kop p{font-size:18px;color:var(--zacht);max-width:28em;justify-self:end}
 
-.aanbod{padding:clamp(100px,11vw,150px) 0 clamp(90px,10vw,140px);background:var(--poeder)}
-.aanbod .kicker{color:var(--rood);margin-bottom:22px}
-.kaarten{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px)}
-.kaart{text-decoration:none;display:block}
-.kaart figure{margin:0;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;background:var(--poeder2)}
-.kaart img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-.kaart:hover img{transform:scale(1.05)}
-.kaart .lbl{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:18px}
-.kaart h3{font-size:clamp(26px,2.3vw,34px);color:var(--inkt)}
-.kaart .nr{font:700 13px/1 var(--tekst);color:var(--rood);letter-spacing:.1em}
-.kaart p{margin-top:8px;color:var(--zacht);font-size:16px;max-width:26em}
-.kaart:nth-child(3n+2){margin-top:clamp(0px,4vw,60px)}
-
+.aanbod{padding:clamp(100px,11vw,150px) 0;background:var(--rood);color:var(--licht)}
+.aanbod .kicker{color:var(--roze);margin-bottom:22px}
+.aanbod h2 .r{display:block}
+.aanbod h2 em{font-style:normal;color:var(--roze)}
+.aanbod .kop p{color:rgba(255,243,239,.8)}
+.index{list-style:none;margin:0;padding:0;border-top:1.5px solid rgba(255,243,239,.3)}
+.index a{display:grid;grid-template-columns:60px 1fr 1.1fr 120px;gap:30px;align-items:center;padding:22px 0;border-bottom:1.5px solid rgba(255,243,239,.3);text-decoration:none;transition:padding .6s var(--ease),background .4s}
+.index .nr{font:700 13px/1 var(--tekst);letter-spacing:.1em;color:var(--roze)}
+.index h3{font-size:clamp(32px,3.6vw,56px)}
+.index p{color:rgba(255,243,239,.78);font-size:16px;max-width:30em}
+.index img{width:120px;height:120px;object-fit:cover;border-radius:999px;transition:transform .7s var(--ease)}
+.index a:hover{padding-left:18px;background:var(--rood2)}
+.index a:hover img{transform:scale(1.08) rotate(-3deg)}
+.index a:hover h3{color:var(--roze)}
 /* werkwijze */
 .werk{background:var(--diep);color:var(--licht);padding:0 0 clamp(90px,10vw,140px)}
 .werk .pano{height:clamp(300px,38vw,560px);overflow:hidden;position:relative}
@@ -179,16 +180,18 @@ section{position:relative}
 .stappen p{color:rgba(255,243,239,.74);font-size:16px}
 
 /* gedragen */
-.gedragen{background:var(--rood);color:var(--licht);padding:clamp(100px,11vw,160px) 0}
-.gedragen .kicker{color:var(--roze);margin-bottom:22px}
-.gedragen .kop p{color:rgba(255,243,239,.82)}
-.muur{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(180px,19vw,270px);gap:clamp(12px,1.6vw,22px)}
-.muur figure{margin:0;border-radius:18px;overflow:hidden;background:var(--rood2)}
+.gedragen{background:var(--poeder);padding:clamp(100px,11vw,150px) 0}
+.ged-kop{display:grid;grid-template-columns:1fr auto;gap:10px 60px;align-items:end;margin-bottom:clamp(36px,4vw,56px)}
+.ged-kop .kicker{grid-column:1/-1;color:var(--rood);margin-bottom:12px}
+.ged-kop h2{font-size:clamp(54px,7.6vw,124px)}
+.ged-kop h2 em{font-style:normal;color:var(--rood)}
+.ged-kop p{font-size:18px;color:var(--zacht);max-width:20em;padding-bottom:12px}
+.muur{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;grid-auto-rows:clamp(190px,19vw,280px);gap:clamp(12px,1.5vw,20px)}
+.muur figure{margin:0;border-radius:var(--r);overflow:hidden;background:var(--poeder2);position:relative}
 .muur img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
 .muur figure:hover img{transform:scale(1.04)}
-.m-boog{grid-row:span 2}.m-kasteel{grid-column:span 2}.m-koppel{grid-row:span 2}.m-porsche{grid-column:span 2}.m-porsche img{object-position:50% 12%}
-.gedragen .meer{margin-top:44px;display:flex;justify-content:center}
-
+.muur figcaption{position:absolute;left:14px;bottom:14px;background:var(--licht);color:var(--inkt);border-radius:999px;padding:9px 15px;font:700 13px/1 var(--tekst)}
+.m-feest{grid-row:span 2}.m-feest img{object-position:50% 25%}.m-kasteel{grid-column:span 2}.m-koppel{grid-row:span 2}.m-porsche{grid-column:span 2}.m-porsche img{object-position:50% 12%}
 /* isabelle */
 .over{padding:clamp(100px,11vw,160px) 0;background:var(--poeder)}
 .over .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,7vw,110px);align-items:center}
@@ -278,9 +281,13 @@ fieldset.veld{border:0;margin:0;padding:0}
   .aanbod{padding-top:110px}
   .kop{grid-template-columns:1fr;gap:18px}
   .kop p{justify-self:start}
-  .kaarten{grid-template-columns:1fr 1fr}
-  .kaart:nth-child(3n+2){margin-top:0}
-  .kaart:nth-child(even){margin-top:36px}
+  .ged-kop{grid-template-columns:1fr}
+  .muur{grid-template-columns:1fr 1fr;grid-auto-rows:46vw}
+  .muur{grid-auto-flow:dense}
+  .m-feest{grid-column:span 2;grid-row:span 2}.m-kasteel{grid-column:span 2}.m-koppel{grid-row:span 1}.m-porsche{grid-column:span 2}.m-boog{display:none}
+  .index a{grid-template-columns:44px 1fr 90px;gap:16px}
+  .index p{grid-column:2/3;grid-row:2}
+  .index img{width:90px;height:90px;grid-row:1/3;grid-column:3}
   .over .wrap,.afspraak .wrap{grid-template-columns:1fr}
   .portret{max-width:460px}
   .voet .rij{grid-template-columns:1fr 1fr}
@@ -293,15 +300,13 @@ fieldset.veld{border:0;margin:0;padding:0}
   .hero{padding-top:76px}
   .hero h1{font-size:clamp(48px,15vw,76px);margin:20px 0 22px}
   .hero .knop{padding:15px 20px}
-  .kaarten{grid-template-columns:1fr 1fr;gap:26px 14px}
-  .kaart:nth-child(even){margin-top:28px}
-  .kaart .lbl{margin-top:12px}
-  .kaart h3{font-size:21px}
-  .kaart .nr{display:none}
-  .kaart p{font-size:13.5px;line-height:1.5}
-  .kaart figure{border-radius:16px}
+  .index a{grid-template-columns:1fr 76px;gap:6px 14px}
+  .index .nr{display:none}
+  .index h3{font-size:30px}
+  .index p{grid-column:1;grid-row:2;font-size:14.5px}
+  .index img{width:76px;height:76px;grid-column:2;grid-row:1/3}
+  .index a:hover{padding-left:0}
   .stappen{grid-template-columns:1fr}
-  .muur{grid-template-columns:1fr 1fr;grid-auto-rows:44vw}
   .velden{grid-template-columns:1fr}
   .voet .rij{grid-template-columns:1fr}
   .portret .naam{left:12px}
@@ -344,25 +349,28 @@ fieldset.veld{border:0;margin:0;padding:0}
   </div>
 </section>
 
-<section class="aanbod" id="maatwerk">
+<section class="gedragen" id="gedragen">
   <div class="wrap">
-    <div class="kop">
-      <div><span class="kicker fd">Wat Isabelle maakt</span><h2 class="split">Voor elke grote dag.</h2></div>
-      <p class="fd">Kies zelf het model, de stof en de snit. Of geef Isabelle de vrije hand. Je mag gerust een moodboard meebrengen.</p>
+    <div class="ged-kop">
+      <span class="kicker fd">Gemaakt bij ID Couture</span>
+      <h2 class="split">Gedragen op <em>grote dagen.</em></h2>
+      <p class="fd">Trouwjurken, feestoutfits en suitekledij, gemaakt in Kluisbergen en gedragen door haar klanten.</p>
     </div>
-    <div class="kaarten">
-      <a class="kaart fd" href="#afspraak"><figure class="clip"><img src="img/feest.webp" alt="Twee vrouwen in fluwelen feestjurken in donkerrood" loading="lazy" style="object-position:50% 30%"></figure><div class="lbl"><h3>Feestkledij</h3><span class="nr">01</span></div><p>Voor een huwelijk, een communie of een jubileum. Een outfit die niemand anders heeft.</p></a>
-      <a class="kaart fd" href="#afspraak"><figure class="clip"><img src="img/trouw.webp" alt="Bruid in een witte jurk met split onder een boog van takken" loading="lazy" style="object-position:50% 60%"></figure><div class="lbl"><h3>Trouwkledij</h3><span class="nr">02</span></div><p>Je jurk voor de grote dag, van het eerste idee tot de laatste zoom.</p></a>
-      <a class="kaart fd" href="#afspraak"><figure class="clip"><img src="img/suite.webp" alt="Drie vrouwen in groene jurken voor een witte gevel" loading="lazy" style="object-position:50% 55%"></figure><div class="lbl"><h3>Suitekledij</h3><span class="nr">03</span></div><p>Voor de bruidsmeisjes en de familie, mooi op elkaar afgestemd.</p></a>
-      <a class="kaart fd" href="#afspraak"><figure class="clip"><img src="img/satijn.webp" alt="Twee satijnen broeken met bloemenprint en slangenprint" loading="lazy"></figure><div class="lbl"><h3>Satijnen broek</h3><span class="nr">04</span></div><p>Op jouw maat, in de print die jij kiest. Voor een feest of gewoon voor elke dag.</p></a>
-      <a class="kaart fd" href="#afspraak"><figure class="clip"><img src="img/kant.webp" alt="Haarband met witte kanten bloemetjes op ivoorkleurige stof" loading="lazy"></figure><div class="lbl"><h3>Kinderkledij</h3><span class="nr">05</span></div><p>Voor de communie of het lentefeest, met een bijpassend accessoire erbij.</p></a>
-      <a class="kaart fd" href="#afspraak"><figure class="clip"><img src="img/naaien.webp" alt="Handen die witte stof onder de naaimachine leiden" loading="lazy"></figure><div class="lbl"><h3>Retouches</h3><span class="nr">06</span></div><p>Een zoom, een rits of een broek die net te ruim zit. Breng het binnen, Isabelle maakt het in orde.</p></a>
+    <div class="muur">
+      <figure class="clip m-feest"><img src="img/feest.webp" alt="Twee vrouwen in fluwelen feestjurken in donkerrood" loading="lazy"><figcaption>Feestkledij in fluweel</figcaption></figure>
+      <figure class="clip m-kasteel"><img src="img/g-kasteel.webp" alt="Bruidspaar op een grasveld voor een kasteel" loading="lazy"><figcaption>Trouwjurk</figcaption></figure>
+      <figure class="clip m-koppel"><img src="img/g-koppel.webp" alt="Man in pak en vrouw in blauw bedrukt jasje op een feest" loading="lazy"></figure>
+      <figure class="clip m-rug"><img src="img/g-rug.webp" alt="Rug van een trouwjurk met kant en een rij knoopjes" loading="lazy"></figure>
+      <figure class="clip m-blauw"><img src="img/g-blauw.webp" alt="Twee vrouwen in lange blauwe jurken met een witte sjaal" loading="lazy"></figure>
+      <figure class="clip m-porsche"><img src="img/g-porsche.webp" alt="Bruid in witte jurk naast een oude bruine sportwagen" loading="lazy"></figure>
+      <figure class="clip m-koraal"><img src="img/g-koraal.webp" alt="Drie vrouwen in kleurrijke feestkledij voor een bakstenen muur" loading="lazy"></figure>
+      <figure class="clip m-boog"><img src="img/g-boog.webp" alt="Bruidspaar kust onder een boog van takken" loading="lazy"></figure>
     </div>
   </div>
 </section>
 
 <section class="werk" id="werkwijze">
-  <div class="pano"><img src="img/atelier.webp" alt="Rekken met kledij en stoffen in het atelier van ID Couture" loading="lazy" data-par="0.12"></div>
+  <div class="pano"><img src="img/atelier.webp" alt="Rekken met kledij en stoffen in het atelier van ID Couture" loading="lazy" data-par="0.05"></div>
   <div class="wrap">
     <div class="kop">
       <div><span class="kicker fd">In het atelier</span><h2 class="split">Van babbel tot laatste steek.</h2></div>
@@ -377,23 +385,20 @@ fieldset.veld{border:0;margin:0;padding:0}
   </div>
 </section>
 
-<section class="gedragen" id="gedragen">
+<section class="aanbod" id="maatwerk">
   <div class="wrap">
     <div class="kop">
-      <div><span class="kicker fd">Gemaakt bij ID Couture</span><h2 class="split">Gedragen op grote dagen.</h2></div>
-      <p class="fd">Trouwjurken, feestoutfits en suitekledij, gemaakt in Kluisbergen en gedragen door haar klanten.</p>
+      <div><span class="kicker fd">Wat Isabelle maakt</span><h2 class="split"><span class="r">Kies je model.</span> <span class="r"><em>Of niet.</em></span></h2></div>
+      <p class="fd">Kies zelf het model, de stof en de snit. Of geef Isabelle de vrije hand. Je mag gerust een moodboard meebrengen.</p>
     </div>
-    <div class="muur">
-      <figure class="fd m-boog"><img src="img/g-boog.webp" alt="Bruidspaar kust onder een boog van takken" loading="lazy" width="1000" height="1501"></figure>
-      <figure class="fd m-kasteel"><img src="img/g-kasteel.webp" alt="Bruidspaar op een grasveld voor een kasteel" loading="lazy" width="1400" height="933"></figure>
-      <figure class="fd m-koppel"><img src="img/g-koppel.webp" alt="Man in pak en vrouw in blauw bedrukt jasje op een feest" loading="lazy" width="1000" height="1333"></figure>
-      <figure class="fd m-rug"><img src="img/g-rug.webp" alt="Rug van een trouwjurk met kant en een rij knoopjes" loading="lazy" width="1000" height="1333"></figure>
-      <figure class="fd m-blauw"><img src="img/g-blauw.webp" alt="Twee vrouwen in lange blauwe jurken met een witte sjaal" loading="lazy" width="1000" height="1333"></figure>
-      <figure class="fd m-porsche"><img src="img/g-porsche.webp" alt="Bruid in witte jurk naast een oude bruine sportwagen" loading="lazy" width="1080" height="720"></figure>
-      <figure class="fd m-koraal"><img src="img/g-koraal.webp" alt="Drie vrouwen in kleurrijke feestkledij voor een bakstenen muur" loading="lazy" width="900" height="836"></figure>
-      <figure class="fd m-trap"><img src="img/g-trap.webp" alt="Bruidspaar met hun hond in de tuin" loading="lazy" width="720" height="960"></figure>
-    </div>
-    <div class="meer"><a class="knop k-roze" href="#afspraak">Ook iets laten maken?</a></div>
+    <ul class="index">
+      <li class="fd"><a href="#afspraak"><span class="nr">01</span><h3>Feestkledij</h3><p>Voor een huwelijk, een communie of een jubileum. Een outfit die niemand anders heeft.</p><img src="img/feest.webp" alt="Twee vrouwen in fluwelen feestjurken" loading="lazy"></a></li>
+      <li class="fd"><a href="#afspraak"><span class="nr">02</span><h3>Trouwkledij</h3><p>Je jurk voor de grote dag, van het eerste idee tot de laatste zoom.</p><img src="img/trouw.webp" alt="Bruid in een witte jurk onder een boog van takken" loading="lazy"></a></li>
+      <li class="fd"><a href="#afspraak"><span class="nr">03</span><h3>Suitekledij</h3><p>Voor de bruidsmeisjes en de familie, mooi op elkaar afgestemd.</p><img src="img/suite.webp" alt="Drie vrouwen in groene jurken" loading="lazy"></a></li>
+      <li class="fd"><a href="#afspraak"><span class="nr">04</span><h3>Satijnen broek</h3><p>Op jouw maat, in de print die jij kiest. Voor een feest of gewoon voor elke dag.</p><img src="img/satijn.webp" alt="Twee satijnen broeken met print" loading="lazy"></a></li>
+      <li class="fd"><a href="#afspraak"><span class="nr">05</span><h3>Kinderkledij</h3><p>Voor de communie of het lentefeest, met een bijpassend accessoire erbij.</p><img src="img/kant.webp" alt="Haarband met kanten bloemetjes" loading="lazy"></a></li>
+      <li class="fd"><a href="#afspraak"><span class="nr">06</span><h3>Retouches</h3><p>Een zoom, een rits of een broek die net te ruim zit. Breng het binnen, Isabelle maakt het in orde.</p><img src="img/naaien.webp" alt="Handen aan de naaimachine" loading="lazy"></a></li>
+    </ul>
   </div>
 </section>
 
