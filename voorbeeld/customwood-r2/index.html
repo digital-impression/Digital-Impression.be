@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Custom Wood · Maatwerk in hout uit Hamont-Achel</title>
-<meta name="description" content="Tafels, keukens, kasten, loungebanken en overkappingen op maat. Uit eigen werkplaats, zonder voorschot. Showroom in Achel.">
-<link rel="preload" href="img/tafel.webp" as="image">
+<meta name="description" content="Keukens, kasten, tafels, overkappingen en tuinhuizen op maat. Uit eigen werkplaats, zonder voorschot. Showroom in Achel.">
+<link rel="preload" href="img/hero.webp" as="image">
 <style>
 @font-face{font-family:'AB';src:url(fonts/archivo-black-400-latin.woff2) format('woff2');font-display:swap}
 @font-face{font-family:'AB';src:url(fonts/archivo-black-400-latin-ext.woff2) format('woff2');font-display:swap;unicode-range:U+0100-024F}
@@ -55,21 +55,20 @@ h1,h2,h3{font-family:'AB',Impact,sans-serif;font-weight:400;line-height:.92;lett
 .nav .btn{height:46px;padding:0 22px;font-size:15px}
 
 /* hero */
-.hero{background:var(--zw);color:var(--cr);overflow:hidden}
-.hero-in{max-width:1440px;margin:0 auto;padding:clamp(30px,4vw,60px) var(--pad) clamp(30px,3vw,50px)}
-.hero-top{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:end;margin-bottom:clamp(28px,3vw,44px)}
-.hero .lbl{color:var(--eik);margin-bottom:22px;display:block}
-.hero h1{font-size:clamp(62px,7.6vw,124px)}
+.hero{position:relative;background:var(--zw);color:var(--cr);overflow:hidden;display:flex;flex-direction:column;min-height:clamp(640px,calc(100svh - 38px),900px)}
+.hero-ph{position:absolute;inset:0;margin:0;z-index:0}
+.hero-ph img{width:100%;height:100%;object-fit:cover;object-position:50% 46%;transform:scale(1.05);transition:transform 2.4s var(--ease)}
+.loaded .hero-ph img{transform:none}
+.hero-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,23,20,.6) 0,rgba(25,23,20,0) 22%),linear-gradient(90deg,rgba(25,23,20,.9) 0,rgba(25,23,20,.72) 30%,rgba(25,23,20,.25) 56%,rgba(25,23,20,0) 72%),linear-gradient(0deg,rgba(25,23,20,.75) 0,rgba(25,23,20,0) 38%)}
+.hero .nav{width:100%}
+.hero-in{position:relative;z-index:2;margin-top:auto;width:100%;max-width:1440px;margin-left:auto;margin-right:auto;padding:0 var(--pad) clamp(34px,4vw,56px);display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end}
+.hero .lbl{color:var(--cr);margin-bottom:20px;display:block}
+.hero h1{font-size:clamp(54px,6vw,96px)}
 .hero h1 .l2{color:var(--eik)}
-.hero-side p{margin:0 0 26px;font-size:18.5px;color:rgba(243,236,225,.84)}
+.hero-side{max-width:560px;margin-top:26px}
+.hero-side p{margin:0 0 26px;font-size:18.5px;color:rgba(243,236,225,.92)}
 .cta{display:flex;flex-wrap:wrap;gap:12px}
-.beeld{position:relative;margin:0;border-radius:22px;overflow:hidden;aspect-ratio:16/7}
-.beeld img{width:100%;height:100%;object-fit:cover;object-position:50% 74%;transform:scale(1.06);transition:transform 2.2s var(--ease)}
-.loaded .beeld img{transform:none}
-.beeld::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(25,23,20,.55),transparent 40%)}
-.beeld figcaption{position:absolute;z-index:2;left:24px;bottom:22px;color:var(--cr);font-size:14.5px;font-weight:600;display:flex;gap:10px;align-items:center}
-.beeld figcaption::before{content:"";width:26px;height:1.5px;background:var(--eik)}
-.score{position:absolute;z-index:2;right:20px;bottom:20px;display:flex;align-items:center;gap:12px;padding:10px 18px 10px 10px;border-radius:99px;background:rgba(25,23,20,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:inset 0 0 0 1px rgba(243,236,225,.25);color:var(--cr);text-decoration:none;font-size:13.5px;line-height:1.3}
+.score{display:flex;align-items:center;gap:12px;padding:10px 18px 10px 10px;border-radius:99px;background:rgba(25,23,20,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:inset 0 0 0 1px rgba(243,236,225,.25);color:var(--cr);text-decoration:none;font-size:13.5px;line-height:1.3;white-space:nowrap}
 .score .g{width:36px;height:36px;border-radius:50%;background:var(--cr);display:grid;place-items:center}
 .score .g svg{width:18px;height:18px}
 .score b{font:400 26px/1 'AB',sans-serif}
@@ -94,20 +93,17 @@ h1,h2,h3{font-family:'AB',Impact,sans-serif;font-weight:400;line-height:.92;lett
 .b3{grid-column:3/4}.b4{grid-column:4/5}
 
 /* troeven */
-.troef{background:var(--cr);padding:clamp(90px,10vw,140px) 0}
-.tr-in{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,96px);align-items:center}
+.troef{background:var(--cr);padding:clamp(80px,9vw,130px) 0}
+.tr-in{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,6vw,96px);align-items:center}
 .troef .lbl{display:block;margin-bottom:18px;color:var(--eik2)}
-.troef h2{font-size:clamp(52px,6vw,96px)}
-.troef .lead{font-size:18.5px;max-width:440px;margin:22px 0 30px}
-.werkph{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:3/2}
-.werkph img{width:100%;height:100%;object-fit:cover}
-.lijst4{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:2px solid var(--zw)}
-.lijst4 div{padding:26px 24px 26px 0;border-bottom:1px solid rgba(25,23,20,.2)}
-.lijst4 div:nth-child(odd){border-right:1px solid rgba(25,23,20,.2)}
-.lijst4 div:nth-child(even){padding-left:24px}
-.lijst4 b{display:block;font:400 clamp(34px,3.4vw,52px)/1 'AB',sans-serif;letter-spacing:-.03em;color:var(--eik2);margin-bottom:10px}
-.lijst4 h3{font:600 19px/1.2 'IT',sans-serif;letter-spacing:0;margin-bottom:4px}
-.lijst4 p{margin:0;font-size:15.5px;color:#4b443b}
+.troef h2{font-size:clamp(44px,4.6vw,72px)}
+.troef .lead{font-size:18.5px;max-width:440px;margin:20px 0 34px}
+.werkph{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;margin:0}
+.werkph img{width:100%;height:100%;object-fit:cover;object-position:50% 70%}
+.punten{margin:0;border-top:1px solid rgba(25,23,20,.28)}
+.punten div{display:grid;grid-template-columns:minmax(150px,.8fr) 1.2fr;gap:18px;align-items:baseline;padding:15px 0;border-bottom:1px solid rgba(25,23,20,.16)}
+.punten dt{font:600 16.5px/1.3 'IT',sans-serif}
+.punten dd{margin:0;font-size:15.5px;line-height:1.4;color:#554d43}
 
 /* buiten */
 .buiten{background:var(--zw);color:var(--cr);padding:clamp(90px,10vw,140px) 0;overflow:hidden}
@@ -181,18 +177,22 @@ footer{background:var(--zw);color:var(--cr);padding:70px 0 34px;overflow:hidden}
 .legal{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13.5px;border-top:1px solid rgba(243,236,225,.18);padding-top:20px;color:rgba(243,236,225,.6)}
 
 @media (max-width:1000px){
-  .hero-top{grid-template-columns:1fr;gap:24px}
-  .beeld{aspect-ratio:16/10}
+  .hero-in{grid-template-columns:1fr}
+  .score{justify-self:start}
 }
 @media (max-width:860px){
   .nav ul{display:none}
-  .hero h1{font-size:clamp(48px,14.4vw,100px)}
+  .hero{min-height:0}
+  .hero-ph{position:relative;inset:auto;order:3;aspect-ratio:4/3}
+  .hero-ph img{object-position:42% 50%}
+  .hero-ph::after{display:none}
+  .hero-in{margin-top:0;padding:26px var(--pad) 34px;gap:24px}
+  .hero h1{font-size:clamp(40px,11.6vw,84px)}
   .hero-side p{font-size:17.5px}
-  .beeld{aspect-ratio:4/4.4;margin:0 calc(-1*var(--pad)) calc(-1*clamp(30px,3vw,50px));border-radius:0}
-  .beeld img{object-position:34% 78%}
-  .score{left:16px;right:auto;bottom:56px}
+  .score{display:none}
   .ru-top,.tr-in,.rv-in,.of-in{grid-template-columns:1fr;gap:20px}
   .ru-top p{justify-self:start}
+  .tr-in .werkph{order:2}
   .bento{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:clamp(170px,44vw,260px)}
   .b1{grid-column:1/3;grid-row:auto}
   .b2{grid-column:1/3}
@@ -206,12 +206,11 @@ footer{background:var(--zw);color:var(--cr);padding:70px 0 34px;overflow:hidden}
   body{font-size:16.5px}
   .nav .btn{height:42px;padding:0 16px;font-size:14px}
   .cta .btn{flex:1 1 auto;justify-content:center}
-  .lijst4{grid-template-columns:1fr}
-  .lijst4 div:nth-child(odd){border-right:0}
-  .lijst4 div:nth-child(even){padding-left:0}
+  .punten div{grid-template-columns:1fr 1.15fr;gap:12px}
   .row2,.info{grid-template-columns:1fr}
   .ruimtes h2,.troef h2,.buiten h2,.rev h2,.offerte h2{font-size:clamp(40px,12.4vw,60px)}
   .big b{font-size:76px}
+  .buiten h2{font-size:clamp(30px,9.6vw,52px)}
 }
 </style>
 </head>
@@ -219,7 +218,7 @@ footer{background:var(--zw);color:var(--cr);padding:70px 0 34px;overflow:hidden}
 <div class="demo">Dit is een voorbeeldsite, gemaakt door Stijn van Digital Impression. <a href="#di">Meer uitleg onderaan</a></div>
 
 <header class="hero" id="top">
-  <nav class="nav" aria-label="Hoofdmenu">
+  <nav class="nav" aria-label="Hoofdmenu" style="z-index:3">
     <a class="logo" href="#top"><i></i>Custom Wood</a>
     <ul>
       <li><a href="#ruimtes">Wat we maken</a></li>
@@ -229,31 +228,26 @@ footer{background:var(--zw);color:var(--cr);padding:70px 0 34px;overflow:hidden}
     </ul>
     <a class="btn btn-e" href="#offerte">Vraag je offerte</a>
   </nav>
+  <figure class="hero-ph"><img src="img/hero.webp" alt="Houten overkapping met zwarte palen en een zithoek, gebouwd door Custom Wood" width="2400" height="1351" fetchpriority="high"></figure>
   <div class="hero-in">
-    <div class="hero-top">
-      <div>
-        <span class="lbl rv">Maatwerk in hout · Hamont-Achel</span>
-        <h1 aria-label="Jouw maat. Ons hout.">
-          <span data-split>Jouw maat.</span><br>
-          <span class="l2" data-split>Ons hout.</span>
-        </h1>
-      </div>
+    <div>
+      <span class="lbl rv">Showroom en werkplaats in Achel</span>
+      <h1 aria-label="Maatwerk in hout, uit Achel.">
+        <span data-split>Maatwerk in hout,</span><br>
+        <span class="l2" data-split>uit Achel.</span>
+      </h1>
       <div class="hero-side rv">
-        <p>Tafels, keukens, kasten en overkappingen, gemaakt in onze eigen werkplaats en geplaatst door ons eigen team. Je betaalt niets vooraf.</p>
+        <p>Keukens, kasten, tafels, overkappingen en tuinhuizen. Wij maken ze in onze eigen werkplaats en plaatsen ze bij jou thuis. Een voorschot vragen we niet.</p>
         <div class="cta">
           <a class="btn btn-e" href="#offerte">Vraag je offerte <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-l" href="#ruimtes">Bekijk wat we maken</a>
         </div>
       </div>
     </div>
-    <figure class="beeld rv">
-      <img src="img/tafel.webp" alt="Lange eiken tafel met zwarte stalen poten in een open keuken" width="2000" height="1500" fetchpriority="high">
-      <figcaption>Tafel in ceder met stalen poten</figcaption>
-      <a class="score" href="https://www.google.com/maps/search/?api=1&amp;query=CustomWood+Sint+Odilialaan+61+Hamont-Achel" target="_blank" rel="noopener">
+    <a class="score" href="https://www.google.com/maps/search/?api=1&amp;query=CustomWood+Sint+Odilialaan+61+Hamont-Achel" target="_blank" rel="noopener">
         <span class="g"><svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg></span>
         <b>4,8</b><span><span class="st">★★★★★</span><br>12 reviews op Google</span>
       </a>
-    </figure>
   </div>
 </header>
 
@@ -265,7 +259,7 @@ footer{background:var(--zw);color:var(--cr);padding:70px 0 34px;overflow:hidden}
         <span class="lbl">Wat we maken</span>
         <h2 data-split>Van keuken tot tuinpoort.</h2>
       </div>
-      <p class="rv">Een kast voor die ene hoek, een volledige keuken of een loungebank voor buiten. We tekenen het samen uit en maken het op jouw maat.</p>
+      <p class="rv">Een kast voor die ene hoek, een volledige keuken of een loungebank voor op het terras. Jij geeft de maten, wij maken het.</p>
     </div>
     <div class="bento">
       <a class="b1 rv" href="#offerte"><img src="img/keuken.webp" alt="Keuken in landelijk hout met donker werkblad" loading="lazy" width="2000" height="1126"><span><b>Keukens</b><small>Kasten en werkblad</small></span></a>
@@ -278,17 +272,17 @@ footer{background:var(--zw);color:var(--cr);padding:70px 0 34px;overflow:hidden}
 
 <section class="troef" id="troeven">
   <div class="wrap tr-in">
+    <figure class="werkph clip rv"><img src="img/tafel.webp" alt="Lange tafel in ceder met zwarte stalen poten, gemaakt door Custom Wood" loading="lazy" width="2000" height="1500"></figure>
     <div>
       <span class="lbl">Zo werken we</span>
-      <h2 data-split>Gemaakt in België. Door ons geplaatst.</h2>
-      <p class="lead rv">Alles komt uit onze eigen werkplaats. Zo volgen we zelf alles op, van de tekening tot het laatste schroefje.</p>
-      <figure class="werkph clip rv" style="margin:0"><img src="img/bus.webp" alt="De bestelwagen van Custom Wood" loading="lazy" width="1200" height="800"></figure>
-    </div>
-    <div class="lijst4">
-      <div class="rv"><b>€ 0</b><h3>Geen voorschot</h3><p>We vragen geen aanbetaling voor je maatwerk.</p></div>
-      <div class="rv"><b>2 tot 6</b><h3>Weken levertijd</h3><p>Meestal, afhankelijk van je meubel of project.</p></div>
-      <div class="rv"><b>Eigen</b><h3>Bezorgdienst</h3><p>Ons team levert en zet alles op de juiste plaats.</p></div>
-      <div class="rv"><b>Glad</b><h3>Goed geschuurd</h3><p>Elk meubel mooi afgeschuurd, zonder meerprijs.</p></div>
+      <h2 data-split>Zelf gemaakt, zelf geplaatst.</h2>
+      <p class="lead rv">Je meubel of overkapping komt uit onze eigen werkplaats in België. Ons eigen team brengt het en zet het op zijn plaats.</p>
+      <dl class="punten rv">
+        <div><dt>Geen voorschot</dt><dd>We vragen geen aanbetaling.</dd></div>
+        <div><dt>Levertijd</dt><dd>Meestal 2 tot 6 weken.</dd></div>
+        <div><dt>Eigen bezorgdienst</dt><dd>Wij leveren en plaatsen zelf.</dd></div>
+        <div><dt>Glad geschuurd</dt><dd>Zonder meerprijs.</dd></div>
+      </dl>
     </div>
   </div>
 </section>
@@ -298,13 +292,13 @@ footer{background:var(--zw);color:var(--cr);padding:70px 0 34px;overflow:hidden}
     <div class="bt-top">
       <div>
         <span class="lbl">Buiten</span>
-        <h2 data-split>Een dak <span>in je tuin.</span></h2>
+        <h2 data-split>Overkappingen <span>en tuinhuizen.</span></h2>
       </div>
-      <p class="rv">Overkappingen, tuinhuizen, poolhouses en poorten, ter plaatse gebouwd. Kleine aanpassingen bespreken we gewoon tijdens het werk.</p>
+      <p class="rv">Ook poolhouses, carports en poorten. We komen de maten bij jou opnemen en bouwen alles in hout, op maat van je tuin.</p>
     </div>
     <div class="bt-grid">
-      <figure class="g1 clip rv"><img src="img/overkapping.webp" alt="Moderne houten overkapping met zwarte palen en loungeset" loading="lazy" width="2000" height="1126"><figcaption>Overkapping met zitplek</figcaption></figure>
-      <figure class="clip rv"><img src="img/poolhouse.webp" alt="Poolhouse in hout aan een zwemvijver" loading="lazy" width="2000" height="1126"><figcaption>Poolhouse</figcaption></figure>
+      <figure class="g1 clip rv"><img src="img/poolhouse.webp" alt="Poolhouse in hout aan een zwemvijver" loading="lazy" width="2000" height="1126"><figcaption>Poolhouse aan de zwemvijver</figcaption></figure>
+      <figure class="clip rv"><img src="img/carport.webp" alt="Houten berging met zwarte schuifwand in een tuin" loading="lazy" width="1200" height="800"><figcaption>Berging met overkapping</figcaption></figure>
       <figure class="clip rv"><img src="img/tuinhuis-zwart.webp" alt="Zwart tuinhuis met lichte houten kaders" loading="lazy" width="1200" height="800"><figcaption>Tuinhuis met overkapping</figcaption></figure>
     </div>
   </div>
@@ -314,7 +308,7 @@ footer{background:var(--zw);color:var(--cr);padding:70px 0 34px;overflow:hidden}
   <div class="wrap rv-in">
     <div>
       <span class="lbl">Showroom en reviews</span>
-      <h2 data-split>Kom het hout voelen.</h2>
+      <h2 data-split>Kom kijken in Achel.</h2>
       <a class="big rv" href="https://www.google.com/maps/search/?api=1&amp;query=CustomWood+Sint+Odilialaan+61+Hamont-Achel" target="_blank" rel="noopener"><b>4,8</b><span><span class="st">★★★★★</span><br>12 reviews op Google</span></a>
       <figure class="show clip rv" style="margin:0"><img src="img/showroom.webp" alt="De toog en meubels in de showroom van Custom Wood" loading="lazy" width="2000" height="1500"><figcaption><span>Sint Odilialaan 61, Achel</span><span><b>Do</b> 10 tot 18u · <b>Za</b> 10 tot 17u · <b>Zo</b> 12 tot 17u</span></figcaption></figure>
     </div>
@@ -332,7 +326,7 @@ footer{background:var(--zw);color:var(--cr);padding:70px 0 34px;overflow:hidden}
     <div>
       <span class="lbl">Offerte</span>
       <h2 data-split>Wat mogen we maken?</h2>
-      <p class="lead rv">Een schets, een foto of gewoon de maten: meer hebben we niet nodig om te starten. Of kom vrijblijvend langs in de showroom.</p>
+      <p class="lead rv">Stuur ons een schets, een foto of gewoon de maten, dan rekenen we je prijs uit. Of kom langs in de showroom in Achel.</p>
       <div class="info rv">
         <div><p class="lbl">Showroom</p><p>Sint Odilialaan 61<br>3930 Achel · <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Sint+Odilialaan+61+3930+Hamont-Achel" target="_blank" rel="noopener">Route</a></p></div>
         <div><p class="lbl">Open</p><p>Donderdag 10 tot 18u<br>Zaterdag 10 tot 17u<br>Zondag 12 tot 17u</p></div>
