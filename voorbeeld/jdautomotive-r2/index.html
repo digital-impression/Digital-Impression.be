@@ -135,13 +135,17 @@ h1,h2,h3,.wd{font-family:var(--font);font-stretch:125%;font-weight:900;text-tran
 .m-fotos figcaption{position:absolute;left:14px;bottom:14px;background:var(--inkt);color:#fff;font:700 12px/1 var(--font);padding:9px 13px;border-radius:999px}
 
 /* werk */
-.werk{padding:140px 0;background:var(--papier)}
-.strook{display:flex;gap:16px;overflow:hidden;margin-top:56px;padding-left:max(32px,(100% - 1300px)/2)}
-.strook figure{flex:none;width:clamp(240px,22vw,330px);aspect-ratio:3/4;border-radius:22px;overflow:hidden;position:relative;--r:22px}
+.werk{padding:130px 0 140px;background:var(--inkt);color:#fff;overflow:hidden}
+.werk .s-top p{color:rgba(255,255,255,.72)}
+.werk .s-top h2 .ac{color:var(--geel)}
+.werk .s-top h2{font-size:clamp(46px,5.4vw,88px)}
+.werk .strepen i:nth-child(4){background:#fff}
+.strook{display:flex;gap:16px;overflow-x:auto;scrollbar-width:none;padding-bottom:10px;padding-right:32px;margin-top:56px;padding-left:max(32px,(100% - 1300px)/2)}
+.strook figure{scroll-snap-align:start;flex:none;width:clamp(260px,25vw,380px);aspect-ratio:3/4.2;border-radius:22px;overflow:hidden;position:relative;--r:22px}
 .strook figure:nth-child(even){margin-top:50px}
 .strook img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
 .strook figure:hover img{transform:scale(1.05)}
-.strook figcaption{position:absolute;left:14px;bottom:14px;background:#fff;font:800 12px/1 var(--font);padding:9px 13px;border-radius:999px}
+.strook figcaption{position:absolute;left:14px;bottom:14px;background:#fff;color:var(--inkt);font:800 12px/1 var(--font);padding:9px 13px;border-radius:999px}
 
 /* afspraak */
 .afs{background:var(--geel);padding:140px 0}
@@ -218,7 +222,7 @@ footer{background:var(--inkt);color:#fff;padding:0 0 36px;overflow:hidden}
  .garantie b{font-size:42px}
  .c-fotos{grid-template-rows:200px 200px}
  .m-fotos .c{display:none}.m-fotos{grid-template-columns:1fr}
- .strook{padding-left:20px}
+ .strook{padding-left:20px;scroll-snap-type:x mandatory;scroll-padding-left:20px}
  .strook figure{width:62vw}
  .strook figure:nth-child(even){margin-top:30px}
  form{grid-template-columns:1fr}
@@ -258,6 +262,23 @@ footer{background:var(--inkt);color:#fff;padding:0 0 36px;overflow:hidden}
    </div>
   </div>
   <figure class="h-foto clip"><img src="img/hero-f458.webp" alt="Rode Ferrari 458 onder de lampen tijdens het polijsten bij JD-automotive" width="1920" height="1440" fetchpriority="high"><figcaption>Ferrari 458 · polijsten</figcaption></figure>
+ </div>
+</section>
+
+<section class="werk" id="werk">
+ <div class="wrap">
+  <div class="s-top" style="margin-bottom:0">
+   <div><div class="lbl"><span class="strepen"><i></i><i></i><i></i><i></i></span>Projecten</div><h2 data-split>Van gezinswagen <span class="ac">tot klassieker.</span></h2></div>
+   <p class="rv">Een greep uit wat de voorbije maanden in de werkplaats stond. Meer werk zie je op <a href="https://www.instagram.com/jd_automotive_be/" target="_blank" rel="noopener">Instagram</a>.</p>
+  </div>
+ </div>
+ <div class="strook">
+  <figure class="clip"><img src="img/ferrari.webp" alt="Rode Ferrari 328 op een grindoprit" loading="lazy"><figcaption>Ferrari 328</figcaption></figure>
+  <figure class="clip" style="--d:.06s"><img src="img/rs.webp" alt="Blauwe Ford Focus RS met zwarte spoiler" loading="lazy"><figcaption>Focus RS</figcaption></figure>
+  <figure class="clip" style="--d:.12s"><img src="img/lotus.webp" alt="Zwarte Lotus Elise op een oprit" loading="lazy" style="object-position:50% 55%"><figcaption>Lotus Elise</figcaption></figure>
+  <figure class="clip" style="--d:.18s"><img src="img/m2.webp" alt="Zwarte BMW M2 met gouden velgen" loading="lazy"><figcaption>BMW M2</figcaption></figure>
+  <figure class="clip" style="--d:.24s"><img src="img/hd-tank.webp" alt="Tank van een Harley-Davidson na een coating" loading="lazy"><figcaption>Harley-Davidson</figcaption></figure>
+  <figure class="clip" style="--d:.3s"><img src="img/f458.webp" alt="Rode Ferrari 458 tijdens het polijsten" loading="lazy"><figcaption>Ferrari 458</figcaption></figure>
  </div>
 </section>
 
@@ -307,23 +328,6 @@ footer{background:var(--inkt);color:#fff;padding:0 0 36px;overflow:hidden}
    <figure class="b clip" style="--d:.1s"><img src="img/ducati-rood.webp" alt="Rode Ducati met Gyeon-producten op de tank" loading="lazy" style="object-position:50% 60%"></figure>
    <figure class="c clip" style="--d:.18s"><img src="img/motor-weg.webp" alt="Zwarte motor op een grindpad bij zonsondergang" loading="lazy"></figure>
   </div>
- </div>
-</section>
-
-<section class="werk" id="werk">
- <div class="wrap">
-  <div class="s-top" style="margin-bottom:0">
-   <div><div class="lbl"><span class="strepen"><i></i><i></i><i></i><i></i></span>Projecten</div><h2 data-split>Van gezinswagen <span class="ac">tot klassieker.</span></h2></div>
-   <p class="rv">Een greep uit wat de voorbije maanden in de werkplaats stond. Meer werk zie je op <a href="https://www.instagram.com/jd_automotive_be/" target="_blank" rel="noopener">Instagram</a>.</p>
-  </div>
- </div>
- <div class="strook">
-  <figure class="clip"><img src="img/ferrari.webp" alt="Rode Ferrari 328 op een grindoprit" loading="lazy"><figcaption>Ferrari 328</figcaption></figure>
-  <figure class="clip" style="--d:.06s"><img src="img/rs.webp" alt="Blauwe Ford Focus RS met zwarte spoiler" loading="lazy"><figcaption>Focus RS</figcaption></figure>
-  <figure class="clip" style="--d:.12s"><img src="img/lotus.webp" alt="Zwarte Lotus Elise op een oprit" loading="lazy" style="object-position:50% 55%"><figcaption>Lotus Elise</figcaption></figure>
-  <figure class="clip" style="--d:.18s"><img src="img/m2.webp" alt="Zwarte BMW M2 met gouden velgen" loading="lazy"><figcaption>BMW M2</figcaption></figure>
-  <figure class="clip" style="--d:.24s"><img src="img/hd-tank.webp" alt="Tank van een Harley-Davidson na een coating" loading="lazy"><figcaption>Harley-Davidson</figcaption></figure>
-  <figure class="clip" style="--d:.3s"><img src="img/f458.webp" alt="Rode Ferrari 458 tijdens het polijsten" loading="lazy"><figcaption>Ferrari 458</figcaption></figure>
  </div>
 </section>
 
