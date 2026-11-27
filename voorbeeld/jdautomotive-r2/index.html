@@ -54,20 +54,20 @@ h1,h2,h3,.wd{font-family:var(--font);font-stretch:125%;font-weight:900;text-tran
 .nav .btn{height:46px;padding:0 22px;font-size:14px}
 
 /* hero */
-.hero{background:var(--geel);position:relative;overflow:hidden;padding:150px 0 0}
-.h-grid{position:relative;z-index:2}
-.hero h1{font-size:clamp(60px,8.4vw,136px);max-width:11ch}
+.hero{background:var(--geel);position:relative;overflow:hidden;padding:140px 0 215px}
+.h-grid{position:relative;z-index:2;display:grid;grid-template-columns:6fr 5fr;gap:50px;align-items:center}
+@media (max-width:1100px){.h-grid{grid-template-columns:1fr 1fr}}
+.hero h1{font-size:clamp(56px,6.6vw,112px)}
 .hero h1 .ac{color:var(--oranje)}
-.h-sub{display:flex;gap:56px;align-items:flex-start;margin-top:34px}
-.h-sub p{max-width:400px;font-size:18px;line-height:1.55}
+.h-sub p{max-width:440px;font-size:18px;line-height:1.55;margin:30px 0 30px}
 .h-btns{display:flex;gap:12px;flex-wrap:wrap}
-.h-stage{position:relative;height:clamp(360px,38vw,580px);margin-top:0}
-.h-band{position:absolute;left:calc((100% - 100vw)/2);right:calc((100% - 100vw)/2);bottom:21%;display:grid;gap:clamp(8px,1vw,14px)}
+.h-band{position:absolute;left:0;right:0;bottom:44px;display:grid;gap:clamp(8px,1vw,14px);z-index:1}
 .h-band i{display:block;height:clamp(16px,1.9vw,28px)}
 .h-band i:nth-child(1){background:var(--blauw)}.h-band i:nth-child(2){background:var(--oranje)}.h-band i:nth-child(3){background:var(--groen)}.h-band i:nth-child(4){background:var(--inkt)}
-.h-car{position:absolute;right:4%;bottom:4%;width:min(52vw,800px);z-index:2}
-.h-car img{width:100%;height:auto;filter:drop-shadow(0 30px 30px rgba(22,19,15,.35))}
-.gpill{position:absolute;left:0;top:8%;z-index:3;display:inline-flex;align-items:center;gap:12px;padding:9px 20px 9px 9px;border-radius:999px;background:#fff;color:var(--inkt);text-decoration:none;font-size:13px;line-height:1.25;box-shadow:0 12px 30px rgba(22,19,15,.15)}
+.h-foto{position:relative;margin-bottom:-170px;border-radius:34px;overflow:hidden;aspect-ratio:4/4.4;box-shadow:0 40px 80px -30px rgba(22,19,15,.55);--r:34px}
+.h-foto img{width:100%;height:100%;object-fit:cover;object-position:42% 50%}
+.h-foto figcaption{position:absolute;left:18px;bottom:18px;background:var(--inkt);color:#fff;font:700 13px/1 var(--font);padding:11px 15px;border-radius:999px}
+.gpill{display:inline-flex;align-items:center;gap:12px;margin-top:26px;padding:9px 20px 9px 9px;border-radius:999px;background:#fff;color:var(--inkt);text-decoration:none;font-size:13px;line-height:1.25;box-shadow:0 12px 30px rgba(22,19,15,.15)}
 .gpill .g{width:36px;height:36px;border-radius:50%;background:var(--papier);display:grid;place-items:center}
 .gpill .g svg{width:19px;height:19px}
 .gpill b{font:900 24px/1 var(--font);font-stretch:125%}
@@ -204,13 +204,13 @@ footer{background:var(--inkt);color:#fff;padding:0 0 36px;overflow:hidden}
  .nav .btn{height:42px;padding:0 16px;font-size:13px}
  .logo{font-size:18px}
  .s-top h2,.coat h2,.motor h2,.afs h2{font-size:clamp(34px,9.6vw,64px)}
- .hero{padding-top:110px}
+ .hero{padding:110px 0 60px}
+ .h-grid{grid-template-columns:1fr;gap:40px}
  .hero h1{font-size:clamp(44px,12.4vw,90px)}
- .h-sub{flex-direction:column;gap:24px;margin-top:24px}
- .h-stage{height:auto;margin-top:30px;padding-top:70px}
- .gpill{top:0}
- .h-band{bottom:16%}
- .h-car{position:relative;right:auto;bottom:auto;width:112%;margin-left:-2%;padding-bottom:8%}
+ .h-band{bottom:40px}
+ .hero{padding-bottom:120px}
+ .h-foto{margin-bottom:-60px}
+ .h-foto{aspect-ratio:4/3.4}
  .prijs,.coat,.motor,.werk,.afs{padding:96px 0}
  .rij{grid-template-columns:1fr auto;gap:10px 20px;padding:24px 0}
  .rij .nr{grid-column:1/-1}
@@ -240,24 +240,24 @@ footer{background:var(--inkt);color:#fff;padding:0 0 36px;overflow:hidden}
 
 <main id="top">
 <section class="hero">
+ <div class="h-band" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
  <div class="wrap h-grid">
-  <div class="lbl rv" style="margin-bottom:26px"><span class="strepen"><i></i><i></i><i></i><i></i></span>Car en motor detailing · Letterhoutem</div>
-  <h1 data-split>Op twee of <span class="ac">vier wielen.</span></h1>
-  <div class="h-sub rv" style="--d:.3s">
-   <p>Wassen, polijsten, coaten en het interieur tot in de puntjes. Voor je auto en voor je motor, op afspraak bij Dimi in Sint-Lievens-Houtem.</p>
-   <div class="h-btns">
-    <a class="btn b-inkt" href="#afspraak">Plan je behandeling <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    <a class="btn b-lijn" href="#prijzen">Bekijk de prijzen</a>
-   </div>
-  </div>
- </div>
- <div class="wrap h-stage">
-  <a class="gpill rv" style="--d:.5s" href="https://www.google.com/maps/place/?q=place_id:ChIJVbYGgmWhw0cRcPDooHGZ_nY" target="_blank" rel="noopener">
+  <div>
+   <div class="lbl rv" style="margin-bottom:26px"><span class="strepen"><i></i><i></i><i></i><i></i></span>Car en motor detailing · Letterhoutem</div>
+   <h1 data-split>Op twee of <span class="ac">vier wielen.</span></h1>
+   <div class="h-sub rv" style="--d:.3s">
+    <p>Wassen, polijsten, coaten en het interieur tot in de puntjes. Voor je auto en voor je motor, op afspraak bij Dimi in Sint-Lievens-Houtem.</p>
+    <div class="h-btns">
+     <a class="btn b-inkt" href="#afspraak">Plan je behandeling <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+     <a class="btn b-lijn" href="#prijzen">Bekijk de prijzen</a>
+    </div>
+    <a class="gpill" href="https://www.google.com/maps/place/?q=place_id:ChIJVbYGgmWhw0cRcPDooHGZ_nY" target="_blank" rel="noopener">
    <span class="g"><svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.6-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.5z"/></svg></span>
    <b>5,0</b><span><span class="st">★★★★★</span><br>12 reviews op Google</span>
   </a>
-  <div class="h-band" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-  <div class="h-car" data-par=".2"><img src="img/hero-alpine.webp" alt="Blauwe Alpine A110 met spiegelende lak na een behandeling bij JD-automotive" width="1075" height="666" fetchpriority="high"></div>
+   </div>
+  </div>
+  <figure class="h-foto clip"><img src="img/hero-f458.webp" alt="Rode Ferrari 458 onder de lampen tijdens het polijsten bij JD-automotive" width="1920" height="1440" fetchpriority="high"><figcaption>Ferrari 458 · polijsten</figcaption></figure>
  </div>
 </section>
 
