@@ -7,331 +7,232 @@
 <title>Bestellen · El Taco Loco · Takeaway in Aarschot</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Outfit:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Outfit:wght@400;500;600;700&display=swap">
 <style>
-:root{--gr:#2F8F3A;--gr2:#3FAA45;--gr3:#1F6A2A;--gr4:#12461A;--room:#FFF6E6;--papier:#FFFBF3;--ink:#2B1A12;--mute:#776558;--geel:#F7B81C;--rood:#E2462C;--lijn:rgba(43,26,18,.12);--ease:cubic-bezier(.16,1,.3,1)}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{background:var(--room);color:var(--ink);font:500 16.5px/1.55 'Outfit',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+:root{--gr:#2F8F3A;--gr-d:#26772F;--gr4:#12461A;--room:#FFF6E6;--ink:#2B1A12;--mute:#7A6A5D;--rood:#C8391F;--lijn:#E6D9C3}
+*{box-sizing:border-box;margin:0;padding:0;min-width:0}
+html{scroll-padding-top:70px}
+body{background:var(--room);color:var(--ink);font:400 16px/1.5 'Outfit',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
 img{display:block;max-width:100%}
-a{color:inherit;text-decoration:none}
+a{color:inherit}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 input,textarea{font:inherit;color:inherit}
-:focus-visible{outline:3px solid var(--geel);outline-offset:2px;border-radius:10px}
-.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(16px,3.5vw,36px)}
-.dik{font-family:'Lilita One',sans-serif;font-weight:400;line-height:1;letter-spacing:.005em}
-.demo{background:var(--gr4);color:#fff;font:500 13.5px/1.4 'Outfit';text-align:center;padding:9px 16px}
-.demo a{font-weight:700;text-decoration:underline;text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.demo{background:var(--ink);color:#fff;font-size:13.5px;text-align:center;padding:8px 16px}
+.demo a{font-weight:600}
 
-/* kop */
-.kop{background:var(--gr);color:#fff;position:relative;overflow:hidden;isolation:isolate}
-.kop::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(640px 420px at 85% 10%,rgba(255,255,255,.14),transparent 70%)}
-.slinger{height:30px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='30'%3E%3Cpath d='M0 3h96' stroke='%23000' stroke-opacity='.2' stroke-width='2'/%3E%3Cpath d='M4 3h24L16 26Z' fill='%23F7B81C'/%3E%3Cpath d='M36 3h24L48 26Z' fill='%23E2462C'/%3E%3Cpath d='M68 3h24L80 26Z' fill='%23FFF6E6'/%3E%3C/svg%3E") 0 0/96px 30px repeat-x}
-.balk{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 0 0}
-.balk .logo img{height:74px;width:auto;filter:drop-shadow(0 6px 10px rgba(0,0,0,.25))}
-.terug{display:inline-flex;align-items:center;gap:8px;font:700 15px/1 'Outfit';color:rgba(255,255,255,.88);padding:12px 18px;border:2px solid rgba(255,255,255,.35);border-radius:999px;transition:background .3s}
-.terug:hover{background:rgba(255,255,255,.1)}
-.terug svg{width:17px;height:17px}
-.intro{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,70px);align-items:end;padding:clamp(26px,4vw,44px) 0 clamp(34px,4.5vw,52px)}
-.intro h1{font-size:clamp(46px,6vw,80px)}
-.intro h1 span{color:var(--geel)}
-.intro p{margin-top:16px;font-size:18.5px;color:rgba(255,255,255,.9);max-width:520px}
-.stappen{list-style:none;display:grid;gap:10px;counter-reset:s}
-.stappen li{display:flex;align-items:center;gap:16px;background:rgba(0,0,0,.2);border-radius:20px;padding:14px 18px;font:600 16px/1.35 'Outfit'}
-.stappen li::before{counter-increment:s;content:counter(s);flex:none;width:38px;height:38px;border-radius:50%;background:var(--geel);color:var(--ink);display:grid;place-items:center;font:400 20px/1 'Lilita One'}
-.stappen small{display:block;font-weight:500;color:rgba(255,255,255,.75);font-size:14px}
-
-.dicht{display:none;background:var(--rood);color:#fff;text-align:center;padding:14px 18px;font:600 16px/1.4 'Outfit'}
-.dicht a{text-decoration:underline;text-underline-offset:3px;font-weight:800}
+.kop{background:var(--gr);color:#fff}
+.slinger{height:26px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='26'%3E%3Cpath d='M0 2h84' stroke='%23000' stroke-opacity='.2' stroke-width='2'/%3E%3Cpath d='M3 2h22L14 22Z' fill='%23F7B81C'/%3E%3Cpath d='M31 2h22L42 22Z' fill='%23E2462C'/%3E%3Cpath d='M59 2h22L70 22Z' fill='%23FFF6E6'/%3E%3C/svg%3E") 0 0/84px 26px repeat-x}
+.kop .wrap{display:flex;align-items:center;gap:22px;padding-top:14px;padding-bottom:26px}
+.kop .logo img{height:84px;width:auto}
+.kop h1{font:400 clamp(32px,4vw,44px)/1.05 'Lilita One',sans-serif}
+.kop p{margin-top:6px;color:rgba(255,255,255,.88)}
+.kop .terug{margin-left:auto;align-self:flex-start;margin-top:8px;font-size:15px;font-weight:600;color:#fff;text-underline-offset:3px;white-space:nowrap}
+.uitleg{background:#fff;border-bottom:1px solid var(--lijn);font-size:15px}
+.uitleg .wrap{display:flex;flex-wrap:wrap;gap:4px 28px;padding-top:12px;padding-bottom:12px}
+.uitleg b{font-weight:600}
+.dicht{display:none;background:var(--rood);color:#fff;text-align:center;padding:12px 18px;font-weight:600}
 body.is-dicht .dicht{display:block}
 
-/* layout */
-.raam{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:clamp(24px,3vw,40px);align-items:start;padding-top:0;padding-bottom:110px}
+.raam{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:40px;align-items:start;padding-bottom:100px}
 
-/* categorieën */
-.tabs{position:sticky;top:0;z-index:20;background:var(--room);padding:16px 0 14px;margin-bottom:4px;border-bottom:1px solid var(--lijn)}
-.tabs .rij{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.tabs{position:sticky;top:0;z-index:20;background:var(--room);border-bottom:1px solid var(--lijn)}
+.tabs .rij{display:flex;gap:26px;overflow-x:auto;scrollbar-width:none}
 .tabs .rij::-webkit-scrollbar{display:none}
-.tabs a{flex:none;padding:11px 18px;border-radius:999px;font:700 15px/1 'Outfit';background:#fff;border:1px solid var(--lijn);transition:background .25s,color .25s,border-color .25s}
-.tabs a:hover{border-color:var(--gr)}
-.tabs a.aan{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tabs a{flex:none;padding:16px 0 13px;font-size:15.5px;font-weight:500;color:var(--mute);text-decoration:none;border-bottom:3px solid transparent}
+.tabs a:hover{color:var(--ink)}
+.tabs a.aan{color:var(--ink);font-weight:600;border-color:var(--gr)}
 
-.cat{padding-top:34px}
-.cat h2{font-size:clamp(32px,3.4vw,42px);margin-bottom:6px}
-.cat .sub{color:var(--mute);font-size:15.5px;margin-bottom:18px}
-.items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.item{background:var(--papier);border:1px solid var(--lijn);border-radius:26px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .4s var(--ease),transform .4s var(--ease)}
-.item:hover{box-shadow:0 24px 40px -28px rgba(43,26,18,.5);transform:translateY(-2px)}
-.item .im{position:relative;aspect-ratio:16/10;overflow:hidden;background:#f3e6cf}
-.item .im img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
-.item:hover .im img{transform:scale(1.04)}
-.item .lbl{position:absolute;left:12px;top:12px;background:var(--geel);color:var(--ink);font:800 12px/1 'Outfit';letter-spacing:.06em;text-transform:uppercase;padding:8px 12px;border-radius:999px}
-.item .in{position:absolute;right:12px;top:12px;background:var(--gr);color:#fff;font:700 13px/1 'Outfit';padding:8px 12px;border-radius:999px;display:none}
-.item.heeft .in{display:block}
-.item .txt{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
-.item h3{font:400 24px/1.1 'Lilita One';margin-bottom:6px}
-.item p{color:var(--mute);font-size:15px;line-height:1.5;flex:1}
-.item .voet{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px}
-.item .pr{font:800 18px/1 'Outfit'}
-.item .pr small{font-weight:600;color:var(--mute);font-size:13.5px;margin-left:4px}
-.voeg{display:inline-flex;align-items:center;gap:8px;background:var(--gr);color:#fff;border-radius:999px;padding:12px 18px;font:700 15px/1 'Outfit';transition:background .25s,transform .3s var(--ease)}
-.voeg:hover{background:var(--gr2)}
-.voeg:active{transform:scale(.96)}
-.voeg svg{width:17px;height:17px}
-.stap{display:inline-flex;align-items:center;background:#fff;border:1px solid var(--lijn);border-radius:999px;padding:4px}
-.stap button{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font:700 20px/1 'Outfit';transition:background .2s}
-.stap button:hover{background:rgba(47,143,58,.12)}
-.stap b{min-width:28px;text-align:center;font:800 16px/1 'Outfit'}
-.item.uit{opacity:.62}
-.item.uit .im img{filter:grayscale(1)}
-.item .weg{display:none;font:700 14px/1 'Outfit';color:var(--rood);background:#fff;border:1px solid rgba(226,70,44,.35);border-radius:999px;padding:11px 15px}
-.item.uit .weg{display:inline-block}
+.cat{padding-top:30px}
+.cat h2{font:400 30px/1.1 'Lilita One',sans-serif;margin-bottom:4px}
+.items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:32px}
+.item{display:grid;grid-template-columns:minmax(0,1fr) 104px;gap:16px;padding:18px 0;border-bottom:1px solid var(--lijn)}
+.item h3{font-size:17px;font-weight:600;line-height:1.3}
+.item p{color:var(--mute);font-size:14.5px;line-height:1.45;margin-top:3px}
+.item .pr{display:block;margin-top:8px;font-weight:600;font-size:15.5px}
+.item .pr small{font-weight:400;color:var(--mute);font-size:14px}
+.item .im{width:104px;height:104px;border-radius:6px;overflow:hidden;background:#efe2cb}
+.item .im img{width:100%;height:100%;object-fit:cover}
+.item .onder{display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap}
+.extra{font-size:13.5px;color:var(--gr-d);font-weight:500}
+.voeg{border:1px solid var(--gr);color:var(--gr-d);background:#fff;border-radius:6px;padding:7px 14px;font-size:14.5px;font-weight:600}
+.voeg:hover{background:var(--gr);color:#fff}
+.stap{display:inline-flex;align-items:center;border:1px solid var(--lijn);border-radius:6px;background:#fff}
+.stap button{width:34px;height:34px;font-size:18px;line-height:1;color:var(--gr-d)}
+.stap button:hover{background:#f3ecdf}
+.stap b{min-width:26px;text-align:center;font-weight:600}
+.item.uit{opacity:.55}
+.item.uit img{filter:grayscale(1)}
+.item .weg{display:none;font-size:14px;color:var(--rood);font-weight:600}
+.item.uit .weg{display:inline}
 .item.uit .voeg,.item.uit .stap{display:none}
 
-/* mandje */
-.mand{position:sticky;top:20px;margin-top:24px;background:#fff;border:1px solid var(--lijn);border-radius:28px;box-shadow:0 30px 60px -40px rgba(43,26,18,.45);display:flex;flex-direction:column;max-height:calc(100vh - 40px)}
-.mand-kop{padding:22px 24px 14px;border-bottom:1px dashed var(--lijn)}
-.mand-kop h2{font-size:28px}
-.mand-kop p{color:var(--mute);font-size:14.5px;margin-top:6px}
-.lijnen{list-style:none;padding:8px 24px;overflow:auto;flex:1;min-height:60px}
-.lijn{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:14px 0;border-bottom:1px solid var(--lijn)}
+.mand{position:sticky;top:20px;margin-top:30px;background:#fff;border:1px solid var(--lijn);border-radius:8px;display:flex;flex-direction:column;max-height:calc(100vh - 40px)}
+.mand h2{font-size:18px;font-weight:600;padding:16px 18px;border-bottom:1px solid var(--lijn)}
+.lijnen{list-style:none;padding:0 18px;overflow:auto;flex:1}
+.lijn{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:start;padding:12px 0;border-bottom:1px solid #f0e7d8;font-size:15px}
 .lijn:last-child{border-bottom:0}
-.lijn .n{font:700 15.5px/1.3 'Outfit'}
-.lijn .n small{display:block;font-weight:500;color:var(--mute);font-size:13.5px}
-.lijn .p{font:700 15.5px/1.3 'Outfit';text-align:right;white-space:nowrap}
-.lijn .stap{justify-self:start;grid-column:1/-1;padding:2px}
-.lijn .stap button{width:30px;height:30px;font-size:17px}
-.leeg{padding:26px 0 18px;text-align:center;color:var(--mute);font-size:15px}
-.leeg svg{display:block;width:44px;height:44px;margin:0 auto 10px;color:var(--gr);opacity:.6}
-.som{padding:16px 24px 22px;border-top:1px dashed var(--lijn)}
-.som div{display:flex;justify-content:space-between;font-size:15px;color:var(--mute);padding:2px 0}
-.som .kort{color:var(--gr);font-weight:700}
-.som .tot{color:var(--ink);font:800 19px/1.3 'Outfit';padding-top:8px}
-.tip{background:rgba(247,184,28,.18);border-radius:14px;padding:10px 14px;font:600 14px/1.4 'Outfit';margin:12px 0 0;color:var(--ink)}
+.lijn .n small{display:block;color:var(--mute);font-size:13.5px}
+.lijn .p{white-space:nowrap}
+.lijn .stap button{width:28px;height:28px;font-size:16px}
+.lijn .stap b{min-width:20px;font-size:14px}
+.leeg{padding:22px 0;color:var(--mute);font-size:15px}
+.som{padding:14px 18px 18px;border-top:1px solid var(--lijn)}
+.som div{display:flex;justify-content:space-between;font-size:15px;padding:2px 0}
+.som .kort{color:var(--gr-d)}
+.som .tot{font-weight:600;font-size:17px;padding-top:6px}
+.tip{font-size:14px;color:var(--gr-d);margin-top:8px}
 .tip:empty{display:none}
-.verder{margin-top:16px;width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--geel);color:var(--ink);border-radius:999px;padding:17px 22px;font:800 16.5px/1 'Outfit';box-shadow:0 18px 30px -18px rgba(0,0,0,.4);transition:transform .3s var(--ease),filter .3s}
-.verder:hover{transform:translateY(-2px)}
-.verder:disabled{background:#eadfcb;color:#a3927f;box-shadow:none;cursor:not-allowed;transform:none}
-.verder svg{width:18px;height:18px}
-.adres{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--mute);margin-top:14px}
-.adres svg{width:17px;height:17px;flex:none;margin-top:2px;color:var(--gr)}
+.verder{margin-top:14px;width:100%;background:var(--gr);color:#fff;border-radius:6px;padding:14px 18px;font-size:16px;font-weight:600}
+.verder:hover{background:var(--gr-d)}
+.verder:disabled{background:#d9cfbf;color:#8b7c6c;cursor:not-allowed}
 
-/* gsm-balk */
-.gsmbalk{display:none;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:40;background:var(--ink);color:#fff;border-radius:20px;padding:10px 10px 10px 18px;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 20px 40px -14px rgba(0,0,0,.55);transform:translateY(140%);transition:transform .45s var(--ease)}
-.gsmbalk.aan{transform:none}
-.gsmbalk .t{font:600 14px/1.3 'Outfit';color:rgba(255,255,255,.75)}
-.gsmbalk .t b{display:block;color:#fff;font:800 17px/1.2 'Outfit'}
-.gsmbalk button{background:var(--geel);color:var(--ink);border-radius:14px;padding:14px 18px;font:800 15.5px/1 'Outfit'}
+.gsmbalk{display:none;position:fixed;left:0;right:0;bottom:0;z-index:40;background:#fff;border-top:1px solid var(--lijn);padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+.gsmbalk button{width:100%;display:flex;justify-content:space-between;align-items:center;background:var(--gr);color:#fff;border-radius:6px;padding:14px 16px;font-size:16px;font-weight:600}
 
-/* lagen */
-.laag{position:fixed;inset:0;z-index:60;background:rgba(30,18,10,.5);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .35s}
-.laag.aan{opacity:1;pointer-events:auto}
-.blad{position:fixed;z-index:70;background:var(--papier);display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .35s var(--ease),transform .45s var(--ease)}
-.blad.aan{opacity:1;pointer-events:auto;transform:none}
-.blad .bk{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:20px 24px;border-bottom:1px solid var(--lijn)}
-.blad .bk h2{font-size:28px}
-.sluit{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#fff;border:1px solid var(--lijn);flex:none}
-.sluit svg{width:18px;height:18px}
-.blad .bi{overflow:auto;padding:22px 24px;flex:1}
-.blad .bv{padding:16px 24px calc(18px + env(safe-area-inset-bottom));border-top:1px solid var(--lijn);background:#fff}
+.laag{position:fixed;inset:0;z-index:60;background:rgba(30,18,10,.45);display:none}
+.laag.aan{display:block}
+.blad{position:fixed;z-index:70;background:#fff;display:none;flex-direction:column}
+.blad.aan{display:flex}
+.blad .bk{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 20px;border-bottom:1px solid var(--lijn)}
+.blad .bk h2{font-size:20px;font-weight:600}
+.sluit{font-size:15px;color:var(--mute);padding:6px 0;text-decoration:underline;text-underline-offset:3px}
+.blad .bi{overflow:auto;padding:20px;flex:1}
+.blad .bv{padding:14px 20px calc(14px + env(safe-area-inset-bottom));border-top:1px solid var(--lijn)}
 
-/* keuze */
-#keuze{left:50%;top:50%;width:min(520px,calc(100% - 32px));max-height:min(760px,calc(100vh - 40px));border-radius:28px;transform:translate(-50%,-46%);overflow:hidden}
-#keuze.aan{transform:translate(-50%,-50%)}
-.k-foto{aspect-ratio:16/8;overflow:hidden;border-radius:18px;margin-bottom:16px}
+#keuze{left:50%;top:50%;transform:translate(-50%,-50%);width:min(480px,calc(100% - 32px));max-height:min(720px,calc(100vh - 40px));border-radius:8px}
+.k-foto{height:170px;border-radius:6px;overflow:hidden;margin-bottom:12px}
 .k-foto img{width:100%;height:100%;object-fit:cover}
 .k-tekst{color:var(--mute);font-size:15px}
-.k-vraag{font:800 13px/1 'Outfit';letter-spacing:.14em;text-transform:uppercase;color:var(--gr);margin:22px 0 10px}
-.opt{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--lijn);border-radius:16px;background:#fff;margin-bottom:8px;cursor:pointer;transition:border-color .2s,background .2s}
-.opt:hover{border-color:var(--gr)}
-.opt.gekozen{border-color:var(--gr);background:rgba(47,143,58,.07)}
-.opt .nm{font:600 16px/1.3 'Outfit'}
-.opt input{position:absolute;opacity:0;pointer-events:none}
-.bol{width:22px;height:22px;border-radius:50%;border:2px solid #c9b9a3;flex:none;display:grid;place-items:center}
-.opt.gekozen .bol{border-color:var(--gr)}
-.opt.gekozen .bol::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--gr)}
-.k-aantal{display:flex;align-items:center;justify-content:space-between;margin-top:18px;font:700 16px/1 'Outfit'}
-.k-knop{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--gr);color:#fff;border-radius:999px;padding:17px 24px;font:800 16px/1 'Outfit';transition:background .25s}
-.k-knop:hover{background:var(--gr2)}
-.k-knop:disabled{background:#cfc3ae;cursor:not-allowed}
-.k-hint{font:600 14px/1.4 'Outfit';color:var(--gr3);margin-bottom:12px;background:rgba(47,143,58,.09);padding:10px 14px;border-radius:14px}
+.k-vraag{font-weight:600;margin:18px 0 6px}
+.opt{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #f0e7d8;cursor:pointer}
+.opt input[type=radio]{width:18px;height:18px;accent-color:var(--gr);flex:none}
+.opt .nm{flex:1}
+.k-aantal{display:flex;align-items:center;justify-content:space-between;margin-top:16px;font-weight:600}
+.k-hint{font-size:14px;color:var(--gr-d);margin-bottom:10px}
 .k-hint:empty{display:none}
+.k-knop{width:100%;display:flex;justify-content:space-between;background:var(--gr);color:#fff;border-radius:6px;padding:14px 18px;font-size:16px;font-weight:600}
+.k-knop:hover{background:var(--gr-d)}
+.k-knop:disabled{background:#d9cfbf;color:#8b7c6c;cursor:not-allowed}
 
-/* afrekenen */
-#kassa{top:0;right:0;bottom:0;width:min(600px,100%);transform:translateX(40px)}
-#kassa.aan{transform:none}
-.fase{margin-bottom:30px}
-.fase h3{display:flex;align-items:center;gap:12px;font:400 25px/1.1 'Lilita One';margin-bottom:14px}
-.fase h3 i{width:32px;height:32px;border-radius:50%;background:var(--geel);display:grid;place-items:center;font:400 17px/1 'Lilita One';font-style:normal;flex:none}
-.dagen{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.dag{border:1px solid var(--lijn);background:#fff;border-radius:18px;padding:13px 12px;text-align:left;transition:border-color .2s,background .2s}
-.dag b{display:block;font:800 16px/1.2 'Outfit'}
-.dag small{display:block;color:var(--mute);font-size:13.5px;margin-top:2px}
-.dag em{display:block;font-style:normal;color:var(--gr3);font:700 12px/1.2 'Outfit';margin-top:6px}
-.dag.gekozen{border-color:var(--gr);background:rgba(47,143,58,.07);box-shadow:inset 0 0 0 1px var(--gr)}
-.uren{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:12px}
-.slot{border:1px solid var(--lijn);background:#fff;border-radius:14px;padding:11px 6px;text-align:center;transition:border-color .2s,background .2s}
-.slot b{display:block;font:800 16px/1.1 'Outfit'}
-.slot small{display:block;font-size:12px;color:var(--mute);margin-top:3px}
-.slot:hover:not(:disabled){border-color:var(--gr)}
-.slot.gekozen{background:var(--gr);border-color:var(--gr);color:#fff}
-.slot.gekozen small{color:rgba(255,255,255,.85)}
-.slot:disabled{background:transparent;color:#b5a690;cursor:not-allowed;text-decoration:line-through}
-.slot:disabled small{text-decoration:none}
-.uitleg{font-size:14px;color:var(--mute);margin-top:10px}
-.veld{display:block;margin-bottom:14px}
-.veld span{display:block;font:700 14.5px/1.3 'Outfit';margin-bottom:6px}
-.veld span em{font-style:normal;font-weight:500;color:var(--mute)}
-.veld input,.veld textarea{width:100%;border:1px solid #d9cbb5;background:#fff;border-radius:14px;padding:14px 16px;font-size:16px;transition:border-color .2s,box-shadow .2s}
-.veld textarea{min-height:84px;resize:vertical}
-.veld input:focus,.veld textarea:focus{outline:0;border-color:var(--gr);box-shadow:0 0 0 3px rgba(47,143,58,.18)}
-.veld.fout input{border-color:var(--rood)}
-.veld .f{display:none;color:var(--rood);font:600 13.5px/1.3 'Outfit';margin-top:6px}
-.veld.fout .f{display:block}
-.betaal{display:grid;gap:8px}
-.betaal .opt{padding:15px 16px}
-.betaal .opt small{display:block;color:var(--mute);font-size:13.5px;font-weight:500}
-.fout-slot{display:none;color:var(--rood);font:600 14px/1.3 'Outfit';margin-top:10px}
+#kassa{top:0;right:0;bottom:0;width:min(560px,100%);border-left:1px solid var(--lijn)}
+.fase{margin-bottom:28px}
+.fase h3{font-size:17px;font-weight:600;margin-bottom:10px}
+.dagen{display:flex;gap:8px;flex-wrap:wrap}
+.dag{border:1px solid var(--lijn);border-radius:6px;padding:9px 14px;font-size:15px;background:#fff}
+.dag small{color:var(--mute);font-size:14px}
+.dag.gekozen{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.uren{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin-top:12px}
+.slot{border:1px solid var(--lijn);border-radius:6px;padding:9px 0;font-size:15px;background:#fff}
+.slot:hover:not(:disabled){border-color:var(--ink)}
+.slot.gekozen{background:var(--ink);border-color:var(--ink);color:#fff}
+.slot:disabled{color:#bcae99;background:#faf6ee;text-decoration:line-through;cursor:not-allowed}
+.klein{font-size:14px;color:var(--mute);margin-top:8px}
+.fout-slot{display:none;color:var(--rood);font-size:14px;margin-top:8px}
 .fout-slot.aan{display:block}
-.over{background:#fff;border:1px solid var(--lijn);border-radius:20px;padding:16px 18px}
+.veld{display:block;margin-bottom:12px}
+.veld span{display:block;font-size:14.5px;font-weight:500;margin-bottom:4px}
+.veld span em{font-style:normal;color:var(--mute);font-weight:400}
+.veld input,.veld textarea{width:100%;border:1px solid #d6c8b1;border-radius:6px;padding:11px 12px;font-size:16px;background:#fff}
+.veld textarea{min-height:70px;resize:vertical}
+.veld input:focus,.veld textarea:focus{outline:0;border-color:var(--ink)}
+.veld.fout input{border-color:var(--rood)}
+.veld .f{display:none;color:var(--rood);font-size:13.5px;margin-top:4px}
+.veld.fout .f{display:block}
+.betaal .opt small{display:block;color:var(--mute);font-size:13.5px}
 .over .r{display:flex;justify-content:space-between;gap:12px;font-size:15px;padding:3px 0}
 .over .r span:last-child{white-space:nowrap}
-.over .kort{color:var(--gr);font-weight:700}
-.over .tot{font:800 18px/1.3 'Outfit';border-top:1px dashed var(--lijn);margin-top:8px;padding-top:10px}
+.over .kort{color:var(--gr-d)}
+.over .tot{font-weight:600;border-top:1px solid var(--lijn);margin-top:6px;padding-top:8px}
 
-/* bevestiging */
-.klaar{text-align:center;padding:10px 0}
-.klaar .vink{width:84px;height:84px;border-radius:50%;background:var(--gr);color:#fff;display:grid;place-items:center;margin:6px auto 18px;box-shadow:0 0 0 10px rgba(47,143,58,.14)}
-.klaar .vink svg{width:40px;height:40px}
-.klaar h3{font:400 38px/1.05 'Lilita One'}
-.klaar>p{color:var(--mute);margin-top:10px;font-size:16.5px}
-.bon{text-align:left;background:#fff;border:1px solid var(--lijn);border-radius:22px;padding:20px;margin-top:22px}
-.bon .nr{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:14px;border-bottom:1px dashed var(--lijn);margin-bottom:12px}
-.bon .nr b{font:400 28px/1 'Lilita One';color:var(--gr)}
-.bon .nr span{font:700 14px/1.3 'Outfit';color:var(--mute);text-align:right}
-.bon .wanneer{background:rgba(247,184,28,.18);border-radius:14px;padding:12px 14px;font:700 16px/1.4 'Outfit';margin-bottom:12px}
-.bon .wanneer small{display:block;font-weight:500;color:var(--mute);font-size:14px}
-.bon .r{display:flex;justify-content:space-between;gap:12px;font-size:15px;padding:3px 0}
-.bon .r.tot{font:800 17px/1.3 'Outfit';border-top:1px dashed var(--lijn);margin-top:8px;padding-top:10px}
-.demo-noot{margin-top:18px;background:var(--gr4);color:#fff;border-radius:20px;padding:18px 20px;text-align:left;font-size:15px}
-.demo-noot b{display:block;font:400 21px/1.2 'Lilita One';margin-bottom:4px;color:var(--geel)}
-.demo-noot a{display:inline-flex;margin-top:12px;background:var(--geel);color:var(--ink);border-radius:999px;padding:12px 18px;font:800 15px/1 'Outfit'}
-.knop2{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:2px solid var(--ink);border-radius:999px;padding:14px 20px;font:700 15px/1 'Outfit';margin-top:16px}
-.knop2 svg{width:17px;height:17px}
+.klaar h3{font-size:22px;font-weight:600}
+.klaar>p{color:var(--mute);margin-top:4px}
+.bon{border:1px solid var(--lijn);border-radius:6px;padding:16px;margin-top:18px}
+.bon .nr{display:flex;justify-content:space-between;gap:12px;font-size:15px;padding-bottom:10px;border-bottom:1px solid var(--lijn);margin-bottom:10px}
+.bon .nr b{font-size:17px}
+.bon .wanneer{font-weight:600;margin-bottom:10px}
+.bon .wanneer small{display:block;font-weight:400;color:var(--mute);font-size:14px}
+.route{display:inline-block;margin-top:14px;font-weight:600;color:var(--gr-d);text-underline-offset:3px}
+.demo-noot{margin-top:22px;padding-top:16px;border-top:1px solid var(--lijn);font-size:15px;color:var(--mute)}
+.demo-noot a{color:var(--ink);font-weight:600}
 
-.melding{position:fixed;left:50%;top:18px;z-index:90;transform:translate(-50%,-140%);background:var(--ink);color:#fff;border-radius:999px;padding:12px 20px;font:700 15px/1.2 'Outfit';box-shadow:0 18px 34px -16px rgba(0,0,0,.5);transition:transform .45s var(--ease);display:flex;gap:10px;align-items:center;max-width:calc(100% - 32px)}
-.melding.aan{transform:translate(-50%,0)}
-.melding i{width:22px;height:22px;border-radius:50%;background:var(--gr2);display:grid;place-items:center;flex:none;font-style:normal;font-size:13px}
+.voetje{background:var(--gr4);color:rgba(255,255,255,.8);padding:22px 0;font-size:14px}
+.voetje .wrap{display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between}
 
-.voetje{background:var(--gr3);color:rgba(255,255,255,.78);padding:0 0 40px;font-size:14.5px}
-.voetje .slinger{margin-bottom:30px}
-.voetje .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;align-items:center}
-.voetje a:hover{color:#fff}
-
-@media (max-width:1080px){
+@media (max-width:1020px){
  .raam{grid-template-columns:minmax(0,1fr)}
  .mand{display:none}
- .gsmbalk{display:flex}
+ .gsmbalk.vol{display:block}
 }
-@media (max-width:860px){
- .intro{grid-template-columns:1fr;align-items:start}
+@media (max-width:760px){.items{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:600px){
+ .wrap{padding:0 16px}
+ .kop .wrap{flex-wrap:wrap;gap:12px 16px;padding-bottom:20px}
+ .kop .logo img{height:60px}
+ .kop .terug{order:-1;width:100%;margin:0;font-size:14px}
+ .kop h1{font-size:30px}
+ .uitleg .wrap{flex-direction:column}
+ .item{grid-template-columns:minmax(0,1fr) 88px;gap:12px}
+ .item .im{width:88px;height:88px}
+ .cat h2{font-size:26px}
+ #keuze{left:0;right:0;top:auto;bottom:0;transform:none;width:100%;max-height:90vh;border-radius:10px 10px 0 0}
+ .uren{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
-@media (max-width:640px){
- body{font-size:16px}
- .balk .logo img{height:58px}
- .terug{padding:10px 14px;font-size:14px}
- .intro h1{font-size:46px}
- .intro p{font-size:17px}
- .stappen li{padding:12px 14px;font-size:15px}
- .items{grid-template-columns:1fr;gap:12px}
- .item{flex-direction:row-reverse;border-radius:22px;min-height:150px}
- .item .im{aspect-ratio:auto;width:118px;flex:none;border-radius:16px;margin:12px 12px 12px 0;align-self:flex-start;height:118px}
- .item .lbl{left:6px;top:6px;font-size:10.5px;padding:6px 8px}
- .item .in{right:6px;top:auto;bottom:6px;font-size:12px;padding:6px 9px}
- .item .txt{padding:14px 12px 14px 16px}
- .item h3{font-size:21px}
- .item p{font-size:14px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
- .item .voet{margin-top:12px;flex-wrap:wrap;gap:8px}
- .voeg{padding:10px 15px;font-size:14.5px}
- .stap button{width:32px;height:32px}
- #keuze{left:0;right:0;top:auto;bottom:0;width:100%;max-height:92vh;border-radius:26px 26px 0 0;transform:translateY(40px)}
- #keuze.aan{transform:none}
- .blad .bk{padding:16px 18px}
- .blad .bi{padding:18px}
- .blad .bv{padding:14px 18px calc(14px + env(safe-area-inset-bottom))}
- .dagen{grid-template-columns:1fr 1fr 1fr;gap:6px}
- .dag{padding:11px 9px}
- .dag b{font-size:15px}
- .uren{grid-template-columns:repeat(3,minmax(0,1fr))}
- .voetje .wrap{flex-direction:column;align-items:flex-start}
-}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<div class="demo">Voorbeeld van een eigen bestelsysteem, gemaakt door Stijn van Digital Impression. <a href="../beheer/">Bekijk ook het beheer</a></div>
+<div class="demo">Voorbeeld van een eigen bestelsysteem door Digital Impression. <a href="../beheer/">Bekijk ook het beheer</a></div>
 
 <header class="kop">
   <div class="slinger" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="balk">
-      <a class="logo" href="../" aria-label="El Taco Loco, terug naar de site"><img src="../img/logo.webp" alt="El Taco Loco" width="450" height="540"></a>
-      <a class="terug" href="../"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Terug naar de site</a>
+    <a class="logo" href="../"><img src="../img/logo.webp" alt="El Taco Loco" width="450" height="540"></a>
+    <div>
+      <h1>Bestellen voor afhalen</h1>
+      <p>Nieuwrodese Steenweg 109, Aarschot</p>
     </div>
-    <div class="intro">
-      <div>
-        <h1 class="dik">Bestel je <span>takeaway.</span></h1>
-        <p>Kies wat je wil eten en wanneer je het komt halen in Aarschot. Lili kookt het vers, jij haalt het warm op.</p>
-      </div>
-      <ol class="stappen">
-        <li><span>Kies je eten<small>Tik op Toevoegen, je bestelling staat rechts of onderaan</small></span></li>
-        <li><span>Kies je afhaaluur<small>Vrijdag en zaterdag van 17u tot 20u, zondag op voorbestelling</small></span></li>
-        <li><span>Betaal en haal op<small>Online of bij het afhalen, aan de Nieuwrodese Steenweg 109</small></span></li>
-      </ol>
-    </div>
+    <a class="terug" href="../">Terug naar de site</a>
   </div>
 </header>
+<div class="uitleg"><div class="wrap">
+  <span><b>Zo werkt het:</b> kies je eten, kies een afhaaluur en betaal online of bij het afhalen.</span>
+  <span><b>Afhalen:</b> vrijdag en zaterdag van 17u tot 20u, zondag op voorbestelling</span>
+</div></div>
 <div class="dicht" role="status">Online bestellen staat even uit. Bel of WhatsApp ons gerust op <a href="https://wa.me/32471212853">0471 21 28 53</a>.</div>
 
 <div class="wrap raam">
-  <main id="menu">
+  <main>
     <nav class="tabs" aria-label="Categorieën"><div class="rij" id="tabs"></div></nav>
     <div id="cats"></div>
   </main>
-
   <aside class="mand" aria-label="Je bestelling">
-    <div class="mand-kop"><h2 class="dik">Je bestelling</h2><p>Afhalen in Aarschot</p></div>
+    <h2>Je bestelling</h2>
     <ul class="lijnen" id="lijnen"></ul>
     <div class="som" id="som"></div>
   </aside>
 </div>
 
-<div class="gsmbalk" id="gsmbalk"><span class="t"><span id="gb-aantal">0 items</span><b id="gb-tot">€ 0,00</b></span><button type="button" id="gb-knop">Bekijk bestelling</button></div>
+<div class="gsmbalk" id="gsmbalk"><button type="button" id="gb-knop"><span id="gb-aantal">Bekijk bestelling</span><span id="gb-tot">€ 0,00</span></button></div>
 
-<footer class="voetje">
-  <div class="slinger" aria-hidden="true"></div>
-  <div class="wrap">
-    <span>El Taco Loco · Nieuwrodese Steenweg 109, 3200 Aarschot</span>
-    <a href="https://wa.me/32471212853">Vraag? 0471 21 28 53</a>
-    <span>Voorbeeld door Digital Impression</span>
-  </div>
-</footer>
+<footer class="voetje"><div class="wrap">
+  <span>El Taco Loco · Nieuwrodese Steenweg 109, 3200 Aarschot</span>
+  <a href="https://wa.me/32471212853">Vraag? 0471 21 28 53</a>
+</div></footer>
 
 <div class="laag" id="laag"></div>
 
 <section class="blad" id="keuze" role="dialog" aria-modal="true" aria-labelledby="k-titel">
-  <div class="bk"><h2 class="dik" id="k-titel"></h2><button class="sluit" type="button" data-sluit aria-label="Sluiten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div class="bk"><h2 id="k-titel"></h2><button class="sluit" type="button" data-sluit>Sluiten</button></div>
   <div class="bi" id="k-body"></div>
-  <div class="bv"><div class="k-hint" id="k-hint"></div><button class="k-knop" type="button" id="k-knop"></button></div>
+  <div class="bv"><p class="k-hint" id="k-hint"></p><button class="k-knop" type="button" id="k-knop"></button></div>
 </section>
 
 <section class="blad" id="kassa" role="dialog" aria-modal="true" aria-labelledby="ks-titel">
-  <div class="bk"><h2 class="dik" id="ks-titel">Afrekenen</h2><button class="sluit" type="button" data-sluit aria-label="Sluiten"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div class="bk"><h2 id="ks-titel">Afrekenen</h2><button class="sluit" type="button" data-sluit>Sluiten</button></div>
   <div class="bi" id="ks-body"></div>
   <div class="bv" id="ks-voet"></div>
 </section>
-
-<div class="melding" id="melding" role="status" aria-live="polite"><i>✓</i><span></span></div>
 
 <script src="menu.js"></script>
 <script>
@@ -341,19 +242,16 @@ var mand=[]; try{mand=JSON.parse(localStorage.getItem('etl_mand')||'[]')}catch(e
 E.zaai();
 var inst=E.instellingen();
 if(!inst.open) document.body.classList.add('is-dicht');
-
 function bewaar(){try{localStorage.setItem('etl_mand',JSON.stringify(mand))}catch(e){}}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-var plus='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
 
-/* menu tekenen */
-var subs={combo:'Alles in één doos, handig voor een etentje thuis.',taco:'Zelf je taco\'s vullen aan tafel, of een bord warm eten.',empa:'Per stuk, met zoveel smaken als je wil.',erbij:'Lekker om te delen.',drink:'Fris erbij en iets zoets voor achteraf.'};
 $('#tabs').innerHTML=E.categorieen.map(function(c,i){return '<a href="#c-'+c.id+'"'+(i?'':' class="aan"')+'>'+c.naam+'</a>'}).join('');
 $('#cats').innerHTML=E.categorieen.map(function(c){
-  return '<section class="cat" id="c-'+c.id+'"><h2 class="dik">'+c.naam+'</h2><p class="sub">'+subs[c.id]+'</p><div class="items">'+
+  return '<section class="cat" id="c-'+c.id+'"><h2>'+c.naam+'</h2><div class="items">'+
   E.menu.filter(function(m){return m.cat===c.id}).map(function(m){
-    return '<article class="item" data-id="'+m.id+'"><div class="im"><img src="'+m.foto+'" alt="'+esc(m.naam)+'" loading="lazy">'+(m.label?'<span class="lbl">'+m.label+'</span>':'')+'<span class="in"></span></div>'+
-    '<div class="txt"><h3>'+m.naam+'</h3><p>'+m.tekst+'</p><div class="voet"><span class="pr">'+E.euro(E.prijs(m))+(m.eenheid?'<small>'+m.eenheid+'</small>':'')+'</span><span class="act"></span><span class="weg">Vandaag uitverkocht</span></div></div></article>'
+    return '<article class="item" data-id="'+m.id+'"><div><h3>'+m.naam+'</h3><p>'+m.tekst+'</p><span class="pr">'+E.euro(E.prijs(m))+(m.eenheid?' <small>'+m.eenheid+'</small>':'')+'</span>'+
+    '<div class="onder"><span class="act"></span><span class="extra"></span><span class="weg">Vandaag uitverkocht</span></div></div>'+
+    '<div class="im"><img src="'+m.foto+'" alt="" loading="lazy"></div></article>'
   }).join('')+'</div></section>'
 }).join('');
 
@@ -362,157 +260,140 @@ function tekenKaarten(){
   $$('.item').forEach(function(el){
     var m=E.item(el.dataset.id), n=telItem(m.id), act=$('.act',el);
     el.classList.toggle('uit',E.uitverkocht(m));
-    el.classList.toggle('heeft',n>0);
-    $('.in',el).textContent=n+' in je bestelling';
-    if(m.keuze){act.innerHTML='<button class="voeg" type="button" data-kies="'+m.id+'">'+plus+(n?'Aanpassen':'Kies')+'</button>'}
-    else if(n){act.innerHTML='<span class="stap"><button type="button" data-min="'+m.id+'" aria-label="Eén minder">−</button><b>'+n+'</b><button type="button" data-plus="'+m.id+'" aria-label="Eén meer">+</button></span>'}
-    else act.innerHTML='<button class="voeg" type="button" data-plus="'+m.id+'">'+plus+'Toevoegen</button>';
+    $('.extra',el).textContent=m.keuze&&n?n+' in je bestelling':'';
+    if(m.keuze) act.innerHTML='<button class="voeg" type="button" data-kies="'+m.id+'">'+(n?'Aanpassen':'Kiezen')+'</button>';
+    else if(n) act.innerHTML='<span class="stap"><button type="button" data-min="'+m.id+'" aria-label="Eén minder">−</button><b>'+n+'</b><button type="button" data-plus="'+m.id+'" aria-label="Eén meer">+</button></span>';
+    else act.innerHTML='<button class="voeg" type="button" data-plus="'+m.id+'">Toevoegen</button>';
   });
 }
-
 function lijnen(){return mand.map(function(l){var m=E.item(l.id);return{id:l.id,naam:m.naam,optie:l.optie,qty:l.qty,prijs:E.prijs(m)}})}
 function totalen(){return E.reken(lijnen())}
-function empaTip(r){if(!r.empa)return '';var rest=6-(r.empa%6);if(rest===6)return r.korting?'Top, '+(r.korting/E.item('empa').prijs)+' empanada'+(r.korting>E.item('empa').prijs?'s':'')+' gratis verrekend.':'';return 'Nog '+rest+' empanada'+(rest>1?'s':'')+' en je volgende is gratis.'}
-
+function empaTip(r){if(!r.empa)return '';var rest=6-(r.empa%6);if(rest===6)return '';return 'Nog '+rest+' empanada'+(rest>1?'s':'')+' en de volgende is gratis.'}
+function lijnHtml(){return mand.map(function(l,i){var m=E.item(l.id);return '<li class="lijn"><span class="stap"><button type="button" data-lmin="'+i+'" aria-label="Eén minder">−</button><b>'+l.qty+'</b><button type="button" data-lplus="'+i+'" aria-label="Eén meer">+</button></span><span class="n">'+m.naam+(l.optie?'<small>'+esc(l.optie)+'</small>':'')+'</span><span class="p">'+E.euro(E.prijs(m)*l.qty)+'</span></li>'}).join('')}
+function rijen(r,kl){var k=kl||'';return '<div class="'+k+'"><span>Subtotaal</span><span>'+E.euro(r.sub)+'</span></div>'+(r.korting?'<div class="'+k+' kort"><span>Gratis empanada'+(r.korting>E.item('empa').prijs?'s':'')+'</span><span>− '+E.euro(r.korting)+'</span></div>':'')+'<div class="'+k+' tot"><span>Totaal</span><span>'+E.euro(r.totaal)+'</span></div>'}
 function tekenMand(){
-  var ul=$('#lijnen'), r=totalen(), aantal=mand.reduce(function(a,l){return a+l.qty},0);
-  if(!mand.length){ul.innerHTML='<li class="leeg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>Je bestelling is nog leeg.<br>Kies links wat je wil eten.</li>'}
-  else ul.innerHTML=mand.map(function(l,i){var m=E.item(l.id);return '<li class="lijn"><span class="n">'+m.naam+(l.optie?'<small>'+esc(l.optie)+'</small>':'')+'</span><span class="p">'+E.euro(E.prijs(m)*l.qty)+'</span><span class="stap"><button type="button" data-lmin="'+i+'" aria-label="Eén minder">−</button><b>'+l.qty+'</b><button type="button" data-lplus="'+i+'" aria-label="Eén meer">+</button></span></li>'}).join('');
-  $('#som').innerHTML=(mand.length?'<div><span>Subtotaal</span><span>'+E.euro(r.sub)+'</span></div>'+(r.korting?'<div class="kort"><span>Gratis empanada'+(r.korting>4?'s':'')+'</span><span>− '+E.euro(r.korting)+'</span></div>':'')+'<div class="tot"><span>Totaal</span><span>'+E.euro(r.totaal)+'</span></div>':'')+
-    '<p class="tip">'+empaTip(r)+'</p><button class="verder" type="button" data-kassa'+(mand.length&&inst.open?'':' disabled')+'>Kies je afhaaluur<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>'+
-    '<p class="adres"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Afhalen aan de Nieuwrodese Steenweg 109, 3200 Aarschot</p>';
-  $('#gb-aantal').textContent=aantal+(aantal===1?' item':' items');
+  var r=totalen(), aantal=mand.reduce(function(a,l){return a+l.qty},0);
+  $('#lijnen').innerHTML=mand.length?lijnHtml():'<li class="leeg">Nog niets gekozen.</li>';
+  $('#som').innerHTML=(mand.length?rijen(r):'')+'<p class="tip">'+empaTip(r)+'</p><button class="verder" type="button" data-kassa'+(mand.length&&inst.open?'':' disabled')+'>Verder naar afhaaluur</button>';
+  $('#gb-aantal').textContent='Bekijk bestelling ('+aantal+')';
   $('#gb-tot').textContent=E.euro(r.totaal);
-  $('#gsmbalk').classList.toggle('aan',aantal>0);
+  $('#gsmbalk').classList.toggle('vol',aantal>0);
   tekenKaarten(); bewaar();
 }
+function voegToe(id,optie,qty){var l=mand.filter(function(x){return x.id===id&&x.optie===optie})[0];if(l)l.qty+=qty;else mand.push({id:id,optie:optie,qty:qty})}
 
-function voegToe(id,optie,qty){var l=mand.filter(function(x){return x.id===id&&x.optie===optie})[0];if(l)l.qty+=qty;else mand.push({id:id,optie:optie,qty:qty});}
-var mt;function meld(t){var m=$('#melding');$('span',m).textContent=t;m.classList.add('aan');clearTimeout(mt);mt=setTimeout(function(){m.classList.remove('aan')},1800)}
-
-/* lagen */
 var open=null, terugFocus=null;
-function toon(id){terugFocus=document.activeElement;open=$(id);$('#laag').classList.add('aan');open.classList.add('aan');document.body.style.overflow='hidden';setTimeout(function(){var f=$('button,input',open);f&&f.focus()},60)}
+function toon(id){terugFocus=document.activeElement;open=$(id);$('#laag').classList.add('aan');open.classList.add('aan');document.body.style.overflow='hidden';setTimeout(function(){var f=$('.bk .sluit',open);f&&f.focus()},30)}
 function verberg(){if(!open)return;open.classList.remove('aan');$('#laag').classList.remove('aan');document.body.style.overflow='';open=null;terugFocus&&terugFocus.focus&&terugFocus.focus()}
 $('#laag').addEventListener('click',verberg);
 document.addEventListener('keydown',function(e){if(e.key==='Escape')verberg()});
 $$('[data-sluit]').forEach(function(b){b.addEventListener('click',verberg)});
 
-/* keuze-venster */
-var kItem, kSel, kQty, kVeel;
+var kItem,kSel,kQty,kVeel;
 function openKeuze(id){
-  kItem=E.item(id); var k=kItem.keuze; $('#k-titel').textContent=kItem.naam;
+  kItem=E.item(id);var k=kItem.keuze;$('#k-titel').textContent=kItem.naam;
   var h='<div class="k-foto"><img src="'+kItem.foto+'" alt=""></div><p class="k-tekst">'+kItem.tekst+'</p><p class="k-vraag">'+k.vraag+'</p>';
   if(k.soort==='een'){kSel=k.opties[0];kQty=1;
-    h+=k.opties.map(function(o,i){return '<label class="opt'+(i?'':' gekozen')+'"><input type="radio" name="k" value="'+esc(o)+'"'+(i?'':' checked')+'><span class="nm">'+o+'</span><span class="bol"></span></label>'}).join('')+
+    h+=k.opties.map(function(o,i){return '<label class="opt"><span class="nm">'+o+'</span><input type="radio" name="k" value="'+esc(o)+'"'+(i?'':' checked')+'></label>'}).join('')+
       '<div class="k-aantal"><span>Aantal</span><span class="stap"><button type="button" data-kq="-1" aria-label="Eén minder">−</button><b id="kq">1</b><button type="button" data-kq="1" aria-label="Eén meer">+</button></span></div>';
   }else{kVeel={};mand.forEach(function(l){if(l.id===id)kVeel[l.optie]=l.qty});
-    h+=k.opties.map(function(o){return '<div class="opt'+(kVeel[o]?' gekozen':'')+'" data-o="'+esc(o)+'"><span class="nm">'+o+'</span><span class="stap"><button type="button" data-vq="-1" aria-label="'+esc(o)+' minder">−</button><b>'+(kVeel[o]||0)+'</b><button type="button" data-vq="1" aria-label="'+esc(o)+' meer">+</button></span></div>'}).join('');
+    h+=k.opties.map(function(o){return '<div class="opt" data-o="'+esc(o)+'"><span class="nm">'+o+'</span><span class="stap"><button type="button" data-vq="-1" aria-label="'+esc(o)+' minder">−</button><b>'+(kVeel[o]||0)+'</b><button type="button" data-vq="1" aria-label="'+esc(o)+' meer">+</button></span></div>'}).join('');
   }
-  $('#k-body').innerHTML=h; kKnop(); toon('#keuze');
+  $('#k-body').innerHTML=h;kKnop();toon('#keuze');
 }
 function kKnop(){
-  var k=kItem.keuze, p=E.prijs(kItem), b=$('#k-knop'), hint='';
+  var k=kItem.keuze,p=E.prijs(kItem),b=$('#k-knop'),hint='';
   if(k.soort==='een'){b.disabled=false;b.innerHTML='<span>Toevoegen</span><span>'+E.euro(p*kQty)+'</span>'}
   else{var n=0;for(var o in kVeel)n+=kVeel[o];var bed=p*n;
-    if(kItem.id==='empa'){var g=Math.floor(n/6);bed-=g*p;var rest=6-(n%6);hint=n?(g?g+' gratis verrekend. ':'')+(rest<6?'Nog '+rest+' en je volgende is gratis.':''):'Bij elke 6 empanadas betaal je er maar 5.'}
+    if(kItem.id==='empa'){var g=Math.floor(n/6);bed-=g*p;var rest=6-(n%6);hint=n?(g?g+' gratis verrekend. ':'')+(rest<6?'Nog '+rest+' en de volgende is gratis.':''):'Bij 6 empanadas betaal je er 5.'}
     var had=telItem(kItem.id);b.disabled=!n&&!had;
-    b.innerHTML='<span>'+(n?n+' stuks':'')+(had&&!n?'Verwijder uit bestelling':(had?' bijwerken':' toevoegen'))+'</span><span>'+(n?E.euro(bed):'')+'</span>'}
+    b.innerHTML='<span>'+(n?n+' stuks '+(had?'bijwerken':'toevoegen'):'Verwijderen uit bestelling')+'</span><span>'+(n?E.euro(bed):'')+'</span>'}
   $('#k-hint').textContent=hint;
 }
+$('#k-body').addEventListener('change',function(e){if(e.target.name==='k')kSel=e.target.value});
 $('#k-body').addEventListener('click',function(e){
-  var r=e.target.closest('label.opt');
-  if(r){$$('label.opt',this).forEach(function(x){x.classList.toggle('gekozen',x===r)});kSel=$('input',r).value;return}
   var q=e.target.closest('[data-kq]');if(q){kQty=Math.max(1,kQty+ +q.dataset.kq);$('#kq').textContent=kQty;kKnop();return}
-  var v=e.target.closest('[data-vq]');if(v){var rij=v.closest('[data-o]'),o=rij.dataset.o;kVeel[o]=Math.max(0,(kVeel[o]||0)+ +v.dataset.vq);$('b',rij).textContent=kVeel[o];rij.classList.toggle('gekozen',kVeel[o]>0);kKnop()}
+  var v=e.target.closest('[data-vq]');if(v){var rij=v.closest('[data-o]'),o=rij.dataset.o;kVeel[o]=Math.max(0,(kVeel[o]||0)+ +v.dataset.vq);$('b',rij).textContent=kVeel[o];kKnop()}
 });
 $('#k-knop').addEventListener('click',function(){
-  if(kItem.keuze.soort==='een'){voegToe(kItem.id,kSel,kQty);meld(kQty+'× '+kItem.naam+' toegevoegd')}
-  else{mand=mand.filter(function(l){return l.id!==kItem.id});var n=0;kItem.keuze.opties.forEach(function(o){if(kVeel[o]){mand.push({id:kItem.id,optie:o,qty:kVeel[o]});n+=kVeel[o]}});meld(n?kItem.naam+' bijgewerkt':kItem.naam+' verwijderd')}
+  if(kItem.keuze.soort==='een')voegToe(kItem.id,kSel,kQty);
+  else{mand=mand.filter(function(l){return l.id!==kItem.id});kItem.keuze.opties.forEach(function(o){if(kVeel[o])mand.push({id:kItem.id,optie:o,qty:kVeel[o]})})}
   verberg();tekenMand();
 });
 
-/* klikken op kaarten en mandje */
 document.addEventListener('click',function(e){
   var t=e.target.closest('[data-plus],[data-min],[data-kies],[data-lmin],[data-lplus],[data-kassa]');if(!t)return;
-  if(t.dataset.plus){var m=E.item(t.dataset.plus);voegToe(m.id,null,1);if(telItem(m.id)===1)meld(m.naam+' toegevoegd');tekenMand()}
+  if(t.dataset.plus){voegToe(t.dataset.plus,null,1);tekenMand()}
   else if(t.dataset.min){var l=mand.filter(function(x){return x.id===t.dataset.min})[0];if(l){l.qty--;if(!l.qty)mand.splice(mand.indexOf(l),1)}tekenMand()}
-  else if(t.dataset.kies){openKeuze(t.dataset.kies)}
+  else if(t.dataset.kies)openKeuze(t.dataset.kies);
   else if(t.dataset.lmin!=null){var i=+t.dataset.lmin;mand[i].qty--;if(!mand[i].qty)mand.splice(i,1);tekenMand();if(open&&open.id==='kassa')tekenKassa()}
   else if(t.dataset.lplus!=null){mand[+t.dataset.lplus].qty++;tekenMand();if(open&&open.id==='kassa')tekenKassa()}
   else if(t.hasAttribute('data-kassa')){fase='kassa';tekenKassa();toon('#kassa')}
 });
 $('#gb-knop').addEventListener('click',function(){fase='mand';tekenKassa();toon('#kassa')});
 
-/* afrekenen */
-var fase='kassa', gekozenDag=null, gekozenUur=null, betaling='online', gegevens={naam:'',gsm:'',mail:'',notitie:''};
+var fase='kassa',gekozenDag=null,gekozenUur=null,betaling='online',gegevens={naam:'',gsm:'',mail:'',notitie:''};
+function overzicht(r){return '<div class="over">'+lijnen().map(function(l){return '<div class="r"><span>'+l.qty+' × '+l.naam+(l.optie?', '+esc(l.optie).toLowerCase():'')+'</span><span>'+E.euro(l.prijs*l.qty)+'</span></div>'}).join('')+(r.korting?'<div class="r kort"><span>Gratis empanadas</span><span>− '+E.euro(r.korting)+'</span></div>':'')+'<div class="r tot"><span>Totaal</span><span>'+E.euro(r.totaal)+'</span></div></div>'}
 function tekenKassa(){
-  var r=totalen(), body=$('#ks-body'), voet=$('#ks-voet');
+  var r=totalen(),body=$('#ks-body'),voet=$('#ks-voet');
   if(fase==='mand'){
     $('#ks-titel').textContent='Je bestelling';
-    body.innerHTML=mand.length?'<ul class="lijnen" style="padding:0">'+$('#lijnen').innerHTML+'</ul>':'<p class="leeg">Je bestelling is leeg.</p>';
-    voet.innerHTML='<div class="over" style="border:0;padding:0 0 4px"><div class="r"><span>Subtotaal</span><span>'+E.euro(r.sub)+'</span></div>'+(r.korting?'<div class="r kort"><span>Gratis empanadas</span><span>− '+E.euro(r.korting)+'</span></div>':'')+'<div class="r tot"><span>Totaal</span><span>'+E.euro(r.totaal)+'</span></div></div><p class="tip">'+empaTip(r)+'</p><button class="verder" type="button" id="naarKassa"'+(mand.length&&inst.open?'':' disabled')+'>Kies je afhaaluur</button>';
+    body.innerHTML=mand.length?'<ul class="lijnen" style="padding:0">'+lijnHtml()+'</ul>':'<p class="leeg">Nog niets gekozen.</p>';
+    voet.innerHTML='<div class="over">'+rijen(r,'r')+'</div><p class="tip">'+empaTip(r)+'</p><button class="verder" type="button" id="naarKassa"'+(mand.length&&inst.open?'':' disabled')+'>Verder naar afhaaluur</button>';
     $('#naarKassa').onclick=function(){fase='kassa';tekenKassa();body.scrollTop=0};
-    if(!mand.length)setTimeout(verberg,700);
+    if(!mand.length)setTimeout(verberg,600);
     return;
   }
   if(fase==='klaar')return;
   $('#ks-titel').textContent='Afrekenen';
-  var dagen=E.afhaalDagen(3);
-  if(!gekozenDag||dagen.indexOf(gekozenDag)<0)gekozenDag=dagen[0];
+  var dagen=E.afhaalDagen(3);if(!gekozenDag||dagen.indexOf(gekozenDag)<0)gekozenDag=dagen[0];
   var s=E.instellingen();
-  var dh=dagen.map(function(d){var dd=E.vanIso(d),info=s.dagen[dd.getDay()];return '<button type="button" class="dag'+(d===gekozenDag?' gekozen':'')+'" data-dag="'+d+'"><b>'+E.dagLabel(d)+'</b><small>'+E.datumKort(d)+'</small>'+(info.enkelVooraf?'<em>Voorbestelling</em>':'')+'</button>'}).join('');
+  var dh=dagen.map(function(d){var info=s.dagen[E.vanIso(d).getDay()];return '<button type="button" class="dag'+(d===gekozenDag?' gekozen':'')+'" data-dag="'+d+'">'+E.dagLabel(d)+' <small>'+E.datumKort(d).slice(3)+(info.enkelVooraf?', voorbestelling':'')+'</small></button>'}).join('');
   var sl=E.slots(gekozenDag).filter(function(x){return !x.voorbij});
   if(gekozenUur&&!sl.some(function(x){return x.uur===gekozenUur&&!x.vol}))gekozenUur=null;
-  var uh=sl.map(function(x){return '<button type="button" class="slot'+(x.uur===gekozenUur?' gekozen':'')+'" data-uur="'+x.uur+'"'+(x.vol?' disabled':'')+'><b>'+x.uur.replace(':','u')+'</b><small>'+(x.vol?'volzet':x.plaats===1?'nog 1 plek':'vrij')+'</small></button>'}).join('');
+  var uh=sl.map(function(x){return '<button type="button" class="slot'+(x.uur===gekozenUur?' gekozen':'')+'" data-uur="'+x.uur+'"'+(x.vol?' disabled title="Volzet"':'')+'>'+x.uur.replace(':','u')+'</button>'}).join('');
   body.innerHTML=
-   '<div class="fase"><h3><i>1</i>Wanneer haal je het op?</h3><div class="dagen">'+dh+'</div><div class="uren">'+uh+'</div><p class="uitleg">We koken per kwartier een beperkt aantal bestellingen, zo is alles klaar als je aankomt.</p><p class="fout-slot" id="fout-slot">Kies nog een afhaaluur.</p></div>'+
-   '<div class="fase"><h3><i>2</i>Je gegevens</h3>'+
-     '<label class="veld" id="v-naam"><span>Naam</span><input name="naam" autocomplete="name" value="'+esc(gegevens.naam)+'"><span class="f">Vul je naam in, dan weten we voor wie het is.</span></label>'+
-     '<label class="veld" id="v-gsm"><span>Gsm-nummer <em>(als er iets is, bellen we je)</em></span><input name="gsm" type="tel" inputmode="tel" autocomplete="tel" placeholder="04xx xx xx xx" value="'+esc(gegevens.gsm)+'"><span class="f">Vul een geldig gsm-nummer in.</span></label>'+
+   '<div class="fase"><h3>Wanneer kom je het halen?</h3><div class="dagen">'+dh+'</div><div class="uren">'+uh+'</div><p class="klein">Doorstreepte uren zijn al volzet.</p><p class="fout-slot" id="fout-slot">Kies nog een afhaaluur.</p></div>'+
+   '<div class="fase"><h3>Je gegevens</h3>'+
+     '<label class="veld" id="v-naam"><span>Naam</span><input name="naam" autocomplete="name" value="'+esc(gegevens.naam)+'"><span class="f">Vul je naam in.</span></label>'+
+     '<label class="veld" id="v-gsm"><span>Gsm-nummer <em>(als er iets is, bellen we je)</em></span><input name="gsm" type="tel" inputmode="tel" autocomplete="tel" value="'+esc(gegevens.gsm)+'"><span class="f">Vul een geldig gsm-nummer in.</span></label>'+
      '<label class="veld"><span>E-mail <em>(voor je bevestiging, mag leeg)</em></span><input name="mail" type="email" autocomplete="email" value="'+esc(gegevens.mail)+'"></label>'+
      '<label class="veld"><span>Opmerking <em>(mag leeg)</em></span><textarea name="notitie" placeholder="Bijvoorbeeld zonder koriander">'+esc(gegevens.notitie)+'</textarea></label></div>'+
-   '<div class="fase"><h3><i>3</i>Betalen</h3><div class="betaal">'+
-     '<label class="opt'+(betaling==='online'?' gekozen':'')+'"><input type="radio" name="bet" value="online"'+(betaling==='online'?' checked':'')+'><span class="nm">Nu online betalen<small>Met Bancontact of Payconiq, dan sta je meteen klaar</small></span><span class="bol"></span></label>'+
-     '<label class="opt'+(betaling==='afhalen'?' gekozen':'')+'"><input type="radio" name="bet" value="afhalen"'+(betaling==='afhalen'?' checked':'')+'><span class="nm">Betalen bij het afhalen</span><span class="bol"></span></label></div></div>'+
-   '<div class="fase" style="margin-bottom:0"><h3><i>4</i>Even nakijken</h3><div class="over">'+lijnen().map(function(l){return '<div class="r"><span>'+l.qty+'× '+l.naam+(l.optie?', '+esc(l.optie):'')+'</span><span>'+E.euro(l.prijs*l.qty)+'</span></div>'}).join('')+(r.korting?'<div class="r kort"><span>Gratis empanadas</span><span>− '+E.euro(r.korting)+'</span></div>':'')+'<div class="r tot"><span>Totaal</span><span>'+E.euro(r.totaal)+'</span></div></div></div>';
-  voet.innerHTML='<button class="verder" type="button" id="plaats" style="margin-top:0">Bestelling plaatsen · '+E.euro(r.totaal)+'</button>';
+   '<div class="fase betaal"><h3>Betalen</h3>'+
+     '<label class="opt"><span class="nm">Nu online betalen<small>Bancontact of Payconiq</small></span><input type="radio" name="bet" value="online"'+(betaling==='online'?' checked':'')+'></label>'+
+     '<label class="opt"><span class="nm">Betalen bij het afhalen</span><input type="radio" name="bet" value="afhalen"'+(betaling==='afhalen'?' checked':'')+'></label></div>'+
+   '<div class="fase" style="margin-bottom:0"><h3>Je bestelling</h3>'+overzicht(r)+'</div>';
+  voet.innerHTML='<button class="verder" type="button" id="plaats" style="margin-top:0">Bestelling plaatsen, '+E.euro(r.totaal)+'</button>';
   $('#plaats').onclick=plaats;
 }
 $('#ks-body').addEventListener('click',function(e){
   var d=e.target.closest('[data-dag]');if(d){gekozenDag=d.dataset.dag;gekozenUur=null;bewaarVelden();tekenKassa();return}
-  var u=e.target.closest('[data-uur]');if(u&&!u.disabled){gekozenUur=u.dataset.uur;$$('.slot',this).forEach(function(x){x.classList.toggle('gekozen',x===u)});$('#fout-slot').classList.remove('aan');return}
-  var b=e.target.closest('label.opt');if(b){betaling=$('input',b).value;$$('.betaal label.opt',this).forEach(function(x){x.classList.toggle('gekozen',x===b)})}
+  var u=e.target.closest('[data-uur]');if(u&&!u.disabled){gekozenUur=u.dataset.uur;$$('.slot',this).forEach(function(x){x.classList.toggle('gekozen',x===u)});$('#fout-slot').classList.remove('aan')}
 });
+$('#ks-body').addEventListener('change',function(e){if(e.target.name==='bet')betaling=e.target.value});
 $('#ks-body').addEventListener('input',function(e){var v=e.target.closest('.veld');v&&v.classList.remove('fout');bewaarVelden()});
 function bewaarVelden(){$$('#ks-body [name]').forEach(function(i){if(i.name in gegevens)gegevens[i.name]=i.value.trim()})}
 function plaats(){
-  bewaarVelden(); var ok=true, eerste=null;
+  bewaarVelden();var ok=true,eerste=null;
   if(!gekozenUur){$('#fout-slot').classList.add('aan');ok=false;eerste=eerste||$('#fout-slot')}
   if(gegevens.naam.length<2){$('#v-naam').classList.add('fout');ok=false;eerste=eerste||$('#v-naam')}
   if(gegevens.gsm.replace(/\D/g,'').length<9){$('#v-gsm').classList.add('fout');ok=false;eerste=eerste||$('#v-gsm')}
-  if(!ok){eerste.scrollIntoView({behavior:'smooth',block:'center'});return}
-  var r=totalen(), b=E.bestellingen(), nr=E.volgendNr();
+  if(!ok){eerste.scrollIntoView({block:'center'});return}
+  var r=totalen(),b=E.bestellingen(),nr=E.volgendNr();
   var best={nr:nr,naam:gegevens.naam,gsm:gegevens.gsm,mail:gegevens.mail,notitie:gegevens.notitie,dag:gekozenDag,uur:gekozenUur,lijnen:lijnen(),sub:r.sub,korting:r.korting,totaal:r.totaal,betaling:betaling,status:'nieuw',ts:Date.now(),nieuw:true};
   b.push(best);E.bewaarBestellingen(b);
-  fase='klaar';
-  $('#ks-titel').textContent='Gelukt!';
-  $('#ks-body').innerHTML='<div class="klaar"><div class="vink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><h3>¡Gracias, '+esc(best.naam.split(' ')[0])+'!</h3><p>Je bestelling staat genoteerd'+(best.mail?' en de bevestiging zit in je mailbox':'')+'.</p>'+
-   '<div class="bon"><div class="nr"><b>#'+nr+'</b><span>'+(betaling==='online'?'Betaald':'Je betaalt bij het afhalen')+'</span></div><div class="wanneer">'+E.dagLabel(best.dag)+', '+E.datumLang(best.dag)+' om '+best.uur.replace(':','u')+'<small>Nieuwrodese Steenweg 109, 3200 Aarschot</small></div>'+
-   best.lijnen.map(function(l){return '<div class="r"><span>'+l.qty+'× '+l.naam+(l.optie?', '+esc(l.optie):'')+'</span><span>'+E.euro(l.prijs*l.qty)+'</span></div>'}).join('')+(r.korting?'<div class="r" style="color:var(--gr);font-weight:700"><span>Gratis empanadas</span><span>− '+E.euro(r.korting)+'</span></div>':'')+'<div class="r tot"><span>Totaal</span><span>'+E.euro(r.totaal)+'</span></div></div>'+
-   '<a class="knop2" href="https://www.google.com/maps/dir/?api=1&destination=El+Taco+Loco+Nieuwrodese+Steenweg+109+3200+Aarschot" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Route naar de afhaalplek</a>'+
-   '<div class="demo-noot"><b>Dit was een demo</b>Er is niets echt besteld. Benieuwd hoe deze bestelling bij Lili binnenkomt?<br><a href="../beheer/">Bekijk het beheer</a></div></div>';
-  $('#ks-voet').innerHTML='<button class="verder" type="button" id="opnieuw" style="margin-top:0;background:#fff;border:2px solid var(--ink)">Terug naar het menu</button>';
+  fase='klaar';$('#ks-titel').textContent='Bestelling ontvangen';
+  $('#ks-body').innerHTML='<div class="klaar"><h3>Bedankt, '+esc(best.naam.split(' ')[0])+'.</h3><p>We hebben je bestelling goed ontvangen'+(best.mail?', de bevestiging zit in je mailbox':'')+'.</p>'+
+   '<div class="bon"><div class="nr"><b>Bestelling '+nr+'</b><span>'+(betaling==='online'?'betaald':'betalen bij afhalen')+'</span></div><p class="wanneer">'+E.dagLabel(best.dag)+' '+E.datumLang(best.dag)+', '+best.uur.replace(':','u')+'<small>Nieuwrodese Steenweg 109, 3200 Aarschot</small></p>'+overzicht(r)+'</div>'+
+   '<a class="route" href="https://www.google.com/maps/dir/?api=1&destination=El+Taco+Loco+Nieuwrodese+Steenweg+109+3200+Aarschot" target="_blank" rel="noopener">Route naar de afhaalplek</a>'+
+   '<p class="demo-noot">Dit is een voorbeeld, er is niets echt besteld. <a href="../beheer/">Bekijk hoe de bestelling binnenkomt in het beheer</a>.</p></div>';
+  $('#ks-voet').innerHTML='<button class="verder" type="button" id="opnieuw" style="margin-top:0">Terug naar het menu</button>';
   $('#opnieuw').onclick=function(){verberg();fase='kassa'};
   mand=[];gekozenUur=null;tekenMand();$('#ks-body').scrollTop=0;
 }
 
-/* actieve categorie */
 if('IntersectionObserver' in window){var io=new IntersectionObserver(function(x){x.forEach(function(e){if(e.isIntersecting){var id=e.target.id;$$('#tabs a').forEach(function(a){var on=a.getAttribute('href')==='#'+id;a.classList.toggle('aan',on);if(on)a.scrollIntoView({block:'nearest',inline:'nearest'})})}})},{rootMargin:'-30% 0px -60% 0px'});$$('.cat').forEach(function(c){io.observe(c)})}
-
-/* wijzigingen uit het beheer meteen tonen */
 addEventListener('storage',function(e){if(e.key==='etl_menu'||e.key==='etl_inst'){inst=E.instellingen();document.body.classList.toggle('is-dicht',!inst.open);$$('.item').forEach(function(el){$('.pr',el).firstChild.textContent=E.euro(E.prijs(E.item(el.dataset.id)))});tekenMand()}});
-
 tekenMand();
 })();
 </script>

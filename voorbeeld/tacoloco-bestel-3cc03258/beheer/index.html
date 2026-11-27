@@ -7,274 +7,196 @@
 <title>Beheer · El Taco Loco · Bestellingen</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Outfit:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap">
 <style>
-:root{--gr:#2F8F3A;--gr2:#3FAA45;--gr3:#1F6A2A;--gr4:#12461A;--room:#F7F0E3;--papier:#FFFBF3;--ink:#2B1A12;--mute:#7A6A5D;--geel:#F7B81C;--rood:#E2462C;--blauw:#2E6FD8;--lijn:rgba(43,26,18,.11);--ease:cubic-bezier(.16,1,.3,1)}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--room);color:var(--ink);font:500 15.5px/1.5 'Outfit',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip;min-height:100vh}
+:root{--gr:#2F8F3A;--gr-d:#26772F;--bg:#F3F0EA;--ink:#24201C;--mute:#756C63;--lijn:#DED7CB;--geel:#F2B01E;--rood:#C8391F}
+*{box-sizing:border-box;margin:0;padding:0;min-width:0}
+body{background:var(--bg);color:var(--ink);font:400 15px/1.45 'Outfit',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip;min-height:100vh}
 img{display:block;max-width:100%}
-a{color:inherit;text-decoration:none}
+a{color:inherit}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 input{font:inherit;color:inherit}
-:focus-visible{outline:3px solid var(--geel);outline-offset:2px;border-radius:10px}
-.dik{font-family:'Lilita One',sans-serif;font-weight:400;line-height:1.05}
-.demo{background:var(--ink);color:#fff;font:500 13.5px/1.4 'Outfit';text-align:center;padding:9px 16px}
-.demo a{font-weight:700;text-decoration:underline;text-underline-offset:3px}
-.wrap{max-width:1480px;margin:0 auto;padding:0 clamp(14px,2.6vw,32px)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.demo{background:var(--ink);color:#fff;font-size:13px;text-align:center;padding:7px 16px}
+.demo a{font-weight:600}
+.wrap{max-width:1440px;margin:0 auto;padding:0 24px}
 
-/* bovenbalk */
-.top{background:var(--gr4);color:#fff;position:sticky;top:0;z-index:30;box-shadow:0 10px 30px -20px rgba(0,0,0,.6)}
-.top .wrap{display:flex;align-items:center;gap:18px;height:72px}
-.merk{display:flex;align-items:center;gap:12px;flex:none}
-.merk img{height:48px;width:auto}
-.merk b{display:block;font:400 21px/1 'Lilita One'}
-.merk small{display:block;font:600 12.5px/1.3 'Outfit';color:rgba(255,255,255,.65);letter-spacing:.04em}
-.nav{display:flex;gap:4px;margin-left:18px;background:rgba(255,255,255,.08);border-radius:999px;padding:4px}
-.nav button{padding:10px 18px;border-radius:999px;font:700 14.5px/1 'Outfit';color:rgba(255,255,255,.78);transition:background .25s,color .25s;display:flex;align-items:center;gap:8px}
-.nav button:hover{color:#fff}
-.nav button.aan{background:#fff;color:var(--ink)}
-.nav .tel{min-width:22px;height:22px;border-radius:999px;background:var(--geel);color:var(--ink);display:inline-grid;place-items:center;font-size:12px;padding:0 6px}
+.top{background:#fff;border-bottom:1px solid var(--lijn);position:sticky;top:0;z-index:30}
+.top .wrap{display:flex;align-items:center;gap:28px;height:60px}
+.merk{display:flex;align-items:center;gap:10px;font-weight:600;flex:none}
+.merk img{height:36px;width:auto}
+.nav{display:flex;gap:22px;align-self:stretch}
+.nav button{font-size:15px;color:var(--mute);border-bottom:2px solid transparent;padding-top:2px}
+.nav button:hover{color:var(--ink)}
+.nav button.aan{color:var(--ink);font-weight:600;border-color:var(--ink)}
+.nav .tel{display:inline-block;margin-left:5px;background:var(--geel);color:var(--ink);font-size:12px;font-weight:600;border-radius:4px;padding:0 6px}
 .nav .tel:empty{display:none}
-.rechts{margin-left:auto;display:flex;align-items:center;gap:14px}
-.schak{display:flex;align-items:center;gap:10px;font:700 14px/1.2 'Outfit';cursor:pointer;user-select:none}
-.schak input{position:absolute;opacity:0;pointer-events:none}
-.schak .sw{width:46px;height:27px;border-radius:999px;background:rgba(255,255,255,.25);position:relative;transition:background .25s;flex:none}
-.schak .sw::after{content:"";position:absolute;left:3px;top:3px;width:21px;height:21px;border-radius:50%;background:#fff;transition:transform .3s var(--ease);box-shadow:0 2px 6px rgba(0,0,0,.25)}
-.schak input:checked+.sw{background:var(--gr2)}
-.schak input:checked+.sw::after{transform:translateX(19px)}
-.schak input:focus-visible+.sw{outline:3px solid var(--geel);outline-offset:2px}
-.zie{display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;padding:10px 16px;font:700 14px/1 'Outfit';transition:background .25s}
-.zie:hover{background:rgba(255,255,255,.1)}
-.zie svg{width:15px;height:15px}
-
-.dichtbalk{display:none;background:var(--rood);color:#fff;text-align:center;font:600 14.5px/1.4 'Outfit';padding:10px 16px}
+.rechts{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:14px}
+.rechts a{color:var(--mute)}
+.open{display:flex;align-items:center;gap:8px;cursor:pointer}
+.open input{width:18px;height:18px;accent-color:var(--gr)}
+.dichtbalk{display:none;background:var(--rood);color:#fff;text-align:center;font-size:14px;padding:8px 16px}
 body.is-dicht .dichtbalk{display:block}
 
-.view{display:none;padding:26px 0 80px}
+.view{display:none;padding:22px 0 70px}
 .view.aan{display:block}
+.vk{display:flex;align-items:flex-end;justify-content:space-between;gap:12px 20px;flex-wrap:wrap;margin-bottom:16px}
+.vk h1{font-size:22px;font-weight:600}
+.vk p{color:var(--mute);font-size:14.5px;margin-top:2px}
+.dagkeus{display:flex;border:1px solid var(--lijn);border-radius:6px;overflow:hidden;background:#fff}
+.dagkeus button{padding:7px 14px;font-size:14px;border-left:1px solid var(--lijn)}
+.dagkeus button:first-child{border-left:0}
+.dagkeus button.aan{background:var(--ink);color:#fff}
 
-/* kop van een scherm */
-.vk{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:20px}
-.vk h1{font-size:clamp(30px,3vw,40px)}
-.vk p{color:var(--mute);margin-top:4px}
-.dagkeus{display:flex;gap:6px;flex-wrap:wrap}
-.dagkeus button{background:#fff;border:1px solid var(--lijn);border-radius:14px;padding:9px 14px;text-align:left;transition:border-color .2s}
-.dagkeus button b{display:block;font:800 14.5px/1.2 'Outfit'}
-.dagkeus button small{display:block;color:var(--mute);font-size:12.5px}
-.dagkeus button.aan{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
-.kort{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
-.kort div{background:#fff;border:1px solid var(--lijn);border-radius:16px;padding:10px 16px;font:600 14px/1.3 'Outfit';color:var(--mute)}
-.kort b{color:var(--ink);font:800 17px/1.2 'Outfit';margin-right:4px}
-
-/* bord */
-.bord{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:start}
-.kol{background:rgba(255,255,255,.45);border:1px solid var(--lijn);border-radius:22px;padding:12px;min-height:220px}
-.kol h2{display:flex;align-items:center;justify-content:space-between;font:800 13px/1 'Outfit';letter-spacing:.12em;text-transform:uppercase;padding:6px 6px 14px;color:var(--mute)}
-.kol h2 span{display:flex;align-items:center;gap:8px}
-.kol h2 i{width:10px;height:10px;border-radius:50%}
-.kol h2 em{font-style:normal;background:#fff;border:1px solid var(--lijn);border-radius:999px;padding:5px 10px;color:var(--ink);letter-spacing:0}
-.kol .leeg{color:var(--mute);font-size:14px;text-align:center;padding:30px 10px;border:1.5px dashed var(--lijn);border-radius:16px}
-.kaart{background:#fff;border:1px solid var(--lijn);border-radius:18px;padding:14px 15px;margin-bottom:10px;box-shadow:0 10px 24px -20px rgba(43,26,18,.6);position:relative;transition:box-shadow .3s}
-.kaart.vers{box-shadow:0 0 0 3px var(--geel),0 14px 30px -18px rgba(43,26,18,.6);animation:pop .6s var(--ease)}
-@keyframes pop{from{transform:scale(.96);opacity:.4}to{transform:none;opacity:1}}
-.kaart .r1{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
-.kaart .uur{font:400 26px/1 'Lilita One'}
-.kaart .nr{font:700 13px/1 'Outfit';color:var(--mute)}
-.kaart .wie{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px;font:700 15.5px/1.3 'Outfit'}
-.kaart .wie a{display:inline-flex;align-items:center;gap:5px;font:600 13px/1 'Outfit';color:var(--gr3);background:rgba(47,143,58,.1);border-radius:999px;padding:6px 10px;flex:none}
-.kaart .wie a svg{width:13px;height:13px}
-.kaart ul{list-style:none;margin-top:10px;padding-top:10px;border-top:1px dashed var(--lijn);font-size:14.5px}
-.kaart li{display:flex;gap:8px;padding:2px 0}
-.kaart li b{min-width:24px;font-weight:800}
-.kaart li small{color:var(--mute)}
-.kaart .noot{margin-top:10px;background:rgba(247,184,28,.2);border-radius:10px;padding:8px 10px;font:600 13.5px/1.35 'Outfit'}
-.kaart .r3{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:12px}
-.kaart .tot{font:800 16px/1 'Outfit'}
-.bet{font:700 12px/1 'Outfit';border-radius:999px;padding:6px 9px;white-space:nowrap}
-.bet.ok{background:rgba(47,143,58,.12);color:var(--gr3)}
-.bet.nog{background:rgba(226,70,44,.1);color:#B63A22}
-.verzet{margin-top:12px;display:flex;gap:6px}
-.verzet .vol{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:12px;padding:12px 10px;font:800 14.5px/1 'Outfit';color:#fff;transition:filter .2s,transform .2s}
-.verzet .vol:hover{filter:brightness(1.08)}
-.verzet .vol:active{transform:scale(.98)}
-.verzet .vol svg{width:16px;height:16px}
-.verzet .tr{width:42px;border-radius:12px;border:1px solid var(--lijn);display:grid;place-items:center;color:var(--mute)}
-.verzet .tr svg{width:16px;height:16px}
-.verzet .tr:hover{border-color:var(--ink);color:var(--ink)}
-.c-nieuw{background:var(--geel)}
-.c-keuken{background:var(--rood)}
-.c-klaar{background:var(--gr)}
-.c-weg{background:#9C8C7C}
-.vol.c-nieuw{color:var(--ink)}
-.vers-lbl{position:absolute;right:12px;top:-9px;background:var(--geel);color:var(--ink);font:800 11px/1 'Outfit';letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:5px 9px}
-.kol.opgehaald .kaart{opacity:.7}
+.bord{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:start}
+.kol h2{font-size:14px;font-weight:600;padding:0 2px 8px;margin-bottom:8px;border-bottom:2px solid var(--lijn);display:flex;justify-content:space-between}
+.kol h2 span{color:var(--mute);font-weight:400}
+.kol.nieuw h2{border-color:var(--geel)}
+.kol.keuken h2{border-color:var(--rood)}
+.kol.klaar h2{border-color:var(--gr)}
+.kol .leeg{color:var(--mute);font-size:14px;padding:10px 2px}
+.kaart{background:#fff;border:1px solid var(--lijn);border-radius:6px;padding:12px 14px;margin-bottom:8px}
+.kaart.vers{border-left:4px solid var(--geel);padding-left:11px}
+.kaart .r1{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.kaart .uur{font-size:19px;font-weight:700}
+.kaart .nr{font-size:13px;color:var(--mute)}
+.kaart .vers-t{font-size:12.5px;color:#9a6c00;font-weight:600;margin-left:6px}
+.kaart .wie{font-weight:600;margin-top:2px}
+.kaart .wie a{font-weight:400;color:var(--mute);font-size:13.5px;margin-left:6px;text-decoration:none}
+.kaart .wie a:hover{text-decoration:underline}
+.kaart ul{list-style:none;margin-top:8px;font-size:14.5px}
+.kaart li{padding:1px 0}
+.kaart li small{color:var(--mute);font-size:13.5px}
+.kaart .noot{margin-top:6px;font-size:13.5px;background:#FBF3DC;padding:5px 8px;border-radius:4px}
+.kaart .r3{display:flex;justify-content:space-between;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid #EEE8DD;font-size:14px}
+.kaart .r3 b{font-weight:600}
+.kaart .ok{color:var(--gr-d)}
+.kaart .nog{color:var(--rood)}
+.verzet{display:flex;align-items:center;gap:12px;margin-top:10px}
+.verzet .vol{flex:1;background:var(--ink);color:#fff;border-radius:5px;padding:9px 10px;font-size:14px;font-weight:500}
+.verzet .vol:hover{background:#000}
+.verzet .tr{font-size:13.5px;color:var(--mute);text-decoration:underline;text-underline-offset:2px}
+.kol.opgehaald .kaart{background:transparent}
 .kol.opgehaald .kaart ul,.kol.opgehaald .kaart .noot{display:none}
 
-.segment{display:none;gap:6px;overflow-x:auto;margin-bottom:12px;scrollbar-width:none}
-.segment button{flex:none;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--lijn);border-radius:999px;padding:10px 14px;font:700 14px/1 'Outfit'}
-.segment button i{width:9px;height:9px;border-radius:50%}
-.segment button em{font-style:normal;color:var(--mute)}
-.segment button.aan{background:var(--ink);color:#fff;border-color:var(--ink)}
-.segment button.aan em{color:rgba(255,255,255,.7)}
+.segment{display:none;border:1px solid var(--lijn);border-radius:6px;overflow:hidden;background:#fff;margin-bottom:12px}
+.segment button{flex:1;padding:9px 4px;font-size:13.5px;border-left:1px solid var(--lijn)}
+.segment button:first-child{border-left:0}
+.segment button.aan{background:var(--ink);color:#fff}
 
-/* klaarzetten */
-.twee{display:grid;grid-template-columns:1fr 1.1fr;gap:16px;align-items:start}
-.paneel{background:#fff;border:1px solid var(--lijn);border-radius:22px;padding:20px 22px}
-.paneel h2{font:400 24px/1.1 'Lilita One';margin-bottom:4px}
-.paneel>p{color:var(--mute);font-size:14.5px;margin-bottom:14px}
-.prep{list-style:none}
-.prep li{display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--lijn)}
-.prep li>b{font:400 30px/1 'Lilita One';color:var(--gr);text-align:right}
-.prep .n{font:700 16px/1.3 'Outfit'}
-.prep .n small{display:block;font-weight:500;color:var(--mute);font-size:14px}
-.tijd{list-style:none}
-.tijd>li{display:grid;grid-template-columns:70px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--lijn)}
-.tijd .u{font:400 22px/1 'Lilita One';padding-top:3px}
-.tijd .b{display:flex;flex-direction:column;gap:6px}
-.tijd .b div{display:flex;justify-content:space-between;gap:10px;font-size:14.5px;background:var(--papier);border-radius:12px;padding:8px 12px}
-.tijd .b div b{font-weight:700}
-.tijd .b div span{color:var(--mute);text-align:right}
-.tijd .st{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:middle}
+.twee{display:grid;grid-template-columns:1fr 1.3fr;gap:20px;align-items:start}
+.paneel{background:#fff;border:1px solid var(--lijn);border-radius:6px;padding:16px 18px}
+.paneel h2{font-size:16px;font-weight:600;margin-bottom:2px}
+.paneel>p{color:var(--mute);font-size:14px;margin-bottom:10px}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{text-align:left;font-weight:500;color:var(--mute);font-size:13.5px;padding:6px 8px;border-bottom:1px solid var(--lijn)}
+td{padding:8px;border-bottom:1px solid #EEE8DD;vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.num{font-weight:700;font-size:16px;width:48px;text-align:right}
+td small{display:block;color:var(--mute);font-size:13.5px}
+td.uur{font-weight:600;white-space:nowrap;width:64px}
+.st{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px}
 
-/* menu */
-.mlijst{background:#fff;border:1px solid var(--lijn);border-radius:22px;overflow:hidden}
-.mrij{display:grid;grid-template-columns:64px minmax(0,1fr) 140px 190px;gap:16px;align-items:center;padding:12px 18px;border-top:1px solid var(--lijn)}
-.mrij:first-child{border-top:0}
-.mrij.kop{background:var(--papier);font:800 12px/1 'Outfit';letter-spacing:.12em;text-transform:uppercase;color:var(--mute);padding:14px 18px}
-.mrij img{width:64px;height:64px;border-radius:14px;object-fit:cover}
-.mrij .n{font:700 16px/1.3 'Outfit'}
-.mrij .n small{display:block;color:var(--mute);font-weight:500;font-size:13.5px}
-.prijsveld{display:flex;align-items:center;border:1px solid #d9cbb5;border-radius:12px;overflow:hidden;background:#fff;max-width:130px}
-.prijsveld span{padding:0 0 0 12px;color:var(--mute);font-weight:700}
-.prijsveld input{width:100%;border:0;padding:11px 12px 11px 6px;font:700 15.5px/1 'Outfit';background:none}
+.mlijst td{vertical-align:middle}
+.mlijst img{width:44px;height:44px;border-radius:4px;object-fit:cover}
+.mlijst tr.uit img{filter:grayscale(1);opacity:.6}
+.mlijst tr.uit .n{color:var(--mute)}
+.prijsveld{display:flex;align-items:center;border:1px solid var(--lijn);border-radius:5px;width:110px;background:#fff}
+.prijsveld span{padding-left:9px;color:var(--mute)}
+.prijsveld input{width:100%;border:0;padding:7px 8px 7px 5px;background:none}
 .prijsveld input:focus{outline:0}
-.prijsveld:focus-within{border-color:var(--gr);box-shadow:0 0 0 3px rgba(47,143,58,.18)}
-.mrij .schak{color:var(--ink)}
-.mrij .schak .sw{background:#e3d6c2}
-.mrij.uit img{filter:grayscale(1);opacity:.6}
-.mrij.uit .n{color:var(--mute)}
-.mrij .status{font:700 13.5px/1.2 'Outfit'}
+.prijsveld:focus-within{border-color:var(--ink)}
+.chk{display:flex;align-items:center;gap:8px;cursor:pointer;white-space:nowrap}
+.chk input{width:18px;height:18px;accent-color:var(--gr)}
 
-/* uren */
-.uren-g{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;align-items:start}
-.dagrij{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;padding:16px 0;border-top:1px solid var(--lijn)}
-.dagrij:first-of-type{border-top:0}
-.dagrij .naam{font:800 16px/1.2 'Outfit'}
-.dagrij .ctl{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center}
-.tveld{display:flex;align-items:center;gap:8px;font:600 14px/1 'Outfit';color:var(--mute)}
-.tveld input{border:1px solid #d9cbb5;border-radius:12px;padding:10px 12px;font:700 15px/1 'Outfit';background:#fff;color:var(--ink)}
-.dagrij.uit .tveld,.dagrij.uit .vk2{opacity:.4;pointer-events:none}
-.vk2{display:flex;align-items:center;gap:8px;font:600 14px/1.2 'Outfit';cursor:pointer}
-.vk2 input{width:18px;height:18px;accent-color:var(--gr)}
-.instel{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 0;border-top:1px solid var(--lijn)}
+.uren-g{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;align-items:start}
+.dagen td{vertical-align:middle}
+.dagen tr.uit .tijd,.dagen tr.uit .vb{opacity:.4;pointer-events:none}
+.tijd input{border:1px solid var(--lijn);border-radius:5px;padding:6px 8px;background:#fff}
+.instel{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:10px 0;border-top:1px solid #EEE8DD}
 .instel:first-of-type{border-top:0}
-.instel b{display:block;font:800 16px/1.3 'Outfit'}
-.instel small{display:block;color:var(--mute);font-size:14px}
-.stap{display:inline-flex;align-items:center;background:var(--papier);border:1px solid var(--lijn);border-radius:999px;padding:4px;flex:none}
-.stap button{width:34px;height:34px;border-radius:50%;font:700 19px/1 'Outfit'}
-.stap button:hover{background:rgba(47,143,58,.12)}
-.stap b{min-width:52px;text-align:center;font:800 15px/1 'Outfit'}
-.voorbeeld{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
-.voorbeeld span{background:var(--papier);border:1px solid var(--lijn);border-radius:10px;padding:7px 10px;font:700 13.5px/1 'Outfit'}
+.instel small{display:block;color:var(--mute);font-size:13.5px}
+.stap{display:inline-flex;align-items:center;border:1px solid var(--lijn);border-radius:5px;flex:none}
+.stap button{width:32px;height:32px;font-size:17px}
+.stap button:hover{background:#F3F0EA}
+.stap b{min-width:54px;text-align:center;font-weight:600}
+.voorbeeld{margin-top:6px;color:var(--mute);font-size:14px}
 
-.melding{position:fixed;right:20px;bottom:20px;z-index:90;background:var(--ink);color:#fff;border-radius:18px;padding:14px 18px;font:600 15px/1.35 'Outfit';box-shadow:0 18px 40px -16px rgba(0,0,0,.55);transform:translateY(160%);transition:transform .5s var(--ease);display:flex;gap:12px;align-items:center;max-width:min(420px,calc(100% - 28px))}
-.melding.aan{transform:none}
-.melding i{width:34px;height:34px;border-radius:50%;background:var(--geel);color:var(--ink);display:grid;place-items:center;flex:none;font-style:normal}
-.melding i svg{width:18px;height:18px}
-.melding b{display:block;font-weight:800}
+.melding{position:fixed;left:24px;bottom:20px;z-index:90;background:var(--ink);color:#fff;border-radius:6px;padding:11px 16px;font-size:14.5px;max-width:min(420px,calc(100% - 32px));display:none}
+.melding.aan{display:block}
+.melding b{font-weight:600}
 
-@media (max-width:1180px){
- .bord{grid-template-columns:repeat(2,minmax(0,1fr))}
- .nav button{padding:10px 13px}
- .zie span{display:none}
-}
-@media (max-width:900px){
- .top .wrap{flex-wrap:wrap;height:auto;padding-top:10px;padding-bottom:10px;gap:10px 14px}
- .merk img{height:40px}
- .merk b{font-size:18px}
- .nav{order:3;width:100%;margin:0;overflow-x:auto;scrollbar-width:none}
- .nav button{flex:1;justify-content:center;white-space:nowrap}
- .schak .lbl{display:none}
+@media (max-width:1150px){.bord{grid-template-columns:repeat(2,minmax(0,1fr))}.rechts a{display:none}}
+@media (max-width:860px){
+ .top .wrap{flex-wrap:wrap;height:auto;padding-top:10px;gap:8px 18px}
+ .nav{order:3;width:100%;overflow-x:auto;scrollbar-width:none;gap:20px}
+ .nav button{padding:8px 0;white-space:nowrap}
  .twee,.uren-g{grid-template-columns:1fr}
- .mrij{grid-template-columns:52px minmax(0,1fr) auto;gap:12px;padding:12px 14px}
- .mrij img{width:52px;height:52px}
- .mrij .pr-cel{grid-column:2}
- .mrij .sw-cel{grid-column:3;grid-row:1/3;align-self:center}
- .mrij.kop{display:none}
 }
-@media (max-width:700px){
+@media (max-width:640px){
+ .wrap{padding:0 14px}
  .segment{display:flex}
- .kort{display:grid;grid-template-columns:1fr 1fr;gap:8px}
- .kort div{padding:9px 12px;font-size:13px}
- .kort b{display:block;font-size:16px}
- .dagkeus button{padding:8px 11px}
  .bord{grid-template-columns:1fr}
- .kol{display:none;background:none;border:0;padding:0;min-height:0}
+ .kol{display:none}
  .kol.toon{display:block}
  .kol h2{display:none}
- .vk{align-items:flex-start}
- .dagrij{grid-template-columns:1fr;gap:10px}
- .melding{left:14px;right:14px;bottom:14px}
+ .mlijst .cat{display:none}
+ .dagen tr{display:grid;grid-template-columns:1fr;padding:8px 0;border-bottom:1px solid #EEE8DD}
+ .dagen td{border:0;padding:3px 0}
+ .melding{left:14px;right:14px}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
-<div class="demo">Voorbeeld van het beheer voor El Taco Loco, gemaakt door Digital Impression. Alles wat je hier aanpast, zie je meteen op <a href="../bestellen/" target="_blank" rel="noopener">de bestelpagina</a>.</div>
+<div class="demo">Voorbeeld van het beheer voor El Taco Loco door Digital Impression. Wat je hier aanpast, zie je meteen op <a href="../bestellen/" target="_blank" rel="noopener">de bestelpagina</a>.</div>
 
 <header class="top">
   <div class="wrap">
-    <div class="merk"><img src="../img/logo.webp" alt="" width="450" height="540"><span><b>El Taco Loco</b><small>BESTELLINGEN</small></span></div>
+    <div class="merk"><img src="../img/logo.webp" alt="" width="450" height="540">El Taco Loco</div>
     <nav class="nav" aria-label="Beheer">
-      <button type="button" class="aan" data-view="bestellingen">Bestellingen <span class="tel" id="tel-nieuw"></span></button>
+      <button type="button" class="aan" data-view="bestellingen">Bestellingen<span class="tel" id="tel-nieuw"></span></button>
       <button type="button" data-view="klaarzetten">Klaarzetten</button>
       <button type="button" data-view="menu">Menu</button>
       <button type="button" data-view="uren">Afhaaluren</button>
     </nav>
     <div class="rechts">
-      <label class="schak"><span class="lbl" id="open-lbl">Online bestellen open</span><input type="checkbox" id="open" checked><span class="sw" aria-hidden="true"></span></label>
-      <a class="zie" href="../bestellen/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span>Bestelpagina</span></a>
+      <label class="open"><input type="checkbox" id="open" checked><span id="open-lbl">Online bestellen open</span></label>
+      <a href="../bestellen/" target="_blank" rel="noopener">Bestelpagina bekijken</a>
     </div>
   </div>
 </header>
 <div class="dichtbalk">Online bestellen staat uit. Klanten zien op de bestelpagina dat ze even moeten bellen of WhatsAppen.</div>
 
 <main class="wrap">
-
 <section class="view aan" id="v-bestellingen">
-  <div class="vk">
-    <div><h1 class="dik" id="b-titel">Bestellingen</h1><p id="b-sub"></p></div>
-    <div class="dagkeus" id="dagkeus"></div>
-  </div>
-  <div class="kort" id="kort"></div>
+  <div class="vk"><div><h1 id="b-titel">Bestellingen</h1><p id="b-sub"></p></div><div class="dagkeus" id="dagkeus"></div></div>
   <div class="segment" id="segment"></div>
   <div class="bord" id="bord"></div>
 </section>
 
 <section class="view" id="v-klaarzetten">
-  <div class="vk"><div><h1 class="dik">Klaarzetten</h1><p id="k-sub"></p></div><div class="dagkeus" id="dagkeus2"></div></div>
+  <div class="vk"><div><h1>Klaarzetten</h1><p id="k-sub"></p></div><div class="dagkeus" id="dagkeus2"></div></div>
   <div class="twee">
-    <div class="paneel"><h2>Wat moet er gemaakt worden</h2><p>Alles wat nog niet afgehaald is, opgeteld.</p><ul class="prep" id="prep"></ul></div>
-    <div class="paneel"><h2>Per afhaaluur</h2><p>Zo zie je wat er wanneer klaar moet staan.</p><ul class="tijd" id="tijd"></ul></div>
+    <div class="paneel"><h2>Te maken</h2><p>Alles wat nog niet afgehaald is, opgeteld.</p><table><tbody id="prep"></tbody></table></div>
+    <div class="paneel"><h2>Per afhaaluur</h2><p>Wat er wanneer klaar moet staan.</p><table><tbody id="tijd"></tbody></table></div>
   </div>
 </section>
 
 <section class="view" id="v-menu">
-  <div class="vk"><div><h1 class="dik">Menu</h1><p>Zet iets op uitverkocht of pas een prijs aan. De bestelpagina past zich meteen aan.</p></div></div>
-  <div class="mlijst" id="mlijst"></div>
+  <div class="vk"><div><h1>Menu</h1><p>Zet iets op uitverkocht of pas een prijs aan. De bestelpagina past zich meteen aan.</p></div></div>
+  <div class="paneel" style="padding:6px 10px"><table class="mlijst"><thead><tr><th></th><th>Gerecht</th><th class="cat">Categorie</th><th>Prijs</th><th>Te koop</th></tr></thead><tbody id="mlijst"></tbody></table></div>
 </section>
 
 <section class="view" id="v-uren">
-  <div class="vk"><div><h1 class="dik">Afhaaluren</h1><p>Kies wanneer klanten kunnen afhalen en hoeveel bestellingen je per kwartier aankan.</p></div></div>
+  <div class="vk"><div><h1>Afhaaluren</h1><p>Wanneer klanten kunnen afhalen en hoeveel bestellingen je per kwartier aankan.</p></div></div>
   <div class="uren-g">
-    <div class="paneel"><h2>Dagen en uren</h2><p>Op de bestelpagina verschijnen enkel deze momenten.</p><div id="dagen"></div></div>
-    <div class="paneel"><h2>Drukte regelen</h2><p>Zo krijg je nooit meer bestellingen dan je kan maken.</p><div id="instel"></div></div>
+    <div class="paneel"><h2>Dagen en uren</h2><p>Enkel deze momenten verschijnen op de bestelpagina.</p><table class="dagen"><tbody id="dagen"></tbody></table></div>
+    <div class="paneel"><h2>Drukte</h2><p>Zo krijg je nooit meer dan je kan maken.</p><div id="instel"></div></div>
   </div>
 </section>
-
 </main>
 
-<div class="melding" id="melding" role="status" aria-live="polite"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg></i><span></span></div>
+<div class="melding" id="melding" role="status" aria-live="polite"></div>
 
 <script src="../bestellen/menu.js"></script>
 <script>
@@ -284,129 +206,114 @@ function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return
 E.zaai();
 var inst=E.instellingen();
 var STAT=[
-  {id:'nieuw',naam:'Nieuw',kl:'c-nieuw',knop:'Naar de keuken',kleur:'var(--geel)'},
-  {id:'keuken',naam:'In de keuken',kl:'c-keuken',knop:'Klaar om af te halen',kleur:'var(--rood)'},
-  {id:'klaar',naam:'Klaar',kl:'c-klaar',knop:'Is afgehaald',kleur:'var(--gr)'},
-  {id:'opgehaald',naam:'Afgehaald',kl:'c-weg',knop:'',kleur:'#9C8C7C'}
+  {id:'nieuw',naam:'Nieuw',knop:'Start in de keuken',kleur:'var(--geel)'},
+  {id:'keuken',naam:'In de keuken',knop:'Klaar om af te halen',kleur:'var(--rood)'},
+  {id:'klaar',naam:'Klaar',knop:'Afgehaald',kleur:'var(--gr)'},
+  {id:'opgehaald',naam:'Afgehaald',knop:'',kleur:'#A79C90'}
 ];
 function si(id){for(var i=0;i<STAT.length;i++)if(STAT[i].id===id)return i}
-var pijl='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
-var terug='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-3"/></svg>';
-var telIc='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>';
 
-/* dag kiezen */
-var dag=null, mobielStatus='nieuw';
-function dagenLijst(){
-  var s={};E.afhaalDagen(3).forEach(function(d){s[d]=1});E.bestellingen().forEach(function(b){if(b.dag>=E.iso(new Date()))s[b.dag]=1});
-  return Object.keys(s).sort().slice(0,4);
-}
+var dag=null,mobielStatus='nieuw';
+function dagenLijst(){var s={};E.afhaalDagen(3).forEach(function(d){s[d]=1});E.bestellingen().forEach(function(b){if(b.dag>=E.iso(new Date()))s[b.dag]=1});return Object.keys(s).sort().slice(0,4)}
 function tekenDagkeus(){
-  var l=dagenLijst(); if(!dag||l.indexOf(dag)<0)dag=l[0];
-  var h=l.map(function(d){var n=E.bestellingen().filter(function(b){return b.dag===d}).length;return '<button type="button" data-dag="'+d+'"'+(d===dag?' class="aan"':'')+'><b>'+E.dagLabel(d)+'</b><small>'+E.datumKort(d)+' · '+n+' bestelling'+(n===1?'':'en')+'</small></button>'}).join('');
+  var l=dagenLijst();if(!dag||l.indexOf(dag)<0)dag=l[0];
+  var h=l.map(function(d){return '<button type="button" data-dag="'+d+'"'+(d===dag?' class="aan"':'')+'>'+E.dagLabel(d)+'</button>'}).join('');
   $('#dagkeus').innerHTML=h;$('#dagkeus2').innerHTML=h;
 }
 document.addEventListener('click',function(e){var d=e.target.closest('[data-dag]');if(d){dag=d.dataset.dag;alles()}});
-
 function vanDag(){return E.bestellingen().filter(function(b){return b.dag===dag}).sort(function(a,b){return a.uur<b.uur?-1:a.uur>b.uur?1:a.nr-b.nr})}
+function hoofd(s){return s.charAt(0).toUpperCase()+s.slice(1)}
 
-/* bord */
 function kaart(b){
-  var i=si(b.status), s=STAT[i], vol=STAT[i+1];
-  return '<article class="kaart'+(b.nieuw?' vers':'')+'" data-nr="'+b.nr+'">'+(b.nieuw?'<span class="vers-lbl">Net binnen</span>':'')+
-   '<div class="r1"><span class="uur">'+b.uur.replace(':','u')+'</span><span class="nr">#'+b.nr+'</span></div>'+
-   '<div class="wie"><span>'+esc(b.naam)+'</span><a href="tel:'+esc(b.gsm.replace(/\s/g,''))+'">'+telIc+'Bel</a></div>'+
-   '<ul>'+b.lijnen.map(function(l){return '<li><b>'+l.qty+'×</b><span>'+esc(l.naam)+(l.optie?' <small>'+esc(l.optie)+'</small>':'')+'</span></li>'}).join('')+'</ul>'+
+  var i=si(b.status),s=STAT[i],vol=STAT[i+1];
+  return '<article class="kaart'+(b.nieuw?' vers':'')+'" data-nr="'+b.nr+'">'+
+   '<div class="r1"><span class="uur">'+b.uur.replace(':','u')+(b.nieuw?'<span class="vers-t">net binnen</span>':'')+'</span><span class="nr">'+b.nr+'</span></div>'+
+   '<div class="wie">'+esc(b.naam)+'<a href="tel:'+esc(b.gsm.replace(/\s/g,''))+'">'+esc(b.gsm)+'</a></div>'+
+   '<ul>'+b.lijnen.map(function(l){return '<li>'+l.qty+' × '+esc(l.naam)+(l.optie?' <small>'+esc(l.optie).toLowerCase()+'</small>':'')+'</li>'}).join('')+'</ul>'+
    (b.notitie?'<div class="noot">'+esc(b.notitie)+'</div>':'')+
-   '<div class="r3"><span class="tot">'+E.euro(b.totaal)+'</span><span class="bet '+(b.betaling==='online'?'ok">Online betaald':'nog">Betaalt bij afhalen')+'</span></div>'+
-   '<div class="verzet">'+(vol?'<button type="button" class="vol '+vol.kl+'" data-zet="'+vol.id+'">'+s.knop+pijl+'</button>':'')+(i>0?'<button type="button" class="tr" data-zet="'+STAT[i-1].id+'" aria-label="Terug naar '+STAT[i-1].naam+'" title="Terug naar '+STAT[i-1].naam+'">'+terug+'</button>':'')+'</div></article>';
+   '<div class="r3"><b>'+E.euro(b.totaal)+'</b>'+(b.betaling==='online'?'<span class="ok">betaald</span>':'<span class="nog">betaalt bij afhalen</span>')+'</div>'+
+   (vol||i>0?'<div class="verzet">'+(vol?'<button type="button" class="vol" data-zet="'+vol.id+'">'+s.knop+'</button>':'')+(i>0?'<button type="button" class="tr" data-zet="'+STAT[i-1].id+'">terug</button>':'')+'</div>':'')+'</article>';
 }
 function tekenBord(){
-  var l=vanDag(), tot=0, open=0, nogBet=0;
+  var l=vanDag(),tot=0,open=0,nogBet=0;
   l.forEach(function(b){tot+=b.totaal;if(b.status!=='opgehaald')open++;if(b.betaling!=='online'&&b.status!=='opgehaald')nogBet+=b.totaal});
-  $('#b-titel').textContent='Bestellingen '+E.dagLabel(dag).toLowerCase();
-  $('#b-sub').textContent=E.datumLang(dag).charAt(0).toUpperCase()+E.datumLang(dag).slice(1)+', afhalen in Aarschot';
-  $('#kort').innerHTML='<div><b>'+l.length+'</b>bestellingen</div><div><b>'+open+'</b>nog af te halen</div><div><b>'+E.euro(tot)+'</b>totaal</div><div><b>'+E.euro(nogBet)+'</b>nog te ontvangen bij afhalen</div>';
-  $('#segment').innerHTML=STAT.map(function(s){var n=l.filter(function(b){return b.status===s.id}).length;return '<button type="button" data-seg="'+s.id+'"'+(s.id===mobielStatus?' class="aan"':'')+'><i style="background:'+s.kleur+'"></i>'+s.naam+' <em>'+n+'</em></button>'}).join('');
+  $('#b-titel').textContent=hoofd(E.datumLang(dag));
+  $('#b-sub').textContent=l.length+' bestelling'+(l.length===1?'':'en')+', samen '+E.euro(tot)+'. Nog '+open+' af te halen'+(nogBet?', waarvan '+E.euro(nogBet)+' nog te betalen bij afhalen.':'.');
+  $('#segment').innerHTML=STAT.map(function(s){var n=l.filter(function(b){return b.status===s.id}).length;return '<button type="button" data-seg="'+s.id+'"'+(s.id===mobielStatus?' class="aan"':'')+'>'+s.naam+' ('+n+')</button>'}).join('');
   $('#bord').innerHTML=STAT.map(function(s){var k=l.filter(function(b){return b.status===s.id});
-    return '<section class="kol '+s.id+(s.id===mobielStatus?' toon':'')+'"><h2><span><i style="background:'+s.kleur+'"></i>'+s.naam+'</span><em>'+k.length+'</em></h2>'+(k.length?k.map(kaart).join(''):'<p class="leeg">'+(s.id==='nieuw'?'Geen nieuwe bestellingen':'Nog niets')+'</p>')+'</section>'}).join('');
-  var nieuw=E.bestellingen().filter(function(b){return b.status==='nieuw'&&b.dag===dag}).length;
-  $('#tel-nieuw').textContent=nieuw||'';
+    return '<section class="kol '+s.id+(s.id===mobielStatus?' toon':'')+'"><h2>'+s.naam+' <span>'+k.length+'</span></h2>'+(k.length?k.map(kaart).join(''):'<p class="leeg">Niets</p>')+'</section>'}).join('');
+  $('#tel-nieuw').textContent=l.filter(function(b){return b.status==='nieuw'}).length||'';
 }
 $('#bord').addEventListener('click',function(e){
   var z=e.target.closest('[data-zet]');if(!z)return;
-  var nr=+z.closest('[data-nr]').dataset.nr, all=E.bestellingen();
+  var nr=+z.closest('[data-nr]').dataset.nr,all=E.bestellingen();
   all.forEach(function(b){if(b.nr===nr){b.status=z.dataset.zet;b.nieuw=false}});
-  E.bewaarBestellingen(all);
-  if(innerWidth<=700)mobielStatus=z.dataset.zet;
-  tekenDagkeus();tekenBord();
+  E.bewaarBestellingen(all);tekenBord();
 });
 $('#segment').addEventListener('click',function(e){var s=e.target.closest('[data-seg]');if(s){mobielStatus=s.dataset.seg;tekenBord()}});
 
-/* klaarzetten */
 function tekenPrep(){
-  var l=vanDag().filter(function(b){return b.status!=='opgehaald'}), sam={}, volg=[];
+  var l=vanDag().filter(function(b){return b.status!=='opgehaald'}),sam={},volg=[];
   l.forEach(function(b){b.lijnen.forEach(function(x){if(!sam[x.id]){sam[x.id]={naam:x.naam,n:0,opt:{}};volg.push(x.id)}sam[x.id].n+=x.qty;if(x.optie)sam[x.id].opt[x.optie]=(sam[x.id].opt[x.optie]||0)+x.qty})});
   volg.sort(function(a,b){return E.menu.indexOf(E.item(a))-E.menu.indexOf(E.item(b))});
-  $('#k-sub').textContent=E.dagLabel(dag)+', '+E.datumLang(dag)+'. '+l.length+' bestelling'+(l.length===1?'':'en')+' nog af te halen.';
-  $('#prep').innerHTML=volg.length?volg.map(function(id){var s=sam[id],o=Object.keys(s.opt);return '<li><b>'+s.n+'</b><span class="n">'+esc(s.naam)+(o.length?'<small>'+o.map(function(k){return s.opt[k]+' '+esc(k)}).join(', ')+'</small>':'')+'</span></li>'}).join(''):'<li style="display:block;color:var(--mute)">Niets meer te maken voor deze dag.</li>';
-  var per={};l.forEach(function(b){(per[b.uur]=per[b.uur]||[]).push(b)});
-  $('#tijd').innerHTML=Object.keys(per).sort().map(function(u){return '<li><span class="u">'+u.replace(':','u')+'</span><div class="b">'+per[u].map(function(b){var s=STAT[si(b.status)];return '<div><b><i class="st" style="background:'+s.kleur+'"></i>#'+b.nr+' '+esc(b.naam)+'</b><span>'+b.lijnen.map(function(x){return x.qty+'× '+esc(x.naam)+(x.optie?' '+esc(x.optie).toLowerCase():'')}).join(', ')+'</span></div>'}).join('')+'</div></li>'}).join('')||'<li style="display:block;color:var(--mute)">Geen openstaande bestellingen.</li>';
+  $('#k-sub').textContent=hoofd(E.datumLang(dag))+', '+l.length+' bestelling'+(l.length===1?'':'en')+' nog af te halen.';
+  $('#prep').innerHTML=volg.length?volg.map(function(id){var s=sam[id],o=Object.keys(s.opt);return '<tr><td class="num">'+s.n+'</td><td>'+esc(s.naam)+(o.length?'<small>'+o.map(function(k){return s.opt[k]+' '+esc(k).toLowerCase()}).join(', ')+'</small>':'')+'</td></tr>'}).join(''):'<tr><td>Niets meer te maken.</td></tr>';
+  $('#tijd').innerHTML=l.map(function(b){var s=STAT[si(b.status)];return '<tr><td class="uur">'+b.uur.replace(':','u')+'</td><td><span class="st" style="background:'+s.kleur+'" title="'+s.naam+'"></span>'+esc(b.naam)+' <small>'+b.lijnen.map(function(x){return x.qty+' × '+esc(x.naam)+(x.optie?' '+esc(x.optie).toLowerCase():'')}).join(', ')+'</small></td></tr>'}).join('')||'<tr><td>Geen openstaande bestellingen.</td></tr>';
 }
 
-/* menu */
 var catNaam={};E.categorieen.forEach(function(c){catNaam[c.id]=c.naam});
 function tekenMenu(){
   var st=E.menuStatus();
-  $('#mlijst').innerHTML='<div class="mrij kop"><span></span><span>Gerecht</span><span>Prijs</span><span>Beschikbaar</span></div>'+E.menu.map(function(m){var uit=st[m.id]&&st[m.id].uit;
-   return '<div class="mrij'+(uit?' uit':'')+'" data-id="'+m.id+'"><img src="'+m.foto+'" alt=""><span class="n">'+m.naam+'<small>'+catNaam[m.cat]+(m.keuze?' · '+m.keuze.opties.length+' keuzes':'')+'</small></span>'+
-   '<span class="pr-cel"><label class="prijsveld"><span>€</span><input inputmode="decimal" aria-label="Prijs van '+esc(m.naam)+'" value="'+E.prijs(m).toFixed(2).replace('.',',')+'"></label></span>'+
-   '<span class="sw-cel"><label class="schak"><input type="checkbox"'+(uit?'':' checked')+' aria-label="'+esc(m.naam)+' beschikbaar"><span class="sw" aria-hidden="true"></span><span class="status">'+(uit?'Uitverkocht':'Te koop')+'</span></label></span></div>'}).join('');
+  $('#mlijst').innerHTML=E.menu.map(function(m){var uit=st[m.id]&&st[m.id].uit;
+   return '<tr data-id="'+m.id+'"'+(uit?' class="uit"':'')+'><td style="width:56px"><img src="'+m.foto+'" alt=""></td><td class="n">'+m.naam+(m.keuze?'<small>'+m.keuze.opties.length+' keuzes</small>':'')+'</td><td class="cat" style="color:var(--mute)">'+catNaam[m.cat]+'</td>'+
+   '<td style="width:130px"><label class="prijsveld"><span>€</span><input inputmode="decimal" aria-label="Prijs van '+esc(m.naam)+'" value="'+E.prijs(m).toFixed(2).replace('.',',')+'"></label></td>'+
+   '<td style="width:150px"><label class="chk"><input type="checkbox"'+(uit?'':' checked')+'><span class="status">'+(uit?'Uitverkocht':'Te koop')+'</span></label></td></tr>'}).join('');
 }
 $('#mlijst').addEventListener('change',function(e){
   var r=e.target.closest('[data-id]');if(!r)return;var id=r.dataset.id,st=E.menuStatus(),m=E.item(id);st[id]=st[id]||{};
-  if(e.target.type==='checkbox'){st[id].uit=!e.target.checked;r.classList.toggle('uit',st[id].uit);$('.status',r).textContent=st[id].uit?'Uitverkocht':'Te koop';meld(m.naam+(st[id].uit?' staat nu op uitverkocht':' is weer te koop'),'Klanten zien het meteen.')}
-  else{var v=parseFloat(e.target.value.replace(',','.'));if(isNaN(v)||v<0){e.target.value=E.prijs(m).toFixed(2).replace('.',',');return}st[id].prijs=Math.round(v*100)/100;e.target.value=st[id].prijs.toFixed(2).replace('.',',');meld('Nieuwe prijs voor '+m.naam,E.euro(st[id].prijs)+' staat nu online.')}
+  if(e.target.type==='checkbox'){st[id].uit=!e.target.checked;r.classList.toggle('uit',st[id].uit);$('.status',r).textContent=st[id].uit?'Uitverkocht':'Te koop';meld(m.naam+(st[id].uit?' staat op uitverkocht.':' is weer te koop.'))}
+  else{var v=parseFloat(e.target.value.replace(',','.'));if(isNaN(v)||v<0){e.target.value=E.prijs(m).toFixed(2).replace('.',',');return}st[id].prijs=Math.round(v*100)/100;e.target.value=st[id].prijs.toFixed(2).replace('.',',');meld('Prijs van '+m.naam+' is nu '+E.euro(st[id].prijs)+'.')}
   E.bewaarMenuStatus(st);
 });
 
-/* uren */
 var DAGEN=[[5,'Vrijdag'],[6,'Zaterdag'],[0,'Zondag'],[1,'Maandag'],[2,'Dinsdag'],[3,'Woensdag'],[4,'Donderdag']];
 function tekenUren(){
   inst=E.instellingen();
   $('#dagen').innerHTML=DAGEN.map(function(d){var x=inst.dagen[d[0]]||{open:false,van:'17:00',tot:'20:00'};
-   return '<div class="dagrij'+(x.open?'':' uit')+'" data-d="'+d[0]+'"><label class="schak naam"><input type="checkbox" data-k="open"'+(x.open?' checked':'')+'><span class="sw" aria-hidden="true" style="background:'+(x.open?'':'#e3d6c2')+'"></span>'+d[1]+'</label>'+
-   '<div class="ctl"><label class="tveld">van <input type="time" step="900" data-k="van" value="'+x.van+'"></label><label class="tveld">tot <input type="time" step="900" data-k="tot" value="'+x.tot+'"></label><label class="vk2"><input type="checkbox" data-k="enkelVooraf"'+(x.enkelVooraf?' checked':'')+'>Enkel voorbestellen</label></div></div>'}).join('');
+   return '<tr data-d="'+d[0]+'"'+(x.open?'':' class="uit"')+'><td style="width:140px"><label class="chk"><input type="checkbox" data-k="open"'+(x.open?' checked':'')+'>'+d[1]+'</label></td>'+
+   '<td class="tijd"><input type="time" step="900" data-k="van" value="'+x.van+'" aria-label="'+d[1]+' van"> tot <input type="time" step="900" data-k="tot" value="'+x.tot+'" aria-label="'+d[1]+' tot"></td>'+
+   '<td class="vb"><label class="chk"><input type="checkbox" data-k="enkelVooraf"'+(x.enkelVooraf?' checked':'')+'>Enkel voorbestellen</label></td></tr>'}).join('');
+  var eerste=E.afhaalDagen(1)[0];
   $('#instel').innerHTML=
-   '<div class="instel"><span><b>Bestellingen per kwartier</b><small>Is een kwartier vol, dan kiest de klant een ander uur.</small></span><span class="stap"><button type="button" data-i="perKwartier" data-s="-1" aria-label="Minder">−</button><b>'+inst.perKwartier+'</b><button type="button" data-i="perKwartier" data-s="1" aria-label="Meer">+</button></span></div>'+
-   '<div class="instel"><span><b>Minstens op voorhand</b><small>Hoe lang je nodig hebt om een bestelling klaar te maken.</small></span><span class="stap"><button type="button" data-i="voorloop" data-s="-15" aria-label="Minder">−</button><b>'+inst.voorloop+' min</b><button type="button" data-i="voorloop" data-s="15" aria-label="Meer">+</button></span></div>'+
-   '<div class="instel" style="display:block"><b>Zo ziet de klant het nu</b><small>Eerstvolgende afhaalmomenten op '+E.dagLabel(E.afhaalDagen(1)[0]||E.iso(new Date())).toLowerCase()+'</small><div class="voorbeeld">'+(E.afhaalDagen(1).length?E.slots(E.afhaalDagen(1)[0]).filter(function(s){return !s.voorbij}).slice(0,8).map(function(s){return '<span style="'+(s.vol?'color:#b5a690;text-decoration:line-through':'')+'">'+s.uur.replace(':','u')+'</span>'}).join(''):'<span>Geen afhaalmomenten open</span>')+'</div></div>';
+   '<div class="instel"><span>Bestellingen per kwartier<small>Is een kwartier vol, dan kiest de klant een ander uur.</small></span><span class="stap"><button type="button" data-i="perKwartier" data-s="-1" aria-label="Minder">−</button><b>'+inst.perKwartier+'</b><button type="button" data-i="perKwartier" data-s="1" aria-label="Meer">+</button></span></div>'+
+   '<div class="instel"><span>Minstens op voorhand<small>Hoe lang je nodig hebt voor een bestelling.</small></span><span class="stap"><button type="button" data-i="voorloop" data-s="-15" aria-label="Minder">−</button><b>'+inst.voorloop+' min</b><button type="button" data-i="voorloop" data-s="15" aria-label="Meer">+</button></span></div>'+
+   '<div class="instel" style="display:block">Eerstvolgende uren voor klanten<p class="voorbeeld">'+(eerste?E.dagLabel(eerste)+': '+E.slots(eerste).filter(function(s){return !s.voorbij&&!s.vol}).slice(0,8).map(function(s){return s.uur.replace(':','u')}).join(', '):'Geen afhaalmomenten open')+'</p></div>';
 }
 $('#dagen').addEventListener('change',function(e){
   var r=e.target.closest('[data-d]');if(!r)return;var d=r.dataset.d,k=e.target.dataset.k;inst=E.instellingen();inst.dagen[d]=inst.dagen[d]||{open:false,van:'17:00',tot:'20:00'};
-  inst.dagen[d][k]=e.target.type==='checkbox'?e.target.checked:e.target.value;E.bewaarInstellingen(inst);tekenUren();meld('Afhaaluren bewaard','De bestelpagina toont de nieuwe uren.');
+  inst.dagen[d][k]=e.target.type==='checkbox'?e.target.checked:e.target.value;E.bewaarInstellingen(inst);tekenUren();meld('Afhaaluren bewaard.');
 });
 $('#instel').addEventListener('click',function(e){var b=e.target.closest('[data-i]');if(!b)return;inst=E.instellingen();var k=b.dataset.i,v=inst[k]+ +b.dataset.s;inst[k]=k==='perKwartier'?Math.min(12,Math.max(1,v)):Math.min(180,Math.max(0,v));E.bewaarInstellingen(inst);tekenUren()});
 
-/* open of dicht */
-var sw=$('#open');sw.checked=inst.open!==false;document.body.classList.toggle('is-dicht',!sw.checked);$('#open-lbl').textContent=sw.checked?'Online bestellen open':'Online bestellen dicht';
-sw.addEventListener('change',function(){inst=E.instellingen();inst.open=sw.checked;E.bewaarInstellingen(inst);document.body.classList.toggle('is-dicht',!sw.checked);$('#open-lbl').textContent=sw.checked?'Online bestellen open':'Online bestellen dicht';meld(sw.checked?'Online bestellen staat weer open':'Online bestellen staat even uit',sw.checked?'Klanten kunnen weer bestellen.':'Handig als het te druk wordt.')});
+var sw=$('#open');
+function zetOpen(){document.body.classList.toggle('is-dicht',!sw.checked);$('#open-lbl').textContent=sw.checked?'Online bestellen open':'Online bestellen dicht'}
+sw.checked=inst.open!==false;zetOpen();
+sw.addEventListener('change',function(){inst=E.instellingen();inst.open=sw.checked;E.bewaarInstellingen(inst);zetOpen()});
 
-/* schermen */
 var view='bestellingen';
 $$('.nav button').forEach(function(b){b.addEventListener('click',function(){view=b.dataset.view;$$('.nav button').forEach(function(x){x.classList.toggle('aan',x===b)});$$('.view').forEach(function(v){v.classList.toggle('aan',v.id==='v-'+view)});alles();scrollTo(0,0)})});
-function alles(){tekenDagkeus();if(view==='bestellingen')tekenBord();if(view==='klaarzetten')tekenPrep();if(view==='menu')tekenMenu();if(view==='uren')tekenUren();if(view!=='bestellingen'){var n=E.bestellingen().filter(function(b){return b.status==='nieuw'&&b.dag===dag}).length;$('#tel-nieuw').textContent=n||''}}
+function alles(){tekenDagkeus();if(view==='bestellingen')tekenBord();else $('#tel-nieuw').textContent=vanDag().filter(function(b){return b.status==='nieuw'}).length||'';if(view==='klaarzetten')tekenPrep();if(view==='menu')tekenMenu();if(view==='uren')tekenUren()}
 
-var mt;function meld(t,s){var m=$('#melding');$('span',m).innerHTML='<b>'+esc(t)+'</b>'+(s?esc(s):'');m.classList.add('aan');clearTimeout(mt);mt=setTimeout(function(){m.classList.remove('aan')},3200)}
+var mt;function meld(t){var m=$('#melding');m.innerHTML=t;m.classList.add('aan');clearTimeout(mt);mt=setTimeout(function(){m.classList.remove('aan')},3000)}
 
-/* nieuwe bestellingen van de bestelpagina */
 var gekend={};E.bestellingen().forEach(function(b){gekend[b.nr]=1});
-function check(){var nw=E.bestellingen().filter(function(b){return !gekend[b.nr]});if(!nw.length)return;nw.forEach(function(b){gekend[b.nr]=1});var b=nw[nw.length-1];dag=b.dag;mobielStatus='nieuw';alles();meld('Nieuwe bestelling #'+b.nr+' van '+b.naam,E.dagLabel(b.dag)+' om '+b.uur.replace(':','u')+', '+E.euro(b.totaal))}
+function nieuwMeld(b){meld('<b>Nieuwe bestelling van '+esc(b.naam)+'</b>, '+E.dagLabel(b.dag).toLowerCase()+' om '+b.uur.replace(':','u')+' ('+E.euro(b.totaal)+')')}
+function check(){var nw=E.bestellingen().filter(function(b){return !gekend[b.nr]});if(!nw.length)return;nw.forEach(function(b){gekend[b.nr]=1});var b=nw[nw.length-1];dag=b.dag;mobielStatus='nieuw';alles();nieuwMeld(b)}
 addEventListener('storage',function(e){if(e.key==='etl_orders')check();if(e.key==='etl_menu'&&view==='menu')tekenMenu()});
 setInterval(check,4000);
-var verse=E.bestellingen().filter(function(b){return b.nieuw});if(verse.length){dag=verse[verse.length-1].dag}
-
+var verse=E.bestellingen().filter(function(b){return b.nieuw});if(verse.length)dag=verse[verse.length-1].dag;
 alles();
-if(verse.length){var b=verse[verse.length-1];setTimeout(function(){meld('Nieuwe bestelling #'+b.nr+' van '+b.naam,E.dagLabel(b.dag)+' om '+b.uur.replace(':','u')+', '+E.euro(b.totaal))},500)}
+if(verse.length)setTimeout(function(){nieuwMeld(verse[verse.length-1])},400);
 })();
 </script>
 </body>
