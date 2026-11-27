@@ -151,25 +151,46 @@ p{margin:0}
 .kop p{font-size:18px;max-width:27em;justify-self:end}
 .kop .label{margin-bottom:22px}
 
-.vormen{padding:clamp(100px,11vw,150px) 0;background:var(--kalk)}
-.vormen .label{color:var(--roest)}
-.vormen .kop p{color:var(--zacht)}
-.vormen h2 em{font-style:normal;color:var(--roest)}
-.vier{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.6vw,22px)}
-.vorm{margin:0}
-.vorm .ph{border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;background:var(--kalk2)}
-.vorm img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-.vorm:hover img{transform:scale(1.05)}
-.vorm figcaption{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px}
-.vorm h3{font-size:30px}
-.vorm span{font:700 13px/1 var(--tekst);color:var(--roest);letter-spacing:.1em}
-.keuzes{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.6vw,22px);margin-top:clamp(40px,5vw,60px);padding-top:30px;border-top:2px solid var(--inkt)}
-.keuzes h3{font-size:24px;margin-bottom:8px}
-.keuzes p{color:var(--zacht);font-size:15.5px}
-.stalen{display:flex;gap:8px;margin-top:12px}
-.stalen i{width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(30,26,23,.15)}
+.sig{background:var(--inkt);color:var(--kalk);padding:clamp(100px,11vw,150px) 0 clamp(90px,10vw,130px)}
+.sig-kop{display:grid;grid-template-columns:auto 1fr;gap:10px 60px;align-items:end;margin-bottom:clamp(36px,4vw,56px)}
+.sig-kop .label{grid-column:1/-1;color:var(--oker);margin-bottom:12px}
+.sig-kop h2{font-size:clamp(56px,8.4vw,136px)}
+.sig-kop h2 em{font-style:normal;color:var(--oker)}
+.sig-kop p{font-size:18px;color:rgba(241,236,227,.75);max-width:22em;justify-self:end;padding-bottom:10px}
+.sig-beeld{position:relative;padding-right:clamp(0px,9vw,140px)}
+.sig-beeld .groot{margin:0;border-radius:var(--r);overflow:hidden;aspect-ratio:16/8.6}
+.sig-beeld .groot img{width:100%;height:112%;object-fit:cover;object-position:50% 40%}
+.sig-beeld .klein{position:absolute;right:0;bottom:-70px;width:clamp(200px,24vw,330px);margin:0;background:var(--kalk);padding:10px 10px 0;border-radius:18px;box-shadow:0 30px 60px rgba(0,0,0,.35)}
+.sig-beeld .klein img{border-radius:12px;aspect-ratio:4/5;object-fit:cover;width:100%}
+.sig-beeld .klein figcaption{color:var(--inkt);font:700 13px/1 var(--tekst);padding:13px 4px 14px}
+.sig-rij{display:grid;grid-template-columns:1.25fr .85fr 1.1fr;gap:clamp(12px,1.5vw,20px);margin-top:clamp(28px,3vw,40px);padding-right:clamp(0px,24vw,360px)}
+.sig-rij figure{margin:0;border-radius:var(--r);overflow:hidden;height:clamp(170px,17vw,250px)}
+.sig-rij img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.sig-rij figure:hover img{transform:scale(1.04)}
 
-.stoot{background:var(--inkt);color:var(--kalk);padding:clamp(100px,11vw,150px) 0}
+.vormen{padding:clamp(100px,11vw,150px) 0;background:var(--kalk)}
+.vorm-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,96px);align-items:center}
+.vormen .label{color:var(--roest)}
+.vormen h2{font-size:clamp(48px,6vw,96px);margin:22px 0 22px}
+.vormen h2 em{font-style:normal;color:var(--roest)}
+.vorm-links>p{font-size:18px;color:var(--zacht);max-width:26em}
+.vorm-lijst{list-style:none;margin:34px 0 0;padding:0;border-top:2px solid var(--inkt)}
+.vorm-lijst button{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:flex;align-items:baseline;gap:20px;padding:16px 0;border-bottom:1px solid var(--kalk2);font:400 clamp(32px,3.4vw,50px)/1 var(--disp);text-transform:uppercase;color:rgba(30,26,23,.32);transition:color .3s,padding .5s var(--ease)}
+.vorm-lijst button span{font:700 13px/1 var(--tekst);letter-spacing:.1em;color:var(--roest);min-width:24px}
+.vorm-lijst button:hover{color:rgba(30,26,23,.7)}
+.vorm-lijst button[aria-selected=true]{color:var(--inkt);padding-left:14px}
+.vorm-lijst button:focus-visible{outline:2px solid var(--roest);outline-offset:4px}
+.vorm-beeld{margin:0;border-radius:var(--r);overflow:hidden;aspect-ratio:4/4.6;background:var(--kalk2)}
+.vorm-beeld img{width:100%;height:100%;object-fit:cover;transition:opacity .35s}
+.spec{display:grid;grid-template-columns:repeat(4,1fr);margin:clamp(50px,6vw,80px) 0 0;background:var(--inkt);color:var(--kalk);border-radius:var(--r);overflow:hidden}
+.spec div{padding:26px 28px;border-right:1px solid rgba(241,236,227,.12)}
+.spec div:last-child{border:0}
+.spec dt{font:400 24px/1 var(--disp);text-transform:uppercase;color:var(--oker);margin-bottom:10px}
+.spec dd{margin:0;font-size:15.5px;color:rgba(241,236,227,.8)}
+.stalen{display:flex;gap:6px;margin-bottom:10px}
+.stalen i{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(241,236,227,.3)}
+
+.stoot{background:var(--roest);color:var(--kalk);padding:clamp(100px,11vw,150px) 0}
 .stoot .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,96px);align-items:center}
 .stoot .label{color:var(--oker)}
 .stoot h2{font-size:clamp(48px,6vw,96px);margin:22px 0 26px}
@@ -180,7 +201,7 @@ p{margin:0}
 .punten li b{font:400 15px/1 var(--disp);color:var(--oker);letter-spacing:.06em;min-width:28px}
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;position:relative}
 .duo figure{margin:0;border-radius:var(--r);overflow:hidden;position:relative}
-.duo figure:first-child{aspect-ratio:3/4.4;margin-top:60px}
+.duo figure:first-child{aspect-ratio:3/4.6;margin-top:80px}
 .duo figure:last-child{aspect-ratio:3/4.4}
 .duo img{width:100%;height:100%;object-fit:cover}
 .duo figcaption{position:absolute;left:14px;bottom:14px;background:var(--kalk);color:var(--inkt);border-radius:999px;padding:9px 15px;font:700 13px/1 var(--tekst)}
@@ -195,15 +216,15 @@ p{margin:0}
 .w1{grid-column:span 4;grid-row:span 2}.w2{grid-column:span 2;grid-row:span 2}
 .w3{grid-column:span 2;grid-row:span 2}.w4{grid-column:span 2;grid-row:span 2}.w5{grid-column:span 2;grid-row:span 2}
 
-.stappen{background:var(--roest);color:var(--kalk);padding:clamp(100px,11vw,150px) 0}
-.stappen .label{color:var(--oker)}
-.stappen .kop p{color:rgba(241,236,227,.85)}
+.stappen{background:var(--kalk);color:var(--inkt);padding:clamp(100px,11vw,150px) 0}
+.stappen .label{color:var(--roest)}
+.stappen .kop p{color:var(--zacht)}
 .vijf{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(14px,1.8vw,26px);list-style:none;margin:0;padding:0;counter-reset:s}
-.vijf li{border-top:2px solid rgba(241,236,227,.4);padding-top:22px}
-.vijf li::before{counter-increment:s;content:"0" counter(s);display:block;font:400 56px/1 var(--disp);color:var(--oker);margin-bottom:18px}
+.vijf li{border-top:2px solid var(--inkt);padding-top:22px}
+.vijf li::before{counter-increment:s;content:"0" counter(s);display:block;font:400 56px/1 var(--disp);color:var(--roest);margin-bottom:18px}
 .vijf h3{font-size:26px;margin-bottom:10px}
-.vijf p{font-size:15.5px;color:rgba(241,236,227,.82)}
-.toonzaal{margin-top:clamp(56px,7vw,90px);display:grid;grid-template-columns:1fr 1fr;border-radius:28px;overflow:hidden;background:var(--inkt)}
+.vijf p{font-size:15.5px;color:var(--zacht)}
+.toonzaal{margin-top:clamp(56px,7vw,90px);display:grid;grid-template-columns:1fr 1fr;border-radius:28px;overflow:hidden;background:var(--inkt);color:var(--kalk)}
 .toonzaal .ph{min-height:380px}
 .toonzaal .ph img{width:100%;height:100%;object-fit:cover}
 .toonzaal .tx{padding:clamp(30px,4vw,60px);display:flex;flex-direction:column;justify-content:center}
@@ -212,11 +233,14 @@ p{margin:0}
 .toonzaal p{color:rgba(241,236,227,.78);font-size:17px;max-width:26em}
 .toonzaal .adr{margin:22px 0 28px;font-weight:700;color:var(--kalk)}
 
-.reviews{background:var(--kalk);padding:clamp(100px,11vw,150px) 0}
+.reviews{background:var(--kalk2);padding:clamp(100px,11vw,150px) 0}
 .reviews .label{color:var(--roest)}
 .reviews .kop p{color:var(--zacht)}
 .reviews .kop p b{display:block;font:400 56px/1 var(--disp);color:var(--inkt);margin-bottom:6px}
-.drie{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,22px)}
+.drie{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(14px,1.6vw,22px)}
+.drie figure:first-child{grid-row:span 2;background:var(--roest);color:var(--kalk);padding:clamp(32px,4vw,56px)}
+.drie figure:first-child blockquote{font:400 clamp(30px,3vw,46px)/1.08 var(--disp);text-transform:uppercase}
+.drie figure:first-child .st{color:var(--oker)}
 .drie figure{margin:0;border-radius:var(--r);padding:32px 30px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;background:#fff}
 .drie figure:nth-child(2){background:var(--inkt);color:var(--kalk)}
 .drie blockquote{margin:0;font-size:18px;line-height:1.5}
@@ -288,10 +312,17 @@ fieldset.veld{border:0;margin:0;padding:0}
   .hero-onder{gap:16px 24px;flex-wrap:wrap;height:auto;bottom:22px;font-size:12px}
   .kop{grid-template-columns:1fr;gap:18px}
   .kop p{justify-self:start}
-  .vier,.keuzes{grid-template-columns:1fr 1fr}
+  .sig-kop{grid-template-columns:1fr}
+  .sig-kop p{justify-self:start}
+  .sig-beeld{padding-right:0}
+  .sig-beeld .groot{aspect-ratio:4/3.4}
+  .sig-beeld .klein{position:relative;right:auto;bottom:auto;width:62%;margin:-70px 0 0 auto}
+  .sig-rij{padding-right:0}
+  .vorm-grid{grid-template-columns:1fr}
+  .spec{grid-template-columns:1fr 1fr}
+  .spec div:nth-child(2){border-right:0}
+  .spec div{border-bottom:1px solid rgba(241,236,227,.12)}
   .stoot .wrap,.offerte .wrap{grid-template-columns:1fr}
-  .muur{grid-template-columns:1fr 1fr;grid-auto-rows:44vw}
-  .w1{grid-column:span 2;grid-row:span 1}.w2,.w3,.w4,.w5{grid-column:span 1;grid-row:span 1}
   .toonzaal{grid-template-columns:1fr}
   .toonzaal .ph{min-height:0;aspect-ratio:16/10}
   .drie{grid-template-columns:1fr}
@@ -307,8 +338,11 @@ fieldset.veld{border:0;margin:0;padding:0}
   .hero .knop{padding:15px 22px}
   .hero-beeld{height:96vw}
   .hero-onder{position:absolute}
-  .vier{gap:22px 12px}
-  .vorm h3{font-size:24px}
+  .sig-rij{grid-template-columns:1fr 1fr}
+  .sig-rij figure:first-child{grid-column:1/-1}
+  .sig-rij figure{height:40vw}
+  .spec{grid-template-columns:1fr}
+  .spec div{border-right:0}
   .vijf{grid-template-columns:1fr 1fr}
   .velden{grid-template-columns:1fr}
   .voet .rij{grid-template-columns:1fr}
@@ -351,24 +385,47 @@ fieldset.veld{border:0;margin:0;padding:0}
   </div>
 </section>
 
+<section class="sig" id="realisaties">
+  <div class="wrap">
+    <div class="sig-kop">
+      <span class="label fd">Al bij klanten thuis</span>
+      <h2 class="split">Eén tafel. <em>Eén huis.</em></h2>
+      <p class="fd">Geen twee tafels zijn hetzelfde. Elke tafel hieronder is gemaakt voor één huis, met de maten en de kleur die daar paste.</p>
+    </div>
+    <div class="sig-beeld">
+      <figure class="groot clip"><img src="img/deerlijk.webp" alt="Lange Mortex tafel onder twee zwarte hanglampen in een lichte eetkamer" loading="lazy" data-par="0.05"></figure>
+      <figure class="klein fd"><img src="img/zeezicht.webp" alt="Ovale Mortex tafel met groene stoelen en zicht op zee" loading="lazy"><figcaption>Ovaal, met zicht op zee</figcaption></figure>
+    </div>
+    <div class="sig-rij">
+      <figure class="clip"><img src="img/kast-ovaal.webp" alt="Ovale Mortex tafel voor een houten wandkast" loading="lazy"></figure>
+      <figure class="clip"><img src="img/rond-eik.webp" alt="Ronde Mortex tafel met eiken stoelen" loading="lazy"></figure>
+      <figure class="clip"><img src="img/visgraat.webp" alt="Mortex tafel op een visgraatvloer met witte stoelen" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
 <section class="vormen" id="vormen">
   <div class="wrap">
-    <div class="kop">
-      <div><span class="label fd">Jij kiest</span><h2 class="split">Elke vorm. <em>Elke maat.</em></h2></div>
-      <p class="fd">Een smalle tafel aan het raam of een grote familietafel. Een Mortex tafel wordt volledig op maat gemaakt. Dit zijn een paar vormen die we al maakten.</p>
+    <div class="vorm-grid">
+      <div class="vorm-links">
+        <span class="label fd">Jij kiest</span>
+        <h2 class="split">Elke vorm. <em>Elke maat.</em></h2>
+        <p class="fd">Een smalle tafel aan het raam of een grote familietafel. Dit zijn een paar vormen die we al maakten. Tik er eentje aan.</p>
+        <ul class="vorm-lijst fd" role="tablist" aria-label="Vormen">
+          <li><button role="tab" aria-selected="true" data-img="img/lang-ovaal.webp" data-alt="Lange ovale Mortex tafel op een zuilpoot"><span>01</span>Ovaal</button></li>
+          <li><button role="tab" aria-selected="false" data-img="img/deens-ovaal.webp" data-alt="Deens ovale Mortex tafel met houten stoelen"><span>02</span>Deens ovaal</button></li>
+          <li><button role="tab" aria-selected="false" data-img="img/organisch.webp" data-alt="Organische Mortex tafel met houten stoelen"><span>03</span>Organisch</button></li>
+          <li><button role="tab" aria-selected="false" data-img="img/rond.webp" data-alt="Ronde Mortex tafel met witte stoelen"><span>04</span>Rond</button></li>
+        </ul>
+      </div>
+      <figure class="vorm-beeld clip"><img id="vorm-img" src="img/lang-ovaal.webp" alt="Lange ovale Mortex tafel op een zuilpoot" loading="lazy"></figure>
     </div>
-    <div class="vier">
-      <figure class="vorm fd"><div class="ph clip"><img src="img/lang-ovaal.webp" alt="Lange ovale Mortex tafel op een zuilpoot in een lichte ruimte" loading="lazy" style="object-position:50% 60%"></div><figcaption><h3>Ovaal</h3><span>01</span></figcaption></figure>
-      <figure class="vorm fd"><div class="ph clip"><img src="img/deens-ovaal.webp" alt="Deens ovale Mortex tafel met houten stoelen" loading="lazy"></div><figcaption><h3>Deens ovaal</h3><span>02</span></figcaption></figure>
-      <figure class="vorm fd"><div class="ph clip"><img src="img/organisch.webp" alt="Organische Mortex tafel met houten stoelen" loading="lazy" style="object-position:55% 50%"></div><figcaption><h3>Organisch</h3><span>03</span></figcaption></figure>
-      <figure class="vorm fd"><div class="ph clip"><img src="img/rond.webp" alt="Ronde Mortex tafel met witte stoelen" loading="lazy" style="object-position:50% 70%"></div><figcaption><h3>Rond</h3><span>04</span></figcaption></figure>
-    </div>
-    <div class="keuzes">
-      <div class="fd"><h3>Vorm</h3><p>Rond, ovaal, rechthoekig of een eigen vorm.</p></div>
-      <div class="fd"><h3>Maten</h3><p>Tot op de centimeter, voor jouw ruimte.</p></div>
-      <div class="fd"><h3>Kleur</h3><p>Van grijs en crème tot blauw of rood.</p><div class="stalen" aria-hidden="true"><i style="background:#B9B6AF"></i><i style="background:#EDE4D3"></i><i style="background:#3D5A7A"></i><i style="background:#9C3B2E"></i></div></div>
-      <div class="fd"><h3>Onderstel</h3><p>Het onderstel dat bij je tafel en je ruimte past.</p></div>
-    </div>
+    <dl class="spec fd">
+      <div><dt>Vorm</dt><dd>Rond, ovaal, rechthoekig of een eigen vorm</dd></div>
+      <div><dt>Maten</dt><dd>Tot op de centimeter, voor jouw ruimte</dd></div>
+      <div><dt>Kleur</dt><dd><span class="stalen" aria-hidden="true"><i style="background:#B9B6AF"></i><i style="background:#EDE4D3"></i><i style="background:#3D5A7A"></i><i style="background:#9C3B2E"></i></span>Van grijs en crème tot blauw of rood</dd></div>
+      <div><dt>Onderstel</dt><dd>Dat past bij je tafel en je ruimte</dd></div>
+    </dl>
   </div>
 </section>
 
@@ -388,22 +445,6 @@ fieldset.veld{border:0;margin:0;padding:0}
     <div class="duo">
       <figure class="clip"><img src="img/donker-ovaal.webp" alt="Witte ovale Mortex eettafel in een donkere ruimte" loading="lazy" style="object-position:40% 50%"><figcaption>De eettafel</figcaption></figure>
       <figure class="clip"><img src="img/ovaal-zetels.webp" alt="Ovale Mortex tafel met witte kuipstoelen bij een raam" loading="lazy" style="object-position:45% 50%"><figcaption>Voor elk interieur</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<section class="werk" id="realisaties">
-  <div class="wrap">
-    <div class="kop">
-      <div><span class="label fd">Realisaties</span><h2 class="split">Al bij klanten thuis.</h2></div>
-      <p class="fd">Elke tafel hieronder is gemaakt voor één huis, met de maten en de kleur die daar paste.</p>
-    </div>
-    <div class="muur">
-      <figure class="w1 clip"><img src="img/deerlijk.webp" alt="Mortex tafel onder twee zwarte hanglampen" loading="lazy"></figure>
-      <figure class="w2 clip"><img src="img/zeezicht.webp" alt="Ovale Mortex tafel met groene stoelen en zicht op zee" loading="lazy"></figure>
-      <figure class="w3 clip"><img src="img/kast-ovaal.webp" alt="Ovale Mortex tafel voor een houten wandkast" loading="lazy"></figure>
-      <figure class="w4 clip"><img src="img/visgraat.webp" alt="Mortex tafel op een visgraatvloer met witte stoelen" loading="lazy"></figure>
-      <figure class="w5 clip"><img src="img/rond-eik.webp" alt="Ronde Mortex tafel met eiken stoelen" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -524,6 +565,10 @@ fieldset.veld{border:0;margin:0;padding:0}
     document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length>1&&document.querySelector(id)){e.preventDefault();l.scrollTo(id)}})});
     var ps=document.querySelectorAll('[data-par]');
     l.on('scroll',function(){ps.forEach(function(p){var r=p.parentElement.getBoundingClientRect();var v=(r.top+r.height/2-innerHeight/2)*parseFloat(p.dataset.par);p.style.transform='translate3d(0,'+(-v)+'px,0)'})})}
+  var vi=document.getElementById('vorm-img');
+  document.querySelectorAll('.vorm-lijst button').forEach(function(b){b.addEventListener('click',function(){
+    document.querySelectorAll('.vorm-lijst button').forEach(function(x){x.setAttribute('aria-selected','false')});b.setAttribute('aria-selected','true');
+    var n=new Image();n.src=b.dataset.img;vi.style.opacity=0;n.onload=function(){vi.src=b.dataset.img;vi.alt=b.dataset.alt;vi.style.opacity=1}})});
   var f=document.getElementById('aanvraag'),via='wa';
   f.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){via=b.dataset.via})});
   f.addEventListener('submit',function(e){e.preventDefault();
