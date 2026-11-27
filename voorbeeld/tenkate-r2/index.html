@@ -82,45 +82,46 @@ section{position:relative}
 .kop h2{font-size:clamp(56px,7.4vw,118px);color:var(--steen)}
 .kop p{max-width:390px;font-size:17px;color:rgba(43,21,17,.74)}
 .kop .eyebrow{color:var(--steen);margin-bottom:22px}
-.grid{display:grid;grid-template-columns:1.15fr 1fr 1fr 1fr;grid-template-rows:auto auto;gap:18px}
-.kaart{position:relative;background:var(--roze2);border-radius:var(--r);padding:22px 22px 24px;display:flex;flex-direction:column;overflow:hidden;transition:transform .5s var(--ease)}
-.kaart:hover{transform:translateY(-4px)}
-.kaart .foto{position:relative;height:250px;margin-bottom:16px}
-.kaart .foto img{position:absolute;inset:0;height:100%;width:100%;object-fit:contain;filter:drop-shadow(0 18px 22px rgba(126,36,25,.18));transition:transform .6s var(--ease)}
-.kaart:hover .foto img{transform:scale(1.05) rotate(-1.5deg)}
-.kaart h3{font-size:32px;color:var(--steen2);line-height:.95}
-.kaart p{font-size:15px;color:rgba(43,21,17,.7);margin-top:6px}
-.kaart .voet{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:18px}
-.kaart .prijs{font-family:'Big Shoulders Display';font-weight:800;font-size:28px;color:var(--inkt)}
-.kaart .voet a{font-size:14px;font-weight:600;text-decoration:none;background:var(--kalk);padding:9px 16px;border-radius:999px;transition:background .3s,color .3s}
-.kaart .voet a:hover{background:var(--steen);color:var(--kalk)}
-.kaart.k2{background:var(--kalk2)}
-.keuze{grid-row:span 2;background:var(--steen);color:var(--kalk);padding:0;justify-content:flex-end}
-.keuze img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:52% 60%}
-.keuze::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(126,36,25,0) 30%,rgba(126,36,25,.92) 72%)}
-.keuze .in{position:relative;z-index:2;padding:30px}
-.keuze h3{color:var(--kalk);font-size:52px}
-.keuze p{color:rgba(251,237,226,.85);font-size:16px;margin-top:12px}
-.keuze .prijs{color:var(--roze);font-size:34px}
-.keuze .voet a{background:var(--roze);color:var(--inkt)}
+.menu{background:var(--klimop);color:var(--kalk);overflow:hidden}
+.menu .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,6vw,100px);align-items:center}
+.menu-beeld{margin:0;position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5}
+.menu-beeld img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.menu-beeld figcaption{position:absolute;left:18px;bottom:18px;font-size:13px;font-weight:600;background:var(--roze);color:var(--inkt);padding:8px 14px;border-radius:999px}
+.menu .eyebrow{color:var(--roze);margin-bottom:22px}
+.menu h2{font-size:clamp(64px,8vw,128px)}
+.menu h2 .r{color:var(--roze)}
+.menu .intro{font-size:17px;color:rgba(251,237,226,.78);margin-top:18px;max-width:440px}
+.kaart-lijst{list-style:none;margin:34px 0 0;padding:0;border-top:2px solid var(--roze)}
+.kaart-lijst li{border-bottom:1px solid rgba(251,237,226,.14)}
+.kaart-lijst a{display:flex;align-items:baseline;gap:16px;padding:15px 4px;text-decoration:none;transition:padding .4s var(--ease),background .3s}
+.kaart-lijst a::after{content:"";order:1;flex:1;border-bottom:2px dotted rgba(251,237,226,.25);transform:translateY(-6px)}
+.kaart-lijst .nm{font-family:'Big Shoulders Display';font-weight:800;font-size:30px;text-transform:uppercase;line-height:1}
+.kaart-lijst .nm small{display:block;font-family:'Instrument Sans';font-weight:400;font-size:14px;text-transform:none;color:rgba(251,237,226,.62);margin-top:5px}
+.kaart-lijst .pr{order:2;font-family:'Big Shoulders Display';font-weight:800;font-size:30px;color:var(--roze);white-space:nowrap}
+.kaart-lijst a:hover{padding-left:14px}
+.kaart-lijst a:hover .nm{color:var(--roze)}
+.kaart-lijst .uit a{background:var(--steen);border-radius:18px;padding:18px 20px;margin:12px 0}
+.kaart-lijst .uit a::after{border-color:rgba(251,237,226,.35)}
+.kaart-lijst .uit{border-bottom:0}
 
 /* winkel */
-.winkel{background:var(--klimop);color:var(--kalk);overflow:hidden}
+.winkel{background:var(--kalk);color:var(--inkt);overflow:hidden}
 .winkel .wrap:first-child{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,96px);align-items:center}
 .winkel .beeld{position:relative;aspect-ratio:4/5;border-radius:999px 999px var(--r) var(--r);overflow:hidden}
 .winkel .beeld img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
 .winkel h2{font-size:clamp(56px,7vw,112px)}
-.winkel h2 .r{color:var(--roze)}
-.winkel .eyebrow{color:var(--roze);margin-bottom:22px}
-.winkel .tekst p{font-size:18px;color:rgba(251,237,226,.82);max-width:470px;margin-top:22px}
-.adres{display:flex;gap:28px;flex-wrap:wrap;margin-top:34px;padding-top:26px;border-top:1px solid rgba(251,237,226,.16);font-size:15px}
-.adres b{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--roze);margin-bottom:4px}
+.winkel h2{color:var(--klimop)}
+.winkel h2 .r{color:var(--steen)}
+.winkel .eyebrow{color:var(--steen);margin-bottom:22px}
+.winkel .tekst p{font-size:18px;color:rgba(43,21,17,.76);max-width:470px;margin-top:22px}
+.adres{display:flex;gap:28px;flex-wrap:wrap;margin-top:34px;padding-top:26px;border-top:2px solid var(--klimop);font-size:15px}
+.adres b{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--steen);margin-bottom:4px}
 .planten{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:clamp(64px,8vw,110px)}
 .planten figure{margin:0;position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:3/4}
 .planten figure:nth-child(even){transform:translateY(40px)}
 .planten img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
 .planten figure:hover img{transform:scale(1.05)}
-.planten figcaption{position:absolute;left:14px;bottom:14px;font-size:13px;font-weight:600;background:var(--kalk);color:var(--klimop);padding:7px 13px;border-radius:999px}
+.planten figcaption{position:absolute;left:14px;bottom:14px;font-size:13px;font-weight:600;background:var(--klimop);color:var(--kalk);padding:7px 13px;border-radius:999px}
 
 /* abonnement */
 .abo{background:var(--roze);color:var(--inkt);padding:clamp(80px,9vw,124px) 0}
@@ -213,8 +214,6 @@ footer{background:var(--klimop);color:var(--kalk);padding:80px 0 34px;overflow:h
 /* responsive */
 @media (max-width:1100px){
   .nav ul{display:none}
-  .grid{grid-template-columns:1fr 1fr}
-  .keuze{grid-row:auto;grid-column:span 2;min-height:440px}
   .voet-top{grid-template-columns:1fr 1fr}
 }
 @media (max-width:900px){
@@ -226,7 +225,8 @@ footer{background:var(--klimop);color:var(--kalk);padding:80px 0 34px;overflow:h
   .hero-beeld .boog{inset:0 clamp(20px,4vw,56px) 0}
   .hero-beeld .bijschrift{right:calc(clamp(20px,4vw,56px) + 16px)}
   .kop{flex-direction:column;align-items:flex-start}
-  .winkel .wrap:first-child,.abo .wrap,.best .wrap{grid-template-columns:1fr}
+  .winkel .wrap:first-child,.abo .wrap,.best .wrap,.menu .wrap{grid-template-columns:1fr}
+  .menu-beeld{order:2;aspect-ratio:4/4.2}
   .winkel .beeld{order:2;max-width:520px;width:100%}
   .planten{grid-template-columns:1fr 1fr}
   .planten figure:nth-child(even){transform:translateY(28px)}
@@ -239,22 +239,15 @@ footer{background:var(--klimop);color:var(--kalk);padding:80px 0 34px;overflow:h
   .hero .lead{font-size:17px}
   .btn{height:52px;padding:0 22px}
   .hero h1{font-size:12.6vw}
-  .grid{grid-template-columns:1fr 1fr;gap:12px}
-  .keuze{grid-column:span 2;min-height:440px}
-  .kaart{padding:14px 14px 16px;border-radius:22px}
-  .kaart .foto{height:150px;margin-bottom:10px}
-  .kaart h3{font-size:23px}
-  .kaart p{font-size:13px}
-  .kaart .prijs{font-size:22px}
-  .kaart .voet{padding-top:12px}
-  .kaart .voet a{font-size:12px;padding:7px 11px}
-  .keuze h3{font-size:40px}
-  .keuze .in{padding:22px}
+
   .twee{grid-template-columns:1fr}
   .stappen li{grid-template-columns:56px 1fr;padding:18px 20px}
   .stappen .n{font-size:48px}
   .voet-top{grid-template-columns:1fr}
   .score b{font-size:72px}
+  .kaart-lijst .nm,.kaart-lijst .pr{font-size:24px}
+  .kaart-lijst a{gap:10px}
+  .kaart-lijst .nm small{font-size:13px}
 }
 </style>
 </head>
@@ -297,61 +290,29 @@ footer{background:var(--klimop);color:var(--kalk);padding:80px 0 34px;overflow:h
   </div>
 </section>
 
-<section class="sec" id="boeketten">
+<section class="sec menu" id="boeketten">
   <div class="wrap">
-    <div class="kop">
-      <div>
-        <p class="eyebrow">Uit de winkel</p>
-        <h2 class="split">Kies je boeket.</h2>
-      </div>
-      <p data-f>Dit zijn de prijzen van de webshop. In de winkel bindt Kaat ook een boeket op jouw budget.</p>
-    </div>
-    <div class="grid">
-      <article class="kaart keuze" data-r>
-        <img src="img/kaat-bloemen.webp" alt="Katelijne kiest bloemen voor een boeket" width="1300" height="1301" loading="lazy">
-        <div class="in">
-          <h3>Kaat's keuze</h3>
-          <p>Je zegt voor wie het is en wat je wil uitgeven. Katelijne kiest de mooiste bloemen van het moment, dus elk boeket is anders.</p>
-          <div class="voet"><span class="prijs">vanaf € 25</span><a href="#bestellen" data-kies="Boeket Kaat's keuze">Vraag het aan</a></div>
-        </div>
-      </article>
-      <article class="kaart" data-f>
-        <div class="foto"><img src="img/p-seizoen.webp" alt="Seizoensboeket van de maand" width="538" height="900" loading="lazy"></div>
-        <h3>Boeket van de maand</h3><p>Verse seizoensbloemen</p>
-        <div class="voet"><span class="prijs">€ 30</span><a href="#bestellen" data-kies="Seizoensboeket van de maand">Bestellen</a></div>
-      </article>
-      <article class="kaart k2" data-f>
-        <div class="foto"><img src="img/p-bertha.webp" alt="Boeket Bertha in tinten roze" width="888" height="900" loading="lazy"></div>
-        <h3>Boeket Bertha</h3><p>Alle tinten roze, met wat groen</p>
-        <div class="voet"><span class="prijs">€ 45</span><a href="#bestellen" data-kies="Boeket Bertha">Bestellen</a></div>
-      </article>
-      <article class="kaart" data-f>
-        <div class="foto"><img src="img/p-rozen.webp" alt="Gemengd rozenboeket in een bruine vaas" width="702" height="900" loading="lazy"></div>
-        <h3>Gemengd rozen</h3><p>Verse rozen in verschillende kleuren</p>
-        <div class="voet"><span class="prijs">€ 45</span><a href="#bestellen" data-kies="Gemengd rozenboeket">Bestellen</a></div>
-      </article>
-      <article class="kaart k2" data-f>
-        <div class="foto"><img src="img/p-monique.webp" alt="Boeket Monique met pioenrozen" width="837" height="900" loading="lazy"></div>
-        <h3>Boeket Monique</h3><p>Pioenrozen met bloemen en groen</p>
-        <div class="voet"><span class="prijs">€ 50</span><a href="#bestellen" data-kies="Boeket Monique">Bestellen</a></div>
-      </article>
-      <article class="kaart" data-f>
-        <div class="foto"><img src="img/p-orchidee.webp" alt="Witte orchidee in een keramische pot" width="636" height="900" loading="lazy"></div>
-        <h3>Witte orchidee</h3><p>Grootbloemig, in een keramische pot</p>
-        <div class="voet"><span class="prijs">€ 42</span><a href="#bestellen" data-kies="Witte orchidee in keramische pot">Bestellen</a></div>
-      </article>
-      <article class="kaart k2" data-f>
-        <div class="foto"><img src="img/p-wild.webp" alt="Boeket met wilde bloemen in een glazen vaas" width="1200" height="1600" loading="lazy" style="border-radius:18px;left:12%;width:76%;object-fit:cover"></div>
-        <h3>Wilde bloemen</h3><p>Kleurrijk, alsof je het zelf plukte</p>
-        <div class="voet"><span class="prijs">€ 30</span><a href="#bestellen" data-kies="Wild bloemenboeket">Bestellen</a></div>
-      </article>
+    <figure class="menu-beeld" data-r><img src="img/boeket-tafel23.webp" alt="Boeket met paarse klokjes, oranje speldenkussens en roze rozen op een houten tafel" width="1300" height="1578" loading="lazy"><figcaption>Vers uit de winkel</figcaption></figure>
+    <div class="menu-tekst">
+      <p class="eyebrow">Uit de winkel</p>
+      <h2 class="split">Kies je <span class="r">boeket.</span></h2>
+      <p class="intro" data-f>De prijzen van de webshop. In de winkel bindt Kaat ook een boeket op jouw budget.</p>
+      <ul class="kaart-lijst">
+        <li class="uit" data-f><a href="#bestellen" data-kies="Boeket Kaat's keuze"><span class="nm">Kaat's keuze<small>Zeg voor wie het is, Kaat kiest de mooiste bloemen van het moment</small></span><span class="pr">vanaf € 25</span></a></li>
+        <li data-f><a href="#bestellen" data-kies="Seizoensboeket van de maand"><span class="nm">Boeket van de maand<small>Verse seizoensbloemen</small></span><span class="pr">€ 30</span></a></li>
+        <li data-f><a href="#bestellen" data-kies="Wild bloemenboeket"><span class="nm">Wilde bloemen<small>Kleurrijk, alsof je het zelf plukte</small></span><span class="pr">€ 30</span></a></li>
+        <li data-f><a href="#bestellen" data-kies="Witte orchidee in keramische pot"><span class="nm">Witte orchidee<small>Grootbloemig, in een keramische pot</small></span><span class="pr">€ 42</span></a></li>
+        <li data-f><a href="#bestellen" data-kies="Boeket Bertha"><span class="nm">Boeket Bertha<small>Alle tinten roze, met wat groen</small></span><span class="pr">€ 45</span></a></li>
+        <li data-f><a href="#bestellen" data-kies="Gemengd rozenboeket"><span class="nm">Gemengd rozen<small>Verse rozen in verschillende kleuren</small></span><span class="pr">€ 45</span></a></li>
+        <li data-f><a href="#bestellen" data-kies="Boeket Monique"><span class="nm">Boeket Monique<small>Pioenrozen met bloemen en groen</small></span><span class="pr">€ 50</span></a></li>
+      </ul>
     </div>
   </div>
 </section>
 
 <section class="sec winkel" id="winkel">
   <div class="wrap">
-    <div class="beeld" data-r><img src="img/kaat-wide.webp" alt="Katelijne met een armvol bloemen" width="2000" height="1329" loading="lazy" style="object-position:58% 40%"></div>
+    <div class="beeld" data-r><img src="img/kaat-bloemen.webp" alt="Katelijne tussen de bloemen" width="1300" height="1301" loading="lazy" style="object-position:50% 40%"></div>
     <div class="tekst">
       <p class="eyebrow">Kemmelstraat 93</p>
       <h2 class="split">Kom gerust <span class="r">binnen.</span></h2>
