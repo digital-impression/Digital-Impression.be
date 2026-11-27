@@ -99,6 +99,27 @@ section{position:relative}
 .les-foot p{color:var(--mut)}
 .les-foot strong{color:var(--w);font:400 30px/1 var(--disp);margin-right:8px}
 
+
+.bento{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;grid-template-rows:repeat(2,clamp(260px,25vw,350px));gap:14px}
+.bento article{position:relative;border-radius:var(--rad);overflow:hidden;color:#fff;isolation:isolate;background:var(--k)}
+.bento img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s var(--ease)}
+.bento article:hover img{transform:scale(1.05)}
+.bento article::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(13,13,14,0) 40%,rgba(13,13,14,.82) 100%)}
+.bento .in{position:absolute;left:24px;right:24px;bottom:22px}
+.bento h3{font-size:clamp(38px,3.6vw,56px);margin:10px 0 6px}
+.bento p{font-size:15px;line-height:1.5;color:rgba(255,255,255,.86);max-width:26em}
+.bento .tag{display:inline-block;font:700 11.5px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;padding:8px 11px;border-radius:999px;background:var(--r);color:#fff}
+.bento .num{position:absolute;top:20px;right:22px;font:400 22px/1 var(--disp);color:rgba(255,255,255,.85)}
+.tl1{grid-row:span 2}
+.tl1 h3{font-size:clamp(56px,6vw,96px)}
+.tl2{grid-column:span 3}
+.tl5 h3{font-size:clamp(36px,3.2vw,48px)}
+.tl5 p{font-size:14.5px}
+.tl5{background:var(--r)!important;padding:24px;display:flex;flex-direction:column;justify-content:flex-end}
+.tl5::after{display:none}
+.tl5 .tag{background:var(--k)}
+.tl5 p{color:#fff}
+
 /* ride */
 .ride{background:var(--r);color:#fff;overflow:hidden}
 .ride .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,96px);align-items:center}
@@ -227,9 +248,9 @@ footer{padding:90px 0 34px;overflow:hidden}
  .hero h1{white-space:normal}
  .hero-ph{margin-top:36px}
  .hd{grid-template-columns:1fr}.hd p{justify-self:start}
- .item{grid-template-columns:50px 1fr 200px}
- .item p{grid-column:2/3}
- .item .th{grid-row:1/3;grid-column:3}
+ .bento{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:300px}
+ .tl1{grid-row:span 2}.tl2{grid-column:auto}
+
  .ride .grid,.pt .grid,.rev .grid,.join .grid{grid-template-columns:1fr}
  .ride .ph{aspect-ratio:16/11;max-height:560px}
  .pt .ph{max-width:560px;order:2}
@@ -249,10 +270,13 @@ footer{padding:90px 0 34px;overflow:hidden}
  .cta .btn{flex:1 1 100%;justify-content:space-between}
  .tl{margin:0 auto}
  .facts{gap:12px 24px}
- .item{grid-template-columns:1fr;gap:12px;padding:26px 0}
- .item .n{display:none}
- .item p{grid-column:auto}
- .item .th{grid-row:auto;grid-column:auto;order:-1;aspect-ratio:16/10}
+ .bento{grid-template-columns:1fr 1fr;grid-auto-rows:220px;gap:10px}
+ .tl1{grid-column:1/-1;grid-row:span 2}
+ .tl2{grid-column:1/-1}
+ .tl5{grid-column:1/-1;min-height:220px}
+ .bento .in{left:16px;right:16px;bottom:16px}
+ .tl3 h3,.tl4 h3{font-size:32px}
+ .tl3 .tag,.tl4 .tag{font-size:10px;padding:7px 9px}
  .sched{grid-template-columns:repeat(3,1fr)}
  .sched div:nth-child(3){border-right:0}
  .sched div:nth-child(-n+3){border-bottom:1px solid rgba(255,255,255,.16)}
@@ -309,12 +333,12 @@ footer{padding:90px 0 34px;overflow:hidden}
    <h2>Kies je <span class="acc">les.</span></h2>
    <p>Elke les heeft een eigen focus. Beginner of al jaren bezig: je bouwt op in je eigen tempo, met een coach die meekijkt.</p>
   </div>
-  <div class="list">
-   <article class="item rv"><span class="n">01</span><div><h3>Power Hour</h3></div><p>Circuittraining voor kracht en spiergroei. In één uur je hele lichaam.<span class="when">Max 8 · zes dagen per week</span></p><div class="th"><img src="img/powerhour.webp" alt="Sporter rust even uit tussen twee oefeningen" loading="lazy" width="1100" height="1650" style="object-position:50% 30%"></div></article>
-   <article class="item rv"><span class="n">02</span><div><h3>Core Crusher</h3></div><p>Volle focus op je core en je houding. Geen enkele week dezelfde oefeningen.<span class="when">Max 8 · dinsdag en donderdag</span></p><div class="th"><img src="img/corecrusher.webp" alt="Groep in plankhouding op de matten" loading="lazy" width="1100" height="1650" style="object-position:50% 60%"></div></article>
-   <article class="item rv"><span class="n">03</span><div><h3>Pilates</h3></div><p>Kracht, flexibiliteit en balans in een gecontroleerde les. Voor elk niveau.<span class="when">Woensdag 20u · zaterdag 10u</span></p><div class="th"><img src="img/pilates.webp" alt="Pilatesles met weerstandsbanden" loading="lazy" width="1100" height="1650" style="object-position:50% 45%"></div></article>
-   <article class="item rv"><span class="n">04</span><div><h3>Pace Power</h3></div><p>Kracht, mobiliteit en stabiliteit voor lopers. Zo loop je soepeler.<span class="when">Woensdag 20u</span></p><div class="th"><img src="img/pacepower.webp" alt="Loper op de grasmat in de studio" loading="lazy" width="1100" height="1650" style="object-position:50% 55%"></div></article>
-   <article class="item rv"><span class="n">05</span><div><h3>Momform</h3></div><p>Training voor en na je bevalling, met aandacht voor bekkenbodem, core en houding. Je baby mag mee.<span class="when">Max 6 mama's · woensdag 9u30 · vrijdag 12u</span></p><div class="th"><img src="img/begeleiding.webp" alt="Coach begeleidt een sporter bij een oefening op de mat" loading="lazy" width="1100" height="1650" style="object-position:50% 55%"></div></article>
+  <div class="bento">
+   <article class="tl1 clip"><img src="img/kracht.webp" alt="Sporter stapt op een box voor de Fitbaar-muur" loading="lazy" width="1100" height="1650" style="object-position:50% 40%"><div class="in"><span class="tag">Max 8 · zes dagen per week</span><h3>Power Hour</h3><p>Circuittraining voor kracht en spiergroei. In één uur je hele lichaam.</p></div><span class="num">01</span></article>
+   <article class="tl2 clip"><img src="img/corecrusher.webp" alt="Groep in plankhouding op de matten" loading="lazy" width="1100" height="1650" style="object-position:50% 62%"><div class="in"><span class="tag">Dinsdag en donderdag</span><h3>Core Crusher</h3><p>Core en houding. Geen enkele week dezelfde oefeningen.</p></div><span class="num">02</span></article>
+   <article class="tl3 clip"><img src="img/pilates.webp" alt="Pilatesles met weerstandsbanden" loading="lazy" width="1100" height="1650" style="object-position:50% 45%"><div class="in"><span class="tag">Wo 20u · za 10u</span><h3>Pilates</h3></div><span class="num">03</span></article>
+   <article class="tl4 clip"><img src="img/pacepower.webp" alt="Loper op de grasmat in de studio" loading="lazy" width="1100" height="1650" style="object-position:50% 60%"><div class="in"><span class="tag">Woensdag 20u</span><h3>Pace Power</h3></div><span class="num">04</span></article>
+   <article class="tl5"><span class="num">05</span><div><span class="tag">Max 6 mama's · wo 9u30 · vr 12u</span><h3>Momform</h3><p>Training voor en na je bevalling, met aandacht voor bekkenbodem, core en houding. Je baby mag mee.</p></div></article>
   </div>
   <div class="les-foot rv"><p><strong>Vanaf € 8</strong>per sessie. Je rooster plannen en boeken doe je in de Fitbaar-app.</p><a class="btn btn-r" href="#start">Plan je eerste les <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
  </div>
